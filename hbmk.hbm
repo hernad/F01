@@ -1,0 +1,7 @@
+{F18_DEBUG&allwin}-L.
+{F18_DEBUG&allwin}-ldebugiraj_dll
+
+{F18_DEBUG}-workdir=.h
+{!F18_DEBUG}-workdir=.r
+-n
+-inc
