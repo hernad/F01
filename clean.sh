@@ -26,3 +26,4 @@ rm fmk_hb/fmk_fmk_lib_pdf_pdf_demo.prg
 rm fmk_hb/fmk_fmk_lib_pdf_pdf.prg
 rm fmk_hb/fmk_fmk_lib_pdf_tst_cl.prg
 
+rm fmk_hb/fmk_fmk_lib_ostalo_1g_sregs.prg
