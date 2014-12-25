@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -37,7 +37,7 @@ private gFinKPath:=SPACE(50)
 private ImeKol
 private Kol
 
-cHeader += "Ugovori: " 
+cHeader += "Ugovori: "
 cHeader += "<F3> ispravka ugov id-a, "
 cHeader += "<F5> stavke ugovora, "
 cHeader += "<F6> lista za K1='G'"
@@ -160,37 +160,37 @@ do case
 			return DE_REFRESH
 		endif
 		return DE_CONT
-		
+
 	case UPPER(CHR(Ch)) == "R"
-		
+
 		// setuj datum do kojeg si fakturisao
 		if set_datl_fakt() == 1
 			return DE_REFRESH
 		else
 			return DE_CONT
 		endif
-		
+
 	case UPPER(CHR(Ch)) == "P"
-	
+
 		// pregled destinacija
 		if ugov->(FIELDPOS("def_dest")) <> 0
 			p_dest_2( nil, ugov->idpartner )
 		endif
 
 		return DE_CONT
-		
+
 	case ( Ch == K_CTRL_G )
-	   	
-		// automatsko generisanje novih ugovora 
+
+		// automatsko generisanje novih ugovora
 		// za sve partnere sa podacima
 		// prethodnog ugovora
 	   	gen_ug_part()
-	
+
 	case (Ch == K_F2)
 		// ispravka ugovora
 		edit_ugovor(.f.)
 		return 7
-	
+
 	case (Ch == K_F3)
 		if Pitanje(, "Promjena broja ugovora ?", "N") == "D"
 		        chg_ug_id(id)
@@ -199,15 +199,15 @@ do case
 
 
 	case (Ch == K_CTRL_N)
-		
+
 		// novi ugovor
 	   	edit_ugovor(.t.)
 	  	return 7
-	  
+
 	case ( Ch == K_F5 )
-    		
+
 		V_RUgov(ugov->id)
- 		return 6 
+ 		return 6
 		// DE_CONT2
 
 	case ( Ch == K_F6 )
@@ -230,26 +230,26 @@ local cProm := "N"
 private GetList := {}
 
 Box(, 5, 60)
-	
+
 	@ m_x + 1, m_y + 2 SAY "SETOVANJE DATUMA POSLJEDNJEG FAKTURISANJA:"
 	@ m_x + 3, m_y + 2 SAY "Postavi datum na:" GET dDatL
 	@ m_x + 5, m_y + 2 SAY "Izvrsiti promjenu (D/N)?" GET cProm VALID cProm $ "DN" PICT "@!"
-	
+
 	read
 BoxC()
 
 if LastKey() <> K_ESC .and. cProm == "D"
-	
-	select ugov 
+
+	select ugov
 	go top
-	
+
 	do while !EOF()
 		if ugov->f_nivo == "G"
 			replace dat_l_fakt with dDatL
 		endif
 		skip
 	enddo
-	
+
 	return 1
 endif
 
@@ -257,7 +257,7 @@ return 0
 
 
 // -----------------------------------------------------------
-// automatsko generisanje nove robe ugovora po uzoru na 
+// automatsko generisanje nove robe ugovora po uzoru na
 // postojecu
 // -----------------------------------------------------------
 function gen_ug_part()
@@ -268,13 +268,13 @@ local nTRec
 local nCount := 0
 
 if Pitanje(,'Autom.generisanje novih stavki ugovora (D/N)?','N')=='D'
-	
+
 	select rugov
      	cArtikal:=idroba
      	cArtikalOld:=idroba
-     	
+
 	cDN:="N"
-	
+
 	Box(,3,65)
       	@ m_x+1, m_y+5 SAY "    Novi predmet ugovora (artikal): " GET cArtikal
       	@ m_x+2, m_y+5 SAY "                Preuzmi podatke od: " GET cArtikalOld
@@ -295,28 +295,28 @@ if Pitanje(,'Autom.generisanje novih stavki ugovora (D/N)?','N')=='D'
 	seek cArtikalOld
 
      	do while !eof() .and. field->idroba == cArtikalOld
-       		
+
 		skip
 		nTrec := recno()
 		skip -1
-        	
+
 		if cDN == "D" .and. ugov->aktivan == "N"
 			go (nTRec)
 			loop
 		endif
-	
+
 		++ nCount
         	Scatter()
         	append blank
         	_idroba := cArtikal
         	Gather()
-        	
+
 		@ m_x+1, m_y+2 SAY "Obuhvaceno: " + STR(nCount)
-        	
+
 		go (nTrec)
-     	
+
 	enddo
-     	
+
 	set relation to
      	select ugov
 endif
@@ -326,7 +326,7 @@ return DE_CONT
 
 
 // ------------------------------------
-// brisanje ugovora 
+// brisanje ugovora
 // ------------------------------------
 function br_ugovor()
 local cId
@@ -370,9 +370,9 @@ if lNovi
 	GO BOTTOM
 	SKIP 1
 endif
- 	    
+
 Scatter()
-	   
+
 if lNovi
 
 	_datod:=DATE()
@@ -387,13 +387,13 @@ if lNovi
    	_vrsta:=DFTvrsta
    	_idtxt:=DFTidtxt
    	_iddodtxt:=DFTiddodtxt
-	
+
 	if ugov->(fieldpos("F_NIVO")) <> 0
 		_f_nivo := "M"
 		_f_p_d_nivo := 0
 		_dat_l_fakt := CToD("")
 	endif
-	
+
 endif
 
 Box(, 20,75,.f.)
@@ -407,12 +407,12 @@ Box(, 20,75,.f.)
 @ m_x + nX, m_y + 2 SAY PADL("Partner", nBoxLen) GET _idpartner VALID {|| x:=P_Firma(@_IdPartner), MSAY2(m_x+2,m_y+35, Ocitaj(F_PARTN,_IdPartner,"NazPartn()")) , x } PICT "@!"
 
 if is_dest()
-	
+
 	++ nX
-	
+
 	@ m_x + nX, m_y + 2 SAY PADL("Def.dest", nBoxLen) GET _def_dest ;
           PICT "@!" VALID {|| EMPTY(_def_dest) .or. p_dest_2( @_def_dest, _idpartner ) }
-	
+
 endif
 
 ++ nX
@@ -445,22 +445,22 @@ endif
 
 
 if ugov->(fieldpos("F_NIVO")) <> 0
-	
+
 	++ nX
-	
+
 	@ m_x + nX, m_y + 2 SAY PADL("Nivo fakt.", nBoxLen) GET _f_nivo PICT "@!" VALID _f_nivo $ "MPG"
 
 	++ nX
-	
+
 	@ m_x + nX, m_y + 2 SAY PADL("Pr.nivo dana", nBoxLen) GET _f_p_d_nivo PICT "99999" WHEN _f_nivo == "P"
 
 	++ nX
 
-	// mjesec 
+	// mjesec
 	@ m_x + nX, m_y + 2 SAY PADL("Fakturisano do", nBoxLen) GET _fakt_do_mj ;
 		WHEN  { ||  _fakt_do_mj := month(dat_l_fakt), .t. } ;
 	        PICT "99"
-		
+
 	// godina
 	@ m_x + nX, m_y + 2 + 28  SAY "/" GET _fakt_do_go ;
 		WHEN { ||  _fakt_do_go := year(dat_l_fakt), .t. } ;
@@ -478,14 +478,14 @@ endif
 @ m_x + nX, m_y + 2 SAY PADL("Dod.txt 1", nBoxLen) GET _idtxt VALID P_FTxt(@_IdTxt) PICT "@!"
 
 if ugov->(fieldpos("IDDODTXT"))<>0
-	
+
 	++ nX
 
 	@ m_x + nX, m_y + 2 SAY PADL("Dod.txt 2", nBoxLen) GET _iddodtxt VALID P_FTxt(@_IdDodTxt) PICT "@!"
 endif
 
 if ugov->(fieldpos("TXT2"))<>0
-	
+
 	++ nX
 
 	@ m_x + nX, m_y + 2 SAY PADL("Dod.txt 3", nBoxLen) GET _txt2 VALID P_FTxt(@_Txt2) PICT "@!"
@@ -493,7 +493,7 @@ if ugov->(fieldpos("TXT2"))<>0
 	++ nX
 
 	@ m_x + nX, m_y + 2 SAY PADL("Dod.txt 4", nBoxLen) GET _txt3 VALID P_FTxt(@_Txt3) PICT "@!"
-	
+
 	++ nX
 
 	@ m_x + nX, m_y + 2 SAY PADL("Dod.txt 5", nBoxLen) GET _txt4 VALID P_FTxt(@_Txt4) PICT "@!"
@@ -521,7 +521,7 @@ endif
 select (nTArea)
 go (nRec)
 
-if lNovi 
+if lNovi
 	append blank
 endif
 
@@ -548,7 +548,7 @@ BoxC()
 if Lastkey() == K_ESC
 	return DE_CONT
 endif
-    
+
 nRecno:=RECNO()
 SEEK cId
 if found() .and. (cId<>cIdOld)
@@ -558,11 +558,11 @@ if found() .and. (cId<>cIdOld)
 else
   GO nRecno
 endif
-  
-     	
+
+
 select rugov
 seek cIdOld
-     	
+
 do while !eof() .and. ( cIdOld == id )
        		skip
 		nTrec:=recno()
@@ -582,7 +582,7 @@ function P_Ugov2(cIdPartner)
 *               iz sifrarnika partnera
 
 private Imekol
-private Kol 
+private Kol
 private lIzSifPArtn
 
 private cFilter := ""
@@ -632,38 +632,38 @@ endif
 for i:=1 to len(ImeKol); AADD(Kol,i); next
 
 Box(,20,72)
- @ m_x+19,m_y+1 SAY "<PgDn> sljedeci, <PgUp> prethodni ³<c-N> nova stavka          "
- @ m_x+20,m_y+1 SAY "<TAB>  podaci o ugovoru           ³<c-L> novi ugovor          "
+ @ m_x+19,m_y+1 SAY "<PgDn> sljedeci, <PgUp> prethodni ï¿½<c-N> nova stavka          "
+ @ m_x+20,m_y+1 SAY "<TAB>  podaci o ugovoru           ï¿½<c-L> novi ugovor          "
 
  private  bGoreRed:=NIL
  private  bDoleRed:=NIL
  private  bDodajRed:=NIL
- 
+
  // trenutno smo u novom redu ?
- private  fTBNoviRed:=.f. 
+ private  fTBNoviRed:=.f.
  // da li se moze zavrsiti unos podataka ?
- 
- private  TBCanClose:=.t. 
- 
+
+ private  TBCanClose:=.t.
+
  // mogu dodavati slogove
- private  TBAppend:="N"  
- 
+ private  TBAppend:="N"
+
  private  bZaglavlje:=NIL
- 
+
  // zaglavlje se edituje kada je kursor u prvoj koloni
  // prvog reda
  private  TBSkipBlock:={|nSkip| SkipDB(nSkip, @nTBLine)}
  // tekuca linija-kod viselinijskog browsa
- private  nTBLine:=1    
+ private  nTBLine:=1
  // broj linija kod viselinijskog browsa
  private  nTBLastLine:=1
  // ako je ">2" pomjeri se lijevo dva
  // ovo se moze setovati u when/valid fjama
- private  TBPomjerise:="" 
-                        
- 
+ private  TBPomjerise:=""
+
+
  // uzmi samo tekuce polje
- private  TBScatter:="N"  
+ private  TBScatter:="N"
  private lTrebaOsvUg:=.t.
 
  adImeKol:={}; for i:=1 TO LEN(ImeKol); AADD(adImeKol,ImeKol[i]); next
@@ -768,7 +768,7 @@ do case
       endif
 
 
-    else  
+    else
      // vrti se iz liste ugovora
      SELECT UGOV
      SKIP -1
@@ -780,7 +780,7 @@ do case
     endif
     cIdUg:=ID
     SELECT (nArr)
-    
+
     private cFilt:="ID=="+cm2str(cIdUg)
     SET FILTER TO
     SET FILTER TO &cFilt
@@ -797,14 +797,14 @@ do case
     GO BOTTOM; SKIP 1
     Scatter()
     _id := cIdUg
-    
+
     Box(,8,77)
      @ m_x+2, m_y+2 SAY "SIFRA ARTIKLA:" GET _idroba ;
         VALID (glDistrib .and. RIGHT(TRIM(_idroba),1)==";") .or. P_Roba(@_idroba) ;
 	PICT "@!"
      @ m_x+3, m_y+2 SAY "Kolicina      " GET _Kolicina  ;
         pict "99999999.999"
-	
+
      if IzFMkIni('Fakt_Ugovori',"Rabat_Porez",'N')=="D"
        @ m_x+4, m_y+2 SAY "Rabat         " GET _Rabat ;
              pict "99.999"
@@ -897,13 +897,13 @@ if lNew
     widdodtxt := DFTiddodtxt
 
     SKIP -1
-    
+
     if EMPTY(id)
     	wid := PADL("1", LEN(id), "0")
     else
     	wid := PADR(NovaSifra(TRIM(id)), LEN(ID))
     endif
-    
+
 else
 
     Scatter("w")
@@ -1025,7 +1025,7 @@ aKol:={ { "R.br."         , {|| STR(nRbr,4)+"."   }, .f., "C", 5, 0, 1,++i },;
                                                       .t., 'N',15, 2, 1,++i } }
 
 START PRINT CRET
- 
+
 SELECT ROBA
 GO TOP
 
@@ -1165,7 +1165,7 @@ go top
 if !eof()
 select rugov
 seek ugov->id
-if !found() 
+if !found()
   if Pitanje(,"Sve stavke ugovora su izbrisane, izbrisati ugovor u potputnosti ? ","D")=="D"
      select ugov
      delete
@@ -1222,4 +1222,3 @@ cPom2 += cPom
 cPom2 += "01"
 
 return STOD(cPom2)
-

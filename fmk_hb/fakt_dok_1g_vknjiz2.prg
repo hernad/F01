@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -215,7 +215,7 @@ return .t.
 /*!  IniVars()
  *   Ini varijable
  */
- 
+
 function IniVars()
 
 set cursor on
@@ -251,7 +251,7 @@ EndIF
 /*!  SetVars()
  *   Setuj varijable
  */
- 
+
 function SetVars()
 
 if _podbr==" ." .or.  roba->tip="U" .or. (val(_Rbr)<=1 .and. val(_podbr)<1)
@@ -276,9 +276,9 @@ return
 
 
 /*!  Tb_V_RBr()
- *  
+ *
  */
- 
+
 function Tb_V_RBr()
 
 replace Rbr with str(nRbr,3)
@@ -287,9 +287,9 @@ return .t.
 
 
 /*!  Tb_W_IdRoba()
- *  
+ *
  */
- 
+
 function Tb_W_IdRoba()
 
 _idroba:=padr(_idroba,15)
@@ -299,9 +299,9 @@ return W_Roba()
 
 
 /*!  Tb_V_IdRoba()
- *  
+ *
  */
- 
+
 function tb_V_IdRoba()
 
 _idroba:=iif(len(trim(_idroba))<10,left(_idroba,10),_idroba)
@@ -317,9 +317,9 @@ return tb_V_Cijena()
 
 
 /*!  Tb_V_Kolicina()
- *  
+ *
  */
- 
+
 function Tb_V_Kolicina()
 
 NSRNPIdRoba()
@@ -335,9 +335,9 @@ return V_Kolicina()
 
 
 /*!  Tb_W_Cijena()
- *  
+ *
  */
- 
+
 function tb_W_Cijena()
 
 return KLevel<="1"
@@ -345,9 +345,9 @@ return KLevel<="1"
 
 
 /*!  Tb_V_Cijena()
- *  
+ *
  */
- 
+
 function Tb_V_Cijena()
 
 if _DINDEM==left(ValSekund(),3)   // preracunaj u KM
@@ -358,9 +358,9 @@ return .t.
 
 
 /*!  Tb_W_TRabat()
- *  
+ *
  */
- 
+
 function Tb_W_TRabat()
 
 return !(_idtipdok $ "12#13#11#15#27") .and. _podbr<>" ."
@@ -369,9 +369,9 @@ return !(_idtipdok $ "12#13#11#15#27") .and. _podbr<>" ."
 
 
 /*!  Tb_V_Rabat()
- *  
+ *
  */
- 
+
 function Tb_V_Rabat()
 
 return .t.
@@ -381,9 +381,9 @@ return .t.
 
 
 /*!  Tb_V_TRabat()
- *  
+ *
  */
- 
+
 function Tb_V_TRabat()
 
 V_Rabat()
@@ -394,9 +394,9 @@ return .t.
 
 
 /*!  Tb_W_Porez()
- *  
+ *
  */
- 
+
 function Tb_W_Porez()
 
 local nRet
@@ -421,9 +421,9 @@ return nRet
 
 
 /*!  Tb_V_Porez()
- *  
+ *
  */
- 
+
 function Tb_V_Porez()
 
 NSRNPIdRoba()
@@ -437,9 +437,9 @@ return V_Porez()
 
 
 /*!  ValidRed()
- *  
+ *
  */
- 
+
 function ValidRed()
 
 TBCanClose:=.t.
@@ -466,9 +466,9 @@ return TBCanClose
 
 
 /*!  PrGoreRed()
- *  
+ *
  */
- 
+
 function PrGoreRed()
 
 if !ValidRed()
@@ -480,9 +480,9 @@ endif
 
 
 /*!  PrDoleRed()
- *  
+ *
  */
- 
+
 function PrDoleRed()
 
 local nLen:=len(Picdem)
@@ -538,9 +538,9 @@ return .t.  // uspjesno otiso u novi red
 
 
 /*!  PrDodajRed()
- *  
+ *
  */
- 
+
 function PrDodajRed()
 
 
@@ -571,9 +571,9 @@ return
 
 
 /*!  TbRobaNaz()
- *  
+ *
  */
- 
+
 function TbRobaNaz()
 
 NSRNPIdRoba()
@@ -583,11 +583,11 @@ return left(Roba->naz,25)
 
 
 /*!  ObracunajPP(cSetPor,dDatDok)
- *   Obracunaj porez na promet 
+ *   Obracunaj porez na promet
  *   cSetPor
  *   dDatDok
  */
- 
+
 function ObracunajPP(cSetPor,dDatDok)
 
 
@@ -639,7 +639,7 @@ RETURN
 /*!  UCKalk()
  *   Uzmi cijenu iz Kalk-a
  */
- 
+
 function UCKalk()
 
 LOCAL nArr:=SELECT(), aUlazi:={}, GetList:={}, cIdPartner:=_idpartner
@@ -705,10 +705,10 @@ RETURN
 
 
 /*!  ChSveStavke(fNovi)
- *  
+ *
  *   fNovi
  */
- 
+
 function ChSveStavke(fNovi)
 
 LOCAL nRec:=recno()
@@ -761,7 +761,7 @@ RETURN
  *   aPorezi
  *  \note preradjena funkcija jer Fakt nema cIdKonto
  */
- 
+
 function TarifaR(cRegion, cIdRoba, aPorezi)
 
 local cTarifa
@@ -802,12 +802,8 @@ PopWa()
 return tarifa->id
 
 
+/*
 
-/*!  SetAPorezi(aPorezi)
- *   
- *   aPorezi
- */
- 
 function SetAPorezi(aPorezi)
 
 if (aPorezi==nil)
@@ -830,21 +826,17 @@ else
 endif
 return nil
 
+*/
 
 
-/*!  MpcSaPor(nMpcBP,aPorezi,aPoreziIzn)
- *   Maloprodajna cijena sa porezom
- *   nMpcBP
- *   aPorezi
- *   aPoreziIzn
- */
- 
+/*
+
 function MpcSaPor(nMpcBP,aPorezi,aPoreziIzn)
 
 local nPom
 
 if gUVarPP=="R"
- nPom:= nMpcBp * ( 1 + (aPorezi[POR_PPP]/100 +aPorezi[POR_PP]/100 ) ) 
+ nPom:= nMpcBp * ( 1 + (aPorezi[POR_PPP]/100 +aPorezi[POR_PP]/100 ) )
 elseif gUVarPP=="D"
  nPom:=nMpcBp * ( (1+ aPorezi[POR_PP]/100 + aPorezi[POR_PPU]/100 ) * ;
        (1+ aPorezi[POR_PPP]/100) )
@@ -858,18 +850,11 @@ endif
 return nPom
 
 
-
-/*!  MpcBezPor(nMpcSaPP,aPorezi)
- *   Maloprodajna cijena bez poreza
- *   nMpcSaPP
- *   aPorezi
- */
- 
 function MpcBezPor(nMpcSaPP,aPorezi)
 
 local nPom
 
-if gUVarPP=="R" 
+if gUVarPP=="R"
    nPom:= nMpcSaPP / ( 1 + (aPorezi[POR_PPP]/100 + aPorezi[POR_PP]/100 ) )
 
 elseif gUVarPP=="D"
@@ -886,61 +871,35 @@ return nPom
 
 
 
-/*!  Izn_P_PPP(nMpcBP,aPorezi,aPoreziIzn)
- *  
- *   nMpcBP
- *   aPorezi
- *   aPoreziIzn
- */
- 
 function Izn_P_PPP(nMpcBP,aPorezi,aPoreziIzn)
 
 local nPom
-nPom:= nMpcBp*(aPorezi[POR_PPP]/100) 
+nPom:= nMpcBp*(aPorezi[POR_PPP]/100)
 
 return nPom
 
 
-
-
-/*!  Izn_P_PPU(nMpcBP,aPorezi,aPoreziIzn)
- *  
- *   nMpcBP
- *   aPorezi
- *   aPoreziIzn
- */
- 
 function Izn_P_PPU(nMpcBP, aPorezi, aPoreziIzn)
 
 local nPom
-nPom:= nMpcBp*(aPorezi[POR_PPP]/100+1)*(aPorezi[POR_PPU]/100) 
+nPom:= nMpcBp*(aPorezi[POR_PPP]/100+1)*(aPorezi[POR_PPU]/100)
 return nPom
 
 
 
-
-/*!  Izn_P_PP(nMpcBP, aPorezi, aPoreziIzn)
- *  
- *   nMpcBP
- *   aPorezi
- *   aPoreziIzn
- */
 function Izn_P_PP(nMpcBP, aPorezi, aPoreziIzn)
 
 local nPom
 
 if gUVarPP=="R"
- nPom:= nMpcBp * aPorezi[POR_PP]/100  
+ nPom:= nMpcBp * aPorezi[POR_PP]/100
 elseif gUVarPP=="D"
  nPom:= nMpcBp * (1+ aPorezi[POR_PPP]/100 ) * aPorezi[POR_PP]/100
 else
  // obicno robno poslovanje
- nPom:= nMpcBp * aPorezi[POR_PP]/100  
+ nPom:= nMpcBp * aPorezi[POR_PP]/100
 endif
 
 return nPom
 
-
-
-
-
+*/

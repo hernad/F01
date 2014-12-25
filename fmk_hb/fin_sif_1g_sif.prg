@@ -860,36 +860,6 @@ RETURN lVrati
 
 
 
-/*!  P_Roba(cId,dx,dy)
- *   Otvara sifranik robe
- *   cId
- *   dx
- *   dy
- */
-
-function P_Roba(CId,dx,dy)
-
-local cPrikazi
-
-//PRIVATE ImeKol,Kol:={}, xRet
-
-
-//ImeKol:={ }
-//AADD (ImeKol,{ padc("ID",10),  {|| id },     "id"   , {|| .t.}, {|| vpsifra(wId)} })
-//AADD (ImeKol,{ padc("Naziv",40), {|| naz},     "naz"      })
-//AADD (ImeKol,{ padc("JMJ",3), {|| jmj},       "jmj"    })
-
-//FOR i:=1 TO LEN(ImeKol); AADD(Kol,i); NEXT
-
-//Private gTBDir:="N"
-
-//xRet:= PostojiSifra(F_ROBA,1,15,77,"Lista artikala - robe",@cId,dx,dy)
-
-// u isrpravci sifre ispadao kod ugovora, izbacio nije ni potrebno ..?
-
-return .t.
-
-
 
 /*
 
@@ -939,16 +909,6 @@ RETURN vrati
 
 */
 
-
-/*!  Labelu()
- *   Napomena da se u modulu fakt vrsi labeliranje
- *  \param
- */
-
-function Labelu()
-
-Msgo("U modulu FAKT vrsi se labeliranje...")
-return
 
 
 
@@ -1016,14 +976,7 @@ LOCAL GetList:={}
 RETURN
 
 
-
-/*!  SifkFill(cSifk,cSifv,cSifrarnik,cIdSif)
- *   Puni pomocne tabele radi prenosa
- *   cSifk
- *   cSifv
- *   cSifrarnik
- *   cIdSif
- */
+/*
 
 function SifkFill(cSifk,cSifv,cSifrarnik,cIDSif)
 
@@ -1066,14 +1019,6 @@ PopWa()
 return
 
 
-/*!  SifkOsv(cSifk,cSifv,cSifrarnik,cIdSif)
- *   Osvjezava sifk i sifv iz pomocnih tabela
- *   cSifk
- *   cSifv
- *   cSifrarnik
- *   cIdSif
- */
-
 function SifkOsv(cSifk,cSifv,cSifrarnik,cIdSif)
 
 PushWa()
@@ -1113,7 +1058,7 @@ select _SIFV; use
 PopWa()
 return
 
-
+*/
 
 /*!  DaUSifv(cBaza,cIdKar,cId,cVrKar)
  *

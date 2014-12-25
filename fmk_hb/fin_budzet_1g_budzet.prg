@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,10 +14,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/fin/budzet/1g/budzet.prg,v $
- * $Author: sasavranic $ 
+ * $Author: sasavranic $
  * $Revision: 1.6 $
  * $Log: budzet.prg,v $
  * Revision 1.6  2004/01/13 19:07:54  sasavranic
@@ -37,7 +37,7 @@
  *
  *
  */
- 
+
 
 /*! \file fmk/fin/budzet/1g/budzet.prg
  *   Budzet
@@ -954,7 +954,7 @@ return
 /*!  IB_Zagl1()
  *   Zaglavlje izvrsenje budzeta 1
  */
- 
+
 function IB_Zagl1()
 
 IF fPrvaStr
@@ -980,7 +980,7 @@ RETURN
 /*!  IB_Zagl2()
  *   Zaglavlje izvjestaja izvrsenje budzeta 2
  */
- 
+
 function IB_Zagl2()
 
 IF fPrvaStr
@@ -1000,7 +1000,7 @@ RETURN
 /*!  IB_Zagl3()
  *   Zaglavlje izvjestaja izvrsenje budzeta varijanta 3
  */
- 
+
 function IB_Zagl3()
 
 IF fPrvaStr
@@ -1022,7 +1022,7 @@ RETURN
 /*!  IB_Zagl4()
  *   Zaglavlje izvjestaja izvrsenje budzeta varijanta 4
  */
- 
+
 function IB_Zagl4()
 
 IF fPrvaStr
@@ -1046,7 +1046,7 @@ RETURN
 /*!  Prihodi()
  *   Prihodi
  */
- 
+
 function Prihodi()
 
 local fKraj
@@ -1098,7 +1098,7 @@ do while .t.
 	@ m_x+7,m_y+2 SAY "               Zakljucno sa" GET dDatDo VALID dDatOd <= dDatDo
 	@ m_x+12,m_y+2 SAY "Procenat u odnosu god. plan" GET nProc PICT "999.99"
 	@ m_x+18,m_y+2 SAY "          Obuhvaceni period" GET cPeriod PICT "@!"
-	
+
 	@ m_x+22,m_Y+2 SAY "Provjeriti stavke koje nisu definisane u budzetu" GET cProv pict "@!" valid cprov $"DN"
 	READ
 	ESC_BCR
@@ -1239,7 +1239,7 @@ do while !eof()
 		PR_Zagl()
 	EndIF
 
-  
+
 	cLev1:=idkonto
 	fLev1:=.t.
 	select konto
@@ -1286,7 +1286,7 @@ do while !eof()
 				FF
 				Pr_Zagl()
 			EndIF
-  
+
 			// Izracunaj plan za tekucu godinu
 
 			nPlan := 0
@@ -1441,9 +1441,9 @@ return
 
 
 /*!  PR_Zagl()
- *   Zaglavlje prihoda 
+ *   Zaglavlje prihoda
  */
- 
+
 function PR_Zagl()
 
 IF fPrvaStr
@@ -1468,7 +1468,7 @@ RETURN
  *  \todo Treba prebaciti u /sclib
  *   nBrRed  - broj redova
  */
- 
+
 function Razmak(nBrRed)
 
 private i
@@ -1486,7 +1486,7 @@ return
  *   Sortiraj izuzetke u budzetu
  *   cKonto
  */
- 
+
 function BuIz(cKonto)
 
 // primjer BUIZ: ID=6138931 , NAZ=6138910030
@@ -1505,6 +1505,3 @@ endif
 
 select (nSelect)
 return PADR(cKonto,10)
-
-
-

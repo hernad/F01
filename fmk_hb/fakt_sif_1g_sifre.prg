@@ -1350,10 +1350,7 @@ return
 
 
 
-/*!  StIdRoba()
- *   Prikaz roba
- */
-
+/*
 function StIdRoba()
 
 *static string
@@ -1369,11 +1366,9 @@ else
   return IDROBA
 endif
 
+*/
 
-/*!  OsvjeziIdJ()
- *   Osvjezavanje fakta javnim siframa
- */
-
+/*
 function OsvjeziIdJ()
 
 if Pitanje(,"Osvjeziti FAKT javnim siframa ....","N")=="D"
@@ -1414,14 +1409,9 @@ endif
 
 return
 
+*/
 
-
-/*!  SifkFill(cSifk,cSifv,cSifrarnik,cIdSif)
- *   Puni pomocne tabele sifk i sifv radi prenosa
- *   cSifk       - ime sifk tabele
- *   cSifv       - ime sifv tabele
- *   cSifrarnik  - sifrarnik (nrp. roba)
- */
+/*
 
 function SifkFill(cSifk,cSifv,cSifrarnik,cIDSif)
 
@@ -1462,16 +1452,6 @@ select _sifk ;use
 PopWa()
 return
 
-
-
-/*!  SifkOsv(cSifk,cSifv,cSifrarnik,cIdSif,cRepFajl)
- *   Osvjezava sifk i sifv iz pomocnih tabela obicno _sifk i _sifv
- *   cSifk
- *   cSifv
- *   csifrarnik
- *   cIdSif
- *   cRepFajl
- */
 
 function SifkOsv(cSifk,cSifv,cSifrarnik,cIdSif,cRepFajl)
 
@@ -1534,8 +1514,9 @@ PopWa()
 return
 
 
+*/
 
-/*!  SMark(cNazPolja)
+/*  SMark(cNazPolja)
  *   Vraca samo markiranu robu
  *   cNazPolja - ime polja koje sadrzi internu sifru artikla koji se trazi */
 

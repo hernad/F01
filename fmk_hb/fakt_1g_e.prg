@@ -14,11 +14,11 @@
 
 //EXTERNAL RIGHT,LEFT,FIELDPOS
 
-#ifdef LIB
-function Main(cKorisn, cSifra, p3,p4,p5,p6,p7)
+
+function fakt_Main(cKorisn, cSifra, p3,p4,p5,p6,p7)
 	MainFakt(cKorisn, cSifra, p3,p4,p5,p6,p7)
 return
-#endif
+
 
 
 

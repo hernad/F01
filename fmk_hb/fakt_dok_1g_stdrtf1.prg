@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,10 +14,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/fakt/dok/1g/stdrtf1.prg,v $
- * $Author: mirsad $ 
+ * $Author: mirsad $
  * $Revision: 1.9 $
  * $Log: stdrtf1.prg,v $
  * Revision 1.9  2003/03/26 14:54:52  mirsad
@@ -49,7 +49,7 @@
  *
  *
  */
- 
+
 /*! \file fmk/fakt/dok/1g/stdrtf1.prg
  *   Stampa faktura u RTF formatu varijanta 1
  */
@@ -75,7 +75,7 @@
   * \var *string FmkIni_KumPath_FAKT_RegBrPorBr
   *  Da li se ispisuju registarski i poreski broj na fakturi
   *  D - da, default vrijednost
-  *  N - ne 
+  *  N - ne
   */
 *string FmkIni_KumPath_FAKT_RegBrPorBr;
 
@@ -100,12 +100,12 @@ private nStr, nUk:=0, nZaokr
 #define CO1 8
 #define CO2 16
 #define CO3 45
-#define CO4 23  
+#define CO4 23
 // co3+co4  == sirina naziva
 #define CO5 20
 
 // JMJ
-#define CO6 10       
+#define CO6 10
 #define CO7 14
 #define CO8 10.5
 #define CO9 10.5
@@ -448,7 +448,7 @@ BoxC()
 /*!  Zagl1()
  *   Stampa zaglavlja
  */
- 
+
 function Zagl1()
 
 WWRowDef({ {CO1,{"l","s",0.1},{"r","s",0.1},{"b","s",0.4},{"t","s",0.4} } , ;
@@ -470,7 +470,7 @@ return
  *   Prelazak na novu stranu
  *   fPrvaStrana
  */
- 
+
 function NStr(fPrvaStr)
 
 WWRowDef({ {CO1+CO2+CO3+CO4+CO5+CO6+CO7+CO8+CO9+COA,{"l","s",0.1},{"t","s",0.4},{"r","s",0.1},{"b","s",0.1} } ;
@@ -503,7 +503,7 @@ return
 /*!  RegIPorBr()
  *   Registarski i poreski broj
  */
- 
+
 function RegIPorBr()
 
 LOCAL cDodatak:="", cRegBr, cPorBr
@@ -518,7 +518,3 @@ LOCAL cDodatak:="", cRegBr, cPorBr
     ENDIF
   ENDIF
 return cDodatak
-
-
-
-

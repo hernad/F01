@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,10 +14,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/roba/adm_db.prg,v $
- * $Author: ernad $ 
+ * $Author: ernad $
  * $Revision: 1.3 $
  * $Log: adm_db.prg,v $
  * Revision 1.3  2003/01/19 23:44:18  ernad
@@ -28,7 +28,7 @@
  *
  *
  */
- 
+
 function PP_Sast()
 
   PRIVATE cAkoNema:="N"
@@ -110,11 +110,11 @@ function PP_Sast()
 RETURN
 
 
-function FFor2()
-  
-  
+static function FFor2()
+
+
 * NA ROBA.DBF SMO
-cIdSif:=ROBA->id                   
+cIdSif:=ROBA->id
 cRezultat:=""
 
 SELECT ROBA2
@@ -163,8 +163,8 @@ do case
 		ENDDO
 
 		* sast 2 je "duza" od sast 1
-		IF EMPTY(cRezultat) .and. SAST2->id == cIdSif  
-			cRezultat:="RAZLIKUJE SE"                   
+		IF EMPTY(cRezultat) .and. SAST2->id == cIdSif
+			cRezultat:="RAZLIKUJE SE"
 		ENDIF
 
 
@@ -179,5 +179,3 @@ RETURN !EMPTY(cRezultat)
 function FmkRobaVer()
 
 return DBUILD
-
-

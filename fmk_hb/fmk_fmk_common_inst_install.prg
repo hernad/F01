@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -13,9 +13,9 @@
 // INSTALL MODUL
 
 /*!  Main()
- *   Osnovna f-ja za instalaciju programa 
+ *   Osnovna f-ja za instalaciju programa
  */
-function Main()
+function install_Main()
 
 local i,j,ii
 local cNprog[17],cMProg[17],cTProg[17]
@@ -220,16 +220,16 @@ endif
 for i:=1 to nPrograma
 
 	cPom := ALLTRIM(STR(i))
-  
+
   	cTmp1 := " - Instalise se: "
 	cTmp2 := cTprog[i]
-	
+
 	@ i + 3, 1 SAY cTmp1
 	@ i + 3, col() SAY cTmp2 COLOR "GR+/N"
 	@ i + 3, col() SAY REPLICATE(".", 65 - (LEN(cTmp1) + LEN(cTmp2))) GET cProg&cPom valid cProg&cPom $ "DN" pict "@!"
-  	
+
 	read
-	
+
 	if LastKey() == ASC(CHR(27))
 		clear screen
 		@ 10, 20 SAY "....... INSTALACIJA PREKINUTA ......."
@@ -245,9 +245,9 @@ cDN:="D"
 do while .t.
 
 	@ 7,1 SAY "Za koliko se firmi program instalise"  GET nFirmi pict "99" valid nfirmi < 61 .and. nFirmi>0
-	
+
 	read
-	
+
 	for i:=1 to nFirmi
  		cPom:=alltrim(str(i))
  		IF EMPTY(cnf&cPom)
@@ -257,22 +257,22 @@ do while .t.
  		@ 8,col()+2 GET cnf&cPom
  		read
 	next
-	
+
 	?
-	
+
 	@ 10,1 SAY "Sifre firmi su respektivno :"
-	
+
 	? " "
-	
+
 	for i:=1 to nFirmi
    		cPom:=alltrim(str(i))
    		?? cSF&cPom+" "
 	next
-	
+
 	@ 14,1 SAY "Ispravno (D/N) ?" GET cDN valid cDN $ "DN" pict "@!"
-	
+
 	read
-	
+
 	if cDN=="D"
 		exit
 	endif
@@ -300,21 +300,21 @@ DO WHILE .T.
 	else
  		cBDir2:=padr(cBDir2,20)
 	endif
-	
+
 	cBDir9:=padr("",20)
 
 	cExeDir:=space(20)
-	
+
 	@ 1,1 SAY "Bazni direktorij SERVERA:" get cBDir2
 	@ 2,1 SAY "Bazni direktorij RS:     " get cBDir1
 	@ 3,1 SAY "Sek.  direktorij SERVERA:" get cBDir9
-	
+
 	if cFullpath=="D"
 		@ 4,1 SAY "Direktorij EXE fajlova  :" get cExeDir pict "@!" when {|| cExeDir:=cBDir2,.t.}
 	endif
-	
+
 	@ 5,1 SAY "Svaka firma posebno sifrarnici:" get cPosSif pict "@!" valid cPosSif $"DN"
-	
+
 	read
 
 
@@ -1300,7 +1300,7 @@ PUBLIC h[20]
 PUBLIC lInstal:=.t.
 
 //  .t. - korisnik je SYSTEM
-PUBLIC System   
+PUBLIC System
 PUBLIC aRel:={}
 
 PUBLIC cDirRad
@@ -1311,7 +1311,7 @@ PUBLIC gNaslov
 public gSezonDir:=""
 public gRadnoPodr:="RADP"
 
-public ImeKorisn:="" 
+public ImeKorisn:=""
 public SifraKorisn:=""
 public KLevel:="9"
 
@@ -1324,7 +1324,7 @@ public gKodnaS:="8"
 public gWord97:="N"
 public g50f:=" "
 
-//if !goModul:lStarted 
+//if !goModul:lStarted
 	public cDirPriv:=""
 	public cDirRad:=""
 	public cDirSif:=""
@@ -1362,5 +1362,3 @@ return
 function PreUseEvent(cImeDbf,fShared)
 
 return cImeDbf
-
-

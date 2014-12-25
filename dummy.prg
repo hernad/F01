@@ -1,3 +1,13 @@
+function initfw()
+
+  //to nesto rtf koristili
+  RETURN
+
+function wwsjecistr()
+
+  //to nesto koristeno za rtf
+  RETURN
+  
 function dbselectarr( xArea )
  return dbselectArea( xArea )
 
@@ -67,4 +77,3 @@ function  SETPXLAT()
 
 
 function hb_symbol_unused()
-
