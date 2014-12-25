@@ -168,7 +168,7 @@ method open()
 private ImeKol
 private Kol
 
-O_Edit()
+fakt_o_edit()
 SELECT pripr
 SET ORDER TO TAG "1"
 
@@ -245,7 +245,7 @@ do case
 	case ::nCh==K_ALT_A
 		CLOSE ALL
 		::azur()
-		O_Edit()
+		fakt_o_edit()
 		return DE_REFRESH
 
    	case ::nCh==K_CTRL_F9
@@ -512,7 +512,7 @@ BoxC()
 if Pitanje(,"Generisati dokument inventure za RJ "+cIdRj,"N")=="D"
 	CLOSE ALL
 	GDokInv(cIdRj)
-	O_Edit()
+	fakt_o_edit()
 endif
 
 return

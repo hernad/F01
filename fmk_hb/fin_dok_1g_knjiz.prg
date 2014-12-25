@@ -108,7 +108,7 @@ return
  */
 
 function KnjNal()
-O_Edit()
+fin_o_edit()
 ImeKol:={ ;
           {"F.",            {|| IdFirma }, "IdFirma" } ,;
           {"VN",            {|| IdVN    }, "IdVN" } ,;
@@ -145,7 +145,7 @@ Box(,20,77)
 @ m_x+19,m_y+2 SAY "<c-A>  Ispravka Naloga� <c-P> Stampa Naloga    � <a-A> Azuriranje           "
 @ m_x+20,m_y+2 SAY "<c-F9> Brisi pripremu � <F5>  KZB, <a-F5> PrDat� <a-B> Blagajna,<F10> Ostalo"
 
-ObjDbedit("PNal", 20, 77, {|| EdPRIPR()},"","Priprema...", , , , ,3)
+ObjDbedit("PNal", 20, 77, {|| fin_edpripr()},"","Priprema...", , , , ,3)
 BoxC()
 closeret
 return
@@ -185,11 +185,11 @@ return .t.
 
 
 
-/*!  O_Edit()
+/*!  fin_o_edit()
  *   Otvara unos nove stavke u pripremi
  */
 
-function O_Edit()
+function fin_o_edit()
 
 IF IzFMKIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
 	O_VRSTEP
@@ -238,12 +238,12 @@ return
 
 
 
-/*!  EditPripr()
+/*!  fin_edit_pripr()
  *   Ispravka stavke u pripremi
  *  \param fNovi .t. - Nova stavka, .f. - Ispravka postojece
  */
 
-function EditPripr()
+function fin_edit_pripr()
 
 parameters fNovi
 
@@ -545,11 +545,11 @@ AEVAL(GetList,{|o| o:display()})
 // c-T  -  Brisanje stavke,  F5 - kontrola zbira za jedan nalog
 // F6 -  Suma naloga, ENTER-edit stavke, c-A - ispravka naloga
 
-/*!  EdPRIPR()
+/*!  fin_edpripr()
  *   Ostale operacije u ispravki stavke
  */
 
-function EdPRIPR()
+function fin_edpripr()
 
 local nTr2
 local lLogUnos := .f.
@@ -646,7 +646,7 @@ case Ch==K_ALT_F5
     Box("ist",20,75,.f.)
     Scatter()
     nRbr:=VAL(_Rbr)
-    if EditPRIPR(.f.)==0
+    if fin_edit_pripr(.f.)==0
      BoxC()
      return DE_CONT
     else
@@ -670,7 +670,7 @@ case Ch==K_ALT_F5
            Scatter()
            nRbr:=VAL(_Rbr)
            @ m_x+1,m_y+1 CLEAR to m_x+19,m_y+74
-           if EditPRIPR(.f.)==0
+           if fin_edit_pripr(.f.)==0
            	exit
            else
              	BrisiPBaze()
@@ -721,7 +721,7 @@ case Ch==K_ALT_F5
 
            nRbr:=VAL(_Rbr)+1
            @ m_x+1,m_y+1 CLEAR to m_x+19,m_y+76
-           if EditPRIPR(.t.)==0
+           if fin_edit_pripr(.t.)==0
              exit
            else
              BrisiPBaze()
@@ -782,7 +782,7 @@ case Ch==K_ALT_F5
    case Ch==K_CTRL_P
      close all
      StNal()
-     O_Edit()
+     fin_o_edit()
      return DE_REFRESH
 
 
@@ -798,19 +798,19 @@ case Ch==K_ALT_F5
      // pa azuriraj
      close all
      fin_Azur(.t.)
-     O_Edit()
+     fin_o_edit()
      return DE_REFRESH
 
 
    case Ch==K_ALT_A
      fin_Azur()
-     O_Edit()
+     fin_o_edit()
      return DE_REFRESH
 
    case Ch==K_ALT_B
      close all
      Blagajna()
-     O_Edit()
+     fin_o_edit()
      return DE_REFRESH
 
    case Ch==K_ALT_I
@@ -1575,7 +1575,7 @@ private opc[4]
      endcase
   enddo
   m_x:=am_x; m_y:=am_y
-  O_Edit()
+  fin_o_edit()
 RETURN
 
 

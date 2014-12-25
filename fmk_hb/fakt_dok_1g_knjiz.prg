@@ -34,7 +34,7 @@ if IsRabati()
 	private lSkonto := .f.
 endif
 
-O_Edit()
+fakt_o_edit()
 
 select pripr
 
@@ -278,7 +278,7 @@ do case
 
 			close all
 
-			o_edit()
+			fakt_o_edit()
 
 			select pripr
 
@@ -291,7 +291,7 @@ do case
 
 			close all
 
-			o_edit()
+			fakt_o_edit()
 
 			select pripr
 
@@ -313,7 +313,7 @@ do case
     		Box("ist", 22, 75, .f.)
    		Scatter()
     		nRbr:=RbrUnum(_Rbr)
-    		if EditPripr(.f.)==0
+    		if fakt_edit_pripr(.f.)==0
      			BoxC()
      			return DE_CONT
     		else
@@ -339,7 +339,7 @@ do case
 	case Ch==K_ALT_L
         	close all
          	label_bkod()
-         	O_edit()
+         	fakt_o_edit()
 	case Ch==K_ALT_P
 
 		if !CijeneOK("Stampanje")
@@ -362,7 +362,7 @@ do case
 
 		close all
 
-		O_Edit()
+		fakt_o_edit()
 
 		return DE_REFRESH
 
@@ -384,7 +384,7 @@ do case
 
 		lDirty:=.t.
 
-		O_Edit()
+		fakt_o_edit()
 
 		if gFc_use == "D" .and. cFTipDok $ "10#11"
 			if aFakt_dok <> nil .and. LEN( aFakt_dok ) > 0
@@ -488,7 +488,7 @@ do case
 
 	case Ch=K_ALT_I
        		RekZadMpO()
-       		O_Edit()
+       		fakt_o_edit()
        		return DE_REFRESH
 
 	case Ch==K_ALT_N
@@ -502,7 +502,7 @@ do case
 		nRec:=RECNO()
        		GO TOP
 		nar_print(.t.)
-		O_Edit()
+		fakt_o_edit()
 		SELECT PRIPR
        		GO (nRec)
        		return DE_CONT
@@ -517,7 +517,7 @@ do case
 		nRec:=RECNO()
        		GO TOP
 		rnal_print(.t.)
-		O_Edit()
+		fakt_o_edit()
 		SELECT PRIPR
        		GO (nRec)
        		return DE_CONT
@@ -527,7 +527,7 @@ do case
 		nRec:=RECNO()
        		GO TOP
        		StUgRabKup()
-       		O_Edit()
+       		fakt_o_edit()
        		SELECT PRIPR
        		GO (nRec)
        		return DE_CONT
@@ -539,7 +539,7 @@ do case
 			// export fakture u dbf
 			exp_dok2dbf()
 
-			o_edit()
+			fakt_o_edit()
 			select pripr
 			go top
 
@@ -626,7 +626,7 @@ do while !eof()
    	Scatter()
    	nRbr:=RbrUnum(_Rbr)
    	BoxCLS()
-   	if EditPripr(.f.)==0
+   	if fakt_edit_pripr(.f.)==0
      		exit
    	endif
    	nDug+=round( _Cijena*_kolicina*PrerCij()*(1-_Rabat/100)*(1+_Porez/100) , ZAOKRUZENJE)
@@ -677,7 +677,7 @@ do while .t.
    	_c1:=_c2:=_c3:=SPACE(20)
    	_opis:=space(120)
    	_n1:=_n2:=0
-   	if EditPripr(.t.) == 0
+   	if fakt_edit_pripr(.t.) == 0
      		exit
    	endif
    	nDug += Round(_Cijena*_Kolicina*PrerCij()*(1-_Rabat/100)*(1+_Porez/100) , ZAOKRUZENJE)
@@ -699,7 +699,7 @@ function PrintDok()
 
 SpojiDuple()  // odradi ovo prije stampanja !
 SrediRbr()
-O_Edit() // sredirbr zatvori pripremu !!
+fakt_o_edit() // sredirbr zatvori pripremu !!
 if gTBDir=="D"
 	if eof()
      		skip -1
@@ -749,7 +749,7 @@ do while lJos
 	gPtxtC50 := .f.
   	StampTXT(nil,cPom,nil)
 
-  	O_Edit()
+  	fakt_o_edit()
 
 enddo
 if lSSIP99
@@ -1039,7 +1039,7 @@ return
 // --------------------------------------------------------
 // hendliranje unosa novih stavki u pripremi
 // --------------------------------------------------------
-function EditPripr(fNovi)
+function fakt_edit_pripr(fNovi)
 local nXpom
 local nYpom
 local nRec
@@ -3266,7 +3266,7 @@ do while .t.
 enddo
 m_x:=am_x
 m_y:=am_y
-O_Edit()
+fakt_o_edit()
 select pripr
 go bottom
 
@@ -3279,7 +3279,7 @@ function ImportTxt()
 CLOSE ALL
 cKom :="fmk.exe --batch --exe:ImportTxt --db:"+STRTRAN(TRIM(gNFirma), " ", "_")
 RUN &cKom
-O_Edit()
+fakt_o_edit()
 return
 
 

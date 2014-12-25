@@ -94,9 +94,9 @@ endif
 fclose(nH)
 
 if cIdFirma<>NIL
- O_Edit(.t.)
+ fakt_o_edit(.t.)
 else
- O_Edit()
+ fakt_o_edit()
 endif
 
 cTI:="1"  // tip izvjestaja  1,2

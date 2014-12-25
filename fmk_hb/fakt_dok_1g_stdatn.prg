@@ -675,7 +675,7 @@ _cIdTipDok:=idtipdok
 _cBrDok:=brdok
 
 close all
-O_Edit()
+fakt_o_edit()
 StampTXT(_cidfirma, _cIdTipdok, _cbrdok, .t.)
 // printaj narudzbu
 nar_print(.t.)
@@ -705,7 +705,7 @@ _cIdFirma:=idfirma
 _cIdTipDok:=idtipdok
 _cBrDok:=brdok
 close all
-O_Edit()
+fakt_o_edit()
 StampTXT(_cidfirma, _cIdTipdok, _cbrdok, .t.)
 // printaj radni nalog
 rnal_print(.t.)
@@ -734,7 +734,7 @@ _cIdFirma:=idfirma
 _cIdTipDok:=idtipdok
 _cBrDok:=brdok
 close all
-O_Edit()
+fakt_o_edit()
 StampTXT(_cidfirma, _cIdTipdok, _cbrdok)
 select (F_DOKS); use
 O_DOKS
@@ -761,7 +761,7 @@ _cIdFirma:=idfirma
 _cIdTipDok:=idtipdok
 _cBrDok:=brdok
 close all
-O_Edit()
+fakt_o_edit()
 StDokOdt( _cidfirma, _cIdTipdok, _cbrdok )
 select (F_DOKS)
 use

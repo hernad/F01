@@ -80,9 +80,9 @@ endif
 
 
 if pcount()==3
- O_Edit(.t.)
+ fakt_o_edit(.t.)
 else
- O_Edit()
+ fakt_o_edit()
 endif
 
 // fPBarkod - .t. stampati barkod, .f. ne stampati

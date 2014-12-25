@@ -97,9 +97,9 @@ endif
 fclose(nH)
 
 if cIdFirma<>NIL
- O_Edit(.t.)
+ fakt_o_edit(.t.)
 else
- O_Edit()
+ fakt_o_edit()
 endif
 
 

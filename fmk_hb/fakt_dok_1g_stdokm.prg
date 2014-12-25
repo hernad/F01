@@ -39,9 +39,9 @@ parameters cIdFirma,cIdTipDok,cBrDok
 PRIVATE aZagl:={}, aZagl2:={}, aKol:={}, aPodn:={}, yKor:=0
 
 if pcount()==3
- O_Edit(.t.)
+ fakt_o_edit(.t.)
 else
- O_Edit()
+ fakt_o_edit()
 endif
 
 select PRIPR

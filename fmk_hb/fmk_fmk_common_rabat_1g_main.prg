@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -30,7 +30,7 @@ return nRet
 
 
 /*!  GetDays(cIdRab, cTipRab)
- *   Vrati vrijednost broja dana za rabat - poziva GetDaysForRabat() 
+ *   Vrati vrijednost broja dana za rabat - poziva GetDaysForRabat()
  */
 function GetDays(cIdRab, cTipRab)
 
@@ -79,14 +79,14 @@ if (RecCount2() <> 0)
  	next
 
    	Box(,20,75)
-	
+
 	@ 1+m_x, 2+m_y SAY "Sredjivanje rabata na dokumentima...      "
 	@ 2+m_x, 2+m_y SAY "Opcije:" COLOR "I"
 	@ 2+m_x, 10+m_y SAY "<SPACE> - obracunavaj kasu skonto"
 	@ 3+m_x, 10+m_y SAY "<R> - postavi tip rabata za dokument"
-	
-	
-	private cFilt := "idfirma=" + Cm2Str(gFirma) + ".and. idtipdok=" + Cm2Str("10") + ".and. rbr = '  1'" 
+
+
+	private cFilt := "idfirma=" + Cm2Str(gFirma) + ".and. idtipdok=" + Cm2Str("10") + ".and. rbr = '  1'"
     	set filter to &cFilt
 	go top
     	do while !eof() .and. IdFirma = gFirma .and. IdTipdok $ gcRabDok
@@ -112,9 +112,9 @@ endif
 if (nObradjeno > 0)
 	MsgBeep("Obradjeno " + ALLTRIM(STR(nObradjeno)) + " racuna...")
 endif
-    
+
 close all
-O_Edit()
+fakt_O_Edit()
 
 select pripr
 return .t.
@@ -137,7 +137,7 @@ do case
 	case chr(Ch) $ "rR" // postavi TipRabata
 		private cTipRab:=SPACE(10)
 		GetTRabat(@cTipRab)
-		replace tiprabat with cTipRab 
+		replace tiprabat with cTipRab
 		nRet:=DE_REFRESH
 endcase
 return nRet
@@ -161,10 +161,10 @@ do while !EOF() .and. idfirma = gFirma .and. idtipdok $ gcRabDok
 	replace tiprabat with PADR(cTipRab, 10)
 	replace rabat with RabVrijednost(gcRabDef, tiprabat, idroba, gcRabIDef)
 	replace skonto with SKVrijednost(gcRabDef, tiprabat, idroba)
-	
-	if (rbr == "  1") 
+
+	if (rbr == "  1")
 		nDays := GetDays(gcRabDef, tiprabat)
-		
+
 		cTxt:= Chr(16) + " " + Chr(17) + Chr(16)
 		cTxt += " " + Chr(17) + Chr(16)
 		cTxt += " " + Chr(17) + Chr(16)
@@ -173,11 +173,11 @@ do while !EOF() .and. idfirma = gFirma .and. idtipdok $ gcRabDok
 		cTxt += " " + Chr(17) + Chr(16)
 		cTxt += " " + Chr(17) + Chr(16)
 		cTxt += " " + Chr(17) + Chr(16)
-		cTxt += DToC(datdok + nDays) + Chr(17) 
-		
+		cTxt += DToC(datdok + nDays) + Chr(17)
+
 		replace txt with cTxt
 	endif
-	
+
 	skip
 enddo
 
@@ -201,6 +201,3 @@ if (LEN(aMemo) < 9)
 endif
 
 return
-
-
-

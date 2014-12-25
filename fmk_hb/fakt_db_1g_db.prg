@@ -13,7 +13,7 @@
 #include "fakt01.ch"
 
 
-function O_Edit(cVar2)
+function fakt_o_edit(cVar2)
 if glRadNal
 	O_RNAL
 endif
@@ -757,7 +757,7 @@ if (!lSilent .and. Pitanje( ,"Sigurno zelite izvrsiti azuriranje (D/N)?","N")=="
 	return
 endif
 
-O_Edit()
+fakt_o_edit()
 
 // otvori exclusivno
 select pripr

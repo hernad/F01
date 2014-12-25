@@ -304,9 +304,9 @@ private cTi,nUk,nRab,nUk2:=nRab2:=0
 private nStrana:=0,nCTxtR:=10
 
 if pcount()==3
-	O_Edit(.t.)
+	fakt_o_edit(.t.)
 else
-	O_Edit()
+	fakt_o_edit()
 endif
 
 
@@ -1419,7 +1419,7 @@ else
     		IF glDistrib .and. !EMPTY(cidpm)
       			? space(6),gPB_ON+padc(alltrim(cidpm),30)+gPB_OFF
     		ENDIF
-    		? space(5),gPB_ON+"������������������������������������"+gPB_OFF
+    		? space(5),gPB_ON+"����������������������������������������"+gPB_OFF
   	ENDIF
 endif
 

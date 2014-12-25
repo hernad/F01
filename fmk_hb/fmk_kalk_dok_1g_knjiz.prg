@@ -163,7 +163,7 @@ Box(,20,77)
 
 	PRIVATE lAutoAsist:=.f.
 
-	ObjDbedit("PNal",20,77,{|| EdPRIPR(lAutoObr)},"<F5>-kartica magacin, <F6>-kartica prodavnica","Priprema...", , , , ,4)
+	ObjDbedit("PNal",20,77,{|| kalk_edpripr(lAutoObr)},"<F5>-kartica magacin, <F6>-kartica prodavnica","Priprema...", , , , ,4)
 BoxC()
 
 CLOSERET
@@ -201,11 +201,11 @@ return
 
 
 
-/*!  EdPRIPR(lAObrada)
+/*!  kalk_edpripr(lAObrada)
  *   Obrada dostupnih opcija u tabeli pripreme
  */
 
-function EdPRIPR()
+function kalk_edpripr()
 
 local nTr2,cSekv,nkekk
 local isekv
@@ -397,7 +397,7 @@ endif
 nRbr:=RbrUNum(_Rbr);_ERROR:=""
 
 Box("ist",20,77,.f.)
-if EditPRIPR(.f.)==0
+if kalk_edit_pripr(.f.)==0
 	BoxC()
      	return DE_CONT
 else
@@ -496,7 +496,7 @@ function NovaStavka()
            _NC:=_VPC:=_VPCSaP:=_MPC:=_MPCSaPP:=0
            nRbr:=RbrUNum(_Rbr)+1
 
-           if EditPRIPR(.t.)==0
+           if kalk_edit_pripr(.t.)==0
              exit
            endif
            append blank
@@ -583,7 +583,7 @@ Box("anal",20,77,.f.,"Ispravka naloga")
             		next
             		keyboard cSekv
           	ENDIF
-          	if EditPRIPR(.f.)==0
+          	if kalk_edit_pripr(.f.)==0
             		exit
           	endif
           	select PRIPR
@@ -899,12 +899,12 @@ return
 
 
 
-/*!  EditPripr(fNovi)
+/*!  kalk_edit_pripr(fNovi)
  *   Centralna funkcija za unos/ispravku stavke dokumenta
  */
 
 //ulaz _IdFirma, _IdRoba, ...., nRBr (val(_RBr))
-function EditPripr(fNovi)
+function kalk_edit_pripr(fNovi)
 
 private nMarza:=0,nMarza2:=0,nR
 private PicDEM:="9999999.99999999",PicKol:=gPicKol

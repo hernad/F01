@@ -601,7 +601,7 @@ endif
 endif
 
 close all
-O_Edit()
+fakt_o_edit()
 
 select pripr
 return .t.

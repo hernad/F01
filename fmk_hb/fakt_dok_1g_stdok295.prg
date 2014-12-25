@@ -177,9 +177,9 @@ private nStrana:=0,nCTxtR:=10
 private M:="  ----- ---------- ----------------------------------------  ----------- --- ----------- ------ ----------- ---- -----------"
 
 if pcount()==3
-	O_Edit(.t.)
+	fakt_o_edit(.t.)
 else
-	O_Edit()
+	fakt_o_edit()
 endif
 
 cTI:="1"  // tip izvjestaja  1,2
