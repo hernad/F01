@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,25 +14,25 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
 
 /*! \file fmk/fakt/razoff/1g/modem.prg
  *   Prenos podataka modemom
  */
- 
+
 
 /*!  PrModem(fSif)
- *  
+ *
  */
- 
+
 function PrModem(fSif)
 
 local nRec
 
 if gModemVeza $ "SK" .and. Pitanje(,"Izvrsiti prenos za modem ?","D")=="D"
- 
+
 if fSif==NIL;  fSif:=.f.; endif
 
 if fSif; O_PRIPR; endif
@@ -160,9 +160,9 @@ return nil
 
 
 /*!  PovModem()
- *  
+ *
  */
- 
+
 function PovModem()
 
 local nRec, cPath
@@ -182,7 +182,7 @@ aFiles:=DIRECTORY(cPath+iif(gModemVeza=="S","K","S")+"F*.dbf")
 
 ASORT(aFiles,,,{|x,y| x[3]>y[3] })      // datum
 BrisiSFajlove(cPath)
-BrisiSFajlove(strtran(cPath,":\",":\CHK\"))
+BrisiSFajlove(strtran(cPath,":" + SLASH,":" + SLASH + "CHK" + SLASH))
 
 //  KT0512.DBF = elem[1]
 AEVAL(aFiles,  {|elem| AADD(opcF,PADR(elem[1],15)+iif(UChkPostoji(trim(cPath)+trim(elem[1])),"R","X")+" "+dtos(elem[3]))},1,20)   // samo 20 najnovijih
@@ -266,10 +266,9 @@ enddo
 
 if gModemVeza $ "KS" .and. fprenesi
   select _fakt; use
-  dirmak2(strtran(KUMPATH+"PRENOS\",":\",":\chk\"))
+  dirmak2(strtran(KUMPATH+"PRENOS" + SLASH,":" + SLASH,":" + SLASH + "chk" + SLASH ))
   filecopy(cPrenosDBF,strtran(trim(cPrenosDbf),":\",":\chk\"))
-  // odradjeno-postavi kopiraj u chk direktorij
-  // npr c:\fakt\prenos\2\x.dbf  -> npr c:\CHK\fakt\prenos\2\x.dbf
+
 endif
 
 closeret
@@ -281,7 +280,7 @@ closeret
  *   U chk direktoriju postoji fajl
  *   cFullFileName  - puni naziv fajla (path+ime)
  */
- 
+
 function UChkPostoji(cFullFileName)
 
 if File(strtran(cFullFileName,":\",":\chk\"))
@@ -296,8 +295,8 @@ endif
  *   Brise sve fajlove iz zadatog direktorija starije od 45 dana
  *   cDir  - direktorij
  */
- 
-function BrisiSFajlove(cDir)
+
+static function BrisiSFajlove(cDir)
 
 local cFile
 
@@ -310,5 +309,3 @@ do while !empty(cFile)
     cfile:=fileseek()
 enddo
 return NIL
-
-

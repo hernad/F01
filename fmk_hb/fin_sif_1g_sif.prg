@@ -334,43 +334,6 @@ return .t.
 
 
 
-/*!  P_VN(cId,dx,dy)
- *   Otvara sifranik vrta naloga
- *   cId
- *   dx
- *   dy
- */
-
-function P_VN(cId,dx,dy)
-
-PRIVATE ImeKol,Kol
-ImeKol:={ { "ID  ",  {|| id },     "id"   , {|| .t.}, {|| vpsifra(wid)}    },;
-          { "Naziv", {|| naz},     "naz"      };
-        }
-Kol:={1,2}
-private gTBDir:="N"
-return PostojiSifra(F_TNAL,1,10,60,"Lista: Vrste naloga",@cId,dx,dy)
-
-
-
-/*!  P_TipDok(cId,dx,dy)
- *   Otvara sifrarnik tipova dokumenata
- *   cId
- *   dx
- *   dy
- */
-
-function P_TipDok(cId,dx,dy)
-
-PRIVATE ImeKol,Kol
-ImeKol:={ { "ID  ",  {|| id },     "id"   , {|| .t.}, {|| vpsifra(wid)}    },;
-          { "Naziv", {|| naz},     "naz"  };
-        }
-Kol:={1,2}
-private gTBDir:="N"
-return PostojiSifra(F_TDOK,1,10,60,"Lista: Tipovi dokumenata",@cId,dx,dy)
-
-
 
 /*!  P_KontoFin(cId,dx,dy,lBlag)
  *   Otvara sifrarnik konta spec. za FIN

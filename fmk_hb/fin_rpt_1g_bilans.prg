@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -206,15 +206,15 @@ do while .t.
    		cIdRJ:="999999"
    		@ m_x+9,m_y+2 SAY "Radna jedinica (999999-sve): " GET cIdRj
  	ENDIF
- 	
+
  	@ m_x+10,m_y+2 SAY "Export izvjestaja u dbf (D/N)? " GET cExpRptDN valid cExpRptDN $"DN" pict "@!"
  	@ m_x+11,m_y+2 SAY "Export skraceni bruto bilans (D/N)? " GET cBBSkrDN valid cBBSkrDN $"DN" pict "@!"
-	
+
  	@ m_x+12,m_y+2 SAY "Prikaz suban (1) / suban+anal (2) / anal (3)" GET cPrikaz valid cPrikaz $ "123" pict "@!"
-	
+
 	READ
 	ESC_BCR
- 	
+
 	aUsl1:=Parsiraj(qqKonto,"IdKonto")
  	if aUsl1<>NIL
 		exit
@@ -328,33 +328,33 @@ DO WHILESC !EOF() .AND. IdFirma=cIdFirma   // idfirma
    // TP - tekuci promet
    // KP - kumulativni promet
    // S - saldo
-   
+
    D3PS:=P3PS:=D3TP:=P3TP:=D3KP:=P3KP:=D3S:=P3S:=0
    cKlKonto:=left(IdKonto,1)
-   
-   DO WHILESC !EOF() .AND. IdFirma=cIdFirma .AND. cKlKonto==left(IdKonto,1)   
-      
+
+   DO WHILESC !EOF() .AND. IdFirma=cIdFirma .AND. cKlKonto==left(IdKonto,1)
+
       // klasa konto
 
       cSinKonto:=left(IdKonto,3)
       D2PS:=P2PS:=D2TP:=P2TP:=D2KP:=P2KP:=D2S:=P2S:=0
-      
-      DO WHILESC !EOF() .AND. IdFirma=cIdFirma .AND. cSinKonto==left(IdKonto,3)   
+
+      DO WHILESC !EOF() .AND. IdFirma=cIdFirma .AND. cSinKonto==left(IdKonto,3)
          // sint. konto
 
          cIdKonto:=IdKonto
          D1PS:=P1PS:=D1TP:=P1TP:=D1KP:=P1KP:=D1S:=P1S:=0
-         DO WHILESC !EOF() .AND. IdFirma=cIdFirma .AND. cIdKonto==IdKonto 
-	    
+         DO WHILESC !EOF() .AND. IdFirma=cIdFirma .AND. cIdKonto==IdKonto
+
 	    // konto
 
             cIdPartner:=IdPartner
             D0PS:=P0PS:=D0TP:=P0TP:=D0KP:=P0KP:=D0S:=P0S:=0
-            
-	    DO WHILESC !EOF() .AND. IdFirma=cIdFirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner 
-	      
+
+	    DO WHILESC !EOF() .AND. IdFirma=cIdFirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner
+
 	      // partner
-              
+
 	      if cTip==ValDomaca()
                 IF D_P="1"
 			D0KP+=IznosBHD*nBBK
@@ -376,7 +376,7 @@ DO WHILESC !EOF() .AND. IdFirma=cIdFirma   // idfirma
                   IF D_P=="1"; D0TP+=IznosBHD*nBBK; ELSE; P0TP+=IznosBHD*nBBK; ENDIF
                ENDIF
               else
-               
+
 	       IF IdVN="00"
                   IF D_P=="1"; D0PS+=IznosDEM; ELSE; P0PS+=IznosDEM; ENDIF
                ELSE
@@ -395,31 +395,31 @@ DO WHILESC !EOF() .AND. IdFirma=cIdFirma   // idfirma
             IF (cNule == "N" .and. ROUND(D0KP-P0KP, 2) == 0)
                // ne prikazuj
             else
-              
-	      //if cPrikaz $ "12" 
-	       
+
+	      //if cPrikaz $ "12"
+
 	       @ prow()+1,0 SAY  ++B  PICTURE '9999'    // ; ?? "."
                @ prow(),pcol()+1 SAY cIdKonto
                @ prow(),pcol()+1 SAY cIdPartner       // IdPartner(cIdPartner)
-               
+
 	       SELECT PARTN
 	       HSEEK cIdPartner
-               
+
 	       IF cFormat=="2"
-                @ prow(),pcol()+1 SAY PADR(naz,48-LEN (cIdPartner)) 
+                @ prow(),pcol()+1 SAY PADR(naz,48-LEN (cIdPartner))
                ELSE
                 @ prow(),pcol()+1 SAY PADR(naz,20)
                 @ prow(),pcol()+1 SAY PADR(naz2,20)
                 @ prow(),pcol()+1 SAY Mjesto
                 @ prow(),pcol()+1 SAY Adresa PICTURE 'XXXXXXXXXXXXXXXXX'
                ENDIF
-               
+
 	       select SUBAN
-               
+
 	       nCol1:=pcol()+1
                @ prow(),pcol()+1 SAY D0PS PICTURE PicD
                @ prow(),PCOL()+1 SAY P0PS PICTURE PicD
-               
+
 	       IF cFormat=="1"
                 @ prow(),PCOL()+1 SAY D0TP PICTURE PicD
                 @ prow(),PCOL()+1 SAY P0TP PICTURE PicD
@@ -435,11 +435,11 @@ DO WHILESC !EOF() .AND. IdFirma=cIdFirma   // idfirma
 	       endif
                @ prow(),PCOL()+1 SAY D0S PICTURE PicD
                @ prow(),PCOL()+1 SAY P0S PICTURE PicD
-	     
+
 	     //endif
-	     
+
              D1PS+=D0PS;P1PS+=P0PS;D1TP+=D0TP;P1TP+=P0TP;D1KP+=D0KP;P1KP+=P0KP
-             
+
   	     if lExpRpt .and. !EMPTY(cIdPartner) .and. cPrikaz $ "12"
 	         if lBBSkraceni
 	           fill_ssbb_tbl(cIdKonto, cIdPartner, partn->naz, D0KP, P0KP, D0KP - P0KP)
@@ -448,7 +448,7 @@ DO WHILESC !EOF() .AND. IdFirma=cIdFirma   // idfirma
 	         endif
 	     endif
 	    endif
-	     
+
          ENDDO // konto
 
 	  IF prow() > 59 + gpStranica
@@ -457,7 +457,7 @@ DO WHILESC !EOF() .AND. IdFirma=cIdFirma   // idfirma
 	  ENDIF
 
 	 //if (( cPrikaz == "1" .and. EMPTY(cIdPartner)) .or. cPrikaz $ "23" )
-	  
+
 	  @ prow()+1,2 SAY replicate("-",REP1_LEN-2)
           @ prow()+1,2 SAY ++B1 PICTURE '9999'      // ; ?? "."
           @ prow(),pcol()+1 SAY cIdKonto
@@ -478,11 +478,11 @@ DO WHILESC !EOF() .AND. IdFirma=cIdFirma   // idfirma
           ENDIF
           @ prow(),PCOL()+1  SAY D1KP PICTURE PicD
           @ prow(),PCOL()+1  SAY P1KP PICTURE PicD
-	 
+
 	 //endif
-	 
+
          D1S:=D1KP-P1KP
-         
+
 	 if D1S>=0
            P1S:=0
            D2S+=D1S;D3S+=D1S;D4S+=D1S
@@ -490,15 +490,15 @@ DO WHILESC !EOF() .AND. IdFirma=cIdFirma   // idfirma
            P1S:=-D1S; D1S:=0
            P2S+=P1S;P3S+=P1S;P4S+=P1S
          endif
-         
+
 	 //if (( cPrikaz == "1" .and. EMPTY(cIdPartner)) .or. cPrikaz $ "23" )
-	  
+
 	  @ prow(),PCOL()+1 SAY D1S PICTURE PicD
           @ prow(),PCOL()+1 SAY P1S PICTURE PicD
           @ prow()+1,2 SAY replicate("-",REP1_LEN-2)
-	 
+
 	 //endif
-	 
+
          SELECT SUBAN
          D2PS+=D1PS;P2PS+=P1PS;D2TP+=D1TP;P2TP+=P1TP;D2KP+=D1KP;P2KP+=P1KP
 
@@ -509,11 +509,11 @@ DO WHILESC !EOF() .AND. IdFirma=cIdFirma   // idfirma
 	     fill_sbb_tbl(cIdKonto, "", konto->naz, D1PS, P1PS, D1KP, P1KP, D1S, P1S)
            endif
 	 endif
-      
+
       ENDDO  // sin konto
 
       IF prow() > 61 + gpStranica
-      	FF 
+      	FF
 	ZaglSan(cFormat)
       ENDIF
 
@@ -551,7 +551,7 @@ DO WHILESC !EOF() .AND. IdFirma=cIdFirma   // idfirma
         fill_sbb_tbl(cSinKonto, "", konto->naz, D2PS, P2PS, D2KP, P2KP, D2S, P2S)
        endif
       endif
-	
+
   ENDDO  // klasa konto
 
    SELECT BBKLAS
@@ -566,7 +566,7 @@ DO WHILESC !EOF() .AND. IdFirma=cIdFirma   // idfirma
            SalPDug WITH D3S,;
            SalPPot WITH P3S
    SELECT SUBAN
-   
+
     IF cPodKlas=="D"
     ? th5
     ? "UKUPNO KLASA "+cklkonto
@@ -582,7 +582,7 @@ DO WHILESC !EOF() .AND. IdFirma=cIdFirma   // idfirma
     @ PROW(),pcol()+1 SAY P3S PICTURE PicD
     ? th5
     ENDIF
-   
+
    D4PS+=D3PS;P4PS+=P3PS;D4TP+=D3TP;P4TP+=P3TP;D4KP+=D3KP;P4KP+=P3KP
 
    if lExpRpt
@@ -592,7 +592,7 @@ DO WHILESC !EOF() .AND. IdFirma=cIdFirma   // idfirma
      fill_sbb_tbl(cKlKonto, "", konto->naz, D3PS, P3PS, D3KP, P3KP, D3S, P3S)
     endif
    endif
-	
+
 ENDDO
 
 IF prow()>59+gpStranica
@@ -687,7 +687,7 @@ RETURN
 /*!  ZaglSan()
  *   Zaglavlje strane subanalitickog bruto bilansa
  */
- 
+
 function ZaglSan(cFormat)
 
 if cFormat == nil
@@ -696,7 +696,7 @@ endif
 
 ?
 
-if cFormat $ "1#3" 
+if cFormat $ "1#3"
 	? "#%LANDS#"
 endif
 
@@ -737,7 +737,7 @@ RETURN
 /*!  AnalBB()
  *   Analiticki bruto bilans
  */
- 
+
 function AnalBB()
 
 private A1,D4PS,P4PS,D4TP,P4TP,D4KP,P4KP,D4S,P4S
@@ -1052,7 +1052,7 @@ return
 /*!  BrBil_21()
  *   Zaglavlje analitickog bruto bilansa
  */
- 
+
 function BrBil_21()
 ?
 P_COND2
@@ -1665,7 +1665,7 @@ nPom:=d4ps-p4ps
 @ prow()+1,nCol1   SAY iif(nPom>0,nPom,0) PICTURE PicD
 @ PROW(),pcol()+1 SAY iif(nPom<0,-nPom,0) PICTURE PicD
 
-nPom:=d4tp-p4tp                                  
+nPom:=d4tp-p4tp
 @ PROW(),pcol()+1 SAY iif(nPom>0,nPom,0) PICTURE PicD
 @ PROW(),pcol()+1 SAY iif(nPom<0,-nPom,0) PICTURE PicD
 
@@ -1734,7 +1734,7 @@ return
 
 
 /*!  BrBil_41()
- *   Zaglavlje bruto bilansa po grupama 
+ *   Zaglavlje bruto bilansa po grupama
  */
 
 function BrBil_41()
@@ -1770,9 +1770,9 @@ RETURN
 
 
 /*!  BBMnoziSaK()
- *  
+ *
  */
- 
+
 function BBMnoziSaK()
 
 LOCAL nArr:=SELECT()
@@ -1789,28 +1789,3 @@ LOCAL nArr:=SELECT()
   ENDIF
  SELECT (nArr)
 RETURN
-
-
-
-/*!  ImaUSifVal(cKartica)
- *    
- *   cKartica
- */
-
-function ImaUSifVal(cKratica)
-
-  LOCAL lIma:=.f., nArr:=SELECT()
-   SELECT (F_VALUTE)
-   IF !USED(); O_VALUTE; ENDIF
-   GO TOP
-   DO WHILE !EOF()
-     IF naz2==PADR(cKratica,4)
-       lIma:=.t.
-       EXIT
-     ENDIF
-     SKIP 1
-   ENDDO
-   SELECT (nArr)
-RETURN lIma
-
-

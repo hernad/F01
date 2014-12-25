@@ -1516,21 +1516,6 @@ function TekRec2()
 RETURN (NIL)
 
 
-/*!  Reci(x,y,cT)
- *   Ispisuje zeljenu poruku cT na odredjenu lokaciju x,y
- *   x
- *   y
- *   cT
- */
-
-function Reci(x,y,cT)
-
-LOCAL px:=ROW(),py:=COL()
- @ m_x+x,m_y+y SAY cT
- SETPOS(px,py)
-RETURN
-
-
 
 /*!  OstaleOpcije()
  *   Ostale opcije koje se pozivaju sa <F10>

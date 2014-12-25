@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,10 +14,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/fin/rpt/1g/proizv.prg,v $
- * $Author: sasa $ 
+ * $Author: sasa $
  * $Revision: 1.3 $
  * $Log: proizv.prg,v $
  * Revision 1.3  2002/06/20 13:31:52  sasa
@@ -37,7 +37,7 @@
 /*!  ProIzv()
  *   Proizvoljni izvjestaji
  */
- 
+
 function ProIzv()
 
 if !IzvrsenIn(,,"PROIZV", .t. )
@@ -985,7 +985,7 @@ RETURN
 
 
 /*!  FForPI()
- *  
+ *
  */
 
 function FForPI()
@@ -1009,7 +1009,7 @@ RETURN lVrati
 
 
 /*!  VidiUaKolS()
- *  
+ *
  */
 
 function VidiUaKolS()
@@ -1028,7 +1028,7 @@ RETURN lVrati
 
 
 /*!  FSvakiPI()
- *  
+ *
  */
 
 function FSvakiPI()
@@ -1085,7 +1085,7 @@ RETURN nVrati
  *   cKonto
  */
 
- 
+
 function RebBudzeta(cTipK,cKonto)
 
 LOCAL nVrati:=0, nArr:=SELECT()
@@ -1114,7 +1114,7 @@ RETURN nVrati
 /*!  ParSviIzvj()
  *   Parametri za sve izvjestaje
  */
- 
+
 function ParSviIzvj()
 
 LOCAL GetList:={}
@@ -1292,11 +1292,11 @@ ENDIF
 
 
 /*!  UKucice(cSta,nKucica)
- *  
+ *
  *   cSta
  *   nKucica
  */
- 
+
 function UKucice(cSta,nKucica)
 
 RETURN ( "I"+CHARMIX(PADL(TRIM(cSta),nKucica,IF(EMPTY(cSta)," ","0")),"I") )
@@ -1305,50 +1305,10 @@ RETURN ( "I"+CHARMIX(PADL(TRIM(cSta),nKucica,IF(EMPTY(cSta)," ","0")),"I") )
 
 
 
-/*!  KonvZnWin(cTekst,cWinKonv)
- *   Konverzija znakova za Windows
- *   cTekst
- *   cWinKonv
- */
- 
-function KonvZnWin(cTekst,cWinKonv)
-
-LOCAL aNiz:={  {"[","�",chr(138),"S"}, {"{","�",chr(154),"s"}, {"}","�",chr(230),"c"}, {"]","�", chr(198),"C"}, {"^","�", chr(200),"C"},;
-                {"~","�",chr(232),"c"}, {"`","�",chr(158),"z"}, {"@","�",chr(142),"Z"}, {"|","�", chr(240),"dj"}, {"\","�", chr(208),"DJ"}  }
- LOCAL i,j
-
- if cWinKonv=NIL
-  cWinKonv:=IzFmkIni("DelphiRb","Konverzija","5")
- endif
-
- i:=1; j:=1
- if cWinKonv=="1"
-    i:=1; j:=2
- elseif cWinKonv=="2"
-    i:=1; j:=4  // 7->A
- elseif cWinKonv=="3"
-    i:=2; j:=1   // 852->7
- elseif cWinKonv=="4"
-    i:=2; j:=4  // 852->A
- elseif cWinKonv=="5"
-    i:=2; j:=3  // 852->win1250
- elseif cWinKonv=="6"
-    i:=1; j:=3  // 7->win1250
- endif
-
- if i<>j
-  AEVAL(aNiz,{|x| cTekst:=STRTRAN(cTekst,x[i],x[j])})
- endif
-
-RETURN cTekst
-
-
-
-
 /*!  KZnBazaWin(cDbf)
  *   Konverzija znakova u bazama
  */
- 
+
 function KZnbazaWin(cDbf)
 
 local cWinKonv
@@ -1380,6 +1340,3 @@ use
 endif //cWinKonv
 
 return
-
-
-

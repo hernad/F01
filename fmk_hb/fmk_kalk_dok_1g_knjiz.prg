@@ -1527,26 +1527,6 @@ return
 
 
 
-/*!  StrKZN(cInput,cIz,cU)
- *   Vrsi konverziju znakova u stringu iz jednog u drugi izabrani standard
- */
-
-function StrKZN(cInput,cIz,cU)
-
- LOCAL a852:={"�","�","�","�","�","�","�","�","�","�"}
- LOCAL a437:={"[","\","^","]","@","{","|","~","}","`"}
- LOCAL aEng:={"S","D","C","C","Z","s","d","c","c","z"}
- LOCAL i:=0, aIz:={}, aU:={}
- aIz := IF( cIz=="7" , a437 , IF( cIz=="8" , a852 , aEng ) )
- aU  := IF(  cU=="7" , a437 , IF(  cU=="8" , a852 , aEng ) )
- FOR i:=1 TO 10
-   cInput:=STRTRAN(cInput,aIz[i],aU[i])
- NEXT
-return cInput
-
-
-
-
 /*!  ZagFirma()
  *   Ispisuje zaglavlje firme/preduzeca
  */
@@ -2312,4 +2292,3 @@ enddo  // vrti kroz kalkulacije
 #endif
 closeret
 return nil
-

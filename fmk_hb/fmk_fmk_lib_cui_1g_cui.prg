@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -22,7 +22,7 @@ static aPrStek:={}
 *;
 
 *array
-static aMenuStack:={}    
+static aMenuStack:={}
 *;
 
 *array
@@ -84,7 +84,7 @@ LocalIC:=IF(Inv,Normal,Invert)
 OldC:=SetColor(LocalC)
 
 //  Ako se meni zove prvi put, upisi ga na stek
-IF Len(aMenuStack)==0 .or. (Len(aMenuStack)<>0 .and. MenuId<>(StackTop(aMenuStack))[1])  
+IF Len(aMenuStack)==0 .or. (Len(aMenuStack)<>0 .and. MenuId<>(StackTop(aMenuStack))[1])
   IF lFK
     m_x := aFixKoo[1]
     m_y := aFixKoo[2]
@@ -106,11 +106,11 @@ ELSE
   m_y:=aMenu[3]
 END IF
 
-@ m_x,m_y CLEAR TO m_x+N+1,m_y+Length+3 
+@ m_x,m_y CLEAR TO m_x+N+1,m_y+Length+3
 IF lFK
   @ m_x,m_y TO m_x+N+1,m_y+Length+3
 ELSE
-  @ m_x,m_y TO m_x+N+1,m_y+Length+3 DOUBLE 
+  @ m_x,m_y TO m_x+N+1,m_y+Length+3 DOUBLE
   @ m_x+N+2,m_y+1 SAY REPLICATE(Chr(177),Length+4)
   FOR i:=1 TO N+1
     @ m_x+i,m_y+Length+4 SAY Chr(177)
@@ -199,8 +199,8 @@ return
 
 // vrati pravu vrijednost itema...
 function retitem(nItemNo)
-local nRetItem 
-local cAction 
+local nRetItem
+local cAction
 
 cAction := what_action(nItemNo)
 
@@ -360,7 +360,7 @@ return
 
 
 /*!  Box(BoxId, N, Length, Inv, chMsg, cHelpT)
- *   Otvara prozor BoxID dimenzija (N x Length), invertovan 
+ *   Otvara prozor BoxID dimenzija (N x Length), invertovan
  *         (Inv=.T. ili ne)
  *
  *   chMsg - tip C -> prikaz poruke
@@ -474,11 +474,11 @@ return
  *   prikaz opcija u Browse-u
  *
  * \code
- *  aNiz:={"<c-N> Novi","<a-A> Ispravka"} 
+ *  aNiz:={"<c-N> Novi","<a-A> Ispravka"}
  * \endcode
  *
  */
- 
+
 function OpcTipke(aNiz)
 
 LOCAL i:=0,j:=0,k:=0,nOmax:=0,nBrKol,nOduz,nBrRed,xVrati:=""
@@ -628,16 +628,16 @@ do while .t.
       		case IsAlpha(Chr(nChar)) .or. IsDigit(Chr(nChar))
         		for ii:=1 to nLen
           			// cifra
-          			if IsDigit(chr(nChar)) 
-            				if Chr(nChar) $ left(Items[ii],3) 
+          			if IsDigit(chr(nChar))
+            				if Chr(nChar) $ left(Items[ii],3)
 						// provjera postojanja
-             					nItemNo:=ii          
-	     					// broja u stavki samo 
+             					nItemNo:=ii
+	     					// broja u stavki samo
 						// u prva 3 karaktera
              					fexit:=.t.
-            				endif             
-          			else 
-					// veliko slovo se trazi 
+            				endif
+          			else
+					// veliko slovo se trazi
 					// po citavom stringu
             				if UPPER(Chr(nChar)) $ Items[ii]
               					nItemNo:=ii
@@ -645,7 +645,7 @@ do while .t.
             				endif
           			endif
         		next
-      		
+
 		case nChar == K_CTRL_N
 			nCtrlKeyVal := 10000
 			exit
@@ -658,11 +658,11 @@ do while .t.
 		otherwise
          		goModul:GProc(nChar)
    	endcase
-   	
+
 	if nItemNo > nLen
         	nItemNo--
    	endif
-   	
+
 	if nItemNo < 1
 		nItemNo++
 	endif
@@ -677,7 +677,7 @@ return nItemNo + nCtrlKeyVal
  *   AChoice za broj stavki > 16
  *  \todo Ugasiti stari Achoice ??, ne trebaju nam dva
  */
- 
+
 function AChoice3(x1,y1,x2,y2,Items,f1,cFunc,nItemNo)
 
 
@@ -747,15 +747,15 @@ SetColor(cOldColor)
             if Chr(nChar) $ left(Items[ii],3) // provjera postojanja
              nItemNo:=ii          // broja u stavki samo u prva 3 karaktera
              fexit:=.t.
-            endif             
+            endif
           else // veliko slovo se trazi po citavom stringu - promijenjeno
-	    if (Items[ii]<>NIL) .and. UPPER(Chr(nChar)) $ LEFT(Items[ii],3)  
-              nItemNo:=ii                             
-              fexit:=.t.                              
+	    if (Items[ii]<>NIL) .and. UPPER(Chr(nChar)) $ LEFT(Items[ii],3)
+              nItemNo:=ii
+              fexit:=.t.
             endif
           endif
         next
-       
+
        case nChar == K_CTRL_N
        	   nCtrlKeyVal := 10000
 	   exit
@@ -805,7 +805,7 @@ return nIzb
 
 
 function KorMenu2
- 
+
  LOCAL nVrati:=2,nTipka:=LASTKEY()
  DO CASE
    CASE nTipka==K_ESC
@@ -820,7 +820,7 @@ function Prozor1(v1,h1,v2,h2,cNaslov,cBojaN,cOkvir,cBojaO,cBojaT,nKursor)
 
 
 LOCAL cPom:=SET(_SET_DEVICE)
- 
+
 SET DEVICE TO SCREEN
 IF cBojaN==NIL
 	cBojaN:="GR+/N"
@@ -1283,7 +1283,7 @@ return VAL(SUBSTR(cPicture,nPozS+1))
 
 function MsgBeep(cxx)
 if !gAppSrv
-	Beep(2) 
+	Beep(2)
 endif
 Msg(cxx,20)
 
@@ -1367,7 +1367,7 @@ return
  *
  * \note return vrijednost moze biti i kombinacija  CP - citaj i pisi, ali ne brisi
  */
- 
+
 function SecurR(cLevel,cStavka)
 local cK1:="AT", fZatv:=.f., nSelect
 
@@ -1583,7 +1583,7 @@ return nil
 
 
 
-function BtoEU(cInput) 
+function BtoEU(cInput)
 
 local i,cpom, cChar, cChar2,nPos, fdupli
 local cBTOETABLE
@@ -1666,7 +1666,7 @@ return (aNiz)
  *   cTxt   - tekst
  *   nKol   - broj kolona
  */
- 
+
 function TxtUNiz(cTxt,nKol)
 
 LOCAL aVrati:={}, nPoz:=0, lNastavi:=.t., cPom:="", aPom:={}, i:=0
@@ -1753,10 +1753,10 @@ return .t.
 
 
 /*!  Menu_SC(cIzp, fMain, lBug)
- * 
+ *
  *  opc    - indirektno priv.var, matrica naslova opcija
  *  opcexe - indirektno priv.var, matrica funkcija (string ili kodni blok promjenljive)
- * 
+ *
  *  \code
  *  private Opc:={}
  *  private opcexe:={}
@@ -1813,7 +1813,7 @@ do while .t.
        endif
      case lBug
         LOOP
-	
+
      otherwise
       	 if opcexe[nIzbor] <> nil
           private xPom:=opcexe[nIzbor]
@@ -1822,9 +1822,9 @@ do while .t.
 	  else
 	     EVAL(xPom)
 	  endif
-	 endif  
+	 endif
      endcase
-     
+
 enddo
 return
 
@@ -2038,4 +2038,3 @@ return
 // -----------------------------------
 function dummy_func()
 return
-

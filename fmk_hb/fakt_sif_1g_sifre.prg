@@ -759,46 +759,6 @@ RETURN
 
 
 
-/*!  TxtUNiz(cTxt,nKol)
- *   Pretvara TXT u niz
- *   cTxt   - tekst
- *   nKol   - broj kolona
- */
-
-function TxtUNiz(cTxt,nKol)
-
-LOCAL aVrati:={}, nPoz:=0, lNastavi:=.t., cPom:="", aPom:={}, i:=0
-  cTxt:=TRIM(cTxt)
-  DO WHILE lNastavi
-    nPoz := AT( CHR(13)+CHR(10) , cTxt )
-    IF nPoz>0
-      cPom:=LEFT(cTxt,nPoz-1)
-      IF nPoz-1>nKol
-        cPom:=TRIM( LomiGa(cPom,1,5,nKol) )
-        FOR  i:=1  TO  INT( (LEN(cPom)-1)/nKol ) + 1
-          AADD( aVrati , SUBSTR( cPom , (i-1)*nKol+1 , nKol ) )
-        NEXT
-      ELSE
-        AADD( aVrati , cPom )
-      ENDIF
-      cTxt := SUBSTR( cTxt , nPoz+2 )
-    ELSEIF !EMPTY(cTxt)
-      cPom:=TRIM(cTxt)
-      IF LEN(cPom)>nKol
-        cPom:=TRIM( LomiGa(cPom,1,5,nKol) )
-        FOR  i:=1  TO  INT( (LEN(cPom)-1)/nKol ) + 1
-          AADD( aVrati , SUBSTR( cPom , (i-1)*nKol+1 , nKol ) )
-        NEXT
-      ELSE
-        AADD( aVrati , cPom )
-      ENDIF
-      lNastavi := .f.
-    ELSE
-      lNastavi := .f.
-    ENDIF
-  ENDDO
-RETURN aVrati
-
 
 
 

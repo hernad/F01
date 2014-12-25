@@ -337,14 +337,7 @@ FUNCTION BrDecimala(cFormat)
 RETURN nVrati
 
 
-/*!  StrKZN(cInput,cIz,cU)
- *   Konverzija znakova u stringu
- *  \todo Prebaciti u /sclib ili ... (ovdje definitivno ne pripada)
- *   cInput
- *   cIz
- *   cU
- *  \return cInput
- */
+/*
 
 function StrKZN(cInput,cIz,cU)
 
@@ -359,6 +352,7 @@ LOCAL a852:={"�","�","�","�","�","�","�","�","�","�"}
  NEXT
 return cInput
 
+*/
 
 
 /*!  Slovima(nIzn,cDinDem)
