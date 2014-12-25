@@ -50,7 +50,7 @@ AADD(opcexe, {|| kalk_prenos_diskete()})
 AADD(opc,"2. prijem dokumenata   <= ")
 AADD(opcexe, {|| kalk_povrat_sa_diskete()})
 AADD(opc,"3. podesavanje prenosa i prijema")
-AADD(opcexe, {|| PPPDisk() })
+AADD(opcexe, {|| kalk_parametri_prenosa_diskete() })
 AADD(opc,"7. prebaci dokument iz druge firme")
 AADD(opcexe, {|| IzKalk2f()})
 
@@ -79,7 +79,7 @@ PRIVATE cSpecUslov  := ""
 PRIVATE cKonvFirma  := ""
 PRIVATE cKonvBrDok  := ""
 
-PPPDisk(.t.)
+kalk_parametri_prenosa_diskete(.t.)
 
 if pitanje(,"Zelite li izvrsiti prenos KALK na diskete ?","N")=="N"
   closeret
@@ -300,7 +300,7 @@ static function kalk_povrat_sa_diskete()
 
 local nRec
 
-PRIVATE cLokPren    := "A:\"
+PRIVATE cLokPren    := "A:" + SLASH
 PRIVATE cFZaPredaju := "AKALK"
 PRIVATE cFZaPrijem  := "AKALK"
 PRIVATE cUslovVDok  := "1;"
@@ -308,7 +308,7 @@ PRIVATE cSpecUslov  := ""
 PRIVATE cKonvFirma  := ""
 PRIVATE cKonvBrDok  := ""
 
-PPPDisk(.t.)
+kalk_parametri_prenosa_diskete(.t.)
 
 fSifk:=.t.
 
@@ -451,12 +451,12 @@ return
 
 
 
-/*!  PPPDisk(lIni)
+/*!  kalk_parametri_prenosa_diskete(lIni)
  *   lIni - .t. vec su inicijalizovani parametri, .f. treba inicijalizovati parametre - default vrijednost
  *   Podesavanje parametara prenosa i prijema podataka putem disketa
  */
 
-static function PPPDisk(lIni)
+static function kalk_parametri_prenosa_diskete(lIni)
 
  LOCAL GetList:={}
   IF lIni==NIL; lIni:=.f.; ENDIF

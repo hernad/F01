@@ -27,7 +27,7 @@ AADD(opcexe,{|| fin_prenos_diskete()})
 AADD(opc,"2. prijem dokumenata   <= ")
 AADD(opcexe,{|| fin_povrat_sa_diskete()})
 AADD(opc,"3. podesavanje prenosa i prijema")
-AADD(opcexe,{|| PPPDisk()})
+AADD(opcexe,{|| fin_parametri_prenosa_diskete()})
 Menu_SC("pfin")
 return .f.
 
@@ -46,7 +46,7 @@ PRIVATE cSpecUslov  := ""
 PRIVATE cKonvFirma  := ""
 PRIVATE cKonvBrDok  := ""
 
-PPPDisk(.t.)
+fin_parametri_prenosa_diskete(.t.)
 
 if pitanje(,"Zelite li izvrsiti prenos fin.naloga subanalitike na diskete ?","N")=="N"
   closeret
@@ -296,7 +296,7 @@ PRIVATE cSpecUslov  := ""
 PRIVATE cKonvFirma  := ""
 PRIVATE cKonvBrDok  := ""
 
-PPPDisk(.t.)
+fin_parametri_prenosa_diskete(.t.)
 
 fSifk:=.t.
 
@@ -416,12 +416,12 @@ return
 
 
 
-/*!  PPPDisk(lIni)
+/*!  fin_parametri_prenosa_diskete(lIni)
  *   Podesavanje prenosa i prijema dokumenata
  *   lIni
  */
  
-function PPPDisk(lIni)
+function fin_parametri_prenosa_diskete(lIni)
 
 LOCAL GetList:={}
   IF lIni==NIL; lIni:=.f.; ENDIF
@@ -464,7 +464,7 @@ LOCAL GetList:={}
      @ m_X+ 5,m_y+ 2 SAY "Standardno koristeni uslov za "
      @ m_X+ 6,m_y+ 2 SAY "tip dokumenata koji se prenose" GET cUslovVDok  PICT "@!S30"
      @ m_X+ 7,m_y+ 2 SAY "Specificni dodatni uslov      " GET cSpecUslov  PICT "@!S30"
-     @ m_X+ 8,m_y+ 2 SAY "����������������������������������������������"
+     @ m_X+ 8,m_y+ 2 SAY "������������������������������������������������"
      @ m_X+ 9,m_y+ 2 SAY "Konverzije pri prijemu dokumenata:"
      @ m_X+10,m_y+ 2 SAY "Oznaka firme (F1.F2;F3.F4 ...)  " GET cKonvFirma  PICT "@!S30"
      @ m_X+11,m_y+ 2 SAY "Br.dokumenta (VN1.F1;VN2.F2 ...)" GET cKonvBrDok  PICT "@!S30"

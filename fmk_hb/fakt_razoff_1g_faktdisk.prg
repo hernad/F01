@@ -57,7 +57,7 @@ AADD(opcexe,{|| fakt_prenos_diskete()})
 AADD(opc,"2. prijem dokumenata   <= ")
 AADD(opcexe,{|| fakt_povrat_sa_diskete()})
 AADD(opc,"3. podesavanje prenosa i prijema")
-AADD(opcexe,{|| PPPDisk()})
+AADD(opcexe,{|| fakt_parametri_prenosa_diskete()})
 Menu_SC("faktd")
 closeret
 
@@ -80,7 +80,7 @@ PRIVATE cSinSFormula:= "99"
 PRIVATE cKonvFirma  := ""
 PRIVATE cKonvBrDok  := ""
 
-PPPDisk(.t.)
+fakt_parametri_prenosa_diskete(.t.)
 
 if pitanje(,"Zelite li izvrsiti prenos FAKT na diskete ?","N")=="N"
   closeret
@@ -355,7 +355,7 @@ PRIVATE cSinSFormula:= "99"
 PRIVATE cKonvFirma  := ""
 PRIVATE cKonvBrDok  := ""
 
-PPPDisk(.t.)
+fakt_parametri_prenosa_diskete(.t.)
 
 if Klevel<>"0"
     Beep(2)
@@ -548,11 +548,11 @@ closeret
 
 
 
-/*!  PPPDisk(lIni)
+/*!  fakt_parametri_prenosa_diskete(lIni)
  *   Podesavanje parametara prenosa
  */
  
-function PPPDisk(lIni)
+function fakt_parametri_prenosa_diskete(lIni)
 
 LOCAL GetList:={}
   IF lIni==NIL; lIni:=.f.; ENDIF
