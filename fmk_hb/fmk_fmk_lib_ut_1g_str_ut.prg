@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,11 +14,11 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  *
  */
- 
+
 function ToStr(xVal)
 
 
@@ -57,24 +57,24 @@ do while  !empty(cStr)
   fProsao:=.f.
   if len(cStr)>nLen
    for i:=nLen to int(nLen/2) step -1
-   
+
      if substr(cStr, i, 1) $ " ,/-:)"
         AADD(aRez,PADR(left(cStr,i), nLen))
         cStr:=substr(cStr, i+1)
         i:=1
         fProsao:=.t.
      endif
-     
+
    next
-   
+
   else
-  
+
     AADD( aRez, PADR(cStr,nLen) )
     fProsao:=.t.
     cStr:=""
-    
+
   endif
-  
+
   if !fProsao
      AADD(aRez,padr(left(cStr,nLen-1)+iif(len(cStr)>nLen, "-", ""),nLen))
      cStr:=substr(cStr,nLen)
@@ -257,7 +257,7 @@ return left(cTxt,i)
 function ParsMemo(cTxt)
 
 
-* Struktura cTxt-a je: Chr(16) txt1 Chr(17)  Chr(16) txt2 Chr(17) ...
+// Struktura cTxt-a je: Chr(16) txt1 Chr(17)  Chr(16) txt2 Chr(17) ...
 local aMemo:={}
 local i,cPom,fPoc
 
@@ -305,8 +305,8 @@ local nE:=0
 local i:=0
 local cE:=""
 
-if cSE==NIL 
-	cSE := "." 
+if cSE==NIL
+	cSE := "."
 endif
 
 nE := NUMTOKEN(cTok,cSE)
@@ -345,7 +345,7 @@ RETURN nVrati
  *   cU
  *  \return cInput
  */
- 
+
 function StrKZN(cInput,cIz,cU)
 
 LOCAL a852:={"�","�","�","�","�","�","�","�","�","�"}
@@ -364,9 +364,9 @@ return cInput
 /*!  Slovima(nIzn,cDinDem)
  *   Ispisuje iznos slovima
  *   nIzn       - iznos
- *   cDinDem    - 
+ *   cDinDem    -
  */
- 
+
 function Slovima(nIzn,cDinDem)
 
 local npom; cRez:=""
@@ -439,7 +439,7 @@ return
  *   cDinDem
  *  \return cRez
  */
- 
+
 static function Stotice(nIzn, cRez, fDecimale, fMnozina, cDinDem)
 
 local fDec,fSto:=.f.,i
@@ -574,7 +574,7 @@ return aColl
 /*!  StrToArray(cStr, nLen)
  *   Kreiraj array na osnovu stringa
  *   cStr - string
- *   nLen - na svakih nLen upisi novu stavku u array 
+ *   nLen - na svakih nLen upisi novu stavku u array
  */
 function StrToArray(cStr, nLen)
 
@@ -615,7 +615,7 @@ for i:=1 to LEN(aMemo)
 	cPom += aMemo[i]
 	cPom += Chr(17)
 	cPom += Chr(16)
-next 
+next
 
 return cPom
 
@@ -643,19 +643,19 @@ else
 	// 99999.999"
 	//     AT(".") = 6
 	// LEN 9
-	 
+
 	nDec:=AT(".", cPicture)
 
 	if nDec > 0
         	//  nDec =  9  - 6  = 3
-		nDec := nLen - nDec 
+		nDec := nLen - nDec
 	endif
 
 endif
 
 // max velicina koja se moze prikazati sa ovim picture
 // 5  =  9 - 3 - 1  => 10 ^ 5
-// 
+//
 nExp := nLen - nDec - 1
 
 //     0  -> 3
@@ -693,4 +693,3 @@ for i:=0 to 4
 next
 
 return nDec
-

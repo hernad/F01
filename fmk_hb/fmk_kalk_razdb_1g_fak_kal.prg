@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,11 +14,11 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  *
  */
- 
+
 
 /*! \file fmk/kalk/razdb/1g/fak_kal.prg
  *   Prenos dokumenata iz modula FAKT u KALK
@@ -39,42 +39,13 @@ AADD(opcexe,{|| FaKaMag() })
 AADD(Opc,"2. prodavnica fakt->kalk")
 AADD(opcexe,{||  FaKaProd()  })
 AADD(Opc,"3. proizvodnja fakt->kalk")
-AADD(opcexe,{||  FaKaProizvodnja() })        
+AADD(opcexe,{||  FaKaProizvodnja() })
 AADD(Opc,"4. konsignacija fakt->kalk")
-AADD(opcexe, {|| FaktKonsig() }) 
+AADD(opcexe, {|| FaktKonsig() })
 private Izbor:=1
 Menu_SC("faka")
 CLOSERET
 return
-
-
-
-
-
-/*!  ParsMemo(cTxt)
- *   Pretvaranje formatiranog memo polja u niz
- */
-
-// Struktura cTxt-a je: Chr(16) txt1 Chr(17)  Chr(16) txt2 Chr(17) ...
-function ParsMemo(cTxt)
-
-local aMemo:={}
-local i,cPom,fPoc
-
- fPoc:=.f.
- cPom:=""
- for i:=1 to len(cTxt)
-   if  substr(cTxt,i,1)==Chr(16)
-     fPoc:=.t.
-   elseif  substr(cTxt,i,1)==Chr(17)
-     fPoc:=.f.
-     AADD(aMemo,cPom)
-     cPom:=""
-   elseif fPoc
-      cPom:=cPom+substr(cTxt,i,1)
-   endif
- next
-return aMemo
 
 
 
@@ -145,9 +116,3 @@ IF lStartPrint
   EndPrint()
 ENDIF
 return lVrati
-
-
-
-
-
-

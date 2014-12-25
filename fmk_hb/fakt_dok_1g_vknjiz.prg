@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -43,13 +43,13 @@ if right(cSif,1)="." .and. len(csif)<=7
 
    	_txt3b:=trim(partn->adresa)
    	cPom:=""
-   	
+
 	if !empty(partn->telefon) .and. IzFmkIni('FAKT','NaslovPartnTelefon','D')=="D"
       		cPom:=_txt3b + ", Tel:" + trim(partn->telefon)
    	else
       		fTel:=.t.
    	endif
-   	
+
 	if !empty(cPom) .and. len(cPom)<=30
      		_txt3b:=cPom
       		ftel:=.t.
@@ -329,9 +329,9 @@ if _podbr<>" ."
         			_Cijena:=MPC6
       			endif
     		elseif _idtipdok=="25" .and. _cijena<>0
-      			// za knjiznu obavijest: 
+      			// za knjiznu obavijest:
 			// ne dirati cijenu ako je vec odredjena
-    		elseif cRjTip="V".and._idTipDok $ "10#20" 
+    		elseif cRjTip="V".and._idTipDok $ "10#20"
 			//ako se radi o racunima i predracunima
 			_cijena:=UzmiVPCSif()
 		else
@@ -367,36 +367,36 @@ lBezMinusa := ( IzFMKIni("FAKT","NemaIzlazaBezUlaza","N",KUMPATH) == "D" )
 
 if !(roba->tip="U") .and. !empty(_IdRoba) .and.  left(_idtipdok,1) $ "12"  ;
 	.and. (gPratiK=="D".or.lBezMinusa) .and. ;
-   	!(left(_idtipdok,1) == "1" .and. left(_serbr,1)="*")  
+   	!(left(_idtipdok,1) == "1" .and. left(_serbr,1)="*")
 	// ovo je onda faktura
         // na osnovu otpremnice
 
 	if gTBDir="N"
   		MsgO("Izracunavam trenutno stanje ...")
 	endif
- 	
+
 	seek _idroba
- 	
+
 	nUl:=0
 	nIzl:=0
 	nRezerv:=0
 	nRevers:=0
- 	
+
 	do while !eof()  .and. roba->id==IdRoba
-   		
+
 		// ovdje provjeravam samo za tekucu firmu
    		if fakt->IdFirma <> _IdFirma
      			skip
 			loop
    		endif
-   		
-		if idtipdok="0"  
+
+		if idtipdok="0"
 			// ulaz
      			nUl  += kolicina
-   		elseif idtipdok="1"   
+   		elseif idtipdok="1"
 			// izlaz faktura
-     			if !(left(serbr,1)=="*" .and. idtipdok=="10")  
-				// za fakture na osnovu otpremnice 
+     			if !(left(serbr,1)=="*" .and. idtipdok=="10")
+				// za fakture na osnovu otpremnice
 				// ne racunaj izlaz
        				nIzl += kolicina
      			endif
@@ -414,25 +414,25 @@ if !(roba->tip="U") .and. !empty(_IdRoba) .and.  left(_idtipdok,1) $ "12"  ;
   		MsgC()
 	else
   		@ m_x+17, m_y+1   SAY "Artikal: "
-		?? _idRoba 
+		?? _idRoba
 		?? "("+roba->jmj+")"
   		@ m_x+18, m_y+1   SAY "Stanje :"
   		@ m_x+18, col()+1 SAY nUl-nIzl-nRevers-nRezerv  picture pickol
-  		@ m_x+19, m_y+1   SAY "Tarifa : " 
+  		@ m_x+19, m_y+1   SAY "Tarifa : "
 		?? roba->idtarifa
 	endif
 
 	if ( ( nUl - nIzl - nRevers - nRezerv - _kolicina ) < 0 )
- 		
+
 		BoxStanje({{_IdFirma, nUl,nIzl,nRevers,nRezerv}},_idroba)
- 		
+
 		if _idtipdok = "1" .and. lBezMinusa
    			select pripr
    			return .f.
 		endif
 
 	endif
-endif 
+endif
 
 select pripr
 
@@ -491,7 +491,7 @@ if right(trim(&cVarIdRoba),2)="++"
   	select roba
 	seek cPom
   	if found()
-      		BrowseKart(cPom)    
+      		BrowseKart(cPom)
 		// prelistaj kalkulacije
       		&cVarIdRoba:=cPom
   	endif
@@ -508,7 +508,7 @@ if right(trim(&cVarIdRoba),2)="--"
 endif
 
 // sredi sifru dobavljaca...
-fix_sifradob( @_idroba, 5, "0" ) 
+fix_sifradob( @_idroba, 5, "0" )
 
 P_Roba( @_Idroba , nil, nil, gArtCDX )
 
@@ -548,7 +548,7 @@ return .t.
 
 
 // -------------------------------
-// VALID porez 
+// VALID porez
 // -------------------------------
 function V_Porez()
 local nPor
@@ -571,10 +571,10 @@ return .t.
 
 
 /*!  W_BrOtp(fNovi)
- *  
+ *
  *   fNovi
  */
- 
+
 function W_BrOtp(fnovi)
 if fnovi
 	_datotp:=_datdok;_datpl:=_datdok
@@ -584,9 +584,9 @@ return .t.
 
 
 /*!  V_Rabat()
- *  
+ *
  */
- 
+
 function V_Rabat()
 if trabat $ " U"
   if _Cijena*_Kolicina<>0
@@ -663,7 +663,7 @@ if (nRbr==1 .and. val(_podbr)<1)
 	Box(,9,75)
  		@ m_x+1,m_Y+1  SAY "Uzorak teksta (<c-W> za kraj unosa teksta):"  GET cId pict "@!"
  		read
- 
+
  		if lastkey()<>K_ESC .and. !empty(cId)
    			P_Ftxt(@cId)
    			SELECT ftxt
@@ -672,9 +672,9 @@ if (nRbr==1 .and. val(_podbr)<1)
    			_txt2 := trim(ftxt->naz)
 
    			if gSecurity == "D"
-				_txt2 += "Dokument izradio: " + GetFullUserName( GetUserID() ) 
+				_txt2 += "Dokument izradio: " + GetFullUserName( GetUserID() )
    			endif
-  
+
   			select PRIPR
   			IF glDistrib .and. _IdTipdok=="26"
     				IF cId $ IzFMKIni("FAKT","TXTIzjaveZaObracunPoreza",";",KUMPATH)
@@ -716,7 +716,7 @@ cList := ALLTRIM( cList )
 
 if !EMPTY( cList )
 	// samo kod praznog teksta generisi iz liste
-	if EMPTY(_txt2) 
+	if EMPTY(_txt2)
 	  if Pitanje(,"Dokument sadrzi txt listu, koristiti je ?","D") == "N"
 		// ponisti listu
 		cList := ""
@@ -753,11 +753,11 @@ if !EMPTY( cList )
 	cU_txt := aList[i]
 	_add_to_txt( cU_txt, nCount, .t. )
   	cId := "MX"
-	++ nCount 
+	++ nCount
   next
 endif
- 
-// prva stavka fakture 
+
+// prva stavka fakture
 
 if (nRbr==1 .and. val(_podbr)<1)
 
@@ -767,12 +767,12 @@ if (nRbr==1 .and. val(_podbr)<1)
 
 	@ m_x + 1, m_y + 1 SAY "Odaberi uzorak teksta iz sifrarnika:" ;
 	 	GET cId pict "@!"
- 	
+
 	@ m_x + 11, m_y + 1 SAY "<c+W> dodaj tekst na fakturu, unesi novi  <ESC> izadji i snimi"
-	
+
 	read
- 
- 	if LastKey() <> K_ESC .and. !EMPTY( cId ) 
+
+ 	if LastKey() <> K_ESC .and. !EMPTY( cId )
 	  	if cId <> "MX"
    			P_Ftxt(@cId)
 			_add_to_txt( cId, nCount, .t. )
@@ -786,21 +786,21 @@ if (nRbr==1 .and. val(_podbr)<1)
 	endif
 
  	setcolor(Invert)
- 	
+
 	UsTipke()
- 	
+
 	private fUMemu:=.t.
- 	
+
 	_txt2 := MemoEdit( _txt2, m_x+3, m_y+1, m_x+9, m_y+76)
- 	
+
 	fUMemu:=NIL
- 	
+
 	setcolor(Normal)
-     
+
         if LastKey() == K_ESC
 	   	exit
 	endif
-     
+
      enddo
 
   BoxC()
@@ -814,7 +814,7 @@ return
 // dodaj tekst u _txt2
 // ---------------------------------------------------------
 static function _add_to_txt( cId_txt, nCount, lAppend )
-local cTmp 
+local cTmp
 
 if lAppend == nil
 	lAppend := .f.
@@ -836,20 +836,20 @@ if lAppend == .f.
 	_txt2 := trim(ftxt->naz)
 else
 	cTmp := ""
-	
+
 	if nCount > 1
 		cTmp += CHR(13) + CHR(10)
 	endif
-	
+
 	cTmp += trim(ftxt->naz)
 
 	_txt2 := _txt2 + cTmp
 endif
 
 if nCount = 1 .and. gSecurity == "D"
-	_txt2 += " Dokument izradio: " + GetFullUserName( GetUserID() ) 
+	_txt2 += " Dokument izradio: " + GetFullUserName( GetUserID() )
 endif
-  
+
 select PRIPR
 if nCount = 1 .and. glDistrib .and. _IdTipdok=="26"
 	_k2 :=""
@@ -867,7 +867,7 @@ return
 // ----------------------------
 static function InoKlauzula()
 
-PushWa() 
+PushWa()
 	SELECT FTXT
 	seek "IN"
 	if !found()
@@ -883,7 +883,7 @@ return
 // ----------------------------
 static function KmsKlauzula()
 
-PushWa() 
+PushWa()
 	SELECT FTXT
 	seek "KS"
 	if !found()
@@ -899,7 +899,7 @@ PopWa()
  *   get usluga
  *   fNovi
  */
- 
+
 function GetUsl(fNovi)
 
 private GetList:={}
@@ -946,14 +946,14 @@ return .t.
 
 
 /*!  Nijedupla(fNovi)
- *  
+ *
  *   fNovi
  */
- 
+
 function NijeDupla(fNovi)
 
 local nEntBK,ibk,uEntBK
-local nPrevRec 
+local nPrevRec
 
     // ako se radi o stornu fakture -> preuzimamo rabat i porez iz fakture
     if JeStorno10()
@@ -994,7 +994,7 @@ RETURN (.t.)
  *   Odsjeca prazne linije na kraju stringa
  *   cTxt
  */
- 
+
 function OdsjPLK(cTxt)
 
 local i
@@ -1005,14 +1005,7 @@ for i:=len(cTxt) to 1 step -1
 next
 return left(cTxt,i)
 
-
-// -----------------------------------------------------------------------
-// ParsMemo(cTxt)
-// brief Struktura cTxt-a je: Chr(16) txt1 Chr(17) Chr(16) txt2 Chr(17)...
-// param cTxt
-// return aMemo
-// -----------------------------------------------------------------------
- 
+/*
 function ParsMemo(cTxt)
 local aMemo:={}
 local i, cPom, fPoc
@@ -1032,7 +1025,7 @@ for i:=1 to len(cTxt)
 next
 
 return aMemo
-
+*/
 
 /*!  Prepak(cIdRoba,cPako,nPak,nKom,nKol,lKolUPak)
  *   Preracunavanje paketa i komada ...
@@ -1042,7 +1035,7 @@ return aMemo
  *   nKol     - ukupan broj komada
  *   nKOLuPAK - .t. -> preracunaj pakete (nPak,nKom) .f. -> preracunaj komade (nKol)
  */
- 
+
 function Prepak(cIdRoba,cPako,nPak,nKom,nKol,lKolUPak)
 
 LOCAL lVrati:=.f., nArr:=SELECT(), aNaz:={}, cKar:="AMB ", nKO:=1, n_Pos:=0
@@ -1083,7 +1076,7 @@ RETURN lVrati
 /*!  UGenNar()
  *   U Generalnoj Narudzbi
  */
- 
+
 function UGenNar()
 
 LOCAL lVrati:=.t., nArr:=SELECT(), nIsporuceno, nNaruceno, dNajstariji:=CTOD("")
@@ -1139,7 +1132,7 @@ RETURN lVrati
 
 
 
-// ako 
+// ako
 function v_pretvori(cPretvori, cDinDem, dDatDok, nCijena)
 
 if !(cPretvori $ "DN")
@@ -1167,7 +1160,7 @@ select roba
 go top
 seek cIdRoba
 
-if FOUND()	
+if FOUND()
 
 	// provjeri da li je cijena ista ?
 
@@ -1184,7 +1177,7 @@ if FOUND()
 			lFill := .t.
 		endif
 	endif
-	
+
 	if gRabIzRobe == "D" .and. lFill == .t. .and. nRabat <> 0 .and. ;
 		nRabat <> field->n1
 		replace field->n1 with nRabat
@@ -1194,6 +1187,3 @@ endif
 
 select (nTArea)
 return
-
-
-

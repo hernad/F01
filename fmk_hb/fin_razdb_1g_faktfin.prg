@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -59,7 +59,7 @@ Box(,10,60)
  @ m_x+1,col()+2 SAY "postaviti IdRj u FIN ?" GET cSetIdRj ;
  	PICT "@!" ;
 	VALID (cSetIdRj $ "DN")
-	
+
  @ m_x+2,m_y+2 SAY "Vrsta dokumenta u fakt:" GET cIdFakt
  @ m_x+3,m_y+2 SAY "Dokumenti u periodu:" GET dDAtOd
  @ m_x+3,col()+2 SAY "do" GET dDatDo
@@ -202,7 +202,7 @@ do whilesc !eof()
 	if (cSetIdRj == "D")
 		replace IdRj with cIdRjFakt
 	endif
-	
+
          IF cIDVD=="11" .and. lNCPoSast .and.;
             TARIFA->mpp<>0 .and. FIELDPOS("POREZ3")>0
            REPLACE porez3 WITH PorezMP("MPP")
@@ -229,7 +229,7 @@ closeret
  *   Porez u maloprodaji
  *   cVar
  */
- 
+
 function PorezMp(cVar)
 
 local nVrati, nCSP, nD, nMBVBP
@@ -237,9 +237,9 @@ local nPor1, nPor2, nPor3
 local nMPP, nPPP, nPP, nPPU
 
 nMPP:=tarifa->mpp/100
-nPPP:=tarifa->opp/100 
-nPP:=tarifa->zpp/100 
-nPPU:=tarifa->ppp/100 
+nPPP:=tarifa->opp/100
+nPP:=tarifa->zpp/100
+nPPU:=tarifa->ppp/100
 
 nCSP:=nFV-nRabat     // cijena sa porezima
 
@@ -276,12 +276,12 @@ do case
 			nVrati := nCSP*(TARIFA->ppp/100)*(1+TARIFA->opp/100)/nD
 		endif
 	case cVar=="PPP"
-		if gUVarPP=="D" 
+		if gUVarPP=="D"
 			nVrati := nCSP*(TARIFA->opp/100)/((1+TARIFA->opp/100)*nD)
 		else
 			nVrati := nCSP*(TARIFA->opp/100)/nD
 		endif
-		
+
 	case cVar=="MPP"
 		if gUVarPP=="D"
 			nMPVBP := nCSP/((1+TARIFA->opp/100)*nD)
@@ -300,7 +300,7 @@ return nVrati
  *   Kontiranje naloga
  *   dDatNal  - datum naloga
  */
- 
+
 function KontNal(dDatNal)
 
 local cidfirma,cidvd,cbrdok, lafin, lafin2
@@ -366,7 +366,7 @@ do while !eof()    // datoteka finmat
 		select roba
 		hseek finmat->idroba
 		select trfp2
-         	seek cIdVD+" "  
+         	seek cIdVD+" "
 		// nemamo vise sema kontiranja kao u kalk
          	do while !empty(cBrNalF) .and. idvd==cIDVD  .and. shema=" " .and. !eof()
 			cStavka:=Id
@@ -377,17 +377,17 @@ do while !eof()    // datoteka finmat
            			// ako u {ifrarniku parametara postoji tarifa prenosi po tarifama
             			nIz:=0
           		endif
-			if nIz<>0  
+			if nIz<>0
 				// ako je iznos elementa <> 0, dodaj stavku u fpripr
 				select pripr
 				if trfp2->znak=="-"
               				nIz:=-nIz
             			endif
-               			nIz:=round7(nIz, RIGHT(TRFP2->naz,2))  
-				
+               			nIz:=round7(nIz, RIGHT(TRFP2->naz,2))
+
 				//DEM - pomocna valuta
                			nIz2:=nIz * Kurs(dDatNal, "D", "P")
-            			
+
 				cIdKonto:=trfp2->Idkonto
             			cIdkonto:=STRTRAN(cidkonto,"?1",trim(ckonto1))
             			cIdkonto:=STRTRAN(cidkonto,"?2",trim(ckonto2))
@@ -501,34 +501,6 @@ return
 
 
 
-/*!  ParsMemo(cTxt)
- *   Pretvara tekst u niz
- *   cTxt   - zadati tekst
- */
- 
-function ParsMemo(cTxt)
-
-local aMemo:={}
-local i,cPom,fPoc
-
- fPoc:=.f.
- cPom:=""
- for i:=1 to len(cTxt)
-   if  substr(cTxt,i,1)==Chr(16)
-     fPoc:=.t.
-   elseif  substr(cTxt,i,1)==Chr(17)
-     fPoc:=.f.
-     AADD(aMemo,cPom)
-     cPom:=""
-   elseif fPoc
-      cPom:=cPom+substr(cTxt,i,1)
-   endif
- next
-
-return aMemo
-
-
-
 /*!  Round7(nBroj,cTip)
  *   Zaokruzivanje
  *   nBroj - Zadati broj
@@ -557,7 +529,7 @@ RETURN nBroj
  *   aSifre
  *   aKonta
  */
- 
+
 function RasKon(cRoba,aSifre,aKonta)
 
 local nPom
@@ -572,7 +544,7 @@ return if(nPom>0,aKonta[nPom],"")
  *    Preracunata stopa
  *  \nProc - Broj
  */
- 
+
 function PrStopa(nProc)
 
 return (if(nProc==0,0,1/(1+1/(nProc/100))))
@@ -581,12 +553,12 @@ return (if(nProc==0,0,1/(1+1/(nProc/100))))
 
 
 /*!  IzKalk(cIdRoba,cKonSir,cSta)
- *  
+ *
  *   cIdRoba
  *   cKonSir
  *   cSta
  */
- 
+
 function IzKalk(cIdRoba,cKonSir,cSta)
 
 local x:=0, nArr:=SELECT(), nNV, nUlaz, nIzlaz
@@ -621,5 +593,3 @@ local x:=0, nArr:=SELECT(), nNV, nUlaz, nIzlaz
   ENDCASE
   SELECT (nArr)
 RETURN x
-
-
