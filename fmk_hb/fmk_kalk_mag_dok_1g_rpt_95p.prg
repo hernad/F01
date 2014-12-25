@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 
 /*
@@ -107,7 +107,7 @@ m:="--- ---------- ---------- ---------- ---------- ---------- ---------- ------
 ? m
 ? "*R * ROBA     * KOLICINA *   NC     *  MARZA   * PROD.CIJ.*   PDV%   * PROD.CIJ.*"
 ? "*BR* TARIFA   *          *          *          * BEZ.PDV  *   PDV    * SA PDV   *"
-? "*  * KONTO    *    ä     *    ä     *    ä     *    ä     *    ä     *     ä    *"
+? "*  * KONTO    *    ï¿½     *    ï¿½     *    ï¿½     *    ï¿½     *    ï¿½     *     ï¿½    *"
 ? m
 
 nTot:=0 

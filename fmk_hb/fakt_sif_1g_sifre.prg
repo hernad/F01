@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -548,7 +548,7 @@ return
 function BoxStanje(aStanje,cIdroba)
 
 local picdem:="9999999.999", nR, nC, nTSta := 0, nTRev := 0, nTRez := 0,;
-      nTOst := 0, npd, cDiv := " ³ ", nLen
+      nTOst := 0, npd, cDiv := " ï¿½ ", nLen
 
  npd := LEN (picdem)
  nLen := LEN (aStanje)
@@ -604,7 +604,7 @@ local picdem:="9999999.999", nR, nC, nTSta := 0, nTRev := 0, nTRez := 0,;
                    REPL ("-", npd) + cDiv + ;
                    REPL ("-", npd) + cDiv + REPL ("-", npd) + cDiv
     nR ++
-    @ nR,m_y+2 SAY " ³ UK.³ "
+    @ nR,m_y+2 SAY " ï¿½ UK.ï¿½ "
     @ nR,col() SAY nTSta pict picdem
     @ nR,col() SAY cDiv
     @ nR,col() SAY nTRev pict picdem
@@ -1563,7 +1563,7 @@ FUNC P_IDPM(cId,cIdPartner)
     Box(,LEN(aNaz)+4,18)
        @ m_x+1, m_y+2 SAY "POSTOJECA PRODAJNA"
        @ m_x+2, m_y+2 SAY "      MJESTA      "
-       @ m_x+3, m_y+2 SAY "ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ"
+       @ m_x+3, m_y+2 SAY "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
      CLEAR TYPEAHEAD
      nPom:=Menu2(m_x+3,m_y+3,aNaz,nPom)
     BoxC()
@@ -1606,7 +1606,7 @@ LOCAL lVrati:=.t., aMogRel:={}, nArr:=SELECT(), aIzb:={}
    SELECT KALPOS
    SEEK RELAC->id+DTOS(dDatum)
    DO WHILE !EOF() .and. idrelac==RELAC->id .and. DTOS(datum)>=DTOS(dDatum)
-     AADD( aMogRel , {DTOC(datum)+"³"+idrelac+"³"+iddist+"³"+idvozila,;
+     AADD( aMogRel , {DTOC(datum)+"ï¿½"+idrelac+"ï¿½"+iddist+"ï¿½"+idvozila,;
                       idrelac,iddist,idvozila,datum,RELAC->naz} )
      SKIP 1
    ENDDO
@@ -1621,7 +1621,7 @@ LOCAL lVrati:=.t., aMogRel:={}, nArr:=SELECT(), aIzb:={}
    Box(,LEN(aIzb)+4,28)
       @ m_x+1, m_y+2 SAY "SLIJEDECE RELACIJE  "
       @ m_x+2, m_y+2 SAY "PO KALENDARU POSJETA"
-      @ m_x+3, m_y+2 SAY "ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ"
+      @ m_x+3, m_y+2 SAY "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
     nPom:=Menu2(m_x+3,m_y+3,aIzb,nPom)
    BoxC()
    IF nPom>0
@@ -1635,7 +1635,7 @@ LOCAL lVrati:=.t., aMogRel:={}, nArr:=SELECT(), aIzb:={}
    ENDIF
  ELSE
    MsgBeep("Za zadanog kupca i datum ne postoji planirana relacija u kalendaru posjeta!#"+;
-           "Ukoliko se radi npr. o skladiçnoj prodaji, kucajte NN u relaciju!")
+           "Ukoliko se radi npr. o skladiï¿½noj prodaji, kucajte NN u relaciju!")
    lVrati:=.f.
  ENDIF
  SELECT (nArr)

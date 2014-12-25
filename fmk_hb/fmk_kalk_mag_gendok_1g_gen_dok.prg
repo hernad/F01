@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 
 function GenMag()

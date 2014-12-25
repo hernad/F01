@@ -10,7 +10,7 @@
  */
 
 
-#include "fin.ch"
+#include "fin01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -1357,7 +1357,7 @@ LOCAL nRec:=RECNO()
   AADD(aKol, { "PLACENO"          , {|| PLACENO      }, .f., "C",  7, 0, 1, ++nKol } )
 
 
-  // Átampanje izvjeÁtaja
+  // ÔøΩtampanje izvjeÔøΩtaja
   // --------------------
 
   IF gPrinter=="L"
@@ -1444,7 +1444,7 @@ seek wid
 if found() .and. Ch==K_CTRL_N
   Beep(3)
   nRet:=.f.
-elseif gSKSif=="D" .and. found()   // naÁao na ispravci ili dupliciranju
+elseif gSKSif=="D" .and. found()   // naÔøΩao na ispravci ili dupliciranju
   if nRec<>RECNO()
     Beep(3)
     nRet:=.f.
@@ -1468,7 +1468,7 @@ return nRet
  
 function MNNSifru()     
 *{                        
- LOCAL cPom, nDuzSif:=0, nDuzUn:=0, cLast:="¨è¶Ê—", nKor:=0
+ LOCAL cPom, nDuzSif:=0, nDuzUn:=0, cLast:="ÔøΩÔøΩÔøΩÔøΩÔøΩ", nKor:=0
  LOCAL lKUFKIF:=.f.
  PRIVATE cImeVar:=READVAR()
  cPom:=&(cImeVar)

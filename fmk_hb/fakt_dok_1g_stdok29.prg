@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -221,7 +221,7 @@ else
  else
    aRPB:={}
  endif
- nRPB:=LEN(aRPB)   // ostalo redova da se odçtampaju reg.i por.br.
+ nRPB:=LEN(aRPB)   // ostalo redova da se odï¿½tampaju reg.i por.br.
 
  IF gKriz>0
    FOR i:=1 TO gKriz
@@ -492,7 +492,7 @@ else
   B_ON; @ 56+IF(gVarF=="B",5,0)+gnTmarg3,nCol1 SAY round(nUk-nRab+nPor2-nFZaokr,nzaokr) pict picdem; B_OFF
 endif
 
-ctxt2:=strtran(ctxt2,""+Chr(10),"")
+ctxt2:=strtran(ctxt2,"ï¿½"+Chr(10),"")
 ctxt2:=strtran(ctxt2,Chr(13)+Chr(10),Chr(13)+Chr(10)+space(gnLMarg+4))
 ctxt2:=OdsjPLK(ctxt2)
 
@@ -591,7 +591,7 @@ P_10CPI
     cStr:=trim(BrDok)
    endif
    IF VALTYPE(aRPB)=="A"
-     nRPB:=LEN(aRPB)   // ostalo redova da se odçtampaju reg.i por.br.
+     nRPB:=LEN(aRPB)   // ostalo redova da se odï¿½tampaju reg.i por.br.
    ENDIF
    IF gKriz>0
      FOR i:=1 TO gKriz

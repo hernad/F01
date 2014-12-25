@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 // ----------------------------------------------------------
 // meni opcije prenos FAKT->KALK prodavnica
@@ -137,7 +137,7 @@ do while .t.
 			
 		endif
 		
-       		// usluge ne prenosi takoðer
+       		// usluge ne prenosi takoï¿½er
 		if ALLTRIM(podbr)=="."  .or. idroba="U"
           		
 			skip

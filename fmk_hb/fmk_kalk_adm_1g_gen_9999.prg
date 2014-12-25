@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 
 /*
@@ -37,7 +37,7 @@
  
 function Gen9999()
 *{  
-  if !(gRadnoPodr=="9999")  // sezonsko kumulativno podrucje za zbirne izvjeçtaje
+  if !(gRadnoPodr=="9999")  // sezonsko kumulativno podrucje za zbirne izvjeï¿½taje
   	MsgBeep("Ova operacija se radi u 9999 podrucju")
 	return
   endif

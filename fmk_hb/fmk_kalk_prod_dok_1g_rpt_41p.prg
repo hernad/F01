@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 
 function StKalk41PDV()
@@ -44,11 +44,11 @@ endif
 if cIdVd='47'
 	? "*R * ROBA     * Kolicina *    MPC   *   PDV %  *   MPC     *"
 	? "*BR*          *          *          *   PDV    *  SA PDV   *"
-	? "*  *          *          *     ä    *     ä    *     ä     *"
+	? "*  *          *          *     ï¿½    *     ï¿½    *     ï¿½     *"
 else
 	? "*R * ROBA     * Kolicina *  NAB.CJ  *  MARZA  *  Prod.C  *  Popust  * PC-pop.  *   PDV %  *MPC sa PDV*  MPC     *"
 	? "*BR*          *          *   U MP   *         *  Prod.V  *          * PV-pop.  *   PDV    * -Popust  *  SA PDV  *"
-	? "*  *          *          *    ä     *         *     ä    *     ä    *          *          *    ä     *    ä     *"
+	? "*  *          *          *    ï¿½     *         *     ï¿½    *     ï¿½    *          *          *    ï¿½     *    ï¿½     *"
 endif
 
 ? m

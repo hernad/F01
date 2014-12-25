@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -27,7 +27,7 @@
  * varijanta koristenja polja UKSTAVKI u DOKS u koje se upisuje broj stavki dokumenta
  *
  * Revision 1.3  2003/06/25 17:48:40  mirsad
- * 1) vraæanje u f-ju 15-ke
+ * 1) vraï¿½anje u f-ju 15-ke
  *
  * Revision 1.2  2002/06/19 13:57:53  mirsad
  * no message

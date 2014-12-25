@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 static LEN_KOLICINA := 8
 static LEN_CIJENA := 10

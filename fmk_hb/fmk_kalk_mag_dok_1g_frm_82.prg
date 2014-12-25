@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -146,7 +146,7 @@ if _TBankTr<>"X" .or. lPoNarudzbi   // ako je X onda su stavke vec izgenerisane
    KalkNab3m(_idfirma,_idroba,_idkonto,aNabavke)
    IF LEN(aNabavke)>1; lGenStavke:=.t.; ENDIF
    IF LEN(aNabavke)>0
-     // - teku†a -
+     // - tekuï¿½a -
      i:=LEN(aNabavke)
      _nc := aNabavke[i,2]
      _kolicina := aNabavke[i,3]
@@ -202,9 +202,9 @@ IF lPoNarudzbi
   _PKonto:=""; _PU_I:=""
   IF lGenStavke
     pIzgSt:=.t.
-    // viçe od jedne stavke
+    // viï¿½e od jedne stavke
     FOR i:=1 TO LEN(aNabavke)-1
-      // generiçi sve izuzev posljednje
+      // generiï¿½i sve izuzev posljednje
       APPEND BLANK
       _error    := IF(_error<>"1","0",_error)
       _rbr      := RedniBroj(nRBr)
@@ -216,7 +216,7 @@ IF lPoNarudzbi
       Gather()
       ++nRBr
     NEXT
-    // posljednja je teku†a
+    // posljednja je tekuï¿½a
     _nc       := aNabavke[i,2]
     _kolicina := aNabavke[i,3]
     _idnar    := aNabavke[i,4]
@@ -232,7 +232,7 @@ IF lPoNarudzbi
       _brojnar  := aNabavke[1,5]
       // _vpc      := _nc
     ELSE
-      // nije izabrana koliŸina -> kao da je prekinut unos tipkom Esc
+      // nije izabrana koliï¿½ina -> kao da je prekinut unos tipkom Esc
       RETURN (K_ESC)
     ENDIF
   ENDIF

@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 
 /*
@@ -158,11 +158,11 @@ function head_19()
 if IsPDV()
 	? "*R * ROBA     * Kolicina *  STARA   * RAZLIKA  * PDV   %  *IZN. PDV  * UK. PDV  * RAZLIKA  *  NOVA   *"
 	? "*BR*          *          *MPC SA PDV*   MPC    *          *          *          *MPC SA PDV*MPC SA PDV*"
-	? "*  *          *          *    ä     *    ä     *          *    ä     *    ä     *    ä     *    ä    *"
+	? "*  *          *          *    ï¿½     *    ï¿½     *          *    ï¿½     *    ï¿½     *    ï¿½     *    ï¿½    *"
 else
 	? "*R * ROBA     * Kolicina *  STARA   * RAZLIKA  * PPP   %  *IZN. PPP  * UK. PPP  * RAZLIKA  *  NOVA   *"
 	? "*BR*          *          *MPC SA PP *   MPC    * PPU   %  *IZN. PPU  * UK. PPU  * MPC SA PP*MPC SA PP*"
-	? "*  *          *          *    ä     *    ä     *          *    ä     *    ä     *    ä     *    ä    *"
+	? "*  *          *          *    ï¿½     *    ï¿½     *          *    ï¿½     *    ï¿½     *    ï¿½     *    ï¿½    *"
 endif
 
 return

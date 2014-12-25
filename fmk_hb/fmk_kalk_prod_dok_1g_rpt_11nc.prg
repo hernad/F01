@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 
 /*
@@ -100,7 +100,7 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
     select PRIPR
     Tarifa(field->pkonto,field->idroba,@aPorezi)
 
-    // inicijalizuj poreze za odreðenu robu
+    // inicijalizuj poreze za odreï¿½enu robu
     VTPorezi()
 
     aIPor:=RacPorezeMP(aPorezi,field->mpc,field->mpcSaPP,field->nc)

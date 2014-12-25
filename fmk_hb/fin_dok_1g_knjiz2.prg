@@ -10,7 +10,7 @@
  */
 
 
-#include "fin.ch"
+#include "fin01.ch"
 
 
 
@@ -38,14 +38,14 @@ LOCAL nRec:=0
     gpCOND()
     ? SPACE(gnLMONI)
     gpB_ON(); gp12cpi()
-    ?? "ORGAN UPRAVE-SLU"+IF(gKodnaS=="8","¦","@")+"BA"
+    ?? "ORGAN UPRAVE-SLU"+IF(gKodnaS=="8","ï¿½","@")+"BA"
     gpB_OFF(); gpCOND()
-    ?? SPACE(50)+"Ispla"+IF(gKodnaS=="8","†","}")+"eno putem"
+    ?? SPACE(50)+"Ispla"+IF(gKodnaS=="8","ï¿½","}")+"eno putem"
     gpB_ON()
     ?? " ZPP-BLAGAJNE"
     gpB_OFF()
 
-    ? SPACE(gnLMONI)+SPACE(77)+"sa "+IF(gKodnaS=="8","§","`")+"iro ra"+IF(gKodnaS=="8","Ÿ","~")+"una"
+    ? SPACE(gnLMONI)+SPACE(77)+"sa "+IF(gKodnaS=="8","ï¿½","`")+"iro ra"+IF(gKodnaS=="8","ï¿½","~")+"una"
 //    ? SPACE(gnLMONI); gPI_ON()
 //    ?? Ocitaj(F_KONTO,idkonto,"naz")
 //    gPI_OFF()
@@ -69,16 +69,16 @@ LOCAL nRec:=0
     ? SPACE(gnLMONI)+SPACE(30); gPB_ON(); gP10cpi()
     ?? "ODOBRENJE I NALOG ZA ISPLATU"; gPB_OFF(); gPCOND()
     ?; ?; ?; ?; ?
-    ? SPACE(gnLMONI)+"Kojim se odre"+IF(gKodnaS=="8","Ð","|")+"uje da se izvr"+IF(gKodnaS=="8","ç","{")+"i isplata u korist "; gpI_ON()
+    ? SPACE(gnLMONI)+"Kojim se odre"+IF(gKodnaS=="8","ï¿½","|")+"uje da se izvr"+IF(gKodnaS=="8","ï¿½","{")+"i isplata u korist "; gpI_ON()
     ?? PADC(ALLTRIM(Ocitaj(F_PARTN,idpartner,"TRIM(naz)+', '+mjesto")),57); gpI_OFF()
     ? SPACE(gnLMONI)+"                                                "+REPL("-",57)
     ?
     ? SPACE(gnLMONI)+REPL("-",105)
-    ? SPACE(gnLMONI)+"na ime ra"+IF(gKodnaS=="8","Ÿ","~")+"una broj "; gpI_ON()
+    ? SPACE(gnLMONI)+"na ime ra"+IF(gKodnaS=="8","ï¿½","~")+"una broj "; gpI_ON()
     ?? PADC(ALLTRIM(brdok),24); gpI_OFF()
     ?? " od "; gPI_ON()
     ?? PADC(DTOC(datval),23); gPI_OFF()
-    ?? " za kupljenu robu - izvr"+IF(gKodnaS=="8","ç","{")+"ene usluge"; gPI_ON()
+    ?? " za kupljenu robu - izvr"+IF(gKodnaS=="8","ï¿½","{")+"ene usluge"; gPI_ON()
     ? SPACE(gnLMONI)+"                   "+REPL("-",24)+"    "+REPL("-",23)
     ?
     ? SPACE(gnLMONI)+REPL("-",105)
@@ -86,7 +86,7 @@ LOCAL nRec:=0
     ? SPACE(gnLMONI)+REPL("-",105)
     ?
     ? SPACE(gnLMONI)+REPL("-",105)
-    ? SPACE(gnLMONI)+"na teret ovog organa - slu"+IF(gKodnaS=="8","§","`")+"be i to:        "+ValDomaca()+" "; gPI_ON()
+    ? SPACE(gnLMONI)+"na teret ovog organa - slu"+IF(gKodnaS=="8","ï¿½","`")+"be i to:        "+ValDomaca()+" "; gPI_ON()
     ?? transform(iznosbhd,gPicBHD); gPI_OFF()
     ? SPACE(gnLMONI)+SPACE(43)+"     "+REPL("-",17)
     ? SPACE(gnLMONI)+SPACE(43)+ValDomaca()
@@ -106,7 +106,7 @@ LOCAL nRec:=0
     ? SPACE(gnLMONI)+SPACE(43)+"     "+REPL("-",17)
     ? SPACE(gnLMONI)+SPACE(32)+REPL("-",33)
     ?; ?; ?; ?
-    ? SPACE(gnLMONI)+SPACE(15)+"Ra"+IF(gKodnaS=="8","Ÿ","~")+"unopolaga"+IF(gKodnaS=="8","Ÿ","~")+SPACE(50)+"Naredbodavac"
+    ? SPACE(gnLMONI)+SPACE(15)+"Ra"+IF(gKodnaS=="8","ï¿½","~")+"unopolaga"+IF(gKodnaS=="8","ï¿½","~")+SPACE(50)+"Naredbodavac"
     ?; ?
     ? SPACE(gnLMONI)+REPL("-",43)+SPACE(20)+REPL("-",42)
     ?

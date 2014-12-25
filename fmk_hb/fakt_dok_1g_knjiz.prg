@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 static lKonsignacija := .f.
 static lDoks2 := .t.

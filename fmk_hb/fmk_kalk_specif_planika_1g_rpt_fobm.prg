@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
  
 
@@ -287,7 +287,7 @@ do while !eof()
      if cCijena=="P"
        @ prow(),pcol()+1 SAY 0  pict strtran(PicPSDEM,".","9")  // povisenje
      endif
-     @ prow(),pcol()+1 SAY proszalk pict strtran(picdem,".","9")  //  prosjeŸna zaliha
+     @ prow(),pcol()+1 SAY proszalk pict strtran(picdem,".","9")  //  prosjeï¿½na zaliha
      IF proszalk>0
        @ prow(),pcol()+1 SAY prodkumk/proszalk*nKorekcija pict picdem  // koef.kol.obrta
      ELSE

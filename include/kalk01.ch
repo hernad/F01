@@ -5,7 +5,7 @@
 #define D_KA_VERZIJA "03.64"
 #define D_KA_PERIOD  "11.94-26.05.14"
 #ifndef FMK_DEFINED
-	#include "fmk.ch"
+	#include "f01.ch"
 #endif
 
 #define GSCTEMP "c:"+SLASH+"sctemp"+SLASH

@@ -5,7 +5,7 @@
 #define D_LD_VERZIJA "03.67"
 #define D_LD_PERIOD "03.96-25.04.12"
 #ifndef FMK_DEFINED
-	#include "fmk.ch"
+	#include "f01.ch"
 #endif
 
 #define RADNIK radn->(PADR(TRIM(naz)+" ("+TRIM(imerod)+") "+ime,35))

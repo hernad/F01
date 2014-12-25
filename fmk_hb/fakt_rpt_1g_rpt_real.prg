@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 static PIC_IZN := "999999999.99"
 static _NUM := 12

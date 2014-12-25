@@ -10,7 +10,7 @@
  */
 
 
-#include "fin.ch"
+#include "fin01.ch"
 
 
 static __par_len
@@ -29,9 +29,9 @@ ENDIF
 cTip:=ValDomaca()
 
 M6:= "--------- --------------- --------------- --------------- --------------- --------------- --------------- --------------- ---------------"
-M7:= "*        *          PO¨ETNO STANJE       *         TEKUèI PROMET         *        KUMULATIVNI PROMET     *            SALDO             *"
+M7:= "*        *          POÔøΩETNO STANJE       *         TEKUÔøΩI PROMET         *        KUMULATIVNI PROMET     *            SALDO             *"
 M8:= "  KLASA   ------------------------------- ------------------------------- ------------------------------- -------------------------------"
-M9:= "*        *    DUGUJE     *   POTRA¶UJE   *     DUGUJE    *   POTRA¶UJE   *    DUGUJE     *   POTRA¶UJE   *     DUGUJE    *    POTRA¶UJE *"
+M9:= "*        *    DUGUJE     *   POTRAÔøΩUJE   *     DUGUJE    *   POTRAÔøΩUJE   *    DUGUJE     *   POTRAÔøΩUJE   *     DUGUJE    *    POTRAÔøΩUJE *"
 M10:="--------- --------------- --------------- --------------- --------------- --------------- --------------- --------------- ---------------"
 
 opc[1]:="1. po grupama       "
@@ -237,16 +237,16 @@ endif
 IF cFormat $ "1#3"
  private REP1_LEN:=236
  th1:= "---- ------- -------- --------------------------------------------------- -------------- ----------------- --------------------------------- ------------------------------- ------------------------------- -------------------------------"
- th2:= "*R. * KONTO *PARTNER *     NAZIV KONTA ILI PARTNERA                      *    MJESTO    *      ADRESA     *        PO¨ETNO STANJE           *         TEKUèI PROMET         *       KUMULATIVNI PROMET      *            SALDO             *"
+ th2:= "*R. * KONTO *PARTNER *     NAZIV KONTA ILI PARTNERA                      *    MJESTO    *      ADRESA     *        POÔøΩETNO STANJE           *         TEKUÔøΩI PROMET         *       KUMULATIVNI PROMET      *            SALDO             *"
  th3:= "                                                                                                           --------------------------------- ------------------------------- ------------------------------- -------------------------------"
- th4:= "*BR.*       *        *                                                   *              *                 *    DUGUJE       *   POTRA¶UJE   *    DUGUJE     *   POTRA¶UJE   *    DUGUJE     *   POTRA¶UJE   *     DUGUJE    *   POTRA¶UJE  *"
+ th4:= "*BR.*       *        *                                                   *              *                 *    DUGUJE       *   POTRAÔøΩUJE   *    DUGUJE     *   POTRAÔøΩUJE   *    DUGUJE     *   POTRAÔøΩUJE   *     DUGUJE    *   POTRAÔøΩUJE  *"
  th5:= "---- ------- -------- --------------------------------------------------- -------------- ----------------- ----------------- --------------- --------------- --------------- --------------- --------------- --------------- ---------------"
 ELSE
  private REP1_LEN:=158
  th1:= "---- ------- -------- -------------------------------------- --------------------------------- ------------------------------- -------------------------------"
- th2:= "*R. * KONTO *PARTNER *    NAZIV KONTA ILI PARTNERA          *        PO¨ETNO STANJE           *       KUMULATIVNI PROMET      *            SALDO             *"
+ th2:= "*R. * KONTO *PARTNER *    NAZIV KONTA ILI PARTNERA          *        POÔøΩETNO STANJE           *       KUMULATIVNI PROMET      *            SALDO             *"
  th3:= "                                                             --------------------------------- ------------------------------- -------------------------------"
- th4:= "*BR.*       *        *                                      *    DUGUJE       *   POTRA¶UJE   *    DUGUJE     *   POTRA¶UJE   *     DUGUJE    *   POTRA¶UJE  *"
+ th4:= "*BR.*       *        *                                      *    DUGUJE       *   POTRAÔøΩUJE   *    DUGUJE     *   POTRAÔøΩUJE   *     DUGUJE    *   POTRAÔøΩUJE  *"
  th5:= "---- ------- -------- -------------------------------------- ----------------- --------------- --------------- --------------- --------------- ---------------"
 ENDIF
 
@@ -702,7 +702,7 @@ endif
 
 P_COND2
 
-?? "FIN: SUBANALITI¨KI BRUTO BILANS U VALUTI '"+TRIM(cBBV)+"'"
+?? "FIN: SUBANALITIÔøΩKI BRUTO BILANS U VALUTI '"+TRIM(cBBV)+"'"
 if !(empty(dDatod) .and. empty(dDatDo))
     ?? " ZA PERIOD OD",dDatOd,"-",dDatDo
 endif
@@ -785,15 +785,15 @@ endif
 
 IF cFormat=="1"
  M1:= "------ ----------- --------------------------------------------------------- ------------------------------- ------------------------------- ------------------------------- -------------------------------"
- M2:= "*REDNI*   KONTO   *                NAZIV ANALITICKOG KONTA                  *        PO¨ETNO STANJE         *         TEKUèI PROMET         *       KUMULATIVNI PROMET      *            SALDO             *"
+ M2:= "*REDNI*   KONTO   *                NAZIV ANALITICKOG KONTA                  *        POÔøΩETNO STANJE         *         TEKUÔøΩI PROMET         *       KUMULATIVNI PROMET      *            SALDO             *"
  M3:= "                                                                             ------------------------------- ------------------------------- ------------------------------- -------------------------------"
- M4:= "*BROJ *           *                                                         *    DUGUJE     *   POTRA¶UJE   *    DUGUJE     *   POTRA¶UJE   *    DUGUJE     *   POTRA¶UJE   *    DUGUJE     *   POTRA¶UJE  *"
+ M4:= "*BROJ *           *                                                         *    DUGUJE     *   POTRAÔøΩUJE   *    DUGUJE     *   POTRAÔøΩUJE   *    DUGUJE     *   POTRAÔøΩUJE   *    DUGUJE     *   POTRAÔøΩUJE  *"
  M5:= "------ ----------- --------------------------------------------------------- --------------- --------------- --------------- --------------- --------------- --------------- --------------- ---------------"
 ELSE
  M1:= "------ ----------- ---------------------------------------- ------------------------------- ------------------------------- -------------------------------"
- M2:= "*REDNI*   KONTO   *         NAZIV ANALITICKOG KONTA        *        PO¨ETNO STANJE         *       KUMULATIVNI PROMET      *            SALDO             *"
+ M2:= "*REDNI*   KONTO   *         NAZIV ANALITICKOG KONTA        *        POÔøΩETNO STANJE         *       KUMULATIVNI PROMET      *            SALDO             *"
  M3:= "                                                            ------------------------------- ------------------------------- -------------------------------"
- M4:= "*BROJ *           *                                        *    DUGUJE     *   POTRA¶UJE   *    DUGUJE     *   POTRA¶UJE   *    DUGUJE     *   POTRA¶UJE  *"
+ M4:= "*BROJ *           *                                        *    DUGUJE     *   POTRAÔøΩUJE   *    DUGUJE     *   POTRAÔøΩUJE   *    DUGUJE     *   POTRAÔøΩUJE  *"
  M5:= "------ ----------- ---------------------------------------- --------------- --------------- --------------- --------------- --------------- ---------------"
 ENDIF
 
@@ -1056,7 +1056,7 @@ return
 function BrBil_21()
 ?
 P_COND2
-?? "FIN: ANALITI¨KI BRUTO BILANS U VALUTI '"+TRIM(cBBV)+"'"
+?? "FIN: ANALITIÔøΩKI BRUTO BILANS U VALUTI '"+TRIM(cBBV)+"'"
 if !(empty(dDatod) .and. empty(dDatDo))
     ?? " ZA PERIOD OD",dDatOd,"-",dDatDo
 endif
@@ -1137,15 +1137,15 @@ endif
 
 if cFormat=="1"
  M1:= "------ ----------- --------------------------------------------------------- ------------------------------- ------------------------------- ------------------------------- -------------------------------"
- M2:= "*REDNI*   KONTO   *                  NAZIV SINTETICKOG KONTA                *        PO¨ETNO STANJE         *         TEKUèI PROMET         *       KUMULATIVNI PROMET      *            SALDO             *"
+ M2:= "*REDNI*   KONTO   *                  NAZIV SINTETICKOG KONTA                *        POÔøΩETNO STANJE         *         TEKUÔøΩI PROMET         *       KUMULATIVNI PROMET      *            SALDO             *"
  M3:= "                                                                             ------------------------------- ------------------------------- ------------------------------- -------------------------------"
- M4:= "*BROJ *           *                                                         *    DUGUJE     *   POTRA¶UJE   *    DUGUJE     *   POTRA¶UJE   *    DUGUJE     *   POTRA¶UJE   *    DUGUJE     *   POTRA¶UJE  *"
+ M4:= "*BROJ *           *                                                         *    DUGUJE     *   POTRAÔøΩUJE   *    DUGUJE     *   POTRAÔøΩUJE   *    DUGUJE     *   POTRAÔøΩUJE   *    DUGUJE     *   POTRAÔøΩUJE  *"
  M5:= "------ ----------- --------------------------------------------------------- --------------- --------------- --------------- --------------- --------------- --------------- --------------- ---------------"
 else
  M1:= "---- ------------------------------ ------------------------------- ------------------------------- -------------------------------"
- M2:= "    *                              *        PO¨ETNO STANJE         *       KUMULATIVNI PROMET      *            SALDO             *"
- M3:= "    *    SINTETI¨KI KONTO           ------------------------------- ------------------------------- -------------------------------"
- M4:= "    *                              *    DUGUJE     *   POTRA¶UJE   *    DUGUJE     *   POTRA¶UJE   *    DUGUJE     *   POTRA¶UJE  *"
+ M2:= "    *                              *        POÔøΩETNO STANJE         *       KUMULATIVNI PROMET      *            SALDO             *"
+ M3:= "    *    SINTETIÔøΩKI KONTO           ------------------------------- ------------------------------- -------------------------------"
+ M4:= "    *                              *    DUGUJE     *   POTRAÔøΩUJE   *    DUGUJE     *   POTRAÔøΩUJE   *    DUGUJE     *   POTRAÔøΩUJE  *"
  M5:= "---- ------------------------------ --------------- --------------- --------------- --------------- --------------- ---------------"
 endif
 
@@ -1361,9 +1361,9 @@ FF
 
 ?? "REKAPITULACIJA PO KLASAMA NA DAN: "; ?? DATE()
 ? IF(cFormat=="1", M6, "--------- --------------- --------------- --------------- --------------- --------------- ---------------")
-? IF(cFormat=="1", M7, "*        *          PO¨ETNO STANJE       *        KUMULATIVNI PROMET     *            SALDO             *")
+? IF(cFormat=="1", M7, "*        *          POÔøΩETNO STANJE       *        KUMULATIVNI PROMET     *            SALDO             *")
 ? IF(cFormat=="1", M8, "  KLASA   ------------------------------- ------------------------------- -------------------------------")
-? IF(cFormat=="1", M9, "*        *    DUGUJE     *   POTRA¶UJE   *    DUGUJE     *   POTRA¶UJE   *     DUGUJE    *    POTRA¶UJE *")
+? IF(cFormat=="1", M9, "*        *    DUGUJE     *   POTRAÔøΩUJE   *    DUGUJE     *   POTRAÔøΩUJE   *     DUGUJE    *    POTRAÔøΩUJE *")
 ? IF(cFormat=="1",M10, "--------- --------------- --------------- --------------- --------------- --------------- ---------------")
 
 select BBKLAS; go top
@@ -1502,9 +1502,9 @@ if gRJ=="D" .and. gSAKrIz=="D" .and. "." $ cidrj
 endif
 
 M1:= "------ ----------- ------------------------------- ------------------------------- ------------------------------- -------------------------------"
-M2:= "*REDNI*   GRUPA   *        PO¨ETNO STANJE         *         TEKUèI PROMET         *       KUMULATIVNI PROMET      *            SALDO             *"
+M2:= "*REDNI*   GRUPA   *        POÔøΩETNO STANJE         *         TEKUÔøΩI PROMET         *       KUMULATIVNI PROMET      *            SALDO             *"
 M3:= "          KONTA    ------------------------------- ------------------------------- ------------------------------- -------------------------------"
-M4:= "*BROJ *           *    DUGUJE     *   POTRA¶UJE   *    DUGUJE     *   POTRA¶UJE   *    DUGUJE     *   POTRA¶UJE   *    DUGUJE     *   POTRA¶UJE  *"
+M4:= "*BROJ *           *    DUGUJE     *   POTRAÔøΩUJE   *    DUGUJE     *   POTRAÔøΩUJE   *    DUGUJE     *   POTRAÔøΩUJE   *    DUGUJE     *   POTRAÔøΩUJE  *"
 M5:= "------ ----------- --------------- --------------- --------------- --------------- --------------- --------------- --------------- ---------------"
 
 

@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
  
 function RedniBroj(nRbr)
@@ -1576,7 +1576,7 @@ O_SIFK; O_SIFV
     NEXT
     APPEND BLANK
     REPLACE ops   WITH cOps,;
-            por   WITH "ƒUKUPNO",;
+            por   WITH "ÔøΩUKUPNO",;
             iznos WITH nU1 ,;
             ppp   WITH nU2 ,;
             ppu   WITH nU3 ,;
@@ -1653,11 +1653,11 @@ RETURN .t.
 
 function FSvaki8()
 *{
-IF por="ƒUKUPNO"
+IF por="ÔøΩUKUPNO"
     RETURN "PODVUCI="
   ENDIF
   SKIP 1
-  IF por="ƒUKUPNO".or.ops="UKUPNO SVE"
+  IF por="ÔøΩUKUPNO".or.ops="UKUPNO SVE"
     SKIP -1
     RETURN "PODVUCI "
   ELSE
@@ -2144,16 +2144,16 @@ IF gKodnaS=="7"
    cInput:=STRTRAN(cInput,"}","c"+CHR(255))
    cInput:=STRTRAN(cInput,"`","z"+CHR(255))
  ELSE  // "8"
-   cInput:=STRTRAN(cInput,"Ê","S"+CHR(255))
-   cInput:=STRTRAN(cInput,"—","D"+CHR(255))
-   cInput:=STRTRAN(cInput,"¨","C"+CHR(254))
-   cInput:=STRTRAN(cInput,"è","C"+CHR(255))
-   cInput:=STRTRAN(cInput,"¶","Z"+CHR(255))
-   cInput:=STRTRAN(cInput,"Á","s"+CHR(255))
-   cInput:=STRTRAN(cInput,"–","d"+CHR(255))
-   cInput:=STRTRAN(cInput,"ü","c"+CHR(254))
-   cInput:=STRTRAN(cInput,"Ü","c"+CHR(255))
-   cInput:=STRTRAN(cInput,"ß","z"+CHR(255))
+   cInput:=STRTRAN(cInput,"ÔøΩ","S"+CHR(255))
+   cInput:=STRTRAN(cInput,"ÔøΩ","D"+CHR(255))
+   cInput:=STRTRAN(cInput,"ÔøΩ","C"+CHR(254))
+   cInput:=STRTRAN(cInput,"ÔøΩ","C"+CHR(255))
+   cInput:=STRTRAN(cInput,"ÔøΩ","Z"+CHR(255))
+   cInput:=STRTRAN(cInput,"ÔøΩ","s"+CHR(255))
+   cInput:=STRTRAN(cInput,"ÔøΩ","d"+CHR(255))
+   cInput:=STRTRAN(cInput,"ÔøΩ","c"+CHR(254))
+   cInput:=STRTRAN(cInput,"ÔøΩ","c"+CHR(255))
+   cInput:=STRTRAN(cInput,"ÔøΩ","z"+CHR(255))
  ENDIF
 RETURN PADR(cInput,100)
 *}

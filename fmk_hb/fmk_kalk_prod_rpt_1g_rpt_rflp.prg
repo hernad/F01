@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 // rekapitulacija finansijskog stanja po objektima
 function RFLLP()

@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -137,7 +137,7 @@ DO WHILE !EOF() .and. sekcija=="C"
 ENDDO
 
 // --------------------------------------------------------
-// PODNO¦JE: UKUPNO, SLOVIMA, NAPOMENA, U POTPISU, ...
+// PODNOï¿½JE: UKUPNO, SLOVIMA, NAPOMENA, U POTPISU, ...
 // --------------------------------------------------------
 DO WHILE !EOF() .and. sekcija=="D"
   AADD(aPodn,{kx,ky,TRIM(tipslova),TRIM(formula)})

@@ -10,7 +10,7 @@
  */
 
 
-#include "fin.ch"
+#include "fin01.ch"
 
 static __par_len
 
@@ -193,7 +193,7 @@ function ZagPPR(cI)
 
 ? cNazivFirme
   ? PADL("Str."+ALLTRIM(STR(++nStranica)),80)
-  ? PADC( StrKZN("PREGLED PROMJENA NA RA¨UNU","8",gKodnaS) , 80 )
+  ? PADC( StrKZN("PREGLED PROMJENA NA RAÔøΩUNU","8",gKodnaS) , 80 )
   ? PADC( "ZA PERIOD "+DTOC(dOd)+" - "+DTOC(dDo) , 80 )
   ?
   IF cI=="U"
@@ -215,7 +215,7 @@ RETURN
  
 function StrKZN(cInput,cIz,cU)
 *{ 
- LOCAL a852:={"Ê","—","¨","è","¶","Á","–","ü","Ü","ß"}
+ LOCAL a852:={"ÔøΩ","ÔøΩ","ÔøΩ","ÔøΩ","ÔøΩ","ÔøΩ","ÔøΩ","ÔøΩ","ÔøΩ","ÔøΩ"}
  LOCAL a437:={"[","\","^","]","@","{","|","~","}","`"}
  LOCAL aEng:={"S","D","C","C","Z","s","d","c","c","z"}
  LOCAL i:=0, aIz:={}, aU:={}

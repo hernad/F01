@@ -10,7 +10,7 @@
  */
 
 
-#include "fin.ch"
+#include "fin01.ch"
 
 
 /*! \file fmk/fin/razdb/1g/ldfin.prg

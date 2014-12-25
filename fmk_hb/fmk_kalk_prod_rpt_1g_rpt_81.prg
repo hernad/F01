@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 
 /*! \fn StKalk81(fzatops)
@@ -330,21 +330,21 @@ if !IsPDV()
  IF lPrikPRUC
    ? "*R * ROBA     *  FCJ     * RABAT    *  FCJ-RAB  * TROSKOVI *    NC    * MARZA.   * POREZ NA *   MPC    * MPCSaPP  *"
    ? "*BR* TARIFA   *  KOLICINA* DOBAVLJ  *           *          *          *          *   MARZU  *          *          *"
-   ? "*  *          *    ä     *   ä      *     ä     *          *          *    ä     *    ä     *    ä     *    ä     *"
+   ? "*  *          *    ï¿½     *   ï¿½      *     ï¿½     *          *          *    ï¿½     *    ï¿½     *    ï¿½     *    ï¿½     *"
  ELSE
    ? "*R * ROBA     *  FCJ     * RABAT    *  FCJ-RAB  * TROSKOVI *    NC    * MARZA.   *   MPC    * MPCSaPP  *"
    ? "*BR* TARIFA   *  KOLICINA* DOBAVLJ  *           *          *          *          *          *          *"
-   ? "*  *          *    ä     *   ä      *     ä     *          *          *    ä     *    ä     *    ä     *"
+   ? "*  *          *    ï¿½     *   ï¿½      *     ï¿½     *          *          *    ï¿½     *    ï¿½     *    ï¿½     *"
  ENDIF
 else
  IF lPrikPRUC
    ? "*R * ROBA     *  FCJ     * RABAT    *  FCJ-RAB  * TROSKOVI *    NC    * MARZA.   * POREZ NA *   MPC    * MPCSaPDV *"
    ? "*BR* TARIFA   *  KOLICINA* DOBAVLJ  *           *          *          *          *   MARZU  *          *          *"
-   ? "*  *          *    ä     *   ä      *     ä     *          *          *    ä     *    ä     *    ä     *    ä     *"
+   ? "*  *          *    ï¿½     *   ï¿½      *     ï¿½     *          *          *    ï¿½     *    ï¿½     *    ï¿½     *    ï¿½     *"
  ELSE
    ? "*R * ROBA     *  FCJ     * RABAT    *  FCJ-RAB  * TROSKOVI *    NC    * MARZA.   *    PC    *  PDV(%)  *    PC    *"
    ? "*BR* TARIFA   *  KOLICINA* DOBAVLJ  *           *          *          *          *  BEZ PDV *  PDV     *  SA PDV  *"
-   ? "*  *          *    ä     *   ä      *     ä     *          *          *    ä     *    ä     *    ä     *          *"
+   ? "*  *          *    ï¿½     *   ï¿½      *     ï¿½     *          *          *    ï¿½     *    ï¿½     *    ï¿½     *          *"
  ENDIF
 
 endif

@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 
 /*
@@ -188,7 +188,7 @@ if lPoNarudzbi
 			Gather()
 			++nRBr
 		next
-		// posljednja je teku†a
+		// posljednja je tekuï¿½a
 		// _nc       := aNabavke[i,2]
 		_kolicina := aNabavke[i,3]
 		_idnar    := aNabavke[i,4]

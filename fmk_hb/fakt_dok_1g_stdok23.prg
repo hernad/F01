@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -1139,7 +1139,7 @@ if !fDelphiRB
 endif
 
 if fDelphiRB
-  ctxt2:=strtran(ctxt2,"█"+Chr(10),"")
+  ctxt2:=strtran(ctxt2,"О©╫"+Chr(10),"")
   ctxt2:=strtran(ctxt2,Chr(13)+Chr(10),Chr(13)+Chr(10))
 
   for i:=1 to 15
@@ -1150,7 +1150,7 @@ if fDelphiRB
    UzmiIzIni(cIniName,'Varijable','KrajTxt'+alltrim(str(i)),"####"+token(KonvZnWin(@cTxt2,gKonvZnWin),Chr(13)+Chr(10),i),'WRITE')
   next
 else
-  ctxt2:=strtran(ctxt2,"█"+Chr(10),"")
+  ctxt2:=strtran(ctxt2,"О©╫"+Chr(10),"")
   ctxt2:=strtran(ctxt2,Chr(13)+Chr(10),Chr(13)+Chr(10)+space(gnLMarg))
   ? space(gnLMarg); ?? ctxt2
   ?
@@ -1373,7 +1373,7 @@ else
       			@ prow(),6 SAY padr(Mjesto(cIdFirma)+", "+dtoc(ddatdok)+" godine",36)
       			?
     		endif
-    		? space(5+38),gPB_ON+"зддддддддд"+IF(cIdTipDok=="06","KONSIGNATOR:","дддддддддддд")+"ддддддддд©"+gPB_OFF
+    		? space(5+38),gPB_ON+"О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫"+IF(cIdTipDok=="06","KONSIGNATOR:","О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫")+"О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫д©"+gPB_OFF
     		// ---------------- MS 07.04.01
     		// ? space(6),gPB_ON+padc(alltrim(cTxt3a),30)+gPB_OFF
     		aPom:=Sjecistr(cTxt3a,30)
@@ -1393,13 +1393,13 @@ else
     		IF glDistrib .and. !EMPTY(cidpm)
       			? space(6+38),gPB_ON+padc(alltrim(cidpm),30)+gPB_OFF
    		ENDIF
-    		? space(5+38),gPB_ON+"юдддддддддддддддддддддддддддддды"+gPB_OFF
+    		? space(5+38),gPB_ON+"О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫"+gPB_OFF
   	ELSE
 		if !(cidtipdok$"10#06#16") .and. (!lPharmaMAC .or. !(cidtipdok$"20#19"))
       			//@ prow(),36 SAY padl(Mjesto(cIdFirma)+", "+dtoc(ddatdok)+" godine",36)
 			@ prow(),36 SAY padl(Mjesto(cIdFirma)+", "+dtoc(ddatdok)+" godine",36)
     		endif
-    		? space(5),gPB_ON+"зддддддддд"+IF(cIdTipDok=="06","KONSIGNATOR:","дддддддддддд")+"ддддддддд©"+gPB_OFF
+    		? space(5),gPB_ON+"О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫"+IF(cIdTipDok=="06","KONSIGNATOR:","О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫")+"О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫д©"+gPB_OFF
     		// ---------------- MS 07.04.01
     		// ? space(6),gPB_ON+padc(alltrim(cTxt3a),30)+gPB_OFF
     		aPom:=Sjecistr(cTxt3a,30)
@@ -1419,7 +1419,7 @@ else
     		IF glDistrib .and. !EMPTY(cidpm)
       			? space(6),gPB_ON+padc(alltrim(cidpm),30)+gPB_OFF
     		ENDIF
-    		? space(5),gPB_ON+"юдддддддддддддддддддддддддддддды"+gPB_OFF
+    		? space(5),gPB_ON+"О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫"+gPB_OFF
   	ENDIF
 endif
 

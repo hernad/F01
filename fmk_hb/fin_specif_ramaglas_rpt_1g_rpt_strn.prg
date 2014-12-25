@@ -10,7 +10,7 @@
  */
 
 
-#include "fin.ch"
+#include "fin01.ch"
 
 
 /*! \file fmk/fin/specif/ramaglas/rpt/1g/rpt_strn.prg

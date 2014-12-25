@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -162,7 +162,7 @@ if val(podbr)=0  .and. val(rbr)==1
    cTxt3a:=aMemo[3]
    cTxt3b:=aMemo[4]
    cTxt3c:=aMemo[5]
-   cTxt2:=ToRtfstr( strtran(ctxt2,"ç"+Chr(10),"") )
+   cTxt2:=ToRtfstr( strtran(ctxt2,"ÔøΩ"+Chr(10),"") )
 else
   Beep(2)
   MsgC()

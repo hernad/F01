@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 
 function StDok
@@ -378,7 +378,7 @@ endif // gsamokol!="D"
 
 ? space(gnLMarg); ?? m
 ?
-ctxt2:=strtran(ctxt2,"ç"+Chr(10),"")
+ctxt2:=strtran(ctxt2,"ÔøΩ"+Chr(10),"")
 ctxt2:=strtran(ctxt2,Chr(13)+Chr(10),Chr(13)+Chr(10)+space(gnLMarg))
 ? space(gnLMarg); ?? ctxt2
 ?

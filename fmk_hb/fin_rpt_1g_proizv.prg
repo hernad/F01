@@ -10,7 +10,7 @@
  */
 
 
-#include "fin.ch"
+#include "fin01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -473,7 +473,7 @@ LOCAL nPr:=1, lKumSuma:=.f., GetList:={}
       SKIP 1; LOOP
     ENDIF
 
-    // na osnovu tipa stavke u KONIZ-u odre–ujemo dalje akcije
+    // na osnovu tipa stavke u KONIZ-u odreÔøΩujemo dalje akcije
     cTK11  := UPPER(LEFT(KONIZ->k,1))
     cTK12  := VAL(RIGHT(KONIZ->k,1))
 
@@ -778,7 +778,7 @@ LOCAL nPr:=1, lKumSuma:=.f., GetList:={}
       nDug:=nPot:=nPrDug:=nPrPot:=0
       DO WHILE !EOF() .and. cIdKonto==&cPIKPolje
         Postotak(2,++nStavki)
-        // Áta sa DATDOK, IZNOSBHD i D_P ?!  VA¶NO!
+        // ÔøΩta sa DATDOK, IZNOSBHD i D_P ?!  VAÔøΩNO!
         // ---------------
 
         IF !lKumSuma .or. datdok>=dOd   // tekuci period (od datuma dOd)
@@ -1313,8 +1313,8 @@ RETURN ( "I"+CHARMIX(PADL(TRIM(cSta),nKucica,IF(EMPTY(cSta)," ","0")),"I") )
  
 function KonvZnWin(cTekst,cWinKonv)
 *{
-LOCAL aNiz:={  {"[","Ê",chr(138),"S"}, {"{","Á",chr(154),"s"}, {"}","Ü",chr(230),"c"}, {"]","è", chr(198),"C"}, {"^","¨", chr(200),"C"},;
-                {"~","ü",chr(232),"c"}, {"`","ß",chr(158),"z"}, {"@","¶",chr(142),"Z"}, {"|","–", chr(240),"dj"}, {"\","—", chr(208),"DJ"}  }
+LOCAL aNiz:={  {"[","ÔøΩ",chr(138),"S"}, {"{","ÔøΩ",chr(154),"s"}, {"}","ÔøΩ",chr(230),"c"}, {"]","ÔøΩ", chr(198),"C"}, {"^","ÔøΩ", chr(200),"C"},;
+                {"~","ÔøΩ",chr(232),"c"}, {"`","ÔøΩ",chr(158),"z"}, {"@","ÔøΩ",chr(142),"Z"}, {"|","ÔøΩ", chr(240),"dj"}, {"\","ÔøΩ", chr(208),"DJ"}  }
  LOCAL i,j
 
  if cWinKonv=NIL

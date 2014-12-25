@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -268,11 +268,11 @@ if gVarF=="3"
    @ prow(),6 SAY padr(Mjesto(cIdFirma)+", "+dtoc(datdok)+" godine",36)
    ?
    ?
-   ? space(5+39),gPB_ON+"ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿"+gPB_OFF
+   ? space(5+39),gPB_ON+"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿"+gPB_OFF
    ? space(6+39),gPB_ON+padc(alltrim(cTxt3a),30)+gPB_OFF
    ? space(6+39),gPB_ON+padc(alltrim(cTxt3b),30)+gPB_OFF
    ? space(6+39),gPB_ON+padc(alltrim(cTxt3c),30)+gPB_OFF
-   ? space(5+39),gPB_ON+"ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ"+gPB_OFF
+   ? space(5+39),gPB_ON+"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"+gPB_OFF
    cStr:=idtipdok+" "+trim(brdok)
    cIdTipDok:=IdTipDok
    private cpom:=""
@@ -289,11 +289,11 @@ if gVarF=="3"
    @ prow(),36 SAY padl(Mjesto(cIdFirma)+", "+dtoc(datdok)+" godine",36)
    ?
    ?
-   ? space(5),gPB_ON+"ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿"+gPB_OFF
+   ? space(5),gPB_ON+"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿"+gPB_OFF
    ? space(6),gPB_ON+padc(alltrim(cTxt3a),30)+gPB_OFF
    ? space(6),gPB_ON+padc(alltrim(cTxt3b),30)+gPB_OFF
    ? space(6),gPB_ON+padc(alltrim(cTxt3c),30)+gPB_OFF
-   ? space(5),gPB_ON+"ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ"+gPB_OFF
+   ? space(5),gPB_ON+"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"+gPB_OFF
    cStr:=idtipdok+" "+trim(brdok)
    cIdTipDok:=IdTipDok
    private cpom:=""
@@ -662,7 +662,7 @@ if !(cIdTipDok $ "00#01#19")
 endif
 
 nPomak:=44+30
-?? space(nPomak),gPB_ON+"ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿"+gPB_OFF
+?? space(nPomak),gPB_ON+"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿"+gPB_OFF
 ? space(1+nPomak),gPB_ON+padc(alltrim(cTxt3a),30)+gPB_OFF
 ? padr(Mjesto(cIdFirma)+", "+dtoc(datdok)+" godine",42)
 ?? space(1+nPomak-42),gPB_ON+padc(alltrim(cTxt3b),30)+gPB_OFF
@@ -671,7 +671,7 @@ nPomak:=44+30
 B_ON
 ?? padr(cStr,44)
 B_OFF
-?? space(nPomak-44),gPB_ON+"ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ"+gPB_OFF
+?? space(nPomak-44),gPB_ON+"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"+gPB_OFF
 
 ?
 ShowIdPar(cIdPartner,46,.f.)
@@ -723,7 +723,7 @@ do while !EOF() .and. cIdFirma+cIdTipDok+cBrDok==IdFirma+IdTipDok+BrDok
 
 nStavki:=LEN(aKol)
 nRedova:=7
-cRIK:=SPACE(5)  // razmak izmeÐu kolona
+cRIK:=SPACE(5)  // razmak izmeï¿½u kolona
 
 if IzFmkIni("Stampa","StUJedanRed","N",KUMPATH)=="N"
  if nStavki>14

@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 // ----------------------------------------------
 // napuni sifrarnik sifk  sa poljem za unos 

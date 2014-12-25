@@ -10,7 +10,7 @@
  */
 
 
-#include "fin.ch"
+#include "fin01.ch"
 
 
 // -----------------------------------------------
@@ -268,7 +268,7 @@ HSEEK cIdFirma
 
 ? M
 
-? "*RED.* ÊIFRA*      NAZIV POSLOVNOG PARTNERA      * PTT *      MJESTO     *   KUMULATIVNI PROMET  U  "+ValDomaca()+"  *    S A L D O   U   "+ValDomaca()+"         "+IF(gVar1=="0","*  KUMULAT. PROMET U "+ValPomocna()+" *  S A L D O   U   "+ValPomocna()+"  ","")+"*"
+? "*RED.* ÔøΩIFRA*      NAZIV POSLOVNOG PARTNERA      * PTT *      MJESTO     *   KUMULATIVNI PROMET  U  "+ValDomaca()+"  *    S A L D O   U   "+ValDomaca()+"         "+IF(gVar1=="0","*  KUMULAT. PROMET U "+ValPomocna()+" *  S A L D O   U   "+ValPomocna()+"  ","")+"*"
 ? "                                                                          ________________________________ _________________________________"+IF(gVar1=="0","*_________________________ ________________________","")+"_"
 ? "*BROJ*      *                                    * BROJ*                 *    DUGUJE     *   POTRAZUJE    *    DUGUJE      *   POTRAZUJE    "+IF(gVar1=="0","*    DUGUJE  * POTRAZUJE  *   DUGUJE   * POTRAZUJE ","")+"*"
 ? M
@@ -595,9 +595,9 @@ cNazPar := naz
 @ prow(),6 SAY "IZVOD OTVORENIH STAVKI NA DAN :"; @ prow(),pcol()+2 SAY memvar->DATUM; @ prow(),pcol()+1 SAY "GODINE"
 ?
 ?
-@ prow(),0 SAY "VAÊE STANJE NA KONTU" ; @ prow(),pcol()+1 SAY cIdKonto
+@ prow(),0 SAY "VAÔøΩE STANJE NA KONTU" ; @ prow(),pcol()+1 SAY cIdKonto
 @ prow(),pcol()+1 SAY " - "+ cIdPartner
-@ prow()+1,0 SAY "PREMA NAÊIM POSLOVNIM KNJIGAMA NA DAN:"
+@ prow()+1,0 SAY "PREMA NAÔøΩIM POSLOVNIM KNJIGAMA NA DAN:"
 @ prow(),39 SAY memvar->DATUM
 @ prow(),48 SAY "GODINE"
 ?
@@ -626,19 +626,19 @@ endif
 
 @ prow(),0 SAY "U"
 IF nIznosBHD>0
-	@ prow(),pcol()+1 SAY "NAÊU"
+	@ prow(),pcol()+1 SAY "NAÔøΩU"
 ELSE
-      	@ prow(),pcol()+1 SAY "VAÊU"
+      	@ prow(),pcol()+1 SAY "VAÔøΩU"
 ENDIF
 
-@ prow(),pcol()+1 SAY "KORIST I SASTOJI SE IZ SLIJEDEèIH OTVORENIH STAVKI:"
+@ prow(),pcol()+1 SAY "KORIST I SASTOJI SE IZ SLIJEDEÔøΩIH OTVORENIH STAVKI:"
 P_COND
 M:="       ---- ---------- -------------------- -------- -------- ---------------- ----------------"
 
 ? M
 ? "       *R. *   BROJ   *    OPIS            * DATUM  * VALUTA *       IZNOS  U  "+iif(cdindem=="1",ValDomaca(),ValPomocna())+"            *"
 ? "       *Br.*          *                    *                 * --------------------------------"
-? "       *   *  RA¨UNA  *                    * RA¨UNA * RA¨UNA *     DUGUJE     *   POTRA¶UJE   *"
+? "       *   *  RAÔøΩUNA  *                    * RAÔøΩUNA * RAÔøΩUNA *     DUGUJE     *   POTRAÔøΩUJE   *"
 ? M
 nCol1:=62
 SELECT SUBAN
@@ -835,14 +835,14 @@ endif
        @ prow()+1,0 SAY M
        @ prow()+1,8 SAY "ZATVORENE STAVKE"
        @ prow(),ncol1    SAY nDugBHDZ-nPOTBHDZ PICTURE picBHD
-       @ prow(),pcol()+1 SAY  " GREÊKA !!"
+       @ prow(),pcol()+1 SAY  " GREÔøΩKA !!"
      endif
    else
      if round(nDugDEMZ-nPOTDEMZ,4)<>0
        @ prow()+1,0 SAY M
        @ prow()+1,8 SAY "ZATVORENE STAVKE"
        @ prow(),ncol1    SAY nDugDEMZ-nPOTDEMZ PICTURE picBHD
-       @ prow(),pcol()+1 SAY " GREÊKA !!"
+       @ prow(),pcol()+1 SAY " GREÔøΩKA !!"
      endif
    endif
 
@@ -881,8 +881,8 @@ if prow()>61+gPStranica; FF; endif
 ?
 ?
 F12CPI
-@ prow(),13 SAY "POÊILJALAC IZVODA:"
-@ prow(),53 SAY "POTVR—UJEMO SAGLASNOST"
+@ prow(),13 SAY "POÔøΩILJALAC IZVODA:"
+@ prow(),53 SAY "POTVRÔøΩUJEMO SAGLASNOST"
 @ prow()+1,50 SAY "OTVORENIH STAVKI:"
 ?
 ?
@@ -907,15 +907,15 @@ if prow()>52+gPStranica; FF; endif
 @ prow()+1,0 SAY "potvrdu ili osporavanje iskazanog stanja, smatracemo da je usaglasavanje zavrseno i da je stanje isto."
 ?
 ?
-@ prow(),0 SAY "NAPOMENA: OSPORAVAMO ISKAZANO STANJE U CJELINI _______________ DJELIMI¨NO"
-@ prow()+1,0 SAY "ZA IZNOS OD  "+ValDomaca()+"= _______________ IZ SLIJEDEèIH RAZLOGA:"
+@ prow(),0 SAY "NAPOMENA: OSPORAVAMO ISKAZANO STANJE U CJELINI _______________ DJELIMIÔøΩNO"
+@ prow()+1,0 SAY "ZA IZNOS OD  "+ValDomaca()+"= _______________ IZ SLIJEDEÔøΩIH RAZLOGA:"
 @ prow()+1,0 SAY "_________________________________________________________________________"
 ?
 ?
 @ prow(),0 SAY "_________________________________________________________________________"
 ?
 ?
-@ prow(),48 SAY "DU¶NIK:"
+@ prow(),48 SAY "DUÔøΩNIK:"
 @ prow()+1,40 SAY "_______________________ M.P."
 @ prow()+1,44 SAY "( MJESTO I DATUM )"
 

@@ -10,7 +10,7 @@
  */
 
 
-#include "fin.ch"
+#include "fin01.ch"
 
 // --------------------------------
 // kontrola zbira naloga 
@@ -72,8 +72,8 @@ set order to
 if !lSilent
  Box("KZD",9,77,.f.)
  set cursor off
-	@ m_x+1,m_y+11 say "³"+PADC("NALOZI",16)+"³"+PADC("SINTETIKA",16)+"³"+PADC("ANALITIKA",16)+"³"+PADC("SUBANALITIKA",16)
-	@ m_x+2,m_y+1  say REPLICATE("Ä",10)+"Å"+REPLICATE("Ä",16)+"Å"+REPLICATE("Ä",16)+"Å"+REPLICATE("Ä",16)+"Å"+REPLICATE("Ä",16)
+	@ m_x+1,m_y+11 say "ï¿½"+PADC("NALOZI",16)+"ï¿½"+PADC("SINTETIKA",16)+"ï¿½"+PADC("ANALITIKA",16)+"ï¿½"+PADC("SUBANALITIKA",16)
+	@ m_x+2,m_y+1  say REPLICATE("ï¿½",10)+"ï¿½"+REPLICATE("ï¿½",16)+"ï¿½"+REPLICATE("ï¿½",16)+"ï¿½"+REPLICATE("ï¿½",16)+"ï¿½"+REPLICATE("ï¿½",16)
 	@ m_x+3,m_y+1 say "duguje "+ValDomaca()
 	@ m_x+4,m_y+1 say "potraz."+ValDomaca()
 	@ m_x+5,m_y+1 say "saldo  "+ValDomaca()
@@ -82,7 +82,7 @@ if !lSilent
 	@ m_x+9,m_y+1 say "saldo  "+ValPomocna()
 	FOR i:=11 TO 65 STEP 17
   		FOR j:=3 TO 9
-    			@ m_x+j,m_y+i SAY "³"
+    			@ m_x+j,m_y+i SAY "ï¿½"
   		NEXT
 	NEXT
 	

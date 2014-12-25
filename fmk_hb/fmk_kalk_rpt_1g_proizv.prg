@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -270,7 +270,7 @@ function GenProIzv()
       SKIP 1; LOOP
     endif
 
-    // na osnovu tipa stavke u KONIZ-u odreÐujemo dalje akcije
+    // na osnovu tipa stavke u KONIZ-u odreï¿½ujemo dalje akcije
     cTK11  := UPPER(LEFT(KONIZ->k,1))
     cTK12  := VAL(RIGHT(KONIZ->k,1))
 
@@ -547,7 +547,7 @@ function GenProIzv()
       nDug:=nPot:=nPrDug:=nPrPot:=0
       DO WHILE !EOF() .and. cIdKonto==&cPIKPolje
         Postotak(2,++nStavki)
-        // çta sa DATDOK, IZNOSBHD i D_P ?!  VA¦NO!
+        // ï¿½ta sa DATDOK, IZNOSBHD i D_P ?!  VAï¿½NO!
         // ---------------
         if !lKumSuma .or. datdok>=dOd   // tekuci period (od datuma dOd)
           if D_P=="1"           // dug.

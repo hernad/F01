@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -61,11 +61,11 @@ function StViseDokMenu(cVarijanta)
      IF cVarijanta=="BRISI"
        @ m_x+1, m_y+2 SAY "IZABERITE DOKUMENT "
        @ m_x+2, m_y+2 SAY "KOJI ZELITE BRISATI"
-       @ m_x+3, m_y+2 SAY "ддддддддддддддддддд"
+       @ m_x+3, m_y+2 SAY "О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫"
      ELSE
        @ m_x+1, m_y+2 SAY "IZABERITE DOKUMENT"
        @ m_x+2, m_y+2 SAY "   ZA STAMPANJE   "
-       @ m_x+3, m_y+2 SAY "дддддддддддддддддд"
+       @ m_x+3, m_y+2 SAY "О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫"
      ENDIF
      nPom:=Menu2(m_x+3,m_y+3,aPom,nPom)
     BoxC()

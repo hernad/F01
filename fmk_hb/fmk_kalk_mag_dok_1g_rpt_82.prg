@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 
 /*
@@ -61,7 +61,7 @@ m:="--- ---------- ---------- ---------- ---------- ---------- ---------- ------
 ? m
 ? "*R * ROBA     * Kolicina *   NC     *  VPC    *    MPC   *   PPP %  *   PPP    *  MPC     *"
 ? "*BR*          *          *          *         *          *   PPU %  *   PPU    *  SA Por  *"
-? "*  *          *          *    ä     *         *     ä    *     ä    *    ä     *    ä     *"
+? "*  *          *          *    ï¿½     *         *     ï¿½    *     ï¿½    *    ï¿½     *    ï¿½     *"
 ? m
 nTot1:=nTot1b:=nTot2:=nTot3:=nTot4:=nTot5:=nTot6:=nTot7:=0
 

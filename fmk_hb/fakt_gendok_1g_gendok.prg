@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
  
 function GDokInv(cIdRj)
@@ -443,7 +443,7 @@ if reccount2() == 0
            
 	    IF gMreznoNum == "N"
                
-	       dbseek( dxidfirma + _n_tip_dok + "È", .t. )
+	       dbseek( dxidfirma + _n_tip_dok + "ï¿½", .t. )
                
 	       skip -1
                
@@ -550,7 +550,7 @@ if  idtipdok $ "12#20#13#01#27"
         @ m_x+1,m_y+2 SAY "Dokument: "; ?? idfirma+"-"+idtipdok+"-"+brdok,"   ", Datdok
         // select FAKT; go top
         select DOKS; go top
-        seek pripr->idfirma+cNoviTip+"È"
+        seek pripr->idfirma+cNoviTip+"ï¿½"
         skip -1
         if  cNoviTip<>idtipdok
          cBrDok:=UBrojDok(1,gNumDio,"")

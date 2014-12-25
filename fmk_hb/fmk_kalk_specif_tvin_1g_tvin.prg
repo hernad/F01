@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 /*! \fn IspisPoNar(lPartner,lString,lMVar)
  *  \brief Prikaz narucioca ako je razlicit od kupca

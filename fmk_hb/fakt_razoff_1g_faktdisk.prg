@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -202,7 +202,7 @@ if Pitanje(,"Prenijeti u datoteku prenosa fakt sa ovim kriterijom ?","D")=="D"
   
 	? "FAKT - U DATOTECI ZA PRENOS SU SLJEDECI DOKUMENTI - FAKT:"
   	?
-  	? "FIRMA³ TIP ³  BROJ  ³  DATUM "
+  	? "FIRMAï¿½ TIP ï¿½  BROJ  ï¿½  DATUM "
   	? "-----------------------------"
   
   	do while !eof()
@@ -235,7 +235,7 @@ if Pitanje(,"Prenijeti u datoteku prenosa fakt sa ovim kriterijom ?","D")=="D"
 		cpBrDok:=brdok
 		SKIP -1
     		IF cpFirma+cpTipDok+cpBrDok!=idfirma+idtipdok+brdok
-     			? "  "+idfirma+" ³  "+idtipdok+" ³"+brdok+"³"+DTOC(datdok)
+     			? "  "+idfirma+" ï¿½  "+idtipdok+" ï¿½"+brdok+"ï¿½"+DTOC(datdok)
     		ENDIF
     	
 		skip
@@ -599,7 +599,7 @@ LOCAL GetList:={}
      @ m_X+ 6,m_y+ 2 SAY "tip dokumenata koji se prenose" GET cUslovTDok  PICT "@!S30"
      @ m_X+ 7,m_y+ 2 SAY "Specificni dodatni uslov      " GET cSpecUslov  PICT "@!S30"
      @ m_X+ 8,m_y+ 2 SAY "Formula za duzinu sintet.sifre" GET cSinSFormula PICT "@!S30"
-     @ m_X+ 9,m_y+ 2 SAY "ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ"
+     @ m_X+ 9,m_y+ 2 SAY "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
      @ m_X+10,m_y+ 2 SAY "Konverzije pri prijemu dokumenata:"
      @ m_X+11,m_y+ 2 SAY "Oznaka firme (F1.F2;F3.F4 ...)  " GET cKonvFirma  PICT "@!S30"
      @ m_X+12,m_y+ 2 SAY "Br.dokumenta (VD1.F1;VD2.F2 ...)" GET cKonvBrDok  PICT "@!S30"

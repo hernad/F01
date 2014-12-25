@@ -6,7 +6,7 @@
 #define D_KADEV_PERIOD '11.94-15.03.07'
 
 #ifndef FMK_DEFINED
-	#include "fmk.ch"
+	#include "f01.ch"
 #endif
 
 #define F_K_0       1

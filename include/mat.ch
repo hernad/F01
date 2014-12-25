@@ -6,7 +6,7 @@
 #define D_MAT_PERIOD '11.94-24.02.11'
 
 #ifndef FMK_DEFINED
-	#include "fmk.ch"
+	#include "f01.ch"
 #endif
 
 #xcommand O_PRIPR    =>  select(F_PRIPR   ); usex (PRIVPATH+"PRIPR") ; set order to tag "1"

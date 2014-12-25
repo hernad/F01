@@ -10,7 +10,7 @@
  */
 
 
-#include "fin.ch"
+#include "fin01.ch"
 
 static __par_len
 
@@ -298,7 +298,7 @@ LOCAL cMjGod:=""
     cBrNal   := BRNAL
     dDatNal  := DATNAL
     IF cMjGod != STR(MONTH(dDatNal),2)+STR(YEAR(dDatNal),4)
-      // zavrçi stranu
+      // zavrï¿½i stranu
       PrenosDNal()
       // stampaj zaglavlje (nova stranica)
       Zagl11()

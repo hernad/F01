@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 
 function PrZaglavlje()
@@ -678,9 +678,9 @@ LOCAL nArr:=SELECT(), aUlazi:={}, GetList:={}, cIdPartner:=_idpartner
   ENDIF
   DO WHILE !EOF() .and. _idroba==idroba
     IF idpartner==cIdPartner .and. idvd=="10" .and. kolicina>0
-      AADD( aUlazi , idfirma+"-"+idvd+"-"+brdok+"Ё"+;
-                     DTOC(datdok)+"Ё"+;
-                     STR(kolicina,11,3)+"Ё"+;
+      AADD( aUlazi , idfirma+"-"+idvd+"-"+brdok+"О©╫"+;
+                     DTOC(datdok)+"О©╫"+;
+                     STR(kolicina,11,3)+"О©╫"+;
                      STR(fcj,11,3)                     )
     ENDIF
     SKIP 1
@@ -689,9 +689,9 @@ LOCAL nArr:=SELECT(), aUlazi:={}, GetList:={}, cIdPartner:=_idpartner
   SELECT (nArr)
   IF !( LEN(aUlazi)>0 ); RETURN; ENDIF
   h:=ARRAY(LEN(aUlazi)); AFILL(h,"")
-  Box("#POSTOJECI ULAZI (KALK): ммммммм <Enter>-izbor ",MIN(LEN(aUlazi),16)+3,51)
-   @ m_x+1, m_y+2 SAY "    DOKUMENT   Ё DATUM  Ё KOLICINA  Ё  CIJENA    "
-   @ m_x+2, m_y+2 SAY "дддддддддддддддеддддддддедддддддддддедддддддддддд"
+  Box("#POSTOJECI ULAZI (KALK): О©╫О©╫О©╫О©╫О©╫О©╫О©╫ <Enter>-izbor ",MIN(LEN(aUlazi),16)+3,51)
+   @ m_x+1, m_y+2 SAY "    DOKUMENT   О©╫ DATUM  О©╫ KOLICINA  О©╫  CIJENA    "
+   @ m_x+2, m_y+2 SAY "О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫"
    nPom := 1
    @ row()-1, col()-6 SAY ""
    nPom := Menu("KCME",aUlazi,nPom,.f.,,,{m_x+2,m_y+1})

@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -160,7 +160,7 @@ if val(podbr)=0  .and. val(rbr)==1
    cTxt3a:=aMemo[3]
    cTxt3b:=aMemo[4]
    cTxt3c:=aMemo[5]
-   cTxt2:=ToRtfStr( strtran(ctxt2,""+Chr(10),"") )
+   cTxt2:=ToRtfStr( strtran(ctxt2,"ï¿½"+Chr(10),"") )
    if len(aMemo)>=9
     _BrOtp:=aMemo[6]; _DatOtp:=ctod(aMemo[7]); _BrNar:=amemo[8]; _DatPl:=ctod(aMemo[9])
    endif

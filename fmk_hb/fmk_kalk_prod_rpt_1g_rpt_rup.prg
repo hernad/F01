@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 // ukalkulisani porez prodavnice
 function RekKPor()

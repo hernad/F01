@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 
 /*
@@ -57,7 +57,7 @@ select PARTN; HSEEK cIdPartner
  ? m
  ? "*R *Konto  * ROBA     *          *  NCJ     * "+cRNT1+" * "+cRNT2+" * "+cRNT3+" * "+cRNT4+" * "+cRNT5+" * Cij.Kost *  Marza   * Prod.Cj * "
  ? "*BR*       * TARIFA   * KOLICINA *          *          *          *          *          *          *          *          *         *"
- ? "*  *       *          *          *    ä     *    ä     *    ä     *     ä    *    ä     *    ä     *    ä     *    ä     *   ä     *"
+ ? "*  *       *          *          *    ï¿½     *    ï¿½     *    ï¿½     *     ï¿½    *    ï¿½     *    ï¿½     *    ï¿½     *    ï¿½     *   ï¿½     *"
  ? m
  nTot:=nTot1:=nTot2:=nTot3:=nTot4:=nTot5:=nTot6:=nTot7:=nTot8:=nTot9:=nTotA:=0
 

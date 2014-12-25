@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -499,7 +499,7 @@ UzmiIzIni(cIniName,'Varijable','Slovima',cPom,'WRITE')
 
 
 
-cTxt2:=strtran(cTxt2,"ç"+Chr(10),"")
+cTxt2:=strtran(cTxt2,"ÔøΩ"+Chr(10),"")
 cTxt2:=strtran(cTxt2, Chr(13)+Chr(10), "####"+Chr(200))
 
 for i:=1 to 25
@@ -617,7 +617,7 @@ elseif cidtipdok="19"
    if IzFMKIni("FAKT","I19jeOtpremnica","N",KUMPATH)=="D"
       cStr:="OTPREMNICA (19) "+cIdFirma
    elseif lPartic
-      cStr:=StrKZN("RA¨UN PARTICIPACIJE","8",gKodnaS)+" (19) "+cIdFirma
+      cStr:=StrKZN("RAÔøΩUN PARTICIPACIJE","8",gKodnaS)+" (19) "+cIdFirma
    else
       cStr:="IZLAZ (19) "+cIdFirma
    endif

@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -87,7 +87,7 @@ do while .t.
 	@ m_x+16,m_y+ 1 SAY REPL(CHR(22),70)
 	@ m_x+17,m_y+30 SAY " (+)     ZADUZENJE:"
 	@ m_x+18,m_y+30 SAY " (-)       UPLATIO:"
-	@ m_x+19,m_y+30 SAY " ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ"
+	@ m_x+19,m_y+30 SAY " ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 	@ m_x+20,m_y+30 SAY " (=) PREOSTALI DUG:"
 	DajStanjeKupca()
 	@ m_x+ 4,m_y+ 1 SAY REPL(CHR(22),70)
@@ -304,13 +304,13 @@ P_10CPI
 ? "KUPAC:",cIdPartner,"-",PARTN->naz
 ?
 ? "-------- "+REPL("-",LEN(opis))+" "+REPL("-",10)
-? "DAT.UPL.³"+PADC("OPIS",LEN(opis))+"³"+PADC("IZNOS",10)
+? "DAT.UPL.ï¿½"+PADC("OPIS",LEN(opis))+"ï¿½"+PADC("IZNOS",10)
 ? "-------- "+REPL("-",LEN(opis))+" "+REPL("-",10)
 
 seek cIdPartner
 do while !eof() .and. idpartner==cIdPartner
 	? datupl
-	?? "³"+opis+"³"
+	?? "ï¿½"+opis+"ï¿½"
 	?? TRANS(iznos,"9999999.99")
 	skip 1
 enddo

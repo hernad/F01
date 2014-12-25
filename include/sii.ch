@@ -6,7 +6,7 @@
 #define D_SII_PERIOD '08.96-18.07.06'
 
 #ifndef FMK_DEFINED
-	#include "fmk.ch"
+	#include "f01.ch"
 #endif
 
 #xcommand O_OS   => select (F_OS); use  ("OS"); set order to 1

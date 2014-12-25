@@ -10,7 +10,7 @@
  */
 
 
-#include "fin.ch"
+#include "fin01.ch"
 
 
 /*! \fn FinDisk()
@@ -170,7 +170,7 @@ if Pitanje(,"Prenijeti u datoteku prenosa suban.naloge sa ovim kriterijem ?","N"
   MsgO("Prolaz kroz SUBAN...")
   StartPrint(.t.)
   ? "FIN - U DATOTECI ZA PRENOS SU SLJEDECI DOKUMENTI - NALOZI:"
-  ?; ? "FIRMA³ TIP ³BROJ    ³  DATUM "
+  ?; ? "FIRMAï¿½ TIP ï¿½BROJ    ï¿½  DATUM "
      ? "-----------------------------"
   do while !eof()
   	select SUBAN
@@ -185,7 +185,7 @@ if Pitanje(,"Prenijeti u datoteku prenosa suban.naloge sa ovim kriterijem ?","N"
   		cpBrNal:=brnal
   	SKIP -1
   	IF cpFirma+cpIdVN+cpBrNal!=idfirma+idvn+brnal
-  		? "  "+idfirma+" ³  "+idvn+" ³"+brnal+"³"+DTOC(nalog->datNal)
+  		? "  "+idfirma+" ï¿½  "+idvn+" ï¿½"+brnal+"ï¿½"+DTOC(nalog->datNal)
   	ENDIF
   	skip 1
   enddo
@@ -464,7 +464,7 @@ LOCAL GetList:={}
      @ m_X+ 5,m_y+ 2 SAY "Standardno koristeni uslov za "
      @ m_X+ 6,m_y+ 2 SAY "tip dokumenata koji se prenose" GET cUslovVDok  PICT "@!S30"
      @ m_X+ 7,m_y+ 2 SAY "Specificni dodatni uslov      " GET cSpecUslov  PICT "@!S30"
-     @ m_X+ 8,m_y+ 2 SAY "ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ"
+     @ m_X+ 8,m_y+ 2 SAY "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
      @ m_X+ 9,m_y+ 2 SAY "Konverzije pri prijemu dokumenata:"
      @ m_X+10,m_y+ 2 SAY "Oznaka firme (F1.F2;F3.F4 ...)  " GET cKonvFirma  PICT "@!S30"
      @ m_X+11,m_y+ 2 SAY "Br.dokumenta (VN1.F1;VN2.F2 ...)" GET cKonvBrDok  PICT "@!S30"

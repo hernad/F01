@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -121,7 +121,7 @@ RPar("c2",@dOd     )
   // odredimo novi broj racuna
   // ----------------------------
    select fakt
-   seek cIdRJ+"16"+"È"
+   seek cIdRJ+"16"+"ï¿½"
    skip -1
 
    if idfirma+idtipdok <> cIdRJ+"16"

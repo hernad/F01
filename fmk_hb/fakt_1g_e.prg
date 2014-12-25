@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 // ----------------------------------------------------------------
 //                        Copyright Sigma-com software 1998-2006 

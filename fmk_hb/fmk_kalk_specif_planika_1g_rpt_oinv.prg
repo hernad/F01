@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -271,19 +271,19 @@ do while !eof()
 					FF
 					ZaglINV()
 				endif
-     				? str(++nRbr,4),"³", cidroba
-				??  "³"
+     				? str(++nRbr,4),"ï¿½", cidroba
+				??  "ï¿½"
 				?? LEFT(roba->naz,40)
-				??  "³"
+				??  "ï¿½"
      				// grupa artikla - atvibut N1 - numericki
      				@ prow(),pcol() SAY roba->N1 pict "999"
-				??  "³"
+				??  "ï¿½"
      				// tekuca cijena
      				@ prow(),pcol() SAY nmpc pict "9999.99"
-				??  "³"
+				??  "ï¿½"
      				// nova cijena
      				@ prow(),pcol() SAY nnovampc pict "@Z 9999.99"
-				??  "³"
+				??  "ï¿½"
     			endif
 			nCol1:=pcol()
 			if cPrikKol=="D"
@@ -301,17 +301,17 @@ do while !eof()
     			if xxx==1
      				// predhodno stanje
      				@ prow(),pcol() SAY nPom pict pickol
-				??  "³"
+				??  "ï¿½"
      				@ prow(),pcol() SAY nPom*nmpc pict picdem
-				??  "³"
+				??  "ï¿½"
 				// prijem u mjesecu
      				if cPoc=="D"
        					nPom:=0
      				else
        					nPom:=nK4 // prijem u mjesecu
      				endif
-     				@ prow(),pcol() SAY nPom pict pickol; ??  "³"
-     				@ prow(),pcol() SAY nPom*nmpc pict picdem; ??  "³"
+     				@ prow(),pcol() SAY nPom pict pickol; ??  "ï¿½"
+     				@ prow(),pcol() SAY nPom*nmpc pict picdem; ??  "ï¿½"
      				if roba->k2<>"X"
        					nTTT20+=nPom
      				endif
@@ -327,7 +327,7 @@ do while !eof()
           					nPom:=0
        					endif
      				endif
-     				@ prow(),pcol() SAY nPom pict picdem; ??  "³"
+     				@ prow(),pcol() SAY nPom pict picdem; ??  "ï¿½"
      				nTTT30+=nPom
 				// iznos snizenje
      				if cPoc=="D"
@@ -339,7 +339,7 @@ do while !eof()
           					nPom:=0
        					endif
      				endif
-     				@ prow(),pcol() SAY nPom pict picdem; ??  "³"
+     				@ prow(),pcol() SAY nPom pict picdem; ??  "ï¿½"
      				nTTT31+=nPom
 
      				// otpremljeno u mjesecu
@@ -348,8 +348,8 @@ do while !eof()
      				else
         				nPom:=nK6 // izlaz iz prodavnice po ostalim osnovama
      				endif
-     				@ prow(),pcol() SAY nPom pict pickol; ??  "³"
-     				@ prow(),pcol() SAY nPom*nmpc pict picdem; ??  "³"
+     				@ prow(),pcol() SAY nPom pict pickol; ??  "ï¿½"
+     				@ prow(),pcol() SAY nPom*nmpc pict picdem; ??  "ï¿½"
      				if roba->k2<>"X"
        					nTTT40+=nPom
      				endif
@@ -360,8 +360,8 @@ do while !eof()
      				else
         				nPom:=nK5 // reklamacije u mjesecu
      				endif
-     				@ prow(),pcol() SAY nPom pict pickol; ??  "³"
-     				@ prow(),pcol() SAY nPom*nmpc pict picdem; ??  "³"
+     				@ prow(),pcol() SAY nPom pict pickol; ??  "ï¿½"
+     				@ prow(),pcol() SAY nPom*nmpc pict picdem; ??  "ï¿½"
      				if roba->k2<>"X"
        					nTTT50+=nPom
      				endif
@@ -372,8 +372,8 @@ do while !eof()
      				else
         				nPom:=nK1 // prodaja mjesecu
      				endif
-     				@ prow(),pcol() SAY nPom pict pickol; ??  "³"
-     				@ prow(),pcol() SAY nPom*nmpc pict picdem; ??  "³"
+     				@ prow(),pcol() SAY nPom pict pickol; ??  "ï¿½"
+     				@ prow(),pcol() SAY nPom*nmpc pict picdem; ??  "ï¿½"
      				if roba->k2<>"X"
       					nTTT60+=nPom
      				endif
@@ -386,15 +386,15 @@ do while !eof()
        					nPom:=nk2
      				endif
 
-     				@ prow(),pcol() SAY nPom pict pickol; ??  "³"
+     				@ prow(),pcol() SAY nPom pict pickol; ??  "ï¿½"
      				if round(nNovaMPC,3)==0
-       					@ prow(),pcol() SAY nPom*nMPC pict picdem; ??  "³"
+       					@ prow(),pcol() SAY nPom*nMPC pict picdem; ??  "ï¿½"
        					if roba->k2<>"X"
          					nTTT70+=nPom
        					endif
        					nTTT71+=nPom*nmpc
      				else
-       					@ prow(),pcol() SAY nPom*nNovaMPC pict picdem; ??  "³"
+       					@ prow(),pcol() SAY nPom*nNovaMPC pict picdem; ??  "ï¿½"
        					if roba->k2<>"X"
         					nTTT70+=nPom
        					endif
@@ -408,8 +408,8 @@ do while !eof()
        					nPom:=nk3
      				endif
 
-     				@ prow(),pcol() SAY nPom pict pickol; ??  "³"
-     				@ prow(),pcol() SAY nPom*nMPC pict picdem; ??  "³"
+     				@ prow(),pcol() SAY nPom pict pickol; ??  "ï¿½"
+     				@ prow(),pcol() SAY nPom*nMPC pict picdem; ??  "ï¿½"
      				if roba->k2<>"X"
        					nTTT80+=nPom
      				endif
@@ -439,22 +439,22 @@ do while !eof()
     			//I_ON
     			? m
     			? "Ukupno tarifa", cidtarifa
-    			@ prow(),nCol1 SAY nTTT10 pict pickol; ??  "³"
-    			@ prow(),pcol() SAY nTTT11 pict picdem; ??  "³"
-    			@ prow(),pcol() SAY nTTT20 pict pickol; ??  "³"
-    			@ prow(),pcol() SAY nTTT21 pict picdem; ??  "³"
-    			@ prow(),pcol() SAY nTTT30 pict picdem; ??  "³"
-    			@ prow(),pcol() SAY nTTT31 pict picdem; ??  "³"
-    			@ prow(),pcol() SAY nTTT40 pict pickol; ??  "³"
-    			@ prow(),pcol() SAY nTTT41 pict picdem; ??  "³"
-    			@ prow(),pcol() SAY nTTT50 pict pickol; ??  "³"
-    			@ prow(),pcol() SAY nTTT51 pict picdem; ??  "³"
-    			@ prow(),pcol() SAY nTTT60 pict pickol; ??  "³"
-    			@ prow(),pcol() SAY nTTT61 pict picdem; ??  "³"
-    			@ prow(),pcol() SAY nTTT70 pict pickol; ??  "³"
-    			@ prow(),pcol() SAY nTTT71 pict picdem; ??  "³"
-    			@ prow(),pcol() SAY nTTT80 pict pickol; ??  "³"
-    			@ prow(),pcol() SAY nTTT81 pict picdem; ??  "³"
+    			@ prow(),nCol1 SAY nTTT10 pict pickol; ??  "ï¿½"
+    			@ prow(),pcol() SAY nTTT11 pict picdem; ??  "ï¿½"
+    			@ prow(),pcol() SAY nTTT20 pict pickol; ??  "ï¿½"
+    			@ prow(),pcol() SAY nTTT21 pict picdem; ??  "ï¿½"
+    			@ prow(),pcol() SAY nTTT30 pict picdem; ??  "ï¿½"
+    			@ prow(),pcol() SAY nTTT31 pict picdem; ??  "ï¿½"
+    			@ prow(),pcol() SAY nTTT40 pict pickol; ??  "ï¿½"
+    			@ prow(),pcol() SAY nTTT41 pict picdem; ??  "ï¿½"
+    			@ prow(),pcol() SAY nTTT50 pict pickol; ??  "ï¿½"
+    			@ prow(),pcol() SAY nTTT51 pict picdem; ??  "ï¿½"
+    			@ prow(),pcol() SAY nTTT60 pict pickol; ??  "ï¿½"
+    			@ prow(),pcol() SAY nTTT61 pict picdem; ??  "ï¿½"
+    			@ prow(),pcol() SAY nTTT70 pict pickol; ??  "ï¿½"
+    			@ prow(),pcol() SAY nTTT71 pict picdem; ??  "ï¿½"
+    			@ prow(),pcol() SAY nTTT80 pict pickol; ??  "ï¿½"
+    			@ prow(),pcol() SAY nTTT81 pict picdem; ??  "ï¿½"
    		endif //xxx=1
    		nInd:=ascan(aTarife,{|x| x[1]=cIdTarifa})
    		if nInd=0
@@ -545,22 +545,22 @@ do while !eof()
    		hseek cG1
    		select rekap1
    		? "Ukupno grupa", cG1, "-", k1->naz
-   		@ prow(),nCol1 SAY  nTT10 pict pickol; ??  "³"
-   		@ prow(),pcol() SAY nTT11 pict picdem; ??  "³"
-   		@ prow(),pcol() SAY nTT20 pict pickol; ??  "³"
-   		@ prow(),pcol() SAY nTT21 pict picdem; ??  "³"
-   		@ prow(),pcol() SAY nTT30 pict picdem; ??  "³"
-   		@ prow(),pcol() SAY nTT31 pict picdem; ??  "³"
-   		@ prow(),pcol() SAY nTT40 pict pickol; ??  "³"
-   		@ prow(),pcol() SAY nTT41 pict picdem; ??  "³"
-   		@ prow(),pcol() SAY nTT50 pict pickol; ??  "³"
-   		@ prow(),pcol() SAY nTT51 pict picdem; ??  "³"
-   		@ prow(),pcol() SAY nTT60 pict pickol; ??  "³"
-   		@ prow(),pcol() SAY nTT61 pict picdem; ??  "³"
-   		@ prow(),pcol() SAY nTT70 pict pickol; ??  "³"
-   		@ prow(),pcol() SAY nTT71 pict picdem; ??  "³"
-   		@ prow(),pcol() SAY nTT80 pict pickol; ??  "³"
-   		@ prow(),pcol() SAY nTT81 pict picdem; ??  "³"
+   		@ prow(),nCol1 SAY  nTT10 pict pickol; ??  "ï¿½"
+   		@ prow(),pcol() SAY nTT11 pict picdem; ??  "ï¿½"
+   		@ prow(),pcol() SAY nTT20 pict pickol; ??  "ï¿½"
+   		@ prow(),pcol() SAY nTT21 pict picdem; ??  "ï¿½"
+   		@ prow(),pcol() SAY nTT30 pict picdem; ??  "ï¿½"
+   		@ prow(),pcol() SAY nTT31 pict picdem; ??  "ï¿½"
+   		@ prow(),pcol() SAY nTT40 pict pickol; ??  "ï¿½"
+   		@ prow(),pcol() SAY nTT41 pict picdem; ??  "ï¿½"
+   		@ prow(),pcol() SAY nTT50 pict pickol; ??  "ï¿½"
+   		@ prow(),pcol() SAY nTT51 pict picdem; ??  "ï¿½"
+   		@ prow(),pcol() SAY nTT60 pict pickol; ??  "ï¿½"
+   		@ prow(),pcol() SAY nTT61 pict picdem; ??  "ï¿½"
+   		@ prow(),pcol() SAY nTT70 pict pickol; ??  "ï¿½"
+   		@ prow(),pcol() SAY nTT71 pict picdem; ??  "ï¿½"
+   		@ prow(),pcol() SAY nTT80 pict pickol; ??  "ï¿½"
+   		@ prow(),pcol() SAY nTT81 pict picdem; ??  "ï¿½"
   	endif //XXX
   	nT10+=nTT10
   	nT11+=nTT11
@@ -602,22 +602,22 @@ if xxx=1
 	//B_ON
 	? strtran(m,"-","=")
 	? "U K U P N O"
-  	@ prow(),nCol1 SAY  nT10 pict pickol; ??  "³"
-  	@ prow(),pcol() SAY nT11 pict picdem; ??  "³"
-  	@ prow(),pcol() SAY nT20 pict pickol; ??  "³"
-  	@ prow(),pcol() SAY nT21 pict picdem; ??  "³"
- 	@ prow(),pcol() SAY nT30 pict picdem; ??  "³"
-  	@ prow(),pcol() SAY nT31 pict picdem; ??  "³"
-  	@ prow(),pcol() SAY nT40 pict pickol; ??  "³"
-  	@ prow(),pcol() SAY nT41 pict picdem; ??  "³"
-  	@ prow(),pcol() SAY nT50 pict pickol; ??  "³"
-  	@ prow(),pcol() SAY nT51 pict picdem; ??  "³"
-  	@ prow(),pcol() SAY nT60 pict pickol; ??  "³"
-  	@ prow(),pcol() SAY nT61 pict picdem; ??  "³"
-  	@ prow(),pcol() SAY nT70 pict pickol; ??  "³"
-  	@ prow(),pcol() SAY nT71 pict picdem; ??  "³"
-  	@ prow(),pcol() SAY nT80 pict pickol; ??  "³"
-  	@ prow(),pcol() SAY nT81 pict picdem; ??  "³"
+  	@ prow(),nCol1 SAY  nT10 pict pickol; ??  "ï¿½"
+  	@ prow(),pcol() SAY nT11 pict picdem; ??  "ï¿½"
+  	@ prow(),pcol() SAY nT20 pict pickol; ??  "ï¿½"
+  	@ prow(),pcol() SAY nT21 pict picdem; ??  "ï¿½"
+ 	@ prow(),pcol() SAY nT30 pict picdem; ??  "ï¿½"
+  	@ prow(),pcol() SAY nT31 pict picdem; ??  "ï¿½"
+  	@ prow(),pcol() SAY nT40 pict pickol; ??  "ï¿½"
+  	@ prow(),pcol() SAY nT41 pict picdem; ??  "ï¿½"
+  	@ prow(),pcol() SAY nT50 pict pickol; ??  "ï¿½"
+  	@ prow(),pcol() SAY nT51 pict picdem; ??  "ï¿½"
+  	@ prow(),pcol() SAY nT60 pict pickol; ??  "ï¿½"
+  	@ prow(),pcol() SAY nT61 pict picdem; ??  "ï¿½"
+  	@ prow(),pcol() SAY nT70 pict pickol; ??  "ï¿½"
+  	@ prow(),pcol() SAY nT71 pict picdem; ??  "ï¿½"
+  	@ prow(),pcol() SAY nT80 pict pickol; ??  "ï¿½"
+  	@ prow(),pcol() SAY nT81 pict picdem; ??  "ï¿½"
 
 	? strtran(m,"-","=")
 	//B_OFF
@@ -645,22 +645,22 @@ IF XXX=1
 			select k1
 			hseek aTarGr[nCnt,1]
 			? aTarGr[nCnt,1],k1->naz,"(",trim(aTarGr[nCnt,2]),")"
-  			@ prow(),nCol1 SAY aTarGr[nCnt,3] pict pickol; ??  "³"
-  			@ prow(),pcol() SAY aTarGr[nCnt,4] pict picdem; ??  "³"
-  			@ prow(),pcol() SAY aTarGr[nCnt,5] pict pickol; ??  "³"
-  			@ prow(),pcol() SAY aTarGr[nCnt,6] pict picdem; ??  "³"
-  			@ prow(),pcol() SAY aTarGr[nCnt,7] pict picdem; ??  "³"
-  			@ prow(),pcol() SAY aTarGr[nCnt,8] pict picdem; ??  "³"
-  			@ prow(),pcol() SAY aTarGr[nCnt,9] pict pickol; ??  "³"
-  			@ prow(),pcol() SAY aTarGr[nCnt,10] pict picdem; ??  "³"
-  			@ prow(),pcol() SAY aTarGr[nCnt,11] pict pickol; ??  "³"
-  			@ prow(),pcol() SAY aTarGr[nCnt,12] pict picdem; ??  "³"
-  			@ prow(),pcol() SAY aTarGr[nCnt,13] pict pickol; ??  "³"
-  			@ prow(),pcol() SAY aTarGr[nCnt,14] pict picdem; ??  "³"
-  			@ prow(),pcol() SAY aTarGr[nCnt,15] pict pickol; ??  "³"
-  			@ prow(),pcol() SAY aTarGr[nCnt,16] pict picdem; ??  "³"
-  			@ prow(),pcol() SAY aTarGr[nCnt,17] pict pickol; ??  "³"
-  			@ prow(),pcol() SAY aTarGr[nCnt,18] pict picdem; ??  "³"
+  			@ prow(),nCol1 SAY aTarGr[nCnt,3] pict pickol; ??  "ï¿½"
+  			@ prow(),pcol() SAY aTarGr[nCnt,4] pict picdem; ??  "ï¿½"
+  			@ prow(),pcol() SAY aTarGr[nCnt,5] pict pickol; ??  "ï¿½"
+  			@ prow(),pcol() SAY aTarGr[nCnt,6] pict picdem; ??  "ï¿½"
+  			@ prow(),pcol() SAY aTarGr[nCnt,7] pict picdem; ??  "ï¿½"
+  			@ prow(),pcol() SAY aTarGr[nCnt,8] pict picdem; ??  "ï¿½"
+  			@ prow(),pcol() SAY aTarGr[nCnt,9] pict pickol; ??  "ï¿½"
+  			@ prow(),pcol() SAY aTarGr[nCnt,10] pict picdem; ??  "ï¿½"
+  			@ prow(),pcol() SAY aTarGr[nCnt,11] pict pickol; ??  "ï¿½"
+  			@ prow(),pcol() SAY aTarGr[nCnt,12] pict picdem; ??  "ï¿½"
+  			@ prow(),pcol() SAY aTarGr[nCnt,13] pict pickol; ??  "ï¿½"
+  			@ prow(),pcol() SAY aTarGr[nCnt,14] pict picdem; ??  "ï¿½"
+  			@ prow(),pcol() SAY aTarGr[nCnt,15] pict pickol; ??  "ï¿½"
+  			@ prow(),pcol() SAY aTarGr[nCnt,16] pict picdem; ??  "ï¿½"
+  			@ prow(),pcol() SAY aTarGr[nCnt,17] pict pickol; ??  "ï¿½"
+  			@ prow(),pcol() SAY aTarGr[nCnt,18] pict picdem; ??  "ï¿½"
   			? m
 		next
 		? strtran(m,"-","=")
@@ -679,22 +679,22 @@ IF XXX=1
 					ZaglINV()
 				endif
 				? aTarife[nCnt,1]
-  				@ prow(),nCol1 SAY  aTarife[nCnt,2] pict pickol; ??  "³"
-  				@ prow(),pcol() SAY aTarife[nCnt,3] pict picdem; ??  "³"
-  				@ prow(),pcol() SAY aTarife[nCnt,4] pict pickol; ??  "³"
-  				@ prow(),pcol() SAY aTarife[nCnt,5] pict picdem; ??  "³"
-  				@ prow(),pcol() SAY aTarife[nCnt,6] pict picdem; ??  "³"
-  				@ prow(),pcol() SAY aTarife[nCnt,7] pict picdem; ??  "³"
-  				@ prow(),pcol() SAY aTarife[nCnt,8] pict pickol; ??  "³"
-  				@ prow(),pcol() SAY aTarife[nCnt,9] pict picdem; ??  "³"
-  				@ prow(),pcol() SAY aTarife[nCnt,10] pict pickol; ??  "³"
-  				@ prow(),pcol() SAY aTarife[nCnt,11] pict picdem; ??  "³"
-  				@ prow(),pcol() SAY aTarife[nCnt,12] pict pickol; ??  "³"
-  				@ prow(),pcol() SAY aTarife[nCnt,13] pict picdem; ??  "³"
-  				@ prow(),pcol() SAY aTarife[nCnt,14] pict pickol; ??  "³"
-  				@ prow(),pcol() SAY aTarife[nCnt,15] pict picdem; ??  "³"
-  				@ prow(),pcol() SAY aTarife[nCnt,16] pict pickol; ??  "³"
-  				@ prow(),pcol() SAY aTarife[nCnt,17] pict picdem; ??  "³"
+  				@ prow(),nCol1 SAY  aTarife[nCnt,2] pict pickol; ??  "ï¿½"
+  				@ prow(),pcol() SAY aTarife[nCnt,3] pict picdem; ??  "ï¿½"
+  				@ prow(),pcol() SAY aTarife[nCnt,4] pict pickol; ??  "ï¿½"
+  				@ prow(),pcol() SAY aTarife[nCnt,5] pict picdem; ??  "ï¿½"
+  				@ prow(),pcol() SAY aTarife[nCnt,6] pict picdem; ??  "ï¿½"
+  				@ prow(),pcol() SAY aTarife[nCnt,7] pict picdem; ??  "ï¿½"
+  				@ prow(),pcol() SAY aTarife[nCnt,8] pict pickol; ??  "ï¿½"
+  				@ prow(),pcol() SAY aTarife[nCnt,9] pict picdem; ??  "ï¿½"
+  				@ prow(),pcol() SAY aTarife[nCnt,10] pict pickol; ??  "ï¿½"
+  				@ prow(),pcol() SAY aTarife[nCnt,11] pict picdem; ??  "ï¿½"
+  				@ prow(),pcol() SAY aTarife[nCnt,12] pict pickol; ??  "ï¿½"
+  				@ prow(),pcol() SAY aTarife[nCnt,13] pict picdem; ??  "ï¿½"
+  				@ prow(),pcol() SAY aTarife[nCnt,14] pict pickol; ??  "ï¿½"
+  				@ prow(),pcol() SAY aTarife[nCnt,15] pict picdem; ??  "ï¿½"
+  				@ prow(),pcol() SAY aTarife[nCnt,16] pict pickol; ??  "ï¿½"
+  				@ prow(),pcol() SAY aTarife[nCnt,17] pict picdem; ??  "ï¿½"
 				? m
 			next
 			? strtran(m,"-","=")

@@ -10,7 +10,7 @@
  */
 
 
-#include "fin.ch"
+#include "fin01.ch"
 
  
 function PrenosFin()
@@ -708,8 +708,8 @@ Kol:={}; for i:=1 to LEN(ImeKol); AADD(Kol,i); next
 
 DO WHILE .t.
  Box(,20,77)
- @ m_x+19,m_y+2 SAY "                         ³                        ³                   "
- @ m_x+20,m_y+2 SAY " <c-T>  Brisi stavku     ³ <ENTER>  Ispravi konto ³ <a-A> Azuriraj    "
+ @ m_x+19,m_y+2 SAY "                         ï¿½                        ï¿½                   "
+ @ m_x+20,m_y+2 SAY " <c-T>  Brisi stavku     ï¿½ <ENTER>  Ispravi konto ï¿½ <a-A> Azuriraj    "
  ObjDbedit("PPK",20,77,{|| EPPK()},"","Priprema za prebacivanje stavki", , , , ,2)
  BoxC()
  IF RECCOUNT2()>0

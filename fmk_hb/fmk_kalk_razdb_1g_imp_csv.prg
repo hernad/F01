@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 // stampanje dokumenata .t. or .f.
 static __stampaj

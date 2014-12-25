@@ -6,7 +6,7 @@
 #define D_VIRM_PERIOD '06.96-17.07.10'
 
 #ifndef FMK_DEFINED
-	#include "fmk.ch"
+	#include "f01.ch"
 #endif
 
 #define I_ID 1

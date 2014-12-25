@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 
 
@@ -53,7 +53,7 @@ if cIdVD == "19"
  ? m
    ? "*R *   SIFRA  *                         *   *          *  STARA   * RAZLIKA  * PPP   %  * PPU   %  *  POREZ   * RAZLIKA  *  NOVA   *"
    ? "*BR*   ROBE   *       NAZIV ROBE        *JMJ* KOLICINA *MPC SA PP *   MPC    *          *          *          * MPC SA PP*MPC SA PP*"
-   ? "*  *          *                         *   *          *    ä     *    ä     *          *          *          *    ä     *    ä    *"
+   ? "*  *          *                         *   *          *    ï¿½     *    ï¿½     *          *          *          *    ï¿½     *    ï¿½    *"
  ? m
  nTot1:=nTot2:=nTot3:=nTot4:=nTot5:=nTot6:=nTot7:=0
 endif

@@ -10,7 +10,7 @@
  */
 
 
-#include "fin.ch"
+#include "fin01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -52,7 +52,7 @@ dDo:=DATE()
   cSort := "POZBILS+ID"
 
   cFilt := "LEN(TRIM(ID))==3 .and. !EMPTY(POZBILS)"
-  // NAP:mo§da ne treba uslovljavati bilansnu poziciju 3-cifrenom sintetikom?
+  // NAP:moï¿½da ne treba uslovljavati bilansnu poziciju 3-cifrenom sintetikom?
 
   INDEX ON &cSort TO "TMPSINT" FOR &cFilt
   GO TOP
@@ -124,21 +124,21 @@ dDo:=DATE()
    cPom  := REPL("-",nDKol)
    cPom1 := PADC("A K T I V A",nDKol)
    cPom2 := PADC("P A S I V A",nDKol)
-   ? cPom , "³", cPom
-   ? cPom1, "³", cPom2
-   ? cPom , "³", cPom
+   ? cPom , "ï¿½", cPom
+   ? cPom1, "ï¿½", cPom2
+   ? cPom , "ï¿½", cPom
    FOR i:=1 TO MAX( LEN(aAktiva) , LEN(aPasiva) )
      cPom1 := IF( i>LEN(aAktiva) , SPACE(nDKol) , aAktiva[i] )
      cPom2 := IF( i>LEN(aPasiva) , SPACE(nDKol) , aPasiva[i] )
-     ? cPom1, "³", cPom2
+     ? cPom1, "ï¿½", cPom2
    NEXT
 
    cPom  := REPL("-",nDKol)
    cPom1 := PADR("UKUPNO AKTIVA",62)+TRANS(nUkSveD,gPicBHD)
    cPom2 := PADR("UKUPNO PASIVA",62)+TRANS(nUkSveP,gPicBHD)
-   ? cPom , "³", cPom
-   ? cPom1, "³", cPom2
-   ? cPom , "³", cPom
+   ? cPom , "ï¿½", cPom
+   ? cPom1, "ï¿½", cPom2
+   ? cPom , "ï¿½", cPom
 
    cPom  := REPL("=",nDKol)
    IF nUkSveD>nUkSveP
@@ -155,10 +155,10 @@ dDo:=DATE()
      cPom1 := cPom2 := SPACE(nDKol)
      cPom3 := SPACE(62)+TRANS(nUkSveD,gPicBHD)
    ENDIF
-   ? cPom , "³", cPom
-   ? cPom1, "³", cPom2
-   ? cPom3, "³", cPom3
-   ? cPom , "³", cPom
+   ? cPom , "ï¿½", cPom
+   ? cPom1, "ï¿½", cPom2
+   ? cPom3, "ï¿½", cPom3
+   ? cPom , "ï¿½", cPom
 
    FF
   END PRINT
@@ -189,7 +189,7 @@ dDo:=DATE()
   cSort := "POZBILU+ID"
 
   cFilt := "LEN(TRIM(ID))==3 .and. !EMPTY(POZBILU)"
-  // NAP:mo§da ne treba uslovljavati bilansnu poziciju 3-cifrenom sintetikom?
+  // NAP:moï¿½da ne treba uslovljavati bilansnu poziciju 3-cifrenom sintetikom?
 
   INDEX ON &cSort TO "TMPSINT" FOR &cFilt
   GO TOP
@@ -261,21 +261,21 @@ dDo:=DATE()
    cPom  := REPL("-",nDKol)
    cPom1 := PADC("R A S H O D",nDKol)
    cPom2 := PADC("P R I H O D",nDKol)
-   ? cPom , "³", cPom
-   ? cPom1, "³", cPom2
-   ? cPom , "³", cPom
+   ? cPom , "ï¿½", cPom
+   ? cPom1, "ï¿½", cPom2
+   ? cPom , "ï¿½", cPom
    FOR i:=1 TO MAX( LEN(aRashod) , LEN(aPrihod) )
      cPom1 := IF( i>LEN(aRashod) , SPACE(nDKol) , aRashod[i] )
      cPom2 := IF( i>LEN(aPrihod) , SPACE(nDKol) , aPrihod[i] )
-     ? cPom1, "³", cPom2
+     ? cPom1, "ï¿½", cPom2
    NEXT
 
    cPom  := REPL("-",nDKol)
    cPom1 := PADR("UKUPNO RASHOD",62)+TRANS(nUkSveD,gPicBHD)
    cPom2 := PADR("UKUPNO PRIHOD",62)+TRANS(nUkSveP,gPicBHD)
-   ? cPom , "³", cPom
-   ? cPom1, "³", cPom2
-   ? cPom , "³", cPom
+   ? cPom , "ï¿½", cPom
+   ? cPom1, "ï¿½", cPom2
+   ? cPom , "ï¿½", cPom
 
    cPom  := REPL("=",nDKol)
    IF nUkSveD>nUkSveP
@@ -292,10 +292,10 @@ dDo:=DATE()
      cPom1 := cPom2 := SPACE(nDKol)
      cPom3 := SPACE(62)+TRANS(nUkSveD,gPicBHD)
    ENDIF
-   ? cPom , "³", cPom
-   ? cPom1, "³", cPom2
-   ? cPom3, "³", cPom3
-   ? cPom , "³", cPom
+   ? cPom , "ï¿½", cPom
+   ? cPom1, "ï¿½", cPom2
+   ? cPom3, "ï¿½", cPom3
+   ? cPom , "ï¿½", cPom
 
    FF
   END PRINT

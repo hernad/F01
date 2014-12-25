@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 /*
  * ----------------------------------------------------------------
@@ -71,7 +71,7 @@ function IzKalk2f()
     READ
     IF LASTKEY()==K_ESC; EXIT; ENDIF
 
-    // naÐi najstariju KALK koja nikad nije prenoçena (marker<>"PP")
+    // naï¿½i najstariju KALK koja nikad nije prenoï¿½ena (marker<>"PP")
     // -------------------------------------------------------------
     SELECT DOKS
     SET ORDER TO TAG "3" // IdFirma+dtos(datdok)+podbr+idvd+brdok
@@ -92,14 +92,14 @@ function IzKalk2f()
       cIDVD:=idvd; cBrDok:=brdok
     ENDIF
 
-    // potvrdi ponuÐeni ili unesi broj kalkulacije idfirma-idvd-brkalk
+    // potvrdi ponuï¿½eni ili unesi broj kalkulacije idfirma-idvd-brkalk
     // ---------------------------------------------------------------
     @ m_x+2, m_y+27 SAY "-" GET cIdVd
     @ m_x+2, m_y+32 SAY "-" GET cBrDok
     READ
     IF LASTKEY()==K_ESC; EXIT; ENDIF
 
-    // provjeri ima li takva kalkulacija i ako je ve† prenoçena daj upozorenje
+    // provjeri ima li takva kalkulacija i ako je veï¿½ prenoï¿½ena daj upozorenje
     // -----------------------------------------------------------------------
     SET ORDER TO TAG "1"  // IdFirma+idvd+brdok
     HSEEK cFirma+cIdVd+cBrDok
@@ -121,7 +121,7 @@ function IzKalk2f()
       IF LASTKEY()==K_ESC; EXIT; ENDIF
     ENDIF
 
-    // poçto je utvrÐeno da postoji, otvaramo KALK radi prenosa
+    // poï¿½to je utvrï¿½eno da postoji, otvaramo KALK radi prenosa
     // --------------------------------------------------------
     SELECT 0
     USE (cDir+"KALK.DBF")
@@ -137,7 +137,7 @@ function IzKalk2f()
       SKIP 1
     ENDDO
 
-    // u DOKS stavimo marker "PP" da je kalkulacija ve† jednom prenoçena
+    // u DOKS stavimo marker "PP" da je kalkulacija veï¿½ jednom prenoï¿½ena
     // -----------------------------------------------------------------
     SELECT KALK
      USE

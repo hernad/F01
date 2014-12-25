@@ -10,7 +10,7 @@
  */
 
 
-#include "fin.ch"
+#include "fin01.ch"
 
 
 // --------------------------------------------
@@ -350,7 +350,7 @@ return
 static function header()
 ?
 P_COND
-?? "FIN.P:SPECIFIKACIJA ANALITI¬KIH KONTA  ZA",ALLTRIM(iif(cTip=="1",ValDomaca(),ValPomocna()))
+?? "FIN.P:SPECIFIKACIJA ANALITIï¿½KIH KONTA  ZA",ALLTRIM(iif(cTip=="1",ValDomaca(),ValPomocna()))
 if !(empty(dDatOd) .and. empty(dDatDo))
   ?? "  ZA NALOGE U PERIODU ",dDatOd,"-",dDatDo
 endif
@@ -371,7 +371,7 @@ ENDIF
 
 select r_export
 ? m
-? "KONTO      N A Z I V                                                           duguje            potra§uje                saldo"
+? "KONTO      N A Z I V                                                           duguje            potraï¿½uje                saldo"
 ? m
 return
 

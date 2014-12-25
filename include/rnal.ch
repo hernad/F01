@@ -6,7 +6,7 @@
 #define D_RN_PERIOD "06.06-14.08.12"
 
 #ifndef FMK_DEFINED
-	#include "fmk.ch"
+	#include "f01.ch"
 #endif
 
 // komande za otvaranje tabela

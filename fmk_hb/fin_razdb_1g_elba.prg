@@ -10,7 +10,7 @@
  */
 
 
-#include "fin.ch"
+#include "fin01.ch"
 
 // vars
 static __delimit
@@ -813,7 +813,7 @@ if RIGHT( cNewBank, 1 ) <> ","
 	cNewBank += ","
 endif
 
-// dodaj konaèno novu banku...
+// dodaj konaï¿½no novu banku...
 cNewBank += cBank
 
 // sve to ubaci u SIFV

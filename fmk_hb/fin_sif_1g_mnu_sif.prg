@@ -10,7 +10,7 @@
  */
 
 
-#include "fin.ch"
+#include "fin01.ch"
 /*
  * ----------------------------------------------------------------
  *                                     Copyright Sigma-com software 

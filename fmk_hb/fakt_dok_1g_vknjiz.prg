@@ -10,7 +10,7 @@
  */
 
 
-#include "fakt.ch"
+#include "fakt01.ch"
 
 
 
@@ -999,7 +999,7 @@ function OdsjPLK(cTxt)
 *{
 local i
 for i:=len(cTxt) to 1 step -1
-  if !(substr(cTxt,i,1) $ Chr(13)+Chr(10)+" ç")
+  if !(substr(cTxt,i,1) $ Chr(13)+Chr(10)+" ÔøΩ")
        exit
   endif
 next

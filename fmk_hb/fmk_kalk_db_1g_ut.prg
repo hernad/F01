@@ -10,7 +10,7 @@
  */
 
 
-#include "kalk.ch"
+#include "kalk01.ch"
 
 
  
@@ -226,7 +226,7 @@ return
 function SljBroj(cidfirma,cIdvD,nMjesta)
 private cReturn:="0"
 select kalk
-seek cidfirma+cidvd+"ä"
+seek cidfirma+cidvd+"ï¿½"
 skip -1
 if idvd<>cidvd
      cReturn:=space(8)
