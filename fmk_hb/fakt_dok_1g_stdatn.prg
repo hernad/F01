@@ -16,7 +16,7 @@
 // -----------------------------------------------
 // pregled / stampa azuriranih dokumenata
 // -----------------------------------------------
-function StDatN()
+function fakt_stdatn()
 local nCol1:=0
 local nul,nizl,nRbr
 local m

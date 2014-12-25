@@ -21,7 +21,7 @@ private Izbor:=1
 AADD(opc,"1. stampa azuriranog dokumenta              ")
 AADD(opcexe, {|| StAzFakt()})
 AADD(opc,"2. stampa liste dokumenata")
-AADD(opcexe, {|| StDatn()})
+AADD(opcexe, {|| fakt_stdatn()})
 AADD(opc,"3. stampa dokumenata od broja do broja      ")
 AADD(opcexe, {|| StAzPeriod()})
 

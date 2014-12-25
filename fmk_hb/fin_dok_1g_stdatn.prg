@@ -15,7 +15,7 @@
 static __par_len
 
 
-function StDatn()
+function fin_stdatn()
 local nDug:=0.00
 local nPot:=0.00
 local nPos := 15
