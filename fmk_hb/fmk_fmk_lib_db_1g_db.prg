@@ -37,7 +37,7 @@ static nPreuseLevel:=0
 /*!  Scatter(cZn)
   *  vrijednosti field varijabli tekuceg sloga prebacuje u public varijable
   * 
-  * \param cZn - Default = "_"; odredjuje prefixs varijabli koje ce generisati
+  *  cZn - Default = "_"; odredjuje prefixs varijabli koje ce generisati
   *
   * \code
   *
@@ -341,8 +341,8 @@ return nil
 
 /*!  AppFrom(cFDbf, fOtvori)
 *   apenduje iz cFDbf-a u tekucu tabelu
-*  \param cFDBF - ime dbf-a
-*  \param fOtvori - .t. - otvori DBF, .f. - vec je otvorena
+*   cFDBF - ime dbf-a
+*   fOtvori - .t. - otvori DBF, .f. - vec je otvorena
 */
 
 function AppFrom(cFDbf,fOtvori)
@@ -515,7 +515,7 @@ break oe
 
 /*!  EofFndRet(ef, close)
  *   Daje poruku da ne postoje podaci
- *  \param ef = .t.   gledaj eof();  ef == .f. gledaj found()
+ *   ef = .t.   gledaj eof();  ef == .f. gledaj found()
  *  \return  .t. ako ne postoje podaci
  */
  
@@ -824,8 +824,8 @@ replace recno with nRec
 return nil
 
 /*!  DbfName(nArea, lFull)
- *  \param nArea
- *  \param lFull True - puno ime cPath + cDbfName; False - samo cDbfName; default=False
+ *   nArea
+ *   lFull True - puno ime cPath + cDbfName; False - samo cDbfName; default=False
  *
  */
  

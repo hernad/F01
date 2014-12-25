@@ -324,7 +324,7 @@ return
 
 /*!  NazMjeseca(nMjesec)
  *   Vraca naziv mjeseca za zadati nMjesec (np. 1 => Januar)
- *  \param nMjesec - oznaka mjeseca - integer
+ *   nMjesec - oznaka mjeseca - integer
  */
  
 function NazMjeseca(nMjesec)

@@ -101,9 +101,9 @@ static GW_STRING
 
 
 /*!  Gw(cStr, nHandle, cAkcija)
- *  \param cStr - string koji prosljedjujemo gateway-u
- *  \param nHandle - ne koristi se, izbaciti !
- *  \param cAkcija = A - azuriraj odmah, default value; P - pocetak; D - dodaj;  Z- zavrsi; L - upisi direktno u log fajl (ne salji gateway-u)
+ *   cStr - string koji prosljedjujemo gateway-u
+ *   nHandle - ne koristi se, izbaciti !
+ *   cAkcija = A - azuriraj odmah, default value; P - pocetak; D - dodaj;  Z- zavrsi; L - upisi direktno u log fajl (ne salji gateway-u)
  */
  
 function Gw(cStr, nHandle, cAkcija)
@@ -218,7 +218,7 @@ return ""
 
 
 /*!  GwOdgovor(cBazaInOut)
- *  \param cBazaInOut  - c:/sigma
+ *   cBazaInOut  - c:/sigma
  */
 static function GwOdgovor(cBazaInOut)
 
@@ -324,7 +324,7 @@ return .f.
 
 /*!  GwStaMai(nBroji2)
  *  
- *  \param nBroji2
+ *   nBroji2
  *
  *
  * Svakih 10 sekundi uzima stanje od gateway-a (iz c:/sigma/out)

@@ -69,8 +69,8 @@ return 1
 
 /*!  TxtErase(cTxtFile, lErase)
  *   Brisanje fajla cTxtFile
- *  \param cTxtFile - fajl za brisanje
- *  \param lErase - .t. ili .f. - brisati ili ne brisati fajl txt nakon importa
+ *   cTxtFile - fajl za brisanje
+ *   lErase - .t. ili .f. - brisati ili ne brisati fajl txt nakon importa
  */
 function TxtErase(cTxtFile, lErase)
 if lErase == nil

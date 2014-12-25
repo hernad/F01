@@ -1466,7 +1466,7 @@ RETURN
 /*!  Razmak(nBrRed)
  *   Daje nBrRed praznih redova
  *  \todo Treba prebaciti u /sclib
- *  \param nBrRed  - broj redova
+ *   nBrRed  - broj redova
  */
  
 function Razmak(nBrRed)
@@ -1484,7 +1484,7 @@ return
 
 /*!  BuIz(cKonto)
  *   Sortiraj izuzetke u budzetu
- *  \param cKonto
+ *   cKonto
  */
  
 function BuIz(cKonto)

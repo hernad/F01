@@ -90,7 +90,7 @@ close all
 
 /*!  get_uio_fields(aArr)
  *   napuni matricu aArr sa specifikacijom polja tabele
- *  \param aArr - matrica
+ *   aArr - matrica
  */
 static function get_uio_fields(aArr)
 

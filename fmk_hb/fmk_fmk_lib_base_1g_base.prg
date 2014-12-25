@@ -42,7 +42,7 @@ static nCnt:=0
 *string FmkIni_ExePath_FMK_ReadOnly;
 
 /*! \var *string FmkIni_ExePath_FMK_ReadOnly
- *  \param D-baza ce se otvoriti u readonly rezimu, N-tekuca vrijednost
+ *   D-baza ce se otvoriti u readonly rezimu, N-tekuca vrijednost
  *  \note postavlja vrijednost globalne var. gReadOnly
  *  \sa SC_START,gReadOnly
  */
@@ -517,7 +517,7 @@ return cPars
  *   funkcije za kreiranje/brisanje PID fajla
  *  \note PID (Program Idefntifcation)
  *
- *  \param cStart - "START" - na ulasku u aplikaciju napravi PID; "STOP"  - izbrisi pid fajl
+ *   cStart - "START" - na ulasku u aplikaciju napravi PID; "STOP"  - izbrisi pid fajl
  *
  * Primjer koda:
  * \code

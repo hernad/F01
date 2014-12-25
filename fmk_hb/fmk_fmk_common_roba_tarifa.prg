@@ -21,9 +21,9 @@
 
 /*!  P_Tarifa(cId,dx,dy)
  *   Otvara sifrarnik tarifa
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
 
 function P_Tarifa(cid,dx,dy)
@@ -83,10 +83,10 @@ return cRet
 
 /*! fn Tarifa(cIdKonto, cIdRoba, aPorezi, cIdTar)
  * Ispitivanje tarife, te punjenje matrice aPorezi
- *\param cIdKonto - Oznaka konta
- *\param cIdRoba - Oznaka robe
- *\param aPorezi - matrica za vrijednosti poreza
- *\param cIdTar - oznaka tarife, ovaj parametar je nil, ali se koristi za izvjestaje radi starih dokumenata (gdje je bilo promjene tarifa)
+ * cIdKonto - Oznaka konta
+ * cIdRoba - Oznaka robe
+ * aPorezi - matrica za vrijednosti poreza
+ * cIdTar - oznaka tarife, ovaj parametar je nil, ali se koristi za izvjestaje radi starih dokumenata (gdje je bilo promjene tarifa)
  */
  
 function Tarifa(cIdKonto, cIdRoba, aPorezi, cIdTar)
@@ -177,7 +177,7 @@ return cIdTarifa
 
 /*!  SetAPorezi(aPorezi)
  *   Filovanje matrice aPorezi sa porezima
- *  \param aPorezi Matrica poreza, aPorezi:={PPP,PP,PPU,PRUC,PRUCMP,DLRUC}
+ *   aPorezi Matrica poreza, aPorezi:={PPP,PP,PPU,PRUC,PRUCMP,DLRUC}
  */
 function SetAPorezi(aPorezi)
 
@@ -205,9 +205,9 @@ return nil
 
 /*!  MpcSaPorUgost(nPosebniPorez, nPorezNaRuc, aPorezi)
  *   Racuna maloprodajnu cijenu u ugostiteljstvu
- *  \param nPosebniPorez Posebni porez
- *  \param nPorezNaRuc Porez na razliku u cijeni
- *  \param aPorezi Matrica sa porezima
+ *   nPosebniPorez Posebni porez
+ *   nPorezNaRuc Porez na razliku u cijeni
+ *   aPorezi Matrica sa porezima
  */
 function MpcSaPorUgost(nPosebniPorez, nPorezNaRuc, aPorezi)
 
@@ -224,9 +224,9 @@ return nPom
 
 /*!  MpcSaPor(nMpcBP, aPorezi, aPoreziIzn)
  *   Racuna maloprodajnu cijenu sa porezom
- *  \param nMpcBP Maloprodajna cijena bez poreza
- *  \param aPorezi Matrica poreza
- *  \param aPoreziIzn Matrica sa izracunatim porezima
+ *   nMpcBP Maloprodajna cijena bez poreza
+ *   aPorezi Matrica poreza
+ *   aPoreziIzn Matrica sa izracunatim porezima
  */
 function MpcSaPor(nMPCBp, aPorezi, aPoreziIzn)
 local nPom
@@ -290,10 +290,10 @@ return nPom
 
 /*!  MpcBezPor(nMpcSaPP, aPorezi, nRabat, nNC)
  *   Racuna maloprodajnu cijenu bez poreza
- *  \param nMpcSaPP maloprodajna cijena sa porezom
- *  \param aPorezi Matrica poreza
- *  \param nRabat Rabat
- *  \param nNC Nabavna cijena
+ *   nMpcSaPP maloprodajna cijena sa porezom
+ *   aPorezi Matrica poreza
+ *   nRabat Rabat
+ *   nNC Nabavna cijena
  */
 function MpcBezPor(nMpcSaPP, aPorezi, nRabat, nNC)
 
@@ -332,10 +332,10 @@ endif
 
 /*!  MpcBezPor(nMpcSaPP, aPorezi, nRabat, nNC)
  *   Racuna maloprodajnu cijenu bez poreza
- *  \param nMpcSaPP maloprodajna cijena sa porezom
- *  \param aPorezi Matrica poreza
- *  \param nRabat Rabat
- *  \param nNC Nabavna cijena
+ *   nMpcSaPP maloprodajna cijena sa porezom
+ *   aPorezi Matrica poreza
+ *   nRabat Rabat
+ *   nNC Nabavna cijena
  */
 function MpcBezPorO(nMpcSaPP, aPorezi, nRabat, nNC)
 
@@ -438,10 +438,10 @@ return nPom
 
 /*!  Izn_P_PPP(nMPCBp, aPorezi, aPoreziIzn, nMpcSaP)
  *   Racuna iznos PPP
- *  \param nMpcBp Maloprodajna cijena bez poreza
- *  \param aPorezi Matrica poreza
- *  \param aPoreziIzn Matrica izracunatih poreza
- *  \param nMpcSaP Maloprodajna cijena sa porezom
+ *   nMpcBp Maloprodajna cijena bez poreza
+ *   aPorezi Matrica poreza
+ *   aPoreziIzn Matrica izracunatih poreza
+ *   nMpcSaP Maloprodajna cijena sa porezom
  */
 function Izn_P_PPP(nMpcBp, aPorezi, aPoreziIzn, nMpcSaP)
 
@@ -493,9 +493,9 @@ return nPom
 
 /*!  Izn_P_PPU(nMpcBp, aPorezi, aPoreziIzn)
  *   Racuna iznos PPU
- *  \param nMpcBp Maloprodajna cijena bez poreza
- *  \param aPorezi Matrica poreza
- *  \param aPoreziIzn Matrica izracunatih poreza
+ *   nMpcBp Maloprodajna cijena bez poreza
+ *   aPorezi Matrica poreza
+ *   aPoreziIzn Matrica izracunatih poreza
  */
 function Izn_P_PPU(nMPCBp, aPorezi, aPoreziIzn)
 
@@ -507,9 +507,9 @@ return nPom
 
 /*!  Izn_P_PP(nMpcBp, aPorezi, aPoreziIzn)
  *   Racuna iznos PP
- *  \param nMpcBp Maloprodajna cijena bez poreza
- *  \param aPorezi Matrica poreza
- *  \param aPoreziIzn Matrica izracunatih poreza
+ *   nMpcBp Maloprodajna cijena bez poreza
+ *   aPorezi Matrica poreza
+ *   aPoreziIzn Matrica izracunatih poreza
  */
 function Izn_P_PP(nMpcBp, aPorezi, aPoreziIzn)
 
@@ -543,9 +543,9 @@ return nPom
 
 /*!  Izn_P_PPUgost(nMpcSaPP, nIznPRuc, aPorezi)
  *   Racuna posebni porez u ugostiteljstvu
- *  \param nMpcSaPP Maloprodajna cijena sa porezom
- *  \param nIznPRuc Iznos poreza na razliku u cijeni
- *  \param aPorezi Matrica poreza
+ *   nMpcSaPP Maloprodajna cijena sa porezom
+ *   nIznPRuc Iznos poreza na razliku u cijeni
+ *   aPorezi Matrica poreza
  */
 function Izn_P_PPUgost(nMpcSaPP, nIznPRuc, aPorezi)
 
@@ -571,11 +571,11 @@ return nPom
 
 /*!  Izn_P_PRugost(nMpcSaPP, nMPCBp, nNc, aPorezi, aPoreziIzn)
  *   Porez na razliku u cijeni u ugostiteljstvu
- *  \param nMpcSaPP maloprodajna cijena sa porezom
- *  \param nMpcBp maloprodajna cijena bez poreza
- *  \param nNc nabavna cijena
- *  \param aPorezi matrica poreza
- *  \param aPoreziIzn matrica izracunatih poreza
+ *   nMpcSaPP maloprodajna cijena sa porezom
+ *   nMpcBp maloprodajna cijena bez poreza
+ *   nNc nabavna cijena
+ *   aPorezi matrica poreza
+ *   aPoreziIzn matrica izracunatih poreza
  */
 function Izn_P_PRugost(nMpcSaPP, nMPCBp, nNc, aPorezi, aPoreziIzn)
 
@@ -746,10 +746,10 @@ return nV
 
 /*  RacPorezeMP(aPorezi, nMpc, nMpcSaPP, nNc)
  *  Racunanje poreza u maloprodaji
- * \param aPorezi Matrica poreza
- * \param nMpc Maloprodajna cijena
- * \param nMpcSaPP Maloprodajna cijena sa porezom
- * \param nNc Nabavna cijena
+ *  aPorezi Matrica poreza
+ *  nMpc Maloprodajna cijena
+ *  nMpcSaPP Maloprodajna cijena sa porezom
+ *  nNc Nabavna cijena
 */
 function RacPorezeMP(aPorezi, nMpc, nMpcSaPP, nNc)
 

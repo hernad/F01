@@ -27,7 +27,7 @@
 
 /*!  StKalkIP(fZaTops)
  *   Stampa dokumenta tipa IP
- *  \param fZaTops -
+ *   fZaTops -
  */
 
 function StKalkIP(fZaTops)

@@ -35,9 +35,9 @@
  
 /*!  StDok30()
  *   Stampa fakture u varijanti 3 0
- *  \param cIdFirma
- *  \param cIdTipDok
- *  \param cBrdok
+ *   cIdFirma
+ *   cIdTipDok
+ *   cBrdok
  */
  
 
@@ -299,9 +299,9 @@ RETURN
 
 /*!  Znakova(nZnakova,nModIz,nModU)
  *   Modovi: npr. 10, 12, 17, 20
- *  \param nZnakova
- *  \param nModIz
- *  \param nModU
+ *   nZnakova
+ *   nModIz
+ *   nModU
  */
  
 function Znakova(nZnakova,nModIz,nModU)  

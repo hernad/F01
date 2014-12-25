@@ -15,7 +15,7 @@
 
 /*!  StKalk81(fzatops)
  *   Stampa kalkulacije 81 - direktno zaduzenje prodavnice
- *  \param fzatops -
+ *   fzatops -
  */
 
 function StKalk81(fzatops)

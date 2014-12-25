@@ -27,7 +27,7 @@
 
 /*!  BrowseKart()
  *   Browsanje kartice
- *  \param cIdRoba
+ *   cIdRoba
  */
  
 function BrowseKart()
@@ -198,7 +198,7 @@ BoxC()
 
 /*!  OznaciMag(fSilent)
  *   Oznaci/markiraj stavke koje su vjerovatno neispravne
- *  \param fSilent
+ *   fSilent
  */
  
 function OznaciMag(fSilent)
@@ -209,7 +209,7 @@ return .f.
 
 /*!  OznaciPro(fSilent)
  *   Oznaci/markiraj stavke koje su vjerovatno neispravne
- *  \param fSilent
+ *   fSilent
  */
  
 function OznaciPro(fSilent)
@@ -275,7 +275,7 @@ return .f.
 
 /*!  EdKart(Ch)
  *  
- *  \param Ch
+ *   Ch
  */
  
 function EdKart(Ch)

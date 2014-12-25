@@ -1087,9 +1087,9 @@ return
 
 /*!  DinDem(p1,p2,cVar)
  *   Konverzija iznosa domaca<->pomocna valuta
- *  \param p1 -
- *  \param p2 -
- *  \param cVar - naziv polja iznosa koji se pretvara (_IZNOSDEM ili _IZNOSBHD)
+ *   p1 -
+ *   p2 -
+ *   cVar - naziv polja iznosa koji se pretvara (_IZNOSDEM ili _IZNOSBHD)
  */
 
 function DinDem(p1,p2,cVar)
@@ -1124,9 +1124,9 @@ return
 
 /*!  PovFin(cidfirma,cidvn,cbrnal)
  *   Povrat finansijskog naloga u pripremu
- *  \param cidfirma - firma
- *  \param cidvn - vrsta naloga
- *  \param cbrnal - broj naloga
+ *   cidfirma - firma
+ *   cidvn - vrsta naloga
+ *   cbrnal - broj naloga
  */
 
 function PovFin(cidfirma,cidvn,cbrnal)

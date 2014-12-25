@@ -29,9 +29,9 @@
 
 /*!  SifkFill(cSifk,cSifv,cSifrarnik,cIDSif)
   *   SifkFill Napuni pomocne tabele (radi prenosa) sifk, sifv
-  * \param cSIFK ime sifk tabele (npr PRIVPATH+"_SIFK")
-  * \param cSifV ime sifv tabele
-  * \param cSifrarnik sifrarnik (npr "ROBA")
+  *  cSIFK ime sifk tabele (npr PRIVPATH+"_SIFK")
+  *  cSifV ime sifv tabele
+  *  cSifrarnik sifrarnik (npr "ROBA")
   */
   
 function SifkFill(cSifk,cSifv,cSifrarnik,cIDSif)

@@ -920,7 +920,7 @@ return
 
 /*!  UzmiIzP(cSta)
  *   Uzmi iz parametara
- *  \param cSta - "KOL", "NV", "MPV", MPVBP"...
+ *   cSta - "KOL", "NV", "MPV", MPVBP"...
  */
 function UzmiIzP(cSta)
 

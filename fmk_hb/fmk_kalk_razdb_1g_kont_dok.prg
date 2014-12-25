@@ -725,9 +725,9 @@ return lRet
 
 
 /*!  Konto(nBroj,cDef,cTekst)
- *  \param nBroj - koju varijablu punimo (1-ckonto1,2-ckonto2,3-ckonto3)
- *  \param cDef - default tj.ponudjeni tekst
- *  \param cTekst - opis podatka koji se unosi
+ *   nBroj - koju varijablu punimo (1-ckonto1,2-ckonto2,3-ckonto3)
+ *   cDef - default tj.ponudjeni tekst
+ *   cTekst - opis podatka koji se unosi
  *   Edit proizvoljnog teksta u varijablu ckonto1,ckonto2 ili ckonto3 ukoliko je izabrana varijabla duzine 0 tj.nije joj vec dodijeljena vrijednost
  *  \return 0
  */
@@ -796,9 +796,9 @@ return 0
 
 
 /*!  RJ(nBroj,cDef,cTekst)
- *  \param nBroj - koju varijablu punimo (1-cRj1,2-cRj2)
- *  \param cDef - default tj.ponudjeni tekst
- *  \param cTekst - opis podatka koji se unosi
+ *   nBroj - koju varijablu punimo (1-cRj1,2-cRj2)
+ *   cDef - default tj.ponudjeni tekst
+ *   cTekst - opis podatka koji se unosi
  *   Edit proizvoljnog teksta u varijablu cRj1 ili cRj2 ukoliko je izabrana varijabla duzine 0 tj.nije joj vec dodijeljena vrijednost
  *  \return 0
  */
@@ -892,11 +892,11 @@ return 0
 
 
 /*!  Partner(nBroj,cDef,cTekst,lFaktura,dp)
- *  \param nBroj - 1 znaci da se sifrom partnera puni varijabla cPartner1
- *  \param cDef - default tj.ponudjeni tekst
- *  \param cTekst - opis podatka koji se unosi u varijablu cPartner1
- *  \param lFaktura - .t. i ako je npr.nBroj==1 filuju se i varijable cBrFakt1 i dDatFakt1 koje cuvaju broj i datum fakture, .f. - ne edituju se ove varijable sto je i default vrijednost
- *  \param dp - duzina sifre partnera, ako se ne navede default vrijednost=6
+ *   nBroj - 1 znaci da se sifrom partnera puni varijabla cPartner1
+ *   cDef - default tj.ponudjeni tekst
+ *   cTekst - opis podatka koji se unosi u varijablu cPartner1
+ *   lFaktura - .t. i ako je npr.nBroj==1 filuju se i varijable cBrFakt1 i dDatFakt1 koje cuvaju broj i datum fakture, .f. - ne edituju se ove varijable sto je i default vrijednost
+ *   dp - duzina sifre partnera, ako se ne navede default vrijednost=6
  *   Edit sifre partnera u varijablu cPartner1...ili...cPartner5 ukoliko je izabrana varijabla duzine 0 tj.nije joj vec dodijeljena vrijednost
  *  \return 0
  */
@@ -1031,7 +1031,7 @@ return
 
 
 /*!  RekapK()
- *  \param fstara - .f. znaci poziv iz tabele pripreme, .t. radi se o azuriranoj kalkulaciji pa se prvo getuje broj dokumenta (cIdFirma,cIdVD,cBrdok)
+ *   fstara - .f. znaci poziv iz tabele pripreme, .t. radi se o azuriranoj kalkulaciji pa se prvo getuje broj dokumenta (cIdFirma,cIdVD,cBrdok)
  *   Pravi rekapitulaciju kalkulacija a ako je ulazni parametar fstara==.t. poziva se i kontiranje dokumenta
  */
 

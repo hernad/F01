@@ -48,9 +48,9 @@ return VAL(cBaudRate)
 
 /*!  TestComPort(nPort, nBuffSize, lClose)
  *   Testiranje COM porta
- *  \param nPort - oznaka COM port-a
- *  \param nBuffSize - velicina buffer-a (def. 4000)
- *  \param lClose - (.t.) zatvori nakon test-a
+ *   nPort - oznaka COM port-a
+ *   nBuffSize - velicina buffer-a (def. 4000)
+ *   lClose - (.t.) zatvori nakon test-a
  *  \result 1 - OK, 0 - not OK
  */
 function TestComPort(nPort, nBuffSize, lClose)
@@ -75,7 +75,7 @@ return
 
 /*!  InitComPort(nPort)
  *   Inicijalizacija com port-a
- *  \param nPort - oznaka port-a
+ *   nPort - oznaka port-a
  *  \result 1 - OK, 0 - not OK
  */
 function InitComPort(nPort)
@@ -95,7 +95,7 @@ return
 
 /*!  Send2ComPort(cOutPut)
  *   Salje cOutput na COM port
- *  \param cOutPut - string koji se salje na com port
+ *   cOutPut - string koji se salje na com port
  */
 function Send2ComPort(cOutPut)
 
@@ -128,8 +128,8 @@ return
 
 /*! \CnvrtStr2Hex(cStr, lSpace)
  *   Konvertuje string u hex u formatu: str="2500" reslt: 32 35 30 30
- *  \param cStr - string koji zelimo konvertovati
- *  \param lSpace - pravi razmak izmedju karaktera
+ *   cStr - string koji zelimo konvertovati
+ *   lSpace - pravi razmak izmedju karaktera
  */
 function CnvrtStr2Hex(cStr, lSpace)
 

@@ -84,7 +84,7 @@ return
 
 /*!  RobaBlock(Ch)
  *   Obrada funkcija nad sifrarnikom robe
- *  \param Ch - Pritisnuti taster
+ *   Ch - Pritisnuti taster
  */
  
 function RobaBlock(Ch)
@@ -163,7 +163,7 @@ return
 
 /*!  IspisFirme(cIdRj)
  *   Ispis firme na osnovu radne jedinice
- *  \param cIdRj - radna jedinica
+ *   cIdRj - radna jedinica
  */
 function IspisFirme(cIdRj)
 

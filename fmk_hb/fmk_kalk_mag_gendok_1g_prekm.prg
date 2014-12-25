@@ -192,7 +192,7 @@ return
 
 /*!  GetMagKto(aMag)
  *   Vrati matricu sa magacinima   
- *  \param aMag
+ *   aMag
  */
 function GetMagKto(aMag)
 
@@ -227,12 +227,12 @@ return
 
 /*!  GenPreknM(cMKonto, cPrTarifa, dDatOd, dDatDo, cBrKalk, lPst)
  *   Opcija generisanja dokumenta preknjizenja
- *  \param cMKonto - magacinski  konto
- *  \param cPrTarifa - tarifa preknjizenja
- *  \param dDatOd - datum od kojeg se pravi preknjizenje
- *  \param dDatDo - datum do kojeg se pravi preknjizenje
- *  \param cBrKalk - broj kalkulacije
- *  \param lPst - pocetno stanje
+ *   cMKonto - magacinski  konto
+ *   cPrTarifa - tarifa preknjizenja
+ *   dDatOd - datum od kojeg se pravi preknjizenje
+ *   dDatDo - datum do kojeg se pravi preknjizenje
+ *   cBrKalk - broj kalkulacije
+ *   lPst - pocetno stanje
  */
 function GenPreknM(cMKonto, cPrTarifa, dDatOd, dDatDo, cBrKalk, lPst, dDatPs, cCjSet, lAkciznaRoba)
 

@@ -82,10 +82,10 @@ return aMemo
 
 /*!  ProvjeriSif(clDok,cImePoljaID,nOblSif,clFor)
  *   Provjera postojanja sifara
- *  \param clDok - "while" uslov za obuhvatanje slogova tekuce baze
- *  \param cImePoljaID - ime polja tekuce baze u kojem su sifre za ispitivanje
- *  \param nOblSif - oblast baze sifrarnika
- *  \param clFor - "for" uslov za obuhvatanje slogova tekuce baze
+ *   clDok - "while" uslov za obuhvatanje slogova tekuce baze
+ *   cImePoljaID - ime polja tekuce baze u kojem su sifre za ispitivanje
+ *   nOblSif - oblast baze sifrarnika
+ *   clFor - "for" uslov za obuhvatanje slogova tekuce baze
  */
 
 function ProvjeriSif(clDok,cImePoljaID,nOblSif,clFor,lTest)

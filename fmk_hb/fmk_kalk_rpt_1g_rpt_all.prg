@@ -71,9 +71,9 @@ return cRet
 
 /*!  PrikaziDobavljaca(cIdRoba, nRazmak, lNeIspisujDob)
  *   Funkcija vraca dobavljaca cIdRobe na osnovu polja roba->dob
- *  \param cIdRoba
- *  \param nRazmak - razmak prije ispisa dobavljaca
- *  \param lNeIspisujDob - ako je .t. ne ispisuje "Dobavljac:"
+ *   cIdRoba
+ *   nRazmak - razmak prije ispisa dobavljaca
+ *   lNeIspisujDob - ako je .t. ne ispisuje "Dobavljac:"
  *  \return cVrati - string "dobavljac: xxxxxxx"
  */
 

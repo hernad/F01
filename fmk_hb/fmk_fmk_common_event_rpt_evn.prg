@@ -285,7 +285,7 @@ return
 
 /*!  ZaglKartEvent(cLinija)
  *   Zaglavlje kartice dogadjaja
- *  \param cLinija linija za zaglavlje
+ *   cLinija linija za zaglavlje
  */
  
 function ZaglKartEvent(cLinija)
@@ -359,10 +359,10 @@ return
 
 /*!  UkIzvjEvents(nN1,nN2,nCnt1,nCnt2)
  *   Dodaje ukupno na kraju izvjestaja
- *  \param nN1 - ukupno polje eventlog->n1
- *  \param nN2 - ukupno polje eventlog->n2
- *  \param nCnt1 - ukupno polje eventlog->count1
- *  \param nCnt2 - ukupno polje eventlog->count2
+ *   nN1 - ukupno polje eventlog->n1
+ *   nN2 - ukupno polje eventlog->n2
+ *   nCnt1 - ukupno polje eventlog->count1
+ *   nCnt2 - ukupno polje eventlog->count2
  */
  
 function UkIzvjEvents(nN1,nN2,nCnt1,nCnt2)

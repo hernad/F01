@@ -44,8 +44,8 @@ return .t.
 
 /*!  WMpc(fRealizacija,fMarza)
  *   When blok za unos MPC
- *  \param fRealizacija -
- *  \param fMarza -
+ *   fRealizacija -
+ *   fMarza -
  */
 
 function WMpc(fRealizacija, fMarza)
@@ -77,8 +77,8 @@ return .t.
 
 /*!  VMpc(fRealizacija,fMarza)
  *   Valid blok za unos MPC
- *  \param fRealizacija -
- *  \param fMarza -
+ *   fRealizacija -
+ *   fMarza -
  */
 
 function VMpc(fRealizacija, fMarza)
@@ -108,8 +108,8 @@ return .t.
 
 /*!  VMpcSaPP(fRealizacija,fMarza)
  *   Valid blok za unos MpcSaPP
- *  \param fRealizacija -
- *  \param fMarza -
+ *   fRealizacija -
+ *   fMarza -
  */
 
 function VMpcSaPP(fRealizacija, fMarza)
@@ -156,7 +156,7 @@ return .t.
 
 /*!  SayPorezi(nRow)
  *   Ispisuje poreze
- *  \param nRow - relativna kooordinata reda u kojem se ispisuju porezi
+ *   nRow - relativna kooordinata reda u kojem se ispisuju porezi
  */
 
 function SayPorezi(nRow)
@@ -184,7 +184,7 @@ return
 
 /*!  FillIzgStavke(pIzgStavke)
  *   Puni polja izgenerisane stavke
- *  \param pIzgStavke - .f. ne puni, .t. puni
+ *   pIzgStavke - .f. ne puni, .t. puni
  */
 
 function FillIzgStavke(pIzgStavke)
@@ -282,8 +282,8 @@ return .t.
 
 /*!  WMpc_lv(fRealizacija, fMarza, aPorezi)
  *   When blok za unos MPC
- *  \param fRealizacija -
- *  \param fMarza -
+ *   fRealizacija -
+ *   fMarza -
  *  \note koriste se lokalne varijable
  */
 
@@ -319,8 +319,8 @@ return .t.
 
 /*!  VMpc_lv(fRealizacija, fMarza, aPorezi)
  *   Valid blok za unos MPC
- *  \param fRealizacija -
- *  \param fMarza -
+ *   fRealizacija -
+ *   fMarza -
  *  \note koriste se lokalne varijable
  */
 
@@ -370,8 +370,8 @@ return .t.
 
 /*!  VMpcSaPP_lv(fRealizacija, fMarza, aPorezi)
  *   Valid blok za unos MpcSaPP
- *  \param fRealizacija -
- *  \param fMarza -
+ *   fRealizacija -
+ *   fMarza -
  *  \note koriste se lokalne varijable
  */
 
@@ -459,7 +459,7 @@ return .t.
 
 /*!  SayPorezi_lv(nRow, aPorezi)
  *   Ispisuje poreze
- *  \param nRow - relativna kooordinata reda u kojem se ispisuju porezi
+ *   nRow - relativna kooordinata reda u kojem se ispisuju porezi
  *  \aPorezi - koristi lokalne varijable
  */
 

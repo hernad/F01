@@ -38,9 +38,9 @@
 
 /*!  P_RVrsta(cId,dx,dy)
  *   Otvara sifrarnik vrsta artikala planika 
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
 
 function P_RVrsta(cid,dx,dy)

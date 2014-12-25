@@ -262,7 +262,7 @@ return nil
 
 /*!  IniGParam2(lSamoKesiraj)
  *   Ucitava globalne parametre gPTKonv ... gKesiraj
- *  \param lSamoKesiraj - ucitaj samo gKesiraj
+ *   lSamoKesiraj - ucitaj samo gKesiraj
  *  Prvo ucitava "p?" koji je D ako zelimo ucitavati globalne parametre iz PRIVDIR
  *  Nakon toga ucitava iz GPARAMS ( gPTKonv, ... gKesiraj )
  *  \todo Ocigledno da je ovo funkcija za eliminaciju ...

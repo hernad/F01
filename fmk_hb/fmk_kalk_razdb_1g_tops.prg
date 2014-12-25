@@ -288,9 +288,9 @@ return
 
 /*!  CheckKALKDokument(idfirma, tipdokumenta, brojdokumenta)
  *   Provjerava da li dokument uopste postoji!
- *  \param idfirma - id firme
- *  \param tipdokumenta - tip dokumenta
- *  \param brojdokumenta - broj dokumenta
+ *   idfirma - id firme
+ *   tipdokumenta - tip dokumenta
+ *   brojdokumenta - broj dokumenta
  *  \return .t. ako dok postoji, .f. ako ne postoji!!!
  */
 
@@ -311,9 +311,9 @@ endif
 
 /*!  GenTopsAzur(idfirma, idtipdokumenta, brojdokumenta)
  *   Generacija kalk->tops na osnovu azuriranih kalkulacija
- *  \param idfirma - id firme
- *  \param idtipdokumenta - tip dokumenta
- *  \param brojdokumenta - broj dokumenta
+ *   idfirma - id firme
+ *   idtipdokumenta - tip dokumenta
+ *   brojdokumenta - broj dokumenta
  */
 
 function GenTopsAzur(idfirma, idtipdokumenta, brojdokumenta)

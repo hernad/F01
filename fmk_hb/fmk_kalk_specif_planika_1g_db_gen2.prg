@@ -105,11 +105,11 @@
 
 /*!  GenRekap2(lK2X, cC, lPrDatOd, lVpRab, lMarkiranaRoba)
  *
- * \param lK2X : .f. - ne gledaj K2='X' za zbrajanje kolicine; .t. - uzmi u obzir K2='X' za zbrajanje kolicine (roba kod koje je ROBA->K2="X" nece ulaziti u zbir)
+ *  lK2X : .f. - ne gledaj K2='X' za zbrajanje kolicine; .t. - uzmi u obzir K2='X' za zbrajanje kolicine (roba kod koje je ROBA->K2="X" nece ulaziti u zbir)
  * 
- * \param lMarkiranaRoba  .t. - selekcija robe vrsi se na osnovu polja _M1_ iz sifrarnika
- * \param lPrDatOd - gledaj prodaju od datuma od zadavanja izvjestaja
- * \param lVpRab - u vp uracunati rabat
+ *  lMarkiranaRoba  .t. - selekcija robe vrsi se na osnovu polja _M1_ iz sifrarnika
+ *  lPrDatOd - gledaj prodaju od datuma od zadavanja izvjestaja
+ *  lVpRab - u vp uracunati rabat
  * \ingroup Planika
  * \result formira se Tabela REKAP2.DBF
  *

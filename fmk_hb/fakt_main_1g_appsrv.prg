@@ -25,8 +25,8 @@
 /*! \ingroup ini
   * \var *string FmkIni_PrivPath_FAKT_StampajSveIzPripreme
   *  Odredjuje da li ce se stampati svi dokumenti iz pripreme odjednom
-  * \param N - default vrijednost
-  * \param D - da, stampaj sve iz pripreme
+  *  N - default vrijednost
+  *  D - da, stampaj sve iz pripreme
   */
 *string FmkIni_PrivPath_FAKT_StampajSveIzPripreme;
 
@@ -152,8 +152,8 @@ enddo
 
 /*!  ExecKomande(cFileName,nHXApsLog)
  *   Exe komande
- *  \param cFileName    - ime fajla
- *  \param nHXApsLog
+ *   cFileName    - ime fajla
+ *   nHXApsLog
  */
  
 function ExecKomande(cFileName,nHXApsLog)

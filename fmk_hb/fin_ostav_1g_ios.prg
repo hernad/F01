@@ -928,10 +928,10 @@ RETURN
 
 /*!  OstatakOpisa(cO,nCO,bUslov,nSir)
  *   Stampa ostatka opisa
- *  \param cO
- *  \param nCO
- *  \param bUslov
- *  \param nSir
+ *   cO
+ *   nCO
+ *   bUslov
+ *   nSir
  */
  
 function OstatakOpisa(cO,nCO,bUslov,nSir)

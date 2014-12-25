@@ -23,8 +23,8 @@
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_ROBA_BezIstihNaziva
   *  Da li ce se zabraniti unos istog naziva robe pod razlicitom sifrom?
-  * \param N - ne, default vrijednost
-  * \param D - onemogucava unos istog naziva pod drugom sifrom robe
+  *  N - ne, default vrijednost
+  *  D - onemogucava unos istog naziva pod drugom sifrom robe
   */
 *string FmkIni_ExePath_ROBA_BezIstihNaziva;
 

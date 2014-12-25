@@ -452,7 +452,7 @@ return
 
 
 /*!  PPPDisk(lIni)
- *  \param lIni - .t. vec su inicijalizovani parametri, .f. treba inicijalizovati parametre - default vrijednost
+ *   lIni - .t. vec su inicijalizovani parametri, .f. treba inicijalizovati parametre - default vrijednost
  *   Podesavanje parametara prenosa i prijema podataka putem disketa
  */
 

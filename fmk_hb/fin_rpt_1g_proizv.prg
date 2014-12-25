@@ -953,7 +953,7 @@ CLOSERET
 
 /*!  PrikaziTI(cSif)
  *   Prikazuje tekuci izvjestaj
- *  \param cSif - sifra
+ *   cSif - sifra
  */
 
 function PrikaziTI(cSif)
@@ -1052,8 +1052,8 @@ RETURN IF(!EMPTY(PODVUCI),"PODVUCI"+PODVUCI,NIL)
 
 /*!  PlBudzeta(cTipK,cKonto)
  *   Plan budzeta, specificno za budzetske korisnike
- *  \param cTipK
- *  \param cKonto
+ *   cTipK
+ *   cKonto
  */
 
 function PlBudzeta(cTipK,cKonto)
@@ -1081,8 +1081,8 @@ RETURN nVrati
 
 /*!  RebBudzeta(cTipK,cKonto)
  *   Rebalans budzeta
- *  \param cTipK
- *  \param cKonto
+ *   cTipK
+ *   cKonto
  */
 
  
@@ -1293,8 +1293,8 @@ ENDIF
 
 /*!  UKucice(cSta,nKucica)
  *  
- *  \param cSta
- *  \param nKucica
+ *   cSta
+ *   nKucica
  */
  
 function UKucice(cSta,nKucica)
@@ -1307,8 +1307,8 @@ RETURN ( "I"+CHARMIX(PADL(TRIM(cSta),nKucica,IF(EMPTY(cSta)," ","0")),"I") )
 
 /*!  KonvZnWin(cTekst,cWinKonv)
  *   Konverzija znakova za Windows
- *  \param cTekst
- *  \param cWinKonv
+ *   cTekst
+ *   cWinKonv
  */
  
 function KonvZnWin(cTekst,cWinKonv)

@@ -1640,11 +1640,11 @@ return .t.
 /*!
  * IzSifk
  * Izvlaci vrijednost iz tabele SIFK
- *\param cDBF ime DBF-a
- *\param cOznaka oznaka BARK , GR1 itd
- *\param cIDSif  interna sifra, npr  000000232  ,
+ * cDBF ime DBF-a
+ * cOznaka oznaka BARK , GR1 itd
+ * cIDSif  interna sifra, npr  000000232  ,
  *               ili "00000232,XXX1233233" pri pretrazivanju
- *\param fNil    NIL - vrati nil za nedefinisanu vrijednost,
+ * fNil    NIL - vrati nil za nedefinisanu vrijednost,
  *               .f. - vrati "" za nedefinisanu vrijednost
  *\fpretrazivanje
  *
@@ -1804,10 +1804,10 @@ return NIL
  * Postavlja vrijednost u tabel SIFK
  *\note Pretpostavke: Otvorene tabele SIFK, SIFV
  *
- *\param cDBF ime DBF-a
- *\param cOznaka oznaka xxxx
- *\param cIdSif  Id u sifrarniku npr. 2MON0001
- *\param xValue  vrijednost (moze biti tipa C,N,D)
+ * cDBF ime DBF-a
+ * cOznaka oznaka xxxx
+ * cIdSif  Id u sifrarniku npr. 2MON0001
+ * xValue  vrijednost (moze biti tipa C,N,D)
  *
  */
 function USifk(cDBF, cOznaka, cIdSif, xValue)
@@ -2442,7 +2442,7 @@ RETURN (NIL)
 
 /*!  VpSifra(wId)
  *   Stroga kontrola ID-a sifre pri unosu nove ili ispravci postojece!
- *  \param wId - ID koji se provjerava
+ *   wId - ID koji se provjerava
  */
 
 function VpSifra(wId)
@@ -2475,7 +2475,7 @@ return nRet
 
 /*!  VpNaziv(wNaziv)
  *   Stroga kontrola naziva sifre pri unosu nove ili ispravci postojece sifre
- *  \param wNaziv - Naziv koji se provjerava
+ *   wNaziv - Naziv koji se provjerava
  */
  
 function VpNaziv(wNaziv)

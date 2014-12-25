@@ -21,7 +21,7 @@
 
 /*!  StViseDokMenu(cVarijanta)
  *   Menij stampe vise dokumenata
- *  \param cVarijanta   - varijanta
+ *   cVarijanta   - varijanta
  */
  
 function StViseDokMenu(cVarijanta)

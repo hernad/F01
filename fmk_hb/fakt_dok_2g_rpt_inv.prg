@@ -182,7 +182,7 @@ return
 
 /*!  ZaglInv(cLinija)
  *   Zaglavlje izvjestaja inventura
- *  \param cLinija - Proslijedjuje se linija koja se ispisuje iznad i ispod zaglavlja 
+ *   cLinija - Proslijedjuje se linija koja se ispisuje iznad i ispod zaglavlja 
  */
  
 function ZaglInv(cLinija)

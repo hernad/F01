@@ -572,7 +572,7 @@ return .t.
 
 /*!  W_BrOtp(fNovi)
  *  
- *  \param fNovi
+ *   fNovi
  */
  
 function W_BrOtp(fnovi)
@@ -897,7 +897,7 @@ PopWa()
 
 /*!  GetUsl(fNovi)
  *   get usluga
- *  \param fNovi
+ *   fNovi
  */
  
 function GetUsl(fNovi)
@@ -947,7 +947,7 @@ return .t.
 
 /*!  Nijedupla(fNovi)
  *  
- *  \param fNovi
+ *   fNovi
  */
  
 function NijeDupla(fNovi)
@@ -992,7 +992,7 @@ RETURN (.t.)
 
 /*!  OdsjPLK(cTxt)
  *   Odsjeca prazne linije na kraju stringa
- *  \param cTxt
+ *   cTxt
  */
  
 function OdsjPLK(cTxt)
@@ -1036,11 +1036,11 @@ return aMemo
 
 /*!  Prepak(cIdRoba,cPako,nPak,nKom,nKol,lKolUPak)
  *   Preracunavanje paketa i komada ...
- *  \param cIdRoba  - sifra artikla
- *  \param nPak     - broj paketa/kartona
- *  \param nKom     - broj komada u ostatku (dijelu paketa/kartona)
- *  \param nKol     - ukupan broj komada
- *  \param nKOLuPAK - .t. -> preracunaj pakete (nPak,nKom) .f. -> preracunaj komade (nKol)
+ *   cIdRoba  - sifra artikla
+ *   nPak     - broj paketa/kartona
+ *   nKom     - broj komada u ostatku (dijelu paketa/kartona)
+ *   nKol     - ukupan broj komada
+ *   nKOLuPAK - .t. -> preracunaj pakete (nPak,nKom) .f. -> preracunaj komade (nKol)
  */
  
 function Prepak(cIdRoba,cPako,nPak,nKom,nKol,lKolUPak)

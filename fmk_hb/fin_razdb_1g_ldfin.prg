@@ -260,8 +260,8 @@ return
 
 /*!  RLD(cId, nIz12)
  *  
- *  \param cId
- *  \param nIz12
+ *   cId
+ *   nIz12
  */
  
 function RLD(cId, nIz12)
@@ -282,12 +282,12 @@ return nVrati
 
 /*!  RekapLD(cId, nGodina, nMjesec, nIzn1, nIzn2, cOpis)
  *   Rekapitulacija LD
- *  \param cId
- *  \param nGodina
- *  \param nMjesec
- *  \param nIzn1
- *  \param nIzn2
- *  \param cOpis
+ *   cId
+ *   nGodina
+ *   nMjesec
+ *   nIzn1
+ *   nIzn2
+ *   cOpis
  */
 function RekapLD(cId, nGodina, nMjesec, nIzn1, nIzn2, cOpis)
 
@@ -318,9 +318,9 @@ return
 
 /*!  RLDP(cId, cBrDok, nIz12)
  *  
- *  \param cId
- *  \param cBrDok
- *  \param nIz12
+ *   cId
+ *   cBrDok
+ *   nIz12
  */
 function RLDP(cId, cBrDok, nIz12)
 
@@ -340,12 +340,12 @@ return 0
 
 /*!  RekapLDP(cId, nGodina, nMjesec, nIzn1, nIzn2, cBrDok)
  *  
- *  \param cId
- *  \param nGodina
- *  \param nMjesec
- *  \param nIzn1
- *  \param nIzn2
- *  \param cBrDok
+ *   cId
+ *   nGodina
+ *   nMjesec
+ *   nIzn1
+ *   nIzn2
+ *   cBrDok
  */
 
 function RekapLDP(cId, nGodina, nMjesec, nIzn1, nIzn2, cBrDok)

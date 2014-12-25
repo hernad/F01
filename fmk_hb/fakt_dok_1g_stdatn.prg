@@ -1406,8 +1406,8 @@ return nRet
 /*!  RekTarife(cPMP,cRegion)
  *   Rekapitulacija po tarifama
  *  \todo Prebaciti u /RPT
- *  \param cPMP
- *  \param cRegion
+ *   cPMP
+ *   cRegion
  */
 
 function RekTarife(cPMP,cRegion)

@@ -258,7 +258,7 @@ return nRet
 
 /*!  LastID(nRecNo)
  *   Vraca vrijednost polja ID tabele events.dbf ili bilo koje tabele koja ima polje ID (numericko)
- *  \param nRecNo - broj zapisa na koji se pointer treba vratiti poslije uzete vrijednosti
+ *   nRecNo - broj zapisa na koji se pointer treba vratiti poslije uzete vrijednosti
  */
 static function LastID(nRecNo)
 go bottom

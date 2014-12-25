@@ -1666,7 +1666,7 @@ return nil
 
 /*!  Zagl6(cSkVar)
  *   Zaglavlje specifikacije
- *  \param cSkVar
+ *   cSkVar
  */
  
 static function Zagl6(cSkVar)
@@ -1731,7 +1731,7 @@ return
 
 /*!  SpecKK2(lOtvSt)
  *   Specifikacija konto/konto2 partner
- *  \param lOtvSt
+ *   lOtvSt
  */
  
 function SpecKK2(lOtvSt)
@@ -2693,8 +2693,8 @@ return
 
 /*!  UpitK1K4(mxplus,lK)
  *   Pita za polja od K1 do K4
- *  \param mxplus
- *  \param lK
+ *   mxplus
+ *   lK
  */
 function UpitK1K4(mxplus,lK)
 
@@ -2724,7 +2724,7 @@ return
 
 /*!  CistiK1K4(lK)
  *   Cisti polja od K1 do K4
- *  \param lK
+ *   lK
  */
  
 function CistiK1K4(lK)
@@ -2763,7 +2763,7 @@ return
 
 /*!  PrikK1K4(lK)
  *   Prikazi polja od K1 do K4
- *  \param lK
+ *   lK
  */
  
 function PrikK1K4(lK)
@@ -2969,7 +2969,7 @@ return
 
 /*!  FormDat1(dUlazni)
  *   formatira datum sa stoljecem (dUlazni)=> cDat
- *  \param dUlazni - ulazni datum
+ *   dUlazni - ulazni datum
  */
  
 function FormDat1(dUlazni)
@@ -2984,7 +2984,7 @@ RETURN cVrati
 
 /*!  SpecPoDosp(lKartica)
  *   Otvorene stavke grupisano po brojevima veze
- *  \param lKartica
+ *   lKartica
  */
  
 function SpecPoDosp(lKartica)
@@ -3880,8 +3880,8 @@ return .f.
 
 /*!  ZSpecPoDosp(fStrana,lSvi)
  *   Zaglavlje izvjestaja specifikacije po dospjecu
- *  \param fStrana
- *  \param lSvi
+ *   fStrana
+ *   lSvi
  */
  
 function ZSpecPoDosp( fStrana, lSvi, PICPIC )
@@ -4202,7 +4202,7 @@ RETURN cVrati
 
 /*!  RekPPG(lPdv)
  *   Posmatraju se samo otvorene stavke iz izvje�taja otv.stavki grupisano po brojevima veze. (POM.DBF koji se pravi f-jom StKart() modula OSTAV.PRG). Ako otvorena stavka ima datum valutiranja, uzima se godina iz tog datuma. Ako otvorena stavka nema datuma val., racun se trazi prvo u tekucoj godini. Ako se nalazi u poc.stanju, trazenje se vrsi u proslim godinama. Ako ga nema u poc.stanju, trazi se prvo knjizenje na odgovarajucoj strani (za kupce dugovnoj, za dobavljace potraznoj) i ako ga ima uzima se godina iz datuma dokumenta.
- *  \param lPdv
+ *   lPdv
  */
  
 function RekPPG(lPDV)
@@ -4403,7 +4403,7 @@ CLOSERET
 
 /*!  Mjesto(cMjesto)
  *   
- *  \param cMjesto
+ *   cMjesto
  */
  
 function Mjesto(cMjesto)
@@ -4425,8 +4425,8 @@ return fRet
 
 /*!  TraziUPGod(cKrit,cDP)
  *  
- *  \param cKrit
- *  \param cDP
+ *   cKrit
+ *   cDP
  */
  
 function TraziUPGod(cKrit,cDP)
@@ -4486,9 +4486,9 @@ RETURN
 
 /*!  P_VKSG(cId,dx,dy)
  *  
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
  
 function P_VKSG(cId,dx,dy)

@@ -704,9 +704,9 @@ return
 
 /*!  StKart(fSolo,fTiho,bFilter)
  *   Otvorene stavke grupisane po brojevima veze
- *  \param fSolo
- *  \param fTiho
- *  \param bFilter - npr. {|| Mjesto(cMjesto)}
+ *   fSolo
+ *   fTiho
+ *   bFilter - npr. {|| Mjesto(cMjesto)}
  */
  
 function StKart(fSolo,fTiho,bFilter)
@@ -1128,8 +1128,8 @@ return .t.
 
 /*!  ZagKStSif(fStrana,lEx)
  *   Zaglavlje kartice OS-a
- *  \param fStrana
- *  \param lEx
+ *   fStrana
+ *   lEx
  */
 function ZagKStSif(fStrana,lEx)
 ?
@@ -1952,7 +1952,7 @@ RETURN (NIL)
 
 /*!  UzmiVar(cVar)
  *   Uzmi varijable 
- *  \param cVar - varijabla
+ *   cVar - varijabla
  */
  
 function UzmiVar(cVar)
@@ -2064,7 +2064,7 @@ RETURN (NIL)
 
 /*!  PrnKod_OFF(cKod)
  *   Iskljucivanje printerskog koda
- *  \param cKod - kod printera
+ *   cKod - kod printera
  */
  
 function PRNKod_OFF(cKod)
@@ -2625,7 +2625,7 @@ return .t.
 
 /*!  SkipDBBK(nRequest)
  *   
- *  \param nRequest
+ *   nRequest
  */
  
 function SkipDBBK(nRequest)

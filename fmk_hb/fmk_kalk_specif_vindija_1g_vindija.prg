@@ -493,8 +493,8 @@ return nV
 
 /*!  GetPictDem(nLen, nDec)
  *   Vraca velicinu i broj decimala num polja
- *  \param nLen
- *  \param nDec
+ *   nLen
+ *   nDec
  */
 function GetPictDem(nLen, nDec)
 

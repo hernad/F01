@@ -279,7 +279,7 @@ closeret
 
 /*!  UChkPostoji(cFullFileName)
  *   U chk direktoriju postoji fajl
- *  \param cFullFileName  - puni naziv fajla (path+ime)
+ *   cFullFileName  - puni naziv fajla (path+ime)
  */
  
 function UChkPostoji(cFullFileName)
@@ -294,7 +294,7 @@ endif
 
 /*!  BrisiSFajlove(cDir)
  *   Brise sve fajlove iz zadatog direktorija starije od 45 dana
- *  \param cDir  - direktorij
+ *   cDir  - direktorij
  */
  
 function BrisiSFajlove(cDir)

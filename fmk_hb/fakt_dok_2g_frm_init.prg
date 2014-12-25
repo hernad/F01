@@ -58,8 +58,8 @@
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FAKT_NaslovPartnTelefon
   *  Da li se uz naziv kupca upisuje i telefon?
-  * \param D - da, default vrijednost
-  * \param N - ne
+  *  D - da, default vrijednost
+  *  N - ne
   */
 *string FmkIni_ExePath_FAKT_NaslovPartnTelefon;
 

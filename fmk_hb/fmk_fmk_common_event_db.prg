@@ -15,7 +15,7 @@
 
 /*!  CreEvents(nArea)
  *   Kreiranje tabela bitnih za logiranje dogadjaja
- *  \param nArea - podrucje
+ *   nArea - podrucje
  */
 function CreEvents(nArea)
 
@@ -156,7 +156,7 @@ return nRet
 
 /*!  LastID(nRecNo)
  *   Vraca vrijednost polja ID tabele events.dbf ili bilo koje tabele koja ima polje ID (numericko)
- *  \param nRecNo - broj zapisa na koji se pointer treba vratiti poslije uzete vrijednosti
+ *   nRecNo - broj zapisa na koji se pointer treba vratiti poslije uzete vrijednosti
  */
 static function LastID(nRecNo)
 
@@ -168,7 +168,7 @@ return nLastID
 
 /*!  BrisiLogove(lAutomatic)
  *   Brisanje logova iz tabele EVENTLOG
- *  \param lAutomatic - .t. brisi automatski, .f. nemoj brisati automatski
+ *   lAutomatic - .t. brisi automatski, .f. nemoj brisati automatski
  */
 function BrisiLogove(lAutomatic)
 

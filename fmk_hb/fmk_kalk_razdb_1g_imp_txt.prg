@@ -349,7 +349,7 @@ return
 
 /*!  SetTblDok(aDbf)
  *   Setuj matricu sa poljima tabele dokumenata RACUN
- *  \param aDbf - matrica
+ *   aDbf - matrica
  */
 static function SetTblDok(aDbf)
 
@@ -379,7 +379,7 @@ return
 
 /*!  SetTblPartner(aDbf)
  *   Set polja tabele partner
- *  \param aDbf - matrica sa def.polja
+ *   aDbf - matrica sa def.polja
  */
 static function SetTblPartner(aDbf)
 
@@ -423,7 +423,7 @@ return
 
 /*!  SetRuleDok(aRule)
  *   Setovanje pravila upisa zapisa u temp tabelu
- *  \param aRule - matrica pravila
+ *   aRule - matrica pravila
  */
 static function SetRuleDok(aRule)
 
@@ -470,7 +470,7 @@ return
 
 /*!  SetRulePartn(aRule)
  *   Setovanje pravila upisa zapisa u temp tabelu
- *  \param aRule - matrica pravila
+ *   aRule - matrica pravila
  */
 static function SetRulePartn(aRule)
 
@@ -533,7 +533,7 @@ return
 
 /*!  GetExpPath(cPath)
  *   Vraca podesenje putanje do exportovanih fajlova
- *  \param cPath - putanja, zadaje se sa argumentom @ kao priv.varijabla
+ *   cPath - putanja, zadaje se sa argumentom @ kao priv.varijabla
  */
 static function GetExpPath(cPath)
 
@@ -548,9 +548,9 @@ return
 
 /*!  Txt2TTbl(aDbf, aRules, cTxtFile)
  *   Kreiranje temp tabele, te prenos zapisa iz text fajla "cTextFile" u tabelu putem aRules pravila
- *  \param aDbf - struktura tabele
- *  \param aRules - pravila upisivanja jednog zapisa u tabelu, princip uzimanja zapisa iz linije text fajla
- *  \param cTxtFile - txt fajl za import
+ *   aDbf - struktura tabele
+ *   aRules - pravila upisivanja jednog zapisa u tabelu, princip uzimanja zapisa iz linije text fajla
+ *   cTxtFile - txt fajl za import
  */
  */
 static function Txt2TTbl(aDbf, aRules, cTxtFile)
@@ -619,7 +619,7 @@ return
 
 /*!  CheckFile(cTxtFile)
  *   Provjerava da li je fajl prazan
- *  \param cTxtFile - txt fajl
+ *   cTxtFile - txt fajl
  */
 function CheckFile(cTxtFile)
 
@@ -630,7 +630,7 @@ return nBrLin
 
 /*!  CreTemp(aDbf)
  *   Kreira tabelu PRIVPATH\TEMP.DBF prema definiciji polja iz aDbf
- *  \param aDbf - def.polja
+ *   aDbf - def.polja
  */
 static function CreTemp(aDbf)
 
@@ -933,7 +933,7 @@ return aRet
 
 /*!  GetKTipDok(cFaktTD)
  *   Vraca kalk tip dokumenta na osnovu fakt tip dokumenta
- *  \param cFaktTD - fakt tip dokumenta
+ *   cFaktTD - fakt tip dokumenta
  */
 static function GetKTipDok(cFaktTD, cPm)
 cRet:=""
@@ -1034,7 +1034,7 @@ return cRet
 
 /*!  FaktExist()
  *   vraca matricu sa parovima faktura -> pojavljuje se u azur.kalk
- *  \param nRight - npr. bez zadnjih nRight brojeva
+ *   nRight - npr. bez zadnjih nRight brojeva
  */
 static function FaktExist( nRight )
 local cBrFakt
@@ -1103,10 +1103,10 @@ return aRet
 
 /*!  TTbl2Kalk(aFExist, lFSkip)
  *   kopira podatke iz pomocne tabele u tabelu KALK->PRIPT
- *  \param aFExist matrica sa postojecim fakturama
- *  \param lFSkip preskaci postojece fakture
- *  \param lNegative - prvo prebaci negativne fakture
- *  \param cCtrl_art - preskoci sporne artikle NC u hendeku ! na osnovu CACHE
+ *   aFExist matrica sa postojecim fakturama
+ *   lFSkip preskaci postojece fakture
+ *   lNegative - prvo prebaci negativne fakture
+ *   cCtrl_art - preskoci sporne artikle NC u hendeku ! na osnovu CACHE
  *         tabele
  */
 static function TTbl2Kalk(aFExist, lFSkip, lNegative, cCtrl_art )
@@ -1411,10 +1411,10 @@ return 1
 
 /*!  GetKtKalk(cTipDok, cPm, cTip)
  *   Varaca konto za trazeni tip dokumenta i prodajno mjesto
- *  \param cTipDok - tip dokumenta
- *  \param cPm - prodajno mjesto
- *  \param cTip - tip "Z" zad. i "R" razd.
- *  \param cPoslovnica - poslovnica tuzla ili sarajevo
+ *   cTipDok - tip dokumenta
+ *   cPm - prodajno mjesto
+ *   cTip - tip "Z" zad. i "R" razd.
+ *   cPoslovnica - poslovnica tuzla ili sarajevo
  */
 
 static function GetKtKalk(cTipDok, cPm, cTip, cPoslovnica)
@@ -1443,7 +1443,7 @@ return cRet
 
 /*!  TTbl2Partn(lEditOld)
  *   kopira podatke iz pomocne tabele u tabelu PARTN
- *  \param lEditOld - ispraviti stare zapise
+ *   lEditOld - ispraviti stare zapise
  */
 static function TTbl2Partn(lEditOld)
 
@@ -1578,12 +1578,12 @@ return 1
 
 /*!  GetKVars(dDatDok, cBrKalk, cTipDok, cIdKonto, cIdKonto2, cRazd)
  *   Setuj parametre prenosa TEMP->PRIPR(KALK)
- *  \param dDatDok - datum dokumenta
- *  \param cBrKalk - broj kalkulacije
- *  \param cTipDok - tip dokumenta
- *  \param cIdKonto - id konto zaduzuje
- *  \param cIdKonto2 - konto razduzuje
- *  \param cRazd - razdvajati dokumente po broju fakture (D ili N)
+ *   dDatDok - datum dokumenta
+ *   cBrKalk - broj kalkulacije
+ *   cTipDok - tip dokumenta
+ *   cIdKonto - id konto zaduzuje
+ *   cIdKonto2 - konto razduzuje
+ *   cRazd - razdvajati dokumente po broju fakture (D ili N)
  */
 static function GetKVars(dDatDok, cBrKalk, cTipDok, cIdKonto, cIdKonto2, cRazd)
 
@@ -1806,7 +1806,7 @@ return
 
 /*!  ObradiDokument(cIdVd)
  *   Obrada jednog dokumenta
- *  \param cIdVd - id vrsta dokumenta
+ *   cIdVd - id vrsta dokumenta
  */
 static function ObradiDokument(cIdVd, lAsPokreni, lStampaj)
 
@@ -1883,7 +1883,7 @@ return
 
 /*!  ChkKPripr(cIdVd, nRes)
  *   Provjeri da li je priprema prazna
- *  \param cIdVd - id vrsta dokumenta
+ *   cIdVd - id vrsta dokumenta
  */
 static function ChkKPripr(cIdVd, nRes)
 // provjeri da li je priprema prazna, ako je prazna vrati 0
@@ -1905,7 +1905,7 @@ return 0
 
 /*!  ChkTipDok(cIdVd)
  *   Provjeri pripremu za tip dokumenta
- *  \param cIdVd - vrsta dokumenta
+ *   cIdVd - vrsta dokumenta
  */
 static function ChkTipDok(cIdVd)
 
@@ -1943,7 +1943,7 @@ return 0
 
 /*!  ChkTD14(cVezniDok)
  *   Provjeri vezne dokumente za tip dokumenta 14
- *  \param cVezniDok - dokument iz pripreme
+ *   cVezniDok - dokument iz pripreme
  *  \result vraca 1 ako je sve ok, ili 2 ako vezni dokument ne odgovara
  */
 static function ChkTD14(cVezniDok)

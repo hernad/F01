@@ -295,8 +295,8 @@ return nLTxt2
 
 /*!  TokToNiz(cTok, cSE)
  *   Token pretvori u niz
- *  \param cTok - token
- *  \param cSE - separator niza
+ *   cTok - token
+ *   cSE - separator niza
  */
 function TokToNiz(cTok,cSE)
 
@@ -340,9 +340,9 @@ RETURN nVrati
 /*!  StrKZN(cInput,cIz,cU)
  *   Konverzija znakova u stringu
  *  \todo Prebaciti u /sclib ili ... (ovdje definitivno ne pripada)
- *  \param cInput
- *  \param cIz
- *  \param cU
+ *   cInput
+ *   cIz
+ *   cU
  *  \return cInput
  */
  
@@ -363,8 +363,8 @@ return cInput
 
 /*!  Slovima(nIzn,cDinDem)
  *   Ispisuje iznos slovima
- *  \param nIzn       - iznos
- *  \param cDinDem    - 
+ *   nIzn       - iznos
+ *   cDinDem    - 
  */
  
 function Slovima(nIzn,cDinDem)
@@ -432,11 +432,11 @@ return
 
 /*!  Stotice(nIzn, cRez, fDecimale, fMnozina, cDinDem)
  *   Formatira tekst ako iznos prelazi 100
- *  \param nIzn       - iznos
- *  \param cRez
- *  \param fdecimale
- *  \param fMnozina
- *  \param cDinDem
+ *   nIzn       - iznos
+ *   cRez
+ *   fdecimale
+ *   fMnozina
+ *   cDinDem
  *  \return cRez
  */
  
@@ -532,7 +532,7 @@ return cRez
  *   primjer: aColl[1] = "podatak1"
  	            aColl[2] = "podatak2"
 		    CreateHashString(aColl) => "podatak1#podatak2"
- *  \param aColl - matrica sa podacima
+ *   aColl - matrica sa podacima
  *  \return cHStr - hash string
  */
 function CreateHashString(aColl)
@@ -573,8 +573,8 @@ return aColl
 
 /*!  StrToArray(cStr, nLen)
  *   Kreiraj array na osnovu stringa
- *  \param cStr - string
- *  \param nLen - na svakih nLen upisi novu stavku u array 
+ *   cStr - string
+ *   nLen - na svakih nLen upisi novu stavku u array 
  */
 function StrToArray(cStr, nLen)
 

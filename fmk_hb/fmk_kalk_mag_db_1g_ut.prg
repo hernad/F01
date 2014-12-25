@@ -20,11 +20,11 @@
 
 /*!  KalkNabP(cIdFirma,cIdRoba,cIdKonto,nKolicina,nKolZN,nNC,nSNC,dDatNab,dRokTr)
  *   
- *  \param nNC - zadnja nabavna cijena
- *  \param nSNC - srednja nabavna cijena
- *  \param nKolZN - kolicina koja je na stanju od zadnjeg ulaza u prodavnicu, a ako se radi sa prvom nabavkom - prvi ulaz u prodavnicu
- *  \param dDatNab - datum nabavke
- *  \param dRokTr  - rok trajanja
+ *   nNC - zadnja nabavna cijena
+ *   nSNC - srednja nabavna cijena
+ *   nKolZN - kolicina koja je na stanju od zadnjeg ulaza u prodavnicu, a ako se radi sa prvom nabavkom - prvi ulaz u prodavnicu
+ *   dDatNab - datum nabavke
+ *   dRokTr  - rok trajanja
  */
 
 function KalkNabP(cIdFirma, cIdroba, cIdkonto, nKolicina, nKolZN, nNC, nSNC, dDatNab, dRokTr)
@@ -591,8 +591,8 @@ return
 
 
 /*!  NabCj2(n1,n2)  
- *  \param n1 - ukucana NC
- *  \param n2 - izracunata NC
+ *   n1 - ukucana NC
+ *   n2 - izracunata NC
  *   Ova se f-ja koristi samo za 10-ku bez troskova (gVarijanta="1")
  */
 
@@ -612,7 +612,7 @@ return .t.
 
 
 /*!  SetujVPC(nNovaVrijednost,fUvijek)
- *  \param fUvijek -.f. samo ako je vrijednost u sifrarniku 0, .t. uvijek setuj
+ *   fUvijek -.f. samo ako je vrijednost u sifrarniku 0, .t. uvijek setuj
  *   Utvrdi varijablu VPC. U sifrarnik staviti novu vrijednost
  */
 

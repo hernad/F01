@@ -75,8 +75,8 @@ return
  * \ingroup ini
  * \var FmkIni_ExePath_FIN_PartnerNaziv2
  *  Prikaz polja Naz2 u PARTN tabeli 
- * \param D - prikaz polja Naz2 u tabeli partnera
- * \param N - ne prikaz, default vrijednost
+ *  D - prikaz polja Naz2 u tabeli partnera
+ *  N - ne prikaz, default vrijednost
  * \sa P_Firma
  */
 *string FmkIni_ExePath_FIN_PartnerNaziv2;
@@ -85,8 +85,8 @@ return
  * \ingroup ini
  * \var FmkIni_ExePath_SifPartn_DZIROR
  *  Prikaz polja DZIROR - devizni ziro racun 
- * \param D - prikaz polja
- * \param N - ne prikaz, default vrijednost
+ *  D - prikaz polja
+ *  N - ne prikaz, default vrijednost
  * \sa P_Firma
  */
 *string FmkIni_ExePath_SifPartn_DZIROR;
@@ -96,8 +96,8 @@ return
  * \ingroup ini
  * \var FmkIni_ExePath_SifPartn_Fax
  *  Prikaz polja Fax
- * \param D - prikaz Ziro racun
- * \param N - ne prikaz, default vrijednost
+ *  D - prikaz Ziro racun
+ *  N - ne prikaz, default vrijednost
  * \sa P_Firma
  */
 *string FmkIni_ExePath_SifPartn_Fax;
@@ -105,9 +105,9 @@ return
 
 /*!  P_Firma(cId,dx,dy)
  *   Otvara sifrarnik partnera 
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
  
 function P_dummy(cId,dx,dy)
@@ -211,7 +211,7 @@ return PostojiSifra(F_PARTN,1,10,60,"Lista Partnera",@cId,dx,dy,{|Ch| PartnBlok(
 
 /*!  PartnBlok(Ch)
  *   Obrada funkcija nad sifrarnikom partnera
- *  \param Ch  - pritisnuti taster
+ *   Ch  - pritisnuti taster
  */
  
 function PartnBlok(Ch)
@@ -336,9 +336,9 @@ return .t.
 
 /*!  P_VN(cId,dx,dy)
  *   Otvara sifranik vrta naloga
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
  
 function P_VN(cId,dx,dy)
@@ -355,9 +355,9 @@ return PostojiSifra(F_TNAL,1,10,60,"Lista: Vrste naloga",@cId,dx,dy)
 
 /*!  P_TipDok(cId,dx,dy)
  *   Otvara sifrarnik tipova dokumenata
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
  
 function P_TipDok(cId,dx,dy)
@@ -374,10 +374,10 @@ return PostojiSifra(F_TDOK,1,10,60,"Lista: Tipovi dokumenata",@cId,dx,dy)
 
 /*!  P_KontoFin(cId,dx,dy,lBlag)
  *   Otvara sifrarnik konta spec. za FIN
- *  \param cId
- *  \param dx
- *  \param dy
- *  \param lBlag
+ *   cId
+ *   dx
+ *   dy
+ *   lBlag
  */
  
 function P_KontoFin(cId,dx,dy,lBlag)
@@ -460,7 +460,7 @@ return PostojiSifra(F_KONTO,1,10,60,"Lista: Konta ",@cId,dx,dy,{|Ch| KontoBlok(C
 
 /*!  KontoBlok(Ch)
  *   Obradjuje funkcije nad sifrarnikom konta
- *  \param Ch  - pritisnuti taster
+ *   Ch  - pritisnuti taster
  */
  
 function KontoBlok(Ch)
@@ -567,9 +567,9 @@ return DE_CONT
 
 /*!  P_PKonto(cId,dx,dy)
  *   Otvara sifrarnik prenosa konta u novu godinu
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
  
 function P_PKonto(CId,dx,dy)
@@ -586,7 +586,7 @@ return PostojiSifra(F_PKONTO,1,10,60,"Lista: Nacin prenosa konta u novu godinu",
 
 /*!  TipPKonto(cTip)
  *   Tip prenosa konta u novu godinu
- *  \param cTip
+ *   cTip
  */
  
 function TipPKonto(cTip)
@@ -611,9 +611,9 @@ endif
 
 ///*!  P_Valuta(cId,dx,dy)
 // *   Otvara sifrarnik valuta
-// *  \param cId
-// *  \param dx
-// *  \param dy
+// *   cId
+// *   dx
+// *   dy
 // */
 // *************************** koristi se zajednicka funkcija 
 //function P_Valuta(cid,dx,dy)
@@ -637,9 +637,9 @@ endif
 
 /*!  P_Funk(cId,dx,dy)
  *   Otvara sifranik funkcionalnih klasifikacija 
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
  
 function P_Funk(cId,dx,dy)
@@ -657,9 +657,9 @@ return PostojiSifra(F_FUNK,1,10,70,"Lista funkcionalne klasifikacije",@cId,dx,dy
 
 /*!  P_Fond(cId,dx,dy)
  *   Otvara sifrarnik fondova
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
  
 function P_Fond(cId,dx,dy)
@@ -677,9 +677,9 @@ return PostojiSifra(F_FOND,1,10,70,"Lista: Fondovi",@cId,dx,dy)
 
 /*!  P_BuIz(cId,dx,dy)
  *   Otvara sifrarnik konta-izuzetci
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
  
 function P_BuIz(cId,dx,dy)
@@ -697,9 +697,9 @@ return PostojiSifra(F_BUIZ,1,10,70,"Lista: konta-izuzeci u sortiranju",@cId,dx,d
 
 /*!  P_Budzet(cId,dx,dy)
  *   Otvara sifrarnik plana budzeta
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
  
 function P_Budzet(cId,dx,dy)
@@ -722,9 +722,9 @@ return PostojiSifra(F_BUDZET,1,10,55,"Plan budzeta za tekucu godinu",@cId,dx,dy)
 
 /*!  P_ParEK(cId,dx,dy)
  *   Otvara sifrarnik ekonomskih kategorija
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
  
 function P_ParEK(cId,dx,dy)
@@ -742,9 +742,9 @@ return PostojiSifra(F_PAREK,1,10,55,"Partije->Konta" ,@cId,dx,dy)
 
 /*!  P_TRFP2(cId,dx,dy)
  *   Otvara sifrarnik parametri prenosa u FP
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
  
 function P_TRFP2(cId,dx,dy)
@@ -791,9 +791,9 @@ return
 
 /*!  P_TRFP3(cId,dx,dy)
  *   Otvara sifrarnik shema kontiranja obracuna LD
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
  
 function P_TRFP3(cId,dx,dy)
@@ -833,8 +833,8 @@ return
 
 /*!  ImaUSuban(cKljuc,cTag)
  *   
- *  \param cKljuc
- *  \param cTag
+ *   cKljuc
+ *   cTag
  */
  
 function ImaUSuban(cKljuc,cTag)
@@ -862,9 +862,9 @@ RETURN lVrati
 
 /*!  P_Roba(cId,dx,dy)
  *   Otvara sifranik robe
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
  
 function P_Roba(CId,dx,dy)
@@ -893,9 +893,9 @@ return .t.
 
 /*!  P_VrsteP(cId,dx,dy)
  *   Otvara sifrarnik vrsta placanja
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
  
 function P_VrsteP(cId,dx,dy)
@@ -911,9 +911,9 @@ return PostojiSifra(F_VRSTEP,1,10,55,"Sifrarnik vrsta placanja",@cid,dx,dy)
 
 /*!  P_ULimit(cId,dx,dy)
  *   Otvara sifrarnik limita po ugovorima
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
  
 function P_ULIMIT(cId,dx,dy)
@@ -930,9 +930,9 @@ return PostojiSifra(F_ULIMIT,1,10,55,"Sifrarnik limita po ugovorima",@cid,dx,dy)
 
 /*!  P_Ftxt(cId,dx,dy)
  *   Otvara sifrarnik tekst na kraju fakture
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
  
 function P_Ftxt(cId,dx,dy)
@@ -964,7 +964,7 @@ return
 
 /*!  DFTParU2(lIni)
  *   Tekuci podaci za nove ugovore
- *  \param lIni
+ *   lIni
  */
  
 function DFTParU2(lIni)
@@ -1029,10 +1029,10 @@ RETURN
 
 /*!  SifkFill(cSifk,cSifv,cSifrarnik,cIdSif)
  *   Puni pomocne tabele radi prenosa
- *  \param cSifk
- *  \param cSifv
- *  \param cSifrarnik
- *  \param cIdSif
+ *   cSifk
+ *   cSifv
+ *   cSifrarnik
+ *   cIdSif
  */
  
 function SifkFill(cSifk,cSifv,cSifrarnik,cIDSif)
@@ -1078,10 +1078,10 @@ return
 
 /*!  SifkOsv(cSifk,cSifv,cSifrarnik,cIdSif)
  *   Osvjezava sifk i sifv iz pomocnih tabela
- *  \param cSifk
- *  \param cSifv
- *  \param cSifrarnik
- *  \param cIdSif
+ *   cSifk
+ *   cSifv
+ *   cSifrarnik
+ *   cIdSif
  */
 
 function SifkOsv(cSifk,cSifv,cSifrarnik,cIdSif)
@@ -1127,10 +1127,10 @@ return
 
 /*!  DaUSifv(cBaza,cIdKar,cId,cVrKar)
  *   
- *  \param cBaza
- *  \param cIdKar
- *  \param cId
- *  \param cVrKar
+ *   cBaza
+ *   cIdKar
+ *   cId
+ *   cVrKar
  */
  
 function DaUSifV(cBaza,cIdKar,cId,cVrKar)
@@ -1148,9 +1148,9 @@ RETURN lVrati
 
 /*!  P_Kuf(cId,dx,dy)
  *   Otvara sifrarnik KUF
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
  
 function P_KUF(cId,dx,dy)
@@ -1182,7 +1182,7 @@ return PostojiSifra(F_KUF,IF(gRJ=="D","ID2",1),15,77,"KUF",@cid,dx,dy,{|Ch| KUFB
 
 /*!  KUFBlok(Ch)
  *   Obradjuje operacije nad sifrarnikom KUF-a
- *  \param Ch - pritisnuti taster
+ *   Ch - pritisnuti taster
  */
  
 function KUFBlok(Ch)
@@ -1283,9 +1283,9 @@ RETURN
 
 /*!  P_Kif(cId,dx,dy)
  *   Otvara sifrarnik KIF-a
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
 function P_KIF(cId,dx,dy)
 
@@ -1316,7 +1316,7 @@ RETURN PostojiSifra(F_KIF,IF(gRJ=="D","ID2",1),15,77,"KIF",@cid,dx,dy,{|Ch| KIFB
 
 /*!  KifBlok(Ch)
  *   Obradjuje funkcije nad sifrarnikom KIF-a
- *  \param Ch - pritisnuti taster
+ *   Ch - pritisnuti taster
  */
  
 function KifBlok(Ch)
@@ -1414,9 +1414,9 @@ RETURN
 
 /*!  P_VPrih(cId,dx,dy)
  *   Otvara sifrarnik vrsta prihoda
- *  \param cId
- *  \param dx
- *  \param dy
+ *   cId
+ *   dx
+ *   dy
  */
  
 function P_VPrih(cId,dx,dy)
@@ -1433,7 +1433,7 @@ return PostojiSifra(F_VPRIH,1,10,55,"Sifrarnik vrsta prihoda",@cid,dx,dy)
 
 /*!  Mvpsifra(wId)
  *   Zabranjuje dupli unos sifre
- *  \param wId
+ *   wId
  */
  
 static function MvpSifra(wId)

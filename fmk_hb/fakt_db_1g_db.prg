@@ -281,11 +281,11 @@ closeret
 
 /*!  fakt_povrat(fR,cIdFirma,cIdTipDok,cBrDok,lTest)
  *   Povrat dokumenta u pripremu
- *  \param fR          - rezervacija
- *  \param cIdFirma
- *  \param cIdTipDok
- *  \param cBrDok
- *  \param lTest
+ *   fR          - rezervacija
+ *   cIdFirma
+ *   cIdTipDok
+ *   cBrDok
+ *   lTest
  */
 
 function fakt_povrat

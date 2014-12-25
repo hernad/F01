@@ -282,7 +282,7 @@ return
 
 /*!  *void TAppMod::quit(bool lVratiseURP)
  *   izlazak iz aplikacijskog modula
- *  \param lVratiSeURP - default vrijednost .t.; kada je .t. vrati se u radno podrucje; .f. ne mjenjaj radno podrucje
+ *   lVratiSeURP - default vrijednost .t.; kada je .t. vrati se u radno podrucje; .f. ne mjenjaj radno podrucje
  *
  *  \todo proceduru izlaska revidirati, izbaciti Rad.sys iz upotrebe, kao i korisn.dbf
  */

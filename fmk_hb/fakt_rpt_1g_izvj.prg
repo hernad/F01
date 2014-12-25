@@ -2090,8 +2090,8 @@ return (TARIFA->opp<>0 .or. TARIFA->ppp<>0 .or. TARIFA->zpp<>0)
 
 /*!  SortFakt(cId,cSort)
  *   Sortiranje faktura
- *  \param cId
- *  \param cSort
+ *   cId
+ *   cSort
  */
 
 function SortFakt(cId,cSort)

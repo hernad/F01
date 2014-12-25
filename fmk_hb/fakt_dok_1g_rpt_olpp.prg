@@ -23,8 +23,8 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_Cijena13MPC
   *  Da li je MPC cijena koja se pamti u dokumentu tipa 13 (otpremnica u MP) ?
-  * \param N - ne, default vrijednost
-  * \param D - da
+  *  N - ne, default vrijednost
+  *  D - da
   */
 *string FmkIni_KumPath_FAKT_Cijena13MPC;
 

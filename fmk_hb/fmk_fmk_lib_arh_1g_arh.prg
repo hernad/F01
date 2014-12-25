@@ -108,7 +108,7 @@ return  cDir
 
 /*!  DirMak2(cDir)
  *   rekurzivno pravi direktorij
- *  \param  - cDir - direktorij
+ *    - cDir - direktorij
  *  \return - .t. - uspjesno
  *
  *

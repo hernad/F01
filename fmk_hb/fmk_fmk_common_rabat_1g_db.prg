@@ -46,10 +46,10 @@ return
 
 /*!  GetRabForArticle(cIdRab, cTipRab, cIdRoba, nTekIznos)
  *   Vraca iznos rabata za dati artikal
- *  \param cIdRab - id rabat
- *  \param nTekIznos - tekuce polje iznosa
- *  \param cTipRab - tip rabata
- *  \param cIdRoba - id roba
+ *   cIdRab - id rabat
+ *   nTekIznos - tekuce polje iznosa
+ *   cTipRab - tip rabata
+ *   cIdRoba - id roba
  *  \return nRet - vrijednost rabata
  */
 function GetRabForArticle(cIdRab, cTipRab, cIdRoba, nTekIznos)
@@ -77,8 +77,8 @@ return nRet
 
 /*!  GetDaysForRabat(cIdRab, cTipRab)
  *   Vraca broj dana (rok placanja) za odredjeni tip rabata
- *  \param cIdRab - id rabat
- *  \param cTipRab - tip rabata
+ *   cIdRab - id rabat
+ *   cTipRab - tip rabata
  *  \return nRet - vrijednost dana
  */
 function GetDaysForRabat(cIdRab, cTipRab)
@@ -103,7 +103,7 @@ return nRet
 
 /*!  GetRabIznos(cTekIzn)
  *   Vraca iznos rabata za zadati cTekIznos (vrijednost polja)
- *  \param cTekIzn - tekuce polje koje se uzima
+ *   cTekIzn - tekuce polje koje se uzima
  */
 function GetRabIznos(cTekIzn)
 
@@ -122,9 +122,9 @@ return nRet
 
 /*!  GetSkontoArticle(cIdRab, cTipRab, cIdRoba)
  *   Vraca iznos skonto za dati artikal
- *  \param cIdRab - id rabat
- *  \param cTipRab - tip rabata
- *  \param cIdRoba - id roba
+ *   cIdRab - id rabat
+ *   cTipRab - tip rabata
+ *   cIdRoba - id roba
  *  \return nRet - vrijednost skonto
  */
 function GetSkontoArticle(cIdRab, cTipRab, cIdRoba)

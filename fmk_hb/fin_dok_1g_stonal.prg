@@ -112,7 +112,7 @@ return
 
 /*!  StOSNal(fKum)
  *   Stampa sintetickog naloga
- *  \param fKum  - if fkum = .t. - stampa naloga iz anal.dbf, if fkum = .f. - stampa naloga iz panal.dbf
+ *   fKum  - if fkum = .t. - stampa naloga iz anal.dbf, if fkum = .f. - stampa naloga iz panal.dbf
  */
  
 function StOSNal(fkum)

@@ -254,9 +254,9 @@ return DBUILD
 
 /*!  MigrateRulesForGroup(cExistingGroup, cNewGroup, cSetLicenceTo)
  *   Kopira pravila za novu grupu korisnika po uzoru na postojecu
- *  \param cExistingGroup - ID postojece grupe
- *  \param cNewGroup - ID nove grupe
- *  \param cSetLicenceTo - postavlja dozvolu na "D" ili "N" za sve stavke za novih pravila
+ *   cExistingGroup - ID postojece grupe
+ *   cNewGroup - ID nove grupe
+ *   cSetLicenceTo - postavlja dozvolu na "D" ili "N" za sve stavke za novih pravila
  */
 function MigrateRulesForGroup(cExistingGroup, cNewGroup, cSetLicenceTo)
 

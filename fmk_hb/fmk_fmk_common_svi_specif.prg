@@ -271,8 +271,8 @@ static lTehnoprom
 
 /*! \ingroup Planika
  *  \var *string IzFmkIni_KumPath_FMK_Planika
- *  \param N - standardni korisnik
- *  \param D - korisnik za koga su implementirane specificne nadogradnje  "Planika"
+ *   N - standardni korisnik
+ *   D - korisnik za koga su implementirane specificne nadogradnje  "Planika"
  */
  
 /*! \ingroup Planika

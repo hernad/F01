@@ -33,10 +33,10 @@ static aMsgStack:={}
  *
  *   Prikazuje zadati meni, vraca odabranu opciju
  *
- *  \param MenuId  - identifikacija menija     C
- *  \param Items   - niz opcija za izbor       C[]
- *  \param ItemNo  - Broj pocetne pozicije     N
- *  \param Inv     - da li je meni invertovan  L
+ *   MenuId  - identifikacija menija     C
+ *   Items   - niz opcija za izbor       C[]
+ *   ItemNo  - Broj pocetne pozicije     N
+ *   Inv     - da li je meni invertovan  L
  *
  *  \result Broj izabrane opcije, 0 kraj
  *
@@ -248,7 +248,7 @@ return cAction
 
 /*!  Msg(Text,Sec, xPos)
 *    Ispisuje tekst i ceka <Sec> sekundi
-*   \param xPos je pozicija ukoliko se ne zeli centrirati poruka
+*    xPos je pozicija ukoliko se ne zeli centrirati poruka
 *   \note Maksimalna duzina jednog reda je 72 slova
 */
 
@@ -363,9 +363,9 @@ return
  *   Otvara prozor BoxID dimenzija (N x Length), invertovan 
  *         (Inv=.T. ili ne)
  *
- *  \param chMsg - tip C -> prikaz poruke
- *  \param A -> ispisuje opcije pomocu fje OpcTipke
- *  \param boxid se ne koristi
+ *   chMsg - tip C -> prikaz poruke
+ *   A -> ispisuje opcije pomocu fje OpcTipke
+ *   boxid se ne koristi
  */
 
 function Box( BoxId, N, Length, Inv, chMsg, cHelpT )
@@ -1637,9 +1637,9 @@ return cPom
 
 /*!  TokUNiz(cTok,cSN,cSE)
  *   Token pretvori u matricu
- *  \param cTok - string tokena
- *  \param cSN - separator nizova
- *  \param cSE - separator elemenata
+ *   cTok - string tokena
+ *   cSN - separator nizova
+ *   cSE - separator elemenata
  */
 
 function TokUNiz(cTok,cSN,cSE)
@@ -1663,8 +1663,8 @@ return (aNiz)
 
 /*!  TxtUNiz(cTxt,nKol)
  *   Pretvara TXT u niz
- *  \param cTxt   - tekst
- *  \param nKol   - broj kolona
+ *   cTxt   - tekst
+ *   nKol   - broj kolona
  */
  
 function TxtUNiz(cTxt,nKol)
@@ -1754,8 +1754,8 @@ return .t.
 
 /*!  Menu_SC(cIzp, fMain, lBug)
  * 
- * \param opc    - indirektno priv.var, matrica naslova opcija
- * \param opcexe - indirektno priv.var, matrica funkcija (string ili kodni blok promjenljive)
+ *  opc    - indirektno priv.var, matrica naslova opcija
+ *  opcexe - indirektno priv.var, matrica funkcija (string ili kodni blok promjenljive)
  * 
  *  \code
  *  private Opc:={}

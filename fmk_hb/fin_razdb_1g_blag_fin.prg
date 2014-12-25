@@ -16,9 +16,9 @@
 
 /*!  GetBlPrParams(dDatOd, dDatDo, dDatDok, cTipNal, cShema)
  *   Setuj parametre prenosa
- *  \param dDatOd - datum prenosa od
- *  \param dDatDo - datum prenosa do
- *  \param dDatDok - datum dokumenta
+ *   dDatOd - datum prenosa od
+ *   dDatDo - datum prenosa do
+ *   dDatDok - datum dokumenta
  */
 function GetBlPrParams(dDatOd, dDatDo, dDatDok, cTipNal, cShema)
 
@@ -138,8 +138,8 @@ return
 
 /*!  Azur2Pripr(cBrojNal, dDatNal)
  *   Azuriranje stavke u pripremu
- *  \param cBrojNal - broj naloga
- *  \param dDatNal - datum naloga
+ *   cBrojNal - broj naloga
+ *   dDatNal - datum naloga
  */
 static function Azur2Pripr(cBrojNal, dDatNal)
 
@@ -168,7 +168,7 @@ return
 
 /*!  BlDan(cField)
  *   Vraca ukupan iznos pologa (cField) za datumski period
- *  \param cField - polje, npr "POLOG01"
+ *   cField - polje, npr "POLOG01"
  */
 static function BlDan(cField)
 
@@ -202,7 +202,7 @@ return 1
 
 /*!  GetBlIznos(cField)
  *   Vraca iznos pologa za datumski period
- *  \param cField - polje, npr "POLOG01"
+ *   cField - polje, npr "POLOG01"
  */
 static function GetBlIznos(cField)
 
@@ -255,7 +255,7 @@ return
 
 /*!  SetBlagKPath(cBlagKPath)
  *   Setuje path do tabela KUMPATH-a blagajne
- *  \param cBlagKPath - putanja
+ *   cBlagKPath - putanja
  */
 static function SetBlagKPath(cBlagKPath)
 

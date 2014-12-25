@@ -394,8 +394,8 @@ return
 
 /*!  ZaglDuznici(fStrana, lSvi)
  *   Zaglavlje izvjestaja duznika
- *  \param fStrana
- *  \param lSvi
+ *   fStrana
+ *   lSvi
  */
 
 function ZaglDuznici(fStrana, lSvi)

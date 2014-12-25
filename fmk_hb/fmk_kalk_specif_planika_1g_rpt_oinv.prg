@@ -721,7 +721,7 @@ return
 
 /*!  ZaglObrPC(cKako)
  *   Zaglavlje obrasca inventure za prodavnicu
- *  \param cKako
+ *   cKako
  */
  
 function ZaglObrPC(cKako)

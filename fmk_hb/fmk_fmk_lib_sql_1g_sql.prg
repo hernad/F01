@@ -170,7 +170,7 @@ return
 
 /*!  sql_azur(fLock)
  *  
- *  \param fLock - True - zakljucaj record u koji upisujes; False - vec je zakljucan, default value
+ *   fLock - True - zakljucaj record u koji upisujes; False - vec je zakljucan, default value
  *  \return True - uspjesno, False - neuspjesno
  */
  

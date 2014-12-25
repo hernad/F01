@@ -23,9 +23,9 @@
 /*! \ingroup Planika
  *  \var tbl_roba_k2
  *   Polje koje odredjuje da li ce se artikal uzeti u obzir pri sumiranju kolicina (u slucaju planike "kolicina"="pari")
- *  \param "X" - ne sumiraj
- *  \param "ostale vrijednosti" - uvrsti u suma pari
- *  \param Atributi polja C(4,0)
+ *   "X" - ne sumiraj
+ *   "ostale vrijednosti" - uvrsti u suma pari
+ *   Atributi polja C(4,0)
  */
  
  
@@ -58,12 +58,12 @@
 
 /*! \ingroup Planika
  *  GenRekap1(cKartica, cVarijanta, cKesiraj, fSMark)
- * \param cKartica  - "D" - ocitaj cijene sa kartica
- * \param cVarijanta - "1" - pregled kretanja zaliha; "2" - iskazi
- * \param fSMark  .t. - selekcija robe vrsi se na osnovu polja _M1_ iz sifrarnika
- * \param aUsl1
- * \param aUsl2
- * \param aUslR
+ *  cKartica  - "D" - ocitaj cijene sa kartica
+ *  cVarijanta - "1" - pregled kretanja zaliha; "2" - iskazi
+ *  fSMark  .t. - selekcija robe vrsi se na osnovu polja _M1_ iz sifrarnika
+ *  aUsl1
+ *  aUsl2
+ *  aUslR
  *
  * \note prije poziva funkcije pripremiti privatne varijable aUsl1 - konto1, aUsl2 - konto2, aUslR - uslov za robu; po zavrsetku funkcije REKAP1.DBF , OBJEKTI.DBF, K1.DBF - ostaju otvoreni
  *

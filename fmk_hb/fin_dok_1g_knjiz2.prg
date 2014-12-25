@@ -184,7 +184,7 @@ return
 /*!  ChkKtoMark(cIdKonto)
  *   provjeri da li postoji marker na kontu
  *   Uslov za ovu opciju: SIFK podesenje: ID=KONTO, OZNAKA=MARK, TIP=C, DUZ=1
- *  \param cIdKonto - id konto
+ *   cIdKonto - id konto
  */
 function ChkKtoMark(cIdKonto)
 

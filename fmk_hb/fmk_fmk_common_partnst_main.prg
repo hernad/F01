@@ -14,9 +14,9 @@
 
 /*!  GenPartnSt(lGenPartnSt, nSldMinIzn, cPosId)
  *   Postavljanje upita za generisanje stanja partnera te setovanje varijabli
- *  \param lGenPartnSt - da li se koristi ovaj feature
- *  \param nMinIznos - minimalan iznos 
- *  \param cPosId - id oznaka pos-a
+ *   lGenPartnSt - da li se koristi ovaj feature
+ *   nMinIznos - minimalan iznos 
+ *   cPosId - id oznaka pos-a
  */
 function GenPartnSt(lGenPartnSt, nSldMinIzn, cPosId)
 
@@ -104,7 +104,7 @@ return
 
 /*!  AddPAzToParams(dDate)
  *   Poziva f-ju AddToParams() i dodjeljuje joj parametre PAZ
- *  \param dDate - datum azuriranja
+ *   dDate - datum azuriranja
  */
 function AddPAzToParams(dDate)
 
@@ -115,7 +115,7 @@ return
 
 /*!  AddSCnToParams(lSilent)
  *   Poziva f-ju AddToParams() i dodjeljuje joj parametre SCN
- *  \param lSilent - .t. - tihi mod, .f. - prijavi MSG o prenesenim parametrima
+ *   lSilent - .t. - tihi mod, .f. - prijavi MSG o prenesenim parametrima
  */
 function AddSCnToParams(lSilent)
 
@@ -133,7 +133,7 @@ return
 
 /*!  AddPCnToParams(lSilent)
  *   Poziva f-ju AddToParams() i dodjeljuje joj parametre PCN
- *  \param lSilent - .t. - tihi mod, .f. - prijavi MSG o prenesenim parametrima
+ *   lSilent - .t. - tihi mod, .f. - prijavi MSG o prenesenim parametrima
  */
 function AddPCnToParams(lSilent)
 

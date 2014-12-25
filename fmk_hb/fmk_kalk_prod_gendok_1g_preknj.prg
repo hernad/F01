@@ -196,7 +196,7 @@ return
 
 /*!  GetProdKto(aProd)
  *   Vrati matricu sa prodavnicama
- *  \param aProd
+ *   aProd
  */
 function GetProdKto(aProd)
 
@@ -255,12 +255,12 @@ return
 
 /*!  GenPreknj(cPKonto, cPrTarifa, dDatOd, dDatDo, cBrKalk, lPst)
  *   Opcija generisanja dokumenta preknjizenja
- *  \param cPKonto - prodavnicki konto
- *  \param cPrTarifa - tarifa preknjizenja
- *  \param dDatOd - datum od kojeg se pravi preknjizenje
- *  \param dDatDo - datum do kojeg se pravi preknjizenje
- *  \param cBrKalk - broj kalkulacije
- *  \param lPst - pocetno stanje
+ *   cPKonto - prodavnicki konto
+ *   cPrTarifa - tarifa preknjizenja
+ *   dDatOd - datum od kojeg se pravi preknjizenje
+ *   dDatDo - datum do kojeg se pravi preknjizenje
+ *   cBrKalk - broj kalkulacije
+ *   lPst - pocetno stanje
  */
 function GenPreknj(cPKonto, cPrTarifa, dDatOd, dDatDo, cBrKalk, lPst, dDatPs, cCjSet, lAkciznaRoba, lZasticeneCijene)
 

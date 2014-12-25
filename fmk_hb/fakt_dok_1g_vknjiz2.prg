@@ -584,8 +584,8 @@ return left(Roba->naz,25)
 
 /*!  ObracunajPP(cSetPor,dDatDok)
  *   Obracunaj porez na promet 
- *  \param cSetPor
- *  \param dDatDok
+ *   cSetPor
+ *   dDatDok
  */
  
 function ObracunajPP(cSetPor,dDatDok)
@@ -706,7 +706,7 @@ RETURN
 
 /*!  ChSveStavke(fNovi)
  *  
- *  \param fNovi
+ *   fNovi
  */
  
 function ChSveStavke(fNovi)
@@ -756,9 +756,9 @@ RETURN
 
 /*!  TarifaR(cRegion, cIdRoba, aPorezi)
  *   Tarifa na osnovu region + roba
- *  \param cRegion
- *  \param cIdRoba
- *  \param aPorezi
+ *   cRegion
+ *   cIdRoba
+ *   aPorezi
  *  \note preradjena funkcija jer Fakt nema cIdKonto
  */
  
@@ -805,7 +805,7 @@ return tarifa->id
 
 /*!  SetAPorezi(aPorezi)
  *   
- *  \param aPorezi
+ *   aPorezi
  */
  
 function SetAPorezi(aPorezi)
@@ -834,9 +834,9 @@ return nil
 
 /*!  MpcSaPor(nMpcBP,aPorezi,aPoreziIzn)
  *   Maloprodajna cijena sa porezom
- *  \param nMpcBP
- *  \param aPorezi
- *  \param aPoreziIzn
+ *   nMpcBP
+ *   aPorezi
+ *   aPoreziIzn
  */
  
 function MpcSaPor(nMpcBP,aPorezi,aPoreziIzn)
@@ -861,8 +861,8 @@ return nPom
 
 /*!  MpcBezPor(nMpcSaPP,aPorezi)
  *   Maloprodajna cijena bez poreza
- *  \param nMpcSaPP
- *  \param aPorezi
+ *   nMpcSaPP
+ *   aPorezi
  */
  
 function MpcBezPor(nMpcSaPP,aPorezi)
@@ -888,9 +888,9 @@ return nPom
 
 /*!  Izn_P_PPP(nMpcBP,aPorezi,aPoreziIzn)
  *  
- *  \param nMpcBP
- *  \param aPorezi
- *  \param aPoreziIzn
+ *   nMpcBP
+ *   aPorezi
+ *   aPoreziIzn
  */
  
 function Izn_P_PPP(nMpcBP,aPorezi,aPoreziIzn)
@@ -905,9 +905,9 @@ return nPom
 
 /*!  Izn_P_PPU(nMpcBP,aPorezi,aPoreziIzn)
  *  
- *  \param nMpcBP
- *  \param aPorezi
- *  \param aPoreziIzn
+ *   nMpcBP
+ *   aPorezi
+ *   aPoreziIzn
  */
  
 function Izn_P_PPU(nMpcBP, aPorezi, aPoreziIzn)
@@ -921,9 +921,9 @@ return nPom
 
 /*!  Izn_P_PP(nMpcBP, aPorezi, aPoreziIzn)
  *  
- *  \param nMpcBP
- *  \param aPorezi
- *  \param aPoreziIzn
+ *   nMpcBP
+ *   aPorezi
+ *   aPoreziIzn
  */
 function Izn_P_PP(nMpcBP, aPorezi, aPoreziIzn)
 

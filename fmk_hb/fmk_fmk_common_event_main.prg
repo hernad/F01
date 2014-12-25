@@ -94,9 +94,9 @@ return
 
 /*!  Logirati(cModul,cKomponenta,cFunkcija)
  *   Provjerava da li funkciju treba logirati
- *  \param cModul modul
- *  \param cKomponenta komponenta unutar modula
- *  \param cFunkcija konkretna funkcija
+ *   cModul modul
+ *   cKomponenta komponenta unutar modula
+ *   cFunkcija konkretna funkcija
  *  \return .t. or .f.
  */
 

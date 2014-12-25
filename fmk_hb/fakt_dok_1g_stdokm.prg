@@ -28,9 +28,9 @@
 
 /*!  StDokM()
  *  
- *  \param cIdFirma
- *  \param cIdTipDok
- *  \param cBrDok
+ *   cIdFirma
+ *   cIdTipDok
+ *   cBrDok
  */
 
 function StDokM()
@@ -364,10 +364,10 @@ RETURN
 
 /*!  MSay(cTxt,x,y,cKod)
  *   
- *  \param cTxt
- *  \param x
- *  \param y
- *  \param cKod
+ *   cTxt
+ *   x
+ *   y
+ *   cKod
  */
  
 function MSay(cTxt,x,y,cKod)
@@ -382,7 +382,7 @@ RETURN
 
 /*!  PljuniKod(cKod)
  *   Daje neke sekvence stampaca...
- *  \param cKod
+ *   cKod
  */
  
 function PljuniKod(cKod)
@@ -404,7 +404,7 @@ RETURN (PCOL()-nKol)
 
 /*!  LiziKod(cKod)
  *   Nesto lize
- *  \param cKod
+ *   cKod
  */
  
 function LiziKod(cKod)

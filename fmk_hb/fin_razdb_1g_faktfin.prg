@@ -227,7 +227,7 @@ closeret
 
 /*!  PorezMp(cVar)
  *   Porez u maloprodaji
- *  \param cVar
+ *   cVar
  */
  
 function PorezMp(cVar)
@@ -298,7 +298,7 @@ return nVrati
 
 /*!  KontNal(dDatNal)
  *   Kontiranje naloga
- *  \param dDatNal  - datum naloga
+ *   dDatNal  - datum naloga
  */
  
 function KontNal(dDatNal)
@@ -503,7 +503,7 @@ return
 
 /*!  ParsMemo(cTxt)
  *   Pretvara tekst u niz
- *  \param cTxt   - zadati tekst
+ *   cTxt   - zadati tekst
  */
  
 function ParsMemo(cTxt)
@@ -531,8 +531,8 @@ return aMemo
 
 /*!  Round7(nBroj,cTip)
  *   Zaokruzivanje
- *  \param nBroj - Zadati broj
- *  \param cTip  - cTip je string sa dva znaka od kojih prvi uslovljava da li ce se izvrsiti zaokruzivanje, a drugi predstavlja broj decimala na koji ce se izvrsiti zaokruzivanje. Zaokruzivanje se vrsi uvijek izuzev ako je taj prvi znak "." */
+ *   nBroj - Zadati broj
+ *   cTip  - cTip je string sa dva znaka od kojih prvi uslovljava da li ce se izvrsiti zaokruzivanje, a drugi predstavlja broj decimala na koji ce se izvrsiti zaokruzivanje. Zaokruzivanje se vrsi uvijek izuzev ako je taj prvi znak "." */
 
 function Round7(nBroj,cTip)
 
@@ -553,9 +553,9 @@ RETURN nBroj
 
 /*!  RasKon(cRoba,aSifre,aKonta)
  *   Trazi poziciju cRoba u aSifre i ako nadje vraca element iz aKonta koji je na nadjenoj poziciji
- *  \param cRoba
- *  \param aSifre
- *  \param aKonta
+ *   cRoba
+ *   aSifre
+ *   aKonta
  */
  
 function RasKon(cRoba,aSifre,aKonta)
@@ -582,9 +582,9 @@ return (if(nProc==0,0,1/(1+1/(nProc/100))))
 
 /*!  IzKalk(cIdRoba,cKonSir,cSta)
  *  
- *  \param cIdRoba
- *  \param cKonSir
- *  \param cSta
+ *   cIdRoba
+ *   cKonSir
+ *   cSta
  */
  
 function IzKalk(cIdRoba,cKonSir,cSta)

@@ -24,11 +24,11 @@
 
 /*!  function ObjDBedit(cImeBoxa,  xw, yw, bUserF,  cMessTop, cMessBot, lInvert, aMessage, nFreeze, bPodvuci, nPrazno, nGPrazno, aPoredak, skipblock)
  *  Glavna funkcija tabelarnog prikaza podataka
- * \param cImeBoxa - ime box-a
- * \param xw - duzina
- * \param yw - sirina
- * \param bUserF - kodni blok, user funkcija
- * \param cMessTop - poruka na vrhu
+ *  cImeBoxa - ime box-a
+ *  xw - duzina
+ *  yw - sirina
+ *  bUserF - kodni blok, user funkcija
+ *  cMessTop - poruka na vrhu
  * \return NIL
  * \note grid - eng -> mreza
  *
@@ -39,16 +39,16 @@
 
 /*! \var ImeKol
   Privatna Varijabla koja se inicijalizira prije "ulaska" u ObjDBedit
- \param - [ 1] Zalavlje kolone 
- \param - [ 2] kodni blok za prikaz kolone {|| id}
- \param - [ 3] izraz koji se edituje (string), obradjuje sa & operatorom
- \param - [ 4] kodni blok When
- \param - [ 5] kodni blok Valid
- \param - [ 6] -
- \param - [ 7] picture
- \param - [ 8] - ima jos getova ????
- \param - [ 9] -
- \param - [10] NIL - prikazi u sljedecem redu,  15 - prikazi u koloni my+15  broj kolone pri editu sa <F2>
+  - [ 1] Zalavlje kolone 
+  - [ 2] kodni blok za prikaz kolone {|| id}
+  - [ 3] izraz koji se edituje (string), obradjuje sa & operatorom
+  - [ 4] kodni blok When
+  - [ 5] kodni blok Valid
+  - [ 6] -
+  - [ 7] picture
+  - [ 8] - ima jos getova ????
+  - [ 9] -
+  - [10] NIL - prikazi u sljedecem redu,  15 - prikazi u koloni my+15  broj kolone pri editu sa <F2>
 
 */
 
@@ -56,8 +56,8 @@
 
 /*! \var gTBDir
   Rezim direktnog TBrowse-a
- \param - [D] Rad u rezimu direktnog TBrowse-a
- \param - [N] "standardni" TBrowse
+  - [D] Rad u rezimu direktnog TBrowse-a
+  - [N] "standardni" TBrowse
 
 
 */
@@ -849,8 +849,8 @@ return .f.
 
 /*!  function TBPomjeranje(TB, cPomjeranje)
  *   Opcije pomjeranja tbrowsea u direkt rezimu
- *  \param TB          -  TBrowseObjekt
- *  \param cPomjeranje - ">", ">2", "V0"
+ *   TB          -  TBrowseObjekt
+ *   cPomjeranje - ">", ">2", "V0"
  */
 
 function TBPomjeranje(TB, cPomjeranje)

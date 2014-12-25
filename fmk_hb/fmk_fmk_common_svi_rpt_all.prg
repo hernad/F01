@@ -16,9 +16,9 @@
 
 /*!  DokNovaStrana(nColumn, nStr, nSlijediRedovaZajedno)
  *   Prelazak na novu stranicu
- *  \param nColumn - kolona na kojoj se stampa "Str: XXX"
- *  \param nStr  - stranica
- *  \param nSlijediRedovaZajedno - koliko nakon ove funkcije redova zelimo odstampati, nakon preloma se treba zajedno odstmpati "nSlijediRedova"; za vrijednost -1 stampa bez obzira na trenutnu poziciju (koristiti za stampu na prvoj strani) 
+ *   nColumn - kolona na kojoj se stampa "Str: XXX"
+ *   nStr  - stranica
+ *   nSlijediRedovaZajedno - koliko nakon ove funkcije redova zelimo odstampati, nakon preloma se treba zajedno odstmpati "nSlijediRedova"; za vrijednost -1 stampa bez obzira na trenutnu poziciju (koristiti za stampu na prvoj strani) 
  */
  
 function DokNovaStrana(nColumn, nStr, nSlijediRedovaZajedno)
@@ -85,7 +85,7 @@ RETURN
  
 /*!  IspisFirme(cIdRj)
  *   Ispisuje naziv fime
- *  \param cIdRj  - Oznaka radne jedinice
+ *   cIdRj  - Oznaka radne jedinice
  */
  
 function IspisFirme(cIdRj)

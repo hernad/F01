@@ -59,8 +59,8 @@ return .t.
 
 /*! \ingroup ini
  *  \var *string FmkIni_ExePath_POS_PitanjeUgasiti
- *  \param "0" - ne pitaj (dobro za racunar koji se ne koristi SAMO kao PC Kasa
- *  \param "-" - pitaj 
+ *   "0" - ne pitaj (dobro za racunar koji se ne koristi SAMO kao PC Kasa
+ *   "-" - pitaj 
  */
 
 function UgasitiR()

@@ -964,7 +964,7 @@ return
 
 
 /*!  Get1()
- *  \param fnovi
+ *   fnovi
  *   Prva strana/prozor maske unosa/ispravke stavke dokumenta
  */
 
@@ -1062,7 +1062,7 @@ return
 
 
 /*!  Get2()
- *  \param fnovi
+ *   fnovi
  *   Druga strana/prozor maske unosa/ispravke stavke dokumenta
  */
 
@@ -1831,8 +1831,8 @@ return
 
 
 /*!  StKalk()
- *  \param fstara
- *  \param cSeek
+ *   fstara
+ *   cSeek
  *   Centralna funkcija za stampu KALK dokumenta. Poziva odgovarajucu funkciju za stampu dokumenta u zavisnosti od tipa dokumenta i podesenja parametara varijante izgleda dokumenta
  */
 

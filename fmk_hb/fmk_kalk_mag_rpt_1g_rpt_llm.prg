@@ -1504,9 +1504,9 @@ return
 
 /*!  IsInGroup(cGr, cPodGr, cIdRoba)
  *   Provjerava da li artikal pripada odredjenoj grupi i podgrupi
- *  \param cGr - grupa
- *  \param cPodGr - podgrupa
- *  \param cIdRoba - id roba
+ *   cGr - grupa
+ *   cPodGr - podgrupa
+ *   cIdRoba - id roba
  */
 function IsInGroup(cGr, cPodGr, cIdRoba)
 

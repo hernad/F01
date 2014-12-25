@@ -41,11 +41,11 @@ return NIL
 
 /*!  OKumul(nArea,cStaza,cIme,nIndexa,cDefault)
  *   Kopira podatke sa mreze radi brzine pregleda dokumenata, sluzi samo za pregled
- *  \param nArea    - podrucje
- *  \param cStaza
- *  \param cIme
- *  \param nIndexa
- *  \param cDefault
+ *   nArea    - podrucje
+ *   cStaza
+ *   cIme
+ *   nIndexa
+ *   cDefault
  */
 
 function OKumul(nArea,cStaza,cIme,nIndexa,cDefault)
@@ -732,9 +732,9 @@ return
 
 /*!  Dupli(cIdFirma,cIdVn,cBrNal)
  *   Provjera duplog naloga
- *  \param cIdFirma
- *  \param cIdVn
- *  \param cBrNal
+ *   cIdFirma
+ *   cIdVn
+ *   cBrNal
  */
 
 function Dupli(cIdFirma,cIdVn,cBrNal)

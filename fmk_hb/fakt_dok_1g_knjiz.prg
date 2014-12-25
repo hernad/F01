@@ -814,7 +814,7 @@ return
 
 /*!  CijeneOK(cStr)
  *  
- *  \param cStr
+ *   cStr
  */
 
 function CijeneOK(cStr)
@@ -850,7 +850,7 @@ return (lRetFlag)
 
 /*!  EdOtpr(Ch)
  *   Ispravka otpremnica
- *  \param Ch
+ *   Ch
  */
 
 function EdOtpr(Ch)
@@ -876,8 +876,8 @@ return nRet
 
 /*!  RenumPripr(cVezOtpr,dNajnoviji)
  *  
- *  \param cVezOtpr
- *  \param dNajnoviji - datum posljednje radjene otpremnice
+ *   cVezOtpr
+ *   dNajnoviji - datum posljednje radjene otpremnice
  */
 
 function RenumPripr(cVezOtpr,dNajnoviji)
@@ -1943,8 +1943,8 @@ return cList
 
 /*!  FRokPl(cVar, fNovi)
  *   Validacija roka placanja
- *  \param cVar
- *  \param fNovi
+ *   cVar
+ *   fNovi
  */
 function FRokPl(cVar, fNovi)
 local fOtp:=.f.
@@ -2024,9 +2024,9 @@ return .t.
 
 /*!  SljBrDok13(cBrD,nBrM,cKon)
  *  
- *  \param cBrD
- *  \param nBrM
- *  \param cKon
+ *   cBrD
+ *   nBrM
+ *   cKon
  */
 
 function SljBrDok13(cBrD,nBrM,cKon)
@@ -2078,7 +2078,7 @@ return
 
 /*!  RJIzKonta(cKonto)
  *   Vraca radnu jedinicu iz sif->konto na osnovu zadatog konta
- *  \param cKonto   - konto
+ *   cKonto   - konto
  *  \return cVrati
  */
 
@@ -2103,7 +2103,7 @@ return cVrati
 
 /*!  KontoIzRJ(cRJ)
  *   Vraca konto na osnovu radne jedinice
- *  \param cRJ  - radna jedinica
+ *   cRJ  - radna jedinica
  *  \return cVrati
  */
 
@@ -2125,7 +2125,7 @@ return cVrati
 /*!  NarBrDok(fNovi)
  *   Postavlja u pripremi broj dokumenta - puni pripremu
  *   NarBrDok(fNovi)->cBroj  - Generise naredni broj dokumenta
- *  \param fNovi
+ *   fNovi
  *  \return _brdok
  */
 
@@ -2266,9 +2266,9 @@ return _BrDok
 /*!  StampTXT(cIdFirma,cIdTipDok,cBrDok)
  *   Stampa dokumenta
  *  \todo Ovo bi trebalo prebaciti u /RPT
- *  \param cIdFirma
- *  \param cIdTipDok
- *  \param cBrDok
+ *   cIdFirma
+ *   cIdTipDok
+ *   cBrDok
  */
 
 function StampTXT(cIdFirma, cIdTipDok, cBrDok, lJFill)
@@ -2441,10 +2441,10 @@ return
 /*!  StampRtf(cImeF,cIdFirma,cIdTipDok,cBrDok)
  *   Stampa u rtf formatu
  *  \todo Ovo bi trebalo prebaciti u /RPT
- *  \param cImeF
- *  \param cIdFirma
- *  \param cIdTipDok
- *  \param cBrDok
+ *   cImeF
+ *   cIdFirma
+ *   cIdTipDok
+ *   cBrDok
  */
 
 function StampRtf(cImeF,cIdFirma,cIdTipdok,cbrdok)
@@ -2516,8 +2516,8 @@ endif
 
 /*!  IsprUzorTxt(fSilent,bFunc)
  *   Ispravka teksta ispod fakture
- *  \param fSilent
- *  \param bFunc
+ *   fSilent
+ *   bFunc
  */
 
 function IsprUzorTxt(fSilent,bFunc)
@@ -2708,7 +2708,7 @@ return lVrati
 /*!  PRNKod_ON(cKod)
  *  
  *  \todo Prebaciti u /RPT
- *  \param cKod
+ *   cKod
  */
 
 function PRNKod_ON(cKod)
@@ -2731,7 +2731,7 @@ return (nil)
 /*!  PRNKod_OFF(cKod)
  *  
  *  \todo Prebaciti u /RPT
- *  \param cKod
+ *   cKod
  */
 
 function PRNKod_OFF(cKod)
@@ -2890,7 +2890,7 @@ return lRet
 
 /*!  SKCKalk(lSet)
  *   Set Key za Cijenu iz Kalk
- *  \param lSet
+ *   lSet
  */
 
 function SKCKalk(lSet)
@@ -2944,7 +2944,7 @@ return cVrati
 
 /*!  IzborBanke(cToken)
  *   Izbor banke
- *  \param cToken
+ *   cToken
  *  \return cVrati
  */
 
@@ -2983,8 +2983,8 @@ return cVrati
 
 /*!  TokToNiz(cTok,cSE)
  *   Token pretvara u niz
- *  \param cTok  - string tokena
- *  \param cSE   - separator elementa
+ *   cTok  - string tokena
+ *   cSE   - separator elementa
  *  \return aNiz
  */
 
@@ -3044,7 +3044,7 @@ return cVrati
 
 /*!  KonZbira(lVidi)
  *  
- *  \param lVidi - ako je .t. ili nil mora da postoji i privatna varijabla nC:=1
+ *   lVidi - ako je .t. ili nil mora da postoji i privatna varijabla nC:=1
  */
 
 function KonZbira(lVidi)

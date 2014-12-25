@@ -23,9 +23,9 @@ STATIC cLDirekt := "0"
 
 /*!  Pitanje(cId,cPitanje,cOdgDefault,cMogOdg)
  *   Otvara box sa zadatim pitanjem na koje treba odgovoriti sa D,N,..
- *  \param cId
- *  \param cPitanje       - Pitanje
- *  \param cOdgDefault    - Odgovor koji ce biti ponudjen na boxu
+ *   cId
+ *   cPitanje       - Pitanje
+ *   cOdgDefault    - Odgovor koji ce biti ponudjen na boxu
  *  \cMogOdg              - Moguci odgovori  
  */
  
@@ -83,8 +83,8 @@ RETURN .f.
 
 /*!  Pitanje2(cId,cPitanje,cOdgDefault)
  *   
- *  \param cId
- *  \param cPitanje       - Pitanje
+ *   cId
+ *   cPitanje       - Pitanje
  *  \cOdgDefault          - Ponudjeni odgovor
  */
  
@@ -125,7 +125,7 @@ return cOdg
 
 // ----------------------------
 //  IzlazPrn(cDirekt)
-//  \param cDirekt
+//   cDirekt
 // ----------------------------
  
 function IzlazPrn(cDirekt)
@@ -145,7 +145,7 @@ return cDirekt
 
 /*!  UpitPrinter(cDirekt)
  *  
- *  \param cDirekt   
+ *   cDirekt   
  */
  
 function UpitPrinter(cDirekt)
@@ -192,7 +192,7 @@ endif
 
 /*!  GetLozinka(nSiflen)
  *  
- *  \param nSiflen
+ *   nSiflen
  */
  
 function GetLozinka(nSiflen)
@@ -248,7 +248,7 @@ return padr(cKorSif,nSifLen)
 
 /*!  TrebaRegistrovati(nSlogova)
  *   Provjera da li je program registrovan
- *  \param nSlogova
+ *   nSlogova
  */
  
 function TrebaRegistrovati(nSlogova)
@@ -284,9 +284,9 @@ return
 
 /*!  PozdravMsg(cNaslov,cVer,nk)
  *   Ispisuje ekran sa pozdravnom porukom
- *  \param cNaslov
- *  \param cVer       
- *  \param nk
+ *   cNaslov
+ *   cVer       
+ *   nk
  */
  
 function PozdravMsg(cNaslov,cVer, lGreska)

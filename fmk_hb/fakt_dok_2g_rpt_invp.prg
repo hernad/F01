@@ -114,7 +114,7 @@ return
 
 /*!  ZInvp(cLinija)
  *   Zaglavlje izvjestaja inventura
- *  \param cUlaz - Proslijedjuje se linija koja se ispise iznad i ispod zaglavlja 
+ *   cUlaz - Proslijedjuje se linija koja se ispise iznad i ispod zaglavlja 
  */
  
 function ZInvp(cLinija)

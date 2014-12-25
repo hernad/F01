@@ -14,9 +14,9 @@
 
 /*!  IspisPoNar(lPartner,lString,lMVar)
  *   Prikaz narucioca ako je razlicit od kupca
- *  \param lPartner
- *  \param lString
- *  \param lMVar
+ *   lPartner
+ *   lString
+ *   lMVar
  */
  
 function IspisPoNar(lPartner,lString,lMVar)
@@ -41,11 +41,11 @@ RETURN cV
 
 /*!  KalkNab3m(cIdfirma,cIdRoba,cIdKonto,aNabavke)
  *   Nabavke po narudzbi i naruciocu
- *  \param cIdFirma
- *  \param cIdRoba
- *  \param cIdKonto
- *  \param aNabavke matrica {{k1,c1,ki1,idn1,brn1},{k2,c2,ki2,idn2,brn2}...}, gdje je k=kolicina na stanju, c=cijena, ki=izabrana kolicina, idn=sifra narucioca, brn=broj narudzbe
- *  \param nKolS
+ *   cIdFirma
+ *   cIdRoba
+ *   cIdKonto
+ *   aNabavke matrica {{k1,c1,ki1,idn1,brn1},{k2,c2,ki2,idn2,brn2}...}, gdje je k=kolicina na stanju, c=cijena, ki=izabrana kolicina, idn=sifra narucioca, brn=broj narudzbe
+ *   nKolS
  */
  
 function KalkNab3m(cIdFirma,cIdRoba,cIdKonto,aNabavke,nKolS)
@@ -112,7 +112,7 @@ RETURN
 
 /*!  KDNarNCm(aNabavke)
  *  
- *  \param aNabavke
+ *   aNabavke
  */
  
 function KDNarNCm(aNabavke,lProsjNC)
@@ -168,11 +168,11 @@ return
 
 /*!  KalkNab3p(cIdFirma,cIdRoba,cIdKonto,aNabavke)
  *   Nabavke po narudzbi i naruciocu
- *  \param cIdFirma
- *  \param cIdroba
- *  \param cIdKonto
- *  \param aNabavke - kao i u predhodnoj funkciji
- *  \param nKolS
+ *   cIdFirma
+ *   cIdroba
+ *   cIdKonto
+ *   aNabavke - kao i u predhodnoj funkciji
+ *   nKolS
  */
 function KalkNab3p(cIdFirma,cIdRoba,cIdKonto,aNabavke,nKolS)
 
@@ -240,7 +240,7 @@ RETURN
 
 /*!  KDNarNCp(aNabavke)
  *  
- *  \param aNabavke
+ *   aNabavke
  */
  
 function KDNarNCp(aNabavke,lProsjNC)
@@ -296,7 +296,7 @@ return
 
 /*!  GenStPoNarudzbi(lGenStavke)
  *   Generacija stavki po narudzbi
- *  \param lGenStavke
+ *   lGenStavke
  */
  
 FUNCTION GenStPoNarudzbi(lGenStavke)
@@ -350,10 +350,10 @@ RETURN 1
 
 /*!  KalkNab2(cIdFirma,cIdRoba,cIdKonto,aNabavke)
  *  
- *  \param cIdFirma
- *  \param cIdRoba
- *  \param cIdKonto
- *  \param aNabavke
+ *   cIdFirma
+ *   cIdRoba
+ *   cIdKonto
+ *   aNabavke
  */
  
 function KalkNab2(cIdFirma,cIdRoba,cIdKonto,aNabavke)
@@ -418,7 +418,7 @@ RETURN
 
 /*!  KreDetNC(aNabavke)
  *   
- *  \param aNabavke
+ *   aNabavke
  */
  
 function KreDetNC(aNabavke)

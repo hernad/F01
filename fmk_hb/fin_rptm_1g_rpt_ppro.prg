@@ -187,7 +187,7 @@ RETURN cVrati
 
 /*!  ZagPPR(cI)
  *   Zaglavlje pregleda promjena na racunu
- *  \param cI
+ *   cI
  */
 function ZagPPR(cI)
 
@@ -208,9 +208,9 @@ RETURN
 
 /*!  StrKZN(cInput,cIz,cU)
  *   Konverzija znakova
- *  \param cInput  - ulazni tekst
- *  \param cIz     - izlaz
- *  \param cU      - ulaz
+ *   cInput  - ulazni tekst
+ *   cIz     - izlaz
+ *   cU      - ulaz
  */
  
 function StrKZN(cInput,cIz,cU)

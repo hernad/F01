@@ -19,7 +19,7 @@
 
 /*!  Izvjestaji()
  *   Glavni menij za izbor izvjestaja
- *  \param 
+ *   
  */
  
 function IzvjPogonK()

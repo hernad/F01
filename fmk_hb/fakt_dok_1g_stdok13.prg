@@ -26,8 +26,8 @@
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_Svi_SaberiKol
   *  Da li se prikazuje suma kolicina u svim stavkama bez obzira na to sto se radi o stavkama sa razlicitim artiklima ?
-  * \param N - ne, default vrijednost
-  * \param D - da
+  *  N - ne, default vrijednost
+  *  D - da
   */
 *string FmkIni_ExePath_Svi_SaberiKol;
 
@@ -35,9 +35,9 @@
 /*! \ingroup ini
   * \var *string FmkIni_SifPath_SifRoba_PBarkod
   *  Da li se mogu ispisivati bar-kodovi u dokumentima ?
-  * \param 0 - ne, default vrijednost
-  * \param 1 - da, na upit "Zelite li ispis bar-kodova?" ponudjen je odgovor "N"
-  * \param 2 - da, na upit "Zelite li ispis bar-kodova?" ponudjen je odgovor "D"
+  *  0 - ne, default vrijednost
+  *  1 - da, na upit "Zelite li ispis bar-kodova?" ponudjen je odgovor "N"
+  *  2 - da, na upit "Zelite li ispis bar-kodova?" ponudjen je odgovor "D"
   */
 *string FmkIni_SifPath_SifRoba_PBarkod;
 
@@ -45,8 +45,8 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_Cijena13MPC
   *  Da li je MPC cijena koja se pamti u dokumentu tipa 13 ?
-  * \param N - ne, default vrijednost
-  * \param D - da
+  *  N - ne, default vrijednost
+  *  D - da
   */
 *string FmkIni_KumPath_FAKT_Cijena13MPC;
 
@@ -54,8 +54,8 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_KupacDesno
   *  Da li se podaci o kupcu ispisuju uz desnu marginu dokumenta ?
-  * \param N - ne, default vrijednost
-  * \param D - da
+  *  N - ne, default vrijednost
+  *  D - da
   */
 *string FmkIni_KumPath_FAKT_KupacDesno;
 
@@ -63,8 +63,8 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_Uska13ka
   *  Da li se 13-ka ispisuje u suzenoj varijanti (kolona sifre tarife umjesto naziva tarife, naziv robe 25 umjesto 28 znakova, kolicina 8 umjesto 11) ?
-  * \param N - ne, default vrijednost
-  * \param D - da
+  *  N - ne, default vrijednost
+  *  D - da
   */
 *string FmkIni_KumPath_FAKT_Uska13ka;
 
@@ -72,8 +72,8 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_PrikazVPCu13ki
   *  Da li se prikazuje kolona VPC u 13-ki ?
-  * \param D - da, default vrijednost
-  * \param N - ne
+  *  D - da, default vrijednost
+  *  N - ne
   */
 *string FmkIni_KumPath_FAKT_PrikazVPCu13ki;
 
@@ -81,7 +81,7 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_Uska13sirinaVPC
   *  Sirina kolone VPC u uskoj varijanti 13-ke
-  * \param 5 - default vrijednost
+  *  5 - default vrijednost
   */
 *string FmkIni_KumPath_FAKT_Uska13sirinaVPC;
 
@@ -89,7 +89,7 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_Uska13sirinaMPC
   *  Sirina kolone MPC u uskoj varijanti 13-ke
-  * \param 5 - default vrijednost
+  *  5 - default vrijednost
   */
 *string FmkIni_KumPath_FAKT_Uska13sirinaMPC;
 
@@ -97,7 +97,7 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_STAMPA_OpresaPicKol
   *  Format za prikaz kolicine u varijanti za Opresu (stampa)
-  * \param 9999 - default vrijednost
+  *  9999 - default vrijednost
   */
 *string FmkIni_KumPath_STAMPA_OpresaPicKol;
 
@@ -105,7 +105,7 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_STAMPA_OpresaPicCij
   *  Format za prikaz cijene u varijanti za Opresu (stampa)
-  * \param 999.99 - default vrijednost
+  *  999.99 - default vrijednost
   */
 *string FmkIni_KumPath_STAMPA_OpresaPicCij;
 
@@ -113,7 +113,7 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_STAMPA_OpresaPicIzn
   *  Format za prikaz iznosa u varijanti za Opresu (stampa)
-  * \param 99999.99 - default vrijednost
+  *  99999.99 - default vrijednost
   */
 *string FmkIni_KumPath_STAMPA_OpresaPicIzn;
 
@@ -121,7 +121,7 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_STAMPA_OpresaPicPor
   *  Format za prikaz poreza u procentima u varijanti za Opresu (stampa)
-  * \param 99.99% - default vrijednost
+  *  99.99% - default vrijednost
   */
 *string FmkIni_KumPath_STAMPA_OpresaPicPor;
 
@@ -129,8 +129,8 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_STAMPA_Opresa13ka_A4
   *  Da li se otpremnica (13-ka) u varijanti za Opresu (stampa) ispisuje na formatu papira A4 ?
-  * \param N - ne nego na A3, default vrijednost
-  * \param D - da, na A4
+  *  N - ne nego na A3, default vrijednost
+  *  D - da, na A4
   */
 *string FmkIni_KumPath_STAMPA_Opresa13ka_A4;
 
@@ -138,7 +138,7 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_STAMPA_Opresa13kaDuzinaNazivaRobe
   *  Sirina kolone naziva robe u otpremnici (13-ki) u varijanti za Opresu (stampa)
-  * \param 18 - default vrijednost
+  *  18 - default vrijednost
   */
 *string FmkIni_KumPath_STAMPA_Opresa13kaDuzinaNazivaRobe;
 
@@ -146,8 +146,8 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_STAMPA_Opresa13ka_3kolonski_P_COND
   *  Da li se koristi kondezovana gustoca ispisa u trokolonskoj varijanti otpremnice (13-ke) u varijanti za Opresu (stampa) ?
-  * \param D - da, default vrijednost
-  * \param N - ne
+  *  D - da, default vrijednost
+  *  N - ne
   */
 *string FmkIni_KumPath_STAMPA_Opresa13ka_3kolonski_P_COND;
 
@@ -155,8 +155,8 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_STAMPA_Opresa13ka_2kolonski_P_12CPI
   *  Da li se koristi gustoca ispisa 12 CPI u dvokolonskoj varijanti otpremnice (13-ke) u varijanti za Opresu (stampa) ?
-  * \param D - da, default vrijednost
-  * \param N - ne
+  *  D - da, default vrijednost
+  *  N - ne
   */
 *string FmkIni_KumPath_STAMPA_Opresa13ka_2kolonski_P_12CPI;
 
@@ -164,7 +164,7 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_STAMPA_Opresa13kaRedova
   *  Broj redova koji se ispisuju na jednoj otpremnici (13-ki) u varijanti za Opresu (stampa)
-  * \param 36 - default vrijednost
+  *  36 - default vrijednost
   */
 *string FmkIni_KumPath_STAMPA_Opresa13kaRedova;
 
@@ -527,7 +527,7 @@ return
 
 /*!  BrDecimala(cFormat)
  *   
- *  \param cFormat
+ *   cFormat
  *  \return nVrati
  */
  

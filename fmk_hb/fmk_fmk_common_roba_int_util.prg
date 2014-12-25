@@ -15,9 +15,9 @@
 
 /*!  GetKalkVars(cFirma, cKonto, cPath)
  *   Vraca osnovne var.za rad sa kalk-om
- *  \param cFirma - id firma kalk
- *  \param cKonto - konto prodavnice u kalk-u
- *  \param cPath - putanja do kalk.dbf
+ *   cFirma - id firma kalk
+ *   cKonto - konto prodavnice u kalk-u
+ *   cPath - putanja do kalk.dbf
  */
 function GetKalkVars(cFirma, cKonto, cPath)
 // firma je uvijek 50
@@ -87,7 +87,7 @@ return
 
 /*!  GetErrorDesc(cType)
  *   Vrati naziv greske po cType
- *  \param cType - tip greske, C, W, N ...
+ *   cType - tip greske, C, W, N ...
  */
 function GetErrorDesc(cType)
 
@@ -109,8 +109,8 @@ return cRet
 
 /*!  RptInteg()
  *   report nakon testa integ1
- *  \param lFilter - filter za kriticne greske
- *  \param lAutoSent - automatsko slanje email-a
+ *   lFilter - filter za kriticne greske
+ *   lAutoSent - automatsko slanje email-a
  */
 function RptInteg(lFilter, lAutoSent)
 
@@ -252,9 +252,9 @@ return
 
 
 /*!  GetSendVars(cScript)
- *  \param cScript - ruby skripta
- *  \param cPSite - prodavnicki site
- *  \param cRptFile - report fajl
+ *   cScript - ruby skripta
+ *   cPSite - prodavnicki site
+ *   cRptFile - report fajl
  */
 function GetSendVars(cScript, cPSite, cRptFile)
 

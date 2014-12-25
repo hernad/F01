@@ -20,7 +20,7 @@
  
 /*!  Fakt_Kalk(lFaktKalk)
  *   Uporedni prikaz stanja Kalk<->Fakt 
- *  \param lFaktKalk
+ *   lFaktKalk
  */
  
 function Fakt_Kalk(lFaktFakt)

@@ -35,9 +35,9 @@
  
 /*!  StDok2a()
  *   Stampa fakture u varijanti 2 a 
- *  \param cIdFirma 
- *  \param cIdTipDok
- *  \param cBrDok
+ *   cIdFirma 
+ *   cIdTipDok
+ *   cBrDok
  */
  
 function StDok2a()

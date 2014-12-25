@@ -115,7 +115,7 @@ return
 
 /*!  get_drn_fields(aArr)
  *   napuni matricu aArr sa specifikacijom polja tabele
- *  \param aArr - matrica
+ *   aArr - matrica
  */
 function get_drn_fields(aArr)
 
@@ -163,7 +163,7 @@ return
 
 /*!  get_rn_fields(aArr)
  *   napuni matricu aArr sa specifikacijom polja tabele
- *  \param aArr - matrica
+ *   aArr - matrica
  */
 function get_rn_fields(aArr)
 
@@ -198,7 +198,7 @@ return
 
 /*!  get_dtxt_fields(aArr)
  *   napuni matricu aArr sa specifikacijom polja tabele
- *  \param aArr - matrica
+ *   aArr - matrica
  */
 function get_dtxt_fields(aArr)
 

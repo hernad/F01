@@ -198,8 +198,8 @@ END CLASS
 
 /*!  *void TDB::logAgain(string cSezona, bool lSilent, bool lWriteKParam)
  *   logiraj se ponovo, sa oznakom nove sezone
- *  \param cSezona
- *  \param lSilent
+ *   cSezona
+ *   lSilent
  */
  
 *void TDB::logAgain(string cSezona, bool lSilent, bool lWriteKParam)

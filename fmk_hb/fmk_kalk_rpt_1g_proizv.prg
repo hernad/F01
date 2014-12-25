@@ -644,7 +644,7 @@ return
 
 /*!  PrikaziTI(cSif)
  *   Prikazuje tekuci izvjestaj
- *  \param cSif - sifra izvjestaja
+ *   cSif - sifra izvjestaja
  */
 
 function PrikaziTI(cSif)

@@ -107,8 +107,8 @@ return nil
 
 
 /*!  GDokInvManjak(cIdRj, cBrDok)
- *  \param cIdRj - oznaka firme dokumenta IM na osnovu kojeg se generise dok.19
- *  \param cBrDok - broj dokumenta IM na osnovu kojeg se generise dok.19
+ *   cIdRj - oznaka firme dokumenta IM na osnovu kojeg se generise dok.19
+ *   cBrDok - broj dokumenta IM na osnovu kojeg se generise dok.19
  *   Generacija dokumenta 19 tj. otpreme iz mag na osnovu dok. IM
  */
 function GDokInvManjak(cIdRj, cBrDok)
@@ -150,11 +150,11 @@ return
 
 
 /*!  ApndInvMItem(cIdRj, cIdRoba, cBrDok, nKolicina, cRbr)
- *  \param cIdRj - oznaka firme dokumenta
- *  \param cIdRoba - sifra robe
- *  \param cBrDok - broj dokumenta
- *  \param nKolicina - kolicina tj.manjak
- *  \param cRbr - redni broj stavke
+ *   cIdRj - oznaka firme dokumenta
+ *   cIdRoba - sifra robe
+ *   cBrDok - broj dokumenta
+ *   nKolicina - kolicina tj.manjak
+ *   cRbr - redni broj stavke
  *   Dodavanje stavke dokumenta 19 za evidentiranje manjka po osnovu inventure
  */
  
@@ -189,8 +189,8 @@ return
 
 
 /*!  GDokInvVisak(cIdRj, cBrDok)
- *  \param cIdRj - oznaka firme dokumenta IM na osnovu kojeg se generise dok.19
- *  \param cBrDok - broj dokumenta IM na osnovu kojeg se generise dok.19
+ *   cIdRj - oznaka firme dokumenta IM na osnovu kojeg se generise dok.19
+ *   cBrDok - broj dokumenta IM na osnovu kojeg se generise dok.19
  *   Generacija dokumenta 01 tj.primke u magacin na osnovu dok. IM
  */
 function GDokInvVisak(cIdRj, cBrDok)
@@ -233,11 +233,11 @@ return
 
 
 /*!  ApndInvVItem(cIdRj, cIdRoba, cBrDok, nKolicina, cRbr)
- *  \param cIdRj - oznaka firme dokumenta
- *  \param cIdRoba - sifra robe
- *  \param cBrDok - broj dokumenta
- *  \param nKolicina - kolicina tj.visak
- *  \param cRbr - redni broj stavke
+ *   cIdRj - oznaka firme dokumenta
+ *   cIdRoba - sifra robe
+ *   cBrDok - broj dokumenta
+ *   nKolicina - kolicina tj.visak
+ *   cRbr - redni broj stavke
  *   Dodavanje stavke dokumenta 01 za evidentiranje viska po osnovu inventure
  */
 

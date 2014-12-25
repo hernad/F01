@@ -201,7 +201,7 @@ return nVrati
 
 /*!  UkUplata(lPushWA)
  *   Ukupno uplata
- *  \param lPushWA - .t.-skeniraj pa vrati stanje baze uplata, .f.-ne radi to
+ *   lPushWA - .t.-skeniraj pa vrati stanje baze uplata, .f.-ne radi to
  */
  
 function UkUplata(lPushWA)
@@ -240,7 +240,7 @@ return nVrati
 
 /*!  SkipDBBK(nRequest)
  *  
- *  \param nRequest
+ *   nRequest
  */
  
 function SkipDBBK(nRequest)
@@ -334,7 +334,7 @@ return nil
 
 /*!  SaldaKupaca(lPocStanje)
  *   Izvjestaj koji daje salda svih kupaca
- *  \param lPocStanje - .t.-generisi i pocetno stanje, .f.-daj samo pregled
+ *   lPocStanje - .t.-generisi i pocetno stanje, .f.-daj samo pregled
  */
  
 function SaldaKupaca(lPocStanje)

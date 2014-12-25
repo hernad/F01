@@ -206,7 +206,7 @@ return
 
 /*!  PKontoCnt(cSeek)
  *   Kreira niz prodavnickih konta koji se nalaze u zadanom dokumentu
- *  \param cSeek - firma + tip dok + broj dok
+ *   cSeek - firma + tip dok + broj dok
  */
 
 function PKontoCnt(cSeek)

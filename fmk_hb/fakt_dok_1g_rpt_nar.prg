@@ -22,8 +22,8 @@
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FAKT_NarudzbaSaCijenama
   *  Odredjuje da li ce se na narudzbenici prikazivati cijene
-  * \param N - bez cijena, default vrijednost
-  * \param D - prikazi i cijene
+  *  N - bez cijena, default vrijednost
+  *  D - prikazi i cijene
   */
 *string FmkIni_ExePath_FAKT_NarudzbaSaCijenama;
 
@@ -31,7 +31,7 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_NARUDZBENICA_DobAdresa
   *  Odredjuje adresu dobavljaca
-  * \param _ - default vrijednost
+  *  _ - default vrijednost
   */
 *string FmkIni_KumPath_NARUDZBENICA_DobAdresa;
 
@@ -39,7 +39,7 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_NARUDZBENICA_DobTelefon
   *  Odredjuje telefon dobavljaca
-  * \param _ - default vrijednost
+  *  _ - default vrijednost
   */
 *string FmkIni_KumPath_NARUDZBENICA_DobTelefon;
 
@@ -47,7 +47,7 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_NARUDZBENICA_DobDomZR
   *  Odredjuje ziro racun dobavljaca
-  * \param _ - default vrijednost
+  *  _ - default vrijednost
   */
 *string FmkIni_KumPath_NARUDZBENICA_DobDomZR;
 
@@ -55,7 +55,7 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_NARUDZBENICA_DobRegBr
   *  Odredjuje registarski broj dobavljaca
-  * \param _ - default vrijednost
+  *  _ - default vrijednost
   */
 *string FmkIni_KumPath_NARUDZBENICA_DobRegBr;
 
@@ -63,7 +63,7 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_NARUDZBENICA_DobPorBr
   *  Odredjuje poreski broj dobavljaca
-  * \param _ - default vrijednost
+  *  _ - default vrijednost
   */
 *string FmkIni_KumPath_NARUDZBENICA_DobPorBr;
 
@@ -278,7 +278,7 @@ return
 
 /*!  UzmiVar(cVar)
  *   Uzima varijable 
- *  \param cVar
+ *   cVar
  *  \return cVrati
  */
 

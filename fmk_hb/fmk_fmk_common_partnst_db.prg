@@ -17,7 +17,7 @@
 
 /*!  CrePStDB(cModulName)
  *   Kreiranje tabela za prenos (OSTAV, PARAMS)
- *  \param cModulName - ime modula - generisi tabele samo dok si u modulu POS
+ *   cModulName - ime modula - generisi tabele samo dok si u modulu POS
  */
 function CrePStDB(cModulName)
 
@@ -69,7 +69,7 @@ return
 
 /*!  O_PrenHH(cPosID)
  *   Otvaranje tabele za prenos na HH
- *  \param cPosID - id oznaka POS-a - bitan za modul FIN
+ *   cPosID - id oznaka POS-a - bitan za modul FIN
  */
 function O_PrenHH(cPosID)
 
@@ -105,7 +105,7 @@ return
 
 /*!  GetTopsKumPathFromKoncij(cTId)
  *   Vraca KUMPATH TOPS-a iz tabele koncij
- *  \param cTId - idpm TOPS
+ *   cTId - idpm TOPS
  *  \todo razraditi procedure ako nema podesenog PATH-a
  */
 function GetTopsKumPathFromKoncij()
@@ -129,8 +129,8 @@ return cTKPath
 
 /*!  AddToOstav(nId, nIznosG)
  *   Dodaje gotovinski zapis u tabelu ostav - iz TOPS-a
- *  \param nId - polje IDN iz rngost (veza sa partn->id)
- *  \param nIznosG - saldo partnera iz TOPS-a
+ *   nId - polje IDN iz rngost (veza sa partn->id)
+ *   nIznosG - saldo partnera iz TOPS-a
  */
 function AddToOstav(nId, nIznosG)
 
@@ -155,9 +155,9 @@ return
 
 /*!  AddToPartn(nId, cIdFmk, cNaziv)
  *   Dodaje zapis u tabelu partn - iz TOPS-a
- *  \param nId - polje IDN iz rngost (veza sa partn->id)
- *  \param cIdFmk - polje IDFMK iz tabele RNGOST
- *  \param cNaziv - naziv partnera
+ *   nId - polje IDN iz rngost (veza sa partn->id)
+ *   cIdFmk - polje IDFMK iz tabele RNGOST
+ *   cNaziv - naziv partnera
  */
 function AddToPartn(nId, cIdFmk, cNaziv)
 
@@ -178,9 +178,9 @@ return
 
 /*!  AddToParams(cID, cNaziv, cOpis)
  *   Dodaje zapis u tabelu params - ovo je kontrolna tabela iz koje mozemo vidjeti koliko je preneseno partnera a koliko otvorenih stavki te kada je zadnji put prenos radjen.
- *  \param cID - 1. PAZ - Posljednje azuriranje 2. PCN - Broj prenesenih partnera 3. SCN - Broj prenesenih otvorenih stavki.
- *  \param cNaziv - Naziv promjene
- *  \param cOpis - Opis promjene
+ *   cID - 1. PAZ - Posljednje azuriranje 2. PCN - Broj prenesenih partnera 3. SCN - Broj prenesenih otvorenih stavki.
+ *   cNaziv - Naziv promjene
+ *   cOpis - Opis promjene
  */
 function AddToParams(cID, cNaziv, cOpis)
 
@@ -201,11 +201,11 @@ return
 
 /*!  AddFinIntervalsToOstav(cIdPartn, nIznos1, nIznos2, nIznos3, nIznos4)
  *   Dodaje rocne intervale u OSTAV iz modula FIN 
- *  \param cIdPartn - id partnera
- *  \param nIznos1 - saldo do 4 dana
- *  \param nIznos2 - saldo do 8 dana
- *  \param nIznos3 - saldo do 16 dana
- *  \param nIznos4 - saldo do 20 dana
+ *   cIdPartn - id partnera
+ *   nIznos1 - saldo do 4 dana
+ *   nIznos2 - saldo do 8 dana
+ *   nIznos3 - saldo do 16 dana
+ *   nIznos4 - saldo do 20 dana
  */
 function AddFinIntervalsToOstav(cIdPartn, cParNaz, nIznos1, nIznos2, nIznos3, nIznos4, nIznos5)
 

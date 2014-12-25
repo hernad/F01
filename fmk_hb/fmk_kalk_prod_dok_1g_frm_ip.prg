@@ -292,7 +292,7 @@ return
 
 /*!  RedniBroj(nRbr)
  *   Pretvaranje numericke vrijednosti u string, s tim da je string koji se formira duzine 3. Za brojeve preko 999 koristi se slovo na mjestu prvog znaka, npr.1000 -> A00, 1100 -> B00, 1200 -> C00, ...
- *  \param nRbr -
+ *   nRbr -
  */
 
 function RedniBroj(nRbr)

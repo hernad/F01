@@ -73,7 +73,7 @@ return
 
 /*!  DeleteAllOldMsg(lAppSrv)
  *   Brise sve poruke od Date()-cBrojDana pa unazad
- *  \param lAppSrv - ako se poziva kroz appsrv onda brise DATE()-93
+ *   lAppSrv - ako se poziva kroz appsrv onda brise DATE()-93
  */
 function DeleteAllOldMsg(lAppSrv)
 
@@ -191,8 +191,8 @@ return
 
 /*!  ImportMsgFrom(cDrive, cSite)
  *   Importuje poruke sa druge lokacije (npr. import poruka sa i:\kase\tops\kum1\message.dbf u c:\kase\tops\kum1\message.dbf)
- *  \param cDrive - oznaka drive-a (npr. I:)
- *  \param cSite - oznaka site-a prodavnice (npr. 50)
+ *   cDrive - oznaka drive-a (npr. I:)
+ *   cSite - oznaka site-a prodavnice (npr. 50)
  */
 function ImportMsgFrom(cDrive, cSite)
 
@@ -269,12 +269,12 @@ return
 
 /*!  IsMsgExistLocaly(cFromHost, cFromUser, cText, dCreated, dSent, cTo)
  *   Da li poruka postoji lokalno. Ako postoji vraca .T. a ako ne .F.
- *  \param cFromHost
- *  \param cFromUser
- *  \param cText
- *  \param dCreated
- *  \param dSent
- *  \param cTo
+ *   cFromHost
+ *   cFromUser
+ *   cText
+ *   dCreated
+ *   dSent
+ *   cTo
  */
 function IsMsgExistLocaly(cFromHost, cFromUser, cText, dCreated, dSent, cTo)
 

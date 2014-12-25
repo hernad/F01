@@ -157,10 +157,10 @@ return cDefault
 
 /*!  R_IniWrite ( cSection, cEntry, cString, cFName )
  *
- * \param cSection - String that specifies the section to which the string will  be copied. If the section does not exist, it is created. cSection is case-independent
- * \param cEntry - String containing the entry to be associated with the string. If the entry does not exist in the specified section, it is created. If the parameter is NIL, the entire section, including all entries within the section, is deleted.
- * \param cString - String to be written to the file. If this parameter is NIL, the entry specified by the cEntry parameter is deleted.
- * \param cFName  - String that names the initialization file
+ *  cSection - String that specifies the section to which the string will  be copied. If the section does not exist, it is created. cSection is case-independent
+ *  cEntry - String containing the entry to be associated with the string. If the entry does not exist in the specified section, it is created. If the parameter is NIL, the entire section, including all entries within the section, is deleted.
+ *  cString - String to be written to the file. If this parameter is NIL, the entry specified by the cEntry parameter is deleted.
+ *  cFName  - String that names the initialization file
  *
  * \sa R_IniWrite
  *
@@ -362,7 +362,7 @@ return .t.
 
 
 /*!  I_At(cSearch, cString, nStart)
- *  \param nStart - pocni pretragu od nStart pozicije
+ *   nStart - pocni pretragu od nStart pozicije
  */
 static function I_At(cSearch, lUpper, nStart)
 
@@ -378,11 +378,11 @@ return if ( nPos > 0, nPos + nStart - 1, 0 )
 
 /*!  IzFmkIni(cSection, cVar, cValue, cLokacija )
  *
- *  \param cSection  - [SECTION]
- *  \param cVar      - Variable
- *  \param cValue    - Default value of Variable
- *  \param cLokacija - Default = EXEPATH, or PRIVPATH, or SIFPATH or KUMPATH (FileName='FMK.INI')
- *  \param lAppend   - True - ako zapisa u ini-ju nema dodaj ga, default false
+ *   cSection  - [SECTION]
+ *   cVar      - Variable
+ *   cValue    - Default value of Variable
+ *   cLokacija - Default = EXEPATH, or PRIVPATH, or SIFPATH or KUMPATH (FileName='FMK.INI')
+ *   lAppend   - True - ako zapisa u ini-ju nema dodaj ga, default false
  * \code
  * // uzmi vrijednost varijable Debug, sekcija Gateway, iz EXEPATH/FMK.INI
  * cDN:=IzFmkIni("Gateway","Debug","N",EXEPATH)
@@ -1052,11 +1052,11 @@ return oBuffObj
 
 /*!  IzFmkIni(cSection, cVar, cValue, cLokacija )
  *
- *  \param cSection  - [SECTION]
- *  \param cKey      - Variable
- *  \param cDefault  - Default value of Variable
- *  \param cLokacija - Default = EXEPATH, or PRIVPATH, or SIFPATH or KUMPATH (FileName='FMK.INI')
- *  \param lAppend   - True - ako zapisa u ini-ju nema dodaj ga, default True	       
+ *   cSection  - [SECTION]
+ *   cKey      - Variable
+ *   cDefault  - Default value of Variable
+ *   cLokacija - Default = EXEPATH, or PRIVPATH, or SIFPATH or KUMPATH (FileName='FMK.INI')
+ *   lAppend   - True - ako zapisa u ini-ju nema dodaj ga, default True	       
  * \code
  * // uzmi vrijednost varijable Debug, sekcija Gateway, iz EXEPATH/FMK.INI
  * cDN:=IzFmkIni("Gateway","Debug","N",EXEPATH)

@@ -1085,7 +1085,7 @@ return
 
 /*!  Telefon(cTel)
  *   Postavlja uslov za partnera (npr. Telefon('417'))
- *  \param cTel  - Broj telefona
+ *   cTel  - Broj telefona
  */
  
 function Telefon(cTel)
@@ -1101,7 +1101,7 @@ return partn->telefon=cTel
 
 /*!  ZaglSif(lPocStr)
  *   Zaglavlje subanaliticke kartice ili kartice otvorenih stavki
- *  \param lPocStr
+ *   lPocStr
  */
  
 function ZaglSif(lPocStr)
@@ -1242,7 +1242,7 @@ endif
 
 /*!  SubKart2(lOtvSt)
  *   Subanaliticka kartica kod koje se mogu navesti dva konta i vidjeti kroz jednu karticu
- *  \param lOtvSt
+ *   lOtvSt
  */
  
 function SubKart2(lOtvSt)
@@ -1786,7 +1786,7 @@ return
 
 /*!  ZaglSif2(fStrana)
  *   Zaglavlje subanaliticke kartice 2
- *  \param fStrana
+ *   fStrana
  */
  
 function ZaglSif2(fStrana)
@@ -1900,7 +1900,7 @@ RETURN
 
 /*!  V_Firma(cIdFirma)
  *   Validacija firme - unesi firmu po referenci
- *  \param cIdfirma  - id firme
+ *   cIdfirma  - id firme
  */
  
 function V_Firma(cIdFirma)
@@ -1915,8 +1915,8 @@ return .t.
 
 /*!  Prelomi(nDugX,nPotX)
  *   
- *  \param nDugX
- *  \param nPotX 
+ *   nDugX
+ *   nPotX 
  */
  
 function Prelomi(nDugX,nPotX)

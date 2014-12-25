@@ -127,7 +127,7 @@ return
 
 /*!  ReadMsg(lNeprocitane)
  *   Citanje poruka
- *  \param lNeprocitane - samo koje nisu procitane (.t.) ili sve (.f.)
+ *   lNeprocitane - samo koje nisu procitane (.t.) ili sve (.f.)
  */
 function ReadMsg(lNeprocitane)
 
@@ -419,7 +419,7 @@ return
 
 /*!  GetMsgFromClipboard(idMsg)
  *   Kopira sadrzaj polja TMPMSG u MESSAGE za zadani idMsg
- *  \param idMsg - oznaka poruke
+ *   idMsg - oznaka poruke
  */
 function GetMsgFromClipboard(idMsg)
 

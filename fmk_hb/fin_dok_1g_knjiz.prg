@@ -240,7 +240,7 @@ return
 
 /*!  fin_edit_pripr()
  *   Ispravka stavke u pripremi
- *  \param fNovi .t. - Nova stavka, .f. - Ispravka postojece
+ *   fNovi .t. - Nova stavka, .f. - Ispravka postojece
  */
 
 function fin_edit_pripr()
@@ -415,7 +415,7 @@ return .t.
 
 /*!  MinKtoLen(cIdKonto)
  *   Provjerava minimalnu dozvoljenu duzinu konta pri knjizenju
- *  \param cIdKonto - konto id
+ *   cIdKonto - konto id
  */
 function MinKtoLen(cIdKonto)
 
@@ -438,10 +438,10 @@ return
 
 /*!  V_IznosDEM(p1, p2, cVar, oGet)
  *   Sredjivanje iznosa
- *  \param p1
- *  \param p2
- *  \param cVar
- *  \param oGet
+ *   p1
+ *   p2
+ *   cVar
+ *   oGet
  */
 
 function V_IznosDEM(p1,p2,cVar,oGet)
@@ -459,9 +459,9 @@ return .t.
 
 /*!  CheckMark(cIdKonto)
  *   Provjerava da li je konto markiran, ako nije izbrisi zapamceni _IdPartner
- *  \param cIdKonto - oznaka konta
- *  \param cIdPartner - sifra partnera koja ce se ponuditi
- *  \param cNewPartner - zapamcena sifra partnera
+ *   cIdKonto - oznaka konta
+ *   cIdPartner - sifra partnera koja ce se ponuditi
+ *   cNewPartner - zapamcena sifra partnera
  */
 
 function CheckMark(cIdKonto, cIdPartner, cNewPartner)
@@ -477,7 +477,7 @@ return .t.
 
 /*!  Partija(cIdKonto)
  *
- *  \param cIdKonto - oznaka konta
+ *   cIdKonto - oznaka konta
  */
 
 function Partija(cIdKonto)
@@ -518,9 +518,9 @@ return _D_P $ "12"
 
 /*!  DinDem(p1,p2,cVar)
  *
- *  \param p1
- *  \param p2
- *  \param cVar
+ *   p1
+ *   p2
+ *   cVar
  */
 function DinDem(p1,p2,cVar)
 
@@ -878,7 +878,7 @@ return .t.
 
 /*!  StNal(lAuto)
  *   Priprema za stampu naloga
- *  \param lAuto
+ *   lAuto
  */
 
 function StNal(lAuto)
@@ -892,7 +892,7 @@ return
 
 /*!  StAnalNal(lAuto)
  *   Stampanje analitickog naloga
- *  \param lAuto
+ *   lAuto
  */
 
 function StAnalNal(lAuto)
@@ -1077,7 +1077,7 @@ return
 
 /*!  SintStav(lAuto)
  *   Formiranje sintetickih stavki
- *  \param lAuto
+ *   lAuto
  */
 
 function SintStav(lAuto)
@@ -1255,7 +1255,7 @@ return cRet
 
 /*!  DifIdP(cIdPartner)
  *   Formatira cIdPartner na 6 mjesta ako mu je duzina 8
- *  \param cIdPartner - id partnera
+ *   cIdPartner - id partnera
  */
 
 function DifIdP(cIdPartner)
@@ -1306,7 +1306,7 @@ RETURN (NIL)
 
 /*!  PreuzSezSPK(cSif)
  *   Preuzimanje sifre iz sezone
- *  \param cSif
+ *   cSif
  */
 
 function PreuzSezSPK(cSif)
@@ -1364,8 +1364,8 @@ RETURN
 /*!  SintFilt(lSint,cFilter)
  *   Iz filterisane SUBAN.DBF tabele generise POM.DBF
  *   Ova funkcija ne podrzava varijantu gDatNal:="D"
- *  \param lSint   - .t.-POM.DBF je analitika, .f.-POM.DBF
- *  \param cFilter
+ *   lSint   - .t.-POM.DBF je analitika, .f.-POM.DBF
+ *   cFilter
  */
 
 function SintFilt(lSint,cFilter)
@@ -1518,9 +1518,9 @@ RETURN (NIL)
 
 /*!  Reci(x,y,cT)
  *   Ispisuje zeljenu poruku cT na odredjenu lokaciju x,y
- *  \param x
- *  \param y
- *  \param cT
+ *   x
+ *   y
+ *   cT
  */
 
 function Reci(x,y,cT)
@@ -1765,8 +1765,8 @@ return
 
 /*!  StSubNal(cInd,lAuto)
  *   Stapmanje subanalitickog naloga
- *  \param cInd  - "1"-stampa pripreme, "2"-stampa azuriranog, "3"-stampa dnevnika
- *  \param lAuto
+ *   cInd  - "1"-stampa pripreme, "2"-stampa azuriranog, "3"-stampa dnevnika
+ *   lAuto
  */
 
 function StSubNal(cInd,lAuto)
@@ -2199,7 +2199,7 @@ return
 
 /*!  K3Iz256(cK3)
  *
- *  \param cK3
+ *   cK3
  */
 
 function K3Iz256(cK3)
@@ -2368,7 +2368,7 @@ return lOK
 
 /*!  SetTekucaRJ(cRJ)
  *   Setuje tekucu radnu jedinicu
- *  \param cRJ
+ *   cRJ
  */
 
 function SetTekucaRJ(cRJ)

@@ -14,8 +14,8 @@
 
 /*!  KonvZnWin(cTekst, cWinKonv)
  *   Konverzija znakova u stringu
- *  \param cTekst - tekst
- *  \param cWinKonv - tip konverzije
+ *   cTekst - tekst
+ *   cWinKonv - tip konverzije
  */
 function KonvZnWin(cTekst, cWinKonv)
 local aNiz:={}

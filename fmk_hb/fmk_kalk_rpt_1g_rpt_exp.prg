@@ -128,7 +128,7 @@ return .t.
 
 /*!  get_uio_fields(aArr)
  *   napuni matricu aArr sa specifikacijom polja tabele
- *  \param aArr - matrica
+ *   aArr - matrica
  */
 static function get_exp_fields(aArr, cIdVd, lVpcCij, lMpcCij)
 

@@ -1794,7 +1794,7 @@ RETURN
 
 /*!  ImaUSifVal(cKartica)
  *    
- *  \param cKartica
+ *   cKartica
  */
 
 function ImaUSifVal(cKratica)

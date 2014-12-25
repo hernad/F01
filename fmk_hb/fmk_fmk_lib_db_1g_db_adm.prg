@@ -541,7 +541,7 @@ return
 
 /*!  AppModS(cCHSName)
  *   Modifikacija struktura APPSRV rezim rada
- *  \param cCHSName - ime chs fajla (npr. FIN)
+ *   cCHSName - ime chs fajla (npr. FIN)
  */
 function AppModS(cCHSName)
 
@@ -584,7 +584,7 @@ return
 
 
 /*!  RunModS(fDa)
- *  \param fDa - True -> Batch obrada (neinteraktivno)
+ *   fDa - True -> Batch obrada (neinteraktivno)
  */
 
 function RunModS(fDa)
@@ -903,7 +903,7 @@ return FSEEK(nHandle, 0)
 
 /*!  FileBottom(nHandle) 
  *  Position the file pointer to the last byte in a binary file and return the new file position
- * \param nHandle - handle fajla
+ *  nHandle - handle fajla
  * \return nPos - lokacija 
  */
 

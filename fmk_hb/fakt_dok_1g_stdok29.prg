@@ -26,8 +26,8 @@
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FAKT_StampaViseDokumenata
   *  Da li se moze stampati vise od jednog dokumenta u pripremi ?
-  * \param N - ne, default vrijednost
-  * \param D - da
+  *  N - ne, default vrijednost
+  *  D - da
   */
 *string FmkIni_ExePath_FAKT_StampaViseDokumenata;
 
@@ -35,9 +35,9 @@
 /*! \ingroup ini
   * \var *string FmkIni_SifPath_SifRoba_PBarkod
   *  Da li se mogu ispisivati bar-kodovi u dokumentima ?
-  * \param 0 - ne, default vrijednost
-  * \param 1 - da, na upit "Zelite li ispis bar-kodova?" ponudjen je odgovor "N"
-  * \param 2 - da, na upit "Zelite li ispis bar-kodova?" ponudjen je odgovor "D"
+  *  0 - ne, default vrijednost
+  *  1 - da, na upit "Zelite li ispis bar-kodova?" ponudjen je odgovor "N"
+  *  2 - da, na upit "Zelite li ispis bar-kodova?" ponudjen je odgovor "D"
   */
 *string FmkIni_SifPath_SifRoba_PBarkod;
 
@@ -45,17 +45,17 @@
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_RegBrPorBr
   *  Ispisuju li se poreski i registarski broj partnera?
-  * \param D - da, default vrijednost
-  * \param N - ne
+  *  D - da, default vrijednost
+  *  N - ne
   */
 *string FmkIni_KumPath_FAKT_RegBrPorBr;
 
 
 /*!  StDok29()
  *   Stampa fakture u varijanti 2 9
- *  \param cIdFirma
- *  \param cIdTipDok
- *  \param cBrDok
+ *   cIdFirma
+ *   cIdTipDok
+ *   cBrDok
  */
 
 function StDok29()

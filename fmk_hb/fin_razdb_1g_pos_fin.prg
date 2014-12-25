@@ -16,10 +16,10 @@
 
 /*!  GetPrVPParams(cProdId, dDatOd, dDatDo, dDatDok, cTipNal, cShema)
  *   Setuj parametre prenosa
- *  \param cProdId - id prodavnice
- *  \param dDatOd - datum prenosa od
- *  \param dDatDo - datum prenosa do
- *  \param dDatDok - datum dokumenta
+ *   cProdId - id prodavnice
+ *   dDatOd - datum prenosa od
+ *   dDatDo - datum prenosa do
+ *   dDatDok - datum dokumenta
  */
 function GetPrVPParams(cProdId, dDatOd, dDatDo, dDatDok, cTipNal, cShema)
 
@@ -146,8 +146,8 @@ return
 
 /*!  Azur2Pripr(cBrojNal, dDatNal)
  *   Azuriranje stavke u pripremu
- *  \param cBrojNal - broj naloga
- *  \param dDatNal - datum naloga
+ *   cBrojNal - broj naloga
+ *   dDatNal - datum naloga
  */
 static function Azur2Pripr(cBrojNal, dDatNal)
 
@@ -176,7 +176,7 @@ return
 
 /*!  NaDan(cField)
  *   Vraca ukupan iznos pologa (cField) za datumski period
- *  \param cField - polje, npr "POLOG01"
+ *   cField - polje, npr "POLOG01"
  */
 function NaDan(cField)
 
@@ -210,7 +210,7 @@ return 1
 
 /*!  GetVrPlIznos(cField)
  *   Vraca iznos pologa za datumski period
- *  \param cField - polje, npr "POLOG01"
+ *   cField - polje, npr "POLOG01"
  */
 static function GetVrPlIznos(cField)
 
@@ -261,8 +261,8 @@ return
 
 /*!  GetTopsParams(cTKPath, cProdKonto)
  *   Setuje TOPS kumpath i idkonto 
- *  \param cTKPath - kumpath tops
- *  \param cProdKonto - prodavnicki konto
+ *   cTKPath - kumpath tops
+ *   cProdKonto - prodavnicki konto
  */
 static function GetTopsParams(cTKPath, cProdKonto)
 

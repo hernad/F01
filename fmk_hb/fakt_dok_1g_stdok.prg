@@ -445,7 +445,7 @@ return
 
 /*!  Koef(cDinDem)
  *   Konverzija valute
- *  \param cDinDem
+ *   cDinDem
  */
  
 function Koef(cdindem)
@@ -463,7 +463,7 @@ endif
 /*!  Mjesto(cRJ)
  *   Uzima mjesto
  *  \todo Postoji nesto slicno u db.prg, treba pogledati
- *  \param cRJ
+ *   cRJ
  */
 
 
@@ -502,8 +502,8 @@ return IF(gNW=="R","  KJ/KG ", IF(glDistrib,"", IF(BK_SB, "  BARKOD   ","Ser.bro
 
 /*!  NSRNPIIdRoba(cSR,fSint)
  *   Nasteli sif->roba na pripr->idroba
- *  \param cSR
- *  \param fSint  - ako je fSint:=.t. sinteticki prikaz
+ *   cSR
+ *   fSint  - ako je fSint:=.t. sinteticki prikaz
  */
  
 function NSRNPIdRoba(cSR,fSint)
@@ -534,7 +534,7 @@ return
 
 /*!  PrStr2T(cIdTipDok)
  *   Stampa potpisa na kraju fakture
- *  \param cIdTipDok
+ *   cIdTipDok
  */
  
 function PrStr2T(cIdTipDok)
@@ -612,7 +612,7 @@ return
 
 /*!  PrStr2R(cIdTipDok)
  *   Vraca tekst potpisa RTF
- *  \param cIdTipDok
+ *   cIdTipDok
  *  \return cVrati
  */
  
@@ -633,10 +633,10 @@ return (cVrati)
 
 /*!  ShowIdPar(cId,n,lNoviRed,lVratiRPBNiz)
  *   Prikazi ID partnera na fakturi
- *  \param cId
- *  \param n
- *  \param lNoviRed
- *  \param lVratiRPBNiz
+ *   cId
+ *   n
+ *   lNoviRed
+ *   lVratiRPBNiz
  */
  
 function ShowIDPar(cId,n,lNoviRed,lVratiRPBNiz)
@@ -942,7 +942,7 @@ return
 
 /*!  RbrUNum(cRBr)
  *   
- *  \param cRBr
+ *   cRBr
  */
  
 function RbrUNum(cRBr)

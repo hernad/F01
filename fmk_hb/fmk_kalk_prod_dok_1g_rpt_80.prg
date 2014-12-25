@@ -15,7 +15,7 @@
 
 /*!  StKalk80(fBezNc)
  *   Stampa dokumenta tipa 80 - direktno zaduzenje prodavnice
- *  \param fBezNc -
+ *   fBezNc -
  */
 
 function StKalk80(fBezNc)

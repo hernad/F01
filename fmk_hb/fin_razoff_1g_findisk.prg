@@ -418,7 +418,7 @@ return
 
 /*!  PPPDisk(lIni)
  *   Podesavanje prenosa i prijema dokumenata
- *  \param lIni
+ *   lIni
  */
  
 function PPPDisk(lIni)

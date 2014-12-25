@@ -305,8 +305,8 @@ return
 
 /*!  Slovima(nIzn,cDinDem)
  *   Ispisuje neki iznos nIzn slovima
- *  \param nIzn    - iznos
- *  \param cDinDem - domaca/strana valuta
+ *   nIzn    - iznos
+ *   cDinDem - domaca/strana valuta
  */
  
 function Slovima(nIzn,cDinDem)
@@ -372,11 +372,11 @@ return
 
 /*!  Stotice(nIzn,cRez,fDecimale,fMnozina,cDinDem)
  *   
- *  \param nIzn
- *  \param cRez
- *  \param fDecimale
- *  \param fMnozina
- *  \param cDinDem
+ *   nIzn
+ *   cRez
+ *   fDecimale
+ *   fMnozina
+ *   cDinDem
  */
  
 function Stotice(nIzn,cRez,fDecimale,fMnozina,cDinDem)

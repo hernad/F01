@@ -66,11 +66,11 @@ return
 
 /*!  *void TDbKalk::skloniSezonu(string cSezona, bool finverse,bool fda,bool fnulirati,bool fRS)
  *   formiraj sezonsku bazu podataka
- *  \param cSezona - 
- *  \param fInverse - .t. iz sezone u radno, .f. iz radnog u sezonu
- *  \param fda - ne znam
- *  \param fnulirati - nulirati tabele
- *  \param fRS - ne znam
+ *   cSezona - 
+ *   fInverse - .t. iz sezone u radno, .f. iz radnog u sezonu
+ *   fda - ne znam
+ *   fnulirati - nulirati tabele
+ *   fRS - ne znam
  */
 
 *void TDbKalk::skloniSezonu(string cSezona, bool finverse,bool fda,bool fnulirati,bool fRS)

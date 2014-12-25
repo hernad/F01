@@ -34,11 +34,11 @@
 
 
 /*!  BatchObrada(p3,p4,p5,p6,p7)
- *  \param p3 -
- *  \param p4 -
- *  \param p5 -
- *  \param p6 -
- *  \param p7 -
+ *   p3 -
+ *   p4 -
+ *   p5 -
+ *   p6 -
+ *   p7 -
  *  
  */
 
