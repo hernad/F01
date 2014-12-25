@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -37,7 +37,7 @@ function PRobDob()
   @ m_x+3, m_y+2 SAY "Dobavljac           " GET cIdPartner VALID P_Firma(@cIdPartner) PICT "@!"
   @ m_x+4, m_y+2 SAY "Za period od" GET dOd
   @ m_x+4, col()+2 SAY "do" GET dDo
-  @ m_x+5, m_y+2 SAY "Koliko prethodnih sezona gledati? (0/1/2/3)" GET nPrSez VALID nPrSez<4 PICT "9" 
+  @ m_x+5, m_y+2 SAY "Koliko prethodnih sezona gledati? (0/1/2/3)" GET nPrSez VALID nPrSez<4 PICT "9"
   if IsPlanika()
   	@ m_x+6, m_y+2 SAY "Pregled po K9 " GET cK9 PICT "@!"
   endif
@@ -68,7 +68,7 @@ function PRobDob()
    // ---------------
    START PRINT CRET
    ?
-   
+
    gnLMarg:=0; gTabela:=1; gOstr:="D"
    PRIVATE cRoba:="", nUlaz:=0, nStanje:=0, lImaVP:=.f., nNC:=0, nVPC:=0
 
@@ -128,14 +128,6 @@ function PRobDob()
 
 CLOSERET
 return
-
-
-// Prikaz toka filterisanja glavne baze
-function TekRec2()
-nSlog++
-@ m_x+1, m_y+2 SAY PADC(ALLTRIM(STR(nSlog))+"/"+ALLTRIM(STR(nUkupno)),20)
-@ m_x+2, m_y+2 SAY "Obuhvaceno: "+STR(cmxKeysIncluded())
-return (nil)
 
 
 // Predvidjeno za dodatnu obradu slogova - koristi je StampaTabele()
@@ -288,4 +280,3 @@ for i:=1 to nPrSez
 next
 select (nArr)
 return lIma
-

@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -12,7 +12,7 @@
 
 #include "fakt01.ch"
 
- 
+
 function RedniBroj(nRbr)
 
 local nOst
@@ -27,7 +27,7 @@ endif
 /*!  UzmiMpcSif()
  *   Uzmi maloprodajnu cijenu iz sifrarnika
  */
- 
+
 function UzmiMpcSif()
 
 local nCV:=0
@@ -60,7 +60,7 @@ return nCV
 /*!  UzmiVPCSif()
  *   Uzmi veleprodajnu cijenu iz sifrarnika
  */
- 
+
 function UzmiVPCSif()
 
 local nCV:=0
@@ -81,11 +81,11 @@ return nCV
 
 
 
-/*!  Pregled1() 
+/*!  Pregled1()
  *   Pregled isporucenog uglja po kupcima i asortimanu
  *   Izvjestaj je specificno radjen za Rudnik
  */
- 
+
 function Pregled1()
 
 O_PARTN
@@ -258,9 +258,9 @@ return
 
 
 /*!  FFor1()
- *   
+ *
  */
- 
+
 function FFor1()
 
 cIdPartner:=idpartner
@@ -301,9 +301,9 @@ return .t.
 
 
 /*!  FSvaki1()
- *   
+ *
  */
- 
+
 function FSvaki1()
 
 RETURN
@@ -312,9 +312,9 @@ RETURN
 
 
 /*!  TekRac()
- *  
+ *
  */
- 
+
 function TekRec()
 
 nSlog++
@@ -330,7 +330,7 @@ return (nil)
  *   Pregled faktura asortimana za kupca
  *   Izvjestaj specificno radjen za Rudnik
  */
- 
+
 function Pregled2()
 
 O_PARTN
@@ -460,9 +460,9 @@ return
 
 
 /*!  FFor2()
- *  
+ *
  */
- 
+
 function FFor2()
 
 cIdTipDok:=idtipdok; cBrDok:=brdok; dDatum:=datdok
@@ -486,7 +486,7 @@ return .t.
  *   Pregled isporucenog asortimana za kupca po pogonima
  *   Izvjestaj specifican za rudnik
  */
- 
+
 function Pregled3()
 
 O_PARTN
@@ -657,9 +657,9 @@ return
 
 
 /*!  FFor3()
- *  
+ *
  */
- 
+
 function FFor3()
 
 cIdRj:=LEFT(IDROBA,2)
@@ -700,7 +700,7 @@ return .t.
 
 
 /*!  FSvaki3()
- *  
+ *
  */
 function FSvaki3()
 
@@ -810,9 +810,9 @@ return
 
 
 /*!  FFor4()
- *  
+ *
  */
- 
+
 function FFor4()
 
 cIdTipDok:=idtipdok; cBrDok:=brdok; dDatum:=datdok
@@ -832,7 +832,7 @@ return .t.
 
 /*!  FSvaki4()
  */
- 
+
 function FSvaki4()
 
 RETURN
@@ -983,9 +983,9 @@ return
 
 
 /*!  FFor5()
- *  
+ *
  */
- 
+
 function FFor5()
 
 cIdTipDok:=IDTIPDOK; cBrDok:=BRDOK; dDatum:=DATDOK
@@ -1032,7 +1032,7 @@ RETURN
 /*!  VRobPoPar()
  *   Vrijednost robe po partnerima/prodavnicama
  */
- 
+
 function VRobPoPar()
 
 IF IzFmkIni("FAKT","Opcine","N",SIFPATH)=="D"
@@ -1164,13 +1164,13 @@ return
 
 
 /*!  FFor6()
- *  
+ *
  */
- 
+
 function FFor6()
 
 LOCAL nIznos:=0
- IF fSMark .and. SkLoNMark("ROBA",SiSiRo()) 
+ IF fSMark .and. SkLoNMark("ROBA",SiSiRo())
    RETURN .f.
  ENDIF
  IF cVarSubTot=="1"
@@ -1214,9 +1214,9 @@ RETURN .t.
 
 
 /*!  FSvaki6()
- *   
+ *
  */
- 
+
 function FSvaki6()
 
 RETURN
@@ -1224,9 +1224,9 @@ RETURN
 
 
 /*!  SubTot6()
- *  
+ *
  */
- 
+
 function SubTot6()
 
 LOCAL aVrati:={.f.,""}, cOps:="", cIdOpc:=""
@@ -1248,7 +1248,7 @@ RETURN aVrati
 /*!  VRobPoIzd()
  *   Vrijednost robe po izdavacima/dobavljacima
  */
- 
+
 function VRobPoIzd()
 
 O_SIFK; O_SIFV
@@ -1358,9 +1358,9 @@ return
 
 
 /*!  FFor7()
- *  
+ *
  */
- 
+
 function FFor7()
 
 LOCAL nIznos:=0
@@ -1394,7 +1394,7 @@ RETURN .t.
 
 /*!  FSvaki7()
  */
- 
+
 function FSvaki7()
 
 RETURN
@@ -1403,9 +1403,9 @@ RETURN
 
 
 /*!  SubTot7()
- *  
+ *
  */
- 
+
 function SubTot7()
 
 LOCAL aVrati:={.f.,""}, cIzd:="", cIdIzd:=""
@@ -1616,7 +1616,7 @@ aKol:={ { "OPSTINA"      , {|| ops                 }, .f., "C",10, 0, 1, 1},;
         { "PP"           , {|| STR(pp ,13,2)       }, .f., "C",13, 0, 1, 5},;
         { "MPV"          , {|| STR(iznos,13,2)     }, .f., "C",13, 0, 1, 6} }
 
-  ? 
+  ?
   P_12CPI
   ?? space(gnLMarg)
   ?? "FAKT: Izvjestaj na dan",date()
@@ -1648,7 +1648,7 @@ RETURN .t.
 
 
 /*!  FSvaki8()
- *  
+ *
  */
 
 function FSvaki8()
@@ -1686,7 +1686,7 @@ RETURN cSR
 /*!  KarticaKons()
  *   Kartica konsignacije
  */
- 
+
 function KarticaKons()
 
 local cidfirma,nRezerv,nRevers
@@ -1890,7 +1890,7 @@ P_COND
 
 nStrana := 1
 lPrviProlaz:=.t.
- 
+
 do while !eof()
   if cBrza=="D"
     if qqRoba<>iif(fID_j,IdRoba_J+IdRoba,IdRoba) .and.;
@@ -2036,7 +2036,7 @@ return
 /*!  ZagKartKons(lIniStrana)
  *   Zaglavlje kartice konsignacije
  */
- 
+
 static function ZagKartKons(lIniStrana)
 
 
@@ -2073,9 +2073,9 @@ return
 
 
 /*!  Oporezovana(cIdTarifa)
- *   
+ *
  */
- 
+
 function Oporezovana(cIdTarifa)
 
 LOCAL nArr
@@ -2088,26 +2088,12 @@ return (TARIFA->opp<>0 .or. TARIFA->ppp<>0 .or. TARIFA->zpp<>0)
 
 
 
-/*!  TekRac2()
- *  
- */
- 
-function TekRec2()
-
-nSlog++
- @ m_x+1, m_y+2 SAY PADC(ALLTRIM(STR(nSlog))+"/"+ALLTRIM(STR(nUkupno)),20)
- @ m_x+2, m_y+2 SAY "Obuhvaceno: "+STR(cmxKeysIncluded())
-return (nil)
-
-
-
-
 /*!  SortFakt(cId,cSort)
  *   Sortiranje faktura
  *  \param cId
  *  \param cSort
  */
- 
+
 function SortFakt(cId,cSort)
 
 LOCAL cVrati:="", nArr:=SELECT()
@@ -2127,9 +2113,9 @@ RETURN cVrati
 
 
 /*!  BhSort(cInput)
- *  
+ *
  */
- 
+
 function BhSort(cInput)
 
 IF gKodnaS=="7"
@@ -2159,9 +2145,9 @@ RETURN PADR(cInput,100)
 
 
 /*!  TmpFakt()
- *  
+ *
  */
- 
+
 function TmpFakt()
 
 RETURN TEMPFILE(KUMPATH,"CDX",0)
@@ -2169,9 +2155,9 @@ RETURN TEMPFILE(KUMPATH,"CDX",0)
 
 
 /*!  MyFErase()
- *  
+ *
  */
- 
+
 function MyFErase()
 
 PARAMETERS cFajl
@@ -2179,5 +2165,3 @@ PARAMETERS cFajl
     FERASE(cFajl)
   ENDIF
 RETURN
-
-

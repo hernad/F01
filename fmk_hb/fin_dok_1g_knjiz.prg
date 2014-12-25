@@ -175,7 +175,7 @@ return .t.
 
 
 /*!  VRbr()
- *  
+ *
  */
 
 function vrbr()
@@ -476,7 +476,7 @@ return .t.
 
 
 /*!  Partija(cIdKonto)
- *  
+ *
  *  \param cIdKonto - oznaka konta
  */
 
@@ -517,7 +517,7 @@ return _D_P $ "12"
 
 
 /*!  DinDem(p1,p2,cVar)
- *  
+ *
  *  \param p1
  *  \param p2
  *  \param cVar
@@ -606,7 +606,7 @@ case Ch==K_ALT_F5
 	endif
 
   case Ch==K_F9
-  	SrediRbr()
+  	fin_sredi_rbr()
 	return DE_REFRESH
 
   case Ch==K_CTRL_T
@@ -737,7 +737,7 @@ case Ch==K_ALT_F5
            @ m_x+19,m_y+56 SAY nDug-nPot PICTURE '9 999 999 999.99'
            inkey(10)
 	   select PRIPR
-	   //SrediRbr(.t.)
+	   //fin_sredi_rbr(.t.)
            APPEND BLANK
            Gather()
 
@@ -1505,16 +1505,14 @@ IF lSint==NIL; lSint:=.f.; ENDIF
 RETURN
 
 
-
-/*!  TekRec2()
- *   Tekuci zapis
- */
-
 function TekRec2()
 
+/*
  nSlog++
- @ m_x+1, m_y+2 SAY PADC(ALLTRIM(STR(nSlog))+"/"+ALLTRIM(STR(nUkupno)),20)
+ @ m_x+1, m_y+2 SAY PADC(ALLTRIM(STR(nSlog)) + "/" + ALLTRIM(STR(nUkupno)),20)
  @ m_x+2, m_y+2 SAY "Obuhvaceno: "+STR(cmxKeysIncluded())
+*/
+
 RETURN (NIL)
 
 
@@ -1581,7 +1579,7 @@ RETURN
 
 
 /*!  PodijeliN()
- *  
+ *
  */
 
 function PodijeliN()
@@ -2200,7 +2198,7 @@ return
 
 
 /*!  K3Iz256(cK3)
- *  
+ *
  *  \param cK3
  */
 
@@ -2228,7 +2226,7 @@ RETURN cK3
 
 
 /*!  K3U256(cK3)
- *  
+ *
  *  \cK3
  */
 
@@ -2336,7 +2334,7 @@ return
 
 
 /*!  BrDokOK()
- *  
+ *
  */
 
 function BrDokOK()

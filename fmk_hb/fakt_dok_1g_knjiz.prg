@@ -698,7 +698,7 @@ return
 function PrintDok()
 
 SpojiDuple()  // odradi ovo prije stampanja !
-SrediRbr()
+fakt_sredi_rbr()
 fakt_o_edit() // sredirbr zatvori pripremu !!
 if gTBDir=="D"
 	if eof()
@@ -3161,7 +3161,7 @@ do while .t.
     case izbor == 1
 	m_gen_ug()
     case izbor == 2
-	SrediRbr()
+	fakt_sredi_rbr()
     case izbor == 3
       O_S_PRIPR
       O_FTXT

@@ -124,7 +124,7 @@ RETURN (NIL)
 
 
 
-function SrediRbr(lSilent)
+function fin_sredi_rbr(lSilent)
 local nArr
 local nTREC
 local i

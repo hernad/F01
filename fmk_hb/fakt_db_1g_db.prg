@@ -683,10 +683,10 @@ return
 
 
 
-/*!  SrediRbr()
+/*!  fakt_sredi_rbr()
  *   Sredi redni broj
  */
-function SrediRbr()
+function fakt_sredi_rbr()
 local _t_rec
 local _firma, _broj, _tdok
 local _cnt
