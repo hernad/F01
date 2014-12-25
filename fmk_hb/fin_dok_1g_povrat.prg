@@ -16,7 +16,7 @@
 // -------------------------------------
 // povrat naloga u pripremu
 // -------------------------------------
-function Povrat(lStorno)
+function fin_povrat(lStorno)
 local nRec
 
 if lStorno==NIL

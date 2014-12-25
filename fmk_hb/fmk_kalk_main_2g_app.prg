@@ -193,7 +193,7 @@ AADD(opc,   "A. stampa azuriranog dokumenta")
 AADD(opcexe, {|| Stkalk(.t.)})
 AADD(opc,   "P. povrat dokumenta u pripremu")
 if (ImaPravoPristupa(goModul:oDataBase:cName,"DOK","POVRATDOK"))
-	AADD(opcexe, {|| Povrat()})
+	AADD(opcexe, {|| kalk_povrat()})
 else
 	AADD(opcexe, {|| MsgBeep(cZabrana)})
 endif

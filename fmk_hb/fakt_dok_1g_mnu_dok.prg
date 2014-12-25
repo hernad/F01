@@ -52,11 +52,11 @@ private opcexe:={}
 private Izbor:=1
 
 AADD(opc,"1. povrat dokumenta u pripremu       ")
-AADD(opcexe,{|| Povrat()})
+AADD(opcexe,{|| fakt_povrat()})
 AADD(opc,"2. povrat dokumenata prema kriteriju ")
 AADD(opcexe,{|| if(SigmaSif(), fakt_PovSvi(), nil)})
 AADD(opc,"3. prekid rezervacije")
-AADD(opcexe,{|| Povrat(.t.)})
+AADD(opcexe,{|| fakt_povrat(.t.)})
 AADD(opc,"4. evidentiranje uplata")
 AADD(opcexe,{|| Uplate()})
 AADD(opc,"5. lista salda kupaca")

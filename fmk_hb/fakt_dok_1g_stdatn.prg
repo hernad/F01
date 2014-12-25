@@ -1332,7 +1332,7 @@ do case
      _cIdTipDok:=idtipdok
      _cBrDok:=brdok
      close all
-     nR_tmp := Povrat(.f.,_cidfirma,_cIdTipdok,_cbrdok)
+     nR_tmp := fakt_povrat(.f.,_cidfirma,_cIdTipdok,_cbrdok)
      select (F_DOKS)
      use
      O_DOKS
@@ -1361,7 +1361,7 @@ do case
      _cBrDok    := brdok
      close all
      if _cidtipdok$"20#27"
-       nR_tmp := Povrat(.t.,_cidfirma,_cIdTipdok,_cbrdok)
+       nR_tmp := fakt_povrat(.t.,_cidfirma,_cIdTipdok,_cbrdok)
      elseif _cidtipdok $ "01#19"
        O_DOKS
        seek _cidfirma+_cidtipdok+_cbrdok

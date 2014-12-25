@@ -169,7 +169,7 @@ AADD(opcexe,{|| StAzFakt()})
 AADD(opc,"P. povrat dokumenta u pripremu")
 
 if (ImaPravoPristupa(goModul:oDataBase:cName,"DOK","POVRATDOK"))
-	AADD(opcexe,{|| Povrat()})
+	AADD(opcexe,{|| fakt_povrat()})
 else
 	AADD(opcexe,{|| MsgBeep(cZabrana)})
 endif

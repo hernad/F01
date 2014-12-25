@@ -612,11 +612,11 @@ closeret
 
 
 
-/*!  Povrat()
+/*!  kalk_povrat()
  *   Povrat kalkulacije u pripremu
  */
 
-function Povrat()
+function kalk_povrat()
 
 local nRec
 local gEraseKum

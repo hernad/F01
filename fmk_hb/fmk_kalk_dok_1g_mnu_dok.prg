@@ -64,7 +64,7 @@ private Opc:={}
 private opcexe:={}
 AADD(opc,"1. povrat dokumenta u pripremu")
 if (ImaPravoPristupa(goModul:oDataBase:cName,"DOK","POVRATDOK"))
-	AADD(opcexe, {|| Povrat()})
+	AADD(opcexe, {|| kalk_povrat()})
 else
 	AADD(opcexe, {|| MsgBeep(cZabrana)})
 endif

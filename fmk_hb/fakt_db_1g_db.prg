@@ -279,7 +279,7 @@ enddo // eof
 closeret
 
 
-/*!  Povrat(fR,cIdFirma,cIdTipDok,cBrDok,lTest)
+/*!  fakt_povrat(fR,cIdFirma,cIdTipDok,cBrDok,lTest)
  *   Povrat dokumenta u pripremu
  *  \param fR          - rezervacija
  *  \param cIdFirma
@@ -288,7 +288,7 @@ closeret
  *  \param lTest
  */
 
-function Povrat
+function fakt_povrat
 parameters fR, cIdFirma, cIdTipDok, cBrDok, lTest
 local fBrisao:=.f.
 local nRec

@@ -52,7 +52,7 @@ return
 function PovratNaloga()
 
 if gBezVracanja=="N"
-	Povrat()
+	fin_povrat()
 endif
 
 return
@@ -159,7 +159,7 @@ return
 // storniranje naloga
 // ----------------------------------
 function StornoNaloga()
-Povrat(.t.)
+fin_povrat(.t.)
 return
 
 

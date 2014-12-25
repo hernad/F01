@@ -729,7 +729,7 @@ do while .t.
                   FaktKalk()
                endif
             case izbor == 2
-                Povrat()
+                kalk_povrat()
             case izbor == 3
                 Azur9()
             case izbor == 4
