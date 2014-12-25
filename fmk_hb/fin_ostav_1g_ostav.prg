@@ -1899,7 +1899,7 @@ LOCAL a1:={}, a2:={}, GetList:={}
           ENDIF
           IF nPom>0
             cPom:=SUBSTR(cLin,nPom,4)
-            aPom:=UzmiVar( SUBSTR(cPom,2,2) )
+            aPom:=fin_uzmi_var( SUBSTR(cPom,2,2) )
             ?? LEFT(cLin,nPom-1)
             cLin:=SUBSTR(cLin,nPom+4)
             IF !EMPTY(aPom[1])
@@ -1950,12 +1950,12 @@ RETURN (NIL)
 
 
 
-/*!  UzmiVar(cVar)
+/*!  fin_uzmi_var(cVar)
  *   Uzmi varijable 
  *   cVar - varijabla
  */
  
-function UzmiVar(cVar)
+function fin_uzmi_var(cVar)
 
 LOCAL cVrati:=""
  DO CASE

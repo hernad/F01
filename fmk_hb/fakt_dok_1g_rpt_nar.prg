@@ -215,7 +215,7 @@ else
           			nPom:=AT("#",cLin)
           			IF nPom>0
             				cPom:=SUBSTR(cLin,nPom,4)
-            				aPom:=UzmiVar( SUBSTR(cPom,2,2) )
+            				aPom:=fakt_uzmi_var( SUBSTR(cPom,2,2) )
 					?? LEFT(cLin,nPom-1)
             				IF SUBSTR(cPom,2,1)=="Y"
 						nPom7:=LEN(&(aPom[2]))
@@ -276,13 +276,13 @@ return
 
 
 
-/*!  UzmiVar(cVar)
+/*!  fakt_uzmi_var(cVar)
  *   Uzima varijable 
  *   cVar
  *  \return cVrati
  */
 
-function UzmiVar(cVar)
+function fakt_uzmi_var(cVar)
 
 local cVrati:=""
 local cFS:="UIB"
