@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -20,7 +20,7 @@ function fill_ost_tbl(cIntervals, cIdPart, cP_naz, ;
 			nTUVal, nTVVal, nTotal, ;
 			nUVal1, nUVal2, nUVal3, nUVal4, nUValP, ;
 			nVVal1, nVVal2, nVVal3, nVVal4, nVValP )
-			
+
 local nArr
 nArr:=SELECT()
 
@@ -56,7 +56,7 @@ return
 // ------------------------------------------
 // vraca matricu sa ostav poljima
 // cIntervals - da li postoje intervali "DN"
-// 
+//
 // ------------------------------------------
 function get_ost_fields( cIntervals, nPartLen )
 
@@ -74,7 +74,7 @@ AADD(aFields, {"idpart", "C", nPartLen, 0})
 AADD(aFields, {"p_naz", "C", 40, 0})
 
 if cIntervals == "D"
-	
+
 	AADD(aFields, {"UVal_1", "N", 15, 2})
   	AADD(aFields, {"UVal_2", "N", 15, 2})
   	AADD(aFields, {"UVal_3", "N", 15, 2})
@@ -84,7 +84,7 @@ endif
 
 AADD(aFields, {"T_UVal", "N", 15, 2})
 
-if cIntervals == "D" 
+if cIntervals == "D"
 	AADD(aFields, {"VVal_1", "N", 15, 2})
   	AADD(aFields, {"VVal_2", "N", 15, 2})
   	AADD(aFields, {"VVal_3", "N", 15, 2})
@@ -147,7 +147,7 @@ function Pljuc(xVal)
 RETURN
 
 // -------------------------------------------
-// prikaz vrijednosti na izvjestaju 
+// prikaz vrijednosti na izvjestaju
 // -------------------------------------------
 function PPljuc(xVal)
 ?? xVal
@@ -196,7 +196,7 @@ RETURN nVrati
 /*!  IspisRocnosti()
  *   Ispis rocnosti
  */
- 
+
 function IspisRocnosti()
 
 LOCAL cRocnost:=Rocnost(), cVrati
@@ -208,11 +208,10 @@ LOCAL cRocnost:=Rocnost(), cVrati
 RETURN cVrati
 
 
-// --------------------------------
-// rocnost
-// --------------------------------
+
 function Rocnost()
 LOCAL nDana := ABS(IF( EMPTY(datval) , datdok , datval ) - dNaDan), cVrati
+
 IF nDana<=nDoDana1
 	cVrati := STR( nDoDana1 , 3 )
 ELSEIF nDana<=nDoDana2
@@ -226,6 +225,3 @@ ELSE
 ENDIF
 
 RETURN cVrati
-
-
-

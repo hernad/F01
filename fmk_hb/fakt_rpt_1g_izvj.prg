@@ -261,7 +261,7 @@ return
  *
  */
 
-function FFor1()
+static function FFor1()
 
 cIdPartner:=idpartner
  nRoba1:=nRoba2:=nRoba3:=nRoba4:=nRoba5:=nRoba6:=nUkRoba:=nUkIznos:=0
@@ -300,11 +300,8 @@ return .t.
 
 
 
-/*!  FSvaki1()
- *
- */
 
-function FSvaki1()
+static function FSvaki1()
 
 RETURN
 

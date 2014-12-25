@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -70,7 +70,7 @@ aDbf:={ {"POR","C",10,0},;
 dbcreate2(PRIVPATH+"por",aDbf)
 O_POR   // select 95
 index  on BRISANO TAG "BRISAN"
-index  on POR  TAG "1" 
+index  on POR  TAG "1"
 set order to tag "1"
 select pripr
 
@@ -112,7 +112,7 @@ next
 POCNI STAMPU
 
 P_10CPI
-for i:=1 to gnTMarg  
+for i:=1 to gnTMarg
   // Top Margina
   ?
 next
@@ -403,7 +403,7 @@ closeret
 /*!  Zagl()
  *   Ispis zaglavlja
  */
- 
+
 function Zagl()
 
 P_COND
@@ -429,7 +429,7 @@ return
 /*!  NStr0(bZagl)
  *   Nova strana, prelazak na novu stranu
  */
- 
+
 function NStr0(bZagl)
 
 ? space(gnLmarg); ?? m
@@ -447,7 +447,7 @@ return
  *   Konverzija valute
  *   cDinDem
  */
- 
+
 function Koef(cdindem)
 
 local nNaz,nRet,nArr,dDat
@@ -462,12 +462,10 @@ endif
 
 /*!  Mjesto(cRJ)
  *   Uzima mjesto
- *  \todo Postoji nesto slicno u db.prg, treba pogledati
- *   cRJ
  */
 
 
-function Mjesto(cRJ)
+static function Mjesto(cRJ)
 
 LOCAL cVrati:=""
   IF gMjRJ=="D"
@@ -488,9 +486,9 @@ return TRIM(cVrati)
 
 
 /*!  JokSBr()
- *  
+ *
  */
- 
+
 function JokSBr()
 
 if "U" $ TYPE("BK_SB")
@@ -505,7 +503,7 @@ return IF(gNW=="R","  KJ/KG ", IF(glDistrib,"", IF(BK_SB, "  BARKOD   ","Ser.bro
  *   cSR
  *   fSint  - ako je fSint:=.t. sinteticki prikaz
  */
- 
+
 function NSRNPIdRoba(cSR,fSint)
 
 if fSint=NIL
@@ -536,7 +534,7 @@ return
  *   Stampa potpisa na kraju fakture
  *   cIdTipDok
  */
- 
+
 function PrStr2T(cIdTipDok)
 
 local cPom2:=""
@@ -544,7 +542,7 @@ local cPom2:=""
 if "U" $ TYPE("fDelphiRB")
 	fDelphiRB:=.f.
 endif
- 
+
 if "U" $ TYPE("lUgRab")
 	lUgRab:=.f.
 endif
@@ -615,7 +613,7 @@ return
  *   cIdTipDok
  *  \return cVrati
  */
- 
+
 function PrStr2R(cIdTipDok)
 
 LOCAL cVrati:=""
@@ -638,7 +636,7 @@ return (cVrati)
  *   lNoviRed
  *   lVratiRPBNiz
  */
- 
+
 function ShowIDPar(cId,n,lNoviRed,lVratiRPBNiz)
 
 local cRegBr
@@ -674,7 +672,7 @@ if IzFMkIni("FAKT","RegBrPorBr","D",KUMPATH)=="D" .or. lVratiRPBNiz
 	 if lBrojRjesenja
     		cBrojRjesenja:=IzSifK('PARTN','BRJS',cId,.f.)
 		cBrojUpisa:=IzSifK('PARTN','BRUP',cId,.f.)
-    	 endif	
+    	 endif
     	 if lNoviRed
       		if !EMPTY(cRegBr)
         		? (SPACE(n) + PADC("Ident.br:"+cRegBr,30))
@@ -685,13 +683,13 @@ if IzFMkIni("FAKT","RegBrPorBr","D",KUMPATH)=="D" .or. lVratiRPBNiz
       		if !EMPTY(cUgovBr)
         		? (SPACE(n) + PADC("Broj.ug.:"+cUgovBr,30))
       		endif
-      	
+
 		if (lBrojRjesenja .and. !Empty(cBrojRjesenja))
         		? (SPACE(n+4)+ + PADC("Br.Sud.Rj:"+cBrojRjesenja,30))
       			if !Empty(cBrojUpisa)
 				? (SPACE(n+4) + PADC("Br.Upisa:"+cBrojUpisa,30))
 			endif
-		endif		
+		endif
     	 else
       		if !EMPTY(cRegBr)
         		if lPar
@@ -717,7 +715,7 @@ if IzFMkIni("FAKT","RegBrPorBr","D",KUMPATH)=="D" .or. lVratiRPBNiz
 	if lVratiRPBNiz
       		return {cRegBr,cPorBr}
     	endif
-    	
+
 endif
 return (nil)
 
@@ -792,7 +790,7 @@ if cIdFirma <> nil
 endif
 
 if !lDirekt
-	
+
 	cIdFirma:=gFirma
 	cIdTipDok:="10"
 	cBrOd:=space(8)
@@ -802,10 +800,10 @@ if !lDirekt
         @ m_x+1, m_y+2 SAY "Dokument:"
         @ m_x+2, m_y+2 SAY " RJ-tip:" GET cIdFirma
         @ m_x+2, col()+1 SAY "-" GET cIdTipDok
-        @ m_x+3, m_y+2 SAY "Brojevi:" 
+        @ m_x+3, m_y+2 SAY "Brojevi:"
 	@ m_x+4, m_y+3 SAY "od" GET cBrOd VALID !EMPTY(cBrOd)
 	@ m_x+4, col()+1 SAY "do" GET cBrDo VALID !EMPTY(cBrDo)
-        
+
 	read
 	BoxC()
 
@@ -833,24 +831,24 @@ hseek cIdFirma + cIdTipDok
 if Found()
 	do while !EOF() .and. doks->idfirma = cIdFirma ;
 		.and. doks->idtipdok = cIdTipDok
-		
+
 		nTRec := RecNo()
-		
+
 		if ALLTRIM(doks->brdok) >= ALLTRIM(cBrOd) .and. ;
-			ALLTRIM(doks->brdok) <= ALLTRIM(cBrDo) 
-			
+			ALLTRIM(doks->brdok) <= ALLTRIM(cBrDo)
+
 			// pozovi stampu fiskalnog racuna
 			nErr := fisc_rn( doks->idfirma, ;
 				doks->idtipdok, ;
 				doks->brdok, lAutoStampa, nDevice )
-		
-			if ( nErr > 0 ) 
+
+			if ( nErr > 0 )
 				msgbeep("Prekidam operaciju stampe radi greske!")
 				exit
 			endif
-		
+
 		endif
-		
+
 		select doks
 		go (nTRec)
 		skip
@@ -876,7 +874,7 @@ if cIdFirma <> nil
 endif
 
 if !lDirekt
-	
+
 	cIdFirma:=gFirma
 	cIdTipDok:="10"
 	cBrOd:=space(8)
@@ -887,12 +885,12 @@ if !lDirekt
         @ m_x+1, m_y+2 SAY "Dokument:"
         @ m_x+2, m_y+2 SAY " RJ-tip:" GET cIdFirma
         @ m_x+2, col()+1 SAY "-" GET cIdTipDok
-        @ m_x+3, m_y+2 SAY "Brojevi:" 
+        @ m_x+3, m_y+2 SAY "Brojevi:"
 	@ m_x+4, m_y+3 SAY "od" GET cBrOd VALID !EMPTY(cBrOd)
 	@ m_x+4, col()+1 SAY "do" GET cBrDo VALID !EMPTY(cBrDo)
 	@ m_x+5, m_y+2 SAY "batch rezim ?" GET cBatch VALID cBatch $ "DN" ;
 						PICT "@!"
-        
+
 	read
 	BoxC()
 
@@ -909,23 +907,23 @@ hseek cIdFirma + cIdTipDok
 if Found()
 	do while !EOF() .and. doks->idfirma = cIdFirma .and. doks->idtipdok = cIdTipDok
 		nTRec := RecNo()
-		
-		if ALLTRIM(doks->brdok) >= ALLTRIM(cBrOd) .and. ALLTRIM(doks->brdok) <= ALLTRIM(cBrDo) 
-			
+
+		if ALLTRIM(doks->brdok) >= ALLTRIM(cBrOd) .and. ALLTRIM(doks->brdok) <= ALLTRIM(cBrDo)
+
 			if cBatch == "D"
 				cDirPom := gcDirekt
 				gcDirekt := "B"
 				// prebaci na direkt stampu
 			endif
-			
+
 			StampTXT(doks->idfirma,doks->idtipdok,doks->brdok)
-			
+
 			if cBatch == "D"
 				gcDirekt := cDirPom
 			endif
-			
+
 		endif
-		
+
 		select doks
 		go (nTRec)
 		skip
@@ -941,10 +939,10 @@ return
 
 
 /*!  RbrUNum(cRBr)
- *   
+ *
  *   cRBr
  */
- 
+
 function RbrUNum(cRBr)
 
 if left(cRbr,1)>"9"
@@ -980,4 +978,3 @@ Box(,6, 30)
 BoxC()
 
 return cRet
-

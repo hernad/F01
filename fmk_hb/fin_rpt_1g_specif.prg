@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -21,9 +21,9 @@ local nCol1
 
 picBHD:=FormPicL("9 "+gPicBHD,17)
 
-cF:=cDD:="2" 
+cF:=cDD:="2"
 // format izvjestaja
-cPG := "D"   
+cPG := "D"
 // prikazi grad partnera
 cIdFirma:=gFirma
 nIznos:=nIznos2:=0
@@ -119,38 +119,38 @@ do whileSC !eof()
            endif
 
            IF (nIznos==0 .or. (nRazl > nIznos))  .and. (nIznos2==0 .or. (nRazl2 > nIznos2))
-              
+
 	      // ako je nRazl=0 uzeti sve partnere
               	IF prow()==0
 	      		ZaglDPK()
 		ENDIF
-              
+
 	      	IF prow()>63 + gPStranica
 			FF
 			ZaglDPK()
 		ENDIF
-              	
+
 		@ prow()+1,0 SAY ++B PICTURE '9999'
               	@ prow(),5 SAY cIdPartner
 
               	SELECT PARTN
 		HSEEK cIdPartner
-              	
+
 		@ prow(),pcol()+1 SAY PADR(naz, 25)
-              	
+
 		if cF=="1" // a3 format
-                	
+
 			@ prow(),pcol()+1 SAY PADR(naz2, 25) PICT 'XXXXXXXXXXXX'
                 	@ prow(),pcol()+1 SAY PTT
 			@ prow(),pcol()+1 SAY PADR(Mjesto, 16) PICT 'XXXXXXXXXXXXXXXX'
-			
+
               	elseif cPG=="D"
-                	
+
 			@ prow(),pcol()+1 SAY PADR(Mjesto, 16) PICT 'XXXXXXXXXXXXXXXX'
               	endif
-              
+
 	      	nCol1 := pcol()
-              	
+
 		if cF=="1" .or. cDD="1"
                		@ prow(),pcol()+1 SAY nDugBHD PICTURE picBHD
                		@ prow(),pcol()+1 SAY nPotBHD PICTURE picBHD
@@ -428,7 +428,7 @@ do whileSC !eof() .and. cIdKonto==IdKonto
 
      dDatDok:=ctod("")
      cBrdok:=field->brdok
-     
+
      if !empty(qqBrDok) .and. len(aUslBrDok) <> 0
      	lFound := .f.
      	for i:=1 to len(aUslBrDok)
@@ -445,7 +445,7 @@ do whileSC !eof() .and. cIdKonto==IdKonto
      	endif
      endif
 
-     
+
      nDin:=nDEM:=0
      do while !eof() .and. idkonto==cidkonto .and. idpartner==cidpartner .and. ;
                            brdok==cBrdok
@@ -494,7 +494,7 @@ do whileSC !eof() .and. cIdKonto==IdKonto
          KDIN+=nDin; KDEM+=nDEM
          nDINP+=nDin; nDEMP+=nDEM
          if cPojed=="D"
-            
+
 	    IF prow()==0
 	    	ZaglSpBrDana()
 	    ENDIF
@@ -511,7 +511,7 @@ do whileSC !eof() .and. cIdKonto==IdKonto
 	    @ prow(),pcol()+1 SAY naz2 PICTURE 'XXXXXXXXXX'
             @ prow(),pcol()+1 SAY PTT
 	    @ prow(),pcol()+1 SAY Mjesto
-            
+
 	    SELECT SUBAN
 
             @ prow(),pcol()+1 SAY cBrDok
@@ -587,7 +587,7 @@ return
 /*!  ZaglSpBrDana()
  *   Zaglavlje za otvorene stavke preko odredjenog broja dana
  */
- 
+
 function ZaglSpBrDana()
 local cPom
 ?
@@ -660,7 +660,7 @@ RETURN
 /*!  SpecPoK()
  *   Specifikacija po kontima
  */
- 
+
 function SpecPoK()
 
 local cSK:="N"
@@ -805,7 +805,7 @@ return
 /*!  Zagl5()
  *   Zaglavlje specifikacije po kontima
  */
- 
+
 static function Zagl5()
 ?
 P_COND
@@ -888,7 +888,7 @@ return aFields
 
 
 // ---------------------------------------------------
-// Specifikacija subanalitickih konta 
+// Specifikacija subanalitickih konta
 // ---------------------------------------------------
 function SpecPoKP()
 local cSK:="N"
@@ -993,19 +993,19 @@ Box("",20,65)
  		@ m_x+11,m_y+2 SAY "Uslov za broj veze (prazno-svi) " GET qqBrDok PICT "@!S20"
  		@ m_x+12,m_y+2 SAY "Uslov za vrstu naloga (prazno-svi) " GET cVN PICT "@!S20"
  		cRasclaniti:="N"
- 		
+
 		if gRJ=="D"
   			@ m_x+13,m_y+2 SAY "Rasclaniti po RJ (D/N) "  GET cRasclaniti pict "@!" valid cRasclaniti $ "DN"
  			@ m_x+14,m_y+2 SAY "Rasclaniti po RJ/FUNK/FOND? (D/N) "  GET cRascFunkFond pict "@!" valid cRascFunkFond $ "DN"
- 	
+
 		endif
 
 		@ m_x + 15, m_y + 2 SAY "Opcina (prazno-sve):" GET cOpcine
-		
+
 		UpitK1k4(15)
- 		
+
 		@ m_x+20,m_y+2 SAY "Export izvjestaja u dbf (D/N) ?" GET cExpRptDN pict "@!" valid cExpRptDN $ "DN"
-		
+
 		READ
 		ESC_BCR
  		O_PARAMS
@@ -1179,7 +1179,7 @@ nup:=0      // DIN
 nud2:=0
 nup2:=0    // DEM
 do whileSC !eof()
-	
+
 	cSin:=left(idkonto,3)
  	nKd:=0
 	nKp:=0
@@ -1187,7 +1187,7 @@ do whileSC !eof()
 	nKp2:=0
 
  	do whileSC !EOF() .and.  cSin==left(idkonto,3)
-   		
+
 		nTArea := SELECT()
 
 		cIdKonto:=IdKonto
@@ -1205,7 +1205,7 @@ do whileSC !eof()
 				loop
 			endif
 		endif
-		
+
 		select (nTArea)
 
    		nD:=0
@@ -1248,7 +1248,7 @@ do whileSC !eof()
 					nPotrazujeBHD:=iznosbhd
 				endif
 			endif
-     			
+
 			skip 1
 
 			if cRascFunkFond=="D" .and. cGetFunkFond<>idrj+funk+fond
@@ -1270,7 +1270,7 @@ do whileSC !eof()
        				IF !EMPTY( LEFT(cRasclan,LEN(SUBAN->idrj)) )
          				cLTreci := "RJ:"+LEFT(cRasclan,LEN(SUBAN->idrj))+"-"+TRIM(RJ->naz)
        				ENDIF
-				
+
      			ENDIF
      			nCOpis:=PCOL()
 			// ispis partnera
@@ -1321,26 +1321,26 @@ do whileSC !eof()
       				@ prow(),pcol()+1 SAY nD-nP pict pic
       				@ prow(),pcol()+1 SAY nD2-nP2 pict pic
      			endif
-     			
+
 			if lExpRpt
 				if gRj == "D" .and. cRasclaniti == "D"
-					
+
 					cRj_id := cRasclan
-					
+
 					if !EMPTY(cRj_id)
 						cRj_naz := rj->naz
 					else
 						cRj_naz := ""
 					endif
-					
+
 				else
 					cRj_id := nil
 					cRj_naz := nil
 				endif
-				
+
 				fill_ss_tbl(cIdKonto, cIdPartner, IF(EMPTY(cIdPartner), konto->naz, ALLTRIM(partn->naz)), nD, nP, nD-nP, cRj_id, cRj_naz)
 			endif
-			
+
 			nKd+=nD
 			nKp+=nP  // ukupno  za klasu
      			nKd2+=nD2
@@ -1354,18 +1354,18 @@ do whileSC !eof()
      			@ prow()+1, nCOpis SAY cLTreci
      			cLTreci:=""
    		endif
-		
+
 		if cRascFunkFond=="D" .and. LEN(aRasclan)>0
 			@ prow()+1, nCOpis SAY REPLICATE("-", 113)
 			for i:=1 to LEN(aRasclan)
-				@ prow()+1, nCOpis SAY "RJ: " + aRasclan[i, 1] + ", FUNK: " + aRasclan[i, 2] + ", FOND: " + aRasclan[i, 3] + ": " 
+				@ prow()+1, nCOpis SAY "RJ: " + aRasclan[i, 1] + ", FUNK: " + aRasclan[i, 2] + ", FOND: " + aRasclan[i, 3] + ": "
 				@ prow(), pcol()+15 SAY aRasclan[i, 4] PICT pic
 				@ prow(), pcol()+1 SAY aRasclan[i, 5] PICT pic
-				@ prow(), pcol()+1 SAY aRasclan[i, 4] - aRasclan[i, 5] PICT pic  
+				@ prow(), pcol()+1 SAY aRasclan[i, 4] - aRasclan[i, 5] PICT pic
 			next
 			@ prow()+1, nCOpis SAY REPLICATE("-", 113)
 		endif
-		
+
  	enddo  // sintetika
  	if prow()>61+gPStranica
 		FF
@@ -1434,7 +1434,7 @@ return
 /*!  SpecSubPro()
  *   Specifikacija subanalitike po proizvoljnom sortiranju, verzija C52
  */
- 
+
 function SpecSubPro()
 
 PRIVATE fK1:=fk2:=fk3:=fk4:="N",cSK:="N", cSkVar:="N"
@@ -1659,7 +1659,7 @@ return
 /*!  TekRec()
  *   Vraca tekuci zapis
  */
-function TekRec()
+static function TekRec()
 @ m_x+1,m_y+2 SAY RecNo()
 return nil
 
@@ -1668,7 +1668,7 @@ return nil
  *   Zaglavlje specifikacije
  *   cSkVar
  */
- 
+
 static function Zagl6(cSkVar)
 ?
 B_ON
@@ -1733,7 +1733,7 @@ return
  *   Specifikacija konto/konto2 partner
  *   lOtvSt
  */
- 
+
 function SpecKK2(lOtvSt)
 
 local fK1:=fk2:=fk3:=fk4:="N",nC1:=35
@@ -1927,21 +1927,21 @@ do whilesc !eof() .and. IdFirma==cIdFirma
       	FF
 	Zagl7()
       ENDIF
-      
+
       @ prow()+1,0 SAY cidpartner
-      
+
       select partn
       hseek cIdPartner
       select suban
-      
+
       @ prow(),pcol()+1 SAY PADR(partn->naz, 25)
-      
+
       IF cPG=="D"
       	@ prow(),pcol()+1 SAY PARTN->Mjesto
       EndIF
-      
+
       nC1:=pcol()+1
-      
+
       if cDinDem=="1"
          @ prow(),pcol()+1 SAY nDBHD PICTURE picBHD
          @ prow(),pcol()+1 SAY nPBHD PICTURE picBHD
@@ -2188,7 +2188,7 @@ RETURN
 
 
 /*!  SpecOstPop()
- *   Specifikacija otvorenih stavki po kontima za partnera 
+ *   Specifikacija otvorenih stavki po kontima za partnera
  */
 function SpecOstPop()
 *
@@ -2390,15 +2390,15 @@ Box("#PREGLED NOVIH DUGOVANJA/POTRAZIVANJA",15,72)
 	else
 		cIdkonto := padr("2110",7)
 	endif
-	
+
 	dDatOd := DATE() - 7
 	dDatDo := DATE()
-	
+
 	private cPrik:="2"
 	private cDinDem:="1"
 	private cPG:="D"
 	private cPoRP:="2"
-	
+
 	@ m_x+3,m_y+2 SAY "Konto:" GET cIdkonto valid p_kontoFin(@cidkonto)
 	@ m_x+5,m_y+2 SAY "Period:" GET dDatOd
 	@ m_x+5,col()+2 SAY "do" GET dDatDo valid dDatDo>=dDatOd
@@ -2477,10 +2477,10 @@ do while cidfirma==idfirma .and. !eof() .and. cidkonto==idkonto
 	else
 		cIdPartner:=idpartner
 	endif
-	
+
 	nPS1:=0
 	nPS2:=0
-	
+
 	fYear:=.f.
 
 	do while cidfirma==idfirma .and. !eof() .and. cidkonto==idkonto .and. IF(cPoRP=="1",idrj,idpartner)==cidpartner .and. datdok<dDatOd
@@ -2493,7 +2493,7 @@ do while cidfirma==idfirma .and. !eof() .and. cidkonto==idkonto
 			nPS2-=iznosdem
 		endif
 
-		if YEAR(datdok) == YEAR(DATE())  
+		if YEAR(datdok) == YEAR(DATE())
 			// bilo je prometa u toku godine
 			fYear:=.t.
 		endif
@@ -2557,17 +2557,17 @@ do while cidfirma==idfirma .and. !eof() .and. cidkonto==idkonto
 		endif
 
 		? cIdPartner+" "
-		
+
 		if cPoRP=="1"
 			?? PADR( RJ->naz, 36)
 		else
-		
+
 			if cPG=="N"
 				?? PADR(partn->naz, 25)
 			else
 				?? Left (PARTN->Naz, 25), LEFT (PARTN->Mjesto, 15)
 			endif
-		
+
 		endif
 
 		nCol1:=pcol()+1
@@ -2637,7 +2637,7 @@ hseek cIdKonto
 select (nTArea)
 
 ? SPACE(2)
-?? ALLTRIM(cIdKonto), ":", ALLTRIM( konto->naz ) 
+?? ALLTRIM(cIdKonto), ":", ALLTRIM( konto->naz )
 
 if cPoRP == "1"
 	? SPACE(2)
@@ -2651,26 +2651,26 @@ if !empty(cMjestoPar)
 endif
 
 if cDP=="1"
-	
+
 	? m
-	
+
 	if cPoRP=="1"
-		
+
 		? SPACE(__par_len) + "  Naziv                                 Prethodno           Novo             Napla�eno         Sada�nje          Napomena"
 		? SPACE(__par_len) + "                                          stanje          potra�ivanje                           stanje"
-	
+
 	elseif cPG=="N"
-		
+
 		? SPACE(__par_len) + "    Naziv                     Prethodno           Novo             Napla�eno         Sadasnje          Napomena"
 		? SPACE(__par_len) + "                               stanje          potra�ivanje                           stanje"
-	
+
 	else
-		
+
 		? SPACE(__par_len) + "  Naziv                  Mjesto         Prethodno           Novo             Napla�eno         Sada�nje          Napomena"
 		? SPACE(__par_len) + "                                          stanje          potra�ivanje                           stanje"
-	
+
 	endif
-	
+
 	? m
 else
 	? m
@@ -2726,7 +2726,7 @@ return
  *   Cisti polja od K1 do K4
  *   lK
  */
- 
+
 function CistiK1K4(lK)
 *
 IF lK==NIL; lK:=.t.; ENDIF
@@ -2765,7 +2765,7 @@ return
  *   Prikazi polja od K1 do K4
  *   lK
  */
- 
+
 function PrikK1K4(lK)
 
 local fProso:=.f.
@@ -2789,24 +2789,24 @@ cM:=replicate("-",55)
 cStr:="Pregled odabranih kriterija :"
 
 if gRJ=="D" .and. len(cIdRJ)<>0
-  
+
   cRjNaz := ""
   nArr := SELECT()
   O_RJ
   select rj
   hseek cIdRj
-  
+
   if rj->id == cIdRj
   	cRjNaz:=rj->naz
   endif
-  
+
   select (nArr)
   if !fproso
    ? cM
    ? cStr
    fProso:=.t.
   endif
-  ? "Radna jedinica: " + cIdRj + " - " + cRjNaz  
+  ? "Radna jedinica: " + cIdRj + " - " + cRjNaz
 endif
 IF lK
   if fk1=="D" .and. !len(ck1)==0
@@ -2873,7 +2873,7 @@ return
 /*!  PartVanProm()
  *   Partneri van prometa
  */
- 
+
 function PartVanProm()
 
 LOCAL   dDatOd := CTOD (""), dDatDo := DATE ()
@@ -2971,7 +2971,7 @@ return
  *   formatira datum sa stoljecem (dUlazni)=> cDat
  *   dUlazni - ulazni datum
  */
- 
+
 function FormDat1(dUlazni)
 
 LOCAL cVrati
@@ -2986,14 +2986,14 @@ RETURN cVrati
  *   Otvorene stavke grupisano po brojevima veze
  *   lKartica
  */
- 
+
 function SpecPoDosp(lKartica)
 local nCol1:=72
 local cSvi:="N"
 local lPrikSldNula:=.f.
 local lExpRpt := .f.
 local cExpRpt := "N"
-local aExpFld 
+local aExpFld
 local cStart
 local cP_naz := ""
 private cIdPartner
@@ -3045,7 +3045,7 @@ nDoDana2 := 15
 nDoDana3 := 30
 nDoDana4 := 60
 
-PICPIC := PADR("999999.99", 12)  
+PICPIC := PADR("999999.99", 12)
 
 Box(,18,60)
 
@@ -3161,25 +3161,25 @@ else
 endif
 
 DO WHILESC !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto
-	
+
 	cIdPartner:=idpartner
 	nUDug2:=0
 	nUPot2:=0
     	nUDug:=0
 	nUPot:=0
-    	
+
 	fPrviprolaz:=.t.
-    	
+
 	DO WHILESC !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner
-		
+
 		cBrDok:=BrDok
 		cOtvSt:=otvst
           	nDug2:=nPot2:=0
           	nDug:=nPot:=0
           	aFaktura:={CTOD(""),CTOD(""),CTOD("")}
-          	
+
 		DO WHILESC !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner .and. brdok==cBrDok
-             		
+
 			IF D_P=="1"
                 		nDug+=IznosBHD
                 		nDug2+=IznosDEM
@@ -3187,12 +3187,12 @@ DO WHILESC !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto
                 		nPot+=IznosBHD
                 		nPot2+=IznosDEM
              		ENDIF
-             		
+
 			IF D_P==cDugPot
                			aFaktura[1]:=DATDOK
                			aFaktura[2]:=DATVAL
              		ENDIF
-             		
+
 			if aFaktura[3]<DatDok  // datum zadnje promjene
                 		aFaktura[3]:=DatDok
              		endif
@@ -3237,14 +3237,14 @@ DO WHILESC !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto
              		SELECT SUBAN
           	endif
 	enddo // partner
-	
+
 	IF prow()>58+gPStranica
 		FF
 		ZSpecPoDosp( nil, nil, PICPIC )
 	ENDIF
-	
+
 	if (!fveci .and. idpartner=cSvi) .or. fVeci
-    	
+
 	else
       		exit
     	endif
@@ -3256,7 +3256,7 @@ IF cSaRokom=="D"
 ELSE
 	INDEX ON IDPARTNER+OTVST+DTOS(DATDOK)+DTOS(IIF(EMPTY(DATVAL),DATDOK,DATVAL))+BRDOK TAG "2"
 ENDIF
-SET ORDER TO TAG "2" 
+SET ORDER TO TAG "2"
 GO TOP
 
 nTUDug:=nTUPot:=nTUDug2:=nTUPot2:=0
@@ -3285,19 +3285,19 @@ IF cPoRN=="N"
 ENDIF
 
 DO WHILE !EOF()
-	
+
 	IF cPoRN=="D"
     		fPrviProlaz:=.t.
   	ENDIF
-  	
+
 	cIdPartner:=IDPARTNER
-	
+
 	// provjeri saldo partnera
 	if !lPrikSldNula .and. saldo_nula(cIdPartner)
 		skip
 		loop
 	endif
-	
+
 	// provjeri opcine
 	if !EMPTY(cOpcine)
 		select partn
@@ -3309,13 +3309,13 @@ DO WHILE !EOF()
 		endif
   		select pom
 	endif
-	
+
 	nUDug:=nUPot:=nUDug2:=nUPot2:=0
   	nUkUVD:=nUkUVP:=nUkUVD2:=nUkUVP2:=0
   	nUkVVD:=nUkVVP:=nUkVVD2:=nUkVVP2:=0
-	
+
 	cFaza:=otvst
-	
+
 	IF cSaRokom=="D"
    		FOR i:=1 TO LEN(anInterUV)
      			FOR j:=1 TO LEN(anInterUV[i])
@@ -3331,16 +3331,16 @@ DO WHILE !EOF()
 		ZSpecPoDosp(.t., nil, PICPIC )
 		fPrviProlaz:=.f.
 	ENDIF
-    		
+
 	if fPrviProlaz
        		ZSpecPoDosp(nil, nil, PICPIC )
        		fPrviProlaz:=.f.
     	endif
 
     	select pom
-    
+
 	DO WHILESC !EOF() .and. cIdPartner==IdPartner
-    		
+
 		IF cPoRn=="D"
       			? datdok, datval, PADR(brdok,10)
       			nCol1:=pcol()+1
@@ -3359,7 +3359,7 @@ DO WHILE !EOF()
       			IF cPoRn=="D"
         			?? "   U VALUTI"+IF(cSaRokom=="D",IspisRocnosti(),"")
       			ENDIF
-      			nUkUVD  += Dug 
+      			nUkUVD  += Dug
 			nUkUVP  += Pot
 			nUkUVD2 += Dug2
 			nUkUVP2 += Pot2
@@ -3373,7 +3373,7 @@ DO WHILE !EOF()
       			IF cPoRn=="D"
         			?? " VAN VALUTE"+IF(cSaRokom=="D",IspisRocnosti(),"")
       			ENDIF
-      			nUkVVD  += Dug 
+      			nUkVVD  += Dug
 			nUkVVP  += Pot
 			nUkVVD2 += Dug2
 			nUkVVP2 += Pot2
@@ -3402,7 +3402,7 @@ DO WHILE !EOF()
 						@ prow(),nCol1 SAY anInterUV[nFaza,1,1] PICTURE picBHD
            					@ prow(),pcol()+1 SAY anInterUV[nFaza,2,1] PICTURE picBHD
            					@ prow(),pcol()+1 SAY anInterUV[nFaza,1,1]-anInterUV[nFaza,2,1] PICTURE picBHD
-           					
+
 						if gVar1=="0"
              						@ prow(),pcol()+1 SAY anInterUV[nFaza,3,1] PICTURE picdem
              						@ prow(),pcol()+1 SAY anInterUV[nFaza,4,1] PICTURE picdem
@@ -3429,7 +3429,7 @@ DO WHILE !EOF()
             				@ prow(),pcol()+1 SAY nUkUVD2-nUkUVP2 PICTURE picdem
           			endif
         		ENDIF
-        		nTUkUVD  += nUkUVD 
+        		nTUkUVD  += nUkUVD
 			nTUkUVP  += nUkUVP
         		nTUkUVD2 += nUkUVD2
 			nTUkUVP2 += nUkUVP2
@@ -3468,7 +3468,7 @@ DO WHILE !EOF()
             				@ prow(),pcol()+1 SAY nUkVVD2-nUkVVP2 PICTURE picdem
           			endif
         		ENDIF
-        		nTUkVVD  += nUkVVD 
+        		nTUkVVD  += nUkVVD
 			nTUkVVP  += nUkVVP
         		nTUkVVD2 += nUkVVD2
 			nTUkVVP2 += nUkVVP2
@@ -3561,7 +3561,7 @@ if !fPrviProlaz  // bilo je stavki
         		else
         			PPljuc(TRANSFORM(nUkUVD2-nUkUVP2,PICPIC))
 			endif
-			
+
 			FOR i:=1 TO LEN(anInterVV)
 				if ( cValuta == "1" )
           				PPljuc(TRANSFORM(anInterVV[i,1,1]-anInterVV[i,2,1],PICPIC))
@@ -3576,12 +3576,12 @@ if !fPrviProlaz  // bilo je stavki
 				PPljuc(TRANSFORM(nUkVVD2-nUkVVP2,PICPIC))
         			PPljuc(TRANSFORM(nUDug2-nUPot2,PICPIC))
 			endif
-			
+
 			if lExpRpt == .t.
-			   if cValuta == "1"	
+			   if cValuta == "1"
 				fill_ost_tbl( cSaRokom, cIdPartner, cP_naz, nUkUVD - nUkUVP, nUkVVD - nUkVVP, nUDug - nUPot, anInterUV[1,1,1] - anInterUV[1,2,1], anInterUV[2,1,1] - anInterUV[2,2,1], anInterUV[3,1,1] - anInterUV[3,2,1], anInterUV[4,1,1] - anInterUV[4,2,1], anInterUV[5,1,1] - anInterUV[5,2,1], anInterVV[1,1,1] - anInterVV[1,2,1], anInterVV[2,1,1] - anInterVV[2,2,1], anInterVV[3,1,1] - anInterVV[3,2,1], anInterVV[4,1,1] - anInterVV[4,2,1], anInterVV[5,1,1] - anInterVV[5,2,1] )
 			   else
-			   	fill_ost_tbl( cSaRokom, cIdPartner, cP_naz, nUkUVD2 - nUkUVP2, nUkVVD2 - nUkVVP2, nUDug2 - nUPot2, anInterUV[1,3,1] - anInterUV[1,4,1], anInterUV[2,3,1] - anInterUV[2,4,1], anInterUV[3,3,1] - anInterUV[3,4,1], anInterUV[4,3,1] - anInterUV[4,4,1], anInterUV[5,3,1] - anInterUV[5,4,1], anInterVV[1,3,1] - anInterVV[1,4,1], anInterVV[2,3,1] - anInterVV[2,4,1], anInterVV[3,3,1] - anInterVV[3,4,1], anInterVV[4,3,1] - anInterVV[4,4,1], anInterVV[5,3,1] - anInterVV[5,4,1] )		
+			   	fill_ost_tbl( cSaRokom, cIdPartner, cP_naz, nUkUVD2 - nUkUVP2, nUkVVD2 - nUkVVP2, nUDug2 - nUPot2, anInterUV[1,3,1] - anInterUV[1,4,1], anInterUV[2,3,1] - anInterUV[2,4,1], anInterUV[3,3,1] - anInterUV[3,4,1], anInterUV[4,3,1] - anInterUV[4,4,1], anInterUV[5,3,1] - anInterUV[5,4,1], anInterVV[1,3,1] - anInterVV[1,4,1], anInterVV[2,3,1] - anInterVV[2,4,1], anInterVV[3,3,1] - anInterVV[3,4,1], anInterVV[4,3,1] - anInterVV[4,4,1], anInterVV[5,3,1] - anInterVV[5,4,1] )
 			   endif
 			endif
       		ELSE
@@ -3598,21 +3598,21 @@ if !fPrviProlaz  // bilo je stavki
 			if lExpRpt == .t.
 			   if cValuta == "1"
 				fill_ost_tbl( cSaRokom, cIdPartner, cP_naz, nUkUVD - nUkUVP, nUkVVD - nUkVVP, nUDug - nUPot )
-						
+
 			   else
 				fill_ost_tbl( cSaRokom, cIdPartner, cP_naz, nUkUVD2 - nUkUVP2, nUkVVD2 - nUkVVP2, nUDug2 - nUPot2 )
-				
+
 			   endif
 			endif
-					
-	
+
+
       		ENDIF
     	ENDIF
 endif
 
 IF cPoRn=="D"
-	? 
-	? 
+	?
+	?
 	?
 ENDIF
 
@@ -3694,18 +3694,18 @@ IF cPoRn=="D" .and. LEN(cSvi)<LEN(idpartner) .and.;
 ENDIF // total
 
 IF cPoRn=="N"
-	
+
 	cTmpL := ""
-	
+
 	// uzmi liniju
 	_get_line1( @cTmpL, cSaRokom, PICPIC )
-	
+
 	? cTmpL
-	
+
   	Pljuc( PADR( "UKUPNO" , LEN( POM->IDPARTNER + PADR(PARTN->naz, 25)) + 1 ) )
-  	
+
 	_get_line2( @cTmpL, cSaRokom, PICPIC)
-	
+
 	IF cSaRokom=="D"
     		FOR i:=1 TO LEN(anInterUV)
       			if ( cValuta == "1" )
@@ -3719,7 +3719,7 @@ IF cPoRn=="N"
     		else
 			PPljuc(TRANSFORM(nTUkUVD2-nTUkUVP2,PICPIC))
 		endif
-		
+
 		FOR i:=1 TO LEN(anInterVV)
       			if ( cValuta == "1" )
 				PPljuc(TRANSFORM(anInterVV[i,1,2]-anInterVV[i,2,2],PICPIC))
@@ -3727,7 +3727,7 @@ IF cPoRn=="N"
 				PPljuc(TRANSFORM(anInterVV[i,3,2]-anInterVV[i,4,2],PICPIC))
 			endif
 		NEXT
-    		
+
 		if ( cValuta == "1" )
 			PPljuc(TRANSFORM(nTUkVVD-nTUkVVP,PICPIC))
    			PPljuc(TRANSFORM(nTUDug-nTUPot,PICPIC))
@@ -3735,15 +3735,15 @@ IF cPoRn=="N"
 			PPljuc(TRANSFORM(nTUkVVD2-nTUkVVP2,PICPIC))
    			PPljuc(TRANSFORM(nTUDug2-nTUPot2,PICPIC))
 		endif
-		
+
 		if lExpRpt == .t.
-		  
+
 		  if cValuta == "1"
 		    fill_ost_tbl(cSaRokom, "UKUPNO", "", nTUkUVD - nTUkUVP, nTUkVVD - nTUkVVP, nTUDug - nTUPot, anInterUV[1,1,2] - anInterUV[1,2,2], anInterUV[2,1,2] - anInterUV[2,2,2], anInterUV[3,1,2] - anInterUV[3,2,2], anInterUV[4,1,2] - anInterUV[4,2,2], anInterUV[5,1,2] - anInterUV[5,2,2], anInterVV[1,1,2] - anInterVV[1,2,2], anInterVV[2,1,2] - anInterVV[2,2,2], anInterVV[3,1,2] - anInterVV[3,2,2], anInterVV[4,1,2] - anInterVV[4,2,2], anInterVV[5,1,2] - anInterVV[5,2,2] )
 		  else
 		     fill_ost_tbl(cSaRokom, "UKUPNO", "", nTUkUVD2 - nTUkUVP2, nTUkVVD2 - nTUkVVP2, nTUDug2 - nTUPot2, anInterUV[1,3,2] - anInterUV[1,4,2], anInterUV[2,3,2] - anInterUV[2,4,2], anInterUV[3,3,2] - anInterUV[3,4,2], anInterUV[4,3,2] - anInterUV[4,4,2], anInterUV[5,3,2] - anInterUV[5,4,2], anInterVV[1,3,2] - anInterVV[1,4,2], anInterVV[2,3,2] - anInterVV[2,4,2], anInterVV[3,3,2] - anInterVV[3,4,2], anInterVV[4,3,2] - anInterVV[4,4,2], anInterVV[5,3,2] - anInterVV[5,4,2] )
 		  endif
-		  
+
 		endif
 
   	ELSE
@@ -3756,21 +3756,21 @@ IF cPoRn=="N"
     			PPljuc(TRANSFORM(nTUkVVD2-nTUkVVP2,PICPIC))
     			PPljuc(TRANSFORM(nTUDug2-nTUPot2,PICPIC))
 		endif
-		
+
 		if lExpRpt == .t.
-		  
+
 		  if cValuta == "1"
 		  	fill_ost_tbl(cSaRokom, "UKUPNO", "", nTUkUVD - nTUkUVP, nTUkVVD - nTUkVVP, nTUDug - nTUPot )
 		  else
 		  	fill_ost_tbl(cSaRokom, "UKUPNO", "", nTUkUVD2 - nTUkUVP2, nTUkVVD2 - nTUkVVP2, nTUDug2 - nTUPot2 )
 		  endif
-				
+
 		endif
-	
+
   	ENDIF
 
 	? cTmpL
-	
+
 ENDIF
 
 FF
@@ -3804,15 +3804,15 @@ if cSaRokom == "D"
 endif
 
 cTmpL := cStart
-cTmpL += REPLICATE(cFill, __par_len) 
+cTmpL += REPLICATE(cFill, __par_len)
 cTmpL += cMidd
 cTmpL += REPLICATE(cFill, 25)
-	
+
 for i := 1 to nFor
 	cTmpL += cLine
 	cTmpL += REPLICATE(cFill, LEN(cPicForm))
 next
-		
+
 cTmpL += cEnd
 
 return
@@ -3821,7 +3821,7 @@ return
 // vraca liniju varijantu 2
 // ------------------------------------------------------
 static function _get_line2( cTmpL, cSaRokom, cPicForm )
-local cStart := "�" 
+local cStart := "�"
 local cLine := "�"
 local cEnd := "�"
 local cFill := "�"
@@ -3832,15 +3832,15 @@ if cSaRokom == "D"
 endif
 
 cTmpL := cStart
-cTmpL += REPLICATE(cFill, __par_len) 
+cTmpL += REPLICATE(cFill, __par_len)
 cTmpL += cLine
 cTmpL += REPLICATE(cFill, 25)
-	
+
 for i := 1 to nFor
 	cTmpL += cLine
 	cTmpL += REPLICATE(cFill, LEN(cPicForm))
 next
-		
+
 cTmpL += cEnd
 
 return
@@ -3869,7 +3869,7 @@ skip -1
 nLRecNo := RecNo()
 
 if (ROUND(nDug, 2) - ROUND(nPot, 2) == 0)
-	go (nLRecNo)	
+	go (nLRecNo)
 	return .t.
 endif
 
@@ -3883,7 +3883,7 @@ return .f.
  *   fStrana
  *   lSvi
  */
- 
+
 function ZSpecPoDosp( fStrana, lSvi, PICPIC )
 local nII
 local cTmp
@@ -3925,17 +3925,17 @@ IF cPoRn == "D"
  	if fStrana
   		@ prow(),110 SAY "Str:"+str(++nStr,3)
  	endif
-	
+
 	SELECT PARTN
 	HSEEK cIdFirma
- 	
+
 	? "FIRMA:",cIdFirma,"-",gNFirma
-	
+
 	SELECT KONTO
 	HSEEK cIdKonto
-	
+
 	? "KONTO  :", cIdKonto, naz
-	
+
 	if lSvi
   		? "PARTNER: SVI"
  	else
@@ -3943,18 +3943,18 @@ IF cPoRn == "D"
 		HSEEK cIdPartner
   		? "PARTNER:", cIdPartner,TRIM(PADR(naz, 25))," ",TRIM(naz2)," ",TRIM(mjesto)
  	endif
-	
+
 	? m
  	?
- 	
+
 	?? "Dat.dok.*Dat.val.* "
- 	
+
 	IF gVar1=="0"
   		?? "  BrDok   *   dug "+ValDomaca()+"  *   pot "+ValDomaca()+"   *  saldo  "+ValDomaca()+" * dug "+ValPomocna()+" * pot "+ValPomocna()+" *saldo "+ValPomocna()+"*      U/VAN VALUTE      *"
  	ELSE
   		?? "  BrDok   *   dug "+ValDomaca()+"  *   pot "+ValDomaca()+"   *  saldo  "+ValDomaca()+" *      U/VAN VALUTE      *"
  	ENDIF
- 	
+
 	? m
 
 ELSE
@@ -3964,11 +3964,11 @@ ELSE
  	? "FIRMA:",cIdFirma,"-",gNFirma
 	SELECT KONTO
 	HSEEK cIdKonto
-	
+
 	? "KONTO  :", cIdKonto, naz
-	
+
 	IF cSaRokom=="D"
-   		
+
 		// prvi red
 		cTmp := "�"
 		cTmp += REPLICATE("�", __par_len)
@@ -3985,20 +3985,20 @@ ELSE
 		cTmp += "�"
 		cTmp += REPLICATE("�", LEN(PICPIC))
 		cTmp += "�"
-		
+
 		? cTmp
 
 		// drugi red
    		cTmp := "�"
 		cTmp += REPLICATE(" ", __par_len)
 		cTmp += "�"
-		cTmp += REPLICATE(" ", 25) 
+		cTmp += REPLICATE(" ", 25)
 		cTmp += "�"
 		cTmp += _f_text("U      V  A  L  U  T  I", (LEN(PICPIC) * 5) + 4 )
-		
+
 		cTmp += "�"
 		cTmp += REPLICATE(" ", LEN(PICPIC))
-		
+
 		cTmp += "�"
 		cTmp += _f_text("V  A  N      V  A  L  U  T  E", (LEN(PICPIC) * 5) + 4 )
 		cTmp += "�"
@@ -4006,53 +4006,53 @@ ELSE
 		cTmp += "�"
 		cTmp += REPLICATE(" ", LEN(PICPIC))
 		cTmp += "�"
-	
+
 		? cTmp
-	
-   		
+
+
 		// treci red
 		cTmp := "�"
-		cTmp += PADC("SIFRA", __par_len) 
+		cTmp += PADC("SIFRA", __par_len)
 		cTmp += "�"
 		cTmp += _f_text("NAZIV  PARTNERA", 25)
 		cTmp += "�"
-		
+
 		for nII := 1 to 5
 			cTmp += REPLICATE("�", LEN(PICPIC) )
-			
+
 			if nII == 5
 				cTmp += "�"
 			else
 				cTmp += "�"
 			endif
-			
+
 		next
-		
+
 		cTmp += _f_text( " ", LEN(PICPIC) )
 		cTmp += "�"
-		
+
 		for nII := 1 to 5
 			cTmp += REPLICATE("�", LEN(PICPIC) )
-			
+
 			if nII == 5
 				cTmp += "�"
 			else
 				cTmp += "�"
 			endif
 		next
-		
+
 		cTmp += _f_text( " ", LEN(PICPIC) )
 		cTmp += "�"
 		cTmp += _f_text( "UKUPNO", LEN(PICPIC) )
 		cTmp += "�"
 
 		? cTmp
-		
+
    		cTmp := "�"
 		cTmp += PADC("PARTN.", __par_len)
 		cTmp += "�"
-		cTmp += _f_text(" ", 25) 
-		
+		cTmp += _f_text(" ", 25)
+
 		cTmp += "�"
 		cTmp += _f_text( "DO" + STR(nDoDana1, 3) + " D.", LEN(PICPIC))
 		cTmp += "�"
@@ -4080,47 +4080,47 @@ ELSE
 		cTmp += "�"
 		cTmp += _f_text( " ", LEN(PICPIC))
 		cTmp +=	"�"
-   		
-		? cTmp 
-		
+
+		? cTmp
+
 		cTmp := "�"
 		cTmp += REPLICATE("�", __par_len)
 		cTmp += "�"
 		cTmp += REPLICATE("�", 25)
-		
+
 		for nII := 1 to 13
 			cTmp += "�"
 			cTmp += REPLICATE("�", LEN(PICPIC))
 		next
-		
+
 		cTmp += "�"
 
 		? cTmp
- 	
+
 	ELSE
-   		
+
 		// 1 red
 		cTmp := "�"
 		cTmp += REPLICATE("�", __par_len)
 		cTmp += "�"
 		cTmp += REPLICATE("�", 25)
-		
+
 		for nII := 1 to 3
 			cTmp += "�"
 			cTmp += REPLICATE("�", LEN(PICPIC) )
 		next
-		
+
 		cTmp += "�"
 
 		? cTmp
 
 
 		// 2 red
-   		
+
 		cTmp := "�"
 		cTmp += PADC("SIFRA", __par_len)
 		cTmp += "�"
-		cTmp += _f_text(" ", 25) 
+		cTmp += _f_text(" ", 25)
 		cTmp += "�"
 		cTmp += _f_text("UKUPNO", LEN(PICPIC))
 		cTmp += "�"
@@ -4128,15 +4128,15 @@ ELSE
 		cTmp += "�"
 		cTmp += _f_text(" ", LEN(PICPIC))
 		cTmp += "�"
-   		
+
 		? cTmp
-		
+
 		// 3 red
-  	 	
+
 		cTmp := "�"
 		cTmp += PADC("PARTN.", __par_len)
 		cTmp += "�"
-		cTmp += _f_text("NAZIV PARTNERA", 25) 
+		cTmp += _f_text("NAZIV PARTNERA", 25)
 		cTmp += "�"
 		cTmp += _f_text("U VALUTI", LEN(PICPIC))
 		cTmp += "�"
@@ -4144,20 +4144,20 @@ ELSE
 		cTmp += "�"
 		cTmp += _f_text("UKUPNO", LEN(PICPIC))
 		cTmp += "�"
-		
+
 		? cTmp
-		
+
 		// 4 red
 		cTmp := "�"
 		cTmp += REPL("�", __par_len)
 		cTmp += "�"
 		cTmp += REPLICATE("�", 25)
-		
+
 		for nII := 1 to 3
 			cTmp += "�"
 			cTmp += REPLICATE("�", LEN(PICPIC) )
 		next
-		
+
 		cTmp += "�"
 
 		? cTmp
@@ -4175,11 +4175,8 @@ return PADC(cTxt, nLen)
 
 
 
-/*!  Rocnost()
- *  
- */
- 
-function Rocnost()
+
+static function Rocnost()
 
 LOCAL nDana := ABS(IF( EMPTY(datval) , datdok , datval ) - dNaDan), cVrati
   IF nDana<=nDoDana1
@@ -4204,7 +4201,7 @@ RETURN cVrati
  *   Posmatraju se samo otvorene stavke iz izvje�taja otv.stavki grupisano po brojevima veze. (POM.DBF koji se pravi f-jom StKart() modula OSTAV.PRG). Ako otvorena stavka ima datum valutiranja, uzima se godina iz tog datuma. Ako otvorena stavka nema datuma val., racun se trazi prvo u tekucoj godini. Ako se nalazi u poc.stanju, trazenje se vrsi u proslim godinama. Ako ga nema u poc.stanju, trazi se prvo knjizenje na odgovarajucoj strani (za kupce dugovnoj, za dobavljace potraznoj) i ako ga ima uzima se godina iz datuma dokumenta.
  *   lPdv
  */
- 
+
 function RekPPG(lPDV)
 
 LOCAL GetList:={}
@@ -4260,7 +4257,7 @@ LOCAL GetList:={}
 
   O_PARTN
   __par_len := LEN(partn->id)
-  
+
   O_SUBAN
   set order to tag "3"
                 // "3": "IdFirma+IdKonto+IdPartner+BrDok+dtos(DatDok)"
@@ -4402,10 +4399,10 @@ CLOSERET
 
 
 /*!  Mjesto(cMjesto)
- *   
+ *
  *   cMjesto
  */
- 
+
 function Mjesto(cMjesto)
 
 local fRet
@@ -4424,11 +4421,11 @@ return fRet
 
 
 /*!  TraziUPGod(cKrit,cDP)
- *  
+ *
  *   cKrit
  *   cDP
  */
- 
+
 function TraziUPGod(cKrit,cDP)
 
 FOR i:=2 TO LEN(aGod)
@@ -4485,12 +4482,12 @@ RETURN
 
 
 /*!  P_VKSG(cId,dx,dy)
- *  
+ *
  *   cId
  *   dx
  *   dy
  */
- 
+
 function P_VKSG(cId,dx,dy)
 
 PRIVATE ImeKol,Kol
@@ -4505,11 +4502,8 @@ return PostojiSifra(F_VKSG,1,10,60,"Veze konta sa prethodnim godinama",@cId,dx,d
 
 
 
-/*!  FFor1()
- *   Funkcija koju koristi StampaTabele()
- */
- 
-function FFor1()
+
+static function FFor1()
 
 cIdP:=IDPARTNER
 
@@ -4544,11 +4538,8 @@ cIdP:=IDPARTNER
 RETURN .t.
 
 
-/*!  FSvaki1()
- *   
- */
 
-function FSvaki1()
+static function FSvaki1()
 
 ++nRbr
 cNPartnera:=PADR(Ocitaj(F_PARTN,IDPARTNER,"naz"), 25)
@@ -4609,7 +4600,7 @@ function PopValIzSifPartn()
 PRIVATE cIdKonto:=PADR("2120",7), cTGodina:=STR(YEAR(DATE()),4)
 PRIVATE cIdFirma:=gFirma, cIdPartner:=space(6), cBrisi:="N"
 PRIVATE cIdVnOb:=cIdVnPS:=space(30), cDP:="1", ccOpis, cPopuni:="D"
-PRIVATE aUslBrisi:=aUslPopuni:=".f." 
+PRIVATE aUslBrisi:=aUslPopuni:=".f."
 
 if !SigmaSif("SCPOPVAL")
    return
@@ -4633,7 +4624,7 @@ Box("POPUNAVANJE DATUMA VALUTE",10,75)
  set cursor on
  @ m_x+2, m_y+2 SAY "Konto    " GET cIdKonto   PICT "@!" VALID (empty(cIdKonto) .or. P_KontoFin(@cIdKonto)) .and. left(cIdKonto,2) $ "#21#54#"
  @ m_x+3, m_y+2 SAY "Partner  " GET cIdPartner PICT "@!" VALID empty(cIdPartner) .or. P_Firma(@cIdPartner)
- READ ; ESC_BCR 
+ READ ; ESC_BCR
 
  if left(cIdKonto,2) == "21" // kupac, Duguje=14;15, potrazuje=izvod,kompenzacija
 	cIdVnOb:="14;15;"+cIdVnOb
@@ -4651,8 +4642,8 @@ Box("POPUNAVANJE DATUMA VALUTE",10,75)
 	 @ m_x+5, m_y+2 SAY "Vrste nal. za knjiz. faktura"+ccOpis                GET cIdVnOb  PICT "@!S20" VALID !empty(cIdVnOb)
 	 @ m_x+6, m_y+2 SAY "Vrsta nal.'Pocetno stanje'                        " GET cIdVnPS  PICT "@!S20" VALID !empty(cIdVnPS)
 
-	 @ m_x+8, m_y+2 SAY "Prethodno pobrisati !!SVE!! datume valuta? (d/N) ?" GET cBrisi   PICT "@!"    VALID cBrisi $ "DN" 
-	 @ m_x+9, m_y+2 SAY "U nal. Poc.stanja za vezni broj staviti 'P.S.' ?  " GET cPopuni  PICT "@!"    VALID cPopuni $ "DN" 
+	 @ m_x+8, m_y+2 SAY "Prethodno pobrisati !!SVE!! datume valuta? (d/N) ?" GET cBrisi   PICT "@!"    VALID cBrisi $ "DN"
+	 @ m_x+9, m_y+2 SAY "U nal. Poc.stanja za vezni broj staviti 'P.S.' ?  " GET cPopuni  PICT "@!"    VALID cPopuni $ "DN"
 	 READ ; ESC_BCR
 
 	 PRIVATE aUslVnOb :=parsiraj(cIdVnOb,"SUBAN->IDVN","C")
@@ -4675,7 +4666,7 @@ Msg("Konto:"+cIdKonto+", Partner: "+iif(empty(cIdPartner),"SVI",cIdPartner)+"##V
 
 if Pitanje(,"Nastaviti popunjavanje datuma valuta?", "N")!="D"
    CLOSERET
-endif 
+endif
 
 
 
@@ -4704,8 +4695,8 @@ do while !EOF()
 	if cBrisi=="D"
 		_datval:=ctod("") // pocisti ako treba
 		?? "Brisem!!"
-	endif		
-	
+	endif
+
 	// ako je dokumenat zaduzenja -> datval=datdok+Partn/ROKPL
 	if &aUslVnOb
 
@@ -4716,12 +4707,12 @@ do while !EOF()
 		endif
 
 	else // ostali -> datval=datdok
-		
+
 		if empty(_datval) // ako je prazan izracunaj
 			_datval:=_datdok
 			lIzmjenio:=.t.
 			?? "->"+dtoc(_datval)
-		endif 
+		endif
 		if cPopuni=="D".AND.empty(_brdok).AND.(&aUslVnPS)
 			_brdok:="P.S." // ako je dok.pc.stanja i treba popuniti vezni broj sa "P.S"
 			lIzmjenio:=.t.
@@ -4729,15 +4720,15 @@ do while !EOF()
 		endif
 	endif
 
-        select SUBAN 
+        select SUBAN
 	if lIzmjenio // snimi samo ako je izmjenio
 
 		? "----------------------------------------------------------------------------------------"
 		Gather()
 		nCount++
 		lIzmjenio:=.f.
-	endif 
-	
+	endif
+
 	skip 1
 enddo
 ? "----> Izmjenjeno: "+alltrim(str(nCount,10,0))+" slogova!"
@@ -4751,5 +4742,3 @@ msg("Izmjenjeno: "+alltrim(str(nCount,10,0))+" slogova!##Detalji u KUMPATH/_ZAMV
 
 
 CLOSERET
-
-
