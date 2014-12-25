@@ -538,7 +538,7 @@ private  TBAppend:="N"  // mogu dodavati slogove
 private  bZaglavlje:=NIL
         // zaglavlje se edituje kada je kursor u prvoj koloni
         // prvog reda
-private  TBSkipBlock:={|nSkip| SkipDBBK(nSkip)}
+private  TBSkipBlock:={|nSkip| fin_ostav_skipdb_blok(nSkip)}
 private  nTBLine:=1      // tekuca linija-kod viselinijskog browsa
 private  nTBLastLine:=1  // broj linija kod viselinijskog browsa
 private  TBPomjerise:="" // ako je ">2" pomjeri se lijevo dva
@@ -562,7 +562,7 @@ seek eval(bBkUslov)  // pozicioniraj se na pocetak !!      ? MS 16.11.01 ?
 OSt_StatLin()
 ObjDbEdit("Ost",21,77,{|| EdRos()} ,"","",     ;
            .f. ,NIL, 1, {|| otvst=="9"}, 6, 0, ;  // zadnji par: nGPrazno
-            NIL, {|nSkip| SkipDBBK(nSkip)} )
+            NIL, {|nSkip| fin_ostav_skipdb_blok(nSkip)} )
 
 //BrowseKey(m_x+6,m_y+1,m_x+21,m_y+77,ImeKol,{|Ch| EdRos(Ch)},"idFirma+idkonto+idpartner=cidFirma+cidkonto+cidpartner",cidFirma+cidkonto+cidpartner,2,,,{|| otvst=="9"})
 
@@ -2438,7 +2438,7 @@ private  TBAppend:="N"  // mogu dodavati slogove
 private  bZaglavlje:=NIL
         // zaglavlje se edituje kada je kursor u prvoj koloni
         // prvog reda
-private  TBSkipBlock:={|nSkip| SkipDBBK(nSkip)}
+private  TBSkipBlock:={|nSkip| fin_ostav_skipdb_blok(nSkip)}
 private  nTBLine:=1      // tekuca linija-kod viselinijskog browsa
 private  nTBLastLine:=1  // broj linija kod viselinijskog browsa
 private  TBPomjerise:="" // ako je ">2" pomjeri se lijevo dva
@@ -2464,7 +2464,7 @@ private cPomBrDok:=SPACE(10)
 seek EVAL(bBkTrazi)
 ObjDbEdit("Ost",21,77,{|| EdRos()} ,"","",     ;
            .f. ,NIL, 1, {|| brdok<>_obrdok}, 6, 0, ;  // zadnji par: nGPrazno
-            NIL, {|nSkip| SkipDBBK(nSkip)} )
+            NIL, {|nSkip| fin_ostav_skipdb_blok(nSkip)} )
 
 //BrowseKey(m_x+6,m_y+1,m_x+21,m_y+77,ImeKol,{|Ch| EdRos(Ch)},"idFirma+idkonto+idpartner=cidFirma+cidkonto+cidpartner",cidFirma+cidkonto+cidpartner,2,,,{|| brdok<>_obrdok})
 
@@ -2584,12 +2584,12 @@ return .t.
 
 
 
-/*!  SkipDBBK(nRequest)
+/*!  fin_ostav_skipdb_blok(nRequest)
  *
  *   nRequest
  */
 
-function SkipDBBK(nRequest)
+function fin_ostav_skipdb_blok(nRequest)
 
 local nCount
 nCount := 0
