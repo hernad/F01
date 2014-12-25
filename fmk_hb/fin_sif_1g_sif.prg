@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,7 +14,7 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  *
  */
@@ -28,7 +28,7 @@
 /*!  ServFun()
  *   Servisne funkcije
  */
- 
+
 function ServFun()
 
 Box(,4,60)
@@ -74,7 +74,7 @@ return
 /*!
  * \ingroup ini
  * \var FmkIni_ExePath_FIN_PartnerNaziv2
- *  Prikaz polja Naz2 u PARTN tabeli 
+ *  Prikaz polja Naz2 u PARTN tabeli
  *  D - prikaz polja Naz2 u tabeli partnera
  *  N - ne prikaz, default vrijednost
  * \sa P_Firma
@@ -84,7 +84,7 @@ return
 /*!
  * \ingroup ini
  * \var FmkIni_ExePath_SifPartn_DZIROR
- *  Prikaz polja DZIROR - devizni ziro racun 
+ *  Prikaz polja DZIROR - devizni ziro racun
  *  D - prikaz polja
  *  N - ne prikaz, default vrijednost
  * \sa P_Firma
@@ -104,12 +104,12 @@ return
 
 
 /*!  P_Firma(cId,dx,dy)
- *   Otvara sifrarnik partnera 
+ *   Otvara sifrarnik partnera
  *   cId
  *   dx
  *   dy
  */
- 
+
 function P_dummy(cId,dx,dy)
 
 local cN2Fin, i
@@ -213,7 +213,7 @@ return PostojiSifra(F_PARTN,1,10,60,"Lista Partnera",@cId,dx,dy,{|Ch| PartnBlok(
  *   Obrada funkcija nad sifrarnikom partnera
  *   Ch  - pritisnuti taster
  */
- 
+
 function PartnBlok(Ch)
 
 LOCAL cSif:=PARTN->id, cSif2:=""
@@ -254,9 +254,9 @@ RETURN DE_CONT
 /*!  IzfUgovor()
  *   Pregled ugovora za partnere, specificno za ZIPS
  */
- 
-function IzfUgovor()
- 
+
+static function IzfUgovor()
+
 if IzFMkIni('FIN','VidiUgovor','N')=="D"
 
 Pushwa()
@@ -340,7 +340,7 @@ return .t.
  *   dx
  *   dy
  */
- 
+
 function P_VN(cId,dx,dy)
 
 PRIVATE ImeKol,Kol
@@ -359,7 +359,7 @@ return PostojiSifra(F_TNAL,1,10,60,"Lista: Vrste naloga",@cId,dx,dy)
  *   dx
  *   dy
  */
- 
+
 function P_TipDok(cId,dx,dy)
 
 PRIVATE ImeKol,Kol
@@ -379,7 +379,7 @@ return PostojiSifra(F_TDOK,1,10,60,"Lista: Tipovi dokumenata",@cId,dx,dy)
  *   dy
  *   lBlag
  */
- 
+
 function P_KontoFin(cId,dx,dy,lBlag)
 
 private ImeKol:={}
@@ -462,7 +462,7 @@ return PostojiSifra(F_KONTO,1,10,60,"Lista: Konta ",@cId,dx,dy,{|Ch| KontoBlok(C
  *   Obradjuje funkcije nad sifrarnikom konta
  *   Ch  - pritisnuti taster
  */
- 
+
 function KontoBlok(Ch)
 
 LOCAL nRec:=RECNO(), cId:=""
@@ -571,7 +571,7 @@ return DE_CONT
  *   dx
  *   dy
  */
- 
+
 function P_PKonto(CId,dx,dy)
 
 PRIVATE ImeKol,Kol
@@ -588,7 +588,7 @@ return PostojiSifra(F_PKONTO,1,10,60,"Lista: Nacin prenosa konta u novu godinu",
  *   Tip prenosa konta u novu godinu
  *   cTip
  */
- 
+
 function TipPKonto(cTip)
 
 if cTip="2"
@@ -615,7 +615,7 @@ endif
 // *   dx
 // *   dy
 // */
-// *************************** koristi se zajednicka funkcija 
+// *************************** koristi se zajednicka funkcija
 //function P_Valuta(cid,dx,dy)
 //
 //PRIVATE ImeKol,Kol
@@ -636,12 +636,12 @@ endif
 
 
 /*!  P_Funk(cId,dx,dy)
- *   Otvara sifranik funkcionalnih klasifikacija 
+ *   Otvara sifranik funkcionalnih klasifikacija
  *   cId
  *   dx
  *   dy
  */
- 
+
 function P_Funk(cId,dx,dy)
 
 private imekol,kol
@@ -661,7 +661,7 @@ return PostojiSifra(F_FUNK,1,10,70,"Lista funkcionalne klasifikacije",@cId,dx,dy
  *   dx
  *   dy
  */
- 
+
 function P_Fond(cId,dx,dy)
 
 private imekol,kol
@@ -681,7 +681,7 @@ return PostojiSifra(F_FOND,1,10,70,"Lista: Fondovi",@cId,dx,dy)
  *   dx
  *   dy
  */
- 
+
 function P_BuIz(cId,dx,dy)
 
 private imekol,kol
@@ -701,7 +701,7 @@ return PostojiSifra(F_BUIZ,1,10,70,"Lista: konta-izuzeci u sortiranju",@cId,dx,d
  *   dx
  *   dy
  */
- 
+
 function P_Budzet(cId,dx,dy)
 
 private imekol,kol
@@ -726,7 +726,7 @@ return PostojiSifra(F_BUDZET,1,10,55,"Plan budzeta za tekucu godinu",@cId,dx,dy)
  *   dx
  *   dy
  */
- 
+
 function P_ParEK(cId,dx,dy)
 
 private imekol,kol
@@ -746,7 +746,7 @@ return PostojiSifra(F_PAREK,1,10,55,"Partije->Konta" ,@cId,dx,dy)
  *   dx
  *   dy
  */
- 
+
 function P_TRFP2(cId,dx,dy)
 
 private imekol,kol
@@ -795,7 +795,7 @@ return
  *   dx
  *   dy
  */
- 
+
 function P_TRFP3(cId,dx,dy)
 
 private imekol,kol
@@ -832,11 +832,11 @@ return
 
 
 /*!  ImaUSuban(cKljuc,cTag)
- *   
+ *
  *   cKljuc
  *   cTag
  */
- 
+
 function ImaUSuban(cKljuc,cTag)
 
 LOCAL lVrati:=.f., lUsed:=.t., nArr:=SELECT()
@@ -866,7 +866,7 @@ RETURN lVrati
  *   dx
  *   dy
  */
- 
+
 function P_Roba(CId,dx,dy)
 
 local cPrikazi
@@ -891,13 +891,8 @@ return .t.
 
 
 
-/*!  P_VrsteP(cId,dx,dy)
- *   Otvara sifrarnik vrsta placanja
- *   cId
- *   dx
- *   dy
- */
- 
+/*
+
 function P_VrsteP(cId,dx,dy)
 
 PRIVATE ImeKol,Kol:={}
@@ -907,7 +902,7 @@ ImeKol:={ { "ID ",  {|| id },       "id"  , {|| .t.}, {|| vpsifra(wId)}      },;
  FOR i:=1 TO LEN(ImeKol); AADD(Kol,i); NEXT
 return PostojiSifra(F_VRSTEP,1,10,55,"Sifrarnik vrsta placanja",@cid,dx,dy)
 
-
+*/
 
 /*!  P_ULimit(cId,dx,dy)
  *   Otvara sifrarnik limita po ugovorima
@@ -915,7 +910,7 @@ return PostojiSifra(F_VRSTEP,1,10,55,"Sifrarnik vrsta placanja",@cid,dx,dy)
  *   dx
  *   dy
  */
- 
+
 function P_ULIMIT(cId,dx,dy)
 
 PRIVATE ImeKol,Kol:={}
@@ -927,14 +922,8 @@ ImeKol:={ { "ID "        , {|| id       }, "id"       , {|| .t.}, {|| vpsifra(wI
 return PostojiSifra(F_ULIMIT,1,10,55,"Sifrarnik limita po ugovorima",@cid,dx,dy)
 
 
+/*
 
-/*!  P_Ftxt(cId,dx,dy)
- *   Otvara sifrarnik tekst na kraju fakture
- *   cId
- *   dx
- *   dy
- */
- 
 function P_Ftxt(cId,dx,dy)
 
 LOCAL vrati
@@ -948,13 +937,14 @@ Private gTBDir:="N"
 vrati:=PostojiSifra(F_FTXT,1,7,77,"Faktura - tekst na kraju fakture",@cId)
 RETURN vrati
 
+*/
 
 
 /*!  Labelu()
  *   Napomena da se u modulu fakt vrsi labeliranje
  *  \param
  */
- 
+
 function Labelu()
 
 Msgo("U modulu FAKT vrsi se labeliranje...")
@@ -966,7 +956,7 @@ return
  *   Tekuci podaci za nove ugovore
  *   lIni
  */
- 
+
 function DFTParU2(lIni)
 
 LOCAL GetList:={}
@@ -1034,7 +1024,7 @@ RETURN
  *   cSifrarnik
  *   cIdSif
  */
- 
+
 function SifkFill(cSifk,cSifv,cSifrarnik,cIDSif)
 
 PushWa()
@@ -1126,13 +1116,13 @@ return
 
 
 /*!  DaUSifv(cBaza,cIdKar,cId,cVrKar)
- *   
+ *
  *   cBaza
  *   cIdKar
  *   cId
  *   cVrKar
  */
- 
+
 function DaUSifV(cBaza,cIdKar,cId,cVrKar)
 
 LOCAL nArr:=SELECT(), lVrati:=.f.
@@ -1152,7 +1142,7 @@ RETURN lVrati
  *   dx
  *   dy
  */
- 
+
 function P_KUF(cId,dx,dy)
 
 PRIVATE ImeKol:={},Kol:={}
@@ -1184,7 +1174,7 @@ return PostojiSifra(F_KUF,IF(gRJ=="D","ID2",1),15,77,"KUF",@cid,dx,dy,{|Ch| KUFB
  *   Obradjuje operacije nad sifrarnikom KUF-a
  *   Ch - pritisnuti taster
  */
- 
+
 function KUFBlok(Ch)
 
 LOCAL nRec:=RECNO()
@@ -1260,9 +1250,9 @@ return DE_CONT
 
 
 /*!  KUFFor1()
- *  
+ *
  */
- 
+
 function KUFFor1()
 
 RETURN .t.
@@ -1270,9 +1260,9 @@ RETURN .t.
 
 
 /*!  KUFSvaki1()
- *  
+ *
  */
- 
+
 function KUFSvaki1()
 
 cNPartnera:=Ocitaj(F_PARTN,IDPARTN,"naz")
@@ -1318,7 +1308,7 @@ RETURN PostojiSifra(F_KIF,IF(gRJ=="D","ID2",1),15,77,"KIF",@cid,dx,dy,{|Ch| KIFB
  *   Obradjuje funkcije nad sifrarnikom KIF-a
  *   Ch - pritisnuti taster
  */
- 
+
 function KifBlok(Ch)
 
 LOCAL nRec:=RECNO()
@@ -1393,18 +1383,18 @@ return DE_CONT
 
 
 /*!  KifFor1()
- *  
+ *
  */
- 
+
 function KIFFor1()
 
 RETURN .t.
 
 
 /*!  KifSvaki1()
- *  
+ *
  */
- 
+
 function KIFSvaki1()
 
 cNPartnera:=Ocitaj(F_PARTN,IDPARTN,"naz")
@@ -1418,7 +1408,7 @@ RETURN
  *   dx
  *   dy
  */
- 
+
 function P_VPrih(cId,dx,dy)
 
 PRIVATE ImeKol,Kol:={}
@@ -1435,7 +1425,7 @@ return PostojiSifra(F_VPRIH,1,10,55,"Sifrarnik vrsta prihoda",@cid,dx,dy)
  *   Zabranjuje dupli unos sifre
  *   wId
  */
- 
+
 static function MvpSifra(wId)
 
 local nrec:=recno(), nRet:=.t., nPrevOrd:=INDEXORD()
@@ -1465,9 +1455,9 @@ return nRet
 /*!  MNNSifru()
  *   Nadji novu sifru - radi na pritisak <F8> pri unosu nove sifre
  */
- 
-function MNNSifru()     
-                        
+
+function MNNSifru()
+
  LOCAL cPom, nDuzSif:=0, nDuzUn:=0, cLast:="�����", nKor:=0
  LOCAL lKUFKIF:=.f.
  PRIVATE cImeVar:=READVAR()
@@ -1492,5 +1482,3 @@ function MNNSifru()
   PopWA()
  ENDIF
 RETURN .t.
-
-

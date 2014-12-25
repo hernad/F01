@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,10 +14,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                          Copyright Sigma-com software 2000-2006 
+ *                          Copyright Sigma-com software 2000-2006
  * ----------------------------------------------------------------
  */
- 
+
 
 /*! \file fmk/fakt/sif/1g/sifre.prg
  *   Sifrarnici
@@ -215,7 +215,7 @@ return PostojiSifra(F_RELAC,1,10,75,"Lista: Relacije",@cId,dx,dy)
  *   dx
  *   dy
  */
- 
+
 function P_Vozila(cId,dx,dy)
 
 PRIVATE ImeKol,Kol:={}
@@ -231,8 +231,8 @@ return PostojiSifra(F_VOZILA,1,10,75,"Lista: Vozila",@cId,dx,dy)
 
 
 /*!  FaPartnBlock(Ch)
- *  
- *   
+ *
+ *
  */
 function FaPartnBlock(Ch)
 
@@ -246,12 +246,8 @@ endif
 return DE_CONT
 
 
+/*
 
-/*!  IzFUgovor()
- *   Pregled ugovora za partnera
- *   Specificno za ZIPS
- */
- 
 function IzfUgovor()
 
 if IzFMkIni('FIN','VidiUgovor','N')=="D"
@@ -314,14 +310,14 @@ endif // iz fmk.ini
 
 return .t.
 
-
+*/
 
 
 /*!  RobaBlok(Ch)
- *   
- *   Ch 
+ *
+ *   Ch
  */
- 
+
 function FaRobaBlock(Ch)
 
 LOCAL cSif:=ROBA->id, cSif2:=""
@@ -485,7 +481,7 @@ RETURN DE_CONT
  *   Stanje robe fakt-a
  *   cIdRoba
  */
- 
+
 function FaktStanje(cIdRoba)
 
 local nUl,nIzl,nRezerv,nRevers,fOtv:=.f.,nIOrd,nFRec, aStanje
@@ -540,11 +536,11 @@ return
 
 
 /*!  BoxStanje(aStanje,cIdRoba)
- *  
+ *
  *   aStanje
  *   cIdRoba
  */
- 
+
 function BoxStanje(aStanje,cIdroba)
 
 local picdem:="9999999.999", nR, nC, nTSta := 0, nTRev := 0, nTRez := 0,;
@@ -554,7 +550,7 @@ local picdem:="9999999.999", nR, nC, nTSta := 0, nTRev := 0, nTRez := 0,;
  nLen := LEN (aStanje)
 
  // ucitajmo dodatne parametre stanja iz FMK.INI u aDodPar
- 
+
  aDodPar := {}
  FOR i:=1 TO 6
    cI := ALLTRIM(STR(i))
@@ -615,7 +611,7 @@ local picdem:="9999999.999", nR, nC, nTSta := 0, nTRev := 0, nTRez := 0,;
     @ nR,col() SAY cDiv
 
     // ispis dodatnih parametara stanja
- 
+
     IF nLenDP>0
       ++nR
       @ nR, m_y+2 SAY REPL("-",74)
@@ -645,13 +641,13 @@ local picdem:="9999999.999", nR, nC, nTSta := 0, nTRev := 0, nTRez := 0,;
 
   inkey(0)
  BoxC()
- 
+
 return
 
 
 
 /*!  P_VrsteP(cId,dx,dy)
- *   Otvara sifranik vrsta placanja 
+ *   Otvara sifranik vrsta placanja
  *   cId
  *   dx
  *   dy
@@ -702,7 +698,7 @@ RETURN vrati
 /*!  PrikFTxt()
  *   Prikazuje uzorak teksta
  */
- 
+
 function PrikFTxt()
 
 LOCAL  i:=0, aTXT:={}
@@ -719,9 +715,9 @@ return -1
 
 
 /*!  fn ObSif()
- *  
+ *
  */
- 
+
 static function ObSif()
 
 IF glDistrib
@@ -768,7 +764,7 @@ RETURN
  *   cTxt   - tekst
  *   nKol   - broj kolona
  */
- 
+
 function TxtUNiz(cTxt,nKol)
 
 LOCAL aVrati:={}, nPoz:=0, lNastavi:=.t., cPom:="", aPom:={}, i:=0
@@ -807,11 +803,11 @@ RETURN aVrati
 
 
 /*!  ImaUKumul(cKljuc,cTag)
- *  
+ *
  *   cKljuc
  *   cTag
  */
- 
+
 function ImaUKumul(cKljuc,cTag)
 
   LOCAL lVrati:=.f., lUsed:=.t., nArr:=SELECT()
@@ -841,7 +837,7 @@ RETURN lVrati
 
 
 /*!  P_DefDok(cId,dx,dy)
- *   Otvara sifranik definicije dokumenata 
+ *   Otvara sifranik definicije dokumenata
  *   cId
  *   dx
  *   dy
@@ -865,7 +861,7 @@ return PostojiSifra(F_FADO,1,10,60,"Lista dokumenata u FAKT <F5> - definisi izgl
  *   Obradjuje dogadjaje za pritisnuti taster Ch
  *   Ch  - pritisnuti taster (npr. CTRL+T)
  */
- 
+
 function DefDokBlok(Ch)
 
 if Ch==K_CTRL_T
@@ -918,10 +914,10 @@ return DE_CONT
 
 
 /*!  V_DefDok()
- *  
+ *
  *   cId  - Id ugovora
  */
- 
+
 function V_DefDok()
 
 parameters cId
@@ -956,10 +952,10 @@ return .t.
 
 
 /*!  EdDefDok(Ch)
- *  
+ *
  *   Ch - Pritisnuti taster
  */
- 
+
 function EdDefDok(Ch)
 
 local  fK1:=.f.
@@ -1053,7 +1049,7 @@ return nRet
 /*!  LabelU()
  *   Labeliranje ugovora
  */
- 
+
 function LabelU()
 
 PushWA()
@@ -1077,7 +1073,7 @@ DO WHILE .t.
  @ m_x+7, m_y+2 SAY "Nacin sortiranja (1-kolicina+mjesto+naziv ,"
  @ m_x+8, m_y+2 SAY "                  2-mjesto+naziv+kolicina ,"
  @ m_x+9, m_y+2 SAY "                  3-PTT+mjesto+naziv+kolicina),"
- @ m_x+10, m_y+2 SAY "                  4-kolicina+PTT+mjesto+naziv)," 
+ @ m_x+10, m_y+2 SAY "                  4-kolicina+PTT+mjesto+naziv),"
  @ m_x+11, m_y+2 SAY "                  5-idpartner)," ;
  	GET cNSort VALID cNSort$"12345" PICT "9"
  READ
@@ -1142,7 +1138,7 @@ do while !eof()
 
 	// stampati samo ugovore kod kojih je LAB_PRN <> "N"
 	if ugov->(FIELDPOS("LAB_PRN")) <> 0
-		if field->lab_prn == "N" .or. !(&aUPart) 
+		if field->lab_prn == "N" .or. !(&aUPart)
 			select rugov
 			skip 1
 			loop
@@ -1155,7 +1151,7 @@ do while !eof()
   		endif
 	endif
 
-	// pogledaj i datum ugovora, ako je istekao 
+	// pogledaj i datum ugovora, ako je istekao
 	// ne stampaj labelu
 	if cG_dat == "D" .and. ( dDatDo > ugov->datdo )
 		select rugov
@@ -1165,7 +1161,7 @@ do while !eof()
 
   	select partn
 	seek ugov->idpartner
-  	
+
 	if !(&aUMjes) .or. !(&aUPTT)
     		select rugov
 		skip 1
@@ -1174,13 +1170,13 @@ do while !eof()
 
   	select labelu
   	append blank
-	
+
   	replace idpartner with ugov->idpartner
 	replace kolicina  with rugov->kolicina
 	replace idroba    with rugov->idroba
 
   	if is_dest() .and. !EMPTY( rugov->dest )
-     		
+
 		select dest
 		set order to tag "ID"
 		go top
@@ -1195,9 +1191,9 @@ do while !eof()
 		replace telefon with dest->telefon
 		replace fax with dest->fax
      		replace adresa with dest->adresa
-		
-	else  
-		
+
+	else
+
 		// nije naznacena destinacija
      		select labelu
 		replace naz with partn->naz
@@ -1207,7 +1203,7 @@ do while !eof()
 		replace telefon with partn->telefon
 		replace fax with partn->fax
 		replace adresa with partn->adresa
-		
+
   	endif
 
   	select rugov
@@ -1271,7 +1267,7 @@ RETURN
 /*!  ZipsTemp()
  *   Generisanje ugovora na osnovu telefon fax
  */
- 
+
 function ZipsTemp()
 
 PRIVATE DFTkolicina:=1, DFTidroba:=PADR("ZIPS",10)
@@ -1357,7 +1353,7 @@ return
 /*!  StIdRoba()
  *   Prikaz roba
  */
- 
+
 function StIdRoba()
 
 *static string
@@ -1377,7 +1373,7 @@ endif
 /*!  OsvjeziIdJ()
  *   Osvjezavanje fakta javnim siframa
  */
- 
+
 function OsvjeziIdJ()
 
 if Pitanje(,"Osvjeziti FAKT javnim siframa ....","N")=="D"
@@ -1426,7 +1422,7 @@ return
  *   cSifv       - ime sifv tabele
  *   cSifrarnik  - sifrarnik (nrp. roba)
  */
- 
+
 function SifkFill(cSifk,cSifv,cSifrarnik,cIDSif)
 
 PushWa()
@@ -1470,13 +1466,13 @@ return
 
 /*!  SifkOsv(cSifk,cSifv,cSifrarnik,cIdSif,cRepFajl)
  *   Osvjezava sifk i sifv iz pomocnih tabela obicno _sifk i _sifv
- *   cSifk 
- *   cSifv 
+ *   cSifk
+ *   cSifv
  *   csifrarnik
  *   cIdSif
  *   cRepFajl
  */
- 
+
 function SifkOsv(cSifk,cSifv,cSifrarnik,cIdSif,cRepFajl)
 
 LOCAL cDiff:=""
@@ -1542,7 +1538,7 @@ return
 /*!  SMark(cNazPolja)
  *   Vraca samo markiranu robu
  *   cNazPolja - ime polja koje sadrzi internu sifru artikla koji se trazi */
- 
+
 function SMark(cNazPolja)
 
 // izbor prodajnog mjesta
@@ -1588,7 +1584,7 @@ RETURN lVrati
  *   dDatum
  *   cMarsuta    - marsuta
  */
- 
+
 function IzborRelacije(cIdRelac,cIdDist,cIdVozila,dDatum,cMarsruta)
 
 LOCAL lVrati:=.t., aMogRel:={}, nArr:=SELECT(), aIzb:={}
@@ -1650,7 +1646,7 @@ RETURN lVrati
  *   lNoviRed  - da li prelaziti u novi red
  *   lNoviFajl - da li snimati u novi fajl
  */
- 
+
 function UpisiURF(cTekst,cFajl,lNoviRed,lNoviFajl)
 
 STRFILE(IF(lNoviRed,CHR(13)+CHR(10),"")+cTekst,cFajl,!lNoviFajl)
@@ -1661,10 +1657,10 @@ RETURN
 
 /*!  DiffMFV(cZn,cDiff)
  *   differences: memo vs field variable
- *   cZn 
+ *   cZn
  *   cdiff
  */
- 
+
 function DiffMFV(cZN,cDiff)
 
 LOCAL lVrati:=.f.
@@ -1691,6 +1687,3 @@ LOCAL lVrati:=.f.
     ENDIF
   NEXT
 RETURN lVrati
-
-
-
