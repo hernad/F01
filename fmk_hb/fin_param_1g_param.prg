@@ -15,7 +15,7 @@
 // -----------------------------------
 // meni parametara
 // -----------------------------------
-function mnu_params()
+function fin_menu_params()
 private opc := {}
 private opcexe := {}
 private izbor := 1

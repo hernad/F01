@@ -29,10 +29,10 @@ return
 
 
 
-/*!  Mnu_Params()
+/*!  fakt_menu_params()
  *   Otvara glavni menij sa parametrima
  */
-function Mnu_Params()
+function fakt_menu_params()
 private cSection:="1"
 private cHistory:=" "
 private aHistory:={}

@@ -178,7 +178,7 @@ AADD(opc,"------------------------------------")
 AADD(opcexe,{|| nil})
 AADD(opc,"X. parametri")
 if (ImaPravoPristupa(goModul:oDataBase:cName,"PARAM","PARAMETRI"))
-	AADD(opcexe,{|| Mnu_Params()})
+	AADD(opcexe,{|| fakt_menu_params()})
 else
 	AADD(opcexe,{|| MsgBeep(cZabrana)})
 endif
