@@ -20,12 +20,12 @@
 
 
 /*! \file fmk/kalk/main/2g/app.prg
- *  
+ *
  */
 
 
 /*!  TKalkModNew()
- *  
+ *
  */
 
 function TKalkModNew()
@@ -478,8 +478,8 @@ RPar("cd",@gArtCDX)
 cOdradjeno:="D"
 if file(EXEPATH+'scshell.ini')
         //cBrojLok:=R_IniRead ( 'TekucaLokacija','Broj',  "",EXEPATH+'scshell.INI' )
-        cOdradjeno:=R_IniRead ( 'ShemePromjena',alltrim(strtran(strtran(cDirPriv,"\","_"),":","_")),  "N" ,EXEPATH+'scshell.INI' )
-        R_IniWrite ( 'ShemePromjena',alltrim(strtran(strtran(cDirPriv,"\","_"),":","_")),  "D" ,EXEPATH+'scshell.INI' )
+        cOdradjeno:=R_IniRead ( 'ShemePromjena',alltrim(strtran(strtran(cDirPriv, SLASH ,"_"),":","_")),  "N" ,EXEPATH+'scshell.INI' )
+        R_IniWrite ( 'ShemePromjena',alltrim(strtran(strtran(cDirPriv, SLASH ,"_"),":","_")),  "D" ,EXEPATH+'scshell.INI' )
 endif
 
 
@@ -548,12 +548,8 @@ lPoNarudzbi := ( IzFMKINI("KALK","10PoNarudzbi","N",KUMPATH)=="D" )
 public gKalks:=.f.
 
 public lPodBugom:=.f.
-IF IzFMKINI("ZASTITA","PodBugom","N",KUMPATH)=="D"
-  lPodBugom:=.t.
-  gaKeys := { { K_ALT_O , {|| OtkljucajBug()} } }
-ELSE
-  lPodBugom:=.f.
-ENDIF
+
+lPodBugom:=.f.
 
 public gVodiSamoTarife
 gVodiSamoTarife:=IzFmkIni("KALK","VodiSamoTarife","N",PRIVPATH)

@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,10 +14,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/fakt/dok/2g/frm_init.prg,v $
- * $Author: mirsad $ 
+ * $Author: mirsad $
  * $Revision: 1.7 $
  * $Log: frm_init.prg,v $
  * Revision 1.7  2002/09/13 11:51:52  mirsad
@@ -64,7 +64,7 @@
 *string FmkIni_ExePath_FAKT_NaslovPartnTelefon;
 
 
- 
+
 function TFrmInvItNew(oOwner)
 
 local oObj
@@ -93,12 +93,12 @@ return oObj
 class TFrmInvIt
 {
 	public:
-	
+
 	*TObject self;
 	*TFrmInv oOwner;
 	*bool lNovaStavka;
 	*TObject oFrmParent;
-	
+
 	*bool lSilent;
 	// form varijable
 	*string cIdRj;
@@ -117,13 +117,13 @@ class TFrmInvIt
 	*int nKKolPrijeEdita;
 	*int nPKolicina;
 	*int nCijena;
-	*int nUkupno;	
-	
+	*int nUkupno;
+
 	//caclulated values
 	*int nNaStanju;
-	
+
 	*void newItem();
-	
+
 	*void open();
 	*void close();
 	*void nextItem();
@@ -155,11 +155,11 @@ CREATE CLASS TFrmInvIt
 	var self
 	var oOwner
 	var lNovaStavka
-	
+
 	var nActionType
 	var nCh
 	var lSilent
-	
+
 	// form varijable
 	var cIdRj
 	var cIdVd
@@ -177,11 +177,11 @@ CREATE CLASS TFrmInvIt
 	var nKKolPrijeEdita
 	var nPKolicina
 	var nCijena
-	var nUkupno	
-	
+	var nUkupno
+
 	//caclulated values
 	var nNaStanju
-	
+
 	method newItem
 	method deleteItem
 	method open
@@ -189,7 +189,7 @@ CREATE CLASS TFrmInvIt
 	method nextItem
 	method loadFromTbl
 	method saveToTbl
-	
+
 	// when, validacija polja
 	method wheIdRoba
 	method vldIdRoba
@@ -215,7 +215,6 @@ END CLASS
  *
  */
 
-*void TFrmInvIt::open()
 
 method open()
 
@@ -226,8 +225,8 @@ if ::lNovaStavka
 	::newItem()
 else
 	::loadFromTbl()
-endif	
- 
+endif
+
 @ m_x+1,col()+2   SAY " RJ:" GET ::cIdRj  pict "@!" VALID ::vldRj()
 READ
 
@@ -240,7 +239,7 @@ do while .t.
 	else
 		::getPartner(5)
 	endif
-	
+
 	@ m_x+9, m_y+2  SAY Valdomaca()+"/"+VAlPomocna() GET ::cValuta PICT "@!" VALID ::cValuta $ ValDomaca()+"#"+ValPomocna()
 
 	READ
@@ -265,12 +264,11 @@ if (LASTKEY()==K_ESC)
 endif
 
 ::saveToTbl()
- 
+
 return 1
 
 
- 
-*void TFrmInvIt::close()
+
 
 method close
 BoxC()
@@ -340,7 +338,6 @@ return 1
 
 
 
-*void TFrmInvIt::loadFromTbl()
 
 method loadFromTbl()
 local aMemo
@@ -359,7 +356,7 @@ SELECT pripr
 
 // partner nije ucitan
 if !::oOwner:lPartnerLoaded
-	if ::nRbr>1 
+	if ::nRbr>1
 		// memo polje sa podacima partnera je popunjeno samo u prvoj stavci
 		PushWa()
 		GO TOP
@@ -383,7 +380,7 @@ return
 
 
 /*!  TFrmInvIt::saveToTbl()
- *  
+ *
  */
 method saveToTbl()
 local cTxt
@@ -404,7 +401,7 @@ AddTxt(@cTxt, ::cPartner)
 AddTxt(@cTxt, ::cAdresa)
 AddTxt(@cTxt, ::cMjesto)
 REPLACE txt WITH cTxt
-REPLACE serBr WITH STR(::nKKolicina,15,4) 
+REPLACE serBr WITH STR(::nKKolicina,15,4)
 REPLACE datDok WITH ::dDatDok
 return
 
@@ -424,7 +421,7 @@ local cPom
 if EMPTY(::cIdRj)
 	return .f.
 endif
-if ::cIdRj==gFirma 
+if ::cIdRj==gFirma
 	return .t.
 endif
 
@@ -438,7 +435,7 @@ return .t.
 /*!  TFrmInvIt::wheBrDok()
  *   Prije ulaska u BrDok
  */
- 
+
 *bool TFrmInvIt::wheBrDok()
 
 method wheBrDok()
@@ -536,15 +533,14 @@ return
  *   Odstampaj podatke o partneru
  */
 
-*void TFrmInvIt::sayPartner(int nRow)
 
 method sayPartner(nRow)
 
-@  m_x+nRow, m_y+2  SAY "Partner " 
+@  m_x+nRow, m_y+2  SAY "Partner "
 ??::cPartner
 @  m_x+nRow+1,m_y+2  SAY "        "
-?? ::cAdresa 
-@  m_x+nRow+2,m_y+2  SAY "Mjesto  " 
+?? ::cAdresa
+@  m_x+nRow+2,m_y+2  SAY "Mjesto  "
 ?? ::cMjesto
 
 return
@@ -612,7 +608,7 @@ endif
 
 FaStanje(::cIdRj, ::cIdRoba, @nUl, @nIzl, @nRezerv, @nRevers)
 
-::nNaStanju:=nUl-nIzl-nRevers-nRezerv  
+::nNaStanju:=nUl-nIzl-nRevers-nRezerv
 
 SELECT pripr
 
@@ -659,17 +655,14 @@ return .t.
 method showArtikal()
 
 @ m_x+17, m_y+1   SAY "Artikal: "
-?? ::cIdRoba 
+?? ::cIdRoba
 ?? "("+roba->jmj+")"
 
 @ m_x+18, m_y+1   SAY "Stanje :"
 @ m_x+18, col()+1 SAY ::nNaStanju PICTURE pickol
 
-@ m_x+19, m_y+1   SAY "Tarifa : " 
+@ m_x+19, m_y+1   SAY "Tarifa : "
 ?? roba->idtarifa
 
 
 return
-
-
-

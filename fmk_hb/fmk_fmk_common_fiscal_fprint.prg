@@ -632,7 +632,7 @@ if gFC_acd == "D"
 
 endif
 
-// ako se koristi opcija automatskog pologa u ureðaj
+// ako se koristi opcija automatskog pologa u ureï¿½aj
 if gFc_pauto <> 0
 	
 	msgo("Automatski unos pologa u uredjaj... sacekajte.")
@@ -797,7 +797,7 @@ return xRet
 
 
 // ----------------------------------------
-// vraca popunjenu matricu za ispis raèuna
+// vraca popunjenu matricu za ispis raï¿½una
 // FPRINT driver
 // ----------------------------------------
 static function _fp_pos_rn( aData, aKupac, lStorno )
@@ -1658,7 +1658,7 @@ if EMPTY( ALLTRIM( gFc_answ ) )
 	cF_name := cPath + "ANSWER" + SLASH + ALLTRIM(cFile)
 endif
 
-// ova opcija podrazumjeva da je ukljuèena opcija 
+// ova opcija podrazumjeva da je ukljuï¿½ena opcija 
 // prikaza greske tipa ER,OK...
 
 Box(,1,50)

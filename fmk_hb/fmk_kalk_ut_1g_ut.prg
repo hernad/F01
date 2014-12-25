@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,34 +14,23 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
 
 
 /*! \file fmk/kalk/ut/1g/ut.prg
- *  \brief Globalne funkcije modula Kalk
+ *   Globalne funkcije modula Kalk
  */
 
-/*! \fn OtkljucajBug()
- *  \brief Osposobljava koristenje menija
- */
- 
-function OtkljucajBug()
-*{
-//  if SigmaSif("BUG     ")
-//    lPodBugom:=.f.
-//    gaKeys:={}
-//  endif
-return
-*}
 
 
-/*! \fn Pripr9View()
- *  \brief Pregled smeca
+
+/*!  Pripr9View()
+ *   Pregled smeca
  */
-function Pripr9View()
-*{
+static function Pripr9View()
+
 
 private aUslFirma := gFirma
 private aUslDok := SPACE(50)
@@ -52,8 +41,8 @@ Box(,10, 60)
 	@ 1+m_x, 2+m_y SAY "Uslovi pregleda smeca:" COLOR "I"
 	@ 3+m_x, 2+m_y SAY "Firma (prazno-sve)" GET aUslFirma PICT "@S40"
 	@ 4+m_x, 2+m_y SAY "Vrste dokumenta (prazno-sve)" GET aUslDok PICT "@S20"
-	@ 5+m_x, 2+m_y SAY "Datum od" GET dDat1 
-	@ 5+m_x, 20+m_y SAY "do" GET dDat2 
+	@ 5+m_x, 2+m_y SAY "Datum od" GET dDat1
+	@ 5+m_x, 20+m_y SAY "do" GET dDat2
 	read
 BoxC()
 
@@ -102,14 +91,14 @@ BoxC()
 //CLOSERET
 
 return
-*}
 
 
-/*! \fn EdPr9()
- *  \brief Opcije pregleda smeca
+
+/*! EdPr9()
+ * Opcije pregleda smeca
  */
-function EdPr9()
-*{
+static function EdPr9()
+
 do case
 	case Ch==K_CTRL_T // brisanje dokumenta iz pripr9
 		ErPripr9(idfirma, idvd, brdok)
@@ -125,14 +114,14 @@ endcase
 return DE_CONT
 
 return
-*}
 
 
-/*! \fn PovPr9()
- *  \brief povrat dokumenta iz PRIPR9
+
+/*!  PovPr9()
+ *   povrat dokumenta iz PRIPR9
  */
-function PovPr9()
-*{
+static function PovPr9()
+
 local nArr
 nArr:=SELECT()
 
@@ -141,14 +130,14 @@ Povrat9(idfirma, idvd, brdok)
 select (nArr)
 
 return DE_CONT
-*}
 
 
-/*! \fn P9SetFilter(aUslFirma, aUslDok, dDat1, dDat2)
- *  \brief Postavlja filter na tabeli PRIPR9
+
+/*!  P9SetFilter(aUslFirma, aUslDok, dDat1, dDat2)
+ *   Postavlja filter na tabeli PRIPR9
  */
 static function P9SetFilter(aUslFirma, aUslDok, dDat1, dDat2)
-*{
+
 O_PRIPR9
 set order to tag "1"
 
@@ -212,5 +201,3 @@ else
 endif
 
 return
-
-

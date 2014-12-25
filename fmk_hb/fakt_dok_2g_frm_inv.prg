@@ -163,7 +163,7 @@ END CLASS
 /*!  TFrmInv::open()
  */
 
-*void TFrmInv::open()
+
 method open()
 private ImeKol
 private Kol
@@ -191,7 +191,7 @@ method azur()
 alert( "todo azur" )
 
 
-*void TFrmInv::onKeyboard()
+
 
 method onKeyboard()
 local nRet
@@ -328,7 +328,7 @@ return
  *
  */
 
-*void TFrmInv::sayKomande()
+
 
 method sayKomande()
 
@@ -346,7 +346,7 @@ return
  *  \note takodje se na kraju postavljaju priv var: ImeKol:=aImeKol, Kol:=aKol
  */
 
-*void TFrmInv::setColuns()
+
 
 method setColumns()
 local i
@@ -394,7 +394,7 @@ return
  *
  *  \sa DokNovaStrana
  */
-*void TFrmInv::print()
+
 
 method print()
 
@@ -419,7 +419,7 @@ return
  *
  *  \sa PrnClanoviKomisije, DokNovaStrana
  */
-*void TFrmInv::printOPop()
+
 
 method printOPop()
 
@@ -428,7 +428,7 @@ RptInvObrPopisa()
 return
 
 
-*void TFrmInv::close()
+
 
 method close
 BoxC()
@@ -440,7 +440,6 @@ return
  *   Prodji kroz sve stavke dokumenta
  */
 
- TFrmInv::itemsCount()
 
 method itemsCount()
 local nCnt
@@ -456,9 +455,6 @@ PopWa()
 return nCnt
 
 
-
-*void TFrmInv::deleteAll()
-
 method deleteAll()
 
 if Pitanje(,"Zelite li zaista izbrisati cijeli dokument?","N")=="D"
@@ -467,19 +463,16 @@ endif
 return
 
 
-*void TFrmInv::deleteItem()
 
 method deleteItem()
 DELETE
 return 1
 
 
-/*!  *void TFrmInv::popup()
+/*  *void TFrmInv::popup()
  *   PopupMeni forme Inventure
  *
  */
-
-*void TFrmInv::popup()
 
 method popup
 private opc
@@ -505,7 +498,7 @@ return nil
 /*!  TFrmInv::genDok()
  */
 
-*void TFrmInv::genDok()
+
 
 method genDok()
 local cIdRj
@@ -528,7 +521,7 @@ return
 /*!  TFrmInv::genDokManjak()
  */
 
-*void TFrmInv::genDokManjak()
+
 
 method genDokManjak()
 local cIdRj
@@ -574,7 +567,7 @@ return
 /*!  TFrmInv::genDokVisak()
  */
 
-*void TFrmInv::genDokVisak()
+
 
 method genDokVisak
 local cIdRj
@@ -613,4 +606,3 @@ fakt_Knjiz()
 
 ::lTerminate:=.t.
 return
-

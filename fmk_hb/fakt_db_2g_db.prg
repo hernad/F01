@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,7 +14,7 @@
 
 
 /*!  TDBFaktNew()
- *  
+ *
  */
 function TDBFaktNew()
 local oObj
@@ -28,7 +28,7 @@ return oObj
 /*! \file fmk/fakt/db/2g/db.prg
  *   FAKT Database
  *
- * TDBFakt Database objekat 
+ * TDBFakt Database objekat
  */
 
 
@@ -38,7 +38,7 @@ return oObj
 
 
 #ifdef CPP
-class TDBFakt: public TDB 
+class TDBFakt: public TDB
 {
      public:
      	TObject self;
@@ -60,12 +60,12 @@ CREATE CLASS TDBFakt INHERIT TDB
 	EXPORTED:
 	var    self
 	var    cName
-	method skloniSezonu	
-	method install	
-	method setgaDBFs	
-	method ostalef	
-	method obaza	
-	method kreiraj	
+	method skloniSezonu
+	method install
+	method setgaDBFs
+	method ostalef
+	method obaza
+	method kreiraj
 	method konvZn
 
 END CLASS
@@ -74,7 +74,7 @@ END CLASS
 
 /*!  *void TDBFakt::dummy()
  */
-*void TDBFakt::dummy()
+
 
 method dummy
 return
@@ -82,14 +82,12 @@ return
 
 /*!  *void TDBFakt::skloniSezonu(string cSezona, bool finverse,bool fda,bool fnulirati,bool fRS)
  *   formiraj sezonsku bazu podataka
- *  \param cSezona - 
+ *  \param cSezona -
  *  \param fInverse - .t. iz sezone u radno, .f. iz radnog u sezonu
  *  \param fda - ne znam
  *  \param fnulirati - nulirati tabele
  *  \param fRS - ne znam
  */
-
-*void TDBFakt::skloniSezonu(string cSezona, bool fInverse,bool fDa,bool fNulirati,bool fRS)
 
 
 method skloniSezonu(cSezona,fInverse,fDa,fNulirati,fRS)
@@ -190,7 +188,7 @@ if fNulirati
 	fNul:=.t.
 else
 	fNul:=.f.
-endif  
+endif
 
 Skloni(KUMPATH,"FAKT.DBF",cSezona,finverse,fda,fnul)
 Skloni(KUMPATH,"DOKS.DBF",cSezona,finverse,fda,fnul)
@@ -200,7 +198,7 @@ if fNulirati
 	fNul:=.f.
 else
 	fNul:=.t.
-endif  
+endif
 
 Skloni(KUMPATH,"RJ.DBF",cSezona,finverse,fda,fnul)
 Skloni(KUMPATH,"UGOV.DBF",cSezona,finverse,fda,fnul)
@@ -245,9 +243,8 @@ return
 
 
 /*!  *void TDBFakt::setgaDBFs()
- *   Setuje matricu gaDBFs 
+ *   Setuje matricu gaDBFs
  */
-*void TDBFakt::setgaDBFs()
 
 method setgaDBFs()
 
@@ -311,8 +308,6 @@ return
  *   osnovni meni za instalacijske procedure
  */
 
-*void TDBFakt::install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7)
-
 
 method install(cKorisn,cSifra,p3,p4,p5,p6,p7)
 	ISC_START(goModul,.f.)
@@ -322,8 +317,6 @@ return
 /*!  *void TDBFakt::Kreiraj(int nArea)
  *   Kreiranje baze podataka Fakt-a
  */
- 
-*void TDBFakt::Kreiraj(int nArea)
 
 method Kreiraj(nArea)
 
@@ -349,7 +342,7 @@ if (nArea<>-1)
 endif
 
 if (nArea==-1 .or. nArea==(F_UPL))
-	
+
 	//UPL.DBF
 	aDBf:={}
    	AADD(aDBf,{'DATUPL'     ,'D', 8,0})
@@ -366,7 +359,7 @@ endif
 
 
 if (nArea==-1 .or. nArea==(F_FTXT))
-        
+
 	//FTXT.DBF
 	aDbf:={}
         AADD(aDBf,{'ID'  ,'C',  2 ,0})
@@ -374,7 +367,7 @@ if (nArea==-1 .or. nArea==(F_FTXT))
 	if !FILE(SIFPATH+"FTXT.DBF")
         	DBcreate2(SIFPATH+'FTXT.DBF',aDbf)
 	endif
-	
+
 	CREATE_INDEX("ID","ID",SIFPATH+"FTXT")
 endif
 
@@ -411,11 +404,11 @@ endif
 
 if (nArea==-1 .or. nArea==(F_FAKT))
 	//FAKT.DBF
-	
+
 	if !FILE(KUMPATH+'FAKT.DBF')
         	DBcreate2(KUMPATH+'FAKT.DBF',aDbf)
 	endif
-	
+
 	CREATE_INDEX("1","IdFirma+idtipdok+brdok+rbr+podbr",KUMPATH+"FAKT")
 	CREATE_INDEX("2","IdFirma+dtos(datDok)+idtipdok+brdok+rbr",KUMPATH+"FAKT")
 	CREATE_INDEX("3","idroba+dtos(datDok)",KUMPATH+"FAKT")
@@ -445,11 +438,11 @@ if (nArea==-1 .or. nArea==(F_PRIPR))
 	if IsRabati()
 		AADD(aDBf,{ 'TIPRABAT'    , 'C' ,  10 ,  0 })
 	endif
-	
+
 	if !FILE(PRIVPATH+'PRIPR.DBF')
         	DBcreate2(PRIVPATH+'PRIPR.DBF',aDbf)
 	endif
-	
+
 	CREATE_INDEX("1","IdFirma+idtipdok+brdok+rbr+podbr",PRIVPATH+"PRIPR")
 	CREATE_INDEX("2","IdFirma+dtos(datdok)",PRIVPATH+"PRIPR")
 	CREATE_INDEX("3","IdFirma+idroba+rbr",PRIVPATH+"PRIPR")
@@ -465,11 +458,11 @@ if (nArea==-1 .or. nArea==(F_PRIPR9))
 	if IsRabati()
 		AADD(aDBf,{ 'TIPRABAT'    , 'C' ,  10 ,  0 })
 	endif
-	
+
 	if !FILE(PRIVPATH+'PRIPR9.DBF')
         	DBcreate2(PRIVPATH+'PRIPR9.DBF',aDbf)
 	endif
-	
+
 	CREATE_INDEX("1","IdFirma+idtipdok+brdok+rbr+podbr",PRIVPATH+"PRIPR9")
 	CREATE_INDEX("2","IdFirma+dtos(datdok)",PRIVPATH+"PRIPR9")
 	CREATE_INDEX("3","IdFirma+idroba+rbr",PRIVPATH+"PRIPR9")
@@ -480,7 +473,7 @@ endif
 
 if (nArea==-1 .or. nArea==(F__FAKT))
 	//_FAKT.DBF
-	
+
 	if !FILE(PRIVPATH+'_FAKT.DBF')
         	DBcreate2(PRIVPATH+'_FAKT.DBF',aDbf)
 	endif
@@ -496,7 +489,7 @@ endif
 
 if (nArea==-1 .or. nArea==(F_DOKS))
 	//DOKS.DBF
-	
+
 	aDbf:={}
 	AADD(aDBf,{ 'IDFIRMA'             , 'C' ,   2 ,  0 })
 	AADD(aDBf,{ 'IdTIPDok'            , 'C' ,   2 ,  0 })
@@ -518,16 +511,16 @@ if (nArea==-1 .or. nArea==(F_DOKS))
 	AADD(aDBf,{ 'DAT_ISP'             , 'D' ,   8 ,  0 })
 	AADD(aDBf,{ 'DAT_VAL'             , 'D' ,   8 ,  0 })
 	AADD(aDBf,{ 'DAT_OTPR'            , 'D' ,   8 ,  0 })
-	
+
 	if IsRabati()
 		AADD(aDBf,{ 'IDRABAT'             , 'C' ,  10 ,  0 })
 		AADD(aDBf,{ 'TIPRABAT'            , 'C' ,  10 ,  0 })
 	endif
-	
+
 	if !FILE(KUMPATH+"DOKS.DBF")
         	DBcreate2(KUMPATH+'DOKS.DBF',aDbf)
 	endif
-	
+
 	CREATE_INDEX("1","IdFirma+idtipdok+brdok",KUMPATH+"DOKS")
 	CREATE_INDEX("2","IdFirma+idtipdok+partner",KUMPATH+"DOKS")
 	CREATE_INDEX("3","partner",KUMPATH+"DOKS")
@@ -539,7 +532,7 @@ endif
 
 if (nArea==-1 .or. nArea==(F_DOKS2))
 	//BLOK: DOKS2
-	
+
 	aDbf:={}
 	AADD(aDBf,{ "IDFIRMA"      , "C" ,   2 ,  0 })
 	AADD(aDBf,{ "IDTIPDOK"     , "C" ,   2 ,  0 })
@@ -551,77 +544,77 @@ if (nArea==-1 .or. nArea==(F_DOKS2))
 	AADD(aDBf,{ "K5"           , "C" ,  20 ,  0 })
 	AADD(aDBf,{ "N1"           , "N" ,  15 ,  2 })
 	AADD(aDBf,{ "N2"           , "N" ,  15 ,  2 })
-	
+
 	if !FILE(KUMPATH+"DOKS2.DBF")
         	DBcreate2(KUMPATH+"DOKS2.DBF",aDbf)
 	endif
-	
+
 	CREATE_INDEX("1","IdFirma+idtipdok+brdok",KUMPATH+"DOKS2")
 endif
 
 
 if (nArea==-1 .or. nArea==(F_VRSTEP))
 	//VRSTEP.DBF
-	
+
 	aDbf:={}
 	AADD(aDbf,{"ID" ,"C", 2,0})
 	AADD(aDbf,{"NAZ","C",20,0})
-	
+
 	if !FILE(SIFPATH+"VRSTEP.DBF")
 		DBcreate2(SIFPATH+"VRSTEP.DBF",aDbf)
 	endif
-	
+
 	CREATE_INDEX("ID","Id",SIFPATH+"VRSTEP.DBF")
 endif
 
- 
+
 if glDistrib
-	if (nArea==-1 .or. nArea==(F_RELAC)) 
+	if (nArea==-1 .or. nArea==(F_RELAC))
 		//RELAC.DBF
-		
+
 		aDBf:={}
      		AADD(aDBf,{ "ID"                  , "C" ,   4 ,  0 })
      		AADD(aDBf,{ "NAZ"                 , "C" ,  10 ,  0 })
      		AADD(aDBf,{ "IDPARTNER"           , "C" ,   6 ,  0 })
      		AADD(aDBf,{ "IDPM"                , "C" ,  15 ,  0 })
-     
+
   		if !FILE(SIFPATH+"RELAC.DBF")
      			DBcreate2(SIFPATH+"RELAC.DBF",aDbf)
   		endif
-  		
+
 		CREATE_INDEX("ID","id+naz"         ,SIFPATH+"RELAC")
   		CREATE_INDEX("1" ,"idpartner+idpm" ,SIFPATH+"RELAC")
 	endif
-        
-	if (nArea==-1 .or. nArea==(F_VOZILA)) 
-  		//VOZILA.DBF	
-     		
+
+	if (nArea==-1 .or. nArea==(F_VOZILA))
+  		//VOZILA.DBF
+
 		aDBf:={}
      		AADD(aDBf,{ "ID"                  , "C" ,   4 ,  0 })
      		AADD(aDBf,{ "NAZ"                 , "C" ,  25 ,  0 })
      		AADD(aDBf,{ "TABLICE"             , "C" ,  15 ,  0 })
-		
+
 		if !FILE(SIFPATH+"VOZILA.DBF")
      			DBcreate2(SIFPATH+"VOZILA.DBF",aDbf)
   		endif
-  		
+
 		CREATE_INDEX("ID","id",SIFPATH+"VOZILA")
 	endif
-	
-	if (nArea==-1 .or. nArea==(F_KALPOS))  
+
+	if (nArea==-1 .or. nArea==(F_KALPOS))
   	 	//KALPOS.DBF
-		
+
 		aDBf:={}
      		AADD(aDBf,{ "DATUM"              , "D" ,   8 ,  0 })
      		AADD(aDBf,{ "IDRELAC"            , "C" ,   4 ,  0 })
      		AADD(aDBf,{ "IDDIST"             , "C" ,   6 ,  0 })
      		AADD(aDBf,{ "IDVOZILA"           , "C" ,   4 ,  0 })
      		AADD(aDBf,{ "REALIZ"             , "C" ,   1 ,  0 })
-    		
+
 		if !file(KUMPATH+"KALPOS.DBF")
      			DBcreate2(KUMPATH+"KALPOS.DBF",aDbf)
   		endif
-  		
+
 		CREATE_INDEX("1","DTOS(datum)",KUMPATH+"KALPOS")
   		CREATE_INDEX("2","IDRELAC+DTOS(datum)",KUMPATH+"KALPOS")
 	endif
@@ -641,11 +634,9 @@ return
 
 /*!  *void TDBFakt::obaza(int i)
  *   otvara odgovarajucu tabelu
- *  
- *      
+ *
+ *
  */
-
-*void TDBFakt::obaza(int i)
 
 
 method obaza (i)
@@ -654,7 +645,7 @@ local cDbfName
 
 lIdiDalje:=.f.
 
-if i==F_KORISN .or. i==F_PARAMS .or.  i==F_GPARAMS .or. i==F_GPARAMSP .or. i==F_MPARAMS .or. i==F_PRIPR 
+if i==F_KORISN .or. i==F_PARAMS .or.  i==F_GPARAMS .or. i==F_GPARAMSP .or. i==F_MPARAMS .or. i==F_PRIPR
 	lIdiDalje:=.t.
 endif
 
@@ -662,7 +653,7 @@ if i==F_FAKT  .or. i==F_DOKS .or. i==F_DOKS2 .or. i==F_RJ .or. i==F_UPL
 	lIdiDalje:=.t.
 endif
 
-if i==F_ROBA .or. i==F__ROBA .or. i==F_TARIFA .or. i==F_PARTN .or. i==F_FTXT .or. i==F_VALUTE .or.  i==F_SAST  .or. i==F_KONTO  .or. i==F_VRSTEP .or. i==F_BANKE .or. i==F_OPS   
+if i==F_ROBA .or. i==F__ROBA .or. i==F_TARIFA .or. i==F_PARTN .or. i==F_FTXT .or. i==F_VALUTE .or.  i==F_SAST  .or. i==F_KONTO  .or. i==F_VRSTEP .or. i==F_BANKE .or. i==F_OPS
 	lIdiDalje:=.t.
 endif
 
@@ -680,7 +671,7 @@ endif
 
 if lIdiDalje
 	cDbfName:=DBFName(i,.t.)
-	if gAppSrv 
+	if gAppSrv
 		? "OPEN: " + cDbfName + ".DBF"
 		if !File(cDbfName + ".DBF")
 			? "Fajl " + cDbfName + ".dbf ne postoji!!!"
@@ -688,7 +679,7 @@ if lIdiDalje
 			return
 		endif
 	endif
-	
+
 	select(i)
 	usex(cDbfName)
 else
@@ -705,7 +696,6 @@ return
  *  \note  sifra: SIGMAXXX
 */
 
-*void TDBFakt::ostalef()
 
 method ostalef()
 
@@ -716,8 +706,6 @@ return
 /*!  *void TDBFakt::konvZn()
  *   koverzija 7->8 baze podataka KALK
  */
- 
-*void TDBFakt::konvZn()
 
 method konvZn()
 
@@ -748,17 +736,17 @@ if !gAppSrv
 else
 	?
 	cKonvertTo:=IzFmkIni("FMK","KonvertTo","78",EXEPATH)
-	
+
 	if cKonvertTo=="78"
 		cIz:="7"
 		cU:="8"
 		? "Trenutni standard: " + cIz
-		? "Konvertovati u: " + cU 
+		? "Konvertovati u: " + cU
 	elseif cKonvertTo=="87"
 		cIz:="8"
 		cU:="7"
 		? "Trenutni standard: " + cIz
-		? "Konvertovati u: " + cU 
+		? "Konvertovati u: " + cU
 	else // pitaj
 		?
 		@ 10, 2 SAY "Trenutni standard (7/8)        " GET cIz VALID cIz$"78" PICT "9"
@@ -783,7 +771,3 @@ IF cPriv == "N"; aPriv := {}; ENDIF
 KZNbaza(aPriv,aKum,aSif,cIz,cU)
 
 return
-
-
-
-

@@ -69,14 +69,12 @@ END CLASS
  *   dummy
  */
 
-*void TFaktMod::dummy()
 
 method dummy()
 return
 
 
 
-*void TFaktMod::initdb()
 
 method initdb()
 
@@ -89,7 +87,6 @@ return NIL
 /*!  *void TFaktMod::mMenu()
  *   Osnovni meni FAKT modula
  */
-*void TFaktMod::mMenu()
 
 method mMenu()
 
@@ -117,7 +114,6 @@ return nil
 
 
 
-*void TFaktMod::mMenuStandard()
 
 method mMenuStandard
 
@@ -194,14 +190,12 @@ return
 
 
 
-*void TFaktMod::sRegg()
 
 method sRegg()
 sreg("FAKT.EXE","FAKT")
 return
 
 
-*void TFaktMod::srv()
 
 method srv()
 ? "Pokrecem FAKT aplikacijski server"
@@ -228,7 +222,6 @@ return
 /*!  *void TFaktMod::setGVars()
  *   opste funkcije FIN modula
  */
-*void TFaktMod::setGVars()
 
 method setGVars()
 local cSekcija

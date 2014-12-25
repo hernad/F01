@@ -187,12 +187,8 @@ else
 	AADD(opcexe, {|| MsgBeep(cZabrana)})
 endif
 
-if IzFMKINI("ZASTITA","PodBugom","N",KUMPATH)=="D"
-  	lPodBugom:=.t.
-  	gaKeys:={{K_ALT_O,{|| OtkljucajBug()}}}
-else
-	lPodBugom:=.f.
-endif
+
+lPodBugom:=.f.
 
 Menu_SC("gfin",.t.,lPodBugom)
 
