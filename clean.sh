@@ -1,3 +1,5 @@
+rm *.prg~
+rm */*.prg~
 rm */*arh_exe*.prg
 rm fmk_hb/fmk_fmk_lib_pdf_cl_pdf.prg
 rm fmk_hb/fakt_ostalo_1g_cjen.prg

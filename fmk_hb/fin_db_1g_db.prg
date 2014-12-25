@@ -907,7 +907,7 @@ return
 // -----------------------------------------
 // provjera podataka za migraciju f18
 // -----------------------------------------
-function f18_test_data()
+function fin_f18_test_data()
 local _a_sif := {}
 local _a_data := {}
 local _a_ctrl := {}

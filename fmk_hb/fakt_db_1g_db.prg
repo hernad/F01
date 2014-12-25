@@ -91,11 +91,11 @@ go top
 return nil
 
 
-/*!  PovSvi()
+/*
  *   Povrat dokumenta u pripremu sa zadanim kriterijem
  */
 
-function PovSvi(qBrDok, qDatDok, qTipDok, cFirma )
+function fakt_PovSvi(qBrDok, qDatDok, qTipDok, cFirma )
 
 local nRec
 private qqBrDok:=SPACE(80)
@@ -607,7 +607,7 @@ return 1
 
 
 
-/*!  SpojiDuple()
+/* SpojiDuple()
  *   Spajanje duplih artikala unutar jednog dokumenta
  */
 
@@ -782,11 +782,6 @@ nHPid:=0
 
 lDoks2:=goModul:lDoks2
 
-//if (!lDoks2 .and. !(fakt->(FLock()) .and. doks->(FLock())) .or. lDoks2 .and. !(fakt->(FLock()) .and. doks->(FLock()) .and. doks2->(FLock())))
-//	Beep(4)
-//  	Msg("Azuriranje NE moze vrsiti vise korisnika istovremeno !", 15)
-//  	closeret
-//endif
 
 fRobaIDJ:=goModul:lId_J
 
