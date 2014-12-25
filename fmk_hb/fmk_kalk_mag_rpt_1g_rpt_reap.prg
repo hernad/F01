@@ -372,13 +372,13 @@ FF
 END PRINT
 closeret
 return
-*}
 
 
 
 
-/*! \fn ZaglRPartn(fTabela)
- *  \brief Zaglavlje izvjestaja "realizacija veleprodaje po partnerima"
+
+/*!  ZaglRPartn(fTabela)
+ *   Zaglavlje izvjestaja "realizacija veleprodaje po partnerima"
  */
  
 function ZaglRPartn(fTabela)

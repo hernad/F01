@@ -13,8 +13,8 @@
 #include "sc.ch"
 
 
-/*! \fn Test_StrUt()
- *  \brief TEST CASE string utility
+/*!  Test_StrUt()
+ *   TEST CASE string utility
  */
  
 function Test_StrUt()
@@ -37,11 +37,11 @@ CLEAR SCREEN
 
 
 return
-*}
 
 
-/*! \fn TestCreHashStrRW()
- *  \brief Test case kreiranja hash stringa
+
+/*!  TestCreHashStrRW()
+ *   Test case kreiranja hash stringa
  */
 function TestCreHashStr()
 *{
@@ -75,11 +75,11 @@ endif
 
 
 return
-*}
 
 
-/*! \fn TestRdHashStr()
- *  \brief Test case citanja hash stringa
+
+/*!  TestRdHashStr()
+ *   Test case citanja hash stringa
  */
 function TestRdHashStr()
 *{
@@ -128,11 +128,11 @@ endif
 ? "TEST CASE zavrsen...pritisni bilo koju tipku za nastavak..."
 
 return
-*}
 
 
-/*! \fn TestStr2Arr()
- *  \brief Test kreiranja niza iz stringa
+
+/*!  TestStr2Arr()
+ *   Test kreiranja niza iz stringa
  */
 function TestStr2Arr()
 *{
@@ -174,6 +174,6 @@ next
 ? "TEST CASE zavrsen...pritisni bilo koju tipku za nastavak..."
 
 return
-*}
+
 
 

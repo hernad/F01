@@ -29,11 +29,11 @@
  */
 
 /*! \file fmk/kalk/adm/1g/set_m10.prg
- *  \brief Setovanje marze u dokumentu tipa 10 koji se nalazi u pripremi
+ *   Setovanje marze u dokumentu tipa 10 koji se nalazi u pripremi
  */
 
-/*! \fn SetMarza10()
- *  \brief Setovanje marze u dokumentu tipa 10 koji se nalazi u pripremi
+/*!  SetMarza10()
+ *   Setovanje marze u dokumentu tipa 10 koji se nalazi u pripremi
  */
 
 function SetMarza10()
@@ -67,5 +67,5 @@ do while !eof()
 enddo
 
 return
-*}
+
 

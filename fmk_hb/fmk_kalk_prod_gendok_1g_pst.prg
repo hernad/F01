@@ -37,12 +37,12 @@
  
 
 /*! \file fmk/kalk/prod/gendok/1g/pst.prg
- *  \brief Generisanje dokumenta pocetnog stanja prodavnice
+ *   Generisanje dokumenta pocetnog stanja prodavnice
  */
 
 
-/*! \fn PocStProd()
- *  \brief Generisanje dokumenta pocetnog stanja prodavnice
+/*!  PocStProd()
+ *   Generisanje dokumenta pocetnog stanja prodavnice
  */
 
 function PocStProd()
@@ -64,7 +64,7 @@ endif
 close all
 
 return nil
-*}
+
 
 
 

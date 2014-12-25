@@ -18,7 +18,7 @@
  * ----------------------------------------------------------------
  */
  
-/*! \fn Kurs(dDat,cValIz,cValU)
+/*!  Kurs(dDat,cValIz,cValU)
  *  \param dDat - datum na koji se trazi omjer
  *  \param cValIz - valuta iz koje se vrsi preracun iznosa
  *  \param cValU  - valuta u koju se preracunava iznos valute cValIz
@@ -148,7 +148,7 @@ SET ORDER TO TAG "NAZ"
 xRez:=Ocitaj(F_VALUTE,"P","naz2")
 PopWa()
 return xRez
-*}
+
 
 // -----------------------------------
 // -----------------------------------
@@ -270,11 +270,11 @@ if gBaznaV=="P"
 else
   return ValDomaca()
 endif
-*}
 
 
-/*! \fn OmjerVal(v1,v2)
- *  \brief Omjer valuta 
+
+/*!  OmjerVal(v1,v2)
+ *   Omjer valuta 
  *  \param v1  - valuta 1
  *  \param v2  - valuta 2
  */

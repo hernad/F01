@@ -88,12 +88,12 @@ replace d2 with dDatum2
 select (nArr)
 
 return
-*}
 
 
 
-/*! \fn Logirati(cModul,cKomponenta,cFunkcija)
- *  \brief Provjerava da li funkciju treba logirati
+
+/*!  Logirati(cModul,cKomponenta,cFunkcija)
+ *   Provjerava da li funkciju treba logirati
  *  \param cModul modul
  *  \param cKomponenta komponenta unutar modula
  *  \param cFunkcija konkretna funkcija

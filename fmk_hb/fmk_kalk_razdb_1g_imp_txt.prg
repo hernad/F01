@@ -103,8 +103,8 @@ endif
 return
 
 
-/*! \fn ImpTxtDok()
- *  \brief Import dokumenta
+/*!  ImpTxtDok()
+ *   Import dokumenta
  */
 function ImpTxtDok()
 local cCtrl_art := "N"
@@ -177,10 +177,10 @@ MnuObrDok()
 TxtErase(cImpFile, .t.)
 
 return
-*}
 
-/*! \fn GetImpFilter()
- *  \brief Vraca filter za naziv dokumenta u zavisnosti sta je odabrano VP ili MP
+
+/*!  GetImpFilter()
+ *   Vraca filter za naziv dokumenta u zavisnosti sta je odabrano VP ili MP
  */
 static function GetImpFilter()
 *{
@@ -207,11 +207,11 @@ do case
 endcase
 
 return cRet
-*}
 
 
-/*! \fn MnuObrDok()
- *  \brief Obrada dokumenata iz pomocne tabele
+
+/*!  MnuObrDok()
+ *   Obrada dokumenata iz pomocne tabele
  */
 static function MnuObrDok()
 *{
@@ -223,11 +223,11 @@ else
 endif
 
 return
-*}
 
 
-/*! \fn ImpTxtPartn()
- *  \brief Import sifrarnika partnera
+
+/*!  ImpTxtPartn()
+ *   Import sifrarnika partnera
  */
 static function ImpTxtPartn()
 *{
@@ -286,7 +286,7 @@ MsgBeep("Operacija zavrsena !")
 TxtErase(cImpFile)
 
 return
-*}
+
 
 
 // ------------------------------------------
@@ -347,8 +347,8 @@ return
 
 
 
-/*! \fn SetTblDok(aDbf)
- *  \brief Setuj matricu sa poljima tabele dokumenata RACUN
+/*!  SetTblDok(aDbf)
+ *   Setuj matricu sa poljima tabele dokumenata RACUN
  *  \param aDbf - matrica
  */
 static function SetTblDok(aDbf)
@@ -375,10 +375,10 @@ AADD(aDbf,{"idpj", "C", 3, 0})
 AADD(aDbf,{"dtype", "C", 3, 0})
 
 return
-*}
 
-/*! \fn SetTblPartner(aDbf)
- *  \brief Set polja tabele partner
+
+/*!  SetTblPartner(aDbf)
+ *   Set polja tabele partner
  *  \param aDbf - matrica sa def.polja
  */
 static function SetTblPartner(aDbf)
@@ -421,8 +421,8 @@ return
 
 
 
-/*! \fn SetRuleDok(aRule)
- *  \brief Setovanje pravila upisa zapisa u temp tabelu
+/*!  SetRuleDok(aRule)
+ *   Setovanje pravila upisa zapisa u temp tabelu
  *  \param aRule - matrica pravila
  */
 static function SetRuleDok(aRule)
@@ -465,11 +465,11 @@ AADD(aRule, {"VAL(SUBSTR(cVar, 144, 16))"})
 AADD(aRule, {"SUBSTR(cVar, 161, 3)"})
 
 return
-*}
 
 
-/*! \fn SetRulePartn(aRule)
- *  \brief Setovanje pravila upisa zapisa u temp tabelu
+
+/*!  SetRulePartn(aRule)
+ *   Setovanje pravila upisa zapisa u temp tabelu
  *  \param aRule - matrica pravila
  */
 static function SetRulePartn(aRule)
@@ -531,8 +531,8 @@ return
 
 
 
-/*! \fn GetExpPath(cPath)
- *  \brief Vraca podesenje putanje do exportovanih fajlova
+/*!  GetExpPath(cPath)
+ *   Vraca podesenje putanje do exportovanih fajlova
  *  \param cPath - putanja, zadaje se sa argumentom @ kao priv.varijabla
  */
 static function GetExpPath(cPath)
@@ -542,12 +542,12 @@ if Empty(cPath) .or. cPath == nil
 	cPath := "c:\liste\"
 endif
 return
-*}
 
 
 
-/*! \fn Txt2TTbl(aDbf, aRules, cTxtFile)
- *  \brief Kreiranje temp tabele, te prenos zapisa iz text fajla "cTextFile" u tabelu putem aRules pravila
+
+/*!  Txt2TTbl(aDbf, aRules, cTxtFile)
+ *   Kreiranje temp tabele, te prenos zapisa iz text fajla "cTextFile" u tabelu putem aRules pravila
  *  \param aDbf - struktura tabele
  *  \param aRules - pravila upisivanja jednog zapisa u tabelu, princip uzimanja zapisa iz linije text fajla
  *  \param cTxtFile - txt fajl za import
@@ -614,22 +614,22 @@ endif
 MsgBeep("Import txt => temp - OK")
 
 return
-*}
 
 
-/*! \fn CheckFile(cTxtFile)
- *  \brief Provjerava da li je fajl prazan
+
+/*!  CheckFile(cTxtFile)
+ *   Provjerava da li je fajl prazan
  *  \param cTxtFile - txt fajl
  */
 function CheckFile(cTxtFile)
 *{
 nBrLin:=BrLinFajla(cTxtFile)
 return nBrLin
-*}
 
 
-/*! \fn CreTemp(aDbf)
- *  \brief Kreira tabelu PRIVPATH\TEMP.DBF prema definiciji polja iz aDbf
+
+/*!  CreTemp(aDbf)
+ *   Kreira tabelu PRIVPATH\TEMP.DBF prema definiciji polja iz aDbf
  *  \param aDbf - def.polja
  */
 static function CreTemp(aDbf)
@@ -660,11 +660,11 @@ else
 	create_index("2","dtype+idfirma+idtipdok+brdok+rbr", cTmpTbl)
 endif
 return
-*}
 
 
-/*! \fn CrePriprTDbf()
- *  \brief Kreiranje tabele PRIVPATH + PRIPT.DBF
+
+/*!  CrePriprTDbf()
+ *   Kreiranje tabele PRIVPATH + PRIPT.DBF
  */
 function CrePripTDbf()
 *{
@@ -682,11 +682,11 @@ create_index("1","idfirma+idvd+brdok", PRIVPATH+"pript")
 create_index("2","idfirma+idvd+brdok+idroba", PRIVPATH+"pript")
 
 return
-*}
 
 
-/*! \fn CheckBrFakt()
- *  \brief Provjeri da li postoji broj fakture u azuriranim dokumentima
+
+/*!  CheckBrFakt()
+ *   Provjeri da li postoji broj fakture u azuriranim dokumentima
  */
 static function CheckBrFakt(aFakt )
 
@@ -722,11 +722,11 @@ endif
 aFakt := aPomFakt
 
 return 1
-*}
 
 
-/*! \fn CheckDok()
- *  \brief Provjera da li postoje sve sifre u sifrarnicima za dokumente
+
+/*!  CheckDok()
+ *   Provjera da li postoje sve sifre u sifrarnicima za dokumente
  */
 static function CheckDok()
 local lSifDob := .t.
@@ -769,7 +769,7 @@ return .t.
 
 
 
-/*! \fn CheckPartn()
+/*!  CheckPartn()
  *  \Provjerava i daje listu nepostojecih partnera pri importu liste partnera
  */
 static function CheckPartn()
@@ -796,7 +796,7 @@ if (LEN(aPomPart) > 0)
 endif
 
 return LEN(aPomPart)
-*}
+
 
 
 
@@ -898,8 +898,8 @@ return aRet
 
 
 
-/*! \fn ParExist()
- *  \brief Provjera da li postoje sifre partnera u sifraniku FMK
+/*!  ParExist()
+ *   Provjera da li postoje sifre partnera u sifraniku FMK
  */
 static function ParExist(lPartNaz)
 O_PARTN
@@ -931,8 +931,8 @@ return aRet
 
 
 
-/*! \fn GetKTipDok(cFaktTD)
- *  \brief Vraca kalk tip dokumenta na osnovu fakt tip dokumenta
+/*!  GetKTipDok(cFaktTD)
+ *   Vraca kalk tip dokumenta na osnovu fakt tip dokumenta
  *  \param cFaktTD - fakt tip dokumenta
  */
 static function GetKTipDok(cFaktTD, cPm)
@@ -1032,8 +1032,8 @@ return cRet
 
 
 
-/*! \fn FaktExist()
- *  \brief vraca matricu sa parovima faktura -> pojavljuje se u azur.kalk
+/*!  FaktExist()
+ *   vraca matricu sa parovima faktura -> pojavljuje se u azur.kalk
  *  \param nRight - npr. bez zadnjih nRight brojeva
  */
 static function FaktExist( nRight )
@@ -1101,8 +1101,8 @@ enddo
 return aRet
 
 
-/*! \fn TTbl2Kalk(aFExist, lFSkip)
- *  \brief kopira podatke iz pomocne tabele u tabelu KALK->PRIPT
+/*!  TTbl2Kalk(aFExist, lFSkip)
+ *   kopira podatke iz pomocne tabele u tabelu KALK->PRIPT
  *  \param aFExist matrica sa postojecim fakturama
  *  \param lFSkip preskaci postojece fakture
  *  \param lNegative - prvo prebaci negativne fakture
@@ -1409,8 +1409,8 @@ return 1
 
 
 
-/*! \fn GetKtKalk(cTipDok, cPm, cTip)
- *  \brief Varaca konto za trazeni tip dokumenta i prodajno mjesto
+/*!  GetKtKalk(cTipDok, cPm, cTip)
+ *   Varaca konto za trazeni tip dokumenta i prodajno mjesto
  *  \param cTipDok - tip dokumenta
  *  \param cPm - prodajno mjesto
  *  \param cTip - tip "Z" zad. i "R" razd.
@@ -1438,11 +1438,11 @@ do case
 endcase
 
 return cRet
-*}
 
 
-/*! \fn TTbl2Partn(lEditOld)
- *  \brief kopira podatke iz pomocne tabele u tabelu PARTN
+
+/*!  TTbl2Partn(lEditOld)
+ *   kopira podatke iz pomocne tabele u tabelu PARTN
  *  \param lEditOld - ispraviti stare zapise
  */
 static function TTbl2Partn(lEditOld)
@@ -1576,8 +1576,8 @@ return 1
 
 
 
-/*! \fn GetKVars(dDatDok, cBrKalk, cTipDok, cIdKonto, cIdKonto2, cRazd)
- *  \brief Setuj parametre prenosa TEMP->PRIPR(KALK)
+/*!  GetKVars(dDatDok, cBrKalk, cTipDok, cIdKonto, cIdKonto2, cRazd)
+ *   Setuj parametre prenosa TEMP->PRIPR(KALK)
  *  \param dDatDok - datum dokumenta
  *  \param cBrKalk - broj kalkulacije
  *  \param cTipDok - tip dokumenta
@@ -1610,13 +1610,13 @@ if LastKey()==K_ESC
 endif
 
 return 1
-*}
 
 
 
 
-/*! \fn ObradiImport()
- *  \brief Obrada importovanih dokumenata
+
+/*!  ObradiImport()
+ *   Obrada importovanih dokumenata
  */
 function ObradiImport(nPocniOd, lAsPokreni, lStampaj)
 local cN_kalk_dok := ""
@@ -1735,10 +1735,10 @@ SaveObrada(0)
 MsgBeep("Dokumenti obradjeni!")
 
 return
-*}
 
-/*! \fn SaveObrada()
- *  \brief Snima momenat do kojeg je dosao pri obradi dokumenata
+
+/*!  SaveObrada()
+ *   Snima momenat do kojeg je dosao pri obradi dokumenata
  */
 static function SaveObrada(nPRec)
 *{
@@ -1757,10 +1757,10 @@ Wpar("is", nPRec)
 select (nArr)
 
 return
-*}
 
-/*! \fn RestoreObrada()
- *  \brief Pokrece ponovo obradu od momenta do kojeg je stao
+
+/*!  RestoreObrada()
+ *   Pokrece ponovo obradu od momenta do kojeg je stao
  */
 static function RestoreObrada()
 *{
@@ -1802,10 +1802,10 @@ endif
 ObradiImport( nDosaoDo , nil, __stampaj )
 
 return
-*}
 
-/*! \fn ObradiDokument(cIdVd)
- *  \brief Obrada jednog dokumenta
+
+/*!  ObradiDokument(cIdVd)
+ *   Obrada jednog dokumenta
  *  \param cIdVd - id vrsta dokumenta
  */
 static function ObradiDokument(cIdVd, lAsPokreni, lStampaj)
@@ -1881,8 +1881,8 @@ enddo
 return
 
 
-/*! \fn ChkKPripr(cIdVd, nRes)
- *  \brief Provjeri da li je priprema prazna
+/*!  ChkKPripr(cIdVd, nRes)
+ *   Provjeri da li je priprema prazna
  *  \param cIdVd - id vrsta dokumenta
  */
 static function ChkKPripr(cIdVd, nRes)
@@ -1903,8 +1903,8 @@ return 0
 
 
 
-/*! \fn ChkTipDok(cIdVd)
- *  \brief Provjeri pripremu za tip dokumenta
+/*!  ChkTipDok(cIdVd)
+ *   Provjeri pripremu za tip dokumenta
  *  \param cIdVd - vrsta dokumenta
  */
 static function ChkTipDok(cIdVd)
@@ -1938,11 +1938,11 @@ do case
 endcase
 
 return 0
-*}
 
 
-/*! \fn ChkTD14(cVezniDok)
- *  \brief Provjeri vezne dokumente za tip dokumenta 14
+
+/*!  ChkTD14(cVezniDok)
+ *   Provjeri vezne dokumente za tip dokumenta 14
  *  \param cVezniDok - dokument iz pripreme
  *  \result vraca 1 ako je sve ok, ili 2 ako vezni dokument ne odgovara
  */
@@ -1953,10 +1953,10 @@ if cVezniDok $ "18#19#95#16#11"
 endif
 
 return 2
-*}
 
-/*! \fn ChkTD41()
- *  \brief Provjeri vezne dokumente za tip dokumenta 41
+
+/*!  ChkTD41()
+ *   Provjeri vezne dokumente za tip dokumenta 41
  */
 static function ChkTD41(cVezniDok)
 *{
@@ -1965,10 +1965,10 @@ if cVezniDok $ "18#19#95#16#11"
 endif
 
 return 2
-*}
 
-/*! \fn ChkTD11()
- *  \brief Provjeri vezne dokumente za tip dokumenta 11
+
+/*!  ChkTD11()
+ *   Provjeri vezne dokumente za tip dokumenta 11
  */
 static function ChkTD11(cVezniDok)
 *{
@@ -1977,10 +1977,10 @@ if cVezniDok $ "18#19#95#16#11"
 endif
 
 return 2
-*}
 
-/*! \fn ChkTD95()
- *  \brief Provjeri vezne dokumente za tip dokumenta 95
+
+/*!  ChkTD95()
+ *   Provjeri vezne dokumente za tip dokumenta 95
  */
 static function ChkTD95(cVezniDok)
 *{
@@ -1989,11 +1989,11 @@ if cVezniDok $ "18#19#95#16#11"
 endif
 
 return 2
-*}
 
 
-/*! \fn FillDobSifra()
- *  \brief Popunjavanje polja sifradob prema kljucu
+
+/*!  FillDobSifra()
+ *   Popunjavanje polja sifradob prema kljucu
  */
 static function FillDobSifra()
 *{
@@ -2085,4 +2085,4 @@ endif
 
 
 return
-*}
+

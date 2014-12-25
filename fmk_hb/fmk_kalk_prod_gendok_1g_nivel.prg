@@ -614,7 +614,7 @@ do while !EOF() .and. cIdFirma + cPKonto == field->idFirma + field->pkonto
 enddo
  
 return
-*}
+
 
 
 

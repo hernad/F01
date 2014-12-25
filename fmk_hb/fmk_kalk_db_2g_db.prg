@@ -26,17 +26,17 @@ oObj:self:=oObj
 oObj:cName:="KALK"
 oObj:lAdmin:=.f.
 return oObj
-*}
+
 
 /*! \file fmk/kalk/db/2g/db.prg
- *  \brief KALK Database
+ *   KALK Database
  *
  * TDbKalk Database objekat 
  */
 
 
 /*! \class TDbKalk
- *  \brief Database objekat
+ *   Database objekat
  */
 
 
@@ -56,16 +56,16 @@ CLASS TDbKalk FROM TDB
 END CLASS
 
 
-/*! \fn *void TDbKalk::dummy()
+/*!  *void TDbKalk::dummy()
  */
 *void TDbKalk::dummy()
 *{
 method dummy
 return
-*}
 
-/*! \fn *void TDbKalk::skloniSezonu(string cSezona, bool finverse,bool fda,bool fnulirati,bool fRS)
- *  \brief formiraj sezonsku bazu podataka
+
+/*!  *void TDbKalk::skloniSezonu(string cSezona, bool finverse,bool fda,bool fnulirati,bool fRS)
+ *   formiraj sezonsku bazu podataka
  *  \param cSezona - 
  *  \param fInverse - .t. iz sezone u radno, .f. iz radnog u sezonu
  *  \param fda - ne znam
@@ -199,10 +199,10 @@ Beep(4)
 
 restore screen from cScr
 return
-*}
 
-/*! \fn *void TDbKalk::setgaDbfs()
- *  \brief Setuje matricu gaDbfs 
+
+/*!  *void TDbKalk::setgaDbfs()
+ *   Setuje matricu gaDbfs 
  */
 *void TDbKalk::setgaDbfs()
 *{
@@ -249,11 +249,11 @@ PUBLIC gaDbfs := {;
 
 return
 
-*}
 
 
-/*! \fn *void TDbKalk::install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7)
- *  \brief osnovni meni za instalacijske procedure
+
+/*!  *void TDbKalk::install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7)
+ *   osnovni meni za instalacijske procedure
  */
 
 *void TDbKalk::install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7)
@@ -262,10 +262,10 @@ return
 method install(cKorisn,cSifra,p3,p4,p5,p6,p7)
 	ISC_START(goModul,.f.)
 return
-*}
 
-/*! \fn *void TDbKalk::kreiraj(int nArea)
- *  \brief kreirane baze podataka POS
+
+/*!  *void TDbKalk::kreiraj(int nArea)
+ *   kreirane baze podataka POS
  */
  
 *void TDbKalk::kreiraj(int nArea)
@@ -661,10 +661,10 @@ endif
 endif
 
 return
-*}
 
-/*! \fn *void TDbKalk::obaza(int i)
- *  \brief otvara odgovarajucu tabelu
+
+/*!  *void TDbKalk::obaza(int i)
+ *   otvara odgovarajucu tabelu
  *  
  *      
  */
@@ -745,10 +745,10 @@ endif
 
 
 return
-*}
 
-/*! \fn *void TDbKalk::ostalef()
- *  \brief Ostalef funkcije (bivsi install modul)
+
+/*!  *void TDbKalk::ostalef()
+ *   Ostalef funkcije (bivsi install modul)
  *  \note  sifra: SIGMAXXX
 */
 
@@ -817,10 +817,10 @@ CREATE_INDEX("D","datdok",KUMPATH+"KALKS")
 endif
 
 return
-*}
 
-/*! \fn *void TDbKalk::konvZn()
- *  \brief koverzija 7->8 baze podataka KALK
+
+/*!  *void TDbKalk::konvZn()
+ *   koverzija 7->8 baze podataka KALK
  */
  
 *void TDbKalk::konvZn()
@@ -894,7 +894,7 @@ ENDIF
 KZNbaza(aPriv,aKum,aSif,cIz,cU)
 
 return
-*}
+
 
 
 /*

@@ -12,8 +12,8 @@
 
 #include "SC.CH"
 
-/*! \fn ArhSigma()
- *  \brief Arhiviranje podataka 
+/*!  ArhSigma()
+ *   Arhiviranje podataka 
  */
 function ArhSigma()
 *{
@@ -78,11 +78,11 @@ if date()-dDatArh  > 3  // svaka tri dana
 
 endif  // date
 return
-*}
 
 
-/*! \fn OtkUredjaj
- *  \brief Otkljucava direktorij
+
+/*!  OtkUredjaj
+ *   Otkljucava direktorij
  *
  * \code
  * OtkUredj("C:\SIGMA\SIF")  ->  "SIGMA\SIF"
@@ -103,11 +103,11 @@ if left(cdir,1)==SLASH
   cdir:=substr(cDir,2)
 endif
 return  cDir
-*}
 
 
-/*! \fn DirMak2(cDir)
- *  \brief rekurzivno pravi direktorij
+
+/*!  DirMak2(cDir)
+ *   rekurzivno pravi direktorij
  *  \param  - cDir - direktorij
  *  \return - .t. - uspjesno
  *
@@ -140,10 +140,10 @@ else
 	return .f.
 endif
 
-*}
 
-/*! \fn CopySve(cMask,cInPath,cOutPath)
-*   \brief Kopiraj sve fajlove iz cInPath-a u cOutPath
+
+/*!  CopySve(cMask,cInPath,cOutPath)
+*    Kopiraj sve fajlove iz cInPath-a u cOutPath
 */
 
 function CopySve(cMask,cInPath,cOutPath)
@@ -158,10 +158,10 @@ next
 ? cMask, "- kopirano ",len(aFiles),"fajla"
 ?
 return NIL
-*}
 
-/*! \fn DelSve(cMask,cInPath)
- *  \brief Brisi sve iz inPath-a
+
+/*!  DelSve(cMask,cInPath)
+ *   Brisi sve iz inPath-a
  *
  * \code
  * DelSve("*.DB?","c:\sigma")
@@ -184,10 +184,10 @@ next
 ? cInPath,"#",cMask," - brisano ",len(aFiles),"fajla"
 ?
 return NIL
-*}
 
-/*! \fn Zakljucaj(cIme)
-* \brief Zakljucava fajlove u direktoriju
+
+/*!  Zakljucaj(cIme)
+*  Zakljucava fajlove u direktoriju
 *
 * \return - .t. ako je uspio zakljucatio fajlove
 *
@@ -221,7 +221,7 @@ if nPos<>0
   aFilesP[nPos,2]:=nHandle
   if nhandle<0; fRet:=.f.; endif
 endif
-*}
+
 
 
 function Otkljucaj(cIme)
@@ -244,7 +244,7 @@ if nPos<>0; fclose(aFilesP[nPos,2]); endif
 * cImeArh:= "AFAKT"
 
 return
-*}
+
 
 
 
@@ -352,7 +352,7 @@ restore screen from cscr
 closeret
 
 return
-*}
+
 
 
 function UnZipuj(cImeArh,cLokacija,cDest)
@@ -419,7 +419,7 @@ inkey(5)
 restore screen from cScr
 
 return fret
-*}
+
 
 function IscitajCRC(cFajl)
 *{
@@ -431,7 +431,7 @@ ENDIF
 cPom:=FILESTR(cFajl,22)
 RETURN { VAL(LEFT(cPom,10)) , VAL(RIGHT(cPom,10)) }
 
-*}
+
 
 function NapraviCRC(cFajl,n1,n2)
 *{ 
@@ -447,7 +447,7 @@ function NapraviCRC(cFajl,n1,n2)
   FWRITE( nH , CHR(13)+CHR(10) )
   FCLOSE( nH )
 RETURN
-*}
+
 
 function IntegDBF(cBaza)
 *{
@@ -483,7 +483,7 @@ LOCAL berr, nRec:=RECNO(), nExpr:=0, nExpr2:=0, cStr:="", j:=0
    bErr:=ERRORBLOCK(bErr)
    cmxAutoOpen(.t.)
 RETURN { nExpr , nExpr2 }
-*}
+
 
 
 function UzmiIzArj(fBrisi,cEXT, cSwitch)
@@ -560,7 +560,7 @@ do while .t.
 enddo
 
 return
-*}
+
 
 
 function StaviUArj(aDirs)
@@ -648,11 +648,11 @@ if !fret
   endif
 endif
 return fret
-*}
 
 
-/*! \fn OFSveuDir(cPath, aFiles)
- * \brief Otvori Fajlove Sve u Direktoriju
+
+/*!  OFSveuDir(cPath, aFiles)
+ *  Otvori Fajlove Sve u Direktoriju
  * \note proslijedi aFiles
  * \return - ako su svi otvoreni - okupirani, vrati .t.
  */
@@ -674,10 +674,10 @@ for i:=1 to len(afiles)
 next
 return nRet
 
-*}
 
-/*! \fn ZFSveUDir(aFiles)
- *  \brief kontra OFSveuDir
+
+/*!  ZFSveUDir(aFiles)
+ *   kontra OFSveuDir
  *  \sa OfSveuDir
  */
 
@@ -692,5 +692,5 @@ next
 Asize(aFiles,0)
 return .t.
 
-*}
+
 

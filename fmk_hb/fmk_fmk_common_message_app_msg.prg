@@ -15,8 +15,8 @@
 
 
 
-/*! \fn InsertIntoAMessage()
- *  \brief Importuje poruke iz svih prodavnica u zbirnu tabelu poruka AMESSAGE (all messages) 
+/*!  InsertIntoAMessage()
+ *   Importuje poruke iz svih prodavnica u zbirnu tabelu poruka AMESSAGE (all messages) 
  */ 
 function InsertIntoAMessage()
 *{
@@ -68,11 +68,11 @@ enddo
 set filter to
 
 return
-*}
 
 
-/*! \fn DeleteAllOldMsg(lAppSrv)
- *  \brief Brise sve poruke od Date()-cBrojDana pa unazad
+
+/*!  DeleteAllOldMsg(lAppSrv)
+ *   Brise sve poruke od Date()-cBrojDana pa unazad
  *  \param lAppSrv - ako se poziva kroz appsrv onda brise DATE()-93
  */
 function DeleteAllOldMsg(lAppSrv)
@@ -130,12 +130,12 @@ else
 endif
 
 return
-*}
 
 
 
-/*! \fn DeleteReadMsg()
- *  \brief Brise sve procitane poruke
+
+/*!  DeleteReadMsg()
+ *   Brise sve procitane poruke
  */
 function DeleteReadMsg()
 *{
@@ -158,11 +158,11 @@ else
 endif
 
 return
-*}
 
 
-/*! \fn DeleteSentMsg()
- *  \brief Brise sve poruke koje su poslane
+
+/*!  DeleteSentMsg()
+ *   Brise sve poruke koje su poslane
  */
 function DeleteSentMsg()
 *{
@@ -186,11 +186,11 @@ else
 endif
 
 return
-*}
 
 
-/*! \fn ImportMsgFrom(cDrive, cSite)
- *  \brief Importuje poruke sa druge lokacije (npr. import poruka sa i:\kase\tops\kum1\message.dbf u c:\kase\tops\kum1\message.dbf)
+
+/*!  ImportMsgFrom(cDrive, cSite)
+ *   Importuje poruke sa druge lokacije (npr. import poruka sa i:\kase\tops\kum1\message.dbf u c:\kase\tops\kum1\message.dbf)
  *  \param cDrive - oznaka drive-a (npr. I:)
  *  \param cSite - oznaka site-a prodavnice (npr. 50)
  */
@@ -264,11 +264,11 @@ set filter to
 ? "Skinuo filter! Importovano " + STR(i) + " poruka!"
 
 return
-*}
 
 
-/*! \fn IsMsgExistLocaly(cFromHost, cFromUser, cText, dCreated, dSent, cTo)
- *  \brief Da li poruka postoji lokalno. Ako postoji vraca .T. a ako ne .F.
+
+/*!  IsMsgExistLocaly(cFromHost, cFromUser, cText, dCreated, dSent, cTo)
+ *   Da li poruka postoji lokalno. Ako postoji vraca .T. a ako ne .F.
  *  \param cFromHost
  *  \param cFromUser
  *  \param cText
@@ -289,5 +289,5 @@ if Found()
 else
 	return .f.
 endif
-*}
+
 

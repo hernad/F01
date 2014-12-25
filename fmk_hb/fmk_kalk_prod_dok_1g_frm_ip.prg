@@ -22,12 +22,12 @@
  
 
 /*! \file fmk/kalk/prod/dok/1g/frm_ip.prg
- *  \brief Maska za unos i generisanje dokumenta tipa IP
+ *   Maska za unos i generisanje dokumenta tipa IP
  */
 
 
-/*! \fn IP()
- *  \brief Generisanje dokumenta tipa IP - inventura prodavnice
+/*!  IP()
+ *   Generisanje dokumenta tipa IP - inventura prodavnice
  */
 
 function IP()
@@ -145,7 +145,7 @@ enddo
 MsgC()
 closeret
 return
-*}
+
 
 
 // generacija inventure - razlike postojece inventure
@@ -284,14 +284,14 @@ MsgC()
 
 closeret
 return
-*}
 
 
 
 
 
-/*! \fn RedniBroj(nRbr)
- *  \brief Pretvaranje numericke vrijednosti u string, s tim da je string koji se formira duzine 3. Za brojeve preko 999 koristi se slovo na mjestu prvog znaka, npr.1000 -> A00, 1100 -> B00, 1200 -> C00, ...
+
+/*!  RedniBroj(nRbr)
+ *   Pretvaranje numericke vrijednosti u string, s tim da je string koji se formira duzine 3. Za brojeve preko 999 koristi se slovo na mjestu prvog znaka, npr.1000 -> A00, 1100 -> B00, 1200 -> C00, ...
  *  \param nRbr -
  */
 
@@ -306,14 +306,14 @@ else
     return str(nRbr,3)
 endif
 return
-*}
 
 
 
 
 
-/*! \fn RbrUNum(cRBr)
- *  \brief Pretvaranje stringa duzine 3 u numericku vrijednost uz mogucnost da prvi znak u stringu bude slovo, npr. A01 -> 1001, B01 -> 1101, C01 -> 1201 ...
+
+/*!  RbrUNum(cRBr)
+ *   Pretvaranje stringa duzine 3 u numericku vrijednost uz mogucnost da prvi znak u stringu bude slovo, npr. A01 -> 1001, B01 -> 1101, C01 -> 1201 ...
  */
 
 function RbrUNum(cRBr)
@@ -324,14 +324,14 @@ else
    return val(cRbr)
 endif
 return
-*}
 
 
 
 
 
-/*! \fn Get1_IP()
- *  \brief Prva strana maske za unos dokumenta tipa IP
+
+/*!  Get1_IP()
+ *   Prva strana maske za unos dokumenta tipa IP
  */
 
 function Get1_IP()
@@ -390,7 +390,7 @@ _MKonto:="";_MU_I:=""     // inventura
 _PKonto:=_Idkonto;      _PU_I:="I"
 nStrana:=3
 return lastkey()
-*}
+
 
 
 static function VKol()
@@ -403,5 +403,5 @@ if (glZabraniVisakIP)
 	endif
 endif
 return lMoze
-*}
+
 

@@ -19,8 +19,8 @@
  */
  
 
-/*! \fn Get1_16PDV()
- *  \brief Prva strana maske za unos dokumenta tipa 16
+/*!  Get1_16PDV()
+ *   Prva strana maske za unos dokumenta tipa 16
  */
 
 function Get1_16PDV()
@@ -178,13 +178,13 @@ _PU_I:=""
 set key K_ALT_K to
 
 return lastkey()
-*}
 
 
 
 
-/*! \fn Get1_16bPDV()
- *  \brief
+
+/*!  Get1_16bPDV()
+ *  
  */
 
 // _odlval nalazi se u knjiz, filuje staru vrijednost
@@ -269,7 +269,7 @@ _PKonto:=""; _PU_I:=""
 _ERROR:="0"
 nStrana:=3
 return lastkey()
-*}
+
 
 
 

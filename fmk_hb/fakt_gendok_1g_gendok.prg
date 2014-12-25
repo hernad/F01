@@ -64,7 +64,7 @@ MsgC()
 
 CLOSE ALL
 return
-*}
+
 
 static function ApndInvItem(cIdRj, cIdRoba, cBrDok, nKolicina, cRbr)
 *{
@@ -95,21 +95,21 @@ SEEK cIdRoba
 SELECT pripr
 REPLACE cijena WITH roba->vpc
 return
-*}
+
 
 static function AddTxt(cTxt, cStr)
 *{
 cTxt:=cTxt+Chr(16)+cStr+Chr(17)
 return nil
-*}
 
 
 
 
-/*! \fn GDokInvManjak(cIdRj, cBrDok)
+
+/*!  GDokInvManjak(cIdRj, cBrDok)
  *  \param cIdRj - oznaka firme dokumenta IM na osnovu kojeg se generise dok.19
  *  \param cBrDok - broj dokumenta IM na osnovu kojeg se generise dok.19
- *  \brief Generacija dokumenta 19 tj. otpreme iz mag na osnovu dok. IM
+ *   Generacija dokumenta 19 tj. otpreme iz mag na osnovu dok. IM
  */
 function GDokInvManjak(cIdRj, cBrDok)
 *{
@@ -145,17 +145,17 @@ else
 endif
 CLOSE ALL
 return
-*}
 
 
 
-/*! \fn ApndInvMItem(cIdRj, cIdRoba, cBrDok, nKolicina, cRbr)
+
+/*!  ApndInvMItem(cIdRj, cIdRoba, cBrDok, nKolicina, cRbr)
  *  \param cIdRj - oznaka firme dokumenta
  *  \param cIdRoba - sifra robe
  *  \param cBrDok - broj dokumenta
  *  \param nKolicina - kolicina tj.manjak
  *  \param cRbr - redni broj stavke
- *  \brief Dodavanje stavke dokumenta 19 za evidentiranje manjka po osnovu inventure
+ *   Dodavanje stavke dokumenta 19 za evidentiranje manjka po osnovu inventure
  */
  
 static function ApndInvMItem(cIdRj, cIdRoba, cBrDok, nKolicina, cRbr)
@@ -183,15 +183,15 @@ REPLACE brDok WITH cBrDok
 REPLACE dinDem WITH ValDomaca()
 REPLACE cijena WITH roba->vpc
 return
-*}
 
 
 
 
-/*! \fn GDokInvVisak(cIdRj, cBrDok)
+
+/*!  GDokInvVisak(cIdRj, cBrDok)
  *  \param cIdRj - oznaka firme dokumenta IM na osnovu kojeg se generise dok.19
  *  \param cBrDok - broj dokumenta IM na osnovu kojeg se generise dok.19
- *  \brief Generacija dokumenta 01 tj.primke u magacin na osnovu dok. IM
+ *   Generacija dokumenta 01 tj.primke u magacin na osnovu dok. IM
  */
 function GDokInvVisak(cIdRj, cBrDok)
 *{
@@ -227,18 +227,18 @@ else
 endif
 CLOSE ALL
 return
-*}
 
 
 
 
-/*! \fn ApndInvVItem(cIdRj, cIdRoba, cBrDok, nKolicina, cRbr)
+
+/*!  ApndInvVItem(cIdRj, cIdRoba, cBrDok, nKolicina, cRbr)
  *  \param cIdRj - oznaka firme dokumenta
  *  \param cIdRoba - sifra robe
  *  \param cBrDok - broj dokumenta
  *  \param nKolicina - kolicina tj.visak
  *  \param cRbr - redni broj stavke
- *  \brief Dodavanje stavke dokumenta 01 za evidentiranje viska po osnovu inventure
+ *   Dodavanje stavke dokumenta 01 za evidentiranje viska po osnovu inventure
  */
 
 static function ApndInvVItem(cIdRj, cIdRoba, cBrDok, nKolicina, cRbr)
@@ -266,7 +266,7 @@ REPLACE brDok WITH cBrDok
 REPLACE dinDem WITH ValDomaca()
 REPLACE cijena WITH roba->vpc
 return
-*}
+
 
 
 
@@ -605,7 +605,7 @@ O_Edit()
 
 select pripr
 return .t.
-*}
+
 
 
 function Iz22u10()

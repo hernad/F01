@@ -21,12 +21,12 @@
  
 
 /*! \file fmk/kalk/prod/dok/1g/frm_11.prg
- *  \brief Maska za unos dokumenta tipa 11
+ *   Maska za unos dokumenta tipa 11
  */
 
 
-/*! \fn Get1_11()
- *  \brief Prva strana maske za unos dokumenta tipa 11
+/*!  Get1_11()
+ *   Prva strana maske za unos dokumenta tipa 11
  */
 
 function Get1_11()
@@ -296,5 +296,5 @@ nStrana:=2
 
 FillIzgStavke(pIzgSt)
 return lastkey()
-*}
+
  

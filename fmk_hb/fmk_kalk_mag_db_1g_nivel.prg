@@ -35,11 +35,11 @@
 
 
 /*! \file fmk/kalk/mag/db/1g/nivel.prg
- *  \brief Generisanje dokumenta nivelacije cijena u magacinu
+ *   Generisanje dokumenta nivelacije cijena u magacinu
  */
 
-/*! \fn Niv_10()
- *  \brief Generisanje dokumenta nivelacije cijena u magacinu
+/*!  Niv_10()
+ *   Generisanje dokumenta nivelacije cijena u magacinu
  */
 
 function Niv_10()
@@ -185,5 +185,5 @@ enddo
 
 closeret
 return
-*}
+
 

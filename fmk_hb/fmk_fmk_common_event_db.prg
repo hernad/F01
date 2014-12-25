@@ -13,8 +13,8 @@
 #include "sc.ch"
 
 
-/*! \fn CreEvents(nArea)
- *  \brief Kreiranje tabela bitnih za logiranje dogadjaja
+/*!  CreEvents(nArea)
+ *   Kreiranje tabela bitnih za logiranje dogadjaja
  *  \param nArea - podrucje
  */
 function CreEvents(nArea)
@@ -103,8 +103,8 @@ return
 
 
 
-/*! \fn P_Events(cId,dx,dy)
- *  \brief Pregled sifrarnika dogadjaja
+/*!  P_Events(cId,dx,dy)
+ *   Pregled sifrarnika dogadjaja
  */
 function P_Events(cId,dx,dy)
 *{
@@ -132,11 +132,11 @@ ImeKol:={{PadR("Id",4),{|| id},"id",{|| IncID(@wId),.f.},{||.t.},,"999"},;
 Kol:={1,2,3,4,5,6,7,8,9,10,11}
 
 return PostojiSifra(F_EVENTS,1,10,60,"Events - dogadjaji koji se logiraju",@cId,dx,dy)
-*}
 
 
-/*! \fn IncID(wId)
- *  \brief Povecava vrijednost polja ID za 1
+
+/*!  IncID(wId)
+ *   Povecava vrijednost polja ID za 1
  */
 static function IncID(wId)
 *{
@@ -150,12 +150,12 @@ if ((Ch==K_CTRL_N) .or. (Ch==K_F4))
 	AEVAL(GetList,{|o| o:display()})
 endif
 return nRet
-*}
 
 
 
-/*! \fn LastID(nRecNo)
- *  \brief Vraca vrijednost polja ID tabele events.dbf ili bilo koje tabele koja ima polje ID (numericko)
+
+/*!  LastID(nRecNo)
+ *   Vraca vrijednost polja ID tabele events.dbf ili bilo koje tabele koja ima polje ID (numericko)
  *  \param nRecNo - broj zapisa na koji se pointer treba vratiti poslije uzete vrijednosti
  */
 static function LastID(nRecNo)
@@ -164,10 +164,10 @@ go bottom
 nLastID:=field->id
 go nRecNo
 return nLastID
-*}
 
-/*! \fn BrisiLogove(lAutomatic)
- *  \brief Brisanje logova iz tabele EVENTLOG
+
+/*!  BrisiLogove(lAutomatic)
+ *   Brisanje logova iz tabele EVENTLOG
  *  \param lAutomatic - .t. brisi automatski, .f. nemoj brisati automatski
  */
 function BrisiLogove(lAutomatic)
@@ -206,7 +206,7 @@ if cDN=="D"
 endif
 
 return
-*}
+
 
 
 function PobrisiLOG(dDatOd,dDatDo,cModul)
@@ -251,7 +251,7 @@ if !lAuto
 endif
 
 return
-*}
+
 
 // --------------------------------------------------------
 // vraca nivo bitnosti iz tabele events

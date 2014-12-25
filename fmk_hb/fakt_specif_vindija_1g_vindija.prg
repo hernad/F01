@@ -28,9 +28,9 @@
  *
  */
  
-/*! \fn PuniDVRIz10()
- *  \brief Popuni Ditributer-Vozilo-Relacija iz 10-ke
- *  \brief Specificno za vindiju
+/*!  PuniDVRIz10()
+ *   Popuni Ditributer-Vozilo-Relacija iz 10-ke
+ *   Specificno za vindiju
  *  \todo Prebaciti na lokaciju dokumenata za vindiju
  */
  
@@ -52,6 +52,6 @@ LOCAL nArr:=SELECT(), lVrati:=.f.
   ENDIF
   SELECT (nArr)
 return lVrati
-*}
+
 
 

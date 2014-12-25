@@ -110,8 +110,8 @@ return
 
 
 
-/*! \fn TekDokument()
- *  \brief Tekuci dokument
+/*!  TekDokument()
+ *   Tekuci dokument
  */
 
 function TekDokument()
@@ -138,11 +138,11 @@ endif
 
 @ m_x+0,m_y+2 SAY cTxt
 return
-*}
 
 
-/*! \fn Rbr()
- *  \brief Redni broj
+
+/*!  Rbr()
+ *   Redni broj
  */
 
 function Rbr()
@@ -158,7 +158,7 @@ else
 endif
 
 return padr(cRet,6)
-*}
+
 
 
 // ---------------------------------
@@ -197,8 +197,8 @@ endcase
 return padr( cRet, 30)
 
 
-/*! \fn JedinaStavka()
- *  \brief U dokumentu postoji samo jedna stavka
+/*!  JedinaStavka()
+ *   U dokumentu postoji samo jedna stavka
  */
 
 function JedinaStavka()
@@ -218,12 +218,12 @@ do while ! eof () .and. (IdFirma==cIdFirma) .and. (IdTipDok==cIdTipDok) ;
 enddo
 GO nTekRec
 return IIF(nBrStavki==1, .t., .f.)
-*}
 
 
-/*! \fn EdPripr
- *  \brief Sprema pripremu za unos/ispravku dokumenta
- *  \brief Priprema ekran i definise tipke (c+N,a+A...)
+
+/*!  EdPripr
+ *   Sprema pripremu za unos/ispravku dokumenta
+ *   Priprema ekran i definise tipke (c+N,a+A...)
  *  \todo Ovu funkciju definitivno treba srediti....
  */
 
@@ -692,7 +692,7 @@ enddo
 BoxC()
 
 return
-*}
+
 
 
 function PrintDok()
@@ -764,7 +764,7 @@ endif
 lSSIP99:=.f.
 
 return
-*}
+
 
 
 function RekZadMpO()
@@ -808,12 +808,12 @@ FF
 EndPrint()
 CLOSE ALL
 return
-*}
 
 
 
-/*! \fn CijeneOK(cStr)
- *  \brief
+
+/*!  CijeneOK(cStr)
+ *  
  *  \param cStr
  */
 
@@ -844,12 +844,12 @@ local fMyFlag := .F., lRetFlag := .T., nTekRec
   endif
   GO nTekRec
 return (lRetFlag)
-*}
 
 
 
-/*! \fn EdOtpr(Ch)
- *  \brief Ispravka otpremnica
+
+/*!  EdOtpr(Ch)
+ *   Ispravka otpremnica
  *  \param Ch
  */
 
@@ -871,11 +871,11 @@ do case
 endcase
 
 return nRet
-*}
 
 
-/*! \fn RenumPripr(cVezOtpr,dNajnoviji)
- *  \brief
+
+/*!  RenumPripr(cVezOtpr,dNajnoviji)
+ *  
  *  \param cVezOtpr
  *  \param dNajnoviji - datum posljednje radjene otpremnice
  */
@@ -1941,8 +1941,8 @@ return cList
 
 
 
-/*! \fn FRokPl(cVar, fNovi)
- *  \brief Validacija roka placanja
+/*!  FRokPl(cVar, fNovi)
+ *   Validacija roka placanja
  *  \param cVar
  *  \param fNovi
  */
@@ -2018,12 +2018,12 @@ endif
 
 ShowGets()
 return .t.
-*}
 
 
 
-/*! \fn SljBrDok13(cBrD,nBrM,cKon)
- *  \brief
+
+/*!  SljBrDok13(cBrD,nBrM,cKon)
+ *  
  *  \param cBrD
  *  \param nBrM
  *  \param cKon
@@ -2043,12 +2043,12 @@ else
 	cPom:=NovaSifra(SUBSTR(cBrD,nPom-2,2))
 endif
 return cPom2+cPom+"/"+PADL(ALLTRIM(STR(nBrM)),2,"0")
-*}
 
 
 
-/*! \fn PrCijSif()
- *  \brief Promjena cijene u sifrarniku
+
+/*!  PrCijSif()
+ *   Promjena cijene u sifrarniku
  */
 
 function PrCijSif()
@@ -2073,11 +2073,11 @@ NSRNPIdRoba()
    endif
    SELECT PRIPR
 return
-*}
 
 
-/*! \fn RJIzKonta(cKonto)
- *  \brief Vraca radnu jedinicu iz sif->konto na osnovu zadatog konta
+
+/*!  RJIzKonta(cKonto)
+ *   Vraca radnu jedinicu iz sif->konto na osnovu zadatog konta
  *  \param cKonto   - konto
  *  \return cVrati
  */
@@ -2101,8 +2101,8 @@ return cVrati
 *{
 
 
-/*! \fn KontoIzRJ(cRJ)
- *  \brief Vraca konto na osnovu radne jedinice
+/*!  KontoIzRJ(cRJ)
+ *   Vraca konto na osnovu radne jedinice
  *  \param cRJ  - radna jedinica
  *  \return cVrati
  */
@@ -2118,13 +2118,13 @@ local cVrati:=SPACE(7)
      endif
  PopWA()
 return cVrati
-*}
 
 
 
-/*! \fn NarBrDok(fNovi)
- *  \brief Postavlja u pripremi broj dokumenta - puni pripremu
- *  \brief NarBrDok(fNovi)->cBroj  - Generise naredni broj dokumenta
+
+/*!  NarBrDok(fNovi)
+ *   Postavlja u pripremi broj dokumenta - puni pripremu
+ *   NarBrDok(fNovi)->cBroj  - Generise naredni broj dokumenta
  *  \param fNovi
  *  \return _brdok
  */
@@ -2263,8 +2263,8 @@ return _BrDok
 
 
 
-/*! \fn StampTXT(cIdFirma,cIdTipDok,cBrDok)
- *  \brief Stampa dokumenta
+/*!  StampTXT(cIdFirma,cIdTipDok,cBrDok)
+ *   Stampa dokumenta
  *  \todo Ovo bi trebalo prebaciti u /RPT
  *  \param cIdFirma
  *  \param cIdTipDok
@@ -2435,11 +2435,11 @@ PicCDEM:=InPicCDEM
      use
 #endif
 return
-*}
 
 
-/*! \fn StampRtf(cImeF,cIdFirma,cIdTipDok,cBrDok)
- *  \brief Stampa u rtf formatu
+
+/*!  StampRtf(cImeF,cIdFirma,cIdTipDok,cBrDok)
+ *   Stampa u rtf formatu
  *  \todo Ovo bi trebalo prebaciti u /RPT
  *  \param cImeF
  *  \param cIdFirma
@@ -2498,9 +2498,9 @@ PicCDEM:=InPicCDEM
   use
 #endif
 return
-*}
 
-/* \fn ArgToStr()
+
+/*  ArgToStr()
  * Argument To String
  */
 function ArgToStr(xArg)
@@ -2510,12 +2510,12 @@ if (xArg==NIL)
 else
 	return "'"+xArg+"'"
 endif
-*}
 
 
 
-/*! \fn IsprUzorTxt(fSilent,bFunc)
- *  \brief Ispravka teksta ispod fakture
+
+/*!  IsprUzorTxt(fSilent,bFunc)
+ *   Ispravka teksta ispod fakture
  *  \param fSilent
  *  \param bFunc
  */
@@ -2622,9 +2622,9 @@ return
 
 
 
-/*! \fn PrerCij()
- *  \brief Prerada cijene
- *  \brief Ako je u polje SERBR unesen podatak KJ/KG iznos se dobija kao KOLICINA*CIJENA*PrerCij()  - varijanta R - Rudnik
+/*!  PrerCij()
+ *   Prerada cijene
+ *   Ako je u polje SERBR unesen podatak KJ/KG iznos se dobija kao KOLICINA*CIJENA*PrerCij()  - varijanta R - Rudnik
  *  \return nVrati
  */
 
@@ -2635,12 +2635,12 @@ local cSBr:=ALLTRIM(_field->serbr), nVrati:=1
    nVrati := VAL(cSBr)/1000
  endif
 return nVrati
-*}
 
 
 
-/*! \fn TestMainIndex()
- *  \brief
+
+/*!  TestMainIndex()
+ *  
  *  \return lVrati
  */
 
@@ -2701,12 +2701,12 @@ local lVrati:=.t., lUsedFAKT:=.t., lUsedDOKS:=.t., nOblast:=SELECT()
  endif
  SELECT (nOblast)
 return lVrati
-*}
 
 
 
-/*! \fn PRNKod_ON(cKod)
- *  \brief
+
+/*!  PRNKod_ON(cKod)
+ *  
  *  \todo Prebaciti u /RPT
  *  \param cKod
  */
@@ -2725,11 +2725,11 @@ local i:=0
     ENDCASE
   next
 return (nil)
-*}
 
 
-/*! \fn PRNKod_OFF(cKod)
- *  \brief
+
+/*!  PRNKod_OFF(cKod)
+ *  
  *  \todo Prebaciti u /RPT
  *  \param cKod
  */
@@ -2748,7 +2748,7 @@ local i:=0
     ENDCASE
   next
 return (nil)
-*}
+
 
 
 
@@ -2769,8 +2769,8 @@ I_OFF
 return
 
 
-/*! \fn NazProdObj()
- *  \brief Naziv prodajnog objekta
+/*!  NazProdObj()
+ *   Naziv prodajnog objekta
  */
 
 function NazProdObj()
@@ -2780,12 +2780,12 @@ local cVrati:=""
 cVrati:=TRIM(cTxt3a)
 SELECT PRIPR
 return cVrati
-*}
 
 
 
-/*! \fn EdDoks2()
- *  \brief Editovanje DOKS2.DBF pri unosu fakture
+
+/*!  EdDoks2()
+ *   Editovanje DOKS2.DBF pri unosu fakture
  */
 
 function EdDoks2()
@@ -2839,7 +2839,7 @@ aDodPar := {}
 
  SELECT (nArr)
 return
-*}
+
 
 
 // -------------------------------------------------
@@ -2888,8 +2888,8 @@ return lRet
 
 
 
-/*! \fn SKCKalk(lSet)
- *  \brief Set Key za Cijenu iz Kalk
+/*!  SKCKalk(lSet)
+ *   Set Key za Cijenu iz Kalk
  *  \param lSet
  */
 
@@ -2911,11 +2911,11 @@ if _idtipdok=="25" .or.;
     endif
   endif
 return .t.
-*}
 
 
-/*! \fn StUgRabKup()
- *  \brief Stampa dokumenta ugovor o rabatu
+
+/*!  StUgRabKup()
+ *   Stampa dokumenta ugovor o rabatu
  *  \todo Treba prebaciti u /RPT
  */
 
@@ -2926,11 +2926,11 @@ lSSIP99:=.f.
 StDok2()
 lUgRab:=.f.
 return
-*}
 
 
-/*! \fn Naziv19ke()
- *  \brief Vraca naziv za tip dokumenta 19
+
+/*!  Naziv19ke()
+ *   Vraca naziv za tip dokumenta 19
  *  \return cVrati
  */
 
@@ -2939,11 +2939,11 @@ function Naziv19ke()
 local cVrati:=""
 cVrati:="Izlaz po ostalim osnovama"
 return cVrati
-*}
 
 
-/*! \fn IzborBanke(cToken)
- *  \brief Izbor banke
+
+/*!  IzborBanke(cToken)
+ *   Izbor banke
  *  \param cToken
  *  \return cVrati
  */
@@ -2979,10 +2979,10 @@ else
     	endif
 endif
 return cVrati
-*}
 
-/*! \fn TokToNiz(cTok,cSE)
- *  \brief Token pretvara u niz
+
+/*!  TokToNiz(cTok,cSE)
+ *   Token pretvara u niz
  *  \param cTok  - string tokena
  *  \param cSE   - separator elementa
  *  \return aNiz
@@ -3013,7 +3013,7 @@ enddo
 
 
 return aNiz
-*}
+
 
 
 // ----------------------------------
@@ -3038,12 +3038,12 @@ next
 select partn
 
 return cVrati
-*}
 
 
 
-/*! \fn KonZbira(lVidi)
- *  \brief
+
+/*!  KonZbira(lVidi)
+ *  
  *  \param lVidi - ako je .t. ili nil mora da postoji i privatna varijabla nC:=1
  */
 
@@ -3085,21 +3085,21 @@ endif
    endif
  enddo
 return
-*}
 
 
-/*! \fn JeStorno10()
- *  \brief True je distribucija i TipDokumenta=10  i krajnji desni dio broja dokumenta="S"
+
+/*!  JeStorno10()
+ *   True je distribucija i TipDokumenta=10  i krajnji desni dio broja dokumenta="S"
  */
 
 function JeStorno10()
 *{
 return glDistrib .and. _idtipdok=="10" .and. UPPER(RIGHT(TRIM(_BrDok),1))=="S"
-*}
 
 
-/*! \fn RabPor10()
- *  \brief
+
+/*!  RabPor10()
+ *  
  */
 
 function RabPor10()
@@ -3125,7 +3125,7 @@ else
 endif
 SELECT (nArr)
 return
-*}
+
 
 
 function PopupKnjiz()
@@ -3271,7 +3271,7 @@ select pripr
 go bottom
 
 return
-*}
+
 
 
 function ImportTxt()
@@ -3281,7 +3281,7 @@ cKom :="fmk.exe --batch --exe:ImportTxt --db:"+STRTRAN(TRIM(gNFirma), " ", "_")
 RUN &cKom
 O_Edit()
 return
-*}
+
 
 
 
@@ -3332,7 +3332,7 @@ if nDod>0
 endif
 
 return nKor
-*}
+
 
 
 static function SljPozGet(x,y,nKor,mx,nDod)
@@ -3350,4 +3350,4 @@ else
 	y:=m_y+2
 endif
 return
-*}
+

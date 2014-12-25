@@ -46,11 +46,11 @@ private Izbor:=1
 Menu_SC("mmi")
 
 return
-*}
 
 
-/*! \fn Iz12u97()
- *  \brief Od 11 ili 12 napravi 96 ili 97
+
+/*!  Iz12u97()
+ *   Od 11 ili 12 napravi 96 ili 97
  */
  
 function Iz12u97()
@@ -128,13 +128,13 @@ function Iz12u97()
 
 CLOSERET
 return
-*}
 
 
 
 
-/*! \fn InvManj()
- *  \brief Generise dok.95 za manjak i visak ili 95 za manjak, a 16 u smecu za visak
+
+/*!  InvManj()
+ *   Generise dok.95 za manjak i visak ili 95 za manjak, a 16 u smecu za visak
  */
  
 function InvManj()
@@ -252,13 +252,13 @@ ENDIF
 
 closeret
 return
-*}
 
 
 
 
-/*! \fn MNivPoProc()
- *  \brief Nivelacija u magacinu po procentima
+
+/*!  MNivPoProc()
+ *   Nivelacija u magacinu po procentima
  */
 
 function MNivPoProc()
@@ -388,13 +388,13 @@ enddo
 MsgC()
 CLOSERET
 return
-*}
 
 
 
 
-/*! \fn KorekPC()
- *  \brief Korekcija prodajne cijene - pravljenje nivelacije za magacin
+
+/*!  KorekPC()
+ *   Korekcija prodajne cijene - pravljenje nivelacije za magacin
  */
  
 function KorekPC()
@@ -566,8 +566,8 @@ return
 
 
 
-/*! \fn Otprema()
- *  \brief Kada je izvrsena otprema pravi se ulaz u drugi magacin
+/*!  Otprema()
+ *   Kada je izvrsena otprema pravi se ulaz u drugi magacin
  */
 // ??????????? Kakva je razlika Otprema i Iz96u16 ???????????
 
@@ -656,12 +656,12 @@ enddo
 
 closeret
 return
-*}
 
 
 
-/*! \fn Iz96u16()
- *  \brief
+
+/*!  Iz96u16()
+ *  
  */
  
 function Iz96u16()
@@ -726,12 +726,12 @@ function Iz96u16()
 
 CLOSERET
 return
-*}
 
 
 
-/*! \fn Iz16u14()
- *  \brief Od 16 napravi 14
+
+/*!  Iz16u14()
+ *   Od 16 napravi 14
  */
  
 function Iz16u14()
@@ -812,6 +812,6 @@ function Iz16u14()
 
 CLOSERET
 return
-*}
+
 
 

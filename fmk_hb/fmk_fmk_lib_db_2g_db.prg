@@ -19,7 +19,7 @@
  */
  
 /*! \file sc2g/db/db.prg
- *  \brief Bazni Database objekat
+ *   Bazni Database objekat
  *
  * Bazni Database objekat 
  */
@@ -84,12 +84,12 @@ oObj:cDirKum:=cDirKum
 oObj:cDirSif:=cDirSif
 oObj:lAdmin:=.f.
 return oObj
-*}
+
 
 #ifdef CPP
 
 /*! \class TDB
- *  \brief Bazni Database objekat
+ *   Bazni Database objekat
  */
 
 class TDB 
@@ -192,12 +192,12 @@ END CLASS
 #endif
 
 /*! \var TDB:lAdmin
- *  \brief True - admin rezim, False - normalni pristup podacima 
+ *   True - admin rezim, False - normalni pristup podacima 
  */
 
 
-/*! \fn *void TDB::logAgain(string cSezona, bool lSilent, bool lWriteKParam)
- *  \brief logiraj se ponovo, sa oznakom nove sezone
+/*!  *void TDB::logAgain(string cSezona, bool lSilent, bool lWriteKParam)
+ *   logiraj se ponovo, sa oznakom nove sezone
  *  \param cSezona
  *  \param lSilent
  */
@@ -342,7 +342,7 @@ lURp:=fURp
 
 JelReadOnly()
 return
-*}
+
 
 
 *void TDB::modstruAll()
@@ -376,7 +376,7 @@ use
 ::lAdmin:=.f.
 return
 
-*}
+
 
 
 *string TDB::setDirPriv(string cDir)
@@ -398,7 +398,7 @@ endif
 cDirPriv:=::cDirPriv
 
 return cPom
-*}
+
 
 
 *string TDB::setDirSif(string cDir)
@@ -419,7 +419,7 @@ endif
 cDirSif:=::cDirSif
 
 return cPom
-*}
+
 
 
 *string TDB::setDirKum(string cDir)
@@ -448,7 +448,7 @@ cDirRad:=::cDirKum
 SET(_SET_DEFAULT,trim(cDir))
 
 return cPom
-*}
+
 
 
 *string TDB::setSigmaBD(string cDir)
@@ -463,7 +463,7 @@ if (gKonvertPath=="D")
 endif
 ::cSigmaBD:=ToUnix(cDir)
 return cPom
-*}
+
 
 
 *string TDB::setUser(string cUser)
@@ -474,7 +474,7 @@ local cPom
 cPom:=::cUser
 ::cUser:=cUser
 return cPom
-*}
+
 
 
 *string TDB::setPassword(integer nPassword)
@@ -485,7 +485,7 @@ local nPom
 nPom:=::nPassword
 ::nPassword:=nPassword
 return nPom
-*}
+
 
 
 *string TDB::setGroup1(integer nGroup)
@@ -496,7 +496,7 @@ local nPom
 nPom:=::nGroup1
 ::nGroup1:=nGroup
 return nPom
-*}
+
 
 
 *string TDB::setGroup2(integer nGroup)
@@ -507,7 +507,7 @@ local nPom
 nPom:=::nGroup2
 ::nGroup2:=nGroup
 return nPom
-*}
+
 
 
 *string TDB::setGroup3(integer nGroup)
@@ -518,13 +518,13 @@ local nPom
 nPom:=::nGroup3
 ::nGroup3:=nGroup
 return nPom
-*}
 
 
 
 
-/*! \fn TDB::mInstall()
- *  \brief meni install database funkcija
+
+/*!  TDB::mInstall()
+ *   meni install database funkcija
  *  \note bivsa funkcija Sistem
  */
  
@@ -600,11 +600,11 @@ Menu_SC("imod")
 
 ::lAdmin:=.f.
 return
-*}
 
 
-/*! \fn TDB::vratiSez()
- *  \brief vrati stanje podataka iz sezone u radno podrucje
+
+/*!  TDB::vratiSez()
+ *   vrati stanje podataka iz sezone u radno podrucje
  */
  
 *void TDB::vratiSez()
@@ -707,27 +707,27 @@ KrajskSez(cOldSezona)
 
 ::lAdmin:=.f.
 return
-*}
+
 
 
 *string KParams_se;
 /*! \ingroup params
  *  \var KParams_se
- *  \brief Oznaka sezone za podatke u KUMPATH-u, tekucoj lokaciji podataka
+ *   Oznaka sezone za podatke u KUMPATH-u, tekucoj lokaciji podataka
  *  \note Ako stoji 2002, znaci da se u ovom direktoriju nalaze podaci iz 2002 godine
  */
 
 *string KParams_rp;
 /*! \ingroup params
  *  \var KParams_rp
- *  \brief Oznaka sezone sa kojom se trenutno radi
+ *   Oznaka sezone sa kojom se trenutno radi
  *  \note Ako stoji 2001, znaci da se trenutno radi sa podacima iz 2001 godine
  */
 
 
 
-/*! \fn TDB::loadSezonaRadimUSezona()
- *  \brief ucitaj ::cSezona, ::cRadimUSezona iz tabele parametara
+/*!  TDB::loadSezonaRadimUSezona()
+ *   ucitaj ::cSezona, ::cRadimUSezona iz tabele parametara
  */
  
 *void TDB::loadSezonaRadimUSezona()
@@ -776,7 +776,7 @@ else
 endif
 
 return
-*}
+
 
 *void TDB:saveSezona(string cValue)
 *{
@@ -793,7 +793,7 @@ Wpar("se", cValue, gSQL=="D")
 select kparams
 use
 return
-*}
+
 
 *void TDB:saveRadimUSezona(string cValue)
 *{
@@ -815,11 +815,11 @@ endif
 SELECT kparams
 USE
 return
-*}
 
 
-/*! \fn *void TDB::radiUSezonskomPodrucju()
- *  \brief Na osnovu ::cRadimUSezona odredi database: Sezonsko ili Radno podrucje
+
+/*!  *void TDB::radiUSezonskomPodrucju()
+ *   Na osnovu ::cRadimUSezona odredi database: Sezonsko ili Radno podrucje
  *  \note centralno pitanje je "Prosli put ste radili u sezonskom podrucju ... Nastaviti ?"
  */
 
@@ -848,7 +848,7 @@ else
 		::saveRadimUSezona(::cRadimUSezona)
 endif
 
-*}
+
 
 *void TDB:setIfNil()
 *{
@@ -860,13 +860,13 @@ if (::oApp==nil)
 	::oApp:=goModul
 endif
 return
-*}
+
 
 *void TDB:scan()
 *{
 method scan()
 
 return
-*}
+
 
 

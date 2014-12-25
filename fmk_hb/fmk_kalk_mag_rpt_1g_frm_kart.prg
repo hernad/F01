@@ -21,12 +21,12 @@
  
 
 /*! \file fmk/kalk/mag/rpt/1g/frm_kart.prg
- *  \brief Analiza kartica u magacinu
+ *   Analiza kartica u magacinu
  */
 
 
-/*! \fn AnaKart()
- *  \brief Analiza kartica u magacinu
+/*!  AnaKart()
+ *   Analiza kartica u magacinu
  */
 
 function AnaKart()
@@ -144,13 +144,13 @@ ObjDbedit("anm",20,77,{|| EdLLM()},"","...", , , , ,3)
 BoxC()
 closeret
 return
-*}
 
 
 
 
-/*! \fn EdLLM()
- *  \brief Obrada opcija u browse-u tabele LLM
+
+/*!  EdLLM()
+ *   Obrada opcija u browse-u tabele LLM
  */
 
 function EdLLM()
@@ -169,6 +169,6 @@ do case
      nRet:=DE_REFRESH
 endcase
 return nRet
-*}
+
 
 

@@ -50,8 +50,8 @@ static cTblPriv:="#PARAM#YY"
 
  
 
-/*! \fn TSqlLogNew()
- *  \brief funkcija koja kreira SqlLog objekat
+/*!  TSqlLogNew()
+ *   funkcija koja kreira SqlLog objekat
  */
 
 function TSqlLogNew()
@@ -67,12 +67,12 @@ local oObj
 
 oObj:self:=oObj
 return oObj
-*}
+
 
 #ifdef CPP
 
 /*! \class TSqlLog
- *  \brief FIN aplikacijski modul
+ *   FIN aplikacijski modul
  */
 
 class TSqlLog
@@ -111,8 +111,8 @@ END CLASS
 #endif
 
 
-/*! \fn *bool TSqlLog::open()
- *  \brief Otvara - kreira Sql log
+/*!  *bool TSqlLog::open()
+ *   Otvara - kreira Sql log
  */
 
 *bool TSqlLog::open()
@@ -147,10 +147,10 @@ Gw("SET MODUL "+gModul)
 ::autoImport()
 
 return .t.
-*}
 
-/*! \fn *bool TSqlLog::import(integer nSite)
- *  \brief importuje log "nSite".log u Db
+
+/*!  *bool TSqlLog::import(integer nSite)
+ *   importuje log "nSite".log u Db
  */
 
 *bool TSqlLog::import(integer nSite)
@@ -192,10 +192,10 @@ GW_STATUS="-"
 goModul:oDatabase:scan()
 
 return .t.
-*}
 
-/*! \fn *void TSqlLog::importInteractive()
- *  \brief Interaktivni import - trazi od korisnika unos Site-a koji se importuje
+
+/*!  *void TSqlLog::importInteractive()
+ *   Interaktivni import - trazi od korisnika unos Site-a koji se importuje
  */
 
 *void TSqlLog::importInteractive()
@@ -216,11 +216,11 @@ endif
 ::import(nSite)
 
 return .t.
-*}
 
 
-/*! \fn *void TSqlLog::genZeroState()
- *  \brief Generise log pocetnog - trenutnog stanja Db-a
+
+/*!  *void TSqlLog::genZeroState()
+ *   Generise log pocetnog - trenutnog stanja Db-a
  */
 
 *void TSqlLog::genZeroState()
@@ -326,11 +326,11 @@ BoxC()
 
 
 return nil
-*}
 
 
-/*! \fn *void TSqlLog::genPeriod(dDatOd, dDatDo)
- *  \brief Generise log za datumski period
+
+/*!  *void TSqlLog::genPeriod(dDatOd, dDatDo)
+ *   Generise log za datumski period
  */
 
 *void TSqlLog::genPeriod(dDatOd, dDatDo)
@@ -338,11 +338,11 @@ return nil
 method genPeriod(dDatOd, dDatDo)
 
 return nil
-*}
 
 
-/*! \fn *void TSqlLog::menuAdmin()
- *  \brief Meni za administraciju Sql logova
+
+/*!  *void TSqlLog::menuAdmin()
+ *   Meni za administraciju Sql logova
  */
 
 *void TSqlLog::menuAdmin()
@@ -365,7 +365,7 @@ AADD(opcexe,{|| ::importInteractive() })
 
 Menu_SC("msql")
 return .f.
-*}
+
 
 
 *string FmkIni_ExePath_Gateway_AutoImportSql;
@@ -375,8 +375,8 @@ return .f.
  *
  */
  
-/*! \fn *void TSqlLog::autoImport()
- *  \brief Vrsi automatsko importovanje log-a na osnovu ini parametra Gateway/AutoImportSQL
+/*!  *void TSqlLog::autoImport()
+ *   Vrsi automatsko importovanje log-a na osnovu ini parametra Gateway/AutoImportSQL
  *  \sa FmkIni_ExePath_Gateway_AutoImportSql
  */
 
@@ -400,11 +400,11 @@ for i:=1 to INT(LEN(cPomIni)/3)
 next
 
 return 1
-*}
 
 
-/*! \fn *bool TSqlLog::startSynchro()
- *  \brief Trazim od servera da izvrsi proces sinhronizacije za moj <Site>
+
+/*!  *bool TSqlLog::startSynchro()
+ *   Trazim od servera da izvrsi proces sinhronizacije za moj <Site>
  *  Clipper -> lokalnom Gateway-u -> TCP/IP -> remote Gateway-u; Kada remote gateway dobije ovaj poziv on pokrece sql_synchro.py <Site>
  */
 
@@ -416,5 +416,5 @@ method startSynchro()
 Gw("RECI_SERVERU_JA_SAM_ON_LINE "+Str(::nSite))
 
 return .t.
-*}
+
 

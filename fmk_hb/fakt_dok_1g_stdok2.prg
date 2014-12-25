@@ -19,13 +19,13 @@
  */
 
 /*! \file fmk/fakt/dok/1g/stdok2.prg
- *  \brief Stampa fakture u varijanti 2
+ *   Stampa fakture u varijanti 2
  */
 
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FAKT_KrozDelphi
-  * \brief Da li se dokumenti stampaju kroz Delphi RB ?
+  *  Da li se dokumenti stampaju kroz Delphi RB ?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -34,7 +34,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_SifPath_SifRoba_PBarkod
-  * \brief Da li se mogu ispisivati bar-kodovi u dokumentima ?
+  *  Da li se mogu ispisivati bar-kodovi u dokumentima ?
   * \param 0 - ne, default vrijednost
   * \param 1 - da, na upit "Zelite li ispis bar-kodova?" ponudjen je odgovor "N"
   * \param 2 - da, na upit "Zelite li ispis bar-kodova?" ponudjen je odgovor "D"
@@ -44,7 +44,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FAKT_NazRTM
-  * \brief Naziv RTM fajla koji se koristi za stampu dokumenta kroz Delphi RB
+  *  Naziv RTM fajla koji se koristi za stampu dokumenta kroz Delphi RB
   * \param fakt1 - default vrijednost
   */
 *string FmkIni_ExePath_FAKT_NazRTM;
@@ -52,7 +52,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FAKT_NazRTMFax
-  * \brief Naziv RTM fajla koji se koristi za stampu dokumenta za slanje faksom
+  *  Naziv RTM fajla koji se koristi za stampu dokumenta za slanje faksom
   * \param fax1 - default vrijednost
   */
 *string FmkIni_ExePath_FAKT_NazRTMFax;
@@ -60,7 +60,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FAKT_StampaWin2000
-  * \brief Da li je operativni sistem Windows 2000 ?
+  *  Da li je operativni sistem Windows 2000 ?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -69,7 +69,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FAKT_PozivDelphiRB
-  * \brief Komanda za poziv Delphi RB-a za operativni sistem Windows 2000 
+  *  Komanda za poziv Delphi RB-a za operativni sistem Windows 2000 
   * \param DelphiRB - default vrijednost
   */
 *string FmkIni_ExePath_FAKT_PozivDelphiRB;
@@ -77,7 +77,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FAKT_10Duplo
-  * \brief Da li se koristi dupli prored fakture ako faktura ima do 10 stavki?
+  *  Da li se koristi dupli prored fakture ako faktura ima do 10 stavki?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -86,7 +86,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FAKT_StampaViseDokumenata
-  * \brief Da li se moze stampati vise od jednog dokumenta u pripremi ?
+  *  Da li se moze stampati vise od jednog dokumenta u pripremi ?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -95,7 +95,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_Zaglavlje_Linija1
-  * \brief 1.red zaglavlja dokumenta pri stampanju kroz Delphi RB
+  *  1.red zaglavlja dokumenta pri stampanju kroz Delphi RB
   * \param gNFirma - default vrijednost
   */
 *string FmkIni_KumPath_Zaglavlje_Linija1;
@@ -103,7 +103,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_Zaglavlje_Linija2
-  * \brief 2.red zaglavlja dokumenta pri stampanju kroz Delphi RB
+  *  2.red zaglavlja dokumenta pri stampanju kroz Delphi RB
   * \param - - nije definisano, default vrijednost
   */
 *string FmkIni_KumPath_Zaglavlje_Linija2;
@@ -111,7 +111,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_Zaglavlje_Linija3
-  * \brief 3.red zaglavlja dokumenta pri stampanju kroz Delphi RB
+  *  3.red zaglavlja dokumenta pri stampanju kroz Delphi RB
   * \param - - nije definisano, default vrijednost
   */
 *string FmkIni_KumPath_Zaglavlje_Linija3;
@@ -119,7 +119,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_Zaglavlje_Linija4
-  * \brief 4.red zaglavlja dokumenta pri stampanju kroz Delphi RB
+  *  4.red zaglavlja dokumenta pri stampanju kroz Delphi RB
   * \param - - nije definisano, default vrijednost
   */
 *string FmkIni_KumPath_Zaglavlje_Linija4;
@@ -127,7 +127,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_Zaglavlje_Linija5
-  * \brief 5.red zaglavlja dokumenta pri stampanju kroz Delphi RB
+  *  5.red zaglavlja dokumenta pri stampanju kroz Delphi RB
   * \param - - nije definisano, default vrijednost
   */
 *string FmkIni_KumPath_Zaglavlje_Linija5;
@@ -135,7 +135,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_CekanjeNaSljedeciPozivDRB
-  * \brief Broj sekundi cekanja na provjeru da li je Delphi RB zavrsio posljednji zadani posao 
+  *  Broj sekundi cekanja na provjeru da li je Delphi RB zavrsio posljednji zadani posao 
   * \param 6 - default vrijednost
   */
 *string FmkIni_KumPath_FAKT_CekanjeNaSljedeciPozivDRB;
@@ -143,7 +143,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_POREZI_PPUgostKaoPPU
-  * \brief Odredjuje nacin obracuna poreza u maloprodaji (u ugostiteljstvu)
+  *  Odredjuje nacin obracuna poreza u maloprodaji (u ugostiteljstvu)
   * \param M - racuna PRUC iskljucivo koristeci propisani donji limit RUC-a, default vrijednost
   * \param R - racuna PRUC na osnovu stvarne RUC ili na osnovu pr.d.lim.RUC-a ako je stvarni RUC manji od propisanog limita
   * \param J - metoda koju koriste u Jerry-ju
@@ -155,7 +155,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_SifPath_SifRoba_PDRazmak
-  * \brief Ako se stampaju bar-kodovi u dokumentu, da li se pravi razmak izmedju stavki u dokumentu ?
+  *  Ako se stampaju bar-kodovi u dokumentu, da li se pravi razmak izmedju stavki u dokumentu ?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -164,7 +164,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_PrivPath_UpitFax_Slati
-  * \brief Ako se stampa preko Delphi RB-a, da li se pravi dokument za slanje faksom ?
+  *  Ako se stampa preko Delphi RB-a, da li se pravi dokument za slanje faksom ?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -173,7 +173,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_DELPHIRB_Aktivan
-  * \brief Indikator aktivnosti Delphi RB-a
+  *  Indikator aktivnosti Delphi RB-a
   * \param 1 - aktivan
   * \param 0 - nije aktivan
   */
@@ -182,7 +182,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_SifPath_FAKT_Opcine
-  * \brief Koristi li se sifrarnik opcina i sifra opcine u sifrarniku partnera?
+  *  Koristi li se sifrarnik opcina i sifra opcine u sifrarniku partnera?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -191,7 +191,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_KupacDesno
-  * \brief Da li se podaci o kupcu ispisuju uz desnu marginu dokumenta ?
+  *  Da li se podaci o kupcu ispisuju uz desnu marginu dokumenta ?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -200,7 +200,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_I19jeOtpremnica
-  * \brief Da li se i dokument tipa 19 tretira kao otpremnica ?
+  *  Da li se i dokument tipa 19 tretira kao otpremnica ?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -209,7 +209,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_PrikaziNaruciocaAkoJeRazlicitOdKupca
-  * \brief Ako je narucilac razlicit od kupca, da li se stampa narucilac?
+  *  Ako je narucilac razlicit od kupca, da li se stampa narucilac?
   * \param D - da, default vrijednost
   * \param N - ne
   */
@@ -218,7 +218,7 @@
 
 /*! \ingroup ini
  *  \var *string FmkIni_ExePath_FAKT_DelphiRB
- *  \brief Da li ce se fakture stampati kroz DelphiRB ?
+ *   Da li ce se fakture stampati kroz DelphiRB ?
  *  \param D  - Prilikom poziva stampe dokumenti se stampaju kroz DelphiRB
  *  \param N  - Obicna stampa dokumenata
  *  \param P  - Pitanje prilikom poziva stampe DelphiRB ili obicni TXT
@@ -226,8 +226,8 @@
 *string FmkIni_ExePath_FAKT_DelphiRB;
 
 
-/*! \fn StDok2()
- *  \brief Stampa fakture u varijanti 2
+/*!  StDok2()
+ *   Stampa fakture u varijanti 2
  *  \param cIdFirma
  *  \param cIdTipDok
  *  \param cBrDok
@@ -1240,11 +1240,11 @@ else
   ENDIF
 endif
 CLOSERET
-*}
 
 
-/*! \fn Zagl2()
- *  \brief Stampa zaglavlja na fakturi u varijanti 2
+
+/*!  Zagl2()
+ *   Stampa zaglavlja na fakturi u varijanti 2
  */ 
 static function Zagl2()
 *{
@@ -1314,11 +1314,11 @@ endif
 ?? m
 
 return
-*}
 
 
-/*! \fn NStr0(bZagl,fPrenos)
- *  \brief Prelaz na novu stranu
+
+/*!  NStr0(bZagl,fPrenos)
+ *   Prelaz na novu stranu
  *  \param bZagl
  *  \param fPrenos
  */
@@ -1352,11 +1352,11 @@ else
  ? space(gnLmarg),"       Strana:",str(nStrana+1,3)
  ? m
 endif
-*}
 
 
-/*! \fn StKupac(fDelphiRB)
- *  \brief
+
+/*!  StKupac(fDelphiRB)
+ *  
  *  \param fdelphiRB
  */
  
@@ -1574,11 +1574,11 @@ if fDelphiRB
 endif
 
 return
-*}
 
 
-/*! \fn KatBr()
- *  \brief Kataloski broj
+
+/*!  KatBr()
+ *   Kataloski broj
  */
  
 function KatBr()
@@ -1589,12 +1589,12 @@ if roba->(fieldpos("KATBR"))<>0
   endif
 endif
 return ""
-*}
 
 
 
-/*! \fn UgRabTXT()
- *  \brief Uzima tekst iz fajla gFUgRab
+
+/*!  UgRabTXT()
+ *   Uzima tekst iz fajla gFUgRab
  */
  
 static function UgRabTXT()
@@ -1605,11 +1605,11 @@ if FILE(cFajl)
 	cPom:=FILESTR(cFajl)
 endif
 return cPom
-*}
 
 
-/*! \fn DiVoRel()
- *  \brief 
+
+/*!  DiVoRel()
+ *   
  *  \todo nesto vezano za vindiju
  */
  
@@ -1627,11 +1627,11 @@ LOCAL nArr:=SELECT(), cIdVozila:=idvozila
   ?? "   Vozilo:", TRIM(VOZILA->naz), TRIM(VOZILA->tablice)
   ?? "   Relacija:", TRIM(idrelac)
 return
-*}
 
 
-/*! \fn IspisiAmbalazu()
- *  \brief Ispisuje ambalazu
+
+/*!  IspisiAmbalazu()
+ *   Ispisuje ambalazu
  */
  
 function IspisiAmbalazu()
@@ -1641,12 +1641,12 @@ function IspisiAmbalazu()
 // @ prow(),pcol()+1 SAY STR(nPak,2)+"P+"+STR(nKom,2)+"K"
 @ prow(),pcol()+1 SAY STR(ambp,2)+"P+"+STR(ambk,2)+"K"
 return
-*}
 
 
 
-/*! \fn IspisiPoNar()
- *  \brief Ispisi po narudzbi
+
+/*!  IspisiPoNar()
+ *   Ispisi po narudzbi
  */
  
 function IspisiPoNar()
@@ -1666,17 +1666,17 @@ LOCAL cV:=""
    ENDIF
  ENDIF
 return cV
-*}
 
 
-/*! \fn Kolicina()
- *  \brief
+
+/*!  Kolicina()
+ *  
  */
  
 function Kolicina()
 *{
 return IF(lPovDob,-kolicina,kolicina)
-*}
+
 
 
 
@@ -1693,7 +1693,7 @@ if pripr->(fieldpos("C3"))<>0
 	cPom+=pripr->c3
 endif
 return !EMPTY(cPom)
-*}
+
 
 
 
@@ -1714,5 +1714,5 @@ endif
 
 
 return
-*}
+
 

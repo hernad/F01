@@ -74,7 +74,7 @@ fill_porfakt_data(cIdFirma, cIdTipDok, cBrDok, lPBarKod, lSamoKol)
 pf_a4_print()
 
 return
-*}
+
 
 
 // ----------------------------------------------------------------------
@@ -346,7 +346,7 @@ add_drntext("P10", gStZagl )
 add_drn(cBrDok, dDatDok, dDatVal, dDatIsp, cTime, nUkBPDV, nUkVPop, nUkBPDVPop, nUkPDV, nTotal, nCSum, nUkPopNaTeretProdavca, nDrnZaokr)
 
 return
-*}
+
 
 
 function fill_potpis(cIdVD)
@@ -368,7 +368,7 @@ endif
 add_drntext("F10", cPotpis)
 
 return
-*}
+
 
 
 // filovanje dodatnog teksta
@@ -397,7 +397,7 @@ next
 add_drntext("P02", ALLTRIM(STR(nCnt)))
 
 return
-*}
+
 
 
 function fill_part_data(cId, lPdvObveznik)
@@ -475,7 +475,7 @@ add_drntext("K06", cBrRjes)
 add_drntext("K07", cBrUpisa)
 
 return
-*}
+
 
 function fill_firm_data()
 *{
@@ -496,4 +496,4 @@ add_drntext("I13", ALLTRIM(gFText2))
 add_drntext("I14", ALLTRIM(gFText3))
 
 return
-*}
+

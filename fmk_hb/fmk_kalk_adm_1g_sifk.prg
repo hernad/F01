@@ -14,11 +14,11 @@
 
 
 /*! \file fmk/kalk/adm/1g/sifk.prg
- *  \brief Popunjavanje SIFK-karakteristika na osnovu azuriranih dokumenata
+ *   Popunjavanje SIFK-karakteristika na osnovu azuriranih dokumenata
  */
 
-/*! \fn MPSifk()
- *  \brief Popunjava SIFK-karakteristiku sifrarnika robe SEZ (oznaka sezone)
+/*!  MPSifk()
+ *   Popunjava SIFK-karakteristiku sifrarnika robe SEZ (oznaka sezone)
  */
 
 function MPSifk()
@@ -73,11 +73,11 @@ set filter to
 close all
 restore screen from cscr
 return
-*}
 
 
-/*! \fn DobUSifk()
- *  \brief Popunjava SIFK-karakteristiku sifrarnika robe DOB (dobavljac)
+
+/*!  DobUSifk()
+ *   Popunjava SIFK-karakteristiku sifrarnika robe DOB (dobavljac)
  */
 
 function DobUSifk()
@@ -123,6 +123,6 @@ set filter to
 close all
 restore screen from cscr
 return
-*}
+
 
 

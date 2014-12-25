@@ -959,8 +959,8 @@ return (nil)
 
 
 
-/*! \fn Zagl()
- *  \brief Zaglavlje izvjestaja "kartica magacin"
+/*!  Zagl()
+ *   Zaglavlje izvjestaja "kartica magacin"
  */
 
 static function Zagl()
@@ -1029,5 +1029,5 @@ ENDIF
 ? __line
 
 return (nil)
-*}
+
 

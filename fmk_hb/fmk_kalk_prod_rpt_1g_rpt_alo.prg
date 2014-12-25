@@ -21,7 +21,7 @@
  
 
 /*! \file fmk/kalk/prod/rpt/1g/rpt_all.prg
- *  \brief Ove funkcije koristi vise izvjestaja (primjer RekTarife)
+ *   Ove funkcije koristi vise izvjestaja (primjer RekTarife)
  */
 
 
@@ -228,5 +228,5 @@ next
 set order to 1
 go nRec
 return
-*}
+
 

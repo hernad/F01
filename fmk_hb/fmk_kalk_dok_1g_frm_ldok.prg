@@ -373,11 +373,11 @@ do case
      nRet:=DE_REFRESH
 endcase
 return nRet
-*}
 
 
-/*! \fn BrowseDok()
- *  \brief Pregled dokumenta u vidu browse tabele
+
+/*!  BrowseDok()
+ *   Pregled dokumenta u vidu browse tabele
  */
 
 function BrowseDok()
@@ -404,12 +404,12 @@ set cursor on
 BrowseKey(m_x+4,m_y+1,m_x+15,m_y+77,ImeKol,{|Ch| EdDok(Ch)},"idFirma+idvd+brdok=doks->(idFirma+idvd+brdok)",doks->(idFirma+idvd+brdok),2,,,{|| .f.})
 
 BoxC()
-*}
 
 
 
-/*! \fn EdDOK(Ch)
- *  \brief Obrada opcija u browsu odredjenog dokumenta
+
+/*!  EdDOK(Ch)
+ *   Obrada opcija u browsu odredjenog dokumenta
  */
 
 function EdDOK(Ch)
@@ -424,12 +424,12 @@ do case
      nRet:=DE_REFRESH
 endcase
 return nRet
-*}
 
 
 
-/*! \fn BrowseKart()
- *  \brief Browse prikaz kartice artikla 
+
+/*!  BrowseKart()
+ *   Browse prikaz kartice artikla 
  */
 
 function BrowseKart()
@@ -587,12 +587,12 @@ go nTreckalk
 
 BoxC()
 return
-*}
 
 
 
-/*! \fn OznaciMag(fsilent)
- *  \brief Markira sumnjive stavke na magac.kartici i daje poruku o indikacijama
+
+/*!  OznaciMag(fsilent)
+ *   Markira sumnjive stavke na magac.kartici i daje poruku o indikacijama
  */
 
 function OznaciMag(fsilent)
@@ -661,12 +661,12 @@ if kartica->stanje<0
 endif
 
 return .f.
-*}
 
 
 
-/*! \fn OznaciPro(fsilent)
- *  \brief Markira sumnjive stavke na prod.kartici i daje poruku o indikacijama
+
+/*!  OznaciPro(fsilent)
+ *   Markira sumnjive stavke na prod.kartici i daje poruku o indikacijama
  */
 
 function OznaciPro(fsilent)
@@ -730,12 +730,12 @@ if kartica->stanje<0
 endif
 
 return .f.
-*}
 
 
 
-/*! \fn EdKart(Ch)
- *  \brief Obrada opcija u browsu kartice
+
+/*!  EdKart(Ch)
+ *   Obrada opcija u browsu kartice
  */
 
 function EdKart(Ch)
@@ -755,6 +755,6 @@ do case
      nRet:=DE_REFRESH
 endcase
 return nRet
-*}
+
 
 

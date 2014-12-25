@@ -57,7 +57,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FAKT_NaslovPartnTelefon
-  * \brief Da li se uz naziv kupca upisuje i telefon?
+  *  Da li se uz naziv kupca upisuje i telefon?
   * \param D - da, default vrijednost
   * \param N - ne
   */
@@ -82,12 +82,12 @@ oObj:lNovaStavka:=.f.
 
 oObj:oOwner:lPartnerLoaded:=.f.
 return oObj
-*}
+
 
 
 #ifdef CPP
 /*! \class TFrmInvIt
- *  \brief Inventura Forma Item Inventura - definise stavku inventure
+ *   Inventura Forma Item Inventura - definise stavku inventure
  *
  */
 class TFrmInvIt
@@ -211,7 +211,7 @@ END CLASS
 
 
 
-/*! \fn TFrmInvIt::runAction()
+/*!  TFrmInvIt::runAction()
  *
  */
 
@@ -267,7 +267,7 @@ endif
 ::saveToTbl()
  
 return 1
-*}
+
 
  
 *void TFrmInvIt::close()
@@ -275,11 +275,11 @@ return 1
 method close
 BoxC()
 return
-*}
 
 
-/*! \fn TFrmInvIt::newItem()
- /*  \brief Dodaj novu stavku u dokument inventure
+
+/*!  TFrmInvIt::newItem()
+ /*   Dodaj novu stavku u dokument inventure
  */
 method newItem()
 
@@ -307,20 +307,20 @@ if ::nRbr<2
 endif
 
 return
-*}
 
 
-/*! \fn TFrmInvIt::deleteItem()
- /*  \brief izbrisi stavku
+
+/*!  TFrmInvIt::deleteItem()
+ /*   izbrisi stavku
  */
 method deleteItem()
 DELETE
 return
-*}
 
 
-/*! \fn TFrmInvIt::nextItem()
- *  \brief Sljedeca stavka
+
+/*!  TFrmInvIt::nextItem()
+ *   Sljedeca stavka
  */
 
 *int TFrmInvIt::nextItem()
@@ -337,7 +337,7 @@ endif
 ::loadFromTbl()
 
 return 1
-*}
+
 
 
 *void TFrmInvIt::loadFromTbl()
@@ -379,11 +379,11 @@ if !::oOwner:lPartnerLoaded
 	endif
 endif
 return
-*}
 
 
-/*! \fn TFrmInvIt::saveToTbl()
- *  \brief
+
+/*!  TFrmInvIt::saveToTbl()
+ *  
  */
 method saveToTbl()
 local cTxt
@@ -407,16 +407,16 @@ REPLACE txt WITH cTxt
 REPLACE serBr WITH STR(::nKKolicina,15,4) 
 REPLACE datDok WITH ::dDatDok
 return
-*}
+
 
 static function AddTxt(cTxt, cStr)
 *{
 cTxt:=cTxt+Chr(16)+cStr+Chr(17)
 return nil
-*}
 
-/*! \fn TFrmInvIt::vIdRj()
- *  \brief Validacija radne jedinice
+
+/*!  TFrmInvIt::vIdRj()
+ *   Validacija radne jedinice
  */
 method vldRj()
 local cPom
@@ -433,31 +433,31 @@ P_RJ(@cPom)
 ::cIdRj:=cPom
 
 return .t.
-*}
 
-/*! \fn TFrmInvIt::wheBrDok()
- *  \brief Prije ulaska u BrDok
+
+/*!  TFrmInvIt::wheBrDok()
+ *   Prije ulaska u BrDok
  */
  
 *bool TFrmInvIt::wheBrDok()
 *{
 method wheBrDok()
 return .t.
-*}
 
 
-/*! \fn TFrmInvIt::vldRbr()
- *  \brief Validacija Redni broj
+
+/*!  TFrmInvIt::vldRbr()
+ *   Validacija Redni broj
  */
 *bool TFrmInvIt::vldRbr()
 *{
 method vldRbr()
 return .f.
-*}
 
 
-/*! \fn TFrmInvIt::vldBrDok()
- *  \brief Validacija BrDok
+
+/*!  TFrmInvIt::vldBrDok()
+ *   Validacija BrDok
  */
 *bool TFrmInvIt::vldBrDok()
 *{
@@ -467,10 +467,10 @@ if !EMPTY(::cBrDok)
 else
 	return .f.
 endif
-*}
 
-/*! \fn TFrmInvIt::vldIdRoba()
- *  \brief validacija IdRoba
+
+/*!  TFrmInvIt::vldIdRoba()
+ *   validacija IdRoba
  */
 method vldIdRoba()
 *{
@@ -491,11 +491,11 @@ endif
 
 SELECT pripr
 return .t.
-*}
 
 
-/*! \fn TFrmInvIt::wheIdRoba()
- *  \brief When (pred ulazak u) IdRoba
+
+/*!  TFrmInvIt::wheIdRoba()
+ *   When (pred ulazak u) IdRoba
  */
 method wheIdRoba()
 *{
@@ -515,11 +515,11 @@ endif
 */
 
 return .t.
-*}
 
 
-/*! \fn TFrmInvIt::getPartner(int nRow)
- *  \brief Uzmi Podatke partnera
+
+/*!  TFrmInvIt::getPartner(int nRow)
+ *   Uzmi Podatke partnera
  */
 method getPartner(nRow)
 *{
@@ -530,10 +530,10 @@ method getPartner(nRow)
 @  m_x+nRow+2,m_y+2  SAY "Mjesto  " get ::cMjesto  picture "@"
 
 return
-*}
 
-/*! \fn TFrmInvIt::sayPartner(int nRow)
- *  \brief Odstampaj podatke o partneru
+
+/*!  TFrmInvIt::sayPartner(int nRow)
+ *   Odstampaj podatke o partneru
  */
 
 *void TFrmInvIt::sayPartner(int nRow)
@@ -548,10 +548,10 @@ method sayPartner(nRow)
 ?? ::cMjesto
 
 return
-*}
 
-/*! \fn TFrmInvIt::whePartner()
- *  \brief When Partner polja
+
+/*!  TFrmInvIt::whePartner()
+ *   When Partner polja
  */
 method whePartner()
 *{
@@ -561,10 +561,10 @@ method whePartner()
 ::cMjesto:=PADR(::cMjesto, 30)
 
 return .t.
-*}
 
-/*! \fn TFrmInvIt::vldPartner()
- *  \brief Validacija nakon unosa Partner polja - vidi je li sifra
+
+/*!  TFrmInvIt::vldPartner()
+ *   Validacija nakon unosa Partner polja - vidi je li sifra
  */
 method vldPartner()
 *{
@@ -588,11 +588,11 @@ if (RIGHT(cSif,1)="." .and. LEN(csif)<=7)
 
 endif
 return  .t.
-*}
 
 
-/*! \fn TFrmInvIt::vldPKolicina()
- *  \brief Validacija Popisane Kolicine
+
+/*!  TFrmInvIt::vldPKolicina()
+ *   Validacija Popisane Kolicine
  */
 
 method vldPKolicina()
@@ -624,11 +624,11 @@ endif
 */
 
 return .t.
-*}
 
 
-/*! \fn TFrmInvIt::vldKKolicina()
- *  \brief Validacija Knjizne Kolicine
+
+/*!  TFrmInvIt::vldKKolicina()
+ *   Validacija Knjizne Kolicine
  */
 method vldKKolicina()
 *{
@@ -640,20 +640,20 @@ if ::nKKolPrijeEdita<>::nKKolicina
 	endif
 endif
 return .t.
-*}
 
 
-/*! \fn TFrmInvIt::wheKKolicina()
- *  \brief Prije ulaska u polje Knjizne Kolicine
+
+/*!  TFrmInvIt::wheKKolicina()
+ *   Prije ulaska u polje Knjizne Kolicine
  */
 method wheKKolicina()
 *{
 ::nKKolPrijeEdita:=::nKKolicina
 return .t.
-*}
 
-/*! \fn TFrmInvIt::showArtikal()
- *  \brief Pokazi podatke o artiklu na formi ItemInventure
+
+/*!  TFrmInvIt::showArtikal()
+ *   Pokazi podatke o artiklu na formi ItemInventure
  */
 
 method showArtikal()
@@ -670,6 +670,6 @@ method showArtikal()
 
 
 return
-*}
+
 
 

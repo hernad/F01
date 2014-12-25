@@ -21,12 +21,12 @@
  
 
 /*! \file fmk/kalk/prod/gendok/1g/gen_dok.prg
- *  \brief Generisanje prodavnickih dokumenata
+ *   Generisanje prodavnickih dokumenata
  */
 
 
-/*! \fn GenProd()
- *  \brief Meni opcija za generisanje prodavnickih dokumenata
+/*!  GenProd()
+ *   Meni opcija za generisanje prodavnickih dokumenata
  */
 
 function GenProd()
@@ -63,7 +63,7 @@ private Izbor:=1
 Menu_SC("gdpr")
 
 return
-*}
+
 
 
 function MnuPNivel()
@@ -118,13 +118,13 @@ AADD(opcexe, {|| gen_ip_80()})
 private Izbor:=1
 Menu_SC("pmi")
 return
-*}
 
 
 
 
-/*! \fn GenNivP()
- *  \brief Generisanje 19-ke na osnovu azuriranog dokumenta IP
+
+/*!  GenNivP()
+ *   Generisanje 19-ke na osnovu azuriranog dokumenta IP
  */
 
 function GenNivP()
@@ -241,14 +241,14 @@ select kalk; set order to 1; go nTrec
 enddo
 closeret
 return
-*}
 
 
 
 
 
-/*! \fn NivPoProc()
- *  \brief Generisanje dokumenta tipa 19 tj. nivelacije na osnovu zadanog %
+
+/*!  NivPoProc()
+ *   Generisanje dokumenta tipa 19 tj. nivelacije na osnovu zadanog %
  */
 
 function NivPoProc()
@@ -412,15 +412,15 @@ enddo
 MsgC()
 CLOSERET
 return
-*}
 
 
 
 
 
 
-/*! \fn VratiZadNiv()
- *  \brief Generise novu 19-ku tj.nivelaciju na osnovu vec azurirane
+
+/*!  VratiZadNiv()
+ *   Generise novu 19-ku tj.nivelaciju na osnovu vec azurirane
  */
 
 function VratiZadNiv()
@@ -507,15 +507,15 @@ MsgC()
 
 CLOSERET
 return
-*}
 
 
 
 
 
 
-/*! \fn KorekMPC()
- *  \brief Generisanje nivelacije radi korekcije MPC
+
+/*!  KorekMPC()
+ *   Generisanje nivelacije radi korekcije MPC
  */
 
 function KorekMPC()
@@ -696,8 +696,8 @@ return
 
 
 
-/*! \fn Iz13u11()
- *  \brief Generisanje dokumenta tipa 11 na osnovu 13-ke
+/*!  Iz13u11()
+ *   Generisanje dokumenta tipa 11 na osnovu 13-ke
  */
 
 function Iz13u11()
@@ -763,15 +763,15 @@ enddo
 
 closeret
 return
-*}
 
 
 
 
 
 
-/*! \fn Gen41S()
- *  \brief Generisanje stavki u 42-ki na osnovu storna 41-ica
+
+/*!  Gen41S()
+ *   Generisanje stavki u 42-ki na osnovu storna 41-ica
  *  \todo Prebaciti u specif za KALKT (Opresa)
  */
 
@@ -898,14 +898,14 @@ ENDDO // konto
 
 close all
 return .t.
-*}
 
 
 
 
 
-/*! \fn Iz11u412()
- *  \brief Generisanje dokumenta tipa 41 ili 42 na osnovu 11-ke
+
+/*!  Iz11u412()
+ *   Generisanje dokumenta tipa 41 ili 42 na osnovu 11-ke
  */
 
 function Iz11u412()
@@ -1007,13 +1007,13 @@ endif
 
 CLOSERET
 return
-*}
 
 
 
 
-/*! \fn Iz10u11()
- *  \brief Generisanje dokumenta tipa 11 na osnovu 10-ke
+
+/*!  Iz10u11()
+ *   Generisanje dokumenta tipa 11 na osnovu 10-ke
  */
 
 function Iz10u11()
@@ -1111,7 +1111,7 @@ endif
 
 CLOSERET
 return
-*}
+
 
 
 // generisi 80-ku na osnovu IP-a
@@ -1180,6 +1180,6 @@ do while !EOF()
 enddo
 BoxC()
 return
-*}
+
 
 

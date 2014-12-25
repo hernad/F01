@@ -67,8 +67,8 @@ endif
 return 1
   
 
-/*! \fn TxtErase(cTxtFile, lErase)
- *  \brief Brisanje fajla cTxtFile
+/*!  TxtErase(cTxtFile, lErase)
+ *   Brisanje fajla cTxtFile
  *  \param cTxtFile - fajl za brisanje
  *  \param lErase - .t. ili .f. - brisati ili ne brisati fajl txt nakon importa
  */

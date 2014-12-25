@@ -13,8 +13,8 @@
 #include "SC.CH"
 
 
-/*! \fn VidiFajl(cImeF, aLinFiks, aKolFiks)
- *  \brief Pregled tekstualnog fajla
+/*!  VidiFajl(cImeF, aLinFiks, aKolFiks)
+ *   Pregled tekstualnog fajla
  *
  *
  * aLinFiks se zadaje ako treba fiksirati dio fajla (npr.zaglavlje tabele)
@@ -497,7 +497,7 @@ do while .t.
   ENDCASE
  enddo
 return
-*}
+
 
 
 function SljedLin(cFajl,nPocetak)
@@ -507,7 +507,7 @@ cPom:=FILESTR(cFajl,400,nPocetak)
 nPom:=AT(NRED,cPom)
 if nPom==0; nPom:=LEN(cPom)+1; endif
 return {LEFT(cPom,nPom-1),nPocetak+nPom+1}    // {cLinija,nPocetakSljedece}
-*}
+
 
 function PrethLin(cFajl,nKraj)
 *{ 
@@ -519,7 +519,7 @@ return IF( nPom==0, { cPom, 0}, { SUBSTR(cPom,nPom+2), nKraj-nKor+nPom-1} )
                                // {cLinija,nNjenPocetak}
 
 return
-*}
+
 
 function BrLinFajla(cImeF)
 *{ 
@@ -532,13 +532,13 @@ function BrLinFajla(cImeF)
   nVrati=nVrati+NUMAT( NRED ,cPom)
  enddo
 return nVrati
-*}
+
 
 function VelFajla(cImeF,cAttr)
 *{
  local aPom:=DIRECTORY(cImeF,cAttr)
 return if (!EMPTY(aPom),aPom[1,2],0)
-*}
+
 
 
 
@@ -552,7 +552,7 @@ local lVrati:=.f.
     lVrati:=.t.
   endif
 return lVrati
-*}
+
 
 
 function DioFajlaUNiz(cImeF,nPocRed,nUkRedova,nUkRedUF)
@@ -570,7 +570,7 @@ function DioFajlaUNiz(cImeF,nPocRed,nUkRedova,nUkRedUF)
     nOfset:=aPom[2]
   next
 return aVrati
-*}
+
 
 function VratiOfset(cTrazeniTekst,nOdPojavljivanja,nDoPojavljivanja,cUFajlu,nVelicinaFajla)
 *{
@@ -594,7 +594,7 @@ function VratiOfset(cTrazeniTekst,nOdPojavljivanja,nDoPojavljivanja,cUFajlu,nVel
  enddo
  aOfsetOdDo[2] := nOfset
 return aOfsetOdDo
-*}
+
 
 static function SendFile(cImeF)
 *{
@@ -627,4 +627,4 @@ cKom:="start "+cLokacija
 RUN &cKom
 
 return 1
-*}
+

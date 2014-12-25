@@ -30,11 +30,11 @@ FErase(PRIVPATH + "DRNTEXT.DBF")
 FErase(PRIVPATH + "DRNTEXT.CDX")
 
 return 1
-*}
 
 
-/*! \fn drn_create()
- *  \brief kreiranje tabela RN i DRN
+
+/*!  drn_create()
+ *   kreiranje tabela RN i DRN
  */
 function drn_create()
 *{
@@ -83,7 +83,7 @@ CREATE_INDEX("IDROBA", "idroba", PRIVPATH + "RN")
 CREATE_INDEX("1", "tip", PRIVPATH + "DRNTEXT")
 
 return
-*}
+
 
 
 // kreiranje tabele DOKSPF (POS tabela za podatke o kupcu)
@@ -110,11 +110,11 @@ CREATE_INDEX("1", "idpos+idvd+DToS(datum)+brdok", KUMPATH + "DOKSPF")
 CREATE_INDEX("2", "knaz", KUMPATH + "DOKSPF")
 
 return
-*}
 
 
-/*! \fn get_drn_fields(aArr)
- *  \brief napuni matricu aArr sa specifikacijom polja tabele
+
+/*!  get_drn_fields(aArr)
+ *   napuni matricu aArr sa specifikacijom polja tabele
  *  \param aArr - matrica
  */
 function get_drn_fields(aArr)
@@ -158,11 +158,11 @@ if glUgost
 endif
 
 return
-*}
 
 
-/*! \fn get_rn_fields(aArr)
- *  \brief napuni matricu aArr sa specifikacijom polja tabele
+
+/*!  get_rn_fields(aArr)
+ *   napuni matricu aArr sa specifikacijom polja tabele
  *  \param aArr - matrica
  */
 function get_rn_fields(aArr)
@@ -194,10 +194,10 @@ AADD(aArr, {"C3",   "C", 100, 0})
 AADD(aArr, {"OPIS",   "C", 200, 0})
 
 return
-*}
 
-/*! \fn get_dtxt_fields(aArr)
- *  \brief napuni matricu aArr sa specifikacijom polja tabele
+
+/*!  get_dtxt_fields(aArr)
+ *   napuni matricu aArr sa specifikacijom polja tabele
  *  \param aArr - matrica
  */
 function get_dtxt_fields(aArr)
@@ -205,7 +205,7 @@ function get_dtxt_fields(aArr)
 AADD(aArr, {"TIP",   "C",   3, 0})
 AADD(aArr, {"OPIS",  "C", 200, 0})
 return
-*}
+
 
 
 function add_drntext(cTip, cOpis)
@@ -230,7 +230,7 @@ replace tip with cTip
 replace opis with cOpis
 
 return
-*}
+
 
 
 // dodaj u drn.dbf
@@ -305,7 +305,7 @@ if glUgost
 endif
 
 return
-*}
+
 
 function add_drn_di(dDatIsp)
 
@@ -416,7 +416,7 @@ if ( ROUND(nPopNaTeretProdavca, 4) <> 0 )
 endif
 
 return
-*}
+
 
 
 // isprazni drn tabele
@@ -435,7 +435,7 @@ select drntext
 zap
 
 return
-*}
+
 
 
 // otvori rn tabele
@@ -445,7 +445,7 @@ O_DRN
 O_DRNTEXT
 O_RN
 return
-*}
+
 
 
 // provjera checksum-a
@@ -468,7 +468,7 @@ if nRNSum == nCSum
 endif
 
 return .f.
-*}
+
 
 
 // vrati vrijednost polja opis iz tabele drntext.dbf po id kljucu
@@ -489,7 +489,7 @@ endif
 cRet := RTRIM(opis)
 
 return cRet
-*}
+
 
 
 // azuriranje podataka o kupcu
@@ -547,7 +547,7 @@ SmReplace("kadr", cKAdres)
 SmReplace("kidbr", cKIdBroj)
 
 return
-*}
+
 
 
 // pretrazi tabelu kupaca i napuni matricu

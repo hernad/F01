@@ -94,4 +94,4 @@ gMeniSif:=.f.
 
 CLOSERET
 return
-*}
+

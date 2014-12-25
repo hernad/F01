@@ -46,7 +46,7 @@ endif
 Rpt_Narudzbenica(cNarFirma, cNarIdVD, cNarBrDok, lPripr)
 
 return
-*}
+
 
 
 function Rpt_Narudzbenica(cIdFirma, cIdVD, cBrDok, lPriprema)
@@ -71,7 +71,7 @@ endif
 run &cComArgs
 
 return
-*}
+
 
 
 

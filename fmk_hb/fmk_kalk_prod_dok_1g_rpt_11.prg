@@ -21,12 +21,12 @@
  
 
 /*! \file fmk/kalk/prod/dok/1g/rpt_11.prg
- *  \brief Stampa dokumenta tipa 11
+ *   Stampa dokumenta tipa 11
  */
 
 
-/*! \fn StKalk11_2(fZaTops)
- *  \brief Stampa dokumenta tipa 11
+/*!  StKalk11_2(fZaTops)
+ *   Stampa dokumenta tipa 11
  */
 
 function StKalk11_2(fZaTops)
@@ -275,7 +275,7 @@ if fZaTops
 endif
 
 return
-*}
+
 
 
 function head_11(lPrikPRUC, cLine)
@@ -314,7 +314,7 @@ endif
 ? cLine
 
 return
-*}
+
 
 
 

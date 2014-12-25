@@ -37,11 +37,11 @@
 
 
 /*! \file fmk/fakt/specif/vindija/1g/mnu_sif.prg
- *  \brief Menij sifrarnika za vindiju
+ *   Menij sifrarnika za vindiju
  */
 
-/*! \fn SifOVindija()
- *  \brief Opci sifrarnik koji koristi vindija
+/*!  SifOVindija()
+ *   Opci sifrarnik koji koristi vindija
  */
  
 function SifOVindija()
@@ -64,6 +64,6 @@ private Izbor:=1
 Menu_SC("vsif")
 
 return .f.
-*}
+
 
 

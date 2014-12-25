@@ -74,7 +74,7 @@ if pitanje(,"Postaviti javne sifre za id_j prazno ?","N")=="D"
 endif
 
 CLOSERET
-*}
+
 
 // prikaz idroba
 // nalazim se u tabeli koja sadrzi IDROBA, IDROBA_J
@@ -92,4 +92,4 @@ else
   return IDROBA
 endif
 return
-*}
+

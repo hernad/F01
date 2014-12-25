@@ -24,8 +24,8 @@
 //  - nRbr
 
 
-/*! \fn Get1_10()
- *  \brief Prvi ekran maske za unos dokumenta tipa 10
+/*!  Get1_10()
+ *   Prvi ekran maske za unos dokumenta tipa 10
  */
 
 function Get1_10()
@@ -146,12 +146,12 @@ ESC_RETURN K_ESC
 _FCJ2:=_FCJ*(1-_Rabat/100)
 
 return lastkey()
-*}
 
 
 
-/*! \fn Get2_10()
- *  \brief Drugi ekran maske za unos dokumenta tipa 10
+
+/*!  Get2_10()
+ *   Drugi ekran maske za unos dokumenta tipa 10
  */
 
 function Get2_10()
@@ -232,12 +232,12 @@ endif
 _MKonto:=_Idkonto; _MU_I:="1"
 nStrana:=3
 return lastkey()
-*}
 
 
 
-/*! \fn Get1_10s()
- *  \brief
+
+/*!  Get1_10s()
+ *  
  */
 
 function Get1_10s()
@@ -343,12 +343,12 @@ ENDIF
 _MKonto:=_Idkonto; _MU_I:="1"
 nStrana:=3
 return lastkey()
-*}
 
 
 
-/*! \fn V_kol10()
- *  \brief Validacija unosa kolicine
+
+/*!  V_kol10()
+ *   Validacija unosa kolicine
  */
 
 function V_kol10()
@@ -373,5 +373,5 @@ nKolS:=0;nKolZN:=0;nc1:=nc2:=0; dDatNab:=ctod("")
 select PRIPR
 endif
 return .t.
-*}
+
 

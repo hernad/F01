@@ -14,12 +14,12 @@
 
 
 /*! \file fmk/kalk/specif/vindija/1g/vindija.prg
- *  \brief Specificnosti za Vindiju
+ *   Specificnosti za Vindiju
  */
 
 
-/*! \fn PregledProdaje()
- *  \brief Pregled prodaje - Vindija
+/*!  PregledProdaje()
+ *   Pregled prodaje - Vindija
  */
 
 function PregProdaje()
@@ -305,7 +305,7 @@ IF PROW()>56+gPStranica-LEN(aGr); FF; endif
 	END PRINT
 	CLOSERET
 return
-*}
+
 
 
 
@@ -345,7 +345,7 @@ INDEX ON IDG+IDPG+IDROBA TAG "1"
 INDEX ON IDG+IDPG+LEFT(NAZ,40) TAG "2"
 SET ORDER TO TAG "1" ; GO TOP
 RETURN .T.
-*}
+
 
 
 // sa artiklima
@@ -397,7 +397,7 @@ ELSE
 ENDIF
 SKIP -1
 RETURN lVrati
-*}
+
 
 
 // bez artikala
@@ -462,21 +462,21 @@ ELSE
 ENDIF
 SKIP -1
 RETURN .f.
-*}
+
 
 static function OpisSubGr(cId)
 *{
 local cVrati
 cVrati:="UKUPNO GRUPA '"+cId+"-"+IzFmkIni("VINDIJA","NazGr"+cId,"",KUMPATH)+"'"
 return cVrati
-*}
+
 
 static function OpisSubPG(cIdG,cIdPG)
 *{
 local cVrati
 cVrati:="PODGRUPA '"+cIdPG+"-"+IzFmkIni("VINDIJA","NazPG"+cIdG+cIdPG,"",KUMPATH)+"'"
 return cVrati
-*}
+
 
 
 function SDiv(nDjelilac,nDijeljenik)
@@ -488,11 +488,11 @@ else
 	nV:=0
 endif
 return nV
-*}
 
 
-/*! \fn GetPictDem(nLen, nDec)
- *  \brief Vraca velicinu i broj decimala num polja
+
+/*!  GetPictDem(nLen, nDec)
+ *   Vraca velicinu i broj decimala num polja
  *  \param nLen
  *  \param nDec
  */
@@ -508,6 +508,6 @@ nPom := SUBSTR(gPicDem, (nAt + 1), (nLen - nAt))
 nDec := LEN(nPom)
 
 return
-*}
+
 
 

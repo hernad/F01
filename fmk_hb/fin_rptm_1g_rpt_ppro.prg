@@ -168,8 +168,8 @@ return
 
 
 
-/*! \fn RedIspisa()
- *  \brief
+/*!  RedIspisa()
+ *  
  */
  
 function RedIspisa()
@@ -185,8 +185,8 @@ RETURN cVrati
 
 
 
-/*! \fn ZagPPR(cI)
- *  \brief Zaglavlje pregleda promjena na racunu
+/*!  ZagPPR(cI)
+ *   Zaglavlje pregleda promjena na racunu
  *  \param cI
  */
 function ZagPPR(cI)
@@ -206,8 +206,8 @@ RETURN
 
 
 
-/*! \fn StrKZN(cInput,cIz,cU)
- *  \brief Konverzija znakova
+/*!  StrKZN(cInput,cIz,cU)
+ *   Konverzija znakova
  *  \param cInput  - ulazni tekst
  *  \param cIz     - izlaz
  *  \param cU      - ulaz

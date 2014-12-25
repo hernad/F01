@@ -22,8 +22,8 @@
 
 
 
-/*! \fn function ObjDBedit(cImeBoxa,  xw, yw, bUserF,  cMessTop, cMessBot, lInvert, aMessage, nFreeze, bPodvuci, nPrazno, nGPrazno, aPoredak, skipblock)
- * \brief Glavna funkcija tabelarnog prikaza podataka
+/*!  function ObjDBedit(cImeBoxa,  xw, yw, bUserF,  cMessTop, cMessBot, lInvert, aMessage, nFreeze, bPodvuci, nPrazno, nGPrazno, aPoredak, skipblock)
+ *  Glavna funkcija tabelarnog prikaza podataka
  * \param cImeBoxa - ime box-a
  * \param xw - duzina
  * \param yw - sirina
@@ -38,7 +38,7 @@
 * array ImeKol;
 
 /*! \var ImeKol
- \brief Privatna Varijabla koja se inicijalizira prije "ulaska" u ObjDBedit
+  Privatna Varijabla koja se inicijalizira prije "ulaska" u ObjDBedit
  \param - [ 1] Zalavlje kolone 
  \param - [ 2] kodni blok za prikaz kolone {|| id}
  \param - [ 3] izraz koji se edituje (string), obradjuje sa & operatorom
@@ -55,7 +55,7 @@
 * string gTBDir;
 
 /*! \var gTBDir
- \brief Rezim direktnog TBrowse-a
+  Rezim direktnog TBrowse-a
  \param - [D] Rad u rezimu direktnog TBrowse-a
  \param - [N] "standardni" TBrowse
 
@@ -292,7 +292,7 @@ DO WHILE .T.
 END DO
 
 RETURN
-*}
+
 
 
 function NeTBDirektni(lIzOBJDB)
@@ -304,7 +304,7 @@ if aParametri[9]==0
  IF !lIzOBJDB; BoxC(); ENDIF
  Box(aParametri[1],aParametri[2],aParametri[3],aParametri[4],aParametri[5])
 else
- @ m_x+aParametri[2]-aParametri[9],m_y+1 SAY replicate("Ä",aParametri[3])
+ @ m_x+aParametri[2]-aParametri[9],m_y+1 SAY replicate("ï¿½",aParametri[3])
 endif
 
 IF !lIzOBJDB
@@ -312,9 +312,9 @@ IF !lIzOBJDB
   Kol:=azKol
 ENDIF
 
-  @ m_x,m_y+2 SAY aParametri[8]+IF(!lIzOBJDB,REPL("Í",42),"")
+  @ m_x,m_y+2 SAY aParametri[8]+IF(!lIzOBJDB,REPL("ï¿½",42),"")
   @ m_x+aParametri[2]+1,m_y+2 SAY aParametri[7] COLOR "GR+/B"
-  @ m_x+aParametri[2]+1,col()+1 SAY IF(!lIzOBJDB,REPL("Í",42),"")
+  @ m_x+aParametri[2]+1,col()+1 SAY IF(!lIzOBJDB,REPL("ï¿½",42),"")
   @ m_x+1,m_y+aParametri[3]-6 SAY STR(RecCount2(),5)
   TB:=TBRowseDB(m_x+2+aParametri[10],m_y+1,m_x+aParametri[2]-aParametri[9]-iif(aParametri[9]<>0,1,0),m_y+aParametri[3])
 
@@ -333,15 +333,15 @@ ENDIF
        TB:addColumn(TCol)
     END IF
   NEXT
-  TB:headSep := 'Ä'
-  TB:colsep :="³"
+  TB:headSep := 'ï¿½'
+  TB:colsep :="ï¿½"
   if aParametri[6]==NIL
      TB:Freeze:=1
   else
      Tb:Freeze:=aParametri[6]
   endif
 RETURN
-*}
+
 
 function DaTBDirektni(lIzOBJDB)
 *{ 
@@ -362,9 +362,9 @@ LOCAL i,j,k
    Kol:=adKol
  ENDIF
 
-   //@ m_x,m_y+2 SAY aParametri[8]+"ÍUPOZORENJE: Mod direktnog unosa u tabelu!"
-   @ m_x,m_y+2 SAY aParametri[8]+IF(!lIzOBJDB,REPL("Í",42),"")
-   //@ m_x+aParametri[2]+1,m_y+2 SAY aParametri[7]+"ÍUPOZORENJE: Mod direktnog unosa u tabelu!"
+   //@ m_x,m_y+2 SAY aParametri[8]+"ï¿½UPOZORENJE: Mod direktnog unosa u tabelu!"
+   @ m_x,m_y+2 SAY aParametri[8]+IF(!lIzOBJDB,REPL("ï¿½",42),"")
+   //@ m_x+aParametri[2]+1,m_y+2 SAY aParametri[7]+"ï¿½UPOZORENJE: Mod direktnog unosa u tabelu!"
    @ m_x+aParametri[2]+1,m_y+2 SAY aParametri[7] COLOR "GR+/B"
 
    @ m_x+1,m_y+aParametri[3]-6 SAY STR(RecCount2(),5)
@@ -386,14 +386,14 @@ LOCAL i,j,k
    NEXT
    TB:headSep := CHR(220)
    //TB:colsep :=CHR(219)
-   TB:colsep :="³"
+   TB:colsep :="ï¿½"
    if aParametri[6]==NIL
       TB:Freeze:=1
    else
       Tb:Freeze:=aParametri[6]
    endif
 RETURN
-*}
+
 
 
 
@@ -467,7 +467,7 @@ IF nKey == K_UP .OR. nKey == K_DOWN .OR. ;
 ENDIF
 
 RETURN
-*}
+
 
 
 static function ForceStable()
@@ -475,7 +475,7 @@ static function ForceStable()
 DO WHILE .NOT. TB:stabilize()
     ENDDO
 RETURN
-*}
+
 
 static function InsToggle()
 *{
@@ -487,7 +487,7 @@ IF READINSERT()
         SETCURSOR(SC_INSERT)
     ENDIF
 RETURN
-*}
+
 
 static function EditPolja(nX,nY,xIni,cNazPolja,bWhen,bValid,cBoje)
 *{  
@@ -533,7 +533,7 @@ static function EditPolja(nX,nY,xIni,cNazPolja,bWhen,bValid,cBoje)
      nSirina:=len(transform(&cPom77U,cPict))
   endif
   //@ nX, nY GET &cPom77U VALID EVAL(bValid) WHEN EVAL(bWhen) COLOR "W+/BG,W+/B" pict cPict
-  if len(ImeKol[TB:Colpos])>=8  // ima joç getova
+  if len(ImeKol[TB:Colpos])>=8  // ima joï¿½ getova
     aPom:=ImeKol[TB:Colpos,8]  // matrica
     for i:=1 to len(aPom)
       nY:=nY+nSirina+1
@@ -573,14 +573,14 @@ static function EditPolja(nX,nY,xIni,cNazPolja,bWhen,bValid,cBoje)
 
   //gTBDir:=cStaraVr
 RETURN
-*}
+
 
 function Eval2(bblock,p1,p2,p3,p4,p5)
 *{
 if bBlock<>NIL
   Eval(bBlock,p1,p2,p3,p4,p5)
 endif
-*}
+
 
 
 static function GoBottomDB( nTBLine )
@@ -589,7 +589,7 @@ static function GoBottomDB( nTBLine )
    DBGOBOTTOM()
    nTBLine := nTBLastLine
    RETURN (NIL)
-*}
+
 
 static function GoTopDB( nTBLine )
 *{
@@ -599,7 +599,7 @@ static function GoTopDB( nTBLine )
    // your current line should be 1
    nTBLine := 1
    RETURN (NIL)
-*}
+
 
 function SkipDB( nRequest, nTBLine )
 *{
@@ -661,7 +661,7 @@ function SkipDB( nRequest, nTBLine )
 
    ENDIF
    RETURN (nActually)
-*}
+
 
 
 function StandTBKomande(TB, Ch, nRez, nPored, aPoredak)
@@ -815,7 +815,7 @@ DO CASE
      nRez:=INDEXORD()
      Prozor1(12,20,17+nPored,59,"UTVRDJIVANJE PORETKA",,,"GR+/N","W/N,B/W,,,B/W",2)
      FOR i:=1 TO nPored
-      @ 13+i,23 SAY PADR("poredak po "+aPoredak[i],33,"ú")+STR(i,1)
+      @ 13+i,23 SAY PADR("poredak po "+aPoredak[i],33,"ï¿½")+STR(i,1)
      NEXT
      @ 18,27 SAY "UREDITI TABELU PO BROJU:" GET nRez VALID nRez>0 .AND. nRez<nPored+1 PICT "9"
      READ
@@ -830,7 +830,7 @@ DO CASE
 ENDCASE
 
 return
-*}
+
 
 
 function StandTBTipke()
@@ -844,11 +844,11 @@ if Ch==K_ESC .or. Ch==K_CTRL_T .or. Ch=K_CTRL_P .or. Ch=K_CTRL_N .or. ;
    return .t.
 endif
 return .f.
-*}
 
 
-/*! \fn function TBPomjeranje(TB, cPomjeranje)
- *  \brief Opcije pomjeranja tbrowsea u direkt rezimu
+
+/*!  function TBPomjeranje(TB, cPomjeranje)
+ *   Opcije pomjeranja tbrowsea u direkt rezimu
  *  \param TB          -  TBrowseObjekt
  *  \param cPomjeranje - ">", ">2", "V0"
  */
@@ -883,7 +883,7 @@ elseif (cPomjeranje)="<"
 elseif (cPomjeranje)="0"
    TB:PanHome()
 endif
-*}
+
 
 
 function EvEr(cExpr,cmes,cT)
@@ -897,7 +897,7 @@ function EvEr(cExpr,cmes,cT)
    msgbeep(cMes)
  ENDIF
 RETURN lVrati
-*}
+
 
 
 function BrowseKey(y1,x1,y2,x2,;
@@ -915,8 +915,8 @@ usl='USL'+alltrim(str(POZIV,2))
 POZIV++
 &usl=uslov
 TB:=tbrowsedb(y1,x1,y2,x2)
-TB:headsep='ÑÍ'
-TB:colsep ='³'
+TB:headsep='ï¿½ï¿½'
+TB:colsep ='ï¿½'
 if eof(); skip -1; endif
 seek traz           //
 do while  &(&usl)
@@ -998,7 +998,7 @@ do while .t.
 
 enddo
 return (nil)
-*}
+
 
 static function Korisnik(nRequest,traz,dx,dy,nCurRec,nRecCnt)
 *{
@@ -1046,4 +1046,4 @@ if dx<>NIL .and. dy<>NIL
   @ m_x+dx,m_y+dy say STR(nRecCnt,4)
 endif
 return (nCount)
-*}
+

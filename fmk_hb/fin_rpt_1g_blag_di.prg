@@ -22,8 +22,8 @@
 #define DABLAGAS lBlagAsis.and._IDVN==cBlagIDVN
 
 
-/*! \fn Blagajna()
- *  \brief Blagajna dnevni izvjestaj
+/*!  Blagajna()
+ *   Blagajna dnevni izvjestaj
  */
  
 function Blagajna()
@@ -300,11 +300,11 @@ endif
 ? m
 
 return
-*}
 
 
-/*! \fn Slovima(nIzn,cDinDem)
- *  \brief Ispisuje neki iznos nIzn slovima
+
+/*!  Slovima(nIzn,cDinDem)
+ *   Ispisuje neki iznos nIzn slovima
  *  \param nIzn    - iznos
  *  \param cDinDem - domaca/strana valuta
  */
@@ -363,15 +363,15 @@ endif
 if fi .and. nIzn>=1; cRez+="i"; endif
 Stotice(nIzn,@cRez,.t.,.t.,cDINDEM)
 return
-*}
+
 
 
 
 /*! \todo Ova funkcija vec postoji i u fakt-u treba je prebaciti u /sclib 
  */
 
-/*! \fn Stotice(nIzn,cRez,fDecimale,fMnozina,cDinDem)
- *  \brief 
+/*!  Stotice(nIzn,cRez,fDecimale,fMnozina,cDinDem)
+ *   
  *  \param nIzn
  *  \param cRez
  *  \param fDecimale
@@ -438,7 +438,7 @@ enddo
 
 
 return cRez
-*}
+
 
 
 // stampa blagajne na osnovu azuriranog dokumenta

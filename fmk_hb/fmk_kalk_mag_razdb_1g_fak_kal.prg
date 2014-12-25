@@ -261,8 +261,8 @@ close all
 return
 
 
-/*! \fn Prenos()
- *  \brief Prenos FAKT 10 -> KALK 14 (veleprodajni racun)
+/*!  Prenos()
+ *   Prenos FAKT 10 -> KALK 14 (veleprodajni racun)
  */
  
 function Prenos()
@@ -459,13 +459,13 @@ enddo
 BoxC()
 closeret
 return
-*}
 
 
 
 
-/*! \fn PrenosOt(cIndik)
- *  \brief Prenosi FAKT->KALK (12->96),(19->96),(01->10),(0x->16)
+
+/*!  PrenosOt(cIndik)
+ *   Prenosi FAKT->KALK (12->96),(19->96),(01->10),(0x->16)
  */
 
 function PrenosOt(cIndik)
@@ -710,7 +710,7 @@ if found()
 endif
 select (nArr)
 return cSufiks
-*}
+
 
 // --------------------------
 // --------------------------
@@ -723,5 +723,5 @@ else
 endif
 
 return lResult
-*}
+
 

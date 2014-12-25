@@ -20,12 +20,12 @@
 
 
 /*! \file fmk/kalk/main/2g/app.prg
- *  \brief
+ *  
  */
 
 
-/*! \fn TKalkModNew()
- *  \brief
+/*!  TKalkModNew()
+ *  
  */
 
 function TKalkModNew()
@@ -39,7 +39,7 @@ return oObj
 
 #ifdef CPP
 /*! \class TKalkMod
- *  \brief KALK aplikacijski modul
+ *   KALK aplikacijski modul
  */
 
 class TKalkMod: public TAppMod
@@ -70,15 +70,15 @@ END CLASS
 #endif
 
 
-/*! \fn TKalkMod::dummy()
- *  \brief dummy
+/*!  TKalkMod::dummy()
+ *   dummy
  */
 
 *void TKalkMod::dummy()
 *{
 method dummy()
 return
-*}
+
 
 
 *void TKalkMod::initdb()
@@ -88,11 +88,11 @@ method initdb()
 ::oDatabase:=TDBKalkNew()
 
 return nil
-*}
 
 
-/*! \fn *void TKalkMod::mMenu()
- *  \brief Osnovni meni KALK modula
+
+/*!  *void TKalkMod::mMenu()
+ *   Osnovni meni KALK modula
  */
 *void TKalkMod::mMenu()
 *{
@@ -131,7 +131,7 @@ gRobaBlock:={|Ch| RobaBlock(Ch)}
 ::quit()
 
 return nil
-*}
+
 
 
 *void TKalkMod::mMenuStandard()
@@ -209,14 +209,14 @@ private Izbor:=1
 Menu_SC("gkas", .t. , lPodBugom)
 
 return
-*}
+
 
 *void TKalkMod::sRegg()
 *{
 method sRegg()
 sreg("KALK.EXE","KALK")
 return
-*}
+
 
 
 *void TKalkMod::srv()
@@ -239,11 +239,11 @@ if (MPar37("/KONVERT", goModul))
 	goModul:quit(.f.)
 endif
 return
-*}
 
 
-/*! \fn *void TKalkMod::setGVars()
- *  \brief opste funkcije KALK modula
+
+/*!  *void TKalkMod::setGVars()
+ *   opste funkcije KALK modula
  */
 *void TKalkMod::setGVars()
 *{

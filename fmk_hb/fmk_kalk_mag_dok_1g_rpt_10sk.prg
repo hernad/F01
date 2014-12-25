@@ -30,12 +30,12 @@
 
 
 /*! \file fmk/kalk/mag/dok/1g/rpt_10sk.prg
- *  \brief Stampa kalkulacije 10 - samo kolicine
+ *   Stampa kalkulacije 10 - samo kolicine
  */
 
 
-/*! \fn StKalk10_sk()
- *  \brief Stampa kalkulacije 10 - samo kolicine
+/*!  StKalk10_sk()
+ *   Stampa kalkulacije 10 - samo kolicine
  */
 
 function StKalk10_sk()
@@ -88,6 +88,6 @@ enddo
 ? m
 
 return (nil)
-*}
+
 
 

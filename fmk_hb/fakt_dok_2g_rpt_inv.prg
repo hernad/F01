@@ -62,8 +62,8 @@
  */
 
 
-/*! \fn RptInv()
- *  \brief Stampa dokumenta inventure IM
+/*!  RptInv()
+ *   Stampa dokumenta inventure IM
  */
  
 function RptInv()
@@ -177,11 +177,11 @@ SELECT pripr
 GO nRecNo
 
 return
-*}
 
 
-/*! \fn ZaglInv(cLinija)
- *  \brief Zaglavlje izvjestaja inventura
+
+/*!  ZaglInv(cLinija)
+ *   Zaglavlje izvjestaja inventura
  *  \param cLinija - Proslijedjuje se linija koja se ispisuje iznad i ispod zaglavlja 
  */
  
@@ -200,6 +200,6 @@ DokNovaStrana(125,@nStr,-1)
 ? cLinija
 
 return
-*}
+
 
 

@@ -680,12 +680,12 @@ if lExpRpt
 endif
 
 RETURN
-*}
 
 
 
-/*! \fn ZaglSan()
- *  \brief Zaglavlje strane subanalitickog bruto bilansa
+
+/*!  ZaglSan()
+ *   Zaglavlje strane subanalitickog bruto bilansa
  */
  
 function ZaglSan(cFormat)
@@ -731,11 +731,11 @@ ENDIF
 
 SELECT SUBAN
 RETURN
-*}
 
 
-/*! \fn AnalBB()
- *  \brief Analiticki bruto bilans
+
+/*!  AnalBB()
+ *   Analiticki bruto bilans
  */
  
 function AnalBB()
@@ -1047,10 +1047,10 @@ END PRINT
 
 closeret
 return
-*}
 
-/*! \fn BrBil_21()
- *  \brief Zaglavlje analitickog bruto bilansa
+
+/*!  BrBil_21()
+ *   Zaglavlje analitickog bruto bilansa
  */
  
 function BrBil_21()
@@ -1083,11 +1083,11 @@ select ANAL
 ? M4
 ? M5
 RETURN
-*}
 
 
-/*! \fn SintBB()
- *  \brief Sinteticki bruto bilans
+
+/*!  SintBB()
+ *   Sinteticki bruto bilans
  */
 
 function SintBB()
@@ -1414,12 +1414,12 @@ FF
 END PRINT
 closeret
 return
-*}
 
 
 
-/*! \fn BrBil_31()
- *  \brief Zaglavlje sintetickog bruto bilansa
+
+/*!  BrBil_31()
+ *   Zaglavlje sintetickog bruto bilansa
  */
 
 function BrBil_31()
@@ -1450,10 +1450,10 @@ select SINT
 ? M4
 ? M5
 RETURN
-*}
 
-/*! \fn GrupBB()
- *  \brief Bruto bilans po grupama konta
+
+/*!  GrupBB()
+ *   Bruto bilans po grupama konta
  */
 
 function GrupBB()
@@ -1730,11 +1730,11 @@ FF
 END PRINT
 closeret
 return
-*}
 
 
-/*! \fn BrBil_41()
- *  \brief Zaglavlje bruto bilansa po grupama 
+
+/*!  BrBil_41()
+ *   Zaglavlje bruto bilansa po grupama 
  */
 
 function BrBil_41()
@@ -1765,12 +1765,12 @@ select SINT
 ? M4
 ? M5
 RETURN
-*}
 
 
 
-/*! \fn BBMnoziSaK()
- *  \brief
+
+/*!  BBMnoziSaK()
+ *  
  */
  
 function BBMnoziSaK()
@@ -1789,11 +1789,11 @@ LOCAL nArr:=SELECT()
   ENDIF
  SELECT (nArr)
 RETURN
-*}
 
 
-/*! \fn ImaUSifVal(cKartica)
- *  \brief  
+
+/*!  ImaUSifVal(cKartica)
+ *    
  *  \param cKartica
  */
 
@@ -1812,5 +1812,5 @@ function ImaUSifVal(cKratica)
    ENDDO
    SELECT (nArr)
 RETURN lIma
-*}
+
 

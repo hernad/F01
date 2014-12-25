@@ -29,12 +29,12 @@
  
 
 /*! \file fmk/kalk/proizvod/1g/rpt_rn.prg
- *  \brief Stampa kalkulacije RN
+ *   Stampa kalkulacije RN
  */
 
 
-/*! \fn StKalkRN()
- *  \brief Stampa kalkulacije RN
+/*!  StKalkRN()
+ *   Stampa kalkulacije RN
  */
 
 function StKalkRN()
@@ -208,5 +208,5 @@ if prow()>61+gPStranica; FF; @ prow(),125 SAY "Str:"+str(++nStr,3); endif
 ? m
 
 return (nil)
-*}
+
 

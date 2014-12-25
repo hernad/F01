@@ -31,8 +31,8 @@
  *
  */
 
-/* \brief CreFmkPi()
- * \fn Kreiraj tabele proizvoljnih izvjestaja 
+/*  CreFmkPi()
+ *  Kreiraj tabele proizvoljnih izvjestaja 
  */
  
 function CreFmkPi()
@@ -112,4 +112,4 @@ CREATE_INDEX("ID","id", cImeDBF)
 CREATE_INDEX("1" ,"izv+STR(ri,4)" , cImeDBF)
 
 return
-*}
+

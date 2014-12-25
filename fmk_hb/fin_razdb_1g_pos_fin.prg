@@ -14,8 +14,8 @@
 
 #define F_T_PROMVP		245
 
-/*! \fn GetPrVPParams(cProdId, dDatOd, dDatDo, dDatDok, cTipNal, cShema)
- *  \brief Setuj parametre prenosa
+/*!  GetPrVPParams(cProdId, dDatOd, dDatDo, dDatDok, cTipNal, cShema)
+ *   Setuj parametre prenosa
  *  \param cProdId - id prodavnice
  *  \param dDatOd - datum prenosa od
  *  \param dDatDo - datum prenosa do
@@ -48,11 +48,11 @@ else
 endif
 
 return
-*}
 
 
-/*! \fn PromVP2Fin()
- *  \brief Centralna funkcija za prenos PROMVP u FIN
+
+/*!  PromVP2Fin()
+ *   Centralna funkcija za prenos PROMVP u FIN
  */
 function PromVP2Fin()
 *{
@@ -141,11 +141,11 @@ if RecCount() > 0
 endif
 
 return
-*}
 
 
-/*! \fn Azur2Pripr(cBrojNal, dDatNal)
- *  \brief Azuriranje stavke u pripremu
+
+/*!  Azur2Pripr(cBrojNal, dDatNal)
+ *   Azuriranje stavke u pripremu
  *  \param cBrojNal - broj naloga
  *  \param dDatNal - datum naloga
  */
@@ -170,12 +170,12 @@ replace	opis with TRIM(trfp2->naz)
 
 select (nArr)
 return
-*}
 
 
 
-/*! \fn NaDan(cField)
- *  \brief Vraca ukupan iznos pologa (cField) za datumski period
+
+/*!  NaDan(cField)
+ *   Vraca ukupan iznos pologa (cField) za datumski period
  *  \param cField - polje, npr "POLOG01"
  */
 function NaDan(cField)
@@ -205,11 +205,11 @@ enddo
 select (nArr)
 
 return 1
-*}
 
 
-/*! \fn GetVrPlIznos(cField)
- *  \brief Vraca iznos pologa za datumski period
+
+/*!  GetVrPlIznos(cField)
+ *   Vraca iznos pologa za datumski period
  *  \param cField - polje, npr "POLOG01"
  */
 static function GetVrPlIznos(cField)
@@ -237,12 +237,12 @@ enddo
 select (nArr)
 
 return nIzn
-*}
 
 
 
-/*! \fn O_PrVP_DB()
- *  \brief Otvaranje neophodnih tabela 
+
+/*!  O_PrVP_DB()
+ *   Otvaranje neophodnih tabela 
  */
 static function O_PrVP_DB()
 *{
@@ -256,11 +256,11 @@ O_PRIPR
 O_TRFP2
 
 return
-*}
 
 
-/*! \fn GetTopsParams(cTKPath, cProdKonto)
- *  \brief Setuje TOPS kumpath i idkonto 
+
+/*!  GetTopsParams(cTKPath, cProdKonto)
+ *   Setuje TOPS kumpath i idkonto 
  *  \param cTKPath - kumpath tops
  *  \param cProdKonto - prodavnicki konto
  */
@@ -292,6 +292,6 @@ if EMPTY(cProdKonto)
 endif
 
 return .t.
-*}
+
 
 

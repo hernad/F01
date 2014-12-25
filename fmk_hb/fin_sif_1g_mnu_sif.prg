@@ -30,12 +30,12 @@
 
 
 /*! \file fmk/fin/sif/1g/mnu_sif.prg
- *  \brief Menij sifrarnika
+ *   Menij sifrarnika
  */
 
 
-/*! \fn MnuSifrarnik()
- *  \brief Menij sifrarnika
+/*!  MnuSifrarnik()
+ *   Menij sifrarnika
  */
 
 
@@ -67,10 +67,10 @@ endif
 Menu_SC("sif")
 
 return
-*}
 
-/*! \fn MnuSpecSif()
- *  \brief Specificni sifrarnika
+
+/*!  MnuSpecSif()
+ *   Specificni sifrarnika
  */
 function MnuSpecSif()
 *{
@@ -146,10 +146,10 @@ endif
 Menu_SC("sopc")
 
 return
-*}
 
-/*! \fn MnuBudzSif()
- *  \brief Menij budzetskog poslovanja
+
+/*!  MnuBudzSif()
+ *   Menij budzetskog poslovanja
  */
 function MnuBudzSif()
 *{
@@ -181,10 +181,10 @@ endif
 Menu_SC("sbdz")
 
 return
-*}
 
-/*! \fn OSifBudzet()
- *  \brief Otvara potrebne tabele za budzetsko poslovanje
+
+/*!  OSifBudzet()
+ *   Otvara potrebne tabele za budzetsko poslovanje
  */
 function OSifBudzet()
 *{
@@ -199,7 +199,7 @@ if File(SIFPATH+"trfp2.dbf")
 	O_TRFP2
 endif
 return
-*}
+
 
 
 

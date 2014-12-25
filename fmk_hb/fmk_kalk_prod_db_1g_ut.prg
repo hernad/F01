@@ -21,7 +21,7 @@
  
 
 /*! \file fmk/kalk/prod/db/1g/ut.prg
- *  \brief Razne funkcije
+ *   Razne funkcije
  */
 function MarzaMP(cIdVd, lNaprijed, aPorezi)
 local nPrevMP
@@ -90,8 +90,8 @@ return
 
 
 
-/*! \fn Marza2(fMarza)
- *  \brief Postavi _Marza2, _mpc, _mpcsapp
+/*!  Marza2(fMarza)
+ *   Postavi _Marza2, _mpc, _mpcsapp
  */
 
 function Marza2(fMarza)
@@ -240,13 +240,13 @@ endif
 
 AEVAL(GetList,{|o| o:display()})
 return
-*}
 
 
 
 
-/*! \fn Marza2R()
- *  \brief Marza2 pri realizaciji prodavnice je MPC-NC
+
+/*!  Marza2R()
+ *   Marza2 pri realizaciji prodavnice je MPC-NC
  */
 
 function Marza2R()
@@ -286,11 +286,11 @@ else
 endif
 AEVAL(GetList,{|o| o:display()})
 return
-*}
 
 
-/*! \fn Marza2R()
- *  \brief Marza pri realizaciji prodavnice 
+
+/*!  Marza2R()
+ *   Marza pri realizaciji prodavnice 
  */
 
 function MarzaMpR()
@@ -331,12 +331,12 @@ else
 endif
 AEVAL(GetList,{|o| o:display()})
 return
-*}
 
 
 
-/*! \fn FaktMPC(nMPC,cseek,dDatum)
- *  \brief Fakticka maloprodajna cijena
+
+/*!  FaktMPC(nMPC,cseek,dDatum)
+ *   Fakticka maloprodajna cijena
  */
 
 function FaktMPC(nMPC,cseek,dDatum)
@@ -366,13 +366,13 @@ local nOrder
   PopWa()
   //dbsetorder(nOrder)
 return
-*}
 
 
 
 
-/*! \fn UzmiMPCSif()
- *  \brief
+
+/*!  UzmiMPCSif()
+ *  
  */
 
 function UzmiMPCSif()
@@ -392,7 +392,7 @@ function UzmiMPCSif()
     nCV:=roba->mpc
   endif
 return nCV
-*}
+
 
 
 
@@ -462,8 +462,8 @@ return lRet
 
 
 
-/*! \fn V_KolPro()
- *  \brief
+/*!  V_KolPro()
+ *  
  */
 
 function V_KolPro()
@@ -487,13 +487,13 @@ if nKolS<ppKolicina
      _ERROR:="1"
 endif
 return .t.
-*}
 
 
 
 
-/*! \fn StanjeProd(cKljuc,ddatdok)
- *  \brief
+
+/*!  StanjeProd(cKljuc,ddatdok)
+ *  
  */
 
 function StanjeProd(cKljuc,ddatdok)
@@ -527,5 +527,5 @@ function StanjeProd(cKljuc,ddatdok)
    SKIP 1
  ENDDO
 return (nUlaz-nIzlaz)
-*}
+
 

@@ -20,13 +20,13 @@
  
 
 /*! \file fmk/fakt/sif/1g/sifre.prg
- *  \brief Sifrarnici
+ *   Sifrarnici
  */
 
 
 /*! \ingroup ini
   * \var *string FmkIni_SifPath_FAKT_VrstePlacanja
-  * \brief Da li se koristi sifrarnik vrsta placanja i evidentiranje vrste placanja na fakturama?
+  *  Da li se koristi sifrarnik vrsta placanja i evidentiranje vrste placanja na fakturama?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -35,7 +35,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_SifPath_Partn_Naziv2
-  * \brief Da li se koristi i dodatno polje NAZIV2 za naziv firme u sifrarniku partnera
+  *  Da li se koristi i dodatno polje NAZIV2 za naziv firme u sifrarniku partnera
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -44,7 +44,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FIN_VidiUgovor
-  * \brief Omoguciti opciju za pregled ugovora za partnera u sifrarniku partnera koja se dobije tipkom F5 ?
+  *  Omoguciti opciju za pregled ugovora za partnera u sifrarniku partnera koja se dobije tipkom F5 ?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -53,7 +53,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_Svi_SifAuto
-  * \brief Koriste li se automatski dodjeljivane sifre robe?
+  *  Koriste li se automatski dodjeljivane sifre robe?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -62,7 +62,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_SifPath_Svi_SifAuto
-  * \brief Onemoguciti korisnicko mijenjanje sifara robe?
+  *  Onemoguciti korisnicko mijenjanje sifara robe?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -71,7 +71,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_SifPath_SifRoba_ID
-  * \brief Prikazivati kolonu sifre robe u sifrarniku robe ako se sifra automatski dodjeljuje?
+  *  Prikazivati kolonu sifre robe u sifrarniku robe ako se sifra automatski dodjeljuje?
   * \param D - da, default vrijednost
   * \param N - ne
   */
@@ -80,7 +80,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_SifPath_SifRoba_VPC2
-  * \brief Prikazati kolonu VPC2 u sifrarniku robe?
+  *  Prikazati kolonu VPC2 u sifrarniku robe?
   * \param D - da, default vrijednost
   * \param N - ne
   */
@@ -89,7 +89,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_SifPath_SifRoba_MPCXY
-  * \brief Da li se prikazuju MPC2, MPC3, ..., MPC10 (naravno ako uopste postoje ova polja u bazi) u sifrarniku robe?
+  *  Da li se prikazuju MPC2, MPC3, ..., MPC10 (naravno ako uopste postoje ova polja u bazi) u sifrarniku robe?
   * \param D - da, default vrijednost
   * \param N - ne
   */
@@ -98,7 +98,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_SifPath_SifRoba_SortTag
-  * \brief Ime tag-a (indeksa) koji se koristi za sortiranje sifrarnika robe
+  *  Ime tag-a (indeksa) koji se koristi za sortiranje sifrarnika robe
   * \param ID  - po sifri robe, default vrijednost
   * \param NAZ - po nazivu robe
   */
@@ -107,7 +107,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_SifPath_SifRoba_PitanjeOpis
-  * \brief Da li ce se pojavljivati pitanje za unos opisa robe pri editovanju podataka u sifrarniku robe?
+  *  Da li ce se pojavljivati pitanje za unos opisa robe pri editovanju podataka u sifrarniku robe?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -116,7 +116,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_BoxStanje_ZaglavljeStanjex
-  * \brief Opis podatka koji se ispisuje kao dodatni parametar u okviru stanja robe (opcija "S" u sifrarniku robe) u x-tom dodatnom redu
+  *  Opis podatka koji se ispisuje kao dodatni parametar u okviru stanja robe (opcija "S" u sifrarniku robe) u x-tom dodatnom redu
   * \param  - prazno, tj. nije definisano, default vrijednost
   */
 *string FmkIni_KumPath_BoxStanje_ZaglavljeStanjex;
@@ -124,7 +124,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_BoxStanje_FormulaStanjex
-  * \brief Formula za odredjivanje podatka koji se ispisuje kao dodatni parametar u okviru stanja robe (opcija "S" u sifrarniku robe) u x-tom dodatnom redu
+  *  Formula za odredjivanje podatka koji se ispisuje kao dodatni parametar u okviru stanja robe (opcija "S" u sifrarniku robe) u x-tom dodatnom redu
   * \param  - prazno, tj. nije definisano, default vrijednost
   */
 *string FmkIni_KumPath_BoxStanje_FormulaStanjex;
@@ -132,7 +132,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_SifPath_SIFROBA_PrikID
-  * \brief Koja sifra robe se prikazuje u dokumentima?
+  *  Koja sifra robe se prikazuje u dokumentima?
   * \param ID   - IDROBA, default vrijednost
   * \param ID_J - IDROBA_J, ako se koristi automatsko dodjeljivanje sifara robe)
   */
@@ -141,7 +141,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_SifPath_FAKT_Opcine
-  * \brief Koristi li se sifrarnik opcina i polje za sifru opcine u sifrarniku partnera
+  *  Koristi li se sifrarnik opcina i polje za sifru opcine u sifrarniku partnera
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -151,7 +151,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_SifPath_SifRoba_ID_J
-  * \brief Koriste li se sifre robe ID_J?
+  *  Koriste li se sifre robe ID_J?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -160,7 +160,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_Svi_Sifk
-  * \brief Da li se koriste sifrarnici SIFK i SIFV?
+  *  Da li se koriste sifrarnici SIFK i SIFV?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -209,8 +209,8 @@ return PostojiSifra(F_RELAC,1,10,75,"Lista: Relacije",@cId,dx,dy)
 
 
 
-/*! \fn P_Vozila(cId,dx,dy)
- *  \brief Otvara sifrarnik Volzila
+/*!  P_Vozila(cId,dx,dy)
+ *   Otvara sifrarnik Volzila
  *  \param cId
  *  \param dx
  *  \param dy
@@ -230,8 +230,8 @@ Private gTBDir:="N"
 return PostojiSifra(F_VOZILA,1,10,75,"Lista: Vozila",@cId,dx,dy)
 
 
-/*! \fn FaPartnBlock(Ch)
- *  \brief
+/*!  FaPartnBlock(Ch)
+ *  
  *  \param 
  */
 function FaPartnBlock(Ch)
@@ -247,9 +247,9 @@ return DE_CONT
 
 
 
-/*! \fn IzFUgovor()
- *  \brief Pregled ugovora za partnera
- *  \brief Specificno za ZIPS
+/*!  IzFUgovor()
+ *   Pregled ugovora za partnera
+ *   Specificno za ZIPS
  */
  
 function IzfUgovor()
@@ -317,8 +317,8 @@ return .t.
 
 
 
-/*! \fn RobaBlok(Ch)
- *  \brief 
+/*!  RobaBlok(Ch)
+ *   
  *  \param Ch 
  */
  
@@ -481,8 +481,8 @@ endif
 
 RETURN DE_CONT
 
-/*! \fn FaktStanje(cIdRoba)
- *  \brief Stanje robe fakt-a
+/*!  FaktStanje(cIdRoba)
+ *   Stanje robe fakt-a
  *  \param cIdRoba
  */
  
@@ -539,8 +539,8 @@ return
 
 
 
-/*! \fn BoxStanje(aStanje,cIdRoba)
- *  \brief
+/*!  BoxStanje(aStanje,cIdRoba)
+ *  
  *  \param aStanje
  *  \param cIdRoba
  */
@@ -650,8 +650,8 @@ return
 
 
 
-/*! \fn P_VrsteP(cId,dx,dy)
- *  \brief Otvara sifranik vrsta placanja 
+/*!  P_VrsteP(cId,dx,dy)
+ *   Otvara sifranik vrsta placanja 
  *  \param cId
  *  \param dx
  *  \param dy
@@ -699,8 +699,8 @@ RETURN vrati
 
 
 
-/*! \fn PrikFTxt()
- *  \brief Prikazuje uzorak teksta
+/*!  PrikFTxt()
+ *   Prikazuje uzorak teksta
  */
  
 function PrikFTxt()
@@ -718,8 +718,8 @@ LOCAL  i:=0, aTXT:={}
 return -1
 
 
-/*! \fn fn ObSif()
- *  \brief
+/*!  fn ObSif()
+ *  
  */
  
 static function ObSif()
@@ -763,8 +763,8 @@ RETURN
 
 
 
-/*! \fn TxtUNiz(cTxt,nKol)
- *  \brief Pretvara TXT u niz
+/*!  TxtUNiz(cTxt,nKol)
+ *   Pretvara TXT u niz
  *  \param cTxt   - tekst
  *  \param nKol   - broj kolona
  */
@@ -806,8 +806,8 @@ RETURN aVrati
 
 
 
-/*! \fn ImaUKumul(cKljuc,cTag)
- *  \brief
+/*!  ImaUKumul(cKljuc,cTag)
+ *  
  *  \param cKljuc
  *  \param cTag
  */
@@ -840,8 +840,8 @@ RETURN lVrati
 
 
 
-/*! \fn P_DefDok(cId,dx,dy)
- *  \brief Otvara sifranik definicije dokumenata 
+/*!  P_DefDok(cId,dx,dy)
+ *   Otvara sifranik definicije dokumenata 
  *  \param cId
  *  \param dx
  *  \param dy
@@ -861,8 +861,8 @@ return PostojiSifra(F_FADO,1,10,60,"Lista dokumenata u FAKT <F5> - definisi izgl
 
 
 
-/*! \fn DefDokBlok(Ch)
- *  \brief Obradjuje dogadjaje za pritisnuti taster Ch
+/*!  DefDokBlok(Ch)
+ *   Obradjuje dogadjaje za pritisnuti taster Ch
  *  \param Ch  - pritisnuti taster (npr. CTRL+T)
  */
  
@@ -917,8 +917,8 @@ return DE_CONT
 
 
 
-/*! \fn V_DefDok()
- *  \brief
+/*!  V_DefDok()
+ *  
  *  \param cId  - Id ugovora
  */
  
@@ -955,8 +955,8 @@ return .t.
 
 
 
-/*! \fn EdDefDok(Ch)
- *  \brief
+/*!  EdDefDok(Ch)
+ *  
  *  \param Ch - Pritisnuti taster
  */
  
@@ -1050,8 +1050,8 @@ return nRet
 
 
 
-/*! \fn LabelU()
- *  \brief Labeliranje ugovora
+/*!  LabelU()
+ *   Labeliranje ugovora
  */
  
 function LabelU()
@@ -1260,7 +1260,7 @@ return
 
 
 
-/*! \fn BlokSLU()
+/*!  BlokSLU()
  */
 function BlokSLU()
 
@@ -1268,8 +1268,8 @@ RETURN
 
 
 
-/*! \fn ZipsTemp()
- *  \brief Generisanje ugovora na osnovu telefon fax
+/*!  ZipsTemp()
+ *   Generisanje ugovora na osnovu telefon fax
  */
  
 function ZipsTemp()
@@ -1354,8 +1354,8 @@ return
 
 
 
-/*! \fn StIdRoba()
- *  \brief Prikaz roba
+/*!  StIdRoba()
+ *   Prikaz roba
  */
  
 function StIdRoba()
@@ -1374,8 +1374,8 @@ else
 endif
 
 
-/*! \fn OsvjeziIdJ()
- *  \brief Osvjezavanje fakta javnim siframa
+/*!  OsvjeziIdJ()
+ *   Osvjezavanje fakta javnim siframa
  */
  
 function OsvjeziIdJ()
@@ -1420,8 +1420,8 @@ return
 
 
 
-/*! \fn SifkFill(cSifk,cSifv,cSifrarnik,cIdSif)
- *  \brief Puni pomocne tabele sifk i sifv radi prenosa
+/*!  SifkFill(cSifk,cSifv,cSifrarnik,cIdSif)
+ *   Puni pomocne tabele sifk i sifv radi prenosa
  *  \param cSifk       - ime sifk tabele
  *  \param cSifv       - ime sifv tabele
  *  \param cSifrarnik  - sifrarnik (nrp. roba)
@@ -1468,8 +1468,8 @@ return
 
 
 
-/*! \fn SifkOsv(cSifk,cSifv,cSifrarnik,cIdSif,cRepFajl)
- *  \brief Osvjezava sifk i sifv iz pomocnih tabela obicno _sifk i _sifv
+/*!  SifkOsv(cSifk,cSifv,cSifrarnik,cIdSif,cRepFajl)
+ *   Osvjezava sifk i sifv iz pomocnih tabela obicno _sifk i _sifv
  *  \param cSifk 
  *  \param cSifv 
  *  \param csifrarnik
@@ -1539,8 +1539,8 @@ return
 
 
 
-/*! \fn SMark(cNazPolja)
- *  \brief Vraca samo markiranu robu
+/*!  SMark(cNazPolja)
+ *   Vraca samo markiranu robu
  *  \param cNazPolja - ime polja koje sadrzi internu sifru artikla koji se trazi */
  
 function SMark(cNazPolja)
@@ -1580,8 +1580,8 @@ RETURN lVrati
 
 
 
-/*! \fn IzborRelacije(cIdRelac,cIdDist,cIdVozila,dDatum,cMarsuta)
- *  \brief Izbor relacije
+/*!  IzborRelacije(cIdRelac,cIdDist,cIdVozila,dDatum,cMarsuta)
+ *   Izbor relacije
  *  \param cIdRelac    - id relacije
  *  \param cIdDist     - id distribucije
  *  \param cIdVozila   - id vozila
@@ -1643,8 +1643,8 @@ RETURN lVrati
 
 
 
-/*! \fn UpisiURF(cTekst,cFajl,lNoviRed,lNoviFajl)
- *  \brief Upisi u report fajl
+/*!  UpisiURF(cTekst,cFajl,lNoviRed,lNoviFajl)
+ *   Upisi u report fajl
  *  \param cTekst    - tekst
  *  \param cFajl     - ime fajla
  *  \param lNoviRed  - da li prelaziti u novi red
@@ -1659,8 +1659,8 @@ RETURN
 
 
 
-/*! \fn DiffMFV(cZn,cDiff)
- *  \brief differences: memo vs field variable
+/*!  DiffMFV(cZn,cDiff)
+ *   differences: memo vs field variable
  *  \param cZn 
  *  \param cdiff
  */

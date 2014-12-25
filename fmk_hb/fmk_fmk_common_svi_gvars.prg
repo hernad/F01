@@ -159,7 +159,7 @@ if gModul<>"TOPS"
 endif
 
 return
-*}
+
 
 function SetPDVBoje()
 *{
@@ -173,7 +173,7 @@ else
 	StandardBoje()
 endif
 return
-*}
+
 
 
 function SetValuta()
@@ -187,11 +187,11 @@ else
 endif
 
 return
-*}
 
 
-/*! \fn ParPDV()
- *  \brief Provjeri parametar pdv
+
+/*!  ParPDV()
+ *   Provjeri parametar pdv
  */
 function ParPDV()
 *{
@@ -204,11 +204,11 @@ if (gPDV == "") .or. (gPDV $ "ND" .and. gModul=="TOPS")
 	endif
 endif
 return
-*}
 
 
-/*! \fn IsPDV()
- *  \brief Da li je pdv rezim rada ili ne
+
+/*!  IsPDV()
+ *   Da li je pdv rezim rada ili ne
  *  \ret .t. or .f.
  */
 function IsPDV()
@@ -217,7 +217,7 @@ if gPDV=="D"
 	return .t.
 endif
 return .f.
-*}
+
 
 
 

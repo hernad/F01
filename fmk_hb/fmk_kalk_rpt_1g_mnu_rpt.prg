@@ -20,11 +20,11 @@
 
 
 /*! \file fmk/kalk/rpt/1g/mnu_rpt.prg
- *  \brief Izvjestaji
+ *   Izvjestaji
  */
 
-/*! \fn MIzvjestaji()
- *  \brief Glavni menij izvjestaja
+/*!  MIzvjestaji()
+ *   Glavni menij izvjestaja
  */
  
 function MIzvjestaji()
@@ -52,8 +52,8 @@ return
 return
 
 
-/*! \fn IzvjMaPr()
- *  \brief Izvjestaji magacin / prodavnica
+/*!  IzvjMaPr()
+ *   Izvjestaji magacin / prodavnica
  */
  
 function IzvjMaPr()
@@ -84,7 +84,7 @@ close all
 private Izbor:=1
 Menu_SC("izmp")
 return
-*}
+
 
 
 

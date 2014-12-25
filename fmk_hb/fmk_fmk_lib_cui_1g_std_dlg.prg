@@ -21,8 +21,8 @@ STATIC cLDirekt := "0"
  */
  
 
-/*! \fn Pitanje(cId,cPitanje,cOdgDefault,cMogOdg)
- *  \brief Otvara box sa zadatim pitanjem na koje treba odgovoriti sa D,N,..
+/*!  Pitanje(cId,cPitanje,cOdgDefault,cMogOdg)
+ *   Otvara box sa zadatim pitanjem na koje treba odgovoriti sa D,N,..
  *  \param cId
  *  \param cPitanje       - Pitanje
  *  \param cOdgDefault    - Odgovor koji ce biti ponudjen na boxu
@@ -78,11 +78,11 @@ else
 endif
 
 RETURN .f.
-*}
 
 
-/*! \fn Pitanje2(cId,cPitanje,cOdgDefault)
- *  \brief 
+
+/*!  Pitanje2(cId,cPitanje,cOdgDefault)
+ *   
  *  \param cId
  *  \param cPitanje       - Pitanje
  *  \cOdgDefault          - Ponudjeni odgovor
@@ -121,7 +121,7 @@ set escape on; set confirm on
 SET(_SET_DEVICE,cPom)
 
 return cOdg
-*}
+
 
 // ----------------------------
 //  IzlazPrn(cDirekt)
@@ -140,11 +140,11 @@ if !gAppSrv
 endif
 
 return cDirekt
-*}
 
 
-/*! \fn UpitPrinter(cDirekt)
- *  \brief
+
+/*!  UpitPrinter(cDirekt)
+ *  
  *  \param cDirekt   
  */
  
@@ -190,8 +190,8 @@ endif
 
 
 
-/*! \fn GetLozinka(nSiflen)
- *  \brief
+/*!  GetLozinka(nSiflen)
+ *  
  *  \param nSiflen
  */
  
@@ -243,11 +243,11 @@ BoxC()
 
 set cursor on
 return padr(cKorSif,nSifLen)
-*}
 
 
-/*! \fn TrebaRegistrovati(nSlogova)
- *  \brief Provjera da li je program registrovan
+
+/*!  TrebaRegistrovati(nSlogova)
+ *   Provjera da li je program registrovan
  *  \param nSlogova
  */
  
@@ -262,7 +262,7 @@ if empty(substr(Evar,32,1))
 endif
 
 Beep(4)
-Msg("Probna verzija !!!##Ogranicena obrada - maksimalno 20 raŸuna !!")
+Msg("Probna verzija !!!##Ogranicena obrada - maksimalno 20 raï¿½una !!")
 
 if reccount2()>nSlogova
 	Beep(4)
@@ -280,10 +280,10 @@ if reccount2()>nSlogova
 
 endif
 return
-*}
 
-/*! \fn PozdravMsg(cNaslov,cVer,nk)
- *  \brief Ispisuje ekran sa pozdravnom porukom
+
+/*!  PozdravMsg(cNaslov,cVer,nk)
+ *   Ispisuje ekran sa pozdravnom porukom
  *  \param cNaslov
  *  \param cVer       
  *  \param nk
@@ -319,5 +319,5 @@ Set cursor off
 
 BoxC()
 return
-*}
+
 

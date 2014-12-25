@@ -13,11 +13,11 @@
 #include "fin01.ch"
 
 /*! \file fmk/fin/razdb/1g/mnu_raz.prg
- *  \brief Menij razmjene podataka
+ *   Menij razmjene podataka
  */
  
-/*! \fn MnuRazmjenaPodataka() 
- *  \brief Menij razmjene podataka
+/*!  MnuRazmjenaPodataka() 
+ *   Menij razmjene podataka
  */
 function MnuRazmjenaPodataka()
 *{
@@ -42,11 +42,11 @@ endif
 Menu_SC("raz")
 
 return
-*}
 
 
-/*! \fn PosFin()
- *  \brief Prenos prometa pologa
+
+/*!  PosFin()
+ *   Prenos prometa pologa
  */
 function PosFin()
 *{
@@ -60,10 +60,10 @@ AADD(opcexe, {|| PromVP2Fin()})
 Menu_SC("pf")
 
 return
-*}
 
-/*! \fn BlagFin()
- *  \brief Prenos blagajne
+
+/*!  BlagFin()
+ *   Prenos blagajne
  */
 function BlagFin()
 *{
@@ -77,7 +77,7 @@ AADD(opcexe, {|| PrenBl2Fin()})
 Menu_SC("bf")
 
 return
-*}
+
 
 
 

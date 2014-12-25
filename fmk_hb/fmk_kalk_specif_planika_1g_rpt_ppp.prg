@@ -23,7 +23,7 @@
 *string tbl_tarifa_naz;
 
 /*! \var tbl_tarifa_naz
- *  \brief Polje naziva u sifrarniku tarifa treba da nosi u nazivu "(N.T.)" za nize tarife, da bi izvjestaj Pregled prometa prodavnica znao da definise nize (djecija obuca) i vise tarife (ostala obuca)
+ *   Polje naziva u sifrarniku tarifa treba da nosi u nazivu "(N.T.)" za nize tarife, da bi izvjestaj Pregled prometa prodavnica znao da definise nize (djecija obuca) i vise tarife (ostala obuca)
  *  \ingroup Planika
  */
  
@@ -31,7 +31,7 @@
 
 /*! \var IzFmkIni_KumPath_KontoNekeProdavnice_NazivKonta
  *  \ingroup ini
- *  \brief Definise naziv prodavnice koji ce se pojaviti u izvjestaju pregled prometa
+ *   Definise naziv prodavnice koji ce se pojaviti u izvjestaju pregled prometa
  *  \code
  *  FMK.INI/KumPath
  *  ----------------
@@ -44,9 +44,9 @@
  */
 
 
-/*! \fn  PPProd()
+/*!   PPProd()
  *  \ingroup Planika
- *  \brief Izvjestaj: Pregled prometa prodavnice
+ *   Izvjestaj: Pregled prometa prodavnice
  */
  
 function PPProd()
@@ -157,7 +157,7 @@ gPrinter:=cPrinter
 
 CLOSERET
 return
-*}
+
 
 
 static function InitAPolozi(aPolozi)
@@ -174,7 +174,7 @@ for i:=1 to 12
 		exit
 	endif
 next
-*}
+
 
 static function Header(dDatumOd, dDatumDo, aPolozi, nStr)
 *{
@@ -221,7 +221,7 @@ next
 Linija(LEN(aPolozi))
 
 return
-*}
+
 
 static function Footer(nUPari, nUBruto1, nUBruto2, nUBruto, nUNeto1, nUNeto2, nUNeto, aPolozi)
 *{
@@ -249,7 +249,7 @@ if (ROUND(nUkupnoPolozi-nUBruto,4)<>0)
 	MsgBeep("Ukupno bruto <> suma pologa pazara !!???")
 endif
 return
-*}
+
 
 static function Linija(nPologa)
 *{
@@ -264,7 +264,7 @@ for i:=1 to nPologa
 	@ PROW(), PCOL()+1 SAY REPLICATE("-", LEN(gPicDem))
 next
 return
-*}
+
 
 
 static function FldPolog(nPos)
@@ -296,7 +296,7 @@ do case
 		return field->polog12
 endcase
 return
-*}
+
 
 static function OTblPPProd()
 *{
@@ -308,7 +308,7 @@ SELECT(F_PPPROD)
 USE (cTbl)
 SET ORDER TO TAG "KONTO"
 return
-*}
+
 
 static function GetVars(dDatumOd, dDatumDo, cListaKonta, cPopustDN)
 *{
@@ -334,7 +334,7 @@ endif
 BoxC()
 
 return 1
-*}
+
 
 static function ScanKoncij(dDatumOd, dDatumDo)
 *{
@@ -414,7 +414,7 @@ if nCnt == 0
 endif
 
 return 1
-*}
+
 
 
 static function ScanPos(dDatumOd, dDatumDo, cTKumP)
@@ -469,11 +469,11 @@ SELECT pos
 USE
 
 return
-*}
 
 
-/*! \fn AFPos(cIdKonto, cVisaNiza, nCijena, nCijenaBp, nKolicina)
- *  \brief (A)ppend (F)rom Table (Pos)
+
+/*!  AFPos(cIdKonto, cVisaNiza, nCijena, nCijenaBp, nKolicina)
+ *   (A)ppend (F)rom Table (Pos)
  *  \param cIdKonto - konto prodavnice
  *  \param cVisaNiza - "1" - niza tarifa ostala obuca; "2" - visa tarifa - djecija obuca
  *  \param nCijena
@@ -516,7 +516,7 @@ REPLACE neto WITH field->neto+nCijenaBp*nKolicina
 
 SELECT pos
 return
-*}
+
 
 static function ScanPromVp(dDatumOd, dDatumDo, cTKumPath)
 *{
@@ -543,10 +543,10 @@ SELECT promVp
 USE
 
 return 1
-*}
 
-/*! \fn ARFPromVp(cIdKonto, nPolog01, nPolog02, nPolog03, nPolog04, nPolog05, nPolog06, nPolog07, nPolog08, nPolog09, nPolog10, nPolog11, nPolog12)
- *  \brief (A)ppend (R)ow (F)rom Table (PromVp)
+
+/*!  ARFPromVp(cIdKonto, nPolog01, nPolog02, nPolog03, nPolog04, nPolog05, nPolog06, nPolog07, nPolog08, nPolog09, nPolog10, nPolog11, nPolog12)
+ *   (A)ppend (R)ow (F)rom Table (PromVp)
  *  \param cIdKonto - prodavnicki konto
  *  \param nPolog01 - polog pazara vrste 01 (.. do nPolog12)
  *
@@ -575,4 +575,4 @@ REPLACE polog10 WITH field->polog10+nPolog10
 REPLACE polog11 WITH field->polog11+nPolog11
 REPLACE polog12 WITH field->polog12+nPolog12
 return
-*}
+

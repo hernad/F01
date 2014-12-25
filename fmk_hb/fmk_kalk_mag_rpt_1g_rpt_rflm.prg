@@ -234,7 +234,7 @@ end print
 
 closeret
 return
-*}
+
 
 
 // zaglavlje izvjestaja rekap.fin.stanja
@@ -265,6 +265,6 @@ P_COND
 ? cText1
 ? cLine
 return
-*}
+
 
 

@@ -21,12 +21,12 @@
  
 
 /*! \file fmk/kalk/prod/rpt/1g/rpt_ip.prg
- *  \brief Stampa dokumenta tipa IP
+ *   Stampa dokumenta tipa IP
  */
 
 
-/*! \fn StKalkIP(fZaTops)
- *  \brief Stampa dokumenta tipa IP
+/*!  StKalkIP(fZaTops)
+ *   Stampa dokumenta tipa IP
  *  \param fZaTops -
  */
 
@@ -250,13 +250,13 @@ if !fZaTops
 	?
 endif
 return
-*}
 
 
 
 
-/*! \fn StObrazSL()
- *  \brief Stampa forme obrasca sank liste
+
+/*!  StObrazSL()
+ *   Stampa forme obrasca sank liste
  */
 
 function StObrazSL()
@@ -346,7 +346,7 @@ endif
 
 ? m
 return
-*}
+
 
 
 

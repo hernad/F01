@@ -101,7 +101,7 @@ SEEK kalk->PKonto
 fill_exp(cIdFirma, cIdVd, cBrDok, (cVpcCij == "D") , (cMpcCij == "D") )
 
 close all
-*}
+
 
 
 static function set_launcher(cLauncher)
@@ -126,8 +126,8 @@ endif
 
 return .t.
 
-/*! \fn get_uio_fields(aArr)
- *  \brief napuni matricu aArr sa specifikacijom polja tabele
+/*!  get_uio_fields(aArr)
+ *   napuni matricu aArr sa specifikacijom polja tabele
  *  \param aArr - matrica
  */
 static function get_exp_fields(aArr, cIdVd, lVpcCij, lMpcCij)
@@ -187,7 +187,7 @@ AADD(aArr, {"cij_nov_2",  "N",  10, nCijDec})
 
 
 return
-*}
+
 
 
 function kt_exp_create(cIdVd, lVpcCij, lMpcCij)
@@ -208,7 +208,7 @@ dbcreate2(PRIVPATH + cExpTbl, aArr)
 //CREATE_INDEX("TAR", "idTarifa+idRoba", PRIVPATH +  cExpTbl, .t.)
 
 return
-*}
+
 
 
 
@@ -352,7 +352,7 @@ if Pitanje(, "Odmah pokrenuti spreadsheet aplikaciju ?", "D") == "D"
 endif
 
 return
-*}
+
 
 
 static function msoff_start(cVersion)

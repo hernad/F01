@@ -44,12 +44,12 @@
 
 
 /*! \file fmk/kalk/razdb/1g/gen_fakt.prg
- *  \brief Generacija FAKT dokumenta na osnovu kalkulacije (dokumenta u KALK)
+ *   Generacija FAKT dokumenta na osnovu kalkulacije (dokumenta u KALK)
  */
 
 
-/*! \fn P_Fakt()
- *  \brief Generacija FAKT dokumenta na osnovu kalkulacije (dokumenta u KALK)
+/*!  P_Fakt()
+ *   Generacija FAKT dokumenta na osnovu kalkulacije (dokumenta u KALK)
  */
 
 function P_Fakt()
@@ -373,7 +373,7 @@ close all
 fakt_Azur()
 closeret2
 return
-*}
+
 
 
 
@@ -468,12 +468,12 @@ select XPRIPR; zap
 
 closeret2
 return
-*}
 
 
 
-/*! \fn PrModem(fSif)
- *  \brief
+
+/*!  PrModem(fSif)
+ *  
  */
 
 function PrModem(fSif)
@@ -608,4 +608,4 @@ MsgBeep("Datoteka "+cDestMod+"je izgenerisana")
 
 endif
 return nil
-*}
+

@@ -31,11 +31,11 @@
 
 
 /*! \file fmk/specif/rudnik/mnu_izvj.prg
- *  \brief Izvjestaji rudnik
+ *   Izvjestaji rudnik
  */
  
-/*! \fn MnuRudnik()
- *  \brief menij izvjestaja rudnika
+/*!  MnuRudnik()
+ *   menij izvjestaja rudnika
  */
  
 function MnuRudnik()
@@ -58,5 +58,5 @@ AADD(opcexe,{|| Pregled5()})
 Menu_SC("rizv")
 
 return
-*}
+
 

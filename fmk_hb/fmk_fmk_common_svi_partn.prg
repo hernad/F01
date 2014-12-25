@@ -211,7 +211,7 @@ m_x := 1
 m_y := 5
 
 return .t.
-*}
+
 
 // vraca opis grupe
 function gr_opis(cGroup)

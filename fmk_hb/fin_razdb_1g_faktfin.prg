@@ -221,12 +221,12 @@ else
  	MsgBeep("Nema dokumenata za prenos ...")
 endif
 closeret
-*}
 
 
 
-/*! \fn PorezMp(cVar)
- *  \brief Porez u maloprodaji
+
+/*!  PorezMp(cVar)
+ *   Porez u maloprodaji
  *  \param cVar
  */
  
@@ -292,12 +292,12 @@ do case
 		nVrati := MAX( nCSP*(TARIFA->dlruc/100)*(TARIFA->mpp/100), TARIFA->mpp*nPom/(100+TARIFA->mpp) )
 end case
 return nVrati
-*}
 
 
 
-/*! \fn KontNal(dDatNal)
- *  \brief Kontiranje naloga
+
+/*!  KontNal(dDatNal)
+ *   Kontiranje naloga
  *  \param dDatNal  - datum naloga
  */
  
@@ -498,11 +498,11 @@ MsgC()
 
 closeret
 return
-*}
 
 
-/*! \fn ParsMemo(cTxt)
- *  \brief Pretvara tekst u niz
+
+/*!  ParsMemo(cTxt)
+ *   Pretvara tekst u niz
  *  \param cTxt   - zadati tekst
  */
  
@@ -526,11 +526,11 @@ local i,cPom,fPoc
  next
 
 return aMemo
-*}
 
 
-/*! \fn Round7(nBroj,cTip)
- *  \brief Zaokruzivanje
+
+/*!  Round7(nBroj,cTip)
+ *   Zaokruzivanje
  *  \param nBroj - Zadati broj
  *  \param cTip  - cTip je string sa dva znaka od kojih prvi uslovljava da li ce se izvrsiti zaokruzivanje, a drugi predstavlja broj decimala na koji ce se izvrsiti zaokruzivanje. Zaokruzivanje se vrsi uvijek izuzev ako je taj prvi znak "." */
 
@@ -548,11 +548,11 @@ LOCAL cTip1:="", cTip2:=""
    ENDIF
  ENDIF
 RETURN nBroj
-*}
 
 
-/*! \fn RasKon(cRoba,aSifre,aKonta)
- *  \brief Trazi poziciju cRoba u aSifre i ako nadje vraca element iz aKonta koji je na nadjenoj poziciji
+
+/*!  RasKon(cRoba,aSifre,aKonta)
+ *   Trazi poziciju cRoba u aSifre i ako nadje vraca element iz aKonta koji je na nadjenoj poziciji
  *  \param cRoba
  *  \param aSifre
  *  \param aKonta
@@ -564,24 +564,24 @@ local nPom
 nPom:=ASCAN(aSifre,cRoba)
 
 return if(nPom>0,aKonta[nPom],"")
-*}
 
 
 
-/*! \fn PrStopa(nProc)
- *  \brief  Preracunata stopa
+
+/*!  PrStopa(nProc)
+ *    Preracunata stopa
  *  \nProc - Broj
  */
  
 function PrStopa(nProc)
 *{
 return (if(nProc==0,0,1/(1+1/(nProc/100))))
-*}
 
 
 
-/*! \fn IzKalk(cIdRoba,cKonSir,cSta)
- *  \brief
+
+/*!  IzKalk(cIdRoba,cKonSir,cSta)
+ *  
  *  \param cIdRoba
  *  \param cKonSir
  *  \param cSta
@@ -621,5 +621,5 @@ local x:=0, nArr:=SELECT(), nNV, nUlaz, nIzlaz
   ENDCASE
   SELECT (nArr)
 RETURN x
-*}
+
 

@@ -91,8 +91,8 @@ go top
 return nil
 
 
-/*! \fn PovSvi()
- *  \brief Povrat dokumenta u pripremu sa zadanim kriterijem
+/*!  PovSvi()
+ *   Povrat dokumenta u pripremu sa zadanim kriterijem
  */
 
 function PovSvi(qBrDok, qDatDok, qTipDok, cFirma )
@@ -279,8 +279,8 @@ enddo // eof
 closeret
 
 
-/*! \fn Povrat(fR,cIdFirma,cIdTipDok,cBrDok,lTest)
- *  \brief Povrat dokumenta u pripremu
+/*!  Povrat(fR,cIdFirma,cIdTipDok,cBrDok,lTest)
+ *   Povrat dokumenta u pripremu
  *  \param fR          - rezervacija
  *  \param cIdFirma
  *  \param cIdTipDok
@@ -607,8 +607,8 @@ return 1
 
 
 
-/*! \fn SpojiDuple()
- *  \brief Spajanje duplih artikala unutar jednog dokumenta
+/*!  SpojiDuple()
+ *   Spajanje duplih artikala unutar jednog dokumenta
  */
 
 function SpojiDuple()
@@ -683,8 +683,8 @@ return
 
 
 
-/*! \fn SrediRbr()
- *  \brief Sredi redni broj
+/*!  SrediRbr()
+ *   Sredi redni broj
  */
 function SrediRbr()
 local _t_rec
@@ -1645,8 +1645,8 @@ endif
 return
 
 
-/*! \fn KomIznosFakt()
- *  \brief Kompletiranje iznosa fakture pomocu usluga
+/*!  KomIznosFakt()
+ *   Kompletiranje iznosa fakture pomocu usluga
  */
 
 function KomIznosFakt()

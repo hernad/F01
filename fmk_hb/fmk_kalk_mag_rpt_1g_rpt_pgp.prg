@@ -266,13 +266,13 @@ END PRINT
 #endif
 CLOSERET
 return
-*}
 
 
 
 
-/*! \fn ZaglPGP()
- *  \brief Zaglavlje izvjestaja "promet grupe partnera"
+
+/*!  ZaglPGP()
+ *   Zaglavlje izvjestaja "promet grupe partnera"
  */
 
 function ZaglPGP()
@@ -297,4 +297,4 @@ function ZaglPGP()
  ? "     *    1     *         2          * 3 *"+PADC("     4    ",nlPK)+"*"+PADC("      5     ",nlPI)+"*"+PADC("     6    ",nlPK)+"*"+PADC("      7     ",nlPI)+"*"
  ? m
 return (nil)
-*}
+

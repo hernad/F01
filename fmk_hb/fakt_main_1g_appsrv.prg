@@ -19,12 +19,12 @@
  */
  
 /*! \file fmk/fakt/main/1g/appsrv.prg
- *  \brief
+ *  
  */
 
 /*! \ingroup ini
   * \var *string FmkIni_PrivPath_FAKT_StampajSveIzPripreme
-  * \brief Odredjuje da li ce se stampati svi dokumenti iz pripreme odjednom
+  *  Odredjuje da li ce se stampati svi dokumenti iz pripreme odjednom
   * \param N - default vrijednost
   * \param D - da, stampaj sve iz pripreme
   */
@@ -32,8 +32,8 @@
 
 
 
-/*! \fn RunAppSrv()
- *  \brief Pokrece aplikacijski server
+/*!  RunAppSrv()
+ *   Pokrece aplikacijski server
  */
  
 function RunAppSrv()
@@ -146,12 +146,12 @@ do while .t.
      		endif
     		next
 enddo
-*}
 
 
 
-/*! \fn ExecKomande(cFileName,nHXApsLog)
- *  \brief Exe komande
+
+/*!  ExecKomande(cFileName,nHXApsLog)
+ *   Exe komande
  *  \param cFileName    - ime fajla
  *  \param nHXApsLog
  */
@@ -216,6 +216,6 @@ enddo
 fClose(nHXAps)
 
 return 1
-*}
+
 
 

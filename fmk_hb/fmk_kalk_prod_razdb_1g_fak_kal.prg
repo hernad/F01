@@ -413,11 +413,11 @@ enddo
 Boxc()
 closeret
 return
-*}
 
 
-/*! \fn PrenosMP()
- *  \brief Prenos maloprodajnih kalkulacija FAKT->KALK (11->41)
+
+/*!  PrenosMP()
+ *   Prenos maloprodajnih kalkulacija FAKT->KALK (11->41)
  */
 
 function PrenosMP()
@@ -673,8 +673,8 @@ closeret
 return
 
 
-/*! \fn Prenos01_2()
- *  \brief Prenos FAKT->KALK (01->81)
+/*!  Prenos01_2()
+ *   Prenos FAKT->KALK (01->81)
  */
 
 function Prenos01_2()
@@ -809,14 +809,14 @@ enddo
 Boxc()
 closeret
 return
-*}
 
 
 
 
 
-/*! \fn Prenos13_2()
- *  \brief Otprema u mp->kalk (13->80) prebaci u prodajni objekt
+
+/*!  Prenos13_2()
+ *   Otprema u mp->kalk (13->80) prebaci u prodajni objekt
  */
 
 function Prenos13_2()
@@ -983,13 +983,13 @@ enddo
 Boxc()
 closeret
 return
-*}
 
 
 
 
-/*! \fn Prenos15()
- *  \brief Izlaz iz MP putem VP, FAKT15->KALK15
+
+/*!  Prenos15()
+ *   Izlaz iz MP putem VP, FAKT15->KALK15
  */
 
 function Prenos15()
@@ -1173,8 +1173,8 @@ closeret
 return
 
 
-/*! \fn PrenosMP2()
- *  \brief Prenos maloprodajnih kalkulacija FAKT->KALK (11->42)
+/*!  PrenosMP2()
+ *   Prenos maloprodajnih kalkulacija FAKT->KALK (11->42)
  */
 
 function PrenosMP2()
@@ -1428,5 +1428,5 @@ Boxc()
 closeret
 return
 
-*}
+
 

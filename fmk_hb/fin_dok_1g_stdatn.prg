@@ -210,8 +210,8 @@ return
 
 
 
-/*! \fn DnevnikNaloga()
- *  \brief Dnevnik naloga
+/*!  DnevnikNaloga()
+ *   Dnevnik naloga
  */
  
 function DnevnikNaloga()
@@ -319,11 +319,11 @@ LOCAL cMjGod:=""
 
 CLOSERET
 return
-*}
 
 
-/*! \fn NazMjeseca(nMjesec)
- *  \brief Vraca naziv mjeseca za zadati nMjesec (np. 1 => Januar)
+
+/*!  NazMjeseca(nMjesec)
+ *   Vraca naziv mjeseca za zadati nMjesec (np. 1 => Januar)
  *  \param nMjesec - oznaka mjeseca - integer
  */
  
@@ -332,11 +332,11 @@ function NazMjeseca(nMjesec)
 LOCAL aVrati:={"Januar","Februar","Mart","April","Maj","Juni","Juli",;
                 "Avgust","Septembar","Oktobar","Novembar","Decembar"}
 RETURN IF( nMjesec>0.and.nMjesec<13 , aVrati[nMjesec] , "" )
-*}
 
 
-/*! \fn VidiNaloge()
- *  \brief Pregled naloga
+
+/*!  VidiNaloge()
+ *   Pregled naloga
  */
  
 function VidiNaloge()
@@ -356,11 +356,11 @@ O_NALOG; SET ORDER TO TAG "3"; GO TOP
   BoxC()
 CLOSERET
 return
-*}
 
 
-/*! \fn EdNal()
- *  \brief Ispravka datuma na nalogu 
+
+/*!  EdNal()
+ *   Ispravka datuma na nalogu 
  */
  
 function EdNal()
@@ -381,5 +381,5 @@ LOCAL nVrati:=DE_CONT, dDatNal:=NALOG->datnal, GetList:={}
     ENDIF
   ENDIF
 RETURN nVrati
-*}
+
 

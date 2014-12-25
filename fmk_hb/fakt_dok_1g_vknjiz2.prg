@@ -208,12 +208,12 @@ endif
 if val(_rbr)=0; _Rbr:=str(1,3); endif
 Gather()  // snimi jarane
 return .t.
-*}
 
 
 
-/*! \fn IniVars()
- *  \brief Ini varijable
+
+/*!  IniVars()
+ *   Ini varijable
  */
  
 function IniVars()
@@ -244,12 +244,12 @@ endif
 IF len (aMemo)>=10
   _VezOtpr := aMemo [10]
 EndIF
-*}
 
 
 
-/*! \fn SetVars()
- *  \brief Setuj varijable
+
+/*!  SetVars()
+ *   Setuj varijable
  */
  
 function SetVars()
@@ -271,35 +271,35 @@ else
     _txt:=""
 endif
 return
-*}
 
 
 
-/*! \fn Tb_V_RBr()
- *  \brief
+
+/*!  Tb_V_RBr()
+ *  
  */
  
 function Tb_V_RBr()
 *{
 replace Rbr with str(nRbr,3)
 return .t.
-*}
 
 
-/*! \fn Tb_W_IdRoba()
- *  \brief
+
+/*!  Tb_W_IdRoba()
+ *  
  */
  
 function Tb_W_IdRoba()
 *{
 _idroba:=padr(_idroba,15)
 return W_Roba()
-*}
 
 
 
-/*! \fn Tb_V_IdRoba()
- *  \brief
+
+/*!  Tb_V_IdRoba()
+ *  
  */
  
 function tb_V_IdRoba()
@@ -312,12 +312,12 @@ SetVars()
 NijeDupla(fTbNoviRed)
 V_Kolicina()
 return tb_V_Cijena()
-*}
 
 
 
-/*! \fn Tb_V_Kolicina()
- *  \brief
+
+/*!  Tb_V_Kolicina()
+ *  
  */
  
 function Tb_V_Kolicina()
@@ -331,21 +331,21 @@ IF lOpresaPovrati
   _kolicina := - ABS(_kolicina)
 ENDIF
 return V_Kolicina()
-*}
 
 
-/*! \fn Tb_W_Cijena()
- *  \brief
+
+/*!  Tb_W_Cijena()
+ *  
  */
  
 function tb_W_Cijena()
 *{
 return KLevel<="1"
-*}
 
 
-/*! \fn Tb_V_Cijena()
- *  \brief
+
+/*!  Tb_V_Cijena()
+ *  
  */
  
 function Tb_V_Cijena()
@@ -354,34 +354,34 @@ if _DINDEM==left(ValSekund(),3)   // preracunaj u KM
       _Cijena:=_Cijena*UBaznuValutu(_datdok)
 endif
 return .t.
-*}
 
 
-/*! \fn Tb_W_TRabat()
- *  \brief
+
+/*!  Tb_W_TRabat()
+ *  
  */
  
 function Tb_W_TRabat()
 *{
 return !(_idtipdok $ "12#13#11#15#27") .and. _podbr<>" ."
-*}
 
 
 
-/*! \fn Tb_V_Rabat()
- *  \brief
+
+/*!  Tb_V_Rabat()
+ *  
  */
  
 function Tb_V_Rabat()
 *{
 return .t.
-*}
 
 
 
 
-/*! \fn Tb_V_TRabat()
- *  \brief
+
+/*!  Tb_V_TRabat()
+ *  
  */
  
 function Tb_V_TRabat()
@@ -389,12 +389,12 @@ function Tb_V_TRabat()
 V_Rabat()
 TRabat:="%"
 return .t.
-*}
 
 
 
-/*! \fn Tb_W_Porez()
- *  \brief
+
+/*!  Tb_W_Porez()
+ *  
  */
  
 function Tb_W_Porez()
@@ -416,12 +416,12 @@ if nRet
   endif
 endif
 return nRet
-*}
 
 
 
-/*! \fn Tb_V_Porez()
- *  \brief
+
+/*!  Tb_V_Porez()
+ *  
  */
  
 function Tb_V_Porez()
@@ -432,12 +432,12 @@ select tarifa
 hseek roba->idtarifa
 select pripr
 return V_Porez()
-*}
 
 
 
-/*! \fn ValidRed()
- *  \brief
+
+/*!  ValidRed()
+ *  
  */
  
 function ValidRed()
@@ -461,12 +461,12 @@ if val(rbr)<>1
 endif
 go nRec
 return TBCanClose
-*}
 
 
 
-/*! \fn PrGoreRed()
- *  \brief
+
+/*!  PrGoreRed()
+ *  
  */
  
 function PrGoreRed()
@@ -475,12 +475,12 @@ if !ValidRed()
    TB:Down()
    return
 endif
-*}
 
 
 
-/*! \fn PrDoleRed()
- *  \brief
+
+/*!  PrDoleRed()
+ *  
  */
  
 function PrDoleRed()
@@ -533,12 +533,12 @@ enddo
 
 go nRec
 return .t.  // uspjesno otiso u novi red
-*}
 
 
 
-/*! \fn PrDodajRed()
- *  \brief
+
+/*!  PrDodajRed()
+ *  
  */
  
 function PrDodajRed()
@@ -566,12 +566,12 @@ _Rbr:=str(nRbr,3)
 Gather()
 
 return
-*}
 
 
 
-/*! \fn TbRobaNaz()
- *  \brief
+
+/*!  TbRobaNaz()
+ *  
  */
  
 function TbRobaNaz()
@@ -579,11 +579,11 @@ function TbRobaNaz()
 NSRNPIdRoba()
 // select roba; hseek pripr->idroba; select pripr
 return left(Roba->naz,25)
-*}
 
 
-/*! \fn ObracunajPP(cSetPor,dDatDok)
- *  \brief Obracunaj porez na promet 
+
+/*!  ObracunajPP(cSetPor,dDatDok)
+ *   Obracunaj porez na promet 
  *  \param cSetPor
  *  \param dDatDok
  */
@@ -632,12 +632,12 @@ enddo
 
 go top
 RETURN
-*}
 
 
 
-/*! \fn UCKalk()
- *  \brief Uzmi cijenu iz Kalk-a
+
+/*!  UCKalk()
+ *   Uzmi cijenu iz Kalk-a
  */
  
 function UCKalk()
@@ -701,11 +701,11 @@ LOCAL nArr:=SELECT(), aUlazi:={}, GetList:={}, cIdPartner:=_idpartner
    ENDIF
   BoxC()
 RETURN
-*}
 
 
-/*! \fn ChSveStavke(fNovi)
- *  \brief
+
+/*!  ChSveStavke(fNovi)
+ *  
  *  \param fNovi
  */
  
@@ -750,12 +750,12 @@ LOCAL nRec:=recno()
   set order to 1
   go nRec
 RETURN
-*}
 
 
 
-/*! \fn TarifaR(cRegion, cIdRoba, aPorezi)
- *  \brief Tarifa na osnovu region + roba
+
+/*!  TarifaR(cRegion, cIdRoba, aPorezi)
+ *   Tarifa na osnovu region + roba
  *  \param cRegion
  *  \param cIdRoba
  *  \param aPorezi
@@ -800,11 +800,11 @@ SetAPorezi(@aPorezi)
 
 PopWa()
 return tarifa->id
-*}
 
 
-/*! \fn SetAPorezi(aPorezi)
- *  \brief 
+
+/*!  SetAPorezi(aPorezi)
+ *   
  *  \param aPorezi
  */
  
@@ -829,11 +829,11 @@ else
 	aPorezi[POR_DLRUC]:=0
 endif
 return nil
-*}
 
 
-/*! \fn MpcSaPor(nMpcBP,aPorezi,aPoreziIzn)
- *  \brief Maloprodajna cijena sa porezom
+
+/*!  MpcSaPor(nMpcBP,aPorezi,aPoreziIzn)
+ *   Maloprodajna cijena sa porezom
  *  \param nMpcBP
  *  \param aPorezi
  *  \param aPoreziIzn
@@ -856,11 +856,11 @@ else
 endif
 
 return nPom
-*}
 
 
-/*! \fn MpcBezPor(nMpcSaPP,aPorezi)
- *  \brief Maloprodajna cijena bez poreza
+
+/*!  MpcBezPor(nMpcSaPP,aPorezi)
+ *   Maloprodajna cijena bez poreza
  *  \param nMpcSaPP
  *  \param aPorezi
  */
@@ -883,11 +883,11 @@ else
 endif
 
 return nPom
-*}
 
 
-/*! \fn Izn_P_PPP(nMpcBP,aPorezi,aPoreziIzn)
- *  \brief
+
+/*!  Izn_P_PPP(nMpcBP,aPorezi,aPoreziIzn)
+ *  
  *  \param nMpcBP
  *  \param aPorezi
  *  \param aPoreziIzn
@@ -899,12 +899,12 @@ local nPom
 nPom:= nMpcBp*(aPorezi[POR_PPP]/100) 
 
 return nPom
-*}
 
 
 
-/*! \fn Izn_P_PPU(nMpcBP,aPorezi,aPoreziIzn)
- *  \brief
+
+/*!  Izn_P_PPU(nMpcBP,aPorezi,aPoreziIzn)
+ *  
  *  \param nMpcBP
  *  \param aPorezi
  *  \param aPoreziIzn
@@ -915,12 +915,12 @@ function Izn_P_PPU(nMpcBP, aPorezi, aPoreziIzn)
 local nPom
 nPom:= nMpcBp*(aPorezi[POR_PPP]/100+1)*(aPorezi[POR_PPU]/100) 
 return nPom
-*}
 
 
 
-/*! \fn Izn_P_PP(nMpcBP, aPorezi, aPoreziIzn)
- *  \brief
+
+/*!  Izn_P_PP(nMpcBP, aPorezi, aPoreziIzn)
+ *  
  *  \param nMpcBP
  *  \param aPorezi
  *  \param aPoreziIzn
@@ -939,7 +939,7 @@ else
 endif
 
 return nPom
-*}
+
 
 
 

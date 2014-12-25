@@ -14,15 +14,15 @@
 
 
 /*! \file fmk/kalk/dok/1g/knjiz.prg
- *  \brief Unos i ispravka dokumenata
+ *   Unos i ispravka dokumenata
  */
 
 *static string
 static cENTER:=chr(K_ENTER)+chr(K_ENTER)+chr(K_ENTER)
 *;
 
-/*! \fn Knjiz()
- *  \brief Nudi meni za rad na dokumentu u staroj varijanti ili direktno poziva tabelu pripreme u novoj (default) varijanti
+/*!  Knjiz()
+ *   Nudi meni za rad na dokumentu u staroj varijanti ili direktno poziva tabelu pripreme u novoj (default) varijanti
  */
 
 function kalk_Knjiz()
@@ -79,12 +79,12 @@ endif
 
 closeret
 return
-*}
 
 
 
-/*! \fn KUnos(lAutoObrada)
- *  \brief Tabela pripreme dokumenta
+
+/*!  KUnos(lAutoObrada)
+ *   Tabela pripreme dokumenta
  */
 
 function KUnos(lAObrada)
@@ -168,12 +168,12 @@ BoxC()
 
 CLOSERET
 return
-*}
 
 
 
-/*! \fn OEdit()
- *  \brief Otvara sve potrebne baze za pripremu dokumenata
+
+/*!  OEdit()
+ *   Otvara sve potrebne baze za pripremu dokumenata
  */
 
 function OEdit()
@@ -201,8 +201,8 @@ return
 
 
 
-/*! \fn EdPRIPR(lAObrada)
- *  \brief Obrada dostupnih opcija u tabeli pripreme
+/*!  EdPRIPR(lAObrada)
+ *   Obrada dostupnih opcija u tabeli pripreme
  */
 
 function EdPRIPR()
@@ -373,10 +373,10 @@ do case
 endcase
 
 return DE_CONT
-*}
 
-/*! \fn EditStavka()
- *  \brief Ispravka stavke dokumenta u pripremi
+
+/*!  EditStavka()
+ *   Ispravka stavke dokumenta u pripremi
  */
 
 function EditStavka()
@@ -453,12 +453,12 @@ else
      	return DE_REFRESH
 endif
 return DE_CONT
-*}
 
 
 
-/*! \fn NovaStavka()
- *  \brief Unos nove stavke dokumenta u pripremi
+
+/*!  NovaStavka()
+ *   Unos nove stavke dokumenta u pripremi
  */
 
 function NovaStavka()
@@ -535,13 +535,13 @@ function NovaStavka()
 
         BoxC()
 return DE_REFRESH
-*}
 
 
 
 
-/*! \fn EditAll()
- *  \brief Cirkularna ispravka stavki dokumenta u pripremi
+
+/*!  EditAll()
+ *   Cirkularna ispravka stavki dokumenta u pripremi
  */
 
 function EditAll()
@@ -636,11 +636,11 @@ BoxC()
 lAsistRadi:=.f.
 
 return DE_REFRESH
-*}
 
 
-/*! \fn KnjizAsistent()
- *  \brief Asistent za obradu stavki dokumenta u pripremi
+
+/*!  KnjizAsistent()
+ *   Asistent za obradu stavki dokumenta u pripremi
  */
 
 function KnjizAsistent()
@@ -667,11 +667,11 @@ ELSE
 ENDIF
 
 return DE_REFRESH
-*}
 
 
-/*! \fn MeniF10()
- *  \brief Meni ostalih opcija koji se poziva tipkom F10 u tabeli pripreme
+
+/*!  MeniF10()
+ *   Meni ostalih opcija koji se poziva tipkom F10 u tabeli pripreme
  */
 
 function MeniF10()
@@ -812,13 +812,13 @@ enddo
 m_x:=am_x; m_y:=am_y
 OEdit()
 return DE_REFRESH
-*}
 
 
 
 
-/*! \fn MeniF11()
- *  \brief Meni ostalih opcija koji se poziva tipkom F11 u tabeli pripreme
+
+/*!  MeniF11()
+ *   Meni ostalih opcija koji se poziva tipkom F11 u tabeli pripreme
  */
 
 function MeniF11()
@@ -847,11 +847,11 @@ Menu_SC("osop2")
 m_x:=am_x; m_y:=am_y
 OEdit()
 return DE_REFRESH
-*}
 
 
-/*! \fn ProtStErase()
- *  \brief Brisi sve protustavke
+
+/*!  ProtStErase()
+ *   Brisi sve protustavke
  */
 function ProtStErase()
 *{
@@ -871,11 +871,11 @@ enddo
 
 go top
 return
-*}
 
 
-/*! \fn SetNcTo0()
- *  \brief Setuj sve NC na 0
+
+/*!  SetNcTo0()
+ *   Setuj sve NC na 0
  */
 function SetNcTo0()
 *{
@@ -895,12 +895,12 @@ enddo
 
 go top
 return
-*}
 
 
 
-/*! \fn EditPripr(fNovi)
- *  \brief Centralna funkcija za unos/ispravku stavke dokumenta
+
+/*!  EditPripr(fNovi)
+ *   Centralna funkcija za unos/ispravku stavke dokumenta
  */
 
 //ulaz _IdFirma, _IdRoba, ...., nRBr (val(_RBr))
@@ -958,14 +958,14 @@ else
   return 0
 endif
 return
-*}
 
 
 
 
-/*! \fn Get1()
+
+/*!  Get1()
  *  \param fnovi
- *  \brief Prva strana/prozor maske unosa/ispravke stavke dokumenta
+ *   Prva strana/prozor maske unosa/ispravke stavke dokumenta
  */
 
 function Get1()
@@ -1056,14 +1056,14 @@ else
    	return K_ESC
 endif
 return
-*}
 
 
 
 
-/*! \fn Get2()
+
+/*!  Get2()
  *  \param fnovi
- *  \brief Druga strana/prozor maske unosa/ispravke stavke dokumenta
+ *   Druga strana/prozor maske unosa/ispravke stavke dokumenta
  */
 
 function Get2()
@@ -1083,13 +1083,13 @@ elseif _idvd == "PR"
   return Get2_PR()
 endif
 return K_ESC
-*}
 
 
 
 
-/*! \fn Get1Header()
- *  \brief Maska za unos/ispravku podataka zajednickih za sve stavke dokumenta
+
+/*!  Get1Header()
+ *   Maska za unos/ispravku podataka zajednickih za sve stavke dokumenta
  */
 
 function Get1Header()
@@ -1136,13 +1136,13 @@ read
 ESC_RETURN 0
 
 return 1
-*}
 
 
 
 
-/*! \fn VpcSaPpp()
- *  \brief Vrsi se preracunavanje veleprodajnih cijena ako je _VPC=0
+
+/*!  VpcSaPpp()
+ *   Vrsi se preracunavanje veleprodajnih cijena ako je _VPC=0
  */
 
 function VpcSaPpp()
@@ -1157,13 +1157,13 @@ if _VPC==0
 endif
 ShowGets()
 return .t.
-*}
 
 
 
 
-/*! \fn RaspTrosk(fSilent)
- *  \brief Rasporedjivanje troskova koji su predvidjeni za raspored. Takodje se koristi za raspored ukupne nabavne vrijednosti na pojedinacne artikle kod npr. unosa pocetnog stanja prodavnice ili magacina
+
+/*!  RaspTrosk(fSilent)
+ *   Rasporedjivanje troskova koji su predvidjeni za raspored. Takodje se koristi za raspored ukupne nabavne vrijednosti na pojedinacne artikle kod npr. unosa pocetnog stanja prodavnice ili magacina
  */
 
 function RaspTrosk(fSilent)
@@ -1400,13 +1400,13 @@ if fsilent .or.  Pitanje(,"Rasporediti troskove ??","N")=="D"
 endif // pitanje
 go top
 return
-*}
 
 
 
 
-/*! \fn Savjetnik()
- *  \brief Zamisljeno da se koristi kao pomoc u rjesavanju problema pri unosu dokumenta. Nije razradjeno.
+
+/*!  Savjetnik()
+ *   Zamisljeno da se koristi kao pomoc u rjesavanju problema pri unosu dokumenta. Nije razradjeno.
  */
 
 function Savjetnik()
@@ -1488,12 +1488,12 @@ ENDDO
  SELECT PRIPR
  GO (nRec)
 return
-*}
 
 
 
-/*! \fn OpisStavke(lGreska)
- *  \brief Daje informacije o dokumentu i artiklu radi lociranja problema. Koristi je opcija "savjetnik"
+
+/*!  OpisStavke(lGreska)
+ *   Daje informacije o dokumentu i artiklu radi lociranja problema. Koristi je opcija "savjetnik"
  *  \sa Savjetnik()
  */
 
@@ -1505,13 +1505,13 @@ function OpisStavke(lGreska)
   lGreska:=.t.
  ENDIF
 return
-*}
 
 
 
 
-/*! \fn Soboslikar(aNiz,nIzKodaBoja,nUKodBoja)
- *  \brief Mijenja boje dijela ekrana
+
+/*!  Soboslikar(aNiz,nIzKodaBoja,nUKodBoja)
+ *   Mijenja boje dijela ekrana
  */
 
 function Soboslikar(aNiz,nIzKodaBoja,nUKodBoja)
@@ -1523,12 +1523,12 @@ function Soboslikar(aNiz,nIzKodaBoja,nUKodBoja)
     RESTSCREEN(aNiz[i,1],aNiz[i,2],aNiz[i,3],aNiz[i,4],cEkran)
   NEXT
 return
-*}
 
 
 
-/*! \fn StrKZN(cInput,cIz,cU)
- *  \brief Vrsi konverziju znakova u stringu iz jednog u drugi izabrani standard
+
+/*!  StrKZN(cInput,cIz,cU)
+ *   Vrsi konverziju znakova u stringu iz jednog u drugi izabrani standard
  */
 
 function StrKZN(cInput,cIz,cU)
@@ -1543,12 +1543,12 @@ function StrKZN(cInput,cIz,cU)
    cInput:=STRTRAN(cInput,aIz[i],aU[i])
  NEXT
 return cInput
-*}
 
 
 
-/*! \fn ZagFirma()
- *  \brief Ispisuje zaglavlje firme/preduzeca
+
+/*!  ZagFirma()
+ *   Ispisuje zaglavlje firme/preduzeca
  */
 
 function ZagFirma()
@@ -1573,12 +1573,12 @@ U_OFF
 ?
 ?
 return
-*}
 
 
 
-/*! \fn NazProdObj()
- *  \brief Daje naziv prodavnickog konta iz pripreme
+
+/*!  NazProdObj()
+ *   Daje naziv prodavnickog konta iz pripreme
  */
 
 function NazProdObj()
@@ -1589,12 +1589,12 @@ function NazProdObj()
   cVrati:=naz
   SELECT PRIPR
 return cVrati
-*}
 
 
 
-/*! \fn IzbDokOLPP()
- *  \brief Izbor dokumenta za stampu u formi OLPP-a
+
+/*!  IzbDokOLPP()
+ *   Izbor dokumenta za stampu u formi OLPP-a
  */
 
 function IzbDokOLPP()
@@ -1642,12 +1642,12 @@ enddo
 
 CLOSERET
 return
-*}
 
 
 
-/*! \fn PlusMinusKol()
- *  \brief Mijenja predznak kolicini u svim stavkama u pripremi
+
+/*!  PlusMinusKol()
+ *   Mijenja predznak kolicini u svim stavkama u pripremi
  */
 
 function PlusMinusKol()
@@ -1667,13 +1667,13 @@ function PlusMinusKol()
   KEYBOARD CHR(K_ESC)
 CLOSERET
 return
-*}
 
 
 
 
-/*! \fn UzmiTarIzSif()
- *  \brief Filuje tarifu u svim stavkama u pripremi odgovarajucom sifrom tarife iz sifrarnika robe
+
+/*!  UzmiTarIzSif()
+ *   Filuje tarifu u svim stavkama u pripremi odgovarajucom sifrom tarife iz sifrarnika robe
  */
 
 function UzmiTarIzSif()
@@ -1693,13 +1693,13 @@ function UzmiTarIzSif()
   KEYBOARD CHR(K_ESC)
 CLOSERET
 return
-*}
 
 
 
 
-/*! \fn DiskMPCSAPP()
- *  \brief Formira diskontnu maloprodajnu cijenu u svim stavkama u pripremi
+
+/*!  DiskMPCSAPP()
+ *   Formira diskontnu maloprodajnu cijenu u svim stavkama u pripremi
  */
 
 function DiskMPCSAPP()
@@ -1728,12 +1728,12 @@ lAutoAsist:=.t.
 KEYBOARD CHR(K_ESC)
 CLOSERET
 return
-*}
 
 
 
-/*! \fn MPCSAPPuSif()
- *  \brief Maloprodajne cijene svih artikala u pripremi kopira u sifrarnik robe
+
+/*!  MPCSAPPuSif()
+ *   Maloprodajne cijene svih artikala u pripremi kopira u sifrarnik robe
  */
 
 function MPCSAPPuSif()
@@ -1756,12 +1756,12 @@ function MPCSAPPuSif()
   ENDDO
 CLOSERET
 return
-*}
 
 
 
-/*! \fn MPCSAPPiz80uSif()
- *  \brief Maloprodajne cijene svih artikala iz izabranog azuriranog dokumenta tipa 80 kopira u sifrarnik robe
+
+/*!  MPCSAPPiz80uSif()
+ *   Maloprodajne cijene svih artikala iz izabranog azuriranog dokumenta tipa 80 kopira u sifrarnik robe
  */
 
 function MPCSAPPiz80uSif()
@@ -1796,13 +1796,13 @@ function MPCSAPPiz80uSif()
 
 CLOSERET
 return
-*}
 
 
 
 
-/*! \fn VPCSifUDok()
- *  \brief Filuje VPC u svim stavkama u pripremi odgovarajucom VPC iz sifrarnika robe
+
+/*!  VPCSifUDok()
+ *   Filuje VPC u svim stavkama u pripremi odgovarajucom VPC iz sifrarnika robe
  */
 
 function VPCSifUDok()
@@ -1826,14 +1826,14 @@ function VPCSifUDok()
   KEYBOARD CHR(K_ESC)
 CLOSERET
 return
-*}
 
 
 
-/*! \fn StKalk()
+
+/*!  StKalk()
  *  \param fstara
  *  \param cSeek
- *  \brief Centralna funkcija za stampu KALK dokumenta. Poziva odgovarajucu funkciju za stampu dokumenta u zavisnosti od tipa dokumenta i podesenja parametara varijante izgleda dokumenta
+ *   Centralna funkcija za stampu KALK dokumenta. Poziva odgovarajucu funkciju za stampu dokumenta u zavisnosti od tipa dokumenta i podesenja parametara varijante izgleda dokumenta
  */
 
 function StKalk()
@@ -2183,12 +2183,12 @@ endif
 #endif
 closeret
 return nil
-*}
 
 
 
-/*! \fn PopustKaoNivelacijaMP()
- *  \brief Umjesto iskazanog popusta odradjuje smanjenje MPC
+
+/*!  PopustKaoNivelacijaMP()
+ *   Umjesto iskazanog popusta odradjuje smanjenje MPC
  */
 
 function PopustKaoNivelacijaMP()
@@ -2225,12 +2225,12 @@ else
 endif
 CLOSERET
 return
-*}
 
 
 
-/*! \fn StOLPPAz()
- *  \brief Funkcija za stampu OLPP-a za azurirani KALK dokument
+
+/*!  StOLPPAz()
+ *   Funkcija za stampu OLPP-a za azurirani KALK dokument
  */
 
 function StOLPPAz()
@@ -2312,4 +2312,4 @@ enddo  // vrti kroz kalkulacije
 #endif
 closeret
 return nil
-*}
+

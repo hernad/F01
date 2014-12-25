@@ -22,7 +22,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_ROBA_BezIstihNaziva
-  * \brief Da li ce se zabraniti unos istog naziva robe pod razlicitom sifrom?
+  *  Da li ce se zabraniti unos istog naziva robe pod razlicitom sifrom?
   * \param N - ne, default vrijednost
   * \param D - onemogucava unos istog naziva pod drugom sifrom robe
   */
@@ -83,5 +83,5 @@ gFPicKol:="0"
 
 gDuzSifINI:=IzFmkIni('Sifroba','DuzSifra','10',SIFPATH)
 return
-*}
+
 

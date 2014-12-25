@@ -14,8 +14,8 @@
 
 #define D_STAROST_DANA   25
 
-/*! \fn FilePath(cFile)
- *  \brief  Extract the full path name from a filename
+/*!  FilePath(cFile)
+ *    Extract the full path name from a filename
  *  \return cFilePath
  */
  
@@ -53,7 +53,7 @@ function DiskPrazan(cDisk)
    return .f.
  endif
 return .t.
-*}
+
 
 *string FmkIni_ExePath_POS_PitanjeUgasiti;
 
@@ -90,11 +90,11 @@ else
 endif
 
 return
-*}
+
 
 
 /*! \file ChangeEXT(cImeF,cExt, cExtNew, fBezAdd)
- * \brief Promjeni ekstenziju
+ *  Promjeni ekstenziju
  *
  * \params cImeF   ime fajla
  * \params cExt    polazna extenzija (obavezno 3 slova) 
@@ -137,7 +137,7 @@ if !EMPTY(cTacka) .and.  RIGHT(cImeF,4)<>cTacka+cExtNew
   cImeF:=cImeF+cTacka+cExtNew
 endif
 return  cImeF
-*}
+
 
 
 function DirExists(cDir1)
@@ -163,7 +163,7 @@ else
  ferase(ToUnix(cDir1+SLASH+'X'))
  return .t.
 endif
-*}
+
 
 function PostDir(cDir1)
 *{
@@ -179,11 +179,11 @@ else
 endif
 dirchange(cDirTek)
 return fPostoji
-*}
 
 
-/*! \fn BrisiSFajlove(cDir)
-  * \brief Brisi fajlove starije od 45 dana
+
+/*!  BrisiSFajlove(cDir)
+  *  Brisi fajlove starije od 45 dana
   *
   * \code
   *
@@ -212,7 +212,7 @@ do while !empty(cFile)
     cfile:=fileseek()
 enddo
 return NIL
-*}
+
 
 function ShowMem()
 *{
@@ -227,7 +227,7 @@ Box(,3,50)
 BoxC()
 
 RETURN
-*}
+
 
 function ToUnix(cFileName)
 *{
@@ -266,7 +266,7 @@ cFileName:=strtran(cFileName,"/","\")
 return UPPER(cFileName)
 
 #endif
-*}
+
 
 
 

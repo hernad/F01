@@ -196,11 +196,11 @@ endif
 
 closeret
 return
-*}
 
 
-/*! \fn SifKalkTops()
- *  \brief Prenos sifrarnika iz KALK u TOPS
+
+/*!  SifKalkTops()
+ *   Prenos sifrarnika iz KALK u TOPS
  */
 
 function SifKalkTops()
@@ -251,11 +251,11 @@ run &cKomLin
 restore screen from cScr
 
 return
-*}
 
 
-/*! \fn Mnu_GenKaTOPS()
- *  \brief Menij generacije tops dokumenata na osnovu KALK-a
+
+/*!  Mnu_GenKaTOPS()
+ *   Menij generacije tops dokumenata na osnovu KALK-a
  */
 
 function Mnu_GenKaTOPS()
@@ -283,11 +283,11 @@ if CheckKALKDokument(cIDFirma, cIDTipDokumenta, cBrojDokumenta)
 endif
 
 return
-*}
 
 
-/*! \fn CheckKALKDokument(idfirma, tipdokumenta, brojdokumenta)
- *  \brief Provjerava da li dokument uopste postoji!
+
+/*!  CheckKALKDokument(idfirma, tipdokumenta, brojdokumenta)
+ *   Provjerava da li dokument uopste postoji!
  *  \param idfirma - id firme
  *  \param tipdokumenta - tip dokumenta
  *  \param brojdokumenta - broj dokumenta
@@ -306,11 +306,11 @@ if !Found()
 else
 	return .t.
 endif
-*}
 
 
-/*! \fn GenTopsAzur(idfirma, idtipdokumenta, brojdokumenta)
- *  \brief Generacija kalk->tops na osnovu azuriranih kalkulacija
+
+/*!  GenTopsAzur(idfirma, idtipdokumenta, brojdokumenta)
+ *   Generacija kalk->tops na osnovu azuriranih kalkulacija
  *  \param idfirma - id firme
  *  \param idtipdokumenta - tip dokumenta
  *  \param brojdokumenta - broj dokumenta
@@ -517,11 +517,11 @@ select kalk
 
 closeret
 return
-*}
 
 
-/*! \fn CreDBKaTOPS()
- *  \brief Kreira datoteku prenosa
+
+/*!  CreDBKaTOPS()
+ *   Kreira datoteku prenosa
  */
 function CreDBKaTOPS()
 *{

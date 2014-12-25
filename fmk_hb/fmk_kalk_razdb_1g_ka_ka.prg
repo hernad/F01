@@ -28,12 +28,12 @@
  
 
 /*! \file fmk/kalk/razdb/1g/ka_ka.prg
- *  \brief Preuzimanje kalkulacije iz druge firme
+ *   Preuzimanje kalkulacije iz druge firme
  */
 
 
-/*! \fn IzKalk2f()
- *  \brief Preuzimanje kalkulacije iz druge firme
+/*!  IzKalk2f()
+ *   Preuzimanje kalkulacije iz druge firme
  */
 
 function IzKalk2f()
@@ -188,5 +188,5 @@ function IzKalk2f()
 
 CLOSERET
 return
-*}
+
 

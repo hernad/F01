@@ -39,11 +39,11 @@ if fNovi .or. (gVodiSamoTarife=="D") .or. IsJerry() .or. IsPlanika()
 endif
 
 return .t.
-*}
 
 
-/*! \fn WMpc(fRealizacija,fMarza)
- *  \brief When blok za unos MPC
+
+/*!  WMpc(fRealizacija,fMarza)
+ *   When blok za unos MPC
  *  \param fRealizacija -
  *  \param fMarza -
  */
@@ -70,13 +70,13 @@ if fRealizacija
 endif
 
 return .t.
-*}
 
 
 
 
-/*! \fn VMpc(fRealizacija,fMarza)
- *  \brief Valid blok za unos MPC
+
+/*!  VMpc(fRealizacija,fMarza)
+ *   Valid blok za unos MPC
  *  \param fRealizacija -
  *  \param fMarza -
  */
@@ -101,13 +101,13 @@ if _mpcsapp==0
 	_MPCSaPP:=round(MpcSaPor(_mpc, aPorezi),2)
 endif
 return .t.
-*}
 
 
 
 
-/*! \fn VMpcSaPP(fRealizacija,fMarza)
- *  \brief Valid blok za unos MpcSaPP
+
+/*!  VMpcSaPP(fRealizacija,fMarza)
+ *   Valid blok za unos MpcSaPP
  *  \param fRealizacija -
  *  \param fMarza -
  */
@@ -149,13 +149,13 @@ endif
 
 fMarza:=" "
 return .t.
-*}
 
 
 
 
-/*! \fn SayPorezi(nRow)
- *  \brief Ispisuje poreze
+
+/*!  SayPorezi(nRow)
+ *   Ispisuje poreze
  *  \param nRow - relativna kooordinata reda u kojem se ispisuju porezi
  */
 
@@ -177,13 +177,13 @@ else
 	@ row(),col()+2  SAY aPorezi[POR_PP] PICTURE "99.99"
 endif
 return
-*}
 
 
 
 
-/*! \fn FillIzgStavke(pIzgStavke)
- *  \brief Puni polja izgenerisane stavke
+
+/*!  FillIzgStavke(pIzgStavke)
+ *   Puni polja izgenerisane stavke
  *  \param pIzgStavke - .f. ne puni, .t. puni
  */
 
@@ -224,12 +224,12 @@ if pIzgSt .and. _kolicina>0 .and. lastkey()<>K_ESC // izgenerisane stavke postoj
 endif
 
 return
-*}
 
 
 
-/*! \fn VRoba_lv(fNovi, aPorezi)
- *  \brief Setuje tarifu i poreze na osnovu sifrarnika robe i tarifa
+
+/*!  VRoba_lv(fNovi, aPorezi)
+ *   Setuje tarifu i poreze na osnovu sifrarnika robe i tarifa
  *  \note koristi lokalne varijable
  */
 
@@ -252,7 +252,7 @@ if fNovi .or. (gVodiSamoTarife=="D") .or. IsJerry()
    _IdTarifa:=cTarifa
 endif
 return .t.
-*}
+
 
 
 function W_Mpc_(cIdVd, lNaprijed, aPorezi)
@@ -280,8 +280,8 @@ endif
 return .t.
 
 
-/*! \fn WMpc_lv(fRealizacija, fMarza, aPorezi)
- *  \brief When blok za unos MPC
+/*!  WMpc_lv(fRealizacija, fMarza, aPorezi)
+ *   When blok za unos MPC
  *  \param fRealizacija -
  *  \param fMarza -
  *  \note koriste se lokalne varijable
@@ -312,13 +312,13 @@ if fRealizacija
 endif
 
 return .t.
-*}
 
 
 
 
-/*! \fn VMpc_lv(fRealizacija, fMarza, aPorezi)
- *  \brief Valid blok za unos MPC
+
+/*!  VMpc_lv(fRealizacija, fMarza, aPorezi)
+ *   Valid blok za unos MPC
  *  \param fRealizacija -
  *  \param fMarza -
  *  \note koriste se lokalne varijable
@@ -341,10 +341,10 @@ if (_mpcsapp == 0)
  _MPCSaPP:=round( MpcSaPor(_mpc, aPorezi), 2 )
 endif
 return .t.
-*}
 
 
-/*! \fn V_Mpc_(cIdVd, lNaprijed, aPorezi)
+
+/*!  V_Mpc_(cIdVd, lNaprijed, aPorezi)
  */
 
 function V_Mpc_( cIdVd, lNaprijed, aPorezi)
@@ -363,13 +363,13 @@ if (_Mpcsapp == 0)
  _MPCSaPP := ROUND( MpcSaPor(_mpc, aPorezi), 2 ) + nPopust
 endif
 return .t.
-*}
 
 
 
 
-/*! \fn VMpcSaPP_lv(fRealizacija, fMarza, aPorezi)
- *  \brief Valid blok za unos MpcSaPP
+
+/*!  VMpcSaPP_lv(fRealizacija, fMarza, aPorezi)
+ *   Valid blok za unos MpcSaPP
  *  \param fRealizacija -
  *  \param fMarza -
  *  \note koriste se lokalne varijable
@@ -414,10 +414,10 @@ endif
 
 fMarza:=" "
 return .t.
-*}
 
 
-/*! \fn V_MpcSaPP_( cIdVd, lNaprijed, aPorezi, lShowGets)
+
+/*!  V_MpcSaPP_( cIdVd, lNaprijed, aPorezi, lShowGets)
  */
 
 function V_MpcSaPP_( cIdVd, lNaprijed, aPorezi, lShowGets)
@@ -452,13 +452,13 @@ if _Mpcsapp<>0 .and. !lNaprijed
 endif
 
 return .t.
-*}
 
 
 
 
-/*! \fn SayPorezi_lv(nRow, aPorezi)
- *  \brief Ispisuje poreze
+
+/*!  SayPorezi_lv(nRow, aPorezi)
+ *   Ispisuje poreze
  *  \param nRow - relativna kooordinata reda u kojem se ispisuju porezi
  *  \aPorezi - koristi lokalne varijable
  */
@@ -482,6 +482,6 @@ else
 	@ row(),col()+2  SAY aPorezi[POR_PP] PICTURE "99.99"
 endif
 return
-*}
+
 
 

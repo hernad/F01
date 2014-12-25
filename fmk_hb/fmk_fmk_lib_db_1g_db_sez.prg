@@ -33,7 +33,7 @@ else
    return .f.
 endif
 return .t.
-*}
+
 
 function KrajskSez(cOldSezona)
 *{
@@ -43,7 +43,7 @@ ZFSveuDir(@aFilesS)
 ZFSveuDir(@aFilesK)
 
 return nil
-*}
+
 
 function StSezona(cSezona)
 *{
@@ -57,7 +57,7 @@ if val(cSezona)>year(date())
   return .t.
 endif
 return .t.
-*}
+
 
 /****f SC_ASEZ/Skloni ***
 
@@ -163,7 +163,7 @@ if fDa .or. !fInverse .and. (!File(cFull) .or. Pitanje(,cPath+cIme+" je vec pohr
 endif // fda
 
 return
-*}
+
 
 function BrisiSezonu()
 *{
@@ -263,7 +263,7 @@ endif
     ENDDO
   BoxC()
 return
-*}
+
 
 
 // -----------------------------------------------------------
@@ -281,7 +281,7 @@ FOR i:=LEN(aSezone) TO 1 STEP -1
     ENDIF
 NEXT
 RETURN aSezone
-*}
+
 
 
 function ProcPrenos(fSilent)
@@ -333,7 +333,7 @@ if (goModul:oDatabase:cRadimUSezona=="RADP")
 
 endif
 return
-*}
+
 
 /****f SC_ASEZ/SetOznNoGod ***
 
@@ -387,7 +387,7 @@ IF OzNoGod() <> goModul:oDataBase:cSezona .and.;
 ENDIF
 
 return
-*}
+
 
 function JelSeRadilo()
 *{
@@ -407,12 +407,12 @@ function JelSeRadilo()
     USE
   ENDIF
 RETURN lVrati
-*}
+
 
 FUNCTION OzNoGod()
 *{
 RETURN PADR( IzFMKIni( "Svi" , "NovaGodina" , STR(YEAR(DATE()),4) ) ,4)
-*}
+
 
 function SezRad(cDir)
 *{
@@ -433,7 +433,7 @@ else
 endif
 
 return
-*}
+
 
 function URadPodr(fset, oDatabase)
 *{
@@ -481,7 +481,7 @@ goModul:SetGVars()
 return
 */
 
-*}
+
 
 function PromOzSez(oDatabase)
 *{
@@ -514,11 +514,11 @@ if LASTKEY()<>K_ESC
 endif
 
 return
-*}
 
 
-/*! \fn BrowseSezone
- *  \brief Prikazuje listu sezonskih podrucja (koja imaju sadrzaj)
+
+/*!  BrowseSezone
+ *   Prikazuje listu sezonskih podrucja (koja imaju sadrzaj)
  *  \return selektovanu sezonu (npr "0502") , ili "" ako nismo nista odabrali
  *
  *  Sezonsko podrucje je puno kada
@@ -533,7 +533,7 @@ function BrowseSezone()
 *{
 
 return "000"
-*}
+
 
 function InfoPodrucja()
 *{
@@ -544,4 +544,4 @@ Box("#PODACI O TRENUTNOM PODRUCJU PODATAKA",20,77)
 	InkeySC(0)
 BoxC()
 return nil
-*}
+

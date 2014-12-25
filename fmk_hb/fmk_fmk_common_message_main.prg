@@ -17,8 +17,8 @@
 
 * KREIRANJE PORUKE
 
-/*! \fn CreateMsg()
- *  \brief Kreiranje poruka
+/*!  CreateMsg()
+ *   Kreiranje poruka
  */
 function CreateMsg(cIdPos)
 *{
@@ -95,11 +95,11 @@ if Pitanje(,"Snimiti poruku (D/N) ?","D")=="D"
 endif
 
 return
-*}
 
 
-/*! \fn SaveMessage(aLinijeText, cFrom, cUserName, cPrioritet, cTo)
- *  \brief Snimanje poruke u tabelu MESSAGE
+
+/*!  SaveMessage(aLinijeText, cFrom, cUserName, cPrioritet, cTo)
+ *   Snimanje poruke u tabelu MESSAGE
  */
 function SaveMessage(aLinijeText, cFrom, cUserName, cPrioritet, cTo)
 *{
@@ -119,14 +119,14 @@ for i=1 to LEN(aLinijeText)
 next
 
 return
-*}
+
 
 
 * CITANJE PORUKA
 
 
-/*! \fn ReadMsg(lNeprocitane)
- *  \brief Citanje poruka
+/*!  ReadMsg(lNeprocitane)
+ *   Citanje poruka
  *  \param lNeprocitane - samo koje nisu procitane (.t.) ili sve (.f.)
  */
 function ReadMsg(lNeprocitane)
@@ -217,12 +217,12 @@ ObjDBedit(,19,77,{|| ShowMessage()},"     Pregled poruka     ","",.f.,aOpc)
 
 CLOSERET
 return
-*}
 
 
 
-/*! \fn IsNewMsgExists()
- *  \brief Da li postoji nova poruka sa praznim poljem READ
+
+/*!  IsNewMsgExists()
+ *   Da li postoji nova poruka sa praznim poljem READ
  */
 function IsNewMsgExists()
 *{
@@ -252,7 +252,7 @@ enddo
 select (nArr)
 
 return lVrati
-*}
+
 
 
 
@@ -276,7 +276,7 @@ do case
   	endcase
 
 return (DE_CONT)
-*}
+
 
 
 function MsgInfo()
@@ -331,7 +331,7 @@ else
 endif
 
 return
-*}
+
 
 
 
@@ -372,12 +372,12 @@ set filter to &cFilter
 go nTRec
 
 return (DE_REFRESH)
-*}
 
 
 
-/*! \fn SendMsgToClipboard(idMsg, aLinijeTXT, idPos, fromuser, prioritet, to)
- *  \brief Salje poruku u TMPMSG.DBF
+
+/*!  SendMsgToClipboard(idMsg, aLinijeTXT, idPos, fromuser, prioritet, to)
+ *   Salje poruku u TMPMSG.DBF
  */
 function SendMsgToClipboard(idMsg, aLinijeTXT, idpos, fromuser, prioritet, to)
 *{
@@ -414,11 +414,11 @@ for i=1 to LEN(aLinijeTXT)
 next
 
 return
-*}
 
 
-/*! \fn GetMsgFromClipboard(idMsg)
- *  \brief Kopira sadrzaj polja TMPMSG u MESSAGE za zadani idMsg
+
+/*!  GetMsgFromClipboard(idMsg)
+ *   Kopira sadrzaj polja TMPMSG u MESSAGE za zadani idMsg
  *  \param idMsg - oznaka poruke
  */
 function GetMsgFromClipboard(idMsg)
@@ -471,7 +471,7 @@ else
 endif
 
 return
-*}
+
 
 
 

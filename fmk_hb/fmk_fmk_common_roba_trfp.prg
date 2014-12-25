@@ -68,7 +68,7 @@ return PostojiSifra(F_TRFP,1,15,76,"Parametri prenosa u FP",@cId,dx,dy,{|Ch| TRf
 select trfp
 set filter to
 
-*}
+
 
 function TrfpB(Ch)
 *{
@@ -180,7 +180,7 @@ elseif Ch==K_CTRL_F5
   return DE_REFRESH
 endif
 return DE_CONT
-*}
+
 
 FUNCTION UndoSheme(lKopi)
 *{
@@ -207,7 +207,7 @@ LOCAL cPom:="170771.POM", cStari:=SIFPATH+"TRFP.ST", cTekuci:=SIFPATH+"TRFP.DBF"
     ENDIF
   ENDIF
 RETURN
-*}
+
 
 FUNCTION PostTRFP(cDirSa)
 *{
@@ -222,7 +222,7 @@ LOCAL lVrati:=.f.
    Msg("Na zadanoj poziciji ne postoji fajl TRFP.DBF !")
  ENDIF
 RETURN lVrati
-*}
+
 
 
 function v_setform()
@@ -251,4 +251,4 @@ elseif  pitanje(,"Tekuce parametre kontiranja staviti u arhivu br. "+gSetForm+" 
  restore screen from cscr
 endif
 return .t.
-*}
+

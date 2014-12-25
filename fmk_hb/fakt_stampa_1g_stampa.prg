@@ -19,8 +19,8 @@
  */
  
 
-/*! \fn StViseDokMenu(cVarijanta)
- *  \brief Menij stampe vise dokumenata
+/*!  StViseDokMenu(cVarijanta)
+ *   Menij stampe vise dokumenata
  *  \param cVarijanta   - varijanta
  */
  
@@ -79,11 +79,11 @@ function StViseDokMenu(cVarijanta)
   ENDIF
 
 return IF(nPom=LEN(aPom).and.cVarijanta!="BRISI".or.nPom==0,.f.,.t.)
-*}
 
 
-/*! \fn FilterPrNovine()
- *  \brief Postavlja filter na zadani dokument sa gFiltNov
+
+/*!  FilterPrNovine()
+ *   Postavlja filter na zadani dokument sa gFiltNov
  *  \todo Pregledati gdje se koristi, izgleda da je vezano samo za ZIPS ili Opresu
  */
  
@@ -92,6 +92,6 @@ function FilterPrNovine()
 SET FILTER TO IDFIRMA+IDTIPDOK+BRDOK=gFiltNov
 GO TOP
 return
-*}
+
 
 

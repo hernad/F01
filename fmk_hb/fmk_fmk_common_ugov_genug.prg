@@ -15,7 +15,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_Fakt_Ugovori_Dokumenata_Izgenerisati
-  * \brief Broj ugovora koji se obrade pri jednom pozivu opcije generisanja faktura na osnovu ugovora
+  *  Broj ugovora koji se obrade pri jednom pozivu opcije generisanja faktura na osnovu ugovora
   * \param 1 - default vrijednost
   */
 *string FmkIni_ExePath_Fakt_Ugovori_Dokumenata_Izgenerisati;
@@ -23,7 +23,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_Fakt_Ugovori_N1
-  * \brief Koristi li se za generaciju faktura po ugovorima parametar N1 ?
+  *  Koristi li se za generaciju faktura po ugovorima parametar N1 ?
   * \param D - da, default vrijednost
   * \param N - ne
   */
@@ -32,7 +32,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_Fakt_Ugovori_N2
-  * \brief Koristi li se za generaciju faktura po ugovorima parametar N2 ?
+  *  Koristi li se za generaciju faktura po ugovorima parametar N2 ?
   * \param D - da, default vrijednost
   * \param N - ne
   */
@@ -41,7 +41,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_Fakt_Ugovori_N3
-  * \brief Koristi li se za generaciju faktura po ugovorima parametar N3 ?
+  *  Koristi li se za generaciju faktura po ugovorima parametar N3 ?
   * \param D - da, default vrijednost
   * \param N - ne
   */
@@ -50,7 +50,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FAKT_Ugovori_SumirajIstuSifru
-  * \brief Da li ce se pri generisanju fakture na osnovu ugovora sabirati kolicine stavki iz ugovora koje sadrze isti artikal u jednu stavku na dokumentu
+  *  Da li ce se pri generisanju fakture na osnovu ugovora sabirati kolicine stavki iz ugovora koje sadrze isti artikal u jednu stavku na dokumentu
   * \param D - da, default vrijednost
   * \param N - ne
   */
@@ -59,7 +59,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_Fakt_Ugovori_UNapomenuSamoBrUgovora
-  * \brief Da li ce se pri generisanju faktura na osnovu ugovora u napomenu dodati iza teksta "VEZA:" samo broj ugovora 
+  *  Da li ce se pri generisanju faktura na osnovu ugovora u napomenu dodati iza teksta "VEZA:" samo broj ugovora 
   * \param D - da, default vrijednost
   * \param N - ne, ispisace se i tekst "UGOVOR:", te datum ugovora
   */
@@ -216,18 +216,18 @@ SELECT PRIPR
    endif
 
    select pripr
-   seek gFirma+cidtipdok+"È"
+   seek gFirma+cidtipdok+"ï¿½"
    skip -1
    if idtipdok <> cIdTipdok
-     seek "È" // idi na kraj, nema zeljenih dokumenata
+     seek "ï¿½" // idi na kraj, nema zeljenih dokumenata
    endif
 
    select fakt
-   seek gFirma+cidtipdok+"È"
+   seek gFirma+cidtipdok+"ï¿½"
    skip -1
 
    if idtipdok <> cIdTipdok
-     seek "È" // idi na kraj, nema zeljenih  dokumenata
+     seek "ï¿½" // idi na kraj, nema zeljenih  dokumenata
    endif
 
    if pripr->brdok > fakt->brdok
@@ -264,7 +264,7 @@ nRbr:=0
 seek cidugov
 
 // prvi krug odredjuje glavnicu
-nGlavnica:=0  // jedna stavka mo§e biti glavnica za ostale
+nGlavnica:=0  // jedna stavka moï¿½e biti glavnica za ostale
 do while !eof() .and. id==cidugov
    select roba; hseek rugov->idroba
    select rugov
@@ -418,6 +418,6 @@ next
 
 closeret
 return
-*}
+
 
 

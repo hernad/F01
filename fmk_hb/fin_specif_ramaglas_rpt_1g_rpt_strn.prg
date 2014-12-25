@@ -14,12 +14,12 @@
 
 
 /*! \file fmk/fin/specif/ramaglas/rpt/1g/rpt_strn.prg
- *  \brief Specifikacije troskova radnih naloga - "pogonsko knjigovodstvo"
+ *   Specifikacije troskova radnih naloga - "pogonsko knjigovodstvo"
  */
 
 
-/*! \fn SpecTrosRN()
- *  \brief Specifikacija troskova po radnim nalozima (tj.objektima)
+/*!  SpecTrosRN()
+ *   Specifikacija troskova po radnim nalozima (tj.objektima)
  */
 
 function SpecTrosRN()
@@ -183,7 +183,7 @@ END PRINT
 
 closeret
 return
-*}
+
 
 
 

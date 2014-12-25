@@ -245,11 +245,11 @@ EndPrint()
 closeret
 #endif
 return
-*}
 
 
-/*! \fn SinKZagl()
- *  \brief Zaglavlje sinteticke kartice
+
+/*!  SinKZagl()
+ *   Zaglavlje sinteticke kartice
  */
  
 function SinKZagl()
@@ -290,8 +290,8 @@ RETURN
 
 
 
-/*! \fn SinKart2()
- *  \brief Sinteticka kartica (varijanta po mjesecima)
+/*!  SinKart2()
+ *   Sinteticka kartica (varijanta po mjesecima)
  */
 
 function SinKart2()
@@ -491,11 +491,11 @@ END PRINT
 closeret
 #endif
 return
-*}
 
 
-/*! \fn ZaglSinK2()
- *  \brief Zaglavlje sinteticke kartice varijante 2
+
+/*!  ZaglSinK2()
+ *   Zaglavlje sinteticke kartice varijante 2
  */
  
 function ZaglSink2()
@@ -535,12 +535,12 @@ ENDIF
 ?  m
 
 RETURN
-*}
 
 
 
-/*! \fn AnKart()
- *  \brief Analiticka kartica
+
+/*!  AnKart()
+ *   Analiticka kartica
  */
  
 function AnKart()
@@ -829,12 +829,12 @@ END PRINT
 closeret
 #endif
 return
-*}
 
 
 
-/*! \fn AnalKZagl()
- *  \brief Zaglavlje analiticke kartice
+
+/*!  AnalKZagl()
+ *   Zaglavlje analiticke kartice
  */
 
 function AnalKZagl()

@@ -28,12 +28,12 @@
 
 
 /*! \file fmk/kalk/gendok/1g/storno.prg
- *  \brief Generisanje storna dokumenta
+ *   Generisanje storna dokumenta
  */
 
 
-/*! \fn StornoDok()
- *  \brief Generisanje storna dokumenta promjenom predznaka na kolicini
+/*!  StornoDok()
+ *   Generisanje storna dokumenta promjenom predznaka na kolicini
  */
 
 function StornoDok()
@@ -82,12 +82,12 @@ function StornoDok()
 
 CLOSERET
 return
-*}
 
 
 
-/*! \fn ImaDok(cDok)
- *  \brief Ispituje postojanje zadanog dokumenta medju azuriranim
+
+/*!  ImaDok(cDok)
+ *   Ispituje postojanje zadanog dokumenta medju azuriranim
  */
 
 function ImaDok(cDok)
@@ -102,4 +102,4 @@ LOCAL lVrati:=.f., nArr:=SELECT()
   ENDIF
   SELECT (nArr)
 return lVrati
-*}
+

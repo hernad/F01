@@ -19,11 +19,11 @@
  */
 
 /*! \file fmk/fakt/sif/1g/mnu_sif.prg
- *  \brief Menij sifrarnika
+ *   Menij sifrarnika
  */
 
-/*! \fn Sifre()
- *  \brief Menij sifrarnika
+/*!  Sifre()
+ *   Menij sifrarnika
  */
  
 function Sifre()
@@ -71,5 +71,5 @@ endif
 
 Menu_SC("fsif")
 return
-*}
+
 

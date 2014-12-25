@@ -20,7 +20,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_Svi_Sifk
-  * \brief Da li se koriste sifrarnici SIFK i SIFV?
+  *  Da li se koriste sifrarnici SIFK i SIFV?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -29,7 +29,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_PrivPath_FAKT_OsvjeziBarKod
-  * \brief Da li se pri prenosu dokumenata iz FAKT u FAKT (diskete) trebaju osvjezavati i barkodovi u sifrarniku robe?
+  *  Da li se pri prenosu dokumenata iz FAKT u FAKT (diskete) trebaju osvjezavati i barkodovi u sifrarniku robe?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -38,7 +38,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_PriFAKTuFAKTPrenosuOsvjeziNaziveRobe
-  * \brief Da li se pri prenosu dokumenata iz FAKT u FAKT (diskete) trebaju osvjezavati i nazivi roba u sifrarniku robe?
+  *  Da li se pri prenosu dokumenata iz FAKT u FAKT (diskete) trebaju osvjezavati i nazivi roba u sifrarniku robe?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -60,12 +60,12 @@ AADD(opc,"3. podesavanje prenosa i prijema")
 AADD(opcexe,{|| PPPDisk()})
 Menu_SC("faktd")
 closeret
-*}
 
 
 
-/*! \fn PrDisk()
- *  \brief Prenos na diskete
+
+/*!  PrDisk()
+ *   Prenos na diskete
  */
  
 function PrDisk()
@@ -334,13 +334,13 @@ aFajlovi:={ PRIVPATH+"_fakt.*", PRIVPATH+"_roba.*", PRIVPATH+"_SIF?.*", PRIVPATH
 Zipuj(aFajlovi,cFZaPredaju,cLokPren)
 
 return
-*}
 
 
 
 
-/*! \fn PovDisk()
- *  \brief Povrat podataka 
+
+/*!  PovDisk()
+ *   Povrat podataka 
  */
  
 function PovDisk()
@@ -545,11 +545,11 @@ endif
 restore screen from cs
 
 closeret
-*}
 
 
-/*! \fn PPPDisk(lIni)
- *  \brief Podesavanje parametara prenosa
+
+/*!  PPPDisk(lIni)
+ *   Podesavanje parametara prenosa
  */
  
 function PPPDisk(lIni)
@@ -629,7 +629,7 @@ LOCAL GetList:={}
   ENDIF
   USE
 return
-*}
+
 
 
 

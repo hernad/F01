@@ -389,8 +389,8 @@ return
 
 
 
-/*! \fn ZaglFLLM()
- *  \brief Ispis zaglavlja izvjestaja "finansijsko stanje magacina"
+/*!  ZaglFLLM()
+ *   Ispis zaglavlja izvjestaja "finansijsko stanje magacina"
  */
 
 function ZaglFLLM()

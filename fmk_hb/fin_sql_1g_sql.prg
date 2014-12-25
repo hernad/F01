@@ -27,15 +27,15 @@
 
 
 /*! \file fmk/fin/sql/1g/sql.prg
- *  \brief SQL operacije
+ *   SQL operacije
  */
 
-/*! \fn O_Log()
- *  \brief Otvara log fajl
+/*!  O_Log()
+ *   Otvara log fajl
  */
  
 function O_Log()
 *{
 return
-*}
+
 

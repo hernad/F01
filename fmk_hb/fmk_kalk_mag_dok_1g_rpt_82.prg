@@ -29,12 +29,12 @@
  
 
 /*! \file fmk/kalk/mag/dok/1g/rpt_82.prg
- *  \brief Stampa kalkulacije 82 - izlaz iz magacina diskont
+ *   Stampa kalkulacije 82 - izlaz iz magacina diskont
  */
 
 
-/*! \fn StKalk82()
- *  \brief Stampa kalkulacije 82 - izlaz iz magacina diskont
+/*!  StKalk82()
+ *   Stampa kalkulacije 82 - izlaz iz magacina diskont
  */
 
 function StKalk82()
@@ -187,4 +187,4 @@ IF prow()>56+gPStranica; FF; @ prow(),125 SAY "Str:"+str(++nStr,3);  endif
 set order to 1
 go nRec
 return
-*}
+

@@ -21,7 +21,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FAKT_NarudzbaSaCijenama
-  * \brief Odredjuje da li ce se na narudzbenici prikazivati cijene
+  *  Odredjuje da li ce se na narudzbenici prikazivati cijene
   * \param N - bez cijena, default vrijednost
   * \param D - prikazi i cijene
   */
@@ -30,7 +30,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_NARUDZBENICA_DobAdresa
-  * \brief Odredjuje adresu dobavljaca
+  *  Odredjuje adresu dobavljaca
   * \param _ - default vrijednost
   */
 *string FmkIni_KumPath_NARUDZBENICA_DobAdresa;
@@ -38,7 +38,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_NARUDZBENICA_DobTelefon
-  * \brief Odredjuje telefon dobavljaca
+  *  Odredjuje telefon dobavljaca
   * \param _ - default vrijednost
   */
 *string FmkIni_KumPath_NARUDZBENICA_DobTelefon;
@@ -46,7 +46,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_NARUDZBENICA_DobDomZR
-  * \brief Odredjuje ziro racun dobavljaca
+  *  Odredjuje ziro racun dobavljaca
   * \param _ - default vrijednost
   */
 *string FmkIni_KumPath_NARUDZBENICA_DobDomZR;
@@ -54,7 +54,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_NARUDZBENICA_DobRegBr
-  * \brief Odredjuje registarski broj dobavljaca
+  *  Odredjuje registarski broj dobavljaca
   * \param _ - default vrijednost
   */
 *string FmkIni_KumPath_NARUDZBENICA_DobRegBr;
@@ -62,15 +62,15 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_NARUDZBENICA_DobPorBr
-  * \brief Odredjuje poreski broj dobavljaca
+  *  Odredjuje poreski broj dobavljaca
   * \param _ - default vrijednost
   */
 *string FmkIni_KumPath_NARUDZBENICA_DobPorBr;
 
 
 
-/*! \fn StNarKup()
- *  \brief Stampa narudzbenice 
+/*!  StNarKup()
+ *   Stampa narudzbenice 
  *  \todo Prebaciti u /RPT
  */
  
@@ -273,11 +273,11 @@ gRPL_Normal()
 
 END PRINT
 return
-*}
 
 
-/*! \fn UzmiVar(cVar)
- *  \brief Uzima varijable 
+
+/*!  UzmiVar(cVar)
+ *   Uzima varijable 
  *  \param cVar
  *  \return cVrati
  */
@@ -352,7 +352,7 @@ DO CASE
        cVrati := { "K", "gPI_OFF()" }
  ENDCASE
 return cVrati
-*}
+
 
 
 

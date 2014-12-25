@@ -49,13 +49,13 @@
 
 
 /*! \file fmk/fakt/dok/1g/stdrtf21.prg
- *  \brief Ko zna koja varijanta stampe u RTF formatu
+ *   Ko zna koja varijanta stampe u RTF formatu
  */
 
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_RTF_PartnerFS
-  * \brief Velicina fonta za ispis partnera u rtf-fakturi
+  *  Velicina fonta za ispis partnera u rtf-fakturi
   * \param 28 - default vrijednost
   */
 *string FmkIni_KumPath_RTF_PartnerFS;
@@ -63,15 +63,15 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_RTF_PartnerSB
-  * \brief Format necega?! Nisam mogao testirati jer nemam instaliran MS Word!
+  *  Format necega?! Nisam mogao testirati jer nemam instaliran MS Word!
   * \param 90 - default vrijednost
   */
 *string FmkIni_KumPath_RTF_PartnerSB;
 
 
 
-/*! \fn StdRtf21()
- *  \brief Stampa faktura u RTF formatu varijanta 2 1
+/*!  StdRtf21()
+ *   Stampa faktura u RTF formatu varijanta 2 1
  *  \param cImeF
  *  \param cIdFirma
  *  \param cIdTipDok
@@ -643,7 +643,7 @@ select por; use
 select pripr
 
 closeret
-*}
+
 
 
 

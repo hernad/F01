@@ -143,7 +143,7 @@ else
 	lRet := .f.
 endif
 return
-*}
+
 
 
 function isPfTraka(lRet)
@@ -155,7 +155,7 @@ else
 	lRet := .f.
 endif
 return
-*}
+
 
 
 // ---------------------------------------
@@ -180,14 +180,14 @@ function get_rn_mjesto()
 *{
 local cMjesto := get_dtxt_opis("R01")
 return cMjesto
-*}
+
 
 
 function rb_traka_line(cLine)
 *{
 cLine := REPLICATE("-", LEN_RBR) + " " + REPLICATE("-", LEN_NAZIV) + " " + REPLICATE("-", LEN_UKUPNO)
 return
-*}
+
 
 
 // st_rb_traka() - funkcija za stampu stavki trake
@@ -455,7 +455,7 @@ if lStartPrint
 endif
 
 return
-*}
+
 
 // -----------------------------------
 // -----------------------------------
@@ -515,7 +515,7 @@ endif
 ?
 
 return
-*}
+
 
 
 function g_br_stola(cBrStola)
@@ -525,7 +525,7 @@ if cBrStola == "-"
 	cBrStola := ""
 endif
 return
-*}
+
 
 
 function g_vez_racuni(aRacuni)
@@ -538,7 +538,7 @@ if cRead == "-"
 endif
 aRacuni:=SjeciStr(cRead, 20)
 return
-*}
+
 
 
 function ft_rb_traka(cIdRadnik)
@@ -594,6 +594,6 @@ if !EMPTY(cPomTxt3)
 endif
 
 return
-*}
+
 
 

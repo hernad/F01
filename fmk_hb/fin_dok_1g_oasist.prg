@@ -86,8 +86,8 @@ return .t.
 
 
 
-/*! \fn KonsultOS()
- *  \brief Sredjivanje otvorenih stavki pri knjizenju, poziv na polju strane valute<a+O>
+/*!  KonsultOS()
+ *   Sredjivanje otvorenih stavki pri knjizenju, poziv na polju strane valute<a+O>
  */
  
 function KonsultOS()
@@ -408,8 +408,8 @@ RETURN (NIL)
 
 
 
-/*! \fn EdKonsROS()
- *  \brief Ispravka broja veze u SUBAN
+/*!  EdKonsROS()
+ *   Ispravka broja veze u SUBAN
  */
  
 function EdKonsROS()

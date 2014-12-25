@@ -18,8 +18,8 @@
  * ----------------------------------------------------------------
  */
  
-/*! \fn Fakt_Kalk(lFaktKalk)
- *  \brief Uporedni prikaz stanja Kalk<->Fakt 
+/*!  Fakt_Kalk(lFaktKalk)
+ *   Uporedni prikaz stanja Kalk<->Fakt 
  *  \param lFaktKalk
  */
  
@@ -596,6 +596,6 @@ use
 #endif
 closeret
 return
-*}
+
 
 

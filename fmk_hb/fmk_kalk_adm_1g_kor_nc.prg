@@ -98,11 +98,11 @@ endif
 select (nTArea)
 
 CLOSERET
-*}
 
 
-/*! \fn TraziRbr(cKljuc)
- *  \brief Utvrdjuje posljednji redni broj stavke zadanog dokumenta u pripremi
+
+/*!  TraziRbr(cKljuc)
+ *   Utvrdjuje posljednji redni broj stavke zadanog dokumenta u pripremi
  */
 
 function TraziRbr(cKljuc)
@@ -115,11 +115,11 @@ function TraziRbr(cKljuc)
    cVrati:=STR(VAL(rbr)+1,3)
  ENDIF
 return cVrati
-*}
 
 
-/*! \fn TraziNC(cTrazi,dDat)
- *  \brief Utvrdjuje najcescu NC zadane robe na zadanom kontu do zadanog datuma
+
+/*!  TraziNC(cTrazi,dDat)
+ *   Utvrdjuje najcescu NC zadane robe na zadanom kontu do zadanog datuma
  */
 
 function TraziNC(cTrazi,dDat)
@@ -149,4 +149,4 @@ function TraziNC(cTrazi,dDat)
   ENDIF
   SELECT PRIPR
 return nVrati
-*}
+

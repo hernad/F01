@@ -46,7 +46,7 @@ LEN_UKUPNO(99)
 radni_nalog(lStartPrint)
 
 return
-*}
+
 
 
 // stampa radnog naloga
@@ -159,7 +159,7 @@ if lStartPrint
 endif
 
 return
-*}
+
 
 // uzmi osnovne parametre za stampu dokumenta
 function get_rnal_vars(nLMargina, nGMargina, nDodRedova, nSlTxtRow, lSamoKol, lZaglStr, lStZagl, lDatOtp, cValuta, cPDVStavka)
@@ -208,7 +208,7 @@ endif
 cValuta := get_dtxt_opis("D07")
 
 return
-*}
+
 
 
 // zaglavlje glavne tabele sa stavkama
@@ -233,7 +233,7 @@ cRed1 += " " + PADC("kolicina", LEN_KOLICINA())
 ? cLine
 
 return
-*}
+
 
 // definicija linije za glavnu tabelu sa stavkama
 function rnal_line()
@@ -519,7 +519,7 @@ endif
 
 
 return
-*}
+
 
 
 // --------------------------------

@@ -566,7 +566,7 @@ close all
 closeret
 
 return
-*}
+
 
 
 static function NadjiPMpc()
@@ -592,7 +592,7 @@ if (nMpc==0)
 endif
 
 return nMpc
-*}
+
 
 static function SetK1K2(cG1, cIdTarifa, cIdRoba, nK1, nK2)
 *{
@@ -610,11 +610,11 @@ do while (!EOF()  .and. field->id<"99")
 enddo
 
 return
-*}
 
 
-/*! \fn Izmj_cPrSort()
- *  \brief Formula za kljucni dio sifre pri grupisanju roba
+
+/*!  Izmj_cPrSort()
+ *   Formula za kljucni dio sifre pri grupisanju roba
  *  \ingroup Planika
  */
 
@@ -628,7 +628,7 @@ local GetList:={}
   cPrSort:=ALLTRIM(cPrSort)
  BoxC()
 return
-*}
+
 
 static function PaperFormatHelp()
 *{
@@ -639,12 +639,12 @@ cPoruka+="##A4  - A4 format papira"
 cPoruka+="##A4L - A4 landscape papir"
 MsgBeep(cPoruka)
 return
-*}
+
 
 
 /*! \ingroup Planika
- *  \fn ZagPKret(cVarijanta)
- *  \brief Zaglavlje izvjestaja pregled kretanja
+ *   ZagPKret(cVarijanta)
+ *   Zaglavlje izvjestaja pregled kretanja
  *  \param cVarijanta - "1" - Pregl. kret zalika, "2" - rekapitulacija po grupama dobavljaca, "3" - rekapitulacija po grupama artikala
  *
  */
@@ -741,7 +741,7 @@ enddo
 ?? " ------"
 
 return nil
-*}
+
 
 static function GetVars(cNObjekat, dDatOd, dDatDo, cIdKPovrata, cRekPoRobama, cRekPoDobavljacima, cRekPoGrupamaRobe, cK1, cK7, cK9, cPlVrsta, cPapir, cPrikazDob,  aUsl1, aUsl2, aUslR, aUslSez)
 *{
@@ -823,7 +823,7 @@ select params
 use
 
 return 1
-*}
+
 
 
 function SetLinija(cLinija, nUkObj)
@@ -841,7 +841,7 @@ cLinija+=" ------"
 cLinija+=" ------"
 
 return
-*}
+
 
 function SetGaZag(cRekPoRobama, cRekPoDobavljacima, cRekPoGrupamaRobe, gaZagFix, gaKolFix)
 *{
@@ -861,7 +861,7 @@ elseif cRekPoGrupamaRobe=="D"
 endif
 
 return
-*}
+
 
 function RekPoRobama(cLinija, nCol1)
 *{
@@ -904,7 +904,7 @@ select rekap1
 ? cLinija
 
 return
-*}
+
 
 
 function RekPoDob(cRekPoRobama, cLinija, nCol1, nUkObj, aUTar)
@@ -975,7 +975,7 @@ function RekPoDob(cRekPoRobama, cLinija, nCol1, nUkObj, aUTar)
   next
 
 return
-*}
+
 
 function RekPoGrup(cRekPoGrupama, cRekPoDobavljacima, aUGArt)
 *{
@@ -1041,4 +1041,4 @@ for i:=1 to LEN(aUGArt)
 next
 
 return
-*}
+

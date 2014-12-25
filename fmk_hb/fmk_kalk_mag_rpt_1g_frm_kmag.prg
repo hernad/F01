@@ -28,12 +28,12 @@
  
 
 /*! \file fmk/kalk/mag/rpt/1g/frm_kmag.prg
- *  \brief Kartica artikla u magacinu koja se moze dobiti iz tabele pripreme
+ *   Kartica artikla u magacinu koja se moze dobiti iz tabele pripreme
  */
 
 
 /*! \fn
- *  \brief Kartica artikla u magacinu koja se moze dobiti iz tabele pripreme
+ *   Kartica artikla u magacinu koja se moze dobiti iz tabele pripreme
  */
 
 function KMag()
@@ -71,6 +71,6 @@ select tarifa
 go nR3
 select pripr
 return
-*}
+
 
 

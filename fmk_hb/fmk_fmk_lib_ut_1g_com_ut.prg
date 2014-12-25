@@ -19,8 +19,8 @@
  */
 
 
-/*! \fn GetComPort()
- *  \brief Vraca oznaku COM port-a: 1, 2, 3...
+/*!  GetComPort()
+ *   Vraca oznaku COM port-a: 1, 2, 3...
  */
 function GetComPort()
 *{
@@ -30,11 +30,11 @@ if Empty(cComPort)
 	cComPort:="1"
 endif
 return VAL(cComPort)
-*}
 
 
-/*! \fn GetComBaudRate()
- *  \brief Baud rate
+
+/*!  GetComBaudRate()
+ *   Baud rate
  */
 function GetComBaudRate()
 *{
@@ -43,11 +43,11 @@ if Empty(cBaudRate)
 	cBaudRate:="9600"
 endif
 return VAL(cBaudRate)
-*}
 
 
-/*! \fn TestComPort(nPort, nBuffSize, lClose)
- *  \brief Testiranje COM porta
+
+/*!  TestComPort(nPort, nBuffSize, lClose)
+ *   Testiranje COM porta
  *  \param nPort - oznaka COM port-a
  *  \param nBuffSize - velicina buffer-a (def. 4000)
  *  \param lClose - (.t.) zatvori nakon test-a
@@ -70,11 +70,11 @@ else
 	return 0
 endif
 return
-*}
 
 
-/*! \fn InitComPort(nPort)
- *  \brief Inicijalizacija com port-a
+
+/*!  InitComPort(nPort)
+ *   Inicijalizacija com port-a
  *  \param nPort - oznaka port-a
  *  \result 1 - OK, 0 - not OK
  */
@@ -90,11 +90,11 @@ else
 	return 0
 endif
 return
-*}
 
 
-/*! \fn Send2ComPort(cOutPut)
- *  \brief Salje cOutput na COM port
+
+/*!  Send2ComPort(cOutPut)
+ *   Salje cOutput na COM port
  *  \param cOutPut - string koji se salje na com port
  */
 function Send2ComPort(cOutPut)
@@ -124,10 +124,10 @@ endif
 
 
 return
-*}
+
 
 /*! \CnvrtStr2Hex(cStr, lSpace)
- *  \brief Konvertuje string u hex u formatu: str="2500" reslt: 32 35 30 30
+ *   Konvertuje string u hex u formatu: str="2500" reslt: 32 35 30 30
  *  \param cStr - string koji zelimo konvertovati
  *  \param lSpace - pravi razmak izmedju karaktera
  */
@@ -153,7 +153,7 @@ for i:=1 to LEN(cStr)
 next
 
 return cRet
-*}
+
 
 
 

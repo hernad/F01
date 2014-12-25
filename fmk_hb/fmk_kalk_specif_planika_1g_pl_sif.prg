@@ -36,8 +36,8 @@
  *
  */
 
-/*! \fn P_RVrsta(cId,dx,dy)
- *  \brief Otvara sifrarnik vrsta artikala planika 
+/*!  P_RVrsta(cId,dx,dy)
+ *   Otvara sifrarnik vrsta artikala planika 
  *  \param cId
  *  \param dx
  *  \param dy
@@ -62,7 +62,7 @@ if !used()
 endif
 SELECT (nSelect)
 return PostojiSifra(F_RVRSTA, 1, 10, 75, "Planika vrste artikala", @cid, dx, dy)
-*}
+
 
 
 function P_PlSezona(cId) 
@@ -73,19 +73,19 @@ if (EMPTY(cId) .and. !EMPTY(cPom) .and. Pitanje(,"Konverzija na osnovu polja SEZ
 endif
 
 return .t.
-*}
+
 
 function P_TPurchase(cId) 
 *{
 return .t.
-*}
+
 
 
 
 function P_IdPartner(cId) 
 *{
 return .t.
-*}
+
 
 
 function PlFill_Sezona()
@@ -132,7 +132,7 @@ nI:=0
 endif
 
 return
-*}
+
 
 
 function PlFill_Vrsta()
@@ -172,7 +172,7 @@ if Pitanje(,"Zelite li izvrsiti konverziju ?", "N")=="D"
 endif
 
 return
-*}
+
 
 function PlFillIdPartner(cIdPartner, cIdRoba)
 *{
@@ -188,5 +188,5 @@ replace field->idpartner with cIdPartner
 
 select (nArr)
 return
-*}
+
 

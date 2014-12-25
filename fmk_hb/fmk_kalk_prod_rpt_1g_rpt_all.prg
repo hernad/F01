@@ -21,14 +21,14 @@
  
 
 /*! \file fmk/kalk/prod/rpt/1g/rpt_all.prg
- *  \brief Ove funkcije koristi vise izvjestaja (primjer RekTarife)
+ *   Ove funkcije koristi vise izvjestaja (primjer RekTarife)
  */
 
 
 
 
-/*! \fn RekTarife()
- *  \brief Nova funkcija RekTarife - koristi proracun poreza iz roba/tarife.prg
+/*!  RekTarife()
+ *   Nova funkcija RekTarife - koristi proracun poreza iz roba/tarife.prg
  * prosljedjuje se cidfirma,cidvd,cbrdok
  */
 function RekTarife(lVisak)
@@ -202,10 +202,10 @@ next
 set order to 1
 go nRec
 return
-*}
 
-/*! \fn PKontoCnt(cSeek)
- *  \brief Kreira niz prodavnickih konta koji se nalaze u zadanom dokumentu
+
+/*!  PKontoCnt(cSeek)
+ *   Kreira niz prodavnickih konta koji se nalaze u zadanom dokumentu
  *  \param cSeek - firma + tip dok + broj dok
  */
 
@@ -224,7 +224,7 @@ do while !eof() .and. (IdFirma+Idvd+BrDok)=cSeek
 enddo
 
 return aPKonta
-*}
+
 
 
 function DokKolicina(cIdVd)
@@ -240,7 +240,7 @@ else
 	nKol:=kolicina
 endif
 return nKol
-*}
+
 
 
 
@@ -253,6 +253,6 @@ else
 	nMpc:=field->mpc
 endif
 return nMpc
-*}
+
 
 

@@ -46,7 +46,7 @@ LEN_UKUPNO(80)
 otpr_mp(lStartPrint)
 
 return
-*}
+
 
 
 // stampa otpremnica maloprodaja
@@ -219,7 +219,7 @@ if lStartPrint
 endif
 
 return
-*}
+
 
 // uzmi osnovne parametre za stampu dokumenta
 function get_omp_vars(nLMargina, nGMargina, nDodRedova, nSlTxtRow, lSamoKol, lZaglStr, lStZagl, lDatOtp, cValuta, cPDVStavka)
@@ -273,7 +273,7 @@ nSw3(VAL(get_dtxt_opis("X06")))
 nSw4(VAL(get_dtxt_opis("X07")))
 
 return
-*}
+
 
 
 // zaglavlje glavne tabele sa stavkama
@@ -304,7 +304,7 @@ cRed1 += " " + PADC("Uk.sa.PDV", LEN_VRIJEDNOST())
 ? cLine
 
 return
-*}
+
 
 
 

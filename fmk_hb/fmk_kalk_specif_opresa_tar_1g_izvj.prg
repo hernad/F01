@@ -27,11 +27,11 @@
 
 
 /*! \file fmk/kalk/specif/opresa/tar/1g/izvj.prg
- *  \brief Izvjestaji
+ *   Izvjestaji
  */
 
-/*! \fn IzvjTar()
- *  \brief Menij izvjestaja
+/*!  IzvjTar()
+ *   Menij izvjestaja
  */
  
 function IzvjTar()
@@ -49,11 +49,11 @@ private opcexe:={}
 private Izbor:=1
 Menu_SC("itar")
 return .f.
-*}
 
 
-/*! \fn Kart41_42()
- *  \brief Kartica za varijantu "vodi samo tarife", 41-avans, 42-obracun
+
+/*!  Kart41_42()
+ *   Kartica za varijantu "vodi samo tarife", 41-avans, 42-obracun
  *  \param
  */
 
@@ -246,12 +246,12 @@ local PicCDEM:=gPicCDEM
  FF
  END PRINT
 CLOSERET
-*}
 
 
 
-/*! \fn Zagl2()
- *  \brief Zaglavlje izvjestaja
+
+/*!  Zagl2()
+ *   Zaglavlje izvjestaja
  */
  
 static function Zagl2()
@@ -269,12 +269,12 @@ P_COND
 ? " Datum     Dokument  Tarifa  Partn   AVANS      AVANSA    OBRACUN    OBRACUNA "
 ? m
 return (nil)
-*}
 
 
 
-/*! \fn Kart412v2()
- *  \brief Kartica za varijantu "vodi samo tarife" varijanta 2
+
+/*!  Kart412v2()
+ *   Kartica za varijantu "vodi samo tarife" varijanta 2
  *  \param
  */
  
@@ -490,12 +490,12 @@ local PicCDEM:=gPicCDEM
  FF
  END PRINT
 CLOSERET
-*}
 
 
 
-/*! \fn Zagl3()
- *  \brief Zaglavlje izvjestaja
+
+/*!  Zagl3()
+ *   Zaglavlje izvjestaja
  */
  
 static function Zagl3()
@@ -513,6 +513,6 @@ P_COND
 ? " Datum     Dokument  Tarifa     Broj    Datum    Partn   (osnov)    POREZA    (POREZ)     UPL-OBAV"
 ? m
 return (nil)
-*}
+
 
 

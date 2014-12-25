@@ -29,9 +29,9 @@ static aMenuStack:={}
 static aMsgStack:={}
 *;
 
-/*! \fn Menu(MenuId,Items,ItemNo,Inv)
+/*!  Menu(MenuId,Items,ItemNo,Inv)
  *
- *  \brief Prikazuje zadati meni, vraca odabranu opciju
+ *   Prikazuje zadati meni, vraca odabranu opciju
  *
  *  \param MenuId  - identifikacija menija     C
  *  \param Items   - niz opcija za izbor       C[]
@@ -166,7 +166,7 @@ END IF
 SetColor(OldC)
 SET(_SET_DEVICE,cPom)
 return ItemNo
-*}
+
 
 
 function Calc_xy(N,Length)
@@ -194,7 +194,7 @@ ELSE
   m_y=INT((80-Length-2)/2)
 END IF
 return
-*}
+
 
 
 // vrati pravu vrijednost itema...
@@ -246,8 +246,8 @@ endcase
 return cAction
 
 
-/*! \fn Msg(Text,Sec, xPos)
-*   \brief Ispisuje tekst i ceka <Sec> sekundi
+/*!  Msg(Text,Sec, xPos)
+*    Ispisuje tekst i ceka <Sec> sekundi
 *   \param xPos je pozicija ukoliko se ne zeli centrirati poruka
 *   \note Maksimalna duzina jednog reda je 72 slova
 */
@@ -301,7 +301,7 @@ Inkey(Sec)
 MsgC(msg_x1,msg_y1,msg_x2,msg_y2)
 SET(_SET_DEVICE,cPom)
 return
-*}
+
 
 
 
@@ -335,7 +335,7 @@ StackPush(aMsgStack,{if(setcursor()==0,0,iif(readinsert(),2,1)),setcolor(Invert)
 set cursor off
 SET(_SET_DEVICE,cPom)
 return
-*}
+
 
 function MsgC(msg_x1,msg_y1,msg_x2,msg_y2)
 *{
@@ -357,10 +357,10 @@ if len(aMsgStack)>0
 endif
 
 return
-*}
 
-/*! \fn Box(BoxId, N, Length, Inv, chMsg, cHelpT)
- *  \brief Otvara prozor BoxID dimenzija (N x Length), invertovan 
+
+/*!  Box(BoxId, N, Length, Inv, chMsg, cHelpT)
+ *   Otvara prozor BoxID dimenzija (N x Length), invertovan 
  *         (Inv=.T. ili ne)
  *
  *  \param chMsg - tip C -> prikaz poruke
@@ -427,7 +427,7 @@ ENDIF
 SET(_SET_DEVICE,cPom)
 
 return
-*}
+
 
 function BoxC()
 *{
@@ -468,10 +468,10 @@ endif
 SET(_SET_DEVICE,cPom)
 
 return
-*}
 
-/*! \fn OpcTipke(aNiz)
- *  \brief prikaz opcija u Browse-u
+
+/*!  OpcTipke(aNiz)
+ *   prikaz opcija u Browse-u
  *
  * \code
  *  aNiz:={"<c-N> Novi","<a-A> Ispravka"} 
@@ -492,15 +492,15 @@ IF VALTYPE(aNiz)=="A"
    IF( MOD(i-1,nBrKol)==0 , EVAL({|| ++j,k:=0})  , k+=nOduz )
    IF i>LEN(aNiz); AADD(aNiz,""); ENDIF
    IF aNiz[i]==NIL; aNiz[i]=""; ENDIF
-   @ 24-nBrRed+j,k SAY PADR(aNiz[i],nOduz-1)+IF(MOD(i-1,nBrKol)==nBrKol-1,"","³")
+   @ 24-nBrRed+j,k SAY PADR(aNiz[i],nOduz-1)+IF(MOD(i-1,nBrKol)==nBrKol-1,"","ï¿½")
  NEXT
  FOR i:=1 TO nBrKol
-   @ 24-nBrRed,(i-1)*nOduz SAY REPLICATE("Í",nOduz-IF(i==nBrKol,0,1))+IF(i==nBrKol,"","Ñ")
+   @ 24-nBrRed,(i-1)*nOduz SAY REPLICATE("ï¿½",nOduz-IF(i==nBrKol,0,1))+IF(i==nBrKol,"","ï¿½")
  NEXT
  xVrati:=nBrRed+1
 ENDIF
 return xVrati
-*}
+
 
 function BoxCLS()
 *{
@@ -509,7 +509,7 @@ aBoxPar:=aBoxStack[len(aBoxStack)]
 
 @ aBoxPar[1]+1,aBoxPar[2]+1 clear to aBoxPar[1]+aBoxPar[3],aBoxPar[2]+aBoxPar[4]+1
 return
-*}
+
 
 function Beep(Nputa)
 *{
@@ -524,7 +524,7 @@ for i:=1 to Nputa
 next
 
 return
-*}
+
 
 function CentrTxt(tekst,lin)
 *{
@@ -541,7 +541,7 @@ if tekst<>NIL
 endif
 
 return
-*}
+
 
 // --------------------------------------------------------
 // --------------------------------------------------------
@@ -673,8 +673,8 @@ setcolor(cOldColor)
 
 return nItemNo + nCtrlKeyVal
 
-/*! \fn AChoice3(x1,y1,x2,y2,Items,f1,cFunc,nItemNo)
- *  \brief AChoice za broj stavki > 16
+/*!  AChoice3(x1,y1,x2,y2,Items,f1,cFunc,nItemNo)
+ *   AChoice za broj stavki > 16
  *  \todo Ugasiti stari Achoice ??, ne trebaju nam dva
  */
  
@@ -706,8 +706,8 @@ nGornja:=IF(nItemNo>nVisina,nItemNo-nVisina+1,1)
 do while .t. // ovu liniju sam premjestio odozdo radi korektnog ispisa
 
 IF nVisina<nLen
- @   x2,y1+INT((y2-y1)/2) SAY IF(nGornja==1,"  ",IF(nItemNo==nLen,"ÍÍÍ","  "))
- @ x1-1,y1+INT((y2-y1)/2) SAY IF(nGornja==1,"ÍÍÍ",IF(nItemNo==nLen,"  ","  "))
+ @   x2,y1+INT((y2-y1)/2) SAY IF(nGornja==1,"  ",IF(nItemNo==nLen,"ï¿½ï¿½ï¿½","  "))
+ @ x1-1,y1+INT((y2-y1)/2) SAY IF(nGornja==1,"ï¿½ï¿½ï¿½",IF(nItemNo==nLen,"  ","  "))
 ENDIF
 for i:=nGornja to nVisina+nGornja-1
  if i==nItemNo
@@ -775,7 +775,7 @@ enddo
 setcursor(iif(nOldCurs==0,0,iif(readinsert(),2,1)))
 setcolor(cOldColor)
 return nItemNo + nCtrlKeyVal
-*}
+
 
 // ------------------------------------
 // ------------------------------------
@@ -794,7 +794,7 @@ LOCAL xM:=0,yM:=0
  h:=ARRAY(LEN(aNiz))
  AFILL(h,"")
  Prozor1(x1,y1,x1+xM+2,y1+yM+1,cNasl,,B_DOUBLE+" ",,,0)
- @ x1+1,y1 SAY "Ì"+REPLICATE("Í",yM)+"¹"
+ @ x1+1,y1 SAY "ï¿½"+REPLICATE("ï¿½",yM)+"ï¿½"
  IF LEN(aNiz)>16
   nIzb:=ACHOICE3(x1+2,y1+1,x1+xM+2,y1+yM,aNiz,,"KorMenu2",nIzb)
  ELSE
@@ -802,7 +802,7 @@ LOCAL xM:=0,yM:=0
  ENDIF
  Prozor0()
 return nIzb
-*}
+
 
 function KorMenu2
 *{ 
@@ -814,7 +814,7 @@ function KorMenu2
      nVrati:=1
  ENDCASE
 return nVrati
-*}
+
 
 function Prozor1(v1,h1,v2,h2,cNaslov,cBojaN,cOkvir,cBojaO,cBojaT,nKursor)
 *{
@@ -840,7 +840,7 @@ IF cNaslov!=NIL
 ENDIF
 SET(_SET_DEVICE,cPom)
 return
-*}
+
 
 function Prozor0()
 *{
@@ -854,11 +854,11 @@ SETCURSOR(aSt[9])
 @ aSt[1],aSt[2] SAY ""
 SET(_SET_DEVICE,cPom)
 return
-*}
 
 
-/*! \fn Postotak(nIndik,nUkupno,cTekst,cBNasl,cBOkv,lZvuk)
-*   \brief Prikaz procenta uradjenog posla
+
+/*!  Postotak(nIndik,nUkupno,cTekst,cBNasl,cBOkv,lZvuk)
+*    Prikaz procenta uradjenog posla
 *
 * Ova fja omogucava prikaz procenta uradjenog posla, sto je efektno
 * kod stanja cekanja da program uradi neki posao. Pise se najmanje tri puta
@@ -895,11 +895,11 @@ function Postotak(nIndik,nUkupno,cTekst,cBNasl,cBOkv,lZvuk)
       nCilj:=nUkupno
       cKraj:=cTekst+" zavrseno."
       Prozor1(10,13,14,66,cTekst+" u toku...",cNas,,cOkv,"B/W",0)
-      @ 12,15 SAY REPLICATE("°",50) COLOR "B/W"
+      @ 12,15 SAY REPLICATE("ï¿½",50) COLOR "B/W"
       IF lZvuk; TONE(1900,0); ENDIF
     CASE nIndik==2
       nKara=INT(50*nUkupno/nCilj)
-      @ 12,15 SAY REPLICATE("²",nKara) COLOR "B/BG"
+      @ 12,15 SAY REPLICATE("ï¿½",nKara) COLOR "B/BG"
       @ 13,37 SAY STR(2*nKara,3)+" %" COLOR "B/W"
     CASE nIndik<=0
       @ 10,(78-LEN(cKraj))/2 SAY " "+cKraj+" " COLOR cNas
@@ -915,11 +915,11 @@ function Postotak(nIndik,nUkupno,cTekst,cBNasl,cBOkv,lZvuk)
   ENDCASE
   SET(_SET_DEVICE,cPom)
 return
-*}
 
 
-/*! \fn LomiGa(cTekst,nOrig,nLin,nDuz)
- * \brief Formatira tekst u varijabli 'cTekst'
+
+/*!  LomiGa(cTekst,nOrig,nLin,nDuz)
+ *  Formatira tekst u varijabli 'cTekst'
  *
  * To se radi prema zeljenom ispisu u 'nLin'
  * redova duzine 'nDuz'. Pri tom uklanja znak "-" koji se javlja pri
@@ -966,10 +966,10 @@ function LomiGa(cTekst,nOrig,nLin,nDuz)
   ENDDO
 
 return cTekst
-*}
 
-/*! \fn KudaDalje(cTekst, aOpc, cPom)
- *  \brief Meni od maksimalno 15 opcija opisanih u nizu aOpc
+
+/*!  KudaDalje(cTekst, aOpc, cPom)
+ *   Meni od maksimalno 15 opcija opisanih u nizu aOpc
  *
  * Naslov menija je
  * cTekst, a cPom je oznaka za "Help"
@@ -989,7 +989,7 @@ LOCAL nVrati:=1,nTipka,i:=0,nOpc:=LEN(aOpc),nRedova:=1,p:=0
   NEXT
   nRedova:=INT((nOpc-1)/3+1)
   nXp:=INT((25-nRedova*4-2)/2)+2
-  Prozor1(nXp-2,4,nXp+1+4*nRedova,75,,"N/W","²ß²²²Ü²² ","N/W","W/W",0)
+  Prozor1(nXp-2,4,nXp+1+4*nRedova,75,,"N/W","ï¿½ß²ï¿½ï¿½Ü²ï¿½ ","N/W","W/W",0)
   @ nXp-1, 5 SAY PADC(cTekst,70) COLOR "N/W"
   DO WHILE .t.
     FOR j=1 TO nRedova
@@ -1028,7 +1028,7 @@ LOCAL nVrati:=1,nTipka,i:=0,nOpc:=LEN(aOpc),nRedova:=1,p:=0
   ENDDO
   Prozor0()
 return nVrati
-*}
+
 
 function Ocitaj(nObl,xKljuc,nPbr,lInd)
 *{
@@ -1055,13 +1055,13 @@ function Ocitaj(nObl,xKljuc,nPbr,lInd)
   ENDIF
   PopWA()
 return xVrati
-*}
+
 
 function LENx(xVrij)
 *{
  LOCAL cTip:=VALTYPE(xVrij)
 return IF(cTip=="D",8,IF(cTip=="N",LEN(STR(xVrij)),LEN(xVrij)))
-*}
+
 
 
 function SrediDat(d_ulazni)
@@ -1074,7 +1074,7 @@ function SrediDat(d_ulazni)
      pomocni:=SPACE(17)
   ENDIF
 return pomocni
-*}
+
 
 function AutoSifra(nObl,cSifra)
 *{
@@ -1089,7 +1089,7 @@ IF cSifra!=NIL.and.LEN(ALLTRIM(cSifra))>1.and.gAutoSif=="D"
    PopWA()
  ENDIF
 return
-*}
+
 
 
 function CistiTipke()
@@ -1098,7 +1098,7 @@ function CistiTipke()
  KEYBOARD CHR(0)
  DO WHILE !INKEY()==0; ENDDO
 return
-*}
+
 
 function AMFILL(aNiz,nElem)
 *{
@@ -1110,14 +1110,14 @@ function AMFILL(aNiz,nElem)
   aPom:={}
  NEXT
 return rNiz
-*}
+
 
 function KonvZnakova(cTekst)
 *{
 
  // jedan par: { 7-bit znak, 852 znak }
- LOCAL aNiz:={  {"[","æ"}, {"{","ç"}, {"}","†"}, {"]",""}, {"^","¬"},;
-                {"~","Ÿ"}, {"`","§"}, {"@","¦"}, {"|","Ð"}, {"\","Ñ"}  }
+ LOCAL aNiz:={  {"[","ï¿½"}, {"{","ï¿½"}, {"}","ï¿½"}, {"]","ï¿½"}, {"^","ï¿½"},;
+                {"~","ï¿½"}, {"`","ï¿½"}, {"@","ï¿½"}, {"|","ï¿½"}, {"\","ï¿½"}  }
  LOCAL i,j
  IF "U" $ TYPE("g852"); g852:="D"; ENDIF
  IF g852=="D"
@@ -1127,7 +1127,7 @@ function KonvZnakova(cTekst)
  ENDIF
  AEVAL(aNiz,{|x| cTekst:=STRTRAN(cTekst,x[i],x[j])})
 return cTekst
-*}
+
 
 function Zvuk(nTip)
 *{
@@ -1144,7 +1144,7 @@ function Zvuk(nTip)
      Tone(700,2)
  ENDCASE
 return
-*}
+
 
 
 function ShemaBoja(cIzbor)
@@ -1189,7 +1189,7 @@ function ShemaBoja(cIzbor)
  ENDIF
  cbshema:=cIzbor
 return cVrati
-*}
+
 
 
 function NForma1(cPic)
@@ -1203,12 +1203,12 @@ function NForma1(cPic)
    cPic:=STUFF(cPic,nPoz-i*3,0," ")
  NEXT
 return cPic
-*}
+
 
 function NForma2(cPic)
 *{
 return ( cPic := STRTRAN(NForma1(cPic)," ",",") )
-*}
+
 
 function FormPicL(cPic,nDuz)
 *{
@@ -1236,7 +1236,7 @@ function FormPicL(cPic,nDuz)
  NEXT
 return cVrati
 
-*}
+
 
 function VarEdit(aNiz,x1,y1,x2,y2,cNaslov,cBoje)
 *{
@@ -1265,20 +1265,20 @@ SET DEVICE TO SCREEN
   ShemaBoja(cbsstara)
   SET(_SET_DEVICE,cPomUI)
 return IF(LASTKEY()!=K_ESC,.t.,.f.)
-*}
+
 
 function ValGeta(lUslov,cPoruka)
 *{
 IF !lUslov; Msg(cPoruka,3); ENDIF
 return lUslov
-*}
+
 
 
 function DuzMaske(cPicture)
 *{
 LOCAL nPozS:=AT("S",cPicture)
 return VAL(SUBSTR(cPicture,nPozS+1))
-*}
+
 
 
 function MsgBeep(cxx)
@@ -1312,7 +1312,7 @@ for i:=1 to 100
 next
 PopWa()
 return fret
-*}
+
 
 function KorLoz()
 *{
@@ -1352,16 +1352,16 @@ END IF
 
 closeret
 return
-*}
+
 
 function ispisiSez()
 *{
 @ 3,70 SAY "Sez: "+goModul:oDataBase:cSezona COLOR INVERT
 return
-*}
 
 
-/*! \fn SecurR(cLevel, cStavka)
+
+/*!  SecurR(cLevel, cStavka)
  *
  * \return A - moze sve, administrator, C - citaj, P - pisi, B - brisi, N - nedostupno, T - tekuca aktivnost - nije specijalno definisano
  *
@@ -1489,7 +1489,7 @@ if !fret
   endif
 endif
 return fret
-*}
+
 
 function NaslEkran(fBox)
 *{
@@ -1504,12 +1504,12 @@ endif
 DISPBox(2,0,4,79,B_DOUBLE+' ',NORMAL)
 
 if fbox
-	DISPBox(5,0,24,79,B_DOUBLE+"±",INVERT)
+	DISPBox(5,0,24,79,B_DOUBLE+"ï¿½",INVERT)
 endif
 
 @ 3,1 SAY PADC(gNaslov+' Ver.'+gVerzija,72) COLOR NORMAL
 return
-*}
+
 
 function StandardBoje()
 *{
@@ -1544,7 +1544,7 @@ endif
 #endif
 
 return nil
-*}
+
 
 function PDVBoje()
 *{
@@ -1579,7 +1579,7 @@ endif
 #endif
 
 return nil
-*}
+
 
 
 
@@ -1591,15 +1591,15 @@ local cbMala
 local cBVelika
 
 IF gKodnaS=="7"
- cBTOETAble:="ABC^]D\ùEFGHIJKLúMNûOPRS[TUVZ@"
+ cBTOETAble:="ABC^]D\ï¿½EFGHIJKLï¿½MNï¿½OPRS[TUVZ@"
  // 249,250,251
- cBMala  :="~†Ðç§"    // !!!!! ispraviti !!!
- cBVelika:="^Ñæ¦"
+ cBMala  :="~ï¿½ï¿½ï¿½ï¿½"    // !!!!! ispraviti !!!
+ cBVelika:="^ï¿½ï¿½ï¿½ï¿½"
 
 else
- cBTOETAble:="ABC¬DÑùEFGHIJKLúMNûOPRSæTUVZ¦"
- cBMala  :="Ÿ†Ðç§"
- cBVelika:="¬Ñæ¦"
+ cBTOETAble:="ABCï¿½ï¿½Dï¿½ï¿½EFGHIJKLï¿½MNï¿½OPRSï¿½TUVZï¿½"
+ cBMala  :="ï¿½ï¿½ï¿½ï¿½ï¿½"
+ cBVelika:="ï¿½ï¿½ï¿½ï¿½ï¿½"
 endif
 
 cPom:=""
@@ -1611,15 +1611,15 @@ for i:=1 to len(cInput)
      cChar:=substr(cBVelika,npos,1)  // pretvori u velika
   endif
 
-  fDupli:=.f.  // slova D¦, NJ, LJ
-  if (cChar="D" .and. substr(cInput,i+1,1)="¦")
-     nPos:=AT("ù",cBTOETABLE)+1   //LJ
+  fDupli:=.f.  // slova Dï¿½, NJ, LJ
+  if (cChar="D" .and. substr(cInput,i+1,1)="ï¿½")
+     nPos:=AT("ï¿½",cBTOETABLE)+1   //LJ
      fDupli:=.t.
   elseif (cChar="L" .and. substr(cInput,i+1,1)="J")
-     nPos:=AT("ú",cBTOETABLE)+1   //LJ
+     nPos:=AT("ï¿½",cBTOETABLE)+1   //LJ
      fDupli:=.t.
   elseif (cChar="N" .and. substr(cInput,i+1,1)="J")
-     nPos:=AT("û",cBTOETABLE)
+     nPos:=AT("ï¿½",cBTOETABLE)
      fDupli:=.t.
   else
      nPos:=AT(cChar,cBTOETAble)
@@ -1633,10 +1633,10 @@ for i:=1 to len(cInput)
 next
 
 return cPom
-*}
 
-/*! \fn TokUNiz(cTok,cSN,cSE)
- *  \brief Token pretvori u matricu
+
+/*!  TokUNiz(cTok,cSN,cSE)
+ *   Token pretvori u matricu
  *  \param cTok - string tokena
  *  \param cSN - separator nizova
  *  \param cSE - separator elemenata
@@ -1659,10 +1659,10 @@ LOCAL aNiz:={}, nN:=0, nE:=0, aPom:={}, i:=0, j:=0, cTE:="", cE:=""
     AADD(aNiz,aPom)
   NEXT
 return (aNiz)
-*}
 
-/*! \fn TxtUNiz(cTxt,nKol)
- *  \brief Pretvara TXT u niz
+
+/*!  TxtUNiz(cTxt,nKol)
+ *   Pretvara TXT u niz
  *  \param cTxt   - tekst
  *  \param nKol   - broj kolona
  */
@@ -1700,7 +1700,7 @@ LOCAL aVrati:={}, nPoz:=0, lNastavi:=.t., cPom:="", aPom:={}, i:=0
     ENDIF
   ENDDO
 RETURN aVrati
-*}
+
 
 
 
@@ -1709,7 +1709,7 @@ function MsgBeep2(cTXT)
 @ 24,0 SAY PADL(cTXT,80) COLOR "R/W"
 Tone(900,0.3)
 return
-*}
+
 
 function Reci(x,y,cT,nP)
 *{
@@ -1722,7 +1722,7 @@ LOCAL px:=ROW(),py:=COL()
  @ m_x+x,m_y+y SAY cT
  SETPOS(px,py)
 return
-*}
+
 
 function ShowKorner(nS, nStep, nDelta)
 *{
@@ -1748,11 +1748,11 @@ if i%nstep=0
   SET(_SET_DEVICE,cPom)
 endif
 return .t.
-*}
 
 
 
-/*! \fn Menu_SC(cIzp, fMain, lBug)
+
+/*!  Menu_SC(cIzp, fMain, lBug)
  * 
  * \param opc    - indirektno priv.var, matrica naslova opcija
  * \param opcexe - indirektno priv.var, matrica funkcija (string ili kodni blok promjenljive)
@@ -1827,17 +1827,17 @@ do while .t.
      
 enddo
 return
-*}
+
 
 function MAXROWS()
 *{
 return 25
-*}
+
 
 function MAXCOLS()
 *{
 return 80
-*}
+
 
 function ToggleINS()
 *{
@@ -1857,10 +1857,10 @@ endif
 setpos(nx,ny)
 
 return .t.
-*}
 
-/*! \fn SayPrivDir(cDirPriv)
- *  \brief Prikazi  ime korisnika + ":" + privatni direktorij na vrhu ekrana
+
+/*!  SayPrivDir(cDirPriv)
+ *   Prikazi  ime korisnika + ":" + privatni direktorij na vrhu ekrana
  *
  */
 
@@ -1869,7 +1869,7 @@ function SayPrivDir(cDirPriv)
 @ 0,24 SAY PADR(trim(ImeKorisn)+":"+cDirPriv,25) COLOR INVERT
 @ 4,4 SAY ""
 return
-*}
+
 
 
 function IzreziPath(cPath,cTekst)
@@ -1883,7 +1883,7 @@ if nPom>0
 	cPath:=LEFT(cPath,nPom-1)
 endif
 return cPath
-*}
+
 
 
 function SezonskeBoje()
@@ -1911,7 +1911,7 @@ else
 endif
 
 return nil
-*}
+
 
 // -----------------------------------------------------------------
 // browsanje forme

@@ -242,12 +242,12 @@ END PRINT
 
 closeret
 return
-*}
 
 
 
-/*! \fn ZaglDPK()
- *  \brief Zaglavlje specifikacije partnera po kontu
+
+/*!  ZaglDPK()
+ *   Zaglavlje specifikacije partnera po kontu
  */
 
 function ZaglDPK()
@@ -316,8 +316,8 @@ RETURN
 
 
 
-/*! \fn SpecBrDan()
- *  \brief Otvorene stavke preko odredjenog broja dana
+/*!  SpecBrDan()
+ *   Otvorene stavke preko odredjenog broja dana
  */
 
 function SpecBrDan()
@@ -581,11 +581,11 @@ END PRINT
 
 closeret
 return
-*}
 
 
-/*! \fn ZaglSpBrDana()
- *  \brief Zaglavlje za otvorene stavke preko odredjenog broja dana
+
+/*!  ZaglSpBrDana()
+ *   Zaglavlje za otvorene stavke preko odredjenog broja dana
  */
  
 function ZaglSpBrDana()
@@ -657,8 +657,8 @@ endif
 RETURN
 
 
-/*! \fn SpecPoK()
- *  \brief Specifikacija po kontima
+/*!  SpecPoK()
+ *   Specifikacija po kontima
  */
  
 function SpecPoK()
@@ -799,11 +799,11 @@ FF
 END PRINT
 closeret
 return
-*}
 
 
-/*! \fn Zagl5()
- *  \brief Zaglavlje specifikacije po kontima
+
+/*!  Zagl5()
+ *   Zaglavlje specifikacije po kontima
  */
  
 static function Zagl5()
@@ -833,7 +833,7 @@ select ANAL
 ? "KONTO      N A Z I V                                                           duguje            potra�uje                saldo"
 ? m
 return
-*}
+
 
 
 static function fill_ss_tbl(cKonto, cPartner, cNaziv, nFDug, nFPot, nFSaldo, cRj, cRjNaz)
@@ -1428,11 +1428,11 @@ endif
 
 closeret
 return
-*}
 
 
-/*! \fn SpecSubPro()
- *  \brief Specifikacija subanalitike po proizvoljnom sortiranju, verzija C52
+
+/*!  SpecSubPro()
+ *   Specifikacija subanalitike po proizvoljnom sortiranju, verzija C52
  */
  
 function SpecSubPro()
@@ -1653,19 +1653,19 @@ FF
 END PRINT
 closeret
 return
-*}
 
 
-/*! \fn TekRec()
- *  \brief Vraca tekuci zapis
+
+/*!  TekRec()
+ *   Vraca tekuci zapis
  */
 function TekRec()
 @ m_x+1,m_y+2 SAY RecNo()
 return nil
 
 
-/*! \fn Zagl6(cSkVar)
- *  \brief Zaglavlje specifikacije
+/*!  Zagl6(cSkVar)
+ *   Zaglavlje specifikacije
  *  \param cSkVar
  */
  
@@ -1729,8 +1729,8 @@ endif
 ? m
 return
 
-/*! \fn SpecKK2(lOtvSt)
- *  \brief Specifikacija konto/konto2 partner
+/*!  SpecKK2(lOtvSt)
+ *   Specifikacija konto/konto2 partner
  *  \param lOtvSt
  */
  
@@ -1977,11 +1977,11 @@ FF
 END PRINT
 closeret
 return
-*}
 
 
-/*! \fn Zagl7()
- *  \brief Zaglavlje specifikacije konto/konto2
+
+/*!  Zagl7()
+ *   Zaglavlje specifikacije konto/konto2
  */
 static function Zagl7()
 ?
@@ -2015,11 +2015,11 @@ Else
 EndIF
 ? m
 return
-*}
 
 
-/*! \fn SpecPop()
- *  \brief Specifikacija konta za odredjene partnere
+
+/*!  SpecPop()
+ *   Specifikacija konta za odredjene partnere
  */
 function SpecPop()
 *{
@@ -2154,11 +2154,11 @@ FF
 END PRINT
 CLOSERET
 return
-*}
 
 
-/*! \fn ZglSpSifK()
- *  \brief Zaglavlje specifikacije po kontima
+
+/*!  ZglSpSifK()
+ *   Zaglavlje specifikacije po kontima
  */
 function ZglSpSifK()
 ?
@@ -2187,8 +2187,8 @@ RETURN
 
 
 
-/*! \fn SpecOstPop()
- *  \brief Specifikacija otvorenih stavki po kontima za partnera 
+/*!  SpecOstPop()
+ *   Specifikacija otvorenih stavki po kontima za partnera 
  */
 function SpecOstPop()
 *
@@ -2324,11 +2324,11 @@ FF
 END PRINT
 CLOSERET
 return
-*}
 
 
-/*! \fn ZglSpOstP()
- *  \brief Zaglavlje specifikacije otvorenih stavki partnera po kontima
+
+/*!  ZglSpOstP()
+ *   Zaglavlje specifikacije otvorenih stavki partnera po kontima
  */
 function ZglSpOstP()
 ?
@@ -2354,12 +2354,12 @@ endif
 
 SELECT SUBAN
 RETURN
-*}
 
 
 
-/*! \fn PregNDP()
- *  \brief Pregled novih dugovanja i potrazivanja
+
+/*!  PregNDP()
+ *   Pregled novih dugovanja i potrazivanja
  */
 function PregNDP()
 picBHD := FormPicL("9 " + gPicBHD, 17)
@@ -2611,12 +2611,12 @@ endif
 FF
 END PRINT
 return
-*}
 
 
 
-/*! \fn Zagl9()
- *  \brief Zaglavlje pregleda novih dugovanja i potrazivanja
+
+/*!  Zagl9()
+ *   Zaglavlje pregleda novih dugovanja i potrazivanja
  *  \param
  */
 function Zagl9()
@@ -2691,8 +2691,8 @@ return
 
 
 
-/*! \fn UpitK1K4(mxplus,lK)
- *  \brief Pita za polja od K1 do K4
+/*!  UpitK1K4(mxplus,lK)
+ *   Pita za polja od K1 do K4
  *  \param mxplus
  *  \param lK
  */
@@ -2719,11 +2719,11 @@ if gTroskovi=="D"
    @ m_x+mxplus+4,m_y+2 SAY "Fond    :" GET cFond
 endif
 return
-*}
 
 
-/*! \fn CistiK1K4(lK)
- *  \brief Cisti polja od K1 do K4
+
+/*!  CistiK1K4(lK)
+ *   Cisti polja od K1 do K4
  *  \param lK
  */
  
@@ -2758,11 +2758,11 @@ if "." $ cfond
   cfond:=trim(strtran(cfond,".",""))
 endif
 return
-*}
 
 
-/*! \fn PrikK1K4(lK)
- *  \brief Prikazi polja od K1 do K4
+
+/*!  PrikK1K4(lK)
+ *   Prikazi polja od K1 do K4
  *  \param lK
  */
  
@@ -2867,11 +2867,11 @@ if fproso
  ?
 endif
 return
-*}
 
 
-/*! \fn PartVanProm()
- *  \brief Partneri van prometa
+
+/*!  PartVanProm()
+ *   Partneri van prometa
  */
  
 function PartVanProm()
@@ -2964,11 +2964,11 @@ private cIdKonto := SPACE (7), cIdFirma := SPACE (LEN (gFirma)), ;
   END PRINT
 CLOSERET
 return
-*}
 
 
-/*! \fn FormDat1(dUlazni)
- *  \brief formatira datum sa stoljecem (dUlazni)=> cDat
+
+/*!  FormDat1(dUlazni)
+ *   formatira datum sa stoljecem (dUlazni)=> cDat
  *  \param dUlazni - ulazni datum
  */
  
@@ -2979,11 +2979,11 @@ LOCAL cVrati
   cVrati:=DTOC(dUlazni)+"."
   SET CENTURY OFF
 RETURN cVrati
-*}
 
 
-/*! \fn SpecPoDosp(lKartica)
- *  \brief Otvorene stavke grupisano po brojevima veze
+
+/*!  SpecPoDosp(lKartica)
+ *   Otvorene stavke grupisano po brojevima veze
  *  \param lKartica
  */
  
@@ -3878,8 +3878,8 @@ go (nPRecNo)
 return .f.
 
 
-/*! \fn ZSpecPoDosp(fStrana,lSvi)
- *  \brief Zaglavlje izvjestaja specifikacije po dospjecu
+/*!  ZSpecPoDosp(fStrana,lSvi)
+ *   Zaglavlje izvjestaja specifikacije po dospjecu
  *  \param fStrana
  *  \param lSvi
  */
@@ -4175,8 +4175,8 @@ return PADC(cTxt, nLen)
 
 
 
-/*! \fn Rocnost()
- *  \brief
+/*!  Rocnost()
+ *  
  */
  
 function Rocnost()
@@ -4194,14 +4194,14 @@ LOCAL nDana := ABS(IF( EMPTY(datval) , datdok , datval ) - dNaDan), cVrati
     cVrati := "999"
   ENDIF
 RETURN cVrati
-*}
 
 
 
 
 
-/*! \fn RekPPG(lPdv)
- *  \brief Posmatraju se samo otvorene stavke iz izvje�taja otv.stavki grupisano po brojevima veze. (POM.DBF koji se pravi f-jom StKart() modula OSTAV.PRG). Ako otvorena stavka ima datum valutiranja, uzima se godina iz tog datuma. Ako otvorena stavka nema datuma val., racun se trazi prvo u tekucoj godini. Ako se nalazi u poc.stanju, trazenje se vrsi u proslim godinama. Ako ga nema u poc.stanju, trazi se prvo knjizenje na odgovarajucoj strani (za kupce dugovnoj, za dobavljace potraznoj) i ako ga ima uzima se godina iz datuma dokumenta.
+
+/*!  RekPPG(lPdv)
+ *   Posmatraju se samo otvorene stavke iz izvje�taja otv.stavki grupisano po brojevima veze. (POM.DBF koji se pravi f-jom StKart() modula OSTAV.PRG). Ako otvorena stavka ima datum valutiranja, uzima se godina iz tog datuma. Ako otvorena stavka nema datuma val., racun se trazi prvo u tekucoj godini. Ako se nalazi u poc.stanju, trazenje se vrsi u proslim godinama. Ako ga nema u poc.stanju, trazi se prvo knjizenje na odgovarajucoj strani (za kupce dugovnoj, za dobavljace potraznoj) i ako ga ima uzima se godina iz datuma dokumenta.
  *  \param lPdv
  */
  
@@ -4397,12 +4397,12 @@ LOCAL GetList:={}
   END PRINT
 
 CLOSERET
-*}
 
 
 
-/*! \fn Mjesto(cMjesto)
- *  \brief 
+
+/*!  Mjesto(cMjesto)
+ *   
  *  \param cMjesto
  */
  
@@ -4419,12 +4419,12 @@ if mjesto=cMjesto
 endif
 select (nSel)
 return fRet
-*}
 
 
 
-/*! \fn TraziUPGod(cKrit,cDP)
- *  \brief
+
+/*!  TraziUPGod(cKrit,cDP)
+ *  
  *  \param cKrit
  *  \param cDP
  */
@@ -4480,12 +4480,12 @@ FOR i:=2 TO LEN(aGod)
     REPLACE &cPom77 WITH dug-pot
   ENDIF
 RETURN
-*}
 
 
 
-/*! \fn P_VKSG(cId,dx,dy)
- *  \brief
+
+/*!  P_VKSG(cId,dx,dy)
+ *  
  *  \param cId
  *  \param dx
  *  \param dy
@@ -4501,12 +4501,12 @@ ImeKol:={ { "Konto"   , {|| id    },     "id"       },;
 Kol:={1,2,3}
 private gTBDir:="N"
 return PostojiSifra(F_VKSG,1,10,60,"Veze konta sa prethodnim godinama",@cId,dx,dy)
-*}
 
 
 
-/*! \fn FFor1()
- *  \brief Funkcija koju koristi StampaTabele()
+
+/*!  FFor1()
+ *   Funkcija koju koristi StampaTabele()
  */
  
 function FFor1()
@@ -4542,10 +4542,10 @@ cIdP:=IDPARTNER
   ENDDO
   SKIP -1
 RETURN .t.
-*}
 
-/*! \fn FSvaki1()
- *  \brief 
+
+/*!  FSvaki1()
+ *   
  */
 
 function FSvaki1()
@@ -4553,11 +4553,11 @@ function FSvaki1()
 ++nRbr
 cNPartnera:=PADR(Ocitaj(F_PARTN,IDPARTNER,"naz"), 25)
 RETURN
-*}
 
 
-/*! \fn RPPG()
- *  \brief Rekapitulacija partnera po godinama
+
+/*!  RPPG()
+ *   Rekapitulacija partnera po godinama
  */
 
 function RPPG()
@@ -4594,13 +4594,13 @@ Izbor:=menu("frppg",opc,Izbor,.f.)
 
 enddo
 return
-*}
 
 
 
 
-/*! \fn PopValIzSifPartn()
- *  \brief Popunjavanje datuma valute na osnovu DatDok+Partn/RokPl
+
+/*!  PopValIzSifPartn()
+ *   Popunjavanje datuma valute na osnovu DatDok+Partn/RokPl
  *  \note Preduslov je da je podeseno polje ROKP u sif.partnera (preko SifK)
  */
 function PopValIzSifPartn()
@@ -4751,5 +4751,5 @@ msg("Izmjenjeno: "+alltrim(str(nCount,10,0))+" slogova!##Detalji u KUMPATH/_ZAMV
 
 
 CLOSERET
-*}
+
 

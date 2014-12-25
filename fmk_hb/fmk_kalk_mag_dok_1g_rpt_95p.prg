@@ -19,8 +19,8 @@
  * ----------------------------------------------------------------
  */
  
-/*! \fn StKalk95_1()
- *  \brief Stampa kalkulacije tipa 95, varijanta samo po nabavnim cijenama
+/*!  StKalk95_1()
+ *   Stampa kalkulacije tipa 95, varijanta samo po nabavnim cijenama
  */
 
 function StKalk95_PDV()

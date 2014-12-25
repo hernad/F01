@@ -19,8 +19,8 @@
  */
  
 
-/*! \fn Get1_IM()
- *  \brief Prva strana maske za unos dokumenta tipa IM
+/*!  Get1_IM()
+ *   Prva strana maske za unos dokumenta tipa IM
  */
 
 function Get1_IM()
@@ -75,4 +75,4 @@ _PU_I:=""
 nStrana:=3
 
 return LASTKEY()
-*}
+

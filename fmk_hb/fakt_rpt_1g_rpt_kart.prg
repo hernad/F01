@@ -21,7 +21,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_SifPath_FAKT_OstraniciKarticu
-  * \brief Da li se ostranicava kartica artikla?
+  *  Da li se ostranicava kartica artikla?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -30,7 +30,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FAKT_Sintet
-  * \brief Da li se koriste sinteticke (skracene) sifre robe?
+  *  Da li se koriste sinteticke (skracene) sifre robe?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -38,8 +38,8 @@
 
 
 
-/*! \fn Kartica()
- *  \brief Izvjestaj - kartica
+/*!  Kartica()
+ *   Izvjestaj - kartica
  */
  
 function Kartica()
@@ -589,5 +589,5 @@ STAT PROC ZaglKart(lIniStrana)
   ? space(gnLMarg); ?? m
   nZStrana=nStrana
 return
-*}
+
 

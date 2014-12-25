@@ -291,13 +291,13 @@ ENDDO   // eof()
 
 closeret2
 return
-*}
 
 
 
 
-/*! \fn Zagl11()
- *  \brief Zaglavlje analitickog naloga
+
+/*!  Zagl11()
+ *   Zaglavlje analitickog naloga
  */
 
 function Zagl11()
@@ -331,13 +331,13 @@ P_NRED; ?? "*BR *       *      *    NAZIV KONTA             * BROJ VEZE * DATUM 
 P_NRED; ?? M
 select(nArr)
 return
-*}
 
 
 
 
-/*! \fn SintStav()
- *  \brief Formiranje sintetickih stavki
+
+/*!  SintStav()
+ *   Formiranje sintetickih stavki
  */
 
 static function SintStav( lAuto )
@@ -1085,8 +1085,8 @@ return
 
 
 
-/*! \fn DinDem(p1,p2,cVar)
- *  \brief Konverzija iznosa domaca<->pomocna valuta
+/*!  DinDem(p1,p2,cVar)
+ *   Konverzija iznosa domaca<->pomocna valuta
  *  \param p1 -
  *  \param p2 -
  *  \param cVar - naziv polja iznosa koji se pretvara (_IZNOSDEM ili _IZNOSBHD)
@@ -1117,13 +1117,13 @@ endif
 // select(nArr)
 AEVAL(GetList,{|o| o:display()})
 return
-*}
 
 
 
 
-/*! \fn PovFin(cidfirma,cidvn,cbrnal)
- *  \brief Povrat finansijskog naloga u pripremu
+
+/*!  PovFin(cidfirma,cidvn,cbrnal)
+ *   Povrat finansijskog naloga u pripremu
  *  \param cidfirma - firma
  *  \param cidvn - vrsta naloga
  *  \param cbrnal - broj naloga
@@ -1235,4 +1235,4 @@ use
 MsgC()
 closeret2
 return
-*}
+

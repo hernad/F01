@@ -36,7 +36,7 @@ do case
 endcase
 
 return
-*}
+
 
 // --------------------------------
 // --------------------------------
@@ -84,7 +84,7 @@ if len(aRez)==0
 	AADD(aRez,space(nLen))
 endif
 return aRez
-*}
+
 
 function CryptSC(cStr)
 *{
@@ -94,7 +94,7 @@ cPom:=""
 nLen:=len(cStr)
 for i=1 to int(nLen/2)
   cC:=substr(cStr,nLen+1-i,1)
-  if cC<'€'
+  if cC<'ï¿½'
      cPom+=CHR(ASC(cC)+128)
   else
      cPom+=CHR(ASC(cC)-128)
@@ -103,7 +103,7 @@ next
 
 if nLen%2<>0
    cC:=substr(cStr,int(nLen/2)+1,1)
-  if cC<'€'
+  if cC<'ï¿½'
      cPom+=CHR(ASC(cC)+128)
   else
      cPom+=CHR(ASC(cC)-128)
@@ -111,7 +111,7 @@ if nLen%2<>0
 endif
 for i=int(nLen/2) to 1 step -1
    cC:=substr(cStr,i,1)
-  if cC<'€'
+  if cC<'ï¿½'
      cPom+=CHR(ASC(cC)+128)
   else
      cPom+=CHR(ASC(cC)-128)
@@ -119,7 +119,7 @@ for i=int(nLen/2) to 1 step -1
 next
 
 return cPom
-*}
+
 
 /*
 function Crypt(cStr)
@@ -128,7 +128,7 @@ local nLen,cC,cPom,i
 nLen:=len(cStr)
 for i=1 to int(nLen/2)
   cC:=substr(cStr,nLen+1-i,1)
-  if cC<'€'
+  if cC<'ï¿½'
      cPom+=CHR(ASC(cC)+128)
   else
      cPom+=CHR(ASC(cC)-128)
@@ -137,7 +137,7 @@ next
 
 if nLen%2<>0
    cC:=substr(cStr,int(nLen/2)+1,1)
-  if cC<'€'
+  if cC<'ï¿½'
      cPom+=CHR(ASC(cC)+128)
   else
      cPom+=CHR(ASC(cC)-128)
@@ -145,7 +145,7 @@ if nLen%2<>0
 endif
 for i=int(nLen/2) to 1 step -1
    cC:=substr(cStr,i,1)
-  if cC<'€'
+  if cC<'ï¿½'
      cPom+=CHR(ASC(cC)+128)
   else
      cPom+=CHR(ASC(cC)-128)
@@ -167,7 +167,7 @@ function ChADD(cC,n)
 
 cC:=Chr(ASC(cC)+n)
 RETURN NIL
-*}
+
 
 
 function ChSub(cC,cC2)
@@ -176,7 +176,7 @@ function ChSub(cC,cC2)
 * poziv ChSub("C","A") -> 2
 
 return ASC(cC)-ASC(cC2)
-*}
+
 
 function Crypt2(cStr, cModul)
 *{
@@ -192,7 +192,7 @@ cPom:=""
 nLen:=len(cStr)
 for i=1 to int(nLen/2)
   cC:=substr(cStr,nLen+1-i,1)
-  if cC<'€'
+  if cC<'ï¿½'
      cPom+=CHR(ASC(cC)+ASC(substr(padr(cModul,8),i,1)))
   else
      cPom+=CHR(ASC(cC)-ASC(substr(padr(cModul,8),i,1)))
@@ -201,14 +201,14 @@ for i=1 to int(nLen/2)
 next
 for i=int(nLen/2) to 1 step -1
    cC:=substr(cStr,i,1)
-  if cC<'€'
+  if cC<'ï¿½'
      cPom+=CHR(ASC(cC)+ASC(substr(padr(cModul,8),nLen+1-i,1)))
   else
      cPom+=CHR(ASC(cC)-ASC(substr(padr(cModul,8),nLen+1-i,1)))
   endif
 next
 return cPom
-*}
+
 
 
 // ---------------------------
@@ -224,35 +224,35 @@ FOR nCnt := 1 TO nLenM1
 NEXT
 cRazrStr += RIGHT (cStr, 1)
 RETURN (cRazrStr)
-*}
+
 
 // f-je chr256() i asc256() rade sa tekstom duzine 2 znaka
 // -------------------------------------------------------
 FUNCTION CHR256(nKod)
 *{
 RETURN ( CHR(INT(nKod/256)) + CHR(nKod%256) )
-*}
+
 
 FUNCTION ASC256(cTxt)
 *{
 RETURN ( ASC(LEFT(cTxt,1)) * 256 + ASC(RIGHT(cTxt,1)) )
-*}
+
 
 FUNCTION KPAD(n,l)
 *{
 RETURN PADL(LTRIM(TRANS(ROUND(n,gZaokr),PicDEM)),l,".")
-*}
+
 
 function OdsjPLK(cTxt)
 *{
 local i
 for i:=len(cTxt) to 1 step -1
-  if !(substr(cTxt,i,1) $ Chr(13)+Chr(10)+" ")
+  if !(substr(cTxt,i,1) $ Chr(13)+Chr(10)+" ï¿½")
        exit
   endif
 next
 return left(cTxt,i)
-*}
+
 
 function ParsMemo(cTxt)
 *{
@@ -276,7 +276,7 @@ local i,cPom,fPoc
  next
 
 return aMemo
-*}
+
 
 function StrLinija(cTxt2)
 *{
@@ -290,11 +290,11 @@ for i:=1 to len(cTxt2)
 next
 
 return nLTxt2
-*}
 
 
-/*! \fn TokToNiz(cTok, cSE)
- *  \brief Token pretvori u niz
+
+/*!  TokToNiz(cTok, cSE)
+ *   Token pretvori u niz
  *  \param cTok - token
  *  \param cSE - separator niza
  */
@@ -316,7 +316,7 @@ for i:=1 to nE
     	AADD(aNiz,cE)
 next
 return (aNiz)
-*}
+
 
 
 
@@ -335,10 +335,10 @@ FUNCTION BrDecimala(cFormat)
    NEXT
  ENDIF
 RETURN nVrati
-*}
 
-/*! \fn StrKZN(cInput,cIz,cU)
- *  \brief Konverzija znakova u stringu
+
+/*!  StrKZN(cInput,cIz,cU)
+ *   Konverzija znakova u stringu
  *  \todo Prebaciti u /sclib ili ... (ovdje definitivno ne pripada)
  *  \param cInput
  *  \param cIz
@@ -348,7 +348,7 @@ RETURN nVrati
  
 function StrKZN(cInput,cIz,cU)
 *{
-LOCAL a852:={"æ","Ñ","¬","","¦","ç","Ð","Ÿ","†","§"}
+LOCAL a852:={"ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½"}
  LOCAL a437:={"[","\","^","]","@","{","|","~","}","`"}
  LOCAL aEng:={"S","D","C","C","Z","s","d","c","c","z"}
  LOCAL i:=0, aIz:={}, aU:={}
@@ -358,11 +358,11 @@ LOCAL a852:={"æ","Ñ","¬","","¦","ç","Ð","Ÿ","†","§"}
    cInput:=STRTRAN(cInput,aIz[i],aU[i])
  NEXT
 return cInput
-*}
 
 
-/*! \fn Slovima(nIzn,cDinDem)
- *  \brief Ispisuje iznos slovima
+
+/*!  Slovima(nIzn,cDinDem)
+ *   Ispisuje iznos slovima
  *  \param nIzn       - iznos
  *  \param cDinDem    - 
  */
@@ -427,11 +427,11 @@ endif
 Stotice(nIzn,@cRez,.t.,.t.,cDINDEM)
 
 return
-*}
 
 
-/*! \fn Stotice(nIzn, cRez, fDecimale, fMnozina, cDinDem)
- *  \brief Formatira tekst ako iznos prelazi 100
+
+/*!  Stotice(nIzn, cRez, fDecimale, fMnozina, cDinDem)
+ *   Formatira tekst ako iznos prelazi 100
  *  \param nIzn       - iznos
  *  \param cRez
  *  \param fdecimale
@@ -523,13 +523,13 @@ local fDec,fSto:=.f.,i
 
 
 return cRez
-*}
 
 
 
-/*! \fn CreateHashString(aColl)
- *  \brief Kreira hash string na osnovu podataka iz matrice aColl
- *  \brief primjer: aColl[1] = "podatak1"
+
+/*!  CreateHashString(aColl)
+ *   Kreira hash string na osnovu podataka iz matrice aColl
+ *   primjer: aColl[1] = "podatak1"
  	            aColl[2] = "podatak2"
 		    CreateHashString(aColl) => "podatak1#podatak2"
  *  \param aColl - matrica sa podacima
@@ -552,10 +552,10 @@ for i:=1 to LEN(aColl)
 next
 
 return cHStr
-*}
 
-/*! \fn ReadHashString(cHashString)
- *  \brief Iscitava hash string u matricu
+
+/*!  ReadHashString(cHashString)
+ *   Iscitava hash string u matricu
  *  \return aColl - matrica popunjena podacima iz stringa
  */
 function ReadHashString(cHashString)
@@ -568,11 +568,11 @@ aColl:={}
 aColl:=TokToNiz(cHashString, "#")
 
 return aColl
-*}
 
 
-/*! \fn StrToArray(cStr, nLen)
- *  \brief Kreiraj array na osnovu stringa
+
+/*!  StrToArray(cStr, nLen)
+ *   Kreiraj array na osnovu stringa
  *  \param cStr - string
  *  \param nLen - na svakih nLen upisi novu stavku u array 
  */
@@ -600,11 +600,11 @@ for i:=1 to LEN(cStr)
 next
 
 return aColl
-*}
 
 
-/*! \fn FlushMemo(aMemo)
- *  \brief Vraca vrijednost memo niza u string
+
+/*!  FlushMemo(aMemo)
+ *   Vraca vrijednost memo niza u string
  */
 function FlushMemo(aMemo)
 *{
@@ -618,7 +618,7 @@ for i:=1 to LEN(aMemo)
 next 
 
 return cPom
-*}
+
 
 
 // -------------------------------------

@@ -28,12 +28,12 @@
  */
 
 /*! \file fmk/kalk/adm/1g/rob_id.prg
- *  \brief
+ *  
  */
 
 
-/*! \fn RobaIdSredi()
- *  \brief Ispravka sifre artikla u dokumentima
+/*!  RobaIdSredi()
+ *   Ispravka sifre artikla u dokumentima
  */
 
 function RobaIdSredi()
@@ -112,11 +112,11 @@ enddo //.t.
 
 BoxC()
 closeret
-*}
 
 
-/*! \fn Sljedeci(cIdFirma,cVrsta)
- *  \brief Za zadanu firmu i vrstu dokumenta daje sljedeci slobodan broj dokumenta
+
+/*!  Sljedeci(cIdFirma,cVrsta)
+ *   Za zadanu firmu i vrstu dokumenta daje sljedeci slobodan broj dokumenta
  */
 
 function Sljedeci(cIdFirma,cVrsta)
@@ -135,4 +135,4 @@ if gBrojac=="D"
  cBrKalk:=UBrojDok(val(left(cBrKalk,5))+1,5,right(cBrKalk,3))
 endif
 return cBrKalk
-*}
+

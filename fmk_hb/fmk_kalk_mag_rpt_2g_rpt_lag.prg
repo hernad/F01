@@ -217,14 +217,14 @@ SET ORDER TO TAG "3"
 
 GO TOP
 return
-*}
+
 
 
 METHOD TKaLagM:closeDb()
 
 CLOSE ALL
 return
-*}
+
 
 METHOD TKaLagM:addTmpRec(cIdRoba, cIdTarifa)
 
@@ -254,7 +254,7 @@ REPLACE robaNaz WITH roba->naz
 REPLACE jmj WITH roba->jmj
 
 return
-*}
+
 
 METHOD TKaLagM:calcRec()
 local nKolicina
@@ -298,7 +298,7 @@ endif
 
 
 return
-*}
+
 
 METHOD TKaLagM:getVars()
 local cKto
@@ -483,7 +483,7 @@ endif
 
 
 return 0
-*}
+
 
 METHOD TKaLagM:sortTmpTbl()
 
@@ -528,7 +528,7 @@ for i:=1 to 3
 	::cLinija+=" "+REPLICATE("-", LEN(gPicDem))
 next
 return
-*}
+
 
 METHOD TKaLagM:printHeader()
 local cHeader
@@ -567,11 +567,11 @@ endif
 ? ::cLinija
 
 return
-*}
+
 
 METHOD TKaLagM:printFooter()
 return
-*}
+
 
 METHOD TKaLagM:printDetail()
 
@@ -595,7 +595,7 @@ endif
 @ PROW(), PCOL()+1 SAY field->ulazF-field->izlazF PICT gPicDem
 	
 return
-*}
+
 
 METHOD TKaLagM:calcTotal()
 
@@ -618,7 +618,7 @@ else
 endif
 
 return
-*}
+
 
 METHOD TKaLagM:printTotal()
 

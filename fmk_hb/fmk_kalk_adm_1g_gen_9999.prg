@@ -28,11 +28,11 @@
  */
 
 /*! \file fmk/kalk/adm/1g/gen_9999.prg
- *  \brief Generisanje zbirne baze dokumenata u specijalnoj sezoni 9999
+ *   Generisanje zbirne baze dokumenata u specijalnoj sezoni 9999
  */
 
-/*! \fn Gen9999()
- *  \brief Generisanje zbirne baze dokumenata u specijalnoj sezoni 9999
+/*!  Gen9999()
+ *   Generisanje zbirne baze dokumenata u specijalnoj sezoni 9999
  */
  
 function Gen9999()
@@ -54,4 +54,4 @@ function Gen9999()
   // -----------------------------------------------------------------------
 
 CLOSERET
-*}
+

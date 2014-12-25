@@ -28,11 +28,11 @@
 
 
 /*! \file fmk/fin/specif/jerry/1g/rpt_bil.prg
- *  \brief Bilans stanja, bilans uspjeha
+ *   Bilans stanja, bilans uspjeha
  */
 
-/*! \fn BilansS()
- *  \brief Bilans stanja 
+/*!  BilansS()
+ *   Bilans stanja 
  */
  
 function BilansS()
@@ -164,12 +164,12 @@ dDo:=DATE()
   END PRINT
 CLOSERET
 return
-*}
 
 
 
-/*! \fn BilansU()
- *  \brief Bilans uspjeha
+
+/*!  BilansU()
+ *   Bilans uspjeha
  */
  
 function BilansU()
@@ -301,7 +301,7 @@ dDo:=DATE()
   END PRINT
 CLOSERET
 return
-*}
+
 
 
 

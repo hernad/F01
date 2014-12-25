@@ -21,12 +21,12 @@
  
 
 /*! \file fmk/kalk/prod/db/1g/nivel.prg
- *  \brief Automatsko generisanje dokumenta nivelacije pri azuriranju 11 ili 81
+ *   Automatsko generisanje dokumenta nivelacije pri azuriranju 11 ili 81
  */
 
 
-/*! \fn Niv_11()
- *  \brief Automatsko generisanje dokumenta nivelacije pri azuriranju 11 ili 81
+/*!  Niv_11()
+ *   Automatsko generisanje dokumenta nivelacije pri azuriranju 11 ili 81
  */
 
 function Niv_11()
@@ -139,6 +139,6 @@ do while !eof() .and. cidfirma==idfirma .and. cidvd==idvd .and. cbrdok==brdok
 enddo
 closeret
 return
-*}
+
 
 

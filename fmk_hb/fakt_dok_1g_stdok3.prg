@@ -20,13 +20,13 @@
  
 
 /*! \file fmk/fakt/dok/1g/stdok3.prg
- *  \brief Stampa faktura u varijanti 3
+ *   Stampa faktura u varijanti 3
  */
 
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FAKT_StampaViseDokumenata
-  * \brief Da li se moze stampati vise od jednog dokumenta u pripremi ?
+  *  Da li se moze stampati vise od jednog dokumenta u pripremi ?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -35,7 +35,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_KupacDesno
-  * \brief Da li se podaci o kupcu ispisuju uz desnu marginu dokumenta ?
+  *  Da li se podaci o kupcu ispisuju uz desnu marginu dokumenta ?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -44,7 +44,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_I19jeOtpremnica
-  * \brief Da li se i dokument tipa 19 tretira kao otpremnica ?
+  *  Da li se i dokument tipa 19 tretira kao otpremnica ?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -53,7 +53,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_POREZI_PPUgostKaoPPU
-  * \brief Odredjuje nacin obracuna poreza u maloprodaji (u ugostiteljstvu)
+  *  Odredjuje nacin obracuna poreza u maloprodaji (u ugostiteljstvu)
   * \param M - racuna PRUC iskljucivo koristeci propisani donji limit RUC-a, default vrijednost
   * \param R - racuna PRUC na osnovu stvarne RUC ili na osnovu pr.d.lim.RUC-a ako je stvarni RUC manji od propisanog limita
   * \param J - metoda koju koriste u Jerry-ju
@@ -63,8 +63,8 @@
 *string FmkIni_ExePath_POREZI_PPUgostKaoPPU;
 
 
-/*! \fn StDok3()
- *  \brief Stampa fakture u varijanti 3
+/*!  StDok3()
+ *   Stampa fakture u varijanti 3
  *  \param cIdFirma
  *  \param cIdTipDok
  *  \param cBrDok
@@ -456,11 +456,11 @@ FF
 ZAVRSI STAMPU
 
 closeret
-*}
 
 
-/*! \fn Zagl3()
- *  \brief Stampa zaglavlja za varijantu 3
+
+/*!  Zagl3()
+ *   Stampa zaglavlja za varijantu 3
  */
  
 function Zagl3()
@@ -470,6 +470,6 @@ P_COND
 ? space(gnLMarg); ?? " R.br   Sifra    Tarifa u MP         Naziv                            jmj   kolicina      Cijena   Rabat  Por    Ukupno"
 ? space(gnLMarg); ?? m
 return
-*}
+
 
 

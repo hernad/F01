@@ -34,8 +34,8 @@ static nPreuseLevel:=0
 *;
 
 
-/*! \fn Scatter(cZn)
-  * \brief vrijednosti field varijabli tekuceg sloga prebacuje u public varijable
+/*!  Scatter(cZn)
+  *  vrijednosti field varijabli tekuceg sloga prebacuje u public varijable
   * 
   * \param cZn - Default = "_"; odredjuje prefixs varijabli koje ce generisati
   *
@@ -69,7 +69,7 @@ endif
 next
 
 return nil
-*}
+
 
 
 function Gather(cZn)
@@ -122,7 +122,7 @@ while .t.
 end
 
 return nil
-*}
+
 
 function GatherR(cZn)
 *{
@@ -181,11 +181,11 @@ while .t.
 end
 
 return nil
-*}
 
 
-/*! \fn Gather2(cZn)
-*   \brief Gather ne versi rlock-unlock
+
+/*!  Gather2(cZn)
+*    Gather ne versi rlock-unlock
 *   \note Gather2 pretpostavlja zakljucan zapis !!
 */
 
@@ -210,7 +210,7 @@ for i:=1 to len(aStruct)
   endif
 next
 return
-*}
+
 
 function delete2()
 *{
@@ -229,7 +229,7 @@ endif
 
 enddo
 return nil
-*}
+
 
 function dbdelete2()
 *{
@@ -241,7 +241,7 @@ if !eof() .or. !bof()
  Dbdelete()
 endif
 return nil
-*}
+
 
 /*
 *
@@ -336,11 +336,11 @@ exit
 enddo
 
 return nil
-*}
 
 
-/*! \fn AppFrom(cFDbf, fOtvori)
-*  \brief apenduje iz cFDbf-a u tekucu tabelu
+
+/*!  AppFrom(cFDbf, fOtvori)
+*   apenduje iz cFDbf-a u tekucu tabelu
 *  \param cFDBF - ime dbf-a
 *  \param fOtvori - .t. - otvori DBF, .f. - vec je otvorena
 */
@@ -392,7 +392,7 @@ dbunlock()
 select (nArr)
 
 return
-*}
+
 
 function PrazanDbf()
 *{
@@ -410,12 +410,12 @@ endif
 dbsetorder(nPrevOrd)
 go nRec
 return fret
-*}
+
 
 
 #ifdef CAX
 
-/*! \fn reccount2()
+/*!  reccount2()
  * \note CAX - Advantage db server verzija
  */
  
@@ -436,11 +436,11 @@ if ORDNUMBER("BRISAN")<>0
   go nRec
 endif
 return reccount()-nC
-*}
+
 
 #else
 
-/*! \fn reccount2()
+/*!  reccount2()
  * \note COMIX - CDX verzija
  */
 function reccount2()
@@ -462,7 +462,7 @@ if ORDNUMBER("BRISAN")<>0
   dbsetorder(nPrevOrd)
 endif
 return reccount()-nC
-*}
+
 
 #endif
 
@@ -471,7 +471,7 @@ function seek2(cArg)
 *{
 dbseek( cArg)
 return nil
-*}
+
 
 /*
 * markira za brisanje sve zapise u bazi
@@ -506,15 +506,15 @@ endif
 
 PopWa()
 return nil
-*}
+
 
 function nerr(oe)
 *{
 break oe
-*}
 
-/*! \fn EofFndRet(ef, close)
- *  \brief Daje poruku da ne postoje podaci
+
+/*!  EofFndRet(ef, close)
+ *   Daje poruku da ne postoje podaci
  *  \param ef = .t.   gledaj eof();  ef == .f. gledaj found()
  *  \return  .t. ako ne postoje podaci
  */
@@ -543,11 +543,11 @@ if close .and. fRet
   close all
 endif
 return fRet
-*}
 
 
-/*! \fn SigmaSif(cSif)
- *  \brief zasticene funkcije sistema
+
+/*!  SigmaSif(cSif)
+ *   zasticene funkcije sistema
  *
  * za programske funkcije koje samo serviser
  * treba da zna, tj koje obicni korisniku
@@ -585,8 +585,8 @@ endif
 
 return
 
-/*! \fn O_POMDB(nArea,cImeDBF)
- *  \brief otvori pomocnu tabelu, koja ako se nalazi na CDU npr se kopira u lokalni
+/*!  O_POMDB(nArea,cImeDBF)
+ *   otvori pomocnu tabelu, koja ako se nalazi na CDU npr se kopira u lokalni
  *   direktorij pa zapuje
  */
 
@@ -724,10 +724,10 @@ if lSilent
 endif
 
 return
-*}
 
-/*! \fn SetWOnly()
- *  \brief Set write atributa
+
+/*!  SetWOnly()
+ *   Set write atributa
  */
 function SetWOnly(lSilent)
 *{
@@ -784,8 +784,8 @@ endif
 return
 
 
-/*! \fn SkratiAZaD(aStruct)
- *  \brief skrati matricu za polje D
+/*!  SkratiAZaD(aStruct)
+ *   skrati matricu za polje D
  
  *  \code
  *  SkratiAZaD(@aStruct)
@@ -807,8 +807,8 @@ ASIZE(aStruct,nLen)
 return nil
 
  
-/*! \fn Append2()
- * \brief Dodavanje novog zapisa u (nArr) -
+/*!  Append2()
+ *  Dodavanje novog zapisa u (nArr) -
  * \note koristi se kod dodavanja zapisa u bazu nakon Izdvajanja zapisa funkcijom Izdvoji()
  */
 
@@ -823,7 +823,7 @@ replace recno with nRec
 
 return nil
 
-/*! \fn DbfName(nArea, lFull)
+/*!  DbfName(nArea, lFull)
  *  \param nArea
  *  \param lFull True - puno ime cPath + cDbfName; False - samo cDbfName; default=False
  *
@@ -971,7 +971,7 @@ ENDIF
 return
 
 
-/*! \fn ExportBaze(cBaza)
+/*!  ExportBaze(cBaza)
 
    Vidljive slogove tekuce baze kopira u bazu cBaza. Prije toga izbrise
    bazu cBaza i pripadajuce indekse ukoliko postoje. cBaza ostaje zatvorena
@@ -1009,11 +1009,11 @@ if fieldpos("BRISANO")=0 // ne postoji polje "brisano"
   use (cImeDBf)
 endif
 return nil
-*}
 
 
-/*! \fn SmReplace(cField, xValue, lReplAlways)
- *  \brief Smart Replace - vrsi replace. Ako je lReplAlways .T. uvijek vrsi, .F. samo ako je vrijdnost polja razlicita 
+
+/*!  SmReplace(cField, xValue, lReplAlways)
+ *   Smart Replace - vrsi replace. Ako je lReplAlways .T. uvijek vrsi, .F. samo ako je vrijdnost polja razlicita 
  *  \note vrsi se i REPLSQL, kada je gSql=="D"
  */
  
@@ -1035,10 +1035,10 @@ if ((&cPom<>xValue) .or. (lReplAlways == .t.))
 endif
 
 return
-*}
 
-/*! \fn  PreUseEvent(cImeDbf, fShared)
- *  \brief Poziva se prije svako otvaranje DBF-a komanom USE
+
+/*!   PreUseEvent(cImeDbf, fShared)
+ *   Poziva se prije svako otvaranje DBF-a komanom USE
  *
  * Za gSQL=="D":
  * Ako fajl KUMPATH + DOKS.gwu postoji, to znaci da je Gateway izvrsio
@@ -1095,10 +1095,10 @@ endif
 
 nPreuseLevel:=0
 return cImeDbf
-*}
 
-/*! \fn ScanDb()
- *  \brief Prodji kroz sve tabele i pokreni PreuseEvent
+
+/*!  ScanDb()
+ *   Prodji kroz sve tabele i pokreni PreuseEvent
  *  \note sve tabele koje je gateway azurirao bice indeksirane
  */
 function ScanDb()

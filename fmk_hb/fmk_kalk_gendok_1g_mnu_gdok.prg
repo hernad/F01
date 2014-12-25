@@ -29,11 +29,11 @@
  
 
 /*! \file fmk/kalk/gendok/1g/mnu_gdok.prg
- *  \brief Meni opcija za generisanje dokumenata za modul KALK
+ *   Meni opcija za generisanje dokumenata za modul KALK
  */
 
-/*! \fn MGenDoks()
- *  \brief Meni opcija za generisanje dokumenata za modul KALK
+/*!  MGenDoks()
+ *   Meni opcija za generisanje dokumenata za modul KALK
  */
 
 function MGenDoks()
@@ -52,4 +52,4 @@ private Izbor:=1
 Menu_SC("mgend")
 CLOSERET
 return
-*}
+

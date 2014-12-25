@@ -112,7 +112,7 @@ else
 	return .f.
 endif
 
-*}
+
 
 
 /*
@@ -138,7 +138,7 @@ _DatDok = DATE()
 KalkNabP( gFirma, cIdRoba, cPKonto, @nKolS, @nKolZN, @nNc1, @nSredNc, @dDatNab, @dRokTr)
 
 return nSredNc
-*}
+
 
 
 /*
@@ -170,7 +170,7 @@ replace Nc with nNc
 
 select (nArr)
 return
-*}
+
 
 
 

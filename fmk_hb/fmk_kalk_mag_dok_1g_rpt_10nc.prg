@@ -29,12 +29,12 @@
  
 
 /*! \file fmk/kalk/mag/dok/1g/rpt_10nc.prg
- *  \brief Stampa kalkulacije 10 za vodjenje magacina po nabavnim cijenama
+ *   Stampa kalkulacije 10 za vodjenje magacina po nabavnim cijenama
  */
 
 
-/*! \fn StKalk10_1()
- *  \brief Stampa kalkulacije 10 - nabavne cijene
+/*!  StKalk10_1()
+ *   Stampa kalkulacije 10 - nabavne cijene
  */
 
 function StKalk10_1()
@@ -200,7 +200,7 @@ if prow()>61+gPStranica; FF; @ prow(),125 SAY "Str:"+str(++nStr,3); endif
 @ prow(),pcol()+1  SAY nTot8         picture         PICDEM
 ? m
 return
-*}
+
 
 
 

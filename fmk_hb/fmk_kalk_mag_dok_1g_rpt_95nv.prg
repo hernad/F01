@@ -21,12 +21,12 @@
  
 
 /*! \file fmk/kalk/mag/dok/1g/rpt_95nv.prg
- *  \brief Stampa kalkulacije tipa 95, varijanta samo po nabavnim cijenama
+ *   Stampa kalkulacije tipa 95, varijanta samo po nabavnim cijenama
  */
 
 
-/*! \fn StKalk95_1()
- *  \brief Stampa kalkulacije tipa 95, varijanta samo po nabavnim cijenama
+/*!  StKalk95_1()
+ *   Stampa kalkulacije tipa 95, varijanta samo po nabavnim cijenama
  */
 
 function StKalk95_1()
@@ -183,5 +183,5 @@ endif
 
 ? m
 return
-*}
+
 

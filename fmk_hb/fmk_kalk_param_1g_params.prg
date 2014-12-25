@@ -21,12 +21,12 @@
  
 
 /*! \file fmk/kalk/param/1g/params.prg
- *  \brief Parametri modula KALK - ispravka
+ *   Parametri modula KALK - ispravka
  */
 
 
-/*! \fn Params()
- *  \brief Osnovni meni za ispravku parametara modula KALK
+/*!  Params()
+ *   Osnovni meni za ispravku parametara modula KALK
  */
 
 function Params()
@@ -78,12 +78,12 @@ Menu_SC("pars")
 select params; use
 closeret
 return
-*}
 
 
 
-/*! \fn SetVarijante()
- *  \brief Ispravka parametara "varijante obrade i prikaza pojedinih dokumenata"
+
+/*!  SetVarijante()
+ *   Ispravka parametara "varijante obrade i prikaza pojedinih dokumenata"
  */
 
 function SetVarijante()
@@ -217,8 +217,8 @@ return nil
 
 
 
-/*! \fn SetRazno()
- *  \brief Ispravka parametara "razno"
+/*!  SetRazno()
+ *   Ispravka parametara "razno"
  */
 
 function SetRazno()
@@ -272,8 +272,8 @@ return .t.
 
 
 
-/*! \fn SetMetoda()
- *  \brief Ispravka parametara "METODA NC, ISPRAVKA DOKUMENATA"
+/*!  SetMetoda()
+ *   Ispravka parametara "METODA NC, ISPRAVKA DOKUMENATA"
  */
 
 function SetMetoda()
@@ -295,13 +295,13 @@ private  GetList:={}
  endif
 
 return .f.
-*}
 
 
 
 
-/*! \fn Recimu()
- *  \brief Poruka koja objasnjava znacenje parametara "METODA NC, ISPRAVKA DOKUMENATA"
+
+/*!  Recimu()
+ *   Poruka koja objasnjava znacenje parametara "METODA NC, ISPRAVKA DOKUMENATA"
  */
 
 function Recimu()
@@ -320,13 +320,13 @@ elseif gMetodaNC $ "13"
       "Molimo Vas da usvojite metodu  2 - srednja nabavna cijena !",0)
 endif
 return .t.
-*}
 
 
 
 
-/*! \fn SetFirma()
- *  \brief Ispravka parametara "MATICNA FIRMA, BAZNA VALUTA"
+
+/*!  SetFirma()
+ *   Ispravka parametara "MATICNA FIRMA, BAZNA VALUTA"
  */
 
 function SetFirma()
@@ -352,13 +352,13 @@ private  GetList:={}
  endif
 
 return .f.
-*}
 
 
 
 
-/*! \fn SetPICT()
- *  \brief Ispravka parametara "PARAMETRI PRIKAZA - PICTURE KODOVI"
+
+/*!  SetPICT()
+ *   Ispravka parametara "PARAMETRI PRIKAZA - PICTURE KODOVI"
  */
 
 function SetPICT()
@@ -392,13 +392,13 @@ if lastkey()<>K_ESC
 endif
 
 return .t.
-*}
 
 
 
 
-/*! \fn SetKomis()
- *  \brief Ispravka parametara "PARAMETRI KOMISIONE PRODAJE"
+
+/*!  SetKomis()
+ *   Ispravka parametara "PARAMETRI KOMISIONE PRODAJE"
  */
 
 function SetKomis()
@@ -417,13 +417,13 @@ private  GetList:={}
  endif
 
 return nil
-*}
 
 
 
 
-/*! \fn SetZavDok()
- *  \brief Ispravka parametara "NACINI FORMIRANJA ZAVISNIH DOKUMENATA"
+
+/*!  SetZavDok()
+ *   Ispravka parametara "NACINI FORMIRANJA ZAVISNIH DOKUMENATA"
  */
 
 function SetZavDok()
@@ -456,13 +456,13 @@ private  GetList:={}
  endif
 
 return nil
-*}
 
 
 
 
-/*! \fn SetODirs()
- *  \brief Ispravka parametara "DIREKTORIJI"
+
+/*!  SetODirs()
+ *   Ispravka parametara "DIREKTORIJI"
  */
 
 function SetODirs()
@@ -502,13 +502,13 @@ private  GetList:={}
  endif
 
 return nil
-*}
 
 
 
 
-/*! \fn SetT1()
- *  \brief Ispravka parametara "Troskovi 10-ka"
+
+/*!  SetT1()
+ *   Ispravka parametara "Troskovi 10-ka"
  */
 
 function SetT1()
@@ -533,13 +533,13 @@ private  GetList:={}
  endif
 
 return nil
-*}
 
 
 
 
-/*! \fn SetTRN()
- *  \brief Ispravka parametara "RADNI NALOG"
+
+/*!  SetTRN()
+ *   Ispravka parametara "RADNI NALOG"
  */
 
 function SetTRN()
@@ -565,13 +565,13 @@ private  GetList:={}
  cIspravka:="N"
 
 return nil
-*}
 
 
 
 
-/*! \fn SetT24()
- *  \brief Ispravka parametara "24 - USLUGE"
+
+/*!  SetT24()
+ *   Ispravka parametara "24 - USLUGE"
  */
 
 function SetT24()
@@ -602,6 +602,6 @@ private  GetList:={}
  endif
 
 return nil
-*}
+
 
 

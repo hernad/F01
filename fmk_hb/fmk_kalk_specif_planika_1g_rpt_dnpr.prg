@@ -15,8 +15,8 @@
 static cLinija
 
 
-/*! \fn DnevProm()
- *  \brief Izvjestaj dnevnog prometa
+/*!  DnevProm()
+ *   Izvjestaj dnevnog prometa
  *  \todo Ovaj izvjestaj nije dobro uradjen - formira se matrica, koja ce puci na velikom broju artikala
  */
 function DnevProm()
@@ -82,11 +82,11 @@ CopyZaSlanje(dDan)
 
 CLOSERET
 return
-*}
 
 
-/*! \fn PromPeriod()
- *  \brief (Vise)dnevni promet za period
+
+/*!  PromPeriod()
+ *   (Vise)dnevni promet za period
  */
 function PromPeriod()
 *{
@@ -156,11 +156,11 @@ CopyZaSlanje(dDan)
 
 CLOSERET
 return
-*}
 
 
-/*! \fn ScanTops(dDan, aR, dDatDo, cPKto)
- *  \brief Skenira tabele kasa i kupi promet
+
+/*!  ScanTops(dDan, aR, dDatDo, cPKto)
+ *   Skenira tabele kasa i kupi promet
  */
 static function ScanTops(dDan, aR, dDatDo, cPKto)
 *{
@@ -265,11 +265,11 @@ enddo
 ASORT(aR,,,{|x,y|x[1]<y[1]})
 
 return 1
-*}
 
 
-/*! \fn ScanKalk(dDan, aR, dDatDo, cPKto)
- *  \brief Skenira tabelu kalk i kupi promet prodavnica
+
+/*!  ScanKalk(dDan, aR, dDatDo, cPKto)
+ *   Skenira tabelu kalk i kupi promet prodavnica
  */
 static function ScanKalk(dDan, aR, dDatDo, cPKto)
 *{
@@ -320,7 +320,7 @@ for i:=1 to LEN(aR)
 next
 
 return 1
-*}
+
 
 static function GetVars(dDan, cTops, cPodvuci, cFilterDn, cFilter, dDatDo, aUslPKto)
 *{
@@ -363,7 +363,7 @@ endif
 BoxC()
 
 return 1
-*}
+
 
 
 static function Header(dDan, nStr)
@@ -387,7 +387,7 @@ EVAL(b3)
 ? " BR. * ARTIKLA  *                                        *   *          *            *"
 ? cLinija
 return
-*}
+
 
 static function Footer(cPodvuci, nUk, nUkKol)
 *{
@@ -396,7 +396,7 @@ static function Footer(cPodvuci, nUk, nUkKol)
 ? cLinija
 
 return
-*}
+
 
 static function CopyZaSlanje(dDan)
 *{
@@ -430,5 +430,5 @@ else
 endif
 
 return
-*}
+
 

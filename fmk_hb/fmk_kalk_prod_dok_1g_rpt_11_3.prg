@@ -35,12 +35,12 @@
  
 
 /*! \file fmk/kalk/prod/dok/1g/rpt_11_3.prg
- *  \brief Stampa kalkulacije 11, varijanta "3" - papir formata A3
+ *   Stampa kalkulacije 11, varijanta "3" - papir formata A3
  */
 
 
-/*! \fn StKalk11_3()
- *  \brief Stampa kalkulacije 11, varijanta "3" - papir formata A3
+/*!  StKalk11_3()
+ *   Stampa kalkulacije 11, varijanta "3" - papir formata A3
  */
 
 function StKalk11_3()
@@ -155,4 +155,4 @@ RekTarife()
 gPStranica:=gPStranica-6
 
 return
-*}
+

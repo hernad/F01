@@ -29,12 +29,12 @@
  
 
 /*! \file fmk/kalk/primpak/1g/primpak.prg
- *  \brief Operacija svodjenja artikala na primarno pakovanje
+ *   Operacija svodjenja artikala na primarno pakovanje
  */
 
 
-/*! \fn NaPrimPak()
- *  \brief Svedi artikle na primarno pakovanje
+/*!  NaPrimPak()
+ *   Svedi artikle na primarno pakovanje
  */
 
 function NaPrimPak()
@@ -207,13 +207,13 @@ function NaPrimPak()
   MsgBeep("Obradite izgenerisane dokumente u pripremi!")
 CLOSERET
 return
-*}
 
 
 
 
-/*! \fn NaPrPak2()
- *  \brief Svedi artikle na primarno pakovanje v.2
+
+/*!  NaPrPak2()
+ *   Svedi artikle na primarno pakovanje v.2
  */
 
 function NaPrPak2()
@@ -394,5 +394,5 @@ function NaPrPak2()
 
 CLOSERET
 return
-*}
+
 

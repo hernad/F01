@@ -13,8 +13,8 @@
 #include "fin01.ch"
 
 
-/*! \fn OStUndo()
- *  \brief Otvorene stavke - UNDO operacija
+/*!  OStUndo()
+ *   Otvorene stavke - UNDO operacija
  */
 function OStUndo()
 *{
@@ -53,11 +53,11 @@ if Pitanje(,"Pokrenuti opciju automatskog zatvaranja stavki?","D")=="D"
 endif
 
 return
-*}
 
 
-/*! \fn GetVars(dDatOd, dDatDo, cPartn, cKonto, cDp, cVNal)
- *  \brief Setuj parametre
+
+/*!  GetVars(dDatOd, dDatDo, cPartn, cKonto, cDp, cVNal)
+ *   Setuj parametre
  */
 static function GetVars(dDatOd, dDatDo, cPartn, cKonto, cDp, cVNal)
 *{
@@ -79,11 +79,11 @@ if LastKey()==K_ESC
 endif
 
 return 1
-*}
 
 
-/*! \fn OStRunUndo()
- *  \brief glavna funkcija obrade dokumenta 
+
+/*!  OStRunUndo()
+ *   glavna funkcija obrade dokumenta 
  */
 static function OStRunUndo(dDOd, dDDo, cIdPartn, cIdKonto, cDugPot, cVNal)
 *{
@@ -175,11 +175,11 @@ BoxC()
 MsgBeep("Opcija zavrsena!#Pogledajte rezultate...")
 
 return
-*}
 
 
-/*! \fn OStAfterAzur(cIdPart, cIdKonto, cDp)
- *  \brief Pokrece asistenta otvorenih stavki poslije azuriranja naloga
+
+/*!  OStAfterAzur(cIdPart, cIdKonto, cDp)
+ *   Pokrece asistenta otvorenih stavki poslije azuriranja naloga
  */
 function OStAfterAzur(aPartList, cIdPart, cIdKonto, cDp)
 *{
@@ -188,6 +188,6 @@ function OStAfterAzur(aPartList, cIdPart, cIdKonto, cDp)
 
 
 return
-*}
+
 
 

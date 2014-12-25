@@ -26,11 +26,11 @@
  */
  
 /*! \file fmk/fin/gendok/1g/mnu_gdok.prg
- *  \brief Generacija dokumenata - menij
+ *   Generacija dokumenata - menij
  */
 
-/*! \fn MnuGenDok()
- *  \brief Menij generacije dokumenata
+/*!  MnuGenDok()
+ *   Menij generacije dokumenata
  */
 
 
@@ -58,5 +58,5 @@ endif
 Menu_SC("gdk")
 
 return
-*}
+
 

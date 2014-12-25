@@ -28,15 +28,15 @@
 
 
 /*! \file fmk/kalk/specif/opresa/tar/1g/mnu_tar.prg
- *  \brief Menij izvjestaja
+ *   Menij izvjestaja
  */
 
-/*! \fn MMenuTar()
- *  \brief Glavni menij izvjestaja
+/*!  MMenuTar()
+ *   Glavni menij izvjestaja
  */
  
 function MMenuTar()
 *{
 return
-*}
+
 

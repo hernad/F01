@@ -25,12 +25,12 @@ static aPorezi:={}
  
 
 /*! \file fmk/kalk/prod/dok/1g/frm_81.prg
- *  \brief Maska za unos dokumenata tipa 81
+ *   Maska za unos dokumenata tipa 81
  */
 
 
-/*! \fn Get1_81()
- *  \brief Prva strana maske za unos dokumenta tipa 81
+/*!  Get1_81()
+ *   Prva strana maske za unos dokumenta tipa 81
  */
 
 // direktni ulaz u prodavnicu
@@ -134,13 +134,13 @@ ESC_RETURN K_ESC
 _FCJ2:=_FCJ*(1-_Rabat/100)
 
 return lastkey()
-*}
 
 
 
 
-/*! \fn VKol()
- *  \brief Validacija kolicine pri unosu dokumenta tipa 81
+
+/*!  VKol()
+ *   Validacija kolicine pri unosu dokumenta tipa 81
  */
 
 static function VKol()
@@ -166,13 +166,13 @@ nKolS:=0;nKolZN:=0;nc1:=nc2:=0; dDatNab:=ctod("")
 select PRIPR
 endif
 return .t.
-*}
 
 
 
 
-/*! \fn Get2_81()
- *  \brief Druga strana maske za unos dokumenta tipa 81
+
+/*!  Get2_81()
+ *   Druga strana maske za unos dokumenta tipa 81
  */
 
 function Get2_81()
@@ -269,5 +269,5 @@ _MU_I:=""
 
 nStrana:=3
 return lastkey()
-*}
+
 

@@ -22,8 +22,8 @@
  */
 
 
-/*! \fn Get1_15()
- *  \brief Prva strana maske za unos dokumenta tipa 15
+/*!  Get1_15()
+ *   Prva strana maske za unos dokumenta tipa 15
  */
 
 function Get1_15()
@@ -342,5 +342,5 @@ if pIzgSt .and. _kolicina>0 .and. lastkey()<>K_ESC // izgenerisane stavke postoj
 endif
 
 return lastkey()
-*}
+
 

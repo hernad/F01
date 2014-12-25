@@ -40,12 +40,12 @@
  
 
 /*! \file fmk/kalk/prod/dok/1g/frm_12.prg
- *  \brief Maska za unos dokumenta tipa 12
+ *   Maska za unos dokumenta tipa 12
  */
 
 
-/*! \fn Get1_12()
- *  \brief Prva strana maske za unos dokumenta tipa 12
+/*!  Get1_12()
+ *   Prva strana maske za unos dokumenta tipa 12
  */
 
 function Get1_12()
@@ -261,5 +261,5 @@ _PKonto:=_Idkonto; _PU_I:="5"     // izlaz iz prodavnice
 
 FillIzgStavke(pIzgSt)
 return lastkey()
-*}
+
 

@@ -21,7 +21,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_IZVJESTAJI_BezUlaza
-  * \brief Da li se na izvjestajima lager-liste i stanja robe prikazuju samo izlazi?
+  *  Da li se na izvjestajima lager-liste i stanja robe prikazuju samo izlazi?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -30,7 +30,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_Svi_SaberiKol
-  * \brief Da li se na izvjestajima prikazuje zbir kolicina svih artikala
+  *  Da li se na izvjestajima prikazuje zbir kolicina svih artikala
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -39,7 +39,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FAKT_Sintet
-  * \brief Da li se koriste sinteticke (skracene) sifre robe?
+  *  Da li se koriste sinteticke (skracene) sifre robe?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -47,8 +47,8 @@
 
 
 
-/*! \fn Lager()
- *  \brief Izvjestaj lager lista
+/*!  Lager()
+ *   Izvjestaj lager lista
  */
  
 function Lager()
@@ -748,12 +748,12 @@ MyFERASE(cTMPFAKT)
 
 CLOSERET
 return
-*}
 
 
 
-/*! \fn ZaglLager()
- *  \brief Zaglavlje lager liste
+
+/*!  ZaglLager()
+ *   Zaglavlje lager liste
  */
  
 function ZaglLager()

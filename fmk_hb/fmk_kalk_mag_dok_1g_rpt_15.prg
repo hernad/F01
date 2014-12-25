@@ -23,12 +23,12 @@
  
 
 /*! \file fmk/kalk/mag/dok/1g/rpt_15.prg
- *  \brief Stampa dokumenta tipa 15
+ *   Stampa dokumenta tipa 15
  */
 
 
-/*! \fn StKalk15()
- *  \brief Stampa kalkulacije 15
+/*!  StKalk15()
+ *   Stampa kalkulacije 15
  */
 
 

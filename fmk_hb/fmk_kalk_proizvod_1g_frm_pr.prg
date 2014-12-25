@@ -13,8 +13,8 @@
 #include "kalk01.ch"
 
 
-/*! \fn Get1_PR()
- *  \brief Prva strana maske za unos dokumenta tipa PR
+/*!  Get1_PR()
+ *   Prva strana maske za unos dokumenta tipa PR
  */
 
 // ovim funkcijama je proslijedjen parametar fnovi kao privatna varijabla

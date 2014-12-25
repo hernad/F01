@@ -19,13 +19,13 @@
  */
  
 /*! \file fmk/fakt/dok/1g/stdrtf3.prg
- *  \brief Stampa RTF-a
+ *   Stampa RTF-a
  */
 
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_RTF_PartnerFS
-  * \brief Velicina fonta za ispis partnera u rtf-fakturi
+  *  Velicina fonta za ispis partnera u rtf-fakturi
   * \param 28 - default vrijednost
   */
 *string FmkIni_KumPath_RTF_PartnerFS;
@@ -33,15 +33,15 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_RTF_PartnerSB
-  * \brief Format necega?! Nisam mogao testirati jer nemam instaliran MS Word!
+  *  Format necega?! Nisam mogao testirati jer nemam instaliran MS Word!
   * \param 90 - default vrijednost
   */
 *string FmkIni_KumPath_RTF_PartnerSB;
 
 
 
-/*! \fn StdRtf3()
- *  \brief Stampa faktura u RTF formatu verijanta 3
+/*!  StdRtf3()
+ *   Stampa faktura u RTF formatu verijanta 3
  *  \param cImeF
  *  \param cIdFirma
  *  \param cIdTipDok
@@ -461,10 +461,10 @@ use
 select pripr
 
 closeret
-*}
 
-/*! \fn Zagl3()
- *  \brief Stampa zaglavlja rtf3
+
+/*!  Zagl3()
+ *   Stampa zaglavlja rtf3
  */
  
 static function Zagl3()
@@ -482,10 +482,10 @@ WWRowDef({ {CO1,{"l","s",0.1},{"r","s",0.1},{"b","s",0.4},{"t","s",0.4} } , ;
          })
 WWCellS({"\f2\fs18\qc\sb30\sa20 Rbr","\fs22 Sifra","Tar", "Naziv robe","Kol.","jmj","Cijena","\fs20 Rab", "Por", "Ukupno"})
 return
-*}
 
-/*! \fn NStr3(fPrvaStr)
- *  \brief Prelazak na novu stranu
+
+/*!  NStr3(fPrvaStr)
+ *   Prelazak na novu stranu
  *  \param fPrvaStrana
  */
  
@@ -514,5 +514,5 @@ WWCells({" "," ","\ql {\b Prenos sa strane "+alltrim(str(nStr++,3))+".}",;
         "\qr {\b "+alltrim(str(nUk,12,nZaokr))+"}";
        })
 return
-*}
+
 

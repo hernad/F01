@@ -33,11 +33,11 @@ do while .t.
   endcase
 enddo
 return
-*}
 
 
-/*! \fn StOAnal()
- *  \brief Stampanje proknjizenog analitickog naloga
+
+/*!  StOAnal()
+ *   Stampanje proknjizenog analitickog naloga
  */
  
 function StOANal()
@@ -107,11 +107,11 @@ StSubNal("2")
 END PRINT
 closeret
 return
-*}
 
 
-/*! \fn StOSNal(fKum)
- *  \brief Stampa sintetickog naloga
+
+/*!  StOSNal(fKum)
+ *   Stampa sintetickog naloga
  *  \param fKum  - if fkum = .t. - stampa naloga iz anal.dbf, if fkum = .f. - stampa naloga iz panal.dbf
  */
  
@@ -270,11 +270,11 @@ if fkum
  closeret
 endif
 return
-*}
 
 
-/*! \fn Zagl12()
- *  \brief Zaglavlje sintetickog naloga
+
+/*!  Zagl12()
+ *   Zaglavlje sintetickog naloga
  */
  
 function Zagl12()

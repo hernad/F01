@@ -14,8 +14,8 @@
 
 #define F_T_PROMVP		245
 
-/*! \fn GetBlPrParams(dDatOd, dDatDo, dDatDok, cTipNal, cShema)
- *  \brief Setuj parametre prenosa
+/*!  GetBlPrParams(dDatOd, dDatDo, dDatDok, cTipNal, cShema)
+ *   Setuj parametre prenosa
  *  \param dDatOd - datum prenosa od
  *  \param dDatDo - datum prenosa do
  *  \param dDatDok - datum dokumenta
@@ -45,11 +45,11 @@ else
 endif
 
 return
-*}
 
 
-/*! \fn PrenBl2Fin()
- *  \brief Centralna funkcija za prenos PROMVP u FIN
+
+/*!  PrenBl2Fin()
+ *   Centralna funkcija za prenos PROMVP u FIN
  */
 function PrenBl2Fin()
 *{
@@ -133,11 +133,11 @@ if RecCount() > 0
 endif
 
 return
-*}
 
 
-/*! \fn Azur2Pripr(cBrojNal, dDatNal)
- *  \brief Azuriranje stavke u pripremu
+
+/*!  Azur2Pripr(cBrojNal, dDatNal)
+ *   Azuriranje stavke u pripremu
  *  \param cBrojNal - broj naloga
  *  \param dDatNal - datum naloga
  */
@@ -162,12 +162,12 @@ replace	opis with TRIM(trfp2->naz)
 
 select (nArr)
 return
-*}
 
 
 
-/*! \fn BlDan(cField)
- *  \brief Vraca ukupan iznos pologa (cField) za datumski period
+
+/*!  BlDan(cField)
+ *   Vraca ukupan iznos pologa (cField) za datumski period
  *  \param cField - polje, npr "POLOG01"
  */
 static function BlDan(cField)
@@ -197,11 +197,11 @@ enddo
 select (nArr)
 
 return 1
-*}
 
 
-/*! \fn GetBlIznos(cField)
- *  \brief Vraca iznos pologa za datumski period
+
+/*!  GetBlIznos(cField)
+ *   Vraca iznos pologa za datumski period
  *  \param cField - polje, npr "POLOG01"
  */
 static function GetBlIznos(cField)
@@ -229,12 +229,12 @@ enddo
 select (nArr)
 
 return nIzn
-*}
 
 
 
-/*! \fn OpenKtDB()
- *  \brief Otvaranje neophodnih tabela 
+
+/*!  OpenKtDB()
+ *   Otvaranje neophodnih tabela 
  */
 static function OpenKtDB()
 *{
@@ -250,11 +250,11 @@ O_TIPBL
 O_VRNAL
 
 return
-*}
 
 
-/*! \fn SetBlagKPath(cBlagKPath)
- *  \brief Setuje path do tabela KUMPATH-a blagajne
+
+/*!  SetBlagKPath(cBlagKPath)
+ *   Setuje path do tabela KUMPATH-a blagajne
  *  \param cBlagKPath - putanja
  */
 static function SetBlagKPath(cBlagKPath)
@@ -268,5 +268,5 @@ endif
 
 cBlagKPath := cPom
 return
-*}
+
 

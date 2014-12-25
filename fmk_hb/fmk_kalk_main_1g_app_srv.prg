@@ -29,17 +29,17 @@
  
 
 /*! \file fmk/kalk/main/1g/app_srv.prg
- *  \brief
+ *  
  */
 
 
-/*! \fn BatchObrada(p3,p4,p5,p6,p7)
+/*!  BatchObrada(p3,p4,p5,p6,p7)
  *  \param p3 -
  *  \param p4 -
  *  \param p5 -
  *  \param p6 -
  *  \param p7 -
- *  \brief
+ *  
  */
 
 // parametri pri pozivu programa 3-7 (parametri 1,2 su Korisnik+Sifra)
@@ -65,5 +65,5 @@ if mpar37("/B",p3,p4,p5,p6,p7)
   goModul:quit()
 endif
 return
-*}
+
 

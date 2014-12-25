@@ -22,10 +22,10 @@ if nRbr>999
 else
     return str(nRbr,3)
 endif
-*}
 
-/*! \fn UzmiMpcSif()
- *  \brief Uzmi maloprodajnu cijenu iz sifrarnika
+
+/*!  UzmiMpcSif()
+ *   Uzmi maloprodajnu cijenu iz sifrarnika
  */
  
 function UzmiMpcSif()
@@ -54,11 +54,11 @@ else
     	endif
 endif
 return nCV
-*}
 
 
-/*! \fn UzmiVPCSif()
- *  \brief Uzmi veleprodajnu cijenu iz sifrarnika
+
+/*!  UzmiVPCSif()
+ *   Uzmi veleprodajnu cijenu iz sifrarnika
  */
  
 function UzmiVPCSif()
@@ -77,13 +77,13 @@ else
     	endif
 endif
 return nCV
-*}
 
 
 
-/*! \fn Pregled1() 
- *  \brief Pregled isporucenog uglja po kupcima i asortimanu
- *  \brief Izvjestaj je specificno radjen za Rudnik
+
+/*!  Pregled1() 
+ *   Pregled isporucenog uglja po kupcima i asortimanu
+ *   Izvjestaj je specificno radjen za Rudnik
  */
  
 function Pregled1()
@@ -254,11 +254,11 @@ CLOSE ALL; MyFERASE(cTMPFAKT)
 
 CLOSERET
 return
-*}
 
 
-/*! \fn FFor1()
- *  \brief 
+
+/*!  FFor1()
+ *   
  */
  
 function FFor1()
@@ -297,22 +297,22 @@ cIdPartner:=idpartner
 
  SKIP -1
 return .t.
-*}
 
 
-/*! \fn FSvaki1()
- *  \brief 
+
+/*!  FSvaki1()
+ *   
  */
  
 function FSvaki1()
 *{
 RETURN
-*}
 
 
 
-/*! \fn TekRac()
- *  \brief
+
+/*!  TekRac()
+ *  
  */
  
 function TekRec()
@@ -321,14 +321,14 @@ nSlog++
  @ m_x+1, m_y+2 SAY PADC(ALLTRIM(STR(nSlog))+"/"+ALLTRIM(STR(nUkupno)),20)
  @ m_x+2, m_y+2 SAY "Obuhvaceno: "+STR(cmxKeysIncluded())
 return (nil)
-*}
 
 
 
 
-/*! \fn Pregled2()
- *  \brief Pregled faktura asortimana za kupca
- *  \brief Izvjestaj specificno radjen za Rudnik
+
+/*!  Pregled2()
+ *   Pregled faktura asortimana za kupca
+ *   Izvjestaj specificno radjen za Rudnik
  */
  
 function Pregled2()
@@ -456,11 +456,11 @@ CLOSE ALL; MyFERASE(cTMPFAKT)
 
 CLOSERET
 return
-*}
 
 
-/*! \fn FFor2()
- *  \brief
+
+/*!  FFor2()
+ *  
  */
  
 function FFor2()
@@ -478,13 +478,13 @@ cIdTipDok:=idtipdok; cBrDok:=brdok; dDatum:=datdok
  ENDDO
  SKIP -1
 return .t.
-*}
 
 
 
-/*! \fn Pregled3()
- *  \brief Pregled isporucenog asortimana za kupca po pogonima
- *  \brief Izvjestaj specifican za rudnik
+
+/*!  Pregled3()
+ *   Pregled isporucenog asortimana za kupca po pogonima
+ *   Izvjestaj specifican za rudnik
  */
  
 function Pregled3()
@@ -653,11 +653,11 @@ CLOSE ALL; MyFERASE(cTMPFAKT)
 
 CLOSERET
 return
-*}
 
 
-/*! \fn FFor3()
- *  \brief
+
+/*!  FFor3()
+ *  
  */
  
 function FFor3()
@@ -696,22 +696,22 @@ cIdRj:=LEFT(IDROBA,2)
 
  SKIP -1
 return .t.
-*}
 
 
-/*! \fn FSvaki3()
- *  \brief
+
+/*!  FSvaki3()
+ *  
  */
 function FSvaki3()
 *{
 RETURN
-*}
 
 
 
-/*! \fn Pregled4()
- *  \brief Pregled faktura usluga za kupca
- *  \brief Izvjestaj specifican za runik
+
+/*!  Pregled4()
+ *   Pregled faktura usluga za kupca
+ *   Izvjestaj specifican za runik
  */
 
 function Pregled4()
@@ -806,11 +806,11 @@ CLOSE ALL; MyFERASE(cTMPFAKT)
 
 CLOSERET
 return
-*}
 
 
-/*! \fn FFor4()
- *  \brief
+
+/*!  FFor4()
+ *  
  */
  
 function FFor4()
@@ -828,20 +828,20 @@ cIdTipDok:=idtipdok; cBrDok:=brdok; dDatum:=datdok
  ENDDO
  SKIP -1
 return .t.
-*}
 
-/*! \fn FSvaki4()
+
+/*!  FSvaki4()
  */
  
 function FSvaki4()
 *{
 RETURN
-*}
 
 
-/*! \fn Pregled5()
- *  \brief Pregled poreza po fakturama
- *  \brief Izvjestaj specifican za rudnik
+
+/*!  Pregled5()
+ *   Pregled poreza po fakturama
+ *   Izvjestaj specifican za rudnik
  */
 function Pregled5()
 *{
@@ -979,11 +979,11 @@ CLOSE ALL; MyFERASE(cTMPFAKT)
 
 CLOSERET
 return
-*}
 
 
-/*! \fn FFor5()
- *  \brief
+
+/*!  FFor5()
+ *  
  */
  
 function FFor5()
@@ -1018,19 +1018,19 @@ cIdTipDok:=IDTIPDOK; cBrDok:=BRDOK; dDatum:=DATDOK
  nKUkPor += nUkPor; nKPor1 += nPor1; nKPor2 += nPor2
  nKPor3  += nPor3;  nKPor4 += nPor4; nKPor5 += nPor5
 return .t.
-*}
 
 
-/*! \fn FSvaki5()
+
+/*!  FSvaki5()
  */
 function FSvaki5()
 *{
 RETURN
-*}
 
 
-/*! \fn VRobPoPar()
- *  \brief Vrijednost robe po partnerima/prodavnicama
+
+/*!  VRobPoPar()
+ *   Vrijednost robe po partnerima/prodavnicama
  */
  
 function VRobPoPar()
@@ -1160,11 +1160,11 @@ aKol:={ { "SIFRA"        , {|| cIdPartner             }, .f., "C", 6, 0, 1, 1},;
 CLOSE ALL; MyFERASE(cTMPFAKT)
 CLOSERET
 return
-*}
 
 
-/*! \fn FFor6()
- *  \brief
+
+/*!  FFor6()
+ *  
  */
  
 function FFor6()
@@ -1210,21 +1210,21 @@ LOCAL nIznos:=0
  ENDDO
  SKIP -1
 RETURN .t.
-*}
 
 
-/*! \fn FSvaki6()
- *  \brief 
+
+/*!  FSvaki6()
+ *   
  */
  
 function FSvaki6()
 *{
 RETURN
-*}
 
 
-/*! \fn SubTot6()
- *  \brief
+
+/*!  SubTot6()
+ *  
  */
  
 function SubTot6()
@@ -1242,11 +1242,11 @@ LOCAL aVrati:={.f.,""}, cOps:="", cIdOpc:=""
     lSubTot6:=.f.
   ENDIF
 RETURN aVrati
-*}
 
 
-/*! \fn VRobPoIzd()
- *  \brief Vrijednost robe po izdavacima/dobavljacima
+
+/*!  VRobPoIzd()
+ *   Vrijednost robe po izdavacima/dobavljacima
  */
  
 function VRobPoIzd()
@@ -1354,11 +1354,11 @@ aKol:={ { "SIFRA"        , {|| cIdRoba                }, .f., "C",10, 0, 1, 1},;
 CLOSE ALL; MyFERASE(cTMPFAKT)
 CLOSERET
 return
-*}
 
 
-/*! \fn FFor7()
- *  \brief
+
+/*!  FFor7()
+ *  
  */
  
 function FFor7()
@@ -1389,21 +1389,21 @@ IF fSMark .and. SkLoNMark("ROBA",SiSiRo()) //skip+loop gdje je roba->_M1_ != "*"
  ENDDO
  SKIP -1
 RETURN .t.
-*}
 
 
-/*! \fn FSvaki7()
+
+/*!  FSvaki7()
  */
  
 function FSvaki7()
 *{
 RETURN
-*}
 
 
 
-/*! \fn SubTot7()
- *  \brief
+
+/*!  SubTot7()
+ *  
  */
  
 function SubTot7()
@@ -1416,11 +1416,11 @@ LOCAL aVrati:={.f.,""}, cIzd:="", cIdIzd:=""
     lSubTot7:=.f.
   ENDIF
 RETURN aVrati
-*}
 
 
-/*! \fn PorPoOps()
- *  \brief Porezi po tarifama i po opstinama
+
+/*!  PorPoOps()
+ *   Porezi po tarifama i po opstinama
  */
 
 function PorPoOps()
@@ -1635,20 +1635,20 @@ aKol:={ { "OPSTINA"      , {|| ops                 }, .f., "C",10, 0, 1, 1},;
 CLOSE ALL; MyFERASE(cTMPFAKT)
 CLOSERET
 return
-*}
 
 
-/*! \fn FFor8()
+
+/*!  FFor8()
  */
 
 function FFor8()
 *{
 RETURN .t.
-*}
 
 
-/*! \fn FSvaki8()
- *  \brief
+
+/*!  FSvaki8()
+ *  
  */
 
 function FSvaki8()
@@ -1664,12 +1664,12 @@ IF por="�UKUPNO"
     SKIP -1
   ENDIF
 RETURN (NIL)
-*}
 
 
-/*! \fn SiSiRo()
- *  \brief Sirina sifre robe
- *  \brief specificno za opresu - novine
+
+/*!  SiSiRo()
+ *   Sirina sifre robe
+ *   specificno za opresu - novine
  */
 
 function SiSiRo()
@@ -1679,12 +1679,12 @@ LOCAL cSR:=FAKT->idroba
     cSR := PADR(LEFT(cSR,gnDS),LEN(cSR))
   ENDIF
 RETURN cSR
-*}
 
 
 
-/*! \fn KarticaKons()
- *  \brief Kartica konsignacije
+
+/*!  KarticaKons()
+ *   Kartica konsignacije
  */
  
 function KarticaKons()
@@ -2030,11 +2030,11 @@ endif
 END PRINT
 closeret
 return
-*}
 
 
-/*! \fn ZagKartKons(lIniStrana)
- *  \brief Zaglavlje kartice konsignacije
+
+/*!  ZagKartKons(lIniStrana)
+ *   Zaglavlje kartice konsignacije
  */
  
 static function ZagKartKons(lIniStrana)
@@ -2069,11 +2069,11 @@ IF lIniStrana=NIL; lIniStrana:=.f.; ENDIF
   ? space(gnLMarg); ?? m
   nZStrana=nStrana
 return
-*}
 
 
-/*! \fn Oporezovana(cIdTarifa)
- *  \brief 
+
+/*!  Oporezovana(cIdTarifa)
+ *   
  */
  
 function Oporezovana(cIdTarifa)
@@ -2085,11 +2085,11 @@ LOCAL nArr
    SELECT (nArr)
  ENDIF
 return (TARIFA->opp<>0 .or. TARIFA->ppp<>0 .or. TARIFA->zpp<>0)
-*}
 
 
-/*! \fn TekRac2()
- *  \brief
+
+/*!  TekRac2()
+ *  
  */
  
 function TekRec2()
@@ -2098,12 +2098,12 @@ nSlog++
  @ m_x+1, m_y+2 SAY PADC(ALLTRIM(STR(nSlog))+"/"+ALLTRIM(STR(nUkupno)),20)
  @ m_x+2, m_y+2 SAY "Obuhvaceno: "+STR(cmxKeysIncluded())
 return (nil)
-*}
 
 
 
-/*! \fn SortFakt(cId,cSort)
- *  \brief Sortiranje faktura
+
+/*!  SortFakt(cId,cSort)
+ *   Sortiranje faktura
  *  \param cId
  *  \param cSort
  */
@@ -2123,11 +2123,11 @@ LOCAL cVrati:="", nArr:=SELECT()
  ENDCASE
  SELECT (nArr)
 RETURN cVrati
-*}
 
 
-/*! \fn BhSort(cInput)
- *  \brief
+
+/*!  BhSort(cInput)
+ *  
  */
  
 function BhSort(cInput)
@@ -2156,20 +2156,20 @@ IF gKodnaS=="7"
    cInput:=STRTRAN(cInput,"�","z"+CHR(255))
  ENDIF
 RETURN PADR(cInput,100)
-*}
 
-/*! \fn TmpFakt()
- *  \brief
+
+/*!  TmpFakt()
+ *  
  */
  
 function TmpFakt()
 *{
 RETURN TEMPFILE(KUMPATH,"CDX",0)
-*}
 
 
-/*! \fn MyFErase()
- *  \brief
+
+/*!  MyFErase()
+ *  
  */
  
 function MyFErase()
@@ -2179,5 +2179,5 @@ PARAMETERS cFajl
     FERASE(cFajl)
   ENDIF
 RETURN
-*}
+
 

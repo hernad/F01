@@ -21,12 +21,12 @@
  
 
 /*! \file fmk/kalk/mag/dok/1g/frm_16.prg
- *  \brief Maska za unos dokumenta tipa 16
+ *   Maska za unos dokumenta tipa 16
  */
 
 
-/*! \fn Get1_16()
- *  \brief Prva strana maske za unos dokumenta tipa 16
+/*!  Get1_16()
+ *   Prva strana maske za unos dokumenta tipa 16
  */
 
 function Get1_16()
@@ -205,13 +205,13 @@ _PKonto:=""; _PU_I:=""
 
 set key K_ALT_K to
 return lastkey()
-*}
 
 
 
 
-/*! \fn Get1_16b()
- *  \brief
+
+/*!  Get1_16b()
+ *  
  */
 
 // _odlval nalazi se u knjiz, filuje staru vrijednost
@@ -299,13 +299,13 @@ _PKonto:=""; _PU_I:=""
 _ERROR:="0"
 nStrana:=3
 return lastkey()
-*}
 
 
 
 
-/*! \fn SvediM(cSvedi)
- *  \brief Svodjenje kolicine u protustavci da bi se dobila ista vrijednost (kada su cijene u stavci i protustavci razlicite)
+
+/*!  SvediM(cSvedi)
+ *   Svodjenje kolicine u protustavci da bi se dobila ista vrijednost (kada su cijene u stavci i protustavci razlicite)
  */
 
 function SvediM(cSvedi)
@@ -326,6 +326,6 @@ if csvedi=="S"
    endif
 endif
 return .t.
-*}
+
 
 

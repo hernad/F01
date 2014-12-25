@@ -14,15 +14,15 @@
 
 
 /*! \file fmk/kalk/mag/dok/1g/frm_94.prg
- *  \brief Maska za unos dokumenta tipa 94
+ *   Maska za unos dokumenta tipa 94
  */
 
 // prijem robe 16
 // storno 14-ke fakture !!!!!!!!!! - 94
 // storno otpreme  - 97
 
-/*! \fn Get1_94()
- *  \brief Prva strana maske za unos dokumenta tipa 94
+/*!  Get1_94()
+ *   Prva strana maske za unos dokumenta tipa 94
  */
 
 function Get1_94()
@@ -209,12 +209,12 @@ _MKonto:=_Idkonto;_MU_I:="1"
 _PKonto:=""; _PU_I:=""
 set key K_ALT_K to
 return lastkey()
-*}
 
 
 
-/*! \fn KM94()
- *  \brief Magacinska kartica kao pomoc pri unosu 94-ke
+
+/*!  KM94()
+ *   Magacinska kartica kao pomoc pri unosu 94-ke
  */
 
 // koristi se stkalk14   za stampu kalkulacije
@@ -240,5 +240,5 @@ select tarifa
 go nR3
 select pripr
 return
-*}
+
 

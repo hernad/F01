@@ -59,7 +59,7 @@ endif
 
 narudzba(lStartPrint)
 return
-*}
+
 
 
 // stampa narudzbenice
@@ -218,7 +218,7 @@ if lStartPrint
 endif
 
 return
-*}
+
 
 // uzmi osnovne parametre za stampu dokumenta
 function get_nar_vars(nLMargina, nGMargina, nDodRedova, nSlTxtRow, lSamoKol, lZaglStr, lStZagl, lDatOtp, cValuta, cPDVStavka)
@@ -267,7 +267,7 @@ endif
 cValuta := get_dtxt_opis("D07")
 
 return
-*}
+
 
 
 // zaglavlje glavne tabele sa stavkama
@@ -301,7 +301,7 @@ endif
 ? cLine
 
 return
-*}
+
 
 // definicija linije za glavnu tabelu sa stavkama
 function nar_line()
@@ -687,7 +687,7 @@ else
 endif
 
 return
-*}
+
 
 
 // --------------------------------

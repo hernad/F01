@@ -20,21 +20,21 @@
 
 
 /*! \file fmk/kalk/rpt/1g/proizv.prg
- *  \brief Proizvoljni izvjestaji
+ *   Proizvoljni izvjestaji
  */
 
-/*! \fn Proizv()
- *  \brief 
+/*!  Proizv()
+ *   
  */
  
 function Proizv()
 *{
 PrIz()
 return
-*}
 
-/*! \fn OtBazPI()
- *  \brief Otvara baze proizvoljnih izvjestaja
+
+/*!  OtBazPI()
+ *   Otvara baze proizvoljnih izvjestaja
  */
 
 function OtBazPI()
@@ -43,11 +43,11 @@ O_ROBA
 O_TARIFA
 OProizv()
 return
-*}
 
 
-/*! \fn GenProIzv()
- *  \brief Generisanje proizvoljnih izvjestaja
+
+/*!  GenProIzv()
+ *   Generisanje proizvoljnih izvjestaja
  */
  
 function GenProIzv()
@@ -638,12 +638,12 @@ function GenProIzv()
 
 CLOSERET
 return
-*}
 
 
 
-/*! \fn PrikaziTI(cSif)
- *  \brief Prikazuje tekuci izvjestaj
+
+/*!  PrikaziTI(cSif)
+ *   Prikazuje tekuci izvjestaj
  *  \param cSif - sifra izvjestaja
  */
 
@@ -672,12 +672,12 @@ local nArr:=SELECT(), nKol:=COL(), nRed:=ROW()
    SELECT (nArr)
   SETPOS(nRed,nKol)
 return
-*}
 
 
 
-/*! \fn FForPI()
- *  \brief 
+
+/*!  FForPI()
+ *   
  */
  
 function FForPI()
@@ -692,11 +692,11 @@ local lVrati:=.f.
    lVrati:=.t.
  endif
 return lVrati
-*}
 
 
-/*! \fn VidiUaKolS()
- *  \brief
+
+/*!  VidiUaKolS()
+ *  
  */
  
 function VidiUaKolS()
@@ -710,11 +710,11 @@ local lVrati:=.f., i:=0
     endif
   NEXT
 return lVrati
-*}
 
 
-/*! \fn FSvakiPI()
- *  \brief
+
+/*!  FSvakiPI()
+ *  
  */
 
 function FSvakiPI()
@@ -733,12 +733,12 @@ if !lKljuc
    endif
  endif
 return IF(!EMPTY(PODVUCI),"PODVUCI"+PODVUCI,NIL)
-*}
 
 
 
-/*! \fn ParSviIzvj()
- *  \brief Parametri za sve proizvoljne izvjestaje
+
+/*!  ParSviIzvj()
+ *   Parametri za sve proizvoljne izvjestaje
  */
  
 function ParSviIzvj()
@@ -772,7 +772,7 @@ if LASTKEY()!=K_ESC
   SELECT PARAMS; USE
 endif
 return
-*}
+
 
 
 

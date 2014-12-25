@@ -47,8 +47,8 @@
  */
 
 
-/*! \fn ObrazInv()
- *  \brief Obrazac inventure za prodavnice
+/*!  ObrazInv()
+ *   Obrazac inventure za prodavnice
  *  \param
  */
  
@@ -716,11 +716,11 @@ IF XXX=1
 	#endif
 	closeret
 return
-*}
 
 
-/*! \fn ZaglObrPC(cKako)
- *  \brief Zaglavlje obrasca inventure za prodavnicu
+
+/*!  ZaglObrPC(cKako)
+ *   Zaglavlje obrasca inventure za prodavnicu
  *  \param cKako
  */
  
@@ -751,11 +751,11 @@ P_COND
 ? "* BR *           *                                        *   *  cijena *  cijena *  cijene * (kolicina) *   poreza   * promjena  *"
 ? m
 return
-*}
 
 
-/*! \fn ZaglInv()
- *  \brief Zaglavlje inventure
+
+/*!  ZaglInv()
+ *   Zaglavlje inventure
  */
  
 function ZaglInv()
@@ -777,5 +777,5 @@ P_COND // ? ne znam hoce li stati na A3
 StZaglavlje("rekinv.txt", KUMPATH)
 
 return
-*}
+
 

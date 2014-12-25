@@ -60,7 +60,7 @@ oObj:cColBorder:= "GR+/N"
 oObj:cColFont := "W/N  ,R/BG ,,,B/W"
 	
 return oObj
-*}
+
 
 
 #ifdef CPP
@@ -124,13 +124,13 @@ END CLASS
 *{
 method getRow()
 return ::nRow
-*}
+
 
 *void TDesktop::getCol()
 *{
 method getCol()
 return ::nCol
-*}
+
 
 
 *void TDesktop::showLine(string cTekst, string cRow)
@@ -149,7 +149,7 @@ if cTekst<>NIL
 endif
 
 RETURN
-*}
+
 
 *void TDesktop::SetColors(string cIzbor)
 *{
@@ -201,12 +201,12 @@ ENDIF
 ::cColShema:=cIzbor
  
 return cIzbor
-*}
+
 
 method showSezona(cSezona)
 @ 3,70 SAY "Sez: "+cSezona COLOR INVERT
 return
-*}
+
 
 *void showMainScreen(bool lClear)
 *{
@@ -226,10 +226,10 @@ endif
 
 DispBox(2,0,4,79,B_DOUBLE+' ',NORMAL)
 if lClear
-	DispBox(5,0,24,79,B_DOUBLE+"±",INVERT)
+	DispBox(5,0,24,79,B_DOUBLE+"ï¿½",INVERT)
 endif
 
 @ 3,1 SAY PADC(gNaslov+' Ver.'+gVerzija,72) COLOR NORMAL
 
 return
-*}
+

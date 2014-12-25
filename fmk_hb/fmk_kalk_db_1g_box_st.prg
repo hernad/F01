@@ -27,11 +27,11 @@
  */
 
 /*! \file fmk/kalk/db/1g/box_st.prg
- *  \brief Racunanje i prikaz stanja robe
+ *   Racunanje i prikaz stanja robe
  */
 
-/*! \fn KalkStanje(cIdRoba)
- *  \brief Racunanje i prikaz stanja robe
+/*!  KalkStanje(cIdRoba)
+ *   Racunanje i prikaz stanja robe
  */
 
 function KalkStanje(cIdRoba)
@@ -112,12 +112,12 @@ endif
 select roba
 BoxStanje(aStanje, cIdRoba)      // nUl,nIzl
 return
-*}
 
 
 
-/*! \fn BoxStanje(aStanje,cIdRoba)
- *  \brief Prikaz stanja robe
+
+/*!  BoxStanje(aStanje,cIdRoba)
+ *   Prikaz stanja robe
  */
 
 function BoxStanje(aStanje,cIdroba)
@@ -225,4 +225,4 @@ local picdem:="9999999.999", nR, nC, nTSta := 0, nTUl := 0, nTIzl := 0,;
  BoxC()
  //PopWa()
 return
-*}
+

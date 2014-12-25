@@ -19,13 +19,13 @@
  */
 
 /*! \file fmk/fakt/dok/1g/stdok29.prg
- *  \brief Stampa faktura u varijanti 2 9
+ *   Stampa faktura u varijanti 2 9
  */
 
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FAKT_StampaViseDokumenata
-  * \brief Da li se moze stampati vise od jednog dokumenta u pripremi ?
+  *  Da li se moze stampati vise od jednog dokumenta u pripremi ?
   * \param N - ne, default vrijednost
   * \param D - da
   */
@@ -34,7 +34,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_SifPath_SifRoba_PBarkod
-  * \brief Da li se mogu ispisivati bar-kodovi u dokumentima ?
+  *  Da li se mogu ispisivati bar-kodovi u dokumentima ?
   * \param 0 - ne, default vrijednost
   * \param 1 - da, na upit "Zelite li ispis bar-kodova?" ponudjen je odgovor "N"
   * \param 2 - da, na upit "Zelite li ispis bar-kodova?" ponudjen je odgovor "D"
@@ -44,15 +44,15 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_RegBrPorBr
-  * \brief Ispisuju li se poreski i registarski broj partnera?
+  *  Ispisuju li se poreski i registarski broj partnera?
   * \param D - da, default vrijednost
   * \param N - ne
   */
 *string FmkIni_KumPath_FAKT_RegBrPorBr;
 
 
-/*! \fn StDok29()
- *  \brief Stampa fakture u varijanti 2 9
+/*!  StDok29()
+ *   Stampa fakture u varijanti 2 9
  *  \param cIdFirma
  *  \param cIdTipDok
  *  \param cBrDok
@@ -542,12 +542,12 @@ FF
 ZAVRSI STAMPU
 
 closeret
-*}
 
 
 
-/*! \fn Zagl29()
- *  \brief Zaglavlje za fakturu iz varijante 2 9
+
+/*!  Zagl29()
+ *   Zaglavlje za fakturu iz varijante 2 9
  */
  
 function Zagl29()
@@ -624,11 +624,11 @@ P_10CPI
 
  P_COND
 return .t.
-*}
 
 
-/*! \fn Krizaj()
- *  \brief 
+
+/*!  Krizaj()
+ *   
  */
  
 function Krizaj()
@@ -647,5 +647,5 @@ else
 ENDIF
 
 return
-*}
+
 

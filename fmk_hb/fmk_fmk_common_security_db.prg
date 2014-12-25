@@ -129,7 +129,7 @@ endif
 USE
 
 return
-*}
+
 
 
 
@@ -164,7 +164,7 @@ for i:=1 to LEN(ImeKol)
 next
 
 return PostojiSifra(F_USERS,1,10,70,"Users - korisnici",@cId,dx,dy)
-*}
+
 
 
 function WhenPsw()
@@ -173,7 +173,7 @@ if (!EMPTY(wpsw))
 	wpsw:=CRYPT(wpsw,"SIGMASE")
 endif
 return .t.
-*}
+
 
 
 function ValidPsw()
@@ -182,7 +182,7 @@ if (!EMPTY(wpsw))
 	wpsw:=CRYPT(wpsw,"SIGMASE")
 endif
 return .t.
-*}
+
 
 
 
@@ -207,7 +207,7 @@ for i:=1 to LEN(ImeKol)
 next
 
 return PostojiSifra(F_GROUPS,1,10,70,"Groups - korisnicke grupe",@cId,dx,dy)
-*}
+
 
 
 function P_Rules(cId,dx,dy)
@@ -237,11 +237,11 @@ for i:=1 to LEN(ImeKol)
 next
 
 return PostojiSifra(F_RULES,1,17,70,"Rules - pravila za definisanje korisnika i korisnickih grupa",@cId,dx,dy,{|Ch| RulesBlock(Ch)},,,,,{"ID"})
-*}
 
 
-/*! \fn IncID(wId)
- *  \brief Povecava vrijednost polja ID za 1
+
+/*!  IncID(wId)
+ *   Povecava vrijednost polja ID za 1
  */
 static function IncID(wId)
 local nRet:=.t.
@@ -256,8 +256,8 @@ endif
 return nRet
 
 
-/*! \fn LastID(nRecNo)
- *  \brief Vraca vrijednost polja ID tabele events.dbf ili bilo koje tabele koja ima polje ID (numericko)
+/*!  LastID(nRecNo)
+ *   Vraca vrijednost polja ID tabele events.dbf ili bilo koje tabele koja ima polje ID (numericko)
  *  \param nRecNo - broj zapisa na koji se pointer treba vratiti poslije uzete vrijednosti
  */
 static function LastID(nRecNo)

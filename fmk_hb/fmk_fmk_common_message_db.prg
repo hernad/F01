@@ -14,8 +14,8 @@
 #include "msg.ch"
 
 
-/*! \fn CreDB_Message()
- *  \brief Kreiranje tabele za razmjenu poruka
+/*!  CreDB_Message()
+ *   Kreiranje tabele za razmjenu poruka
  */
 function CreDB_Message()
 *{
@@ -73,7 +73,7 @@ CREATE_INDEX("6","DTOS(CREATED)+FROMHOST+FROMUSER+STR(ROW)",EXEPATH+"amessage.db
 
 
 return
-*}
+
 
 
 
@@ -100,7 +100,7 @@ if !FILE(EXEPATH + "tmpmsg.cdx")
 	CREATE_INDEX("1","idmsg",EXEPATH+"tmpmsg.dbf",.t.)
 endif
 return
-*}
+
 
 
 

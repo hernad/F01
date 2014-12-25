@@ -30,12 +30,12 @@ static nCnt:=0
  */
 
 /*! \file sc1g/base/base.prg
-    \brief Inicijalizacija systema, bazne funkcije
+     Inicijalizacija systema, bazne funkcije
     \note prebaciti u potpunosti na objektni model (ionako se koristi oApp)
  */
 
-/*! \fn SC_START(oApp, lSezone)
- *  \brief Aktiviranje "glavnog" programskog modula"
+/*!  SC_START(oApp, lSezone)
+ *   Aktiviranje "glavnog" programskog modula"
  */
 
 
@@ -48,8 +48,8 @@ static nCnt:=0
  */
 
 
-/*! \fn SC_START(oApp, lSezone)
- *  \brief Inicijalizacija sclib sistema
+/*!  SC_START(oApp, lSezone)
+ *   Inicijalizacija sclib sistema
  *
  *  \todo Nakon verzije 1.5 ... kreiranje F_SECUR  treba ukinuti
  *
@@ -175,11 +175,11 @@ if (gSecurity=="D")
 endif
 
 return
-*}
 
 
-/*! \fn ISC_START(oApp, lSezone)
- *  \brief Aktiviranje "install" programskog modula"
+
+/*!  ISC_START(oApp, lSezone)
+ *   Aktiviranje "install" programskog modula"
  */
 
 function ISC_START(oApp, lSezone)
@@ -264,11 +264,11 @@ oApp:oDatabase:mInstall()
 
 
 return
-*}
 
 
-/*! \fn IBatchRun(oApp)
- *  \brief Batch funkcije za kreiranje baze podataka
+
+/*!  IBatchRun(oApp)
+ *   Batch funkcije za kreiranje baze podataka
  *  \todo Sve batch funkcije prebaciti u appsrv kompomentu 
  */
 
@@ -309,7 +309,7 @@ if mpar37("/M",oApp)
 endif
 
 return
-*}
+
 
 
 function SetNaslov(oApp)
@@ -346,7 +346,7 @@ gNaslov:= oApp:cName+" EXT, "+oApp:cPeriod+" "+D_VERZIJA
 
 #endif
 return
-*}
+
 
 function InitE(oApp)
 *{
@@ -406,7 +406,7 @@ endif
 
 SayPrivDir(cDirPriv)
 return nil
-*}
+
 
 
 function PokreniInstall(oApp)
@@ -443,7 +443,7 @@ if lPitaj
 endif
 
 return
-*}
+
 
 
 function mpar37(x, oApp)
@@ -460,7 +460,7 @@ return ( (lp3<>NIL .and. upper(lp3)==x) .or. (lp4<>NIL .and. upper(lp4)==x) .or.
          (lp5<>NIL .and. upper(lp5)==x) .or. (lp6<>NIL .and. upper(lp6)==x) .or. ;
          (lp7<>NIL .and. upper(lp7)==x) )
 
-*}
+
 
 function mpar37cnt(oApp)
 *{
@@ -483,7 +483,7 @@ if oApp:cP7<>nil
 endif
 
 return nCnt
-*}
+
 
 function mparstring(oApp)
 *{
@@ -511,10 +511,10 @@ if oApp:cP7<>NIL
 endif
 
 return cPars
-*}
 
-/*! \fn PID(cStart)
- *  \brief funkcije za kreiranje/brisanje PID fajla
+
+/*!  PID(cStart)
+ *   funkcije za kreiranje/brisanje PID fajla
  *  \note PID (Program Idefntifcation)
  *
  *  \param cStart - "START" - na ulasku u aplikaciju napravi PID; "STOP"  - izbrisi pid fajl
@@ -643,11 +643,11 @@ else
 endif
 
 return
-*}
 
 
-/*! \fn Prijava(oApp,lScreen)
- *  \brief Prijava korisnika pri ulasku u aplikaciju
+
+/*!  Prijava(oApp,lScreen)
+ *   Prijava korisnika pri ulasku u aplikaciju
  *  \todo Prijava je primjer klasicne kobasica funkcije ! Razbiti je.
  *  \todo prijavu na osnovu scshell.ini izdvojiti kao posebnu funkciju
  */
@@ -824,7 +824,7 @@ SetDirs(oApp, .f.)
 
 CLOSERET
 return nil
-*}
+
 
 
 function ScShellIni(oApp)
@@ -893,7 +893,7 @@ endif
 
 
 return
-*}
+
 
 static function GetSifra(oApp, m_ime, m_sif)
 *{
@@ -921,7 +921,7 @@ BoxC()
 m_ime:=ALLTRIM(UPPER(m_ime))
 
 return
-*}
+
 
 static function PrijRunInstall(m_sif, cKom)
 *{
@@ -947,7 +947,7 @@ endif
 RunInstall(cKom)
 
 return
-*}
+
 
 
 static function ApndKorisn(cKorisn, cDirPriv, cDirSif, cDirKum)
@@ -967,7 +967,7 @@ REPLACE dirSif with cDirSif
 REPLACE dirRad with cDirKum
 
 return
-*}
+
 
 
 function SetDirs(oApp, lScreen)
@@ -1035,7 +1035,7 @@ if gReadOnly .and. (IzFmkIni('Svi','CitatiCD','N',EXEPATH) == "D")
 		oApp:oDatabase:setDirKum(cPom)
   	endif
 endif
-*}
+
 
 function RunInstall(cKom)
 *{
@@ -1060,7 +1060,7 @@ if (lIB)
 endif
 
 
-*}
+
 
 /*
 function T_Start(nHPid, cPath, cModul, cUser )
@@ -1089,7 +1089,7 @@ do while .t.
   endif
 enddo
 return nHPid
-*}
+
 
 function T_Stop(nHPid, cPath, cModul, cUser )
 *{
@@ -1098,7 +1098,7 @@ cFN:=cPath+cmodul+'.pid'
 fclose(nHPid)
 ferase(cFN)
 return
-*}
+
 
 */
 
@@ -1166,12 +1166,12 @@ if !fimodul
 
 endif
 return .t.
-*}
+
 
 #ifdef CLIP
 function Arg0()
 *{
 return "/dev/fmk/pos/1g/e.exe"
-*}
+
 #endif
 

@@ -56,8 +56,8 @@
  */
 
 
-/*! \fn RptInvObrPopisa()
- *  \brief Stampa inventurnog obrasca popisa
+/*!  RptInvObrPopisa()
+ *   Stampa inventurnog obrasca popisa
  */
  
 function RptInvObrPopisa()
@@ -110,10 +110,10 @@ SELECT pripr
 GO nRecNo
 
 return
-*}
 
-/*! \fn ZInvp(cLinija)
- *  \brief Zaglavlje izvjestaja inventura
+
+/*!  ZInvp(cLinija)
+ *   Zaglavlje izvjestaja inventura
  *  \param cUlaz - Proslijedjuje se linija koja se ispise iznad i ispod zaglavlja 
  */
  
@@ -133,5 +133,5 @@ DokNovaStrana(125,@nStr,-1)
 ? cLinija
 
 return
-*}
+
 

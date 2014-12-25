@@ -185,7 +185,7 @@ if !FILE(cImeCdx)  .or. nOrder==0  .or. UPPER(cOrdKey)<>UPPER(cKljuc)
   endif
 
 return
-*}
+
 
 function IsFreeForReading(cFulDBF, fSilent)
 *{
@@ -209,7 +209,7 @@ if FERROR()<>0
 endif
 FCLOSE(nH)
 return .t.
-*}
+
 
 function AddFldBrisano(cImeDbf)
 *{
@@ -228,7 +228,7 @@ restore screen from cScr
 select (F_TMP)
 usex (cImeDbf)
 return
-*}
+
 
 function KZNbaza(aPriv,aKum,aSif,cIz,cU, cSamoId)
 *{
@@ -311,13 +311,13 @@ private cKrajnjeStanjeSif
      BrisiPaK()
  endif
 return
-*}
+
 
 function MyErrHt(o)
 *{
 BREAK o
 return .t.
-*}
+
 
 
 function Reindex(ff)
@@ -409,7 +409,7 @@ endif
 
 closeret
 return nil
-*}
+
 
 
 function Pakuj(ff)
@@ -471,7 +471,7 @@ endif
 
 closeret
 return
-*}
+
 
 
 function BrisiPAk(fSilent)
@@ -536,11 +536,11 @@ if fSilent .or. if(!gAppSrv, Pitanje(,"Izbrisati "+INDEXEXT+" fajlove pa ih nano
 endif
 
 return
-*}
 
 
-/*! \fn AppModS(cCHSName)
- *  \brief Modifikacija struktura APPSRV rezim rada
+
+/*!  AppModS(cCHSName)
+ *   Modifikacija struktura APPSRV rezim rada
  *  \param cCHSName - ime chs fajla (npr. FIN)
  */
 function AppModS(cCHSName)
@@ -579,11 +579,11 @@ goModul:oDatabase:kreiraj()
 Reindex(.t.)
 
 return
-*}
 
 
 
-/*! \fn RunModS(fDa)
+
+/*!  RunModS(fDa)
  *  \param fDa - True -> Batch obrada (neinteraktivno)
  */
 
@@ -629,7 +629,7 @@ if fda .or. PitMstru(@cImeCHS)
 endif
 
 return
-*}
+
 
 static function PitMstru(cImeChs)
 *{
@@ -651,11 +651,11 @@ if cdn=="D"
 else
   return .f.
 endif
-*}
 
 
-/*! \fn ModStru(cImeF, cPath, fString)
- *  \brief procedura modifikacija struktura
+
+/*!  ModStru(cImeF, cPath, fString)
+ *   procedura modifikacija struktura
  */
 function ModStru
 *{
@@ -845,7 +845,7 @@ kopi(fProm)
 
 cmxAutoOpen(.t.)
 return
-*}
+
 
 function Rjec(cLin)
 *{
@@ -862,7 +862,7 @@ cOp:=alltrim(left(cLin,nPos-1))
 cLin:=right(cLin,len(cLin)-nPos)
 cLin:=alltrim(cLin)
 return cOp
-*}
+
 
 
 function Prepakuj(aNStru)
@@ -876,7 +876,7 @@ for i:=1 to len(aNStru)
 next
 aNStru:=aClone(aPom)
 return nil
-*}
+
 
 /***
 *  FGets( <nHandle>, [<nLines>], [<nLineLength>], [<cDelim>] ) --> cBuffer
@@ -887,11 +887,11 @@ return nil
 function FGets(nHandle, nLines, nLineLength, cDelim)
 *{
 return FReadLn(nHandle, nLines, nLineLength, cDelim)
-*}
 
 
-/*! \fn FileTop(nHandle) 
- *  \brief Position the file pointer to the first byte in a binary file and return the new file position (i.e., 0).
+
+/*!  FileTop(nHandle) 
+ *   Position the file pointer to the first byte in a binary file and return the new file position (i.e., 0).
  *  \return nPos
  *
  */
@@ -899,10 +899,10 @@ return FReadLn(nHandle, nLines, nLineLength, cDelim)
 function FileTop(nHandle)
 *{      
 return FSEEK(nHandle, 0)
-*}
 
-/*! \fn FileBottom(nHandle) 
- * \brief Position the file pointer to the last byte in a binary file and return the new file position
+
+/*!  FileBottom(nHandle) 
+ *  Position the file pointer to the last byte in a binary file and return the new file position
  * \param nHandle - handle fajla
  * \return nPos - lokacija 
  */
@@ -910,7 +910,7 @@ return FSEEK(nHandle, 0)
 function FileBottom(nHandle)
 *{      
 return FSEEK(nHandle, 0, FS_END)
-*}
+
 
 
 
@@ -931,7 +931,7 @@ PUBLIC gaSDBFs:={ ;
  {F_SQLPAR   , "SQLPAR"  , P_KUMSQLPATH};
 }
 return
-*}
+
 
 
 
@@ -981,10 +981,10 @@ if (field->_OID_==0 .and. RecCount2()<>0)
 endif
 
 return
-*}
 
-/*! \fn ImdDBFCDX(cIme)
- *  \brief Mjenja DBF u indeksnu extenziju
+
+/*!  ImdDBFCDX(cIme)
+ *   Mjenja DBF u indeksnu extenziju
  *
  * \code 
  *  suban     -> suban.CDX
@@ -999,7 +999,7 @@ if right(cIme,4)<>"."+INDEXEXT
 	cIme:=cIme+"."+INDEXEXT
 endif
 return  cIme
-*}
+
 
 static function Every()
 *{
@@ -1007,5 +1007,5 @@ static function Every()
 //@ 24, 10 SAY "Slogova: "+STR(nSlogova*100)
 //OL_Yield()
 //return
-*}
+
 

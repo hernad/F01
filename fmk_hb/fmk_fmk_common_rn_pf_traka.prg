@@ -29,7 +29,7 @@ drn_open()
 st_pf_traka()
 
 return
-*}
+
 
 
 function f7_pf_traka(lSilent)
@@ -61,7 +61,7 @@ if !lPfTraka
 endif
 
 return
-*}
+
 
 
 function read_kup_data()
@@ -72,7 +72,7 @@ if cKNaziv == "-"
 	return .f.
 endif
 return .t.
-*}
+
 
 
 function get_kup_data()
@@ -130,7 +130,7 @@ add_drntext("K03", cKIdBroj)
 add_drn_di(dDatIsp)
 
 return .t.
-*}
+
 
 function pf_traka_line(nRazmak)
 local cPom
@@ -273,7 +273,7 @@ sjeci_traku(cSjeTraSkv)
 END PRN2 13
 
 return
-*}
+
 
 
 

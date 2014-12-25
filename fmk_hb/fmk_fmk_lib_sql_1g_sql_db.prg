@@ -90,7 +90,7 @@ else
  O_SQLPAR
 endif
 
-*}
+
 
 function GetSqlSite()
 *{
@@ -99,4 +99,4 @@ if gSQL=="D"
 else
 	return 0
 endif
-*}
+

@@ -15,8 +15,8 @@
 
 
 
-/*! \fn CrePStDB(cModulName)
- *  \brief Kreiranje tabela za prenos (OSTAV, PARAMS)
+/*!  CrePStDB(cModulName)
+ *   Kreiranje tabela za prenos (OSTAV, PARAMS)
  *  \param cModulName - ime modula - generisi tabele samo dok si u modulu POS
  */
 function CrePStDB(cModulName)
@@ -64,11 +64,11 @@ DBcreate2(KUMPATH+"PARAMS.DBF",aDbf)
 CREATE_INDEX("ID", "ID", KUMPATH+"PARAMS")
 
 return
-*}
 
 
-/*! \fn O_PrenHH(cPosID)
- *  \brief Otvaranje tabele za prenos na HH
+
+/*!  O_PrenHH(cPosID)
+ *   Otvaranje tabele za prenos na HH
  *  \param cPosID - id oznaka POS-a - bitan za modul FIN
  */
 function O_PrenHH(cPosID)
@@ -100,11 +100,11 @@ endif
 
 select (nArr)
 return
-*}
 
 
-/*! \fn GetTopsKumPathFromKoncij(cTId)
- *  \brief Vraca KUMPATH TOPS-a iz tabele koncij
+
+/*!  GetTopsKumPathFromKoncij(cTId)
+ *   Vraca KUMPATH TOPS-a iz tabele koncij
  *  \param cTId - idpm TOPS
  *  \todo razraditi procedure ako nema podesenog PATH-a
  */
@@ -124,11 +124,11 @@ endif
 set filter to
 
 return cTKPath
-*}
 
 
-/*! \fn AddToOstav(nId, nIznosG)
- *  \brief Dodaje gotovinski zapis u tabelu ostav - iz TOPS-a
+
+/*!  AddToOstav(nId, nIznosG)
+ *   Dodaje gotovinski zapis u tabelu ostav - iz TOPS-a
  *  \param nId - polje IDN iz rngost (veza sa partn->id)
  *  \param nIznosG - saldo partnera iz TOPS-a
  */
@@ -151,10 +151,10 @@ replace iznosz5 with 0
 select (nArr)
 
 return
-*}
 
-/*! \fn AddToPartn(nId, cIdFmk, cNaziv)
- *  \brief Dodaje zapis u tabelu partn - iz TOPS-a
+
+/*!  AddToPartn(nId, cIdFmk, cNaziv)
+ *   Dodaje zapis u tabelu partn - iz TOPS-a
  *  \param nId - polje IDN iz rngost (veza sa partn->id)
  *  \param cIdFmk - polje IDFMK iz tabele RNGOST
  *  \param cNaziv - naziv partnera
@@ -173,11 +173,11 @@ replace naziv with cNaziv
 select (nArr)
 
 return
-*}
 
 
-/*! \fn AddToParams(cID, cNaziv, cOpis)
- *  \brief Dodaje zapis u tabelu params - ovo je kontrolna tabela iz koje mozemo vidjeti koliko je preneseno partnera a koliko otvorenih stavki te kada je zadnji put prenos radjen.
+
+/*!  AddToParams(cID, cNaziv, cOpis)
+ *   Dodaje zapis u tabelu params - ovo je kontrolna tabela iz koje mozemo vidjeti koliko je preneseno partnera a koliko otvorenih stavki te kada je zadnji put prenos radjen.
  *  \param cID - 1. PAZ - Posljednje azuriranje 2. PCN - Broj prenesenih partnera 3. SCN - Broj prenesenih otvorenih stavki.
  *  \param cNaziv - Naziv promjene
  *  \param cOpis - Opis promjene
@@ -196,11 +196,11 @@ replace opis with cOpis
 select (nArr)
 
 return
-*}
 
 
-/*! \fn AddFinIntervalsToOstav(cIdPartn, nIznos1, nIznos2, nIznos3, nIznos4)
- *  \brief Dodaje rocne intervale u OSTAV iz modula FIN 
+
+/*!  AddFinIntervalsToOstav(cIdPartn, nIznos1, nIznos2, nIznos3, nIznos4)
+ *   Dodaje rocne intervale u OSTAV iz modula FIN 
  *  \param cIdPartn - id partnera
  *  \param nIznos1 - saldo do 4 dana
  *  \param nIznos2 - saldo do 8 dana
@@ -256,11 +256,11 @@ endif
 select (nArr)
 
 return
-*}
 
 
-/*! \fn GetOstavCnt()
- *  \brief Vraca broj prenesenih partnera u OSTAV
+
+/*!  GetOstavCnt()
+ *   Vraca broj prenesenih partnera u OSTAV
  */
 function GetOstavCnt()
 *{
@@ -270,11 +270,11 @@ O_OSTAV
 nCnt:=RecCount()
 select (nArr)
 return nCnt
-*}
 
 
-/*! \fn GetFOstavCnt()
- *  \brief Vraca broj prenesenih partnera u OSTAV iz modula FIN
+
+/*!  GetFOstavCnt()
+ *   Vraca broj prenesenih partnera u OSTAV iz modula FIN
  */
 function GetFOstavCnt()
 *{
@@ -284,11 +284,11 @@ select (F_F_OSTAV)
 nCnt:=RecCount()
 select (nArr)
 return nCnt
-*}
 
 
-/*! \fn GetPartnCnt()
- *  \brief Vraca broj prenesenih partnera u OSTAV
+
+/*!  GetPartnCnt()
+ *   Vraca broj prenesenih partnera u OSTAV
  */
 function GetPartnCnt()
 *{
@@ -298,5 +298,5 @@ O_PARTN
 nCnt:=RecCount()
 select (nArr)
 return nCnt
-*}
+
 

@@ -92,7 +92,7 @@ FF
 END PRINT
 
 RETURN
-*}
+
 
 function FFor3()
 *{
@@ -110,5 +110,5 @@ ENDIF
 
 SELECT PARTN
 RETURN !(PARTN->naz==PART2->naz)
-*}
+
 

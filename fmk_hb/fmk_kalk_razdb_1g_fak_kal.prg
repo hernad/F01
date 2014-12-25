@@ -21,12 +21,12 @@
  
 
 /*! \file fmk/kalk/razdb/1g/fak_kal.prg
- *  \brief Prenos dokumenata iz modula FAKT u KALK
+ *   Prenos dokumenata iz modula FAKT u KALK
  */
 
 
-/*! \fn FaktKalk()
- *  \brief Meni opcija za prenos dokumenata iz modula FAKT u KALK
+/*!  FaktKalk()
+ *   Meni opcija za prenos dokumenata iz modula FAKT u KALK
  */
 
 function FaktKalk()
@@ -46,13 +46,13 @@ private Izbor:=1
 Menu_SC("faka")
 CLOSERET
 return
-*}
 
 
 
 
-/*! \fn ParsMemo(cTxt)
- *  \brief Pretvaranje formatiranog memo polja u niz
+
+/*!  ParsMemo(cTxt)
+ *   Pretvaranje formatiranog memo polja u niz
  */
 
 // Struktura cTxt-a je: Chr(16) txt1 Chr(17)  Chr(16) txt2 Chr(17) ...
@@ -75,13 +75,13 @@ local i,cPom,fPoc
    endif
  next
 return aMemo
-*}
 
 
 
 
-/*! \fn ProvjeriSif(clDok,cImePoljaID,nOblSif,clFor)
- *  \brief Provjera postojanja sifara
+
+/*!  ProvjeriSif(clDok,cImePoljaID,nOblSif,clFor)
+ *   Provjera postojanja sifara
  *  \param clDok - "while" uslov za obuhvatanje slogova tekuce baze
  *  \param cImePoljaID - ime polja tekuce baze u kojem su sifre za ispitivanje
  *  \param nOblSif - oblast baze sifrarnika
@@ -145,7 +145,7 @@ IF lStartPrint
   EndPrint()
 ENDIF
 return lVrati
-*}
+
 
 
 

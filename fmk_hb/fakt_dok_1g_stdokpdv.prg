@@ -873,7 +873,7 @@ next
 add_drntext("P02", ALLTRIM(STR(nCnt)))
 
 return
-*}
+
 
 */
 
@@ -1178,7 +1178,7 @@ add_drntext("K06", cBrRjes)
 add_drntext("K07", cBrUpisa)
 
 return
-*}
+
 
 function fill_firm_data()
 *{
@@ -1231,7 +1231,7 @@ add_drntext("I13", ALLTRIM(gFText2))
 add_drntext("I14", ALLTRIM(gFText3))
 
 return
-*}
+
 */
 
 // ------------------------------------

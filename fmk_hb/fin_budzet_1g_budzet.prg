@@ -40,11 +40,11 @@
  
 
 /*! \file fmk/fin/budzet/1g/budzet.prg
- *  \brief Budzet
+ *   Budzet
  */
 
-/*! \fn IzvrsBudz()
- *  \brief Izvrsenje budzeta
+/*!  IzvrsBudz()
+ *   Izvrsenje budzeta
  */
 
 function IzvrsBudz()
@@ -948,11 +948,11 @@ endif
 END PRINT
 CLOSERET
 return
-*}
 
 
-/*! \fn IB_Zagl1()
- *  \brief Zaglavlje izvrsenje budzeta 1
+
+/*!  IB_Zagl1()
+ *   Zaglavlje izvrsenje budzeta 1
  */
  
 function IB_Zagl1()
@@ -974,11 +974,11 @@ EndIF
 ? m
 nSlob := nKorRed1+46-VAL(cBrZaZ)
 RETURN
-*}
 
 
-/*! \fn IB_Zagl2()
- *  \brief Zaglavlje izvjestaja izvrsenje budzeta 2
+
+/*!  IB_Zagl2()
+ *   Zaglavlje izvjestaja izvrsenje budzeta 2
  */
  
 function IB_Zagl2()
@@ -994,11 +994,11 @@ EndIF
 ? th1
 ? m
 RETURN
-*}
 
 
-/*! \fn IB_Zagl3()
- *  \brief Zaglavlje izvjestaja izvrsenje budzeta varijanta 3
+
+/*!  IB_Zagl3()
+ *   Zaglavlje izvjestaja izvrsenje budzeta varijanta 3
  */
  
 function IB_Zagl3()
@@ -1016,11 +1016,11 @@ EndIF
 ? th3
 ? m
 RETURN
-*}
 
 
-/*! \fn IB_Zagl4()
- *  \brief Zaglavlje izvjestaja izvrsenje budzeta varijanta 4
+
+/*!  IB_Zagl4()
+ *   Zaglavlje izvjestaja izvrsenje budzeta varijanta 4
  */
  
 function IB_Zagl4()
@@ -1040,11 +1040,11 @@ EndIF
 ? m
 nSlob := nKorRed4+49-VAL(cBrZaZ)
 RETURN
-*}
 
 
-/*! \fn Prihodi()
- *  \brief Prihodi
+
+/*!  Prihodi()
+ *   Prihodi
  */
  
 function Prihodi()
@@ -1437,11 +1437,11 @@ B_OFF
 FF
 END PRINT
 return
-*}
 
 
-/*! \fn PR_Zagl()
- *  \brief Zaglavlje prihoda 
+
+/*!  PR_Zagl()
+ *   Zaglavlje prihoda 
  */
  
 function PR_Zagl()
@@ -1459,12 +1459,12 @@ EndIF
 ? th4
 ? m
 RETURN
-*}
 
 
 
-/*! \fn Razmak(nBrRed)
- *  \brief Daje nBrRed praznih redova
+
+/*!  Razmak(nBrRed)
+ *   Daje nBrRed praznih redova
  *  \todo Treba prebaciti u /sclib
  *  \param nBrRed  - broj redova
  */
@@ -1478,12 +1478,12 @@ for i:=1 to nBrRed
 next
 
 return
-*}
 
 
 
-/*! \fn BuIz(cKonto)
- *  \brief Sortiraj izuzetke u budzetu
+
+/*!  BuIz(cKonto)
+ *   Sortiraj izuzetke u budzetu
  *  \param cKonto
  */
  
@@ -1505,6 +1505,6 @@ endif
 
 select (nSelect)
 return PADR(cKonto,10)
-*}
+
 
 

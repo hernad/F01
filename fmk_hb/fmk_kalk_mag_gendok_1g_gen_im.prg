@@ -189,7 +189,7 @@ MsgC()
 closeret
 
 return
-*}
+
 
 
 // generisanje dokumenta tipa IM razlike na osnovu postojece inventure
@@ -309,7 +309,7 @@ MsgC()
 closeret
 
 return
-*}
+
 
 
 function AzurPostojece(cIdFirma, cIdKonto, cBrDok, dDatDok, nRbr, cIdRoba, nUlaz, nIzlaz, nVpvU, nVpvI, nNvU, nNvI, cSrSort )
@@ -368,7 +368,7 @@ else
 	Gather2()
 endif
 return
-*}
+
 
 
 static function DodajImStavku(cIdFirma, cIdKonto, cBrDok, dDatDok, nRbr, cIdRoba, nUlaz, nIzlaz, nVpvU, nVpvI, nNcU, nNcI, lKolNula, cSrSort )
@@ -416,7 +416,7 @@ endif
 Gather2()
 
 return
-*}
+
 
 
 function RowKolicina(nUlaz, nIzlaz)
@@ -433,7 +433,7 @@ elseif mu_i=="3"
 endif
 
 return
-*}
+
 
 
 function RowVpvRabat(nVpvU, nVpvI, nRabat)
@@ -450,11 +450,11 @@ elseif mu_i=="1" .and. (idvd $ "12#22#94")
 elseif mu_i=="3"    
 	nVPVU+=vpc*kolicina
 endif
-*}
 
 
-/*! \fn RowNC(nNcU, nNcI)
- *  \brief Popunjava polja NC
+
+/*!  RowNC(nNcU, nNcI)
+ *   Popunjava polja NC
  */
  
 function RowNC(nNcU, nNcI)
@@ -469,5 +469,5 @@ elseif mu_i=="1" .and. (idvd $ "12#22#94")
 elseif mu_i=="3"    
 	nNcU+=nc*kolicina
 endif
-*}
+
 

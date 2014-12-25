@@ -71,12 +71,12 @@ DO WHILE ( NEXTKEY()==0 )
 ENDDO
 nZnak:=INKEY()
 return 
-*}
+
 
 function SqlKeyboardHandler(nBroji2)
 *{
 return  CekaHandler(@nBroji2)
-*}
+
 
 function CekaHandler(nBroji2)
 *{
@@ -92,7 +92,7 @@ do while .t.
   endif
 enddo
 return cRez
-*}
+
 
 
 
@@ -170,7 +170,7 @@ restore screen from cScr
 // pozicioniraj kursor tamo gdje je i bio !
 @ nRow, nCol SAY ""     
 return
-*}
+
 
 function VuciULin(xs,ys,x,y,cTXT)
 *{
@@ -189,7 +189,7 @@ for j:=ys to y step IF(ys>y,-1,1)
    endif
 next
 return
-*}
+
 
 
 //function OL_Yield()

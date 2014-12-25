@@ -42,12 +42,12 @@
 
 
 /*! \file fmk/kalk/mag/dok/1g/frm_18.prg
- *  \brief Maska za unos dokumenta tipa 18
+ *   Maska za unos dokumenta tipa 18
  */
 
 
-/*! \fn Get1_18()
- *  \brief Prva strana maske za unos dokumenta tipa 18
+/*!  Get1_18()
+ *   Prva strana maske za unos dokumenta tipa 18
  */
 
 function Get1_18()
@@ -240,5 +240,5 @@ _PU_I:=""
 
 nStrana:=3
 return lastkey()
-*}
+
 

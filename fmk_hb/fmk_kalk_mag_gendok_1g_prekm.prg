@@ -95,7 +95,7 @@ ObradiImport(0, .f., .f.)
 
 
 return
-*}
+
 
 
 function GetPstPreknj()
@@ -185,13 +185,13 @@ MsgBeep("Zavrseno filovanje pomocne tabele pokrecem obradu!")
 ObradiImport(0, .f., .f.)
 
 return
-*}
 
 
 
 
-/*! \fn GetMagKto(aMag)
- *  \brief Vrati matricu sa magacinima   
+
+/*!  GetMagKto(aMag)
+ *   Vrati matricu sa magacinima   
  *  \param aMag
  */
 function GetMagKto(aMag)
@@ -222,11 +222,11 @@ do while !EOF()
 enddo
 
 return
-*}
 
 
-/*! \fn GenPreknM(cMKonto, cPrTarifa, dDatOd, dDatDo, cBrKalk, lPst)
- *  \brief Opcija generisanja dokumenta preknjizenja
+
+/*!  GenPreknM(cMKonto, cPrTarifa, dDatOd, dDatDo, cBrKalk, lPst)
+ *   Opcija generisanja dokumenta preknjizenja
  *  \param cMKonto - magacinski  konto
  *  \param cPrTarifa - tarifa preknjizenja
  *  \param dDatOd - datum od kojeg se pravi preknjizenje
@@ -562,5 +562,5 @@ do while !eof() .and. cIdFirma+cMKonto==idfirma+Mkonto .and. IspitajPrekid()
 enddo
 
 return
-*}
+
 

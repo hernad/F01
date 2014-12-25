@@ -1031,7 +1031,7 @@ endif
 
 closeret
 return
-*}
+
 
 // vraca polja export tabele
 static function g_exp_fields()
@@ -1083,8 +1083,8 @@ return
 
 
 
-/*! \fn Telefon(cTel)
- *  \brief Postavlja uslov za partnera (npr. Telefon('417'))
+/*!  Telefon(cTel)
+ *   Postavlja uslov za partnera (npr. Telefon('417'))
  *  \param cTel  - Broj telefona
  */
  
@@ -1096,11 +1096,11 @@ select partn
 hseek suban->idpartner
 select (nselect)
 return partn->telefon=cTel
-*}
 
 
-/*! \fn ZaglSif(lPocStr)
- *  \brief Zaglavlje subanaliticke kartice ili kartice otvorenih stavki
+
+/*!  ZaglSif(lPocStr)
+ *   Zaglavlje subanaliticke kartice ili kartice otvorenih stavki
  *  \param lPocStr
  */
  
@@ -1222,12 +1222,12 @@ if c1k1z<>"D" .or. !lPocStr
 endif
 
 RETURN
-*}
 
 
 
-/*! \fn Rasclan()
- *  \brief Rasclanjuje SUBAN->(IdRj+Funk+Fond)
+
+/*!  Rasclan()
+ *   Rasclanjuje SUBAN->(IdRj+Funk+Fond)
  */
  
 function Rasclan()
@@ -1237,11 +1237,11 @@ if cRasclaniti=="D"
 else
   	return .t.
 endif
-*}
 
 
-/*! \fn SubKart2(lOtvSt)
- *  \brief Subanaliticka kartica kod koje se mogu navesti dva konta i vidjeti kroz jednu karticu
+
+/*!  SubKart2(lOtvSt)
+ *   Subanaliticka kartica kod koje se mogu navesti dva konta i vidjeti kroz jednu karticu
  *  \param lOtvSt
  */
  
@@ -1780,12 +1780,12 @@ END PRINT
 closeret
 #endif
 return
-*}
 
 
 
-/*! \fn ZaglSif2(fStrana)
- *  \brief Zaglavlje subanaliticke kartice 2
+
+/*!  ZaglSif2(fStrana)
+ *   Zaglavlje subanaliticke kartice 2
  *  \param fStrana
  */
  
@@ -1898,8 +1898,8 @@ RETURN
 
 
 
-/*! \fn V_Firma(cIdFirma)
- *  \brief Validacija firme - unesi firmu po referenci
+/*!  V_Firma(cIdFirma)
+ *   Validacija firme - unesi firmu po referenci
  *  \param cIdfirma  - id firme
  */
  
@@ -1909,12 +1909,12 @@ P_Firma(@cIdFirma)
 cIdFirma:=trim(cIdFirma)
 cIdFirma:=left(cIdFirma,2)
 return .t.
-*}
 
 
 
-/*! \fn Prelomi(nDugX,nPotX)
- *  \brief 
+
+/*!  Prelomi(nDugX,nPotX)
+ *   
  *  \param nDugX
  *  \param nPotX 
  */
@@ -1929,6 +1929,6 @@ else
    nDugX:=0
 endif
 return
-*}
+
 
 

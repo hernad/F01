@@ -81,7 +81,7 @@ if (found() .and. cLozinka==CRYPT(users->psw,"SIGMASE"))
 	lOK:=.t.
 endif
 return lOK
-*}
+
 
 
 
@@ -99,7 +99,7 @@ endif
 select (nArea)
 @ aPos[1], aPos[2] SAY ""
 return
-*}
+
 
 
 
@@ -174,7 +174,7 @@ else
 endif
 select (nArea)
 return lMoze
-*}
+
 
 
 function UGrupiUsera(nId,nId2,aId)
@@ -195,7 +195,7 @@ else
 	lUGrupi:=(ASCAN(aId, nId)>0 .and. ASCAN(aId, nId2)>0)
 endif
 return lUGrupi
-*}
+
 
 
 function GetUserID()
@@ -249,11 +249,11 @@ return cUserName
 function FmkSecVer()
 *{
 return DBUILD
-*}
 
 
-/*! \fn MigrateRulesForGroup(cExistingGroup, cNewGroup, cSetLicenceTo)
- *  \brief Kopira pravila za novu grupu korisnika po uzoru na postojecu
+
+/*!  MigrateRulesForGroup(cExistingGroup, cNewGroup, cSetLicenceTo)
+ *   Kopira pravila za novu grupu korisnika po uzoru na postojecu
  *  \param cExistingGroup - ID postojece grupe
  *  \param cNewGroup - ID nove grupe
  *  \param cSetLicenceTo - postavlja dozvolu na "D" ili "N" za sve stavke za novih pravila

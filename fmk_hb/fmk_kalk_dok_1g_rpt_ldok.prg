@@ -37,12 +37,12 @@
 
 
 /*! \file fmk/kalk/dok/1g/rpt_ldok.prg
- *  \brief Stampa liste dokumenata
+ *   Stampa liste dokumenata
  */
 
 
-/*! \fn StDoks()
- *  \brief Centralna funkcija koja poziva funkciju stampe liste dokumenata
+/*!  StDoks()
+ *   Centralna funkcija koja poziva funkciju stampe liste dokumenata
  */
 
 function StDoks()
@@ -61,11 +61,11 @@ endif
 close all
 SStDoks()
 return
-*}
 
 
-/*! \fn SStDoks()
- *  \brief Stampa liste dokumenata
+
+/*!  SStDoks()
+ *   Stampa liste dokumenata
  */
 
 function SStDoks()
@@ -257,11 +257,11 @@ END PRINT
 
 closeret
 return
-*}
 
 
-/*! \fn GenDoks()
- *  \brief Generisanje tabele DOKS na osnovu tabele KALK
+
+/*!  GenDoks()
+ *   Generisanje tabele DOKS na osnovu tabele KALK
  */
 
 function GenDoks()
@@ -333,4 +333,4 @@ do while !eof()
 enddo
 
 return
-*}
+

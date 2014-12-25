@@ -30,7 +30,7 @@ if field->idPartner+field->brFaktP+field->idKonto+field->idKonto2<>cIdd
 endif
 
 return
-*}
+
 
 // -----------------------------------------------------
 // prikaz dodatnih informacija za dokument
@@ -69,8 +69,8 @@ return cRet
 
 
 
-/*! \fn PrikaziDobavljaca(cIdRoba, nRazmak, lNeIspisujDob)
- *  \brief Funkcija vraca dobavljaca cIdRobe na osnovu polja roba->dob
+/*!  PrikaziDobavljaca(cIdRoba, nRazmak, lNeIspisujDob)
+ *   Funkcija vraca dobavljaca cIdRobe na osnovu polja roba->dob
  *  \param cIdRoba
  *  \param nRazmak - razmak prije ispisa dobavljaca
  *  \param lNeIspisujDob - ako je .t. ne ispisuje "Dobavljac:"
@@ -99,7 +99,7 @@ else
 	cVrati:=""
 	return cVrati
 endif
-*}
+
 
 
 function PrikTipSredstva(cKalkTip)

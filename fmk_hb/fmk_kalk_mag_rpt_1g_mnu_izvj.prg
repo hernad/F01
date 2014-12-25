@@ -80,8 +80,8 @@ return
 
 
 
-/*! \fn MPoreziMag()
- *  \brief Meni izvjestaja o porezima
+/*!  MPoreziMag()
+ *   Meni izvjestaja o porezima
  */
 
 function MPoreziMag()
@@ -98,13 +98,13 @@ private Izbor:=1
 Menu_SC("porm")
 CLOSERET
 return
-*}
 
 
 
 
-/*! \fn MRekMag()
- *  \brief Meni izvjestaja za vise objekata(konta)
+
+/*!  MRekMag()
+ *   Meni izvjestaja za vise objekata(konta)
  */
  
 function MRekMag()
@@ -117,7 +117,7 @@ private Izbor:=1
 Menu_SC("rmag")
 CLOSERET
 return
-*}
+
 
 
 

@@ -724,11 +724,11 @@ return lRet
 
 
 
-/*! \fn Konto(nBroj,cDef,cTekst)
+/*!  Konto(nBroj,cDef,cTekst)
  *  \param nBroj - koju varijablu punimo (1-ckonto1,2-ckonto2,3-ckonto3)
  *  \param cDef - default tj.ponudjeni tekst
  *  \param cTekst - opis podatka koji se unosi
- *  \brief Edit proizvoljnog teksta u varijablu ckonto1,ckonto2 ili ckonto3 ukoliko je izabrana varijabla duzine 0 tj.nije joj vec dodijeljena vrijednost
+ *   Edit proizvoljnog teksta u varijablu ckonto1,ckonto2 ili ckonto3 ukoliko je izabrana varijabla duzine 0 tj.nije joj vec dodijeljena vrijednost
  *  \return 0
  */
 
@@ -759,7 +759,7 @@ endif
   BoxC()
 
 return 0
-*}
+
 
 
 // Primjer SetKonto(1, IsInoDob(finmat->IdPartner) , "30", "31")
@@ -790,16 +790,16 @@ endif
     endif
 
 return 0
-*}
 
 
 
 
-/*! \fn RJ(nBroj,cDef,cTekst)
+
+/*!  RJ(nBroj,cDef,cTekst)
  *  \param nBroj - koju varijablu punimo (1-cRj1,2-cRj2)
  *  \param cDef - default tj.ponudjeni tekst
  *  \param cTekst - opis podatka koji se unosi
- *  \brief Edit proizvoljnog teksta u varijablu cRj1 ili cRj2 ukoliko je izabrana varijabla duzine 0 tj.nije joj vec dodijeljena vrijednost
+ *   Edit proizvoljnog teksta u varijablu cRj1 ili cRj2 ukoliko je izabrana varijabla duzine 0 tj.nije joj vec dodijeljena vrijednost
  *  \return 0
  */
 
@@ -825,14 +825,14 @@ endif
   BoxC()
 
 return 0
-*}
 
 
 
 
 
-/*! \fn DatVal()
- *  \brief Odredjivanje datuma valute - varijabla dDatVal
+
+/*!  DatVal()
+ *   Odredjivanje datuma valute - varijabla dDatVal
  */
 
 function DatVal()
@@ -885,19 +885,19 @@ if empty(dDatVal)  // nisam nasao u datumu valuta pokupi rucno !
 endif
 
 return 0
-*}
 
 
 
 
 
-/*! \fn Partner(nBroj,cDef,cTekst,lFaktura,dp)
+
+/*!  Partner(nBroj,cDef,cTekst,lFaktura,dp)
  *  \param nBroj - 1 znaci da se sifrom partnera puni varijabla cPartner1
  *  \param cDef - default tj.ponudjeni tekst
  *  \param cTekst - opis podatka koji se unosi u varijablu cPartner1
  *  \param lFaktura - .t. i ako je npr.nBroj==1 filuju se i varijable cBrFakt1 i dDatFakt1 koje cuvaju broj i datum fakture, .f. - ne edituju se ove varijable sto je i default vrijednost
  *  \param dp - duzina sifre partnera, ako se ne navede default vrijednost=6
- *  \brief Edit sifre partnera u varijablu cPartner1...ili...cPartner5 ukoliko je izabrana varijabla duzine 0 tj.nije joj vec dodijeljena vrijednost
+ *   Edit sifre partnera u varijablu cPartner1...ili...cPartner5 ukoliko je izabrana varijabla duzine 0 tj.nije joj vec dodijeljena vrijednost
  *  \return 0
  */
 
@@ -960,14 +960,14 @@ endif
   BoxC()
 
 return 0
-*}
 
 
 
 
 
-/*! \fn SetZaDoks()
- *  \brief Setuje nnv,nvpv,nmpv za doks.dbf
+
+/*!  SetZaDoks()
+ *   Setuje nnv,nvpv,nmpv za doks.dbf
  */
 
 function SetZaDoks()
@@ -1007,14 +1007,14 @@ elseif pu_i=="3"
 endif
 
 return
-*}
 
 
 
 
 
-/*! \fn IspitajRezim()
- *  \brief Ako se radi o privremenom rezimu obrade KALK dokumenata setuju se vrijednosti parametara gCijene i gMetodaNC na vrijednosti u dvoclanom nizu aRezim
+
+/*!  IspitajRezim()
+ *   Ako se radi o privremenom rezimu obrade KALK dokumenata setuju se vrijednosti parametara gCijene i gMetodaNC na vrijednosti u dvoclanom nizu aRezim
  */
 
 function IspitajRezim()
@@ -1025,14 +1025,14 @@ function IspitajRezim()
     gMetodaNC = aRezim[2]
   ENDIF
 return
-*}
 
 
 
 
-/*! \fn RekapK()
+
+/*!  RekapK()
  *  \param fstara - .f. znaci poziv iz tabele pripreme, .t. radi se o azuriranoj kalkulaciji pa se prvo getuje broj dokumenta (cIdFirma,cIdVD,cBrdok)
- *  \brief Pravi rekapitulaciju kalkulacija a ako je ulazni parametar fstara==.t. poziva se i kontiranje dokumenta
+ *   Pravi rekapitulaciju kalkulacija a ako je ulazni parametar fstara==.t. poziva se i kontiranje dokumenta
  */
 
 function RekapK()

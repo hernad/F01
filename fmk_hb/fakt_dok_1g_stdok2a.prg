@@ -30,11 +30,11 @@
  */
 
 /*! \file fmk/fakt/dok/1g/stdok2a.prg
- *  \brief Stampa faktura u varijanti 2 a
+ *   Stampa faktura u varijanti 2 a
  */
  
-/*! \fn StDok2a()
- *  \brief Stampa fakture u varijanti 2 a 
+/*!  StDok2a()
+ *   Stampa fakture u varijanti 2 a 
  *  \param cIdFirma 
  *  \param cIdTipDok
  *  \param cBrDok
@@ -422,12 +422,12 @@ FF
 ZAVRSI STAMPU
 
 CLOSERET
-*}
 
 
 
-/*! \fn Zagl2a()
- *  \brief Stampa zaglavlja za 2 a 
+
+/*!  Zagl2a()
+ *   Stampa zaglavlja za 2 a 
  */
  
 function Zagl2a()
@@ -454,11 +454,11 @@ P_10CPI
  FOR i:=1 TO gnTmarg2; ?; NEXT
  P_COND
 return .t.
-*}
 
 
-/*! \fn Krizaj2a()
- *  \brief 
+
+/*!  Krizaj2a()
+ *   
  */
  
 function Krizaj2a()
@@ -477,6 +477,6 @@ else
 ENDIF
 
 return
-*}
+
 
 

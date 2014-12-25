@@ -21,12 +21,12 @@
  
 
 /*! \file fmk/kalk/prod/dok/1g/frm_19.prg
- *  \brief Maska za unos dokumenta tipa 19
+ *   Maska za unos dokumenta tipa 19
  */
 
 
-/*! \fn Get1_19()
- *  \brief Prva strana maske za unos dokumenta tipa 19
+/*!  Get1_19()
+ *   Prva strana maske za unos dokumenta tipa 19
  */
 
 function Get1_19()
@@ -213,5 +213,5 @@ endif
 _MKonto:=""
 _MU_I:=""
 return lastkey()
-*}
+
 

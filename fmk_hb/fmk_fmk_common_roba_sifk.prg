@@ -27,8 +27,8 @@
  */
  
 
-/*! \fn SifkFill(cSifk,cSifv,cSifrarnik,cIDSif)
-  * \brief  SifkFill Napuni pomocne tabele (radi prenosa) sifk, sifv
+/*!  SifkFill(cSifk,cSifv,cSifrarnik,cIDSif)
+  *   SifkFill Napuni pomocne tabele (radi prenosa) sifk, sifv
   * \param cSIFK ime sifk tabele (npr PRIVPATH+"_SIFK")
   * \param cSifV ime sifv tabele
   * \param cSifrarnik sifrarnik (npr "ROBA")
@@ -75,7 +75,7 @@ use
 PopWa()
 
 return
-*}
+
 
 /*!
  @function   SifkOsv
@@ -125,4 +125,4 @@ select _SIFV; use
 PopWa()
 
 return
-*}
+

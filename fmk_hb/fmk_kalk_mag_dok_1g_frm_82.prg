@@ -42,12 +42,12 @@
 
 
 /*! \file fmk/kalk/mag/dok/1g/frm_82.prg
- *  \brief Maska za unos dokumenta tipa 82
+ *   Maska za unos dokumenta tipa 82
  */
 
 
-/*! \fn Get1_82()
- *  \brief Prva strana maske za unos dokumenta tipa 82
+/*!  Get1_82()
+ *   Prva strana maske za unos dokumenta tipa 82
  */
 
 function Get1_82()
@@ -273,4 +273,4 @@ endif
 
 set key K_ALT_K to
 return lastkey()
-*}
+

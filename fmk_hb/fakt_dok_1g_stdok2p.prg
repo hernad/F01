@@ -555,10 +555,10 @@ IF lSSIP99
 endif
 
 CLOSERET
-*}
 
 
-/*! \fn StKupac()
+
+/*!  StKupac()
  */
  
 static function StKupac()
@@ -635,5 +635,5 @@ if !(cIdTipDok == "10")
 endif
 
 return
-*}
+
 

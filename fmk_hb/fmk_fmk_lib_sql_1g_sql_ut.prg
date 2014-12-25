@@ -111,7 +111,7 @@ return
 
 
 /*! fn Log_Record(cTn)
- *  \brief Logiraj record
+ *   Logiraj record
  */
 function Log_Record(cTn)
 *{
@@ -166,10 +166,10 @@ if !goModul:lSqlDirektno .and. cAkcija<>"Z"
 endif
 
 return
-*}
+
 
 /*! fn New_Record(cTn)
- *  \brief Napravi novi record na osnovu postojeceg
+ *   Napravi novi record na osnovu postojeceg
  */
 function New_Record(cTn)
 *{
@@ -229,6 +229,6 @@ if !goModul:lSqlDirektno .and. cAkcija<>"Z"
 endif
 
 return
-*}
+
 
 

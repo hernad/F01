@@ -100,7 +100,7 @@ static GW_STRING
 *;
 
 
-/*! \fn Gw(cStr, nHandle, cAkcija)
+/*!  Gw(cStr, nHandle, cAkcija)
  *  \param cStr - string koji prosljedjujemo gateway-u
  *  \param nHandle - ne koristi se, izbaciti !
  *  \param cAkcija = A - azuriraj odmah, default value; P - pocetak; D - dodaj;  Z- zavrsi; L - upisi direktno u log fajl (ne salji gateway-u)
@@ -215,9 +215,9 @@ else
 
 endif
 return ""
-*}
 
-/*! \fn GwOdgovor(cBazaInOut)
+
+/*!  GwOdgovor(cBazaInOut)
  *  \param cBazaInOut  - c:/sigma
  */
 static function GwOdgovor(cBazaInOut)
@@ -286,7 +286,7 @@ return LEFT(cBuf,nRead)
 
 
 
-/*! \fn TimeOutIzaci(nGwSec)
+/*!  TimeOutIzaci(nGwSec)
  */
  
 static function TimeOutIzaci(nGwSec)
@@ -319,11 +319,11 @@ if (SECONDS()-nGwSec)> 60 + iif(gAppSrv, 60, 0)
 	endcase
 endif
 return .f.
-*}
 
 
-/*! \fn GwStaMai(nBroji2)
- *  \brief
+
+/*!  GwStaMai(nBroji2)
+ *  
  *  \param nBroji2
  *
  *
@@ -463,7 +463,7 @@ do case
 endcase
 
 return cRezultat
-*}
+
 
 
 static function cmdHocuSynchro(cRezultat, GW_STATUS, ZGwPoruka)
@@ -498,7 +498,7 @@ else
 
 endif
 return
-*}
+
 
 static function cmdHocuShutdown(cRezultat, GW_STATUS, ZGwPoruka)
 *{
@@ -520,7 +520,7 @@ else
 endif
 
 return
-*}
+
 
 static function cmdImportStat(cRezultat,GW_STATUS, ZGwPoruka)
 *{
@@ -530,7 +530,7 @@ Beep(1)
 MsgBeep("U toku import sql:"+cRezultat)
 
 return
-*}
+
 
 static function cmdNaCekiSql(cRezultat, GW_STATUS, ZGwPoruka)
 *{
@@ -555,7 +555,7 @@ otherwise
 endcase
 
 return
-*}
+
 
 static function cmdZavrsenaSyn(cRezultat, GW_STATUS, ZGwPoruka)
 *{
@@ -586,7 +586,7 @@ if (ZGwPoruka=="IMPORTSQL_OK")
          GW_STATUS:="-"
 
 return
-*}
+
 
 
 static function cmdImpSqlError(cRezultat, GW_STATUS, ZGwPoruka)
@@ -615,25 +615,25 @@ else
 endif
 
 return
-*}
+
 
 function ZGwPoruka()
 *{
 // uzmi trenutno stanje ...
 GwStamai(-1)
 return ZGwPoruka
-*}
+
 
 
 function GW_STRING()
 *{
 return GW_STRING
-*}
 
 
 
-/*! \fn GwDirektno(cSql)
- *  \brief Upisuje SQL komandu u log fajl direktno
+
+/*!  GwDirektno(cSql)
+ *   Upisuje SQL komandu u log fajl direktno
  */
 
 function GwDirektno(cSql)
@@ -668,7 +668,7 @@ FSEEK(nHLog,0,FS_END)
 FWRITE(nHLog,cSql+NRED)
 FCLOSE(nHLog)
 return ""
-*}
+
 
 static function OpenLog(cLogName)
 *{
@@ -700,7 +700,7 @@ else
 	enddo
 endif
 return
-*}
+
 
 function GwDiskFree()
 *{
@@ -710,4 +710,4 @@ cOdgovor:=Gw('GETINFO DISKFREE')
 //MsgBeep(cOdgovor)
 
 return VAL(cOdgovor)	
-*}
+

@@ -42,5 +42,5 @@ endif
 Menu_SC("adm")
 
 return
-*}
+
 

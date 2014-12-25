@@ -573,7 +573,7 @@ end print
   close all
 #endif
 closeret
-*}
+
 
 static function Legenda()
 *{
@@ -593,11 +593,11 @@ static function Legenda()
 
 FF
 return
-*}
 
 
-/*! \fn ZagOPoMF()
- *  \brief Zaglavlje obrta 
+
+/*!  ZagOPoMF()
+ *   Zaglavlje obrta 
  */
  
 function ZagOPoMF()
@@ -644,5 +644,5 @@ endif
 
 ? m
 return
-*}
+
 

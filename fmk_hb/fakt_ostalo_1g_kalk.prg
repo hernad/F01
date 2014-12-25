@@ -20,13 +20,13 @@
 
 
 /*! \file fmk/fakt/ostalo/1g/kalk.prg
- *  \brief Funkcije ukradene iz Kalk-a
+ *   Funkcije ukradene iz Kalk-a
  */
 
 
 
-/*! \fn BrowseKart()
- *  \brief Browsanje kartice
+/*!  BrowseKart()
+ *   Browsanje kartice
  *  \param cIdRoba
  */
  
@@ -192,23 +192,23 @@ select kalk; set order to 1
 go nTreckalk
 
 BoxC()
-*}
 
 
 
-/*! \fn OznaciMag(fSilent)
- *  \brief Oznaci/markiraj stavke koje su vjerovatno neispravne
+
+/*!  OznaciMag(fSilent)
+ *   Oznaci/markiraj stavke koje su vjerovatno neispravne
  *  \param fSilent
  */
  
 function OznaciMag(fSilent)
 *{
 return .f.
-*}
 
 
-/*! \fn OznaciPro(fSilent)
- *  \brief Oznaci/markiraj stavke koje su vjerovatno neispravne
+
+/*!  OznaciPro(fSilent)
+ *   Oznaci/markiraj stavke koje su vjerovatno neispravne
  *  \param fSilent
  */
  
@@ -269,12 +269,12 @@ if kartica->stanje<0
 endif
 
 return .f.
-*}
 
 
 
-/*! \fn EdKart(Ch)
- *  \brief
+
+/*!  EdKart(Ch)
+ *  
  *  \param Ch
  */
  
@@ -295,5 +295,5 @@ do case
      nRet:=DE_REFRESH
 endcase
 return nRet
-*}
+
 

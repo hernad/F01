@@ -26,7 +26,7 @@ AADD(opcexe, {|| MnuSecurity()})
 Menu_SC("secm")
 
 return
-*}
+
 
 
 
@@ -59,5 +59,5 @@ endif
 
 Menu_SC("secu")
 return
-*}
+
 

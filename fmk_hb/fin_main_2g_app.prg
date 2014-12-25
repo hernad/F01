@@ -44,11 +44,11 @@ method initdb()
 ::oDatabase:=TDBFinNew()
 
 return NIL
-*}
 
 
-/*! \fn *void TFinMod::mMenu()
- *  \brief Osnovni meni FIN modula
+
+/*!  *void TFinMod::mMenu()
+ *   Osnovni meni FIN modula
  *  \todo meni prebaciti na Menu_SC!
  */
 
@@ -97,11 +97,11 @@ close all
 ::quit()
 
 return nil
-*}
 
 
-/*! \fn *void TFinMod::mStandardMenu()
- *  \brief Osnovni meni FIN modula
+
+/*!  *void TFinMod::mStandardMenu()
+ *   Osnovni meni FIN modula
  *  \todo meni prebaciti na Menu_SC!
  */
 
@@ -197,7 +197,7 @@ endif
 Menu_SC("gfin",.t.,lPodBugom)
 
 return
-*}
+
 
 
 
@@ -206,7 +206,7 @@ return
 method sRegg()
 sreg("FIN.EXE","FIN")
 return
-*}
+
 
 
 *void TFinMod::srv()
@@ -256,8 +256,8 @@ endif
 return
 
 
-/*! \fn *void TFinMod::setGVars()
- *  \brief opste funkcije FIN modula
+/*!  *void TFinMod::setGVars()
+ *   opste funkcije FIN modula
  */
 
 *void TFinMod::setGVars()

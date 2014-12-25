@@ -64,8 +64,8 @@ return
 
 
 
-/*! \fn PrDisk()
- *  \brief Prenos podataka na diskete
+/*!  PrDisk()
+ *   Prenos podataka na diskete
  */
 
 static function PrDisk()
@@ -286,14 +286,14 @@ aFajlovi:={ PRIVPATH+"_KALK.*",;
 altd()
 Zipuj(aFajlovi,cFZaPredaju,cLokPren)
 return
-*}
 
 
 
 
 
-/*! \fn PovDisk()
- *  \brief Preuzimanje podataka sa diskete
+
+/*!  PovDisk()
+ *   Preuzimanje podataka sa diskete
  */
 
 static function PovDisk()
@@ -446,14 +446,14 @@ endif
 
 closeret
 return
-*}
 
 
 
 
-/*! \fn PPPDisk(lIni)
+
+/*!  PPPDisk(lIni)
  *  \param lIni - .t. vec su inicijalizovani parametri, .f. treba inicijalizovati parametre - default vrijednost
- *  \brief Podesavanje parametara prenosa i prijema podataka putem disketa
+ *   Podesavanje parametara prenosa i prijema podataka putem disketa
  */
 
 static function PPPDisk(lIni)
@@ -527,7 +527,7 @@ static function PPPDisk(lIni)
   ENDIF
   USE
 return
-*}
+
 
 
 

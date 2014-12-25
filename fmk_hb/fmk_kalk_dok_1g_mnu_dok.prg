@@ -21,11 +21,11 @@
  */
 
 /*! \file fmk/kalk/dok/1g/mnu_dok.prg
- *  \brief Meni opcija za stampu i pregled dokumenata
+ *   Meni opcija za stampu i pregled dokumenata
  */
 
-/*! \fn mBrDoks()
- *  \brief Meni opcija za stampu i pregled dokumenata
+/*!  mBrDoks()
+ *   Meni opcija za stampu i pregled dokumenata
  */
 
 function mBrDoks()
@@ -52,10 +52,10 @@ private Izbor:=1
 Menu_SC("razp")
 CLOSERET
 return
-*}
 
-/*! \fn MAzurDoks()
- *  \brief Meni - opcija za povrat azuriranog dokumenta
+
+/*!  MAzurDoks()
+ *   Meni - opcija za povrat azuriranog dokumenta
  */
 
 function MAzurDoks()
@@ -98,5 +98,5 @@ private Izbor:=1
 Menu_SC("mazd")
 CLOSERET
 return
-*}
+
 

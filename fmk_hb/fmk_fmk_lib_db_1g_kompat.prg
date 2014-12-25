@@ -12,8 +12,8 @@
 
 #include "SC.CH"
 
-/* \fn DBT2FPT(cImeDBF)
- * \brief Konvertuje memo polja iz DBT u FTP format (Clipper NTX -> FOX CDX)
+/*  DBT2FPT(cImeDBF)
+ *  Konvertuje memo polja iz DBT u FTP format (Clipper NTX -> FOX CDX)
  *
  * \note Obavezno proslijediti c:\sigma\ROBA - BEZ EXTENZIJE
  *
@@ -75,7 +75,7 @@ endif
 close all
 
 return
-*}
+
 
 
 function kopi(fProm)
@@ -181,5 +181,5 @@ if fProm
 endif  // fprom
 
 return
-*}
+
 

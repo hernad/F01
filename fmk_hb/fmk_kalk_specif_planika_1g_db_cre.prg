@@ -23,7 +23,7 @@
 *tbl tbl_kalk_ppprod;
 
 /*! \var tbl_kalk_ppprod
- *  \brief Pregled prometa prodavnice (ppprod)
+ *   Pregled prometa prodavnice (ppprod)
  * 
  * \ingroup db_kalk
  *
@@ -81,8 +81,8 @@
  */
 
 
-/*! \fn CrePOK1()
- *  \brief Kreiraj pomocne tabele POBJEKTI, PK1
+/*!  CrePOK1()
+ *   Kreiraj pomocne tabele POBJEKTI, PK1
  */
  
 function CreTblPObjekti()
@@ -134,7 +134,7 @@ MsgC()
 
 CLOSE ALL
 return
-*}
+
 
 function CreTblRek1(cVarijanta)
 *{
@@ -195,7 +195,7 @@ set order to tag "1"
 CLOSE ALL
 
 return
-*}
+
 
 
 function CreTblRek2()
@@ -283,11 +283,11 @@ set order to tag "1"
 CLOSE ALL
 
 return
-*}
 
 
-/*! \fn CrePPProd()
- *  \brief Kreiraj tabelu kalk_ppprod
+
+/*!  CrePPProd()
+ *   Kreiraj tabelu kalk_ppprod
  *  \sa tbl_kalk_ppprod
  *
  */
@@ -326,4 +326,4 @@ DBCREATE2(cTblName, aTblCols)
 CREATE_INDEX("konto","idKonto", cTblName, .t.)
 
 return
-*}
+

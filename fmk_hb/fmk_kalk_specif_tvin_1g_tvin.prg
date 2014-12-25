@@ -12,8 +12,8 @@
 
 #include "kalk01.ch"
 
-/*! \fn IspisPoNar(lPartner,lString,lMVar)
- *  \brief Prikaz narucioca ako je razlicit od kupca
+/*!  IspisPoNar(lPartner,lString,lMVar)
+ *   Prikaz narucioca ako je razlicit od kupca
  *  \param lPartner
  *  \param lString
  *  \param lMVar
@@ -36,11 +36,11 @@ LOCAL cV:=""
     ENDIF
   ENDIF
 RETURN cV
-*}
 
 
-/*! \fn KalkNab3m(cIdfirma,cIdRoba,cIdKonto,aNabavke)
- *  \brief Nabavke po narudzbi i naruciocu
+
+/*!  KalkNab3m(cIdfirma,cIdRoba,cIdKonto,aNabavke)
+ *   Nabavke po narudzbi i naruciocu
  *  \param cIdFirma
  *  \param cIdRoba
  *  \param cIdKonto
@@ -106,12 +106,12 @@ NEXT
 
 select pripr
 RETURN
-*}
 
 
 
-/*! \fn KDNarNCm(aNabavke)
- *  \brief
+
+/*!  KDNarNCm(aNabavke)
+ *  
  *  \param aNabavke
  */
  
@@ -163,11 +163,11 @@ if mu_i=="1" .or. mu_i=="5"
 	endif
 endif
 return
-*}
 
 
-/*! \fn KalkNab3p(cIdFirma,cIdRoba,cIdKonto,aNabavke)
- *  \brief Nabavke po narudzbi i naruciocu
+
+/*!  KalkNab3p(cIdFirma,cIdRoba,cIdKonto,aNabavke)
+ *   Nabavke po narudzbi i naruciocu
  *  \param cIdFirma
  *  \param cIdroba
  *  \param cIdKonto
@@ -234,12 +234,12 @@ NEXT
 
 select pripr
 RETURN
-*}
 
 
 
-/*! \fn KDNarNCp(aNabavke)
- *  \brief
+
+/*!  KDNarNCp(aNabavke)
+ *  
  *  \param aNabavke
  */
  
@@ -290,12 +290,12 @@ if pu_i=="1" .or. pu_i=="5"
 	endif
 endif
 return
-*}
 
 
 
-/*! \fn GenStPoNarudzbi(lGenStavke)
- *  \brief Generacija stavki po narudzbi
+
+/*!  GenStPoNarudzbi(lGenStavke)
+ *   Generacija stavki po narudzbi
  *  \param lGenStavke
  */
  
@@ -339,7 +339,7 @@ IF lGenStavke
   ENDIF
 
 RETURN 1
-*}
+
 
 
 
@@ -348,8 +348,8 @@ RETURN 1
 // za ekonomate (glEkonomat==.t.) a ne u Tvin-u
 // --------------------------------------------------------------------------
 
-/*! \fn KalkNab2(cIdFirma,cIdRoba,cIdKonto,aNabavke)
- *  \brief
+/*!  KalkNab2(cIdFirma,cIdRoba,cIdKonto,aNabavke)
+ *  
  *  \param cIdFirma
  *  \param cIdRoba
  *  \param cIdKonto
@@ -413,11 +413,11 @@ NEXT
 
 select pripr
 RETURN
-*}
 
 
-/*! \fn KreDetNC(aNabavke)
- *  \brief 
+
+/*!  KreDetNC(aNabavke)
+ *   
  *  \param aNabavke
  */
  
@@ -450,7 +450,7 @@ LOCAL nKolNeto:=0, nPom:=0
 
   endif
 RETURN
-*}
+
 
 
 

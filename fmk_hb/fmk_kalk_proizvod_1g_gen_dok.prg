@@ -20,12 +20,12 @@
  
 
 /*! \file fmk/kalk/proizvod/1g/gen_dok.prg
- *  \brief
+ *  
  */
 
 
-/*! \fn GenProizvodnja()
- *  \brief Meni opcija za generisanje dokumenata u vezi sa proizvodnjom
+/*!  GenProizvodnja()
+ *   Meni opcija za generisanje dokumenata u vezi sa proizvodnjom
  */
 
 function GenProizvodnja()
@@ -40,13 +40,13 @@ private Izbor:=1
 Menu_SC("kkno")
 CLOSERET
 return
-*}
 
 
 
 
-/*! \fn Iz47u96Norm()
- *  \brief Generisanje dokumenta tipa 96 na osnovu 47-ica po normativima
+
+/*!  Iz47u96Norm()
+ *   Generisanje dokumenta tipa 96 na osnovu 47-ica po normativima
  */
 
 function Iz47u96Norm()
@@ -157,6 +157,6 @@ Boxc()
 select kalk2; use
 closeret
 return
-*}
+
 
 

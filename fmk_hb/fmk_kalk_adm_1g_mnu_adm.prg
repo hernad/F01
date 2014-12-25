@@ -21,12 +21,12 @@
  
  
 /*! \file fmk/kalk/adm/mnu_adm.prg
- *  \brief Meniji administrativnih opcija
+ *   Meniji administrativnih opcija
  */
 
 
-/*! \fn MAdminKALK()
- *  \brief Meni administrativnih opcija
+/*!  MAdminKALK()
+ *   Meni administrativnih opcija
  */
  
 function MAdminKALK()
@@ -68,11 +68,11 @@ AADD(opcexe, {|| f18_test_data()})
 private Izbor:=1
 Menu_SC("admk")
 CLOSERET
-*}
 
 
-/*! \fn MenuSK()
- *  \brief Meni opcija za korekciju kartica artikala
+
+/*!  MenuSK()
+ *   Meni opcija za korekciju kartica artikala
  */
 
 function MenuSK()
@@ -96,7 +96,7 @@ AADD(opcexe, {|| NaPrimPak() })
 private Izbor:=1
 Menu_SC("kska")
 CLOSERET
-*}
+
 
 
 

@@ -15,7 +15,7 @@
 
 
 /*! \file fmk/kalk/vt/1g/ut.prg
- *  \brief Visokotarifni artikli
+ *   Visokotarifni artikli
  */
 
 /*! VtPorezi()
@@ -46,7 +46,7 @@ endif
 endif
 
 return
-*}
+
 
 
 function SetStPor_()
@@ -67,4 +67,4 @@ public _MPP   := 0
 public _DLRUC := 0
 
 return
-*}
+

@@ -37,7 +37,7 @@ ferase( PRIVPATH + cExpTbl )
 dbcreate2(PRIVPATH + cExpTbl, aFields)
 
 return
-*}
+
 
 
 // export tabele
@@ -65,7 +65,7 @@ if Pitanje(, "Odmah pokrenuti spreadsheet aplikaciju ?", "D") == "D"
 endif
 
 return
-*}
+
 
 
 function set_launcher(cLauncher)
@@ -90,7 +90,7 @@ elseif (LEFT(cPom,5) == "EXCEL")
 endif
 
 return .t.
-*}
+
 
 
 
@@ -119,7 +119,7 @@ else
 endif
 
 return
-*}
+
 
 
 

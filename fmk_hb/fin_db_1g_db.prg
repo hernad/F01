@@ -14,11 +14,11 @@
 
 
 /*! \file fmk/fin/db/1g/db.prg
- *  \brief Funkcije za rad sa tabelama
+ *   Funkcije za rad sa tabelama
  */
 
-/*! \fn SifkPartnBank()
- *  \brief Dodaje u tabelu SifK stavke PARTN i BANK
+/*!  SifkPartnBank()
+ *   Dodaje u tabelu SifK stavke PARTN i BANK
  */
 
 function SifkPartnBank()
@@ -35,12 +35,12 @@ if !found()
 endif
 use
 return NIL
-*}
 
 
 
-/*! \fn OKumul(nArea,cStaza,cIme,nIndexa,cDefault)
- *  \brief Kopira podatke sa mreze radi brzine pregleda dokumenata, sluzi samo za pregled
+
+/*!  OKumul(nArea,cStaza,cIme,nIndexa,cDefault)
+ *   Kopira podatke sa mreze radi brzine pregleda dokumenata, sluzi samo za pregled
  *  \param nArea    - podrucje
  *  \param cStaza
  *  \param cIme
@@ -730,8 +730,8 @@ return
 
 
 
-/*! \fn Dupli(cIdFirma,cIdVn,cBrNal)
- *  \brief Provjera duplog naloga
+/*!  Dupli(cIdFirma,cIdVn,cBrNal)
+ *   Provjera duplog naloga
  *  \param cIdFirma
  *  \param cIdVn
  *  \param cBrNal

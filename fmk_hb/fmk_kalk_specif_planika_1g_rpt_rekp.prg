@@ -32,8 +32,8 @@
  */
  
  
-/*! \fn Planika2()
- *  \brief Rekapitulacija za period 
+/*!  Planika2()
+ *   Rekapitulacija za period 
  *  \ingroup Planika
  * \code
  *  Kolone:
@@ -294,11 +294,11 @@ end print
 #endif
 closeret
 return
-*}
 
 
-/*! \fn ZPlanika()
- *  \brief Zaglavlje rekapitulacije
+
+/*!  ZPlanika()
+ *   Zaglavlje rekapitulacije
  */
  
 function ZPlanika()
@@ -315,5 +315,5 @@ select kalk
  ? "     *          *                    *   *      *   N.MPC    *    iznos   *    iznos   *    iznos   *    iznos   *    iznos   *"
  ? m
 return
-*}
+
 

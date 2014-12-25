@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -27,8 +27,8 @@ Box(,10, 60)
 	@ 1+m_x, 2+m_y SAY "Uslovi pregleda smeca:" COLOR "I"
 	@ 3+m_x, 2+m_y SAY "Firma (prazno-sve)" GET aUslFirma PICT "@S40"
 	@ 4+m_x, 2+m_y SAY "Vrste dokumenta (prazno-sve)" GET aUslDok PICT "@S20"
-	@ 5+m_x, 2+m_y SAY "Datum od" GET dDat1 
-	@ 5+m_x, 20+m_y SAY "do" GET dDat2 
+	@ 5+m_x, 2+m_y SAY "Datum od" GET dDat1
+	@ 5+m_x, 20+m_y SAY "do" GET dDat2
 	read
 BoxC()
 
@@ -67,13 +67,13 @@ BoxC()
 return
 
 
-function EdPr9()
+static function EdPr9()
 do case
-	case Ch==K_CTRL_T 
+	case Ch==K_CTRL_T
 		// brisanje dokumenta iz pripr9
 		bris_smece(idfirma, idtipdok, brdok)
       		return DE_REFRESH
-	case Ch==K_CTRL_F9 
+	case Ch==K_CTRL_F9
 		// brisanje kompletnog pripr9
 		bris_svo_smece()
 		return DE_REFRESH
@@ -229,7 +229,7 @@ nCount := 0
 
 do while !EOF()
 
-	++ nCount 
+	++ nCount
 	lFound := .f.
 	nRecNo := RECNO()
 
@@ -249,7 +249,7 @@ do while !EOF()
 	if found()
 		// ima vec u smecu !
 		lFound := .t.
-		
+
 		if lSilent == .f.
 			msgbeep("U smecu vec postoji isti dokument !")
 			closeret
@@ -258,16 +258,16 @@ do while !EOF()
 	endif
 
 	select pripr
-	
+
 	if lFound == .t.
-		
+
 		go (nRecNO)
 		// zamjeni brdok sa 00001-1
 		do while !EOF() .and. idfirma == cIdFirma ;
 				.and. idtipdok == cIdTipDok ;
 				.and. brdok == cBrDok
 
-			replace brdok with PADR(brdok, 5)+"-"+ALLTRIM(STR(nCount)) 
+			replace brdok with PADR(brdok, 5)+"-"+ALLTRIM(STR(nCount))
 			skip
 		enddo
 
@@ -342,7 +342,7 @@ if !lSilent
 endif
 
 if Pitanje("","Iz smeca "+cIdFirma+"-"+cIdtipdok+"-"+ALLTRIM(cBrDok)+" povuci u pripremu (D/N) ?","D")=="N"
-	
+
 	if !lSilent
 		CLOSERET
 	else
@@ -400,5 +400,3 @@ O_PRIPR9
 select pripr9
 
 return
-
-

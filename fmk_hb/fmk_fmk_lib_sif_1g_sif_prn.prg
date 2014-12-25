@@ -36,7 +36,7 @@
 #define  MEMOEXT  ".MEM"
 
 
-/*! \fn Izlaz(Zaglavlje,ImeDat,bFor,fIndex,lBezUpita)
+/*!  Izlaz(Zaglavlje,ImeDat,bFor,fIndex,lBezUpita)
  *
  *\code
  *
@@ -311,16 +311,16 @@ if !EMPTY(cNazMemo)
 endif
   
 return .t.
-*}
+
 
 function UkloniRet(xTekst,lPrazno)
 *{
 local cTekst
  if lPrazno==nil; lPrazno:=.f.; endif
  if VALTYPE(xTekst)=="B"
-   cTekst:=strtran(EVAL(xTekst),""+Chr(10),"")
+   cTekst:=strtran(EVAL(xTekst),"ï¿½"+Chr(10),"")
  else
-   cTekst:=strtran(&xTekst,""+Chr(10),"")
+   cTekst:=strtran(&xTekst,"ï¿½"+Chr(10),"")
  endif
  if lPrazno
   cTekst:=strtran(cTekst,NRED,NRED+space(7))
@@ -328,7 +328,7 @@ local cTekst
   cTekst:=strtran(cTekst,NRED," ")
  endif
 return cTekst
-*}
+
 
 
 static function Karaktera(cK)
@@ -342,7 +342,7 @@ elseif cK=="17"
 elseif cK=="20"
   return 156
 endif
-*}
+
 
 
 function IzborP2(Kol,cImef)
@@ -428,7 +428,7 @@ AEVAL(Kl, {|broj| cKolona:=cKolona+STR(Broj,2)})
 SAVE  ALL LIKE cKolona to &cImeF
 ACOPY(Kl,Kol)
 return    
-*}
+
 
 /*
  * function DobraKol(Kol,i)
@@ -454,7 +454,7 @@ else
 END IF
 
 return
-*}
+
 
 function Nuliraj()
 *{
@@ -464,7 +464,7 @@ local i
  next
  AEVAL(aObjG,{|oE|  oE:Display() })
 return
-*}
+
 
 static function TrebaPrelom(nPos,nPosRKol)
 *{
@@ -476,11 +476,11 @@ local lVrati:=.f., i:=0
    endif
  next
 return lVrati
-*}
 
-/*! \fn StampaTabele(aKol, bZaRed, nOdvoji, nCrtice, bUslov, lA4papir, cNaslov, bFor, nStr, lOstr, lLinija, bSubTot, nSlogova, cTabBr, lCTab, bZagl)
+
+/*!  StampaTabele(aKol, bZaRed, nOdvoji, nCrtice, bUslov, lA4papir, cNaslov, bFor, nStr, lOstr, lLinija, bSubTot, nSlogova, cTabBr, lCTab, bZagl)
  *
- *   \brief Stampa tabele
+ *    Stampa tabele
  * 
  * \code
  * ULAZI
@@ -514,8 +514,8 @@ return lVrati
  * lOstr    - .f. znaci da ne treba ostranicavati posljednju stranu
  * lLinija  - .t. znaci da ce se stavke odvajati linijom
  * bSubTot  - blok koji vraca {.t.,cSubTxt} kada treba prikazati subtotal
- * nSlogova - broj slogova za obradu    ÄÄ¿ koristi se samo za prikaz
- * cTabBr   - oznaka (naziv) za tabelu  ÄÄÙ procenta uradjenog posla
+ * nSlogova - broj slogova za obradu    ï¿½Ä¿ koristi se samo za prikaz
+ * cTabBr   - oznaka (naziv) za tabelu  ï¿½ï¿½ï¿½ procenta uradjenog posla
  * lCTab    - horiz.centriranje tabele (.t. - da, .f. - ne)    nil->.t.
  * bZagl    - blok dodatnog zaglavlja koje ima prioritet nad zaglavljem
  *           koje se nalazi u ovoj f-ji
@@ -630,11 +630,11 @@ if nOdvoji==nil; nOdvoji:=0; endif
  if nCrtice==0
      cOk:={"-", "-", " ", "-", " ", "-", " ", "-", "-", " ", "-", " ", "-", "-", "-", " "}
  elseif nCrtice==1
-     cOk:={"Ú", "Ä", "Â", "¿", "³", "Ã", "Å", "´", "À", "Á", "Ù", "³", "Ä", "Ã", "´", "Å"}
+     cOk:={"ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½"}
  elseif nCrtice==9    // rtf-fajlovi
      cOk:={" ", " ", " ", " ", "#", " ", " ", " ", " ", " ", " ", "#", " ", " ", " ", " "}
  else
-     cOk:={"É", "Í", "Ñ", "»", "³", "Ì", "Ø", "¹", "È", "Ï", "¼", "º", "Ä", "Ç", "¶", "Å"}
+     cOk:={"ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½", "ï¿½"}
  endif   // 1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16
          ////////////////////////////////////////////////////////////////////////////////
 
@@ -945,7 +945,7 @@ if nOdvoji==nil; nOdvoji:=0; endif
  endif
 
 return nSuma
-*}
+
 
 
 function MDDReda(nZnak,lA4papir)
@@ -954,7 +954,7 @@ nZnak=IF(lA4papir=="4",nZnak*2-1,IF(lA4papir=="L4",nZnak*1.4545-1,nZnak))
 return INT(IF(nZnak<161,160,IF(nZnak<193,192,IF(nZnak<275,274,320)))/IF(lA4papir=="4",2,IF(lA4papir=="L4",1.4545,1)))
 
 return
-*}
+
 
 
 function StZaglavlje(cImeFajla,cPutanja,cTxt1,cTxt2,cTxt3,cTxt4,cTxt5,cTxt6,cTxt7,cTxt8)
@@ -1031,13 +1031,13 @@ local nVrati:=0,nPod:=LEN(cPod)
   if SUBSTR(cStr,i,nPod)==cPod; nVrati++; endif
  next
 return nVrati
-*}
+
 
 function PrekSaEsc()
 *{
 Msg("Priprema izvjestaja prekinuta tipkom <Esc>!",2)
 return .f.
-*}
+
 
 function NaSljedStranu(lMozeL,lPrenos,cLM2,cOk,aPom,nKol,nStr,cLM,nDReda,nOdvoji,aPrSum,aKol,nSuma,cTek3,bZagl,cNaslov,aPrZag,cTek1,xTot)
 *{
@@ -1101,7 +1101,7 @@ function NaSljedStranu(lMozeL,lPrenos,cLM2,cOk,aPom,nKol,nStr,cLM,nDReda,nOdvoji
     endif
     ++nStr
 return
-*}
+
 
 static function StStavku(aKol,xPom,i,nKol,cOk)
 *{
@@ -1129,7 +1129,7 @@ if xPom==nil
  QQOUT(IF(i<nKol,cOk[5],cOk[12]))
 
 return
-*}
+
 
 function DajRed(tekst,kljuc)
 *{
@@ -1141,7 +1141,7 @@ local cVrati:="", nPom:=0, nPoc:=0
   nKraj:= IF(nKraj==0,LEN(tekst),nPom-1+nKraj+1)
   cVrati:=SUBSTR(tekst,nPoc,nKraj-nPoc+1)
 return cVrati
-*}
+
 
 function WhileEvent(nValue, nCnt)
 *{
@@ -1154,5 +1154,5 @@ ShowKorner(nValue, 5, nCnt)
 */
 
 return
-*}
+
 

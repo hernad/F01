@@ -14,7 +14,7 @@
 
 
 /*! \file fmk/kalk/db/1g/azur.prg
- *  \brief Azuriranje kalkulacija i povrat kalkulacija u pripremu
+ *   Azuriranje kalkulacija i povrat kalkulacija u pripremu
  */
 
 /*!  kalk_Azur()
@@ -547,11 +547,11 @@ endif
 clrezret
 
 return
-*}
 
 
-/*! \fn Azur9()
- *  \brief
+
+/*!  Azur9()
+ *  
  */
 
 function Azur9()
@@ -612,8 +612,8 @@ closeret
 
 
 
-/*! \fn Povrat()
- *  \brief Povrat kalkulacije u pripremu
+/*!  Povrat()
+ *   Povrat kalkulacije u pripremu
  */
 
 function Povrat()
@@ -803,8 +803,8 @@ return
 
 // iz pripr 9 u pripr
 
-/*! \fn Povrat9()
- *  \brief Povrat kalkulacije iz "smeca" u pripremu
+/*!  Povrat9()
+ *   Povrat kalkulacije iz "smeca" u pripremu
  */
 
 function Povrat9(cIdFirma, cIdVd, cBrDok)
@@ -934,13 +934,13 @@ O_PRIPR9
 select pripr9
 
 return
-*}
+
 
 
 // iz pripr 9 u pripr najstariju kalkulaciju
 
-/*! \fn P9najst()
- *  \brief Povrat najstarije kalkulacije iz "smeca" u pripremu
+/*!  P9najst()
+ *   Povrat najstarije kalkulacije iz "smeca" u pripremu
  */
 
 function P9najst()
@@ -996,14 +996,14 @@ use
 MsgC()
 
 closeret
-*}
+
 
 
 
 // iz kalk u pripr najnoviju kalkulaciju
 
-/*! \fn Pnajn()
- *  \brief Povrat najnovije kalkulacije u pripremu
+/*!  Pnajn()
+ *   Povrat najnovije kalkulacije u pripremu
  */
 
 function Pnajn()
@@ -1094,11 +1094,11 @@ enddo // bof()
 MsgC()
 
 closeret
-*}
 
 
-/*! \fn ErPripr9(cIdF, cIdVd, cBrDok)
- *  \brief Brise dokument iz tabele PRIPR9
+
+/*!  ErPripr9(cIdF, cIdVd, cBrDok)
+ *   Brise dokument iz tabele PRIPR9
  */
 function ErPripr9(cIdF, cIdVd, cBrDok)
 *{
@@ -1118,11 +1118,11 @@ do while !eof() .and. cIdF==IdFirma .and. cIdVD==IdVD .and. cBrDok==BrDok
 enddo
 
 return
-*}
 
 
-/*! \fn ErP9All()
- *  \brief Brisi sve zapise iz tabele PRIPR9
+
+/*!  ErP9All()
+ *   Brisi sve zapise iz tabele PRIPR9
  */
 function ErP9All()
 *{
@@ -1136,4 +1136,4 @@ go top
 zap
 
 return
-*}
+

@@ -12,8 +12,8 @@
 
 #include "sc.ch"
 
-/*! \fn KarticaLog()
- *  \brief Stampa pregleda dogadjaja
+/*!  KarticaLog()
+ *   Stampa pregleda dogadjaja
  */
  
 function KarticaLog()
@@ -279,12 +279,12 @@ FF
 END PRINT
 
 return
-*}
 
 
 
-/*! \fn ZaglKartEvent(cLinija)
- *  \brief Zaglavlje kartice dogadjaja
+
+/*!  ZaglKartEvent(cLinija)
+ *   Zaglavlje kartice dogadjaja
  *  \param cLinija linija za zaglavlje
  */
  
@@ -354,11 +354,11 @@ P_12CPI
 ? SPACE(2)+cLinija
 
 return
-*}
 
 
-/*! \fn UkIzvjEvents(nN1,nN2,nCnt1,nCnt2)
- *  \brief Dodaje ukupno na kraju izvjestaja
+
+/*!  UkIzvjEvents(nN1,nN2,nCnt1,nCnt2)
+ *   Dodaje ukupno na kraju izvjestaja
  *  \param nN1 - ukupno polje eventlog->n1
  *  \param nN2 - ukupno polje eventlog->n2
  *  \param nCnt1 - ukupno polje eventlog->count1

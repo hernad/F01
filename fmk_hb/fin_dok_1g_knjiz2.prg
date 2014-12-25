@@ -14,8 +14,8 @@
 
 
 
-/*! \fn OiNIsplate()
- *  \brief Odobrenje i nalog isplate
+/*!  OiNIsplate()
+ *   Odobrenje i nalog isplate
  */
  
 function OiNIsplate()
@@ -181,9 +181,9 @@ return
 
 
 
-/*! \fn ChkKtoMark(cIdKonto)
- *  \brief provjeri da li postoji marker na kontu
- *  \brief Uslov za ovu opciju: SIFK podesenje: ID=KONTO, OZNAKA=MARK, TIP=C, DUZ=1
+/*!  ChkKtoMark(cIdKonto)
+ *   provjeri da li postoji marker na kontu
+ *   Uslov za ovu opciju: SIFK podesenje: ID=KONTO, OZNAKA=MARK, TIP=C, DUZ=1
  *  \param cIdKonto - id konto
  */
 function ChkKtoMark(cIdKonto)
@@ -203,6 +203,6 @@ do case
 endcase
 
 return bRet
-*}
+
 
 

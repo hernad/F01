@@ -38,12 +38,12 @@
  
 
 /*! \file fmk/kalk/prod/dok/1g/rpt_11nc.prg
- *  \brief Stampa kalkulacije 11 / magacin po nabavnim cjenama
+ *   Stampa kalkulacije 11 / magacin po nabavnim cjenama
  */
 
 
-/*! \fn StKalk11_1()
- *  \brief Stampa kalkulacije 11 / magacin po nabavnim cjenama
+/*!  StKalk11_1()
+ *   Stampa kalkulacije 11 / magacin po nabavnim cjenama
  */
 
 function StKalk11_1()
@@ -224,7 +224,7 @@ Rektarife()
 ? m
 
 return
-*}
+
 
 
 
@@ -251,6 +251,6 @@ endif
 ? cLine
 
 return
-*}
+
 
 

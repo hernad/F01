@@ -108,7 +108,7 @@ function PP_Sast()
   END PRINT
 
 RETURN
-*}
+
 
 function FFor2()
 *{  
@@ -173,11 +173,11 @@ endcase
 SELECT ROBA
 
 RETURN !EMPTY(cRezultat)
-*}
+
 
 
 function FmkRobaVer()
 *{
 return DBUILD
-*}
+
 

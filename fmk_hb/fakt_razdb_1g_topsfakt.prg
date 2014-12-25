@@ -20,13 +20,13 @@
  */
 
 /*! \file fmk/fakt/razdb/1g/topsfakt.prg
- *  \brief Tops 2 Fakt
+ *   Tops 2 Fakt
  */
 
 
  
-/*! \fn TopsFakt()
- *  \brief Prenos dokumenata TOPS->FAKT
+/*!  TopsFakt()
+ *   Prenos dokumenata TOPS->FAKT
  */
  
 function TopsFakt()
@@ -140,12 +140,12 @@ MsgBeep("Dokumenti su preneseni u pripremu!#"+"Broj formiranih racuna: "+ALLTRIM
 
 CLOSERET
 return
-*}
 
 
 
-/*! \fn SljedBrFakt()
- *  \brief Sljedeci broj fakture
+
+/*!  SljedBrFakt()
+ *   Sljedeci broj fakture
  */
  
 static function SljedBrFakt(cIdRj,cIdVd,dDo,cIdPartner)
@@ -157,6 +157,6 @@ _idpartner:=cIdPartner
 cBrFakt:=OdrediNBroj(cIdRJ,cIdVd)
 select (nArr)
 return cBrFakt
-*}
+
 
 

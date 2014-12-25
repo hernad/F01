@@ -28,12 +28,12 @@
  
 
 /*! \file fmk/kalk/prod/rpt/1g/frm_kpro.prg
- *  \brief Kartica prodavnice koja se poziva iz pripreme dokumenta
+ *   Kartica prodavnice koja se poziva iz pripreme dokumenta
  */
 
 
-/*! \fn KPro()
- *  \brief Kartica prodavnice koja se poziva iz pripreme dokumenta
+/*!  KPro()
+ *   Kartica prodavnice koja se poziva iz pripreme dokumenta
  */
 
 function KPro()
@@ -73,5 +73,5 @@ select tarifa
 go nR3
 select pripr
 return
-*}
+
 

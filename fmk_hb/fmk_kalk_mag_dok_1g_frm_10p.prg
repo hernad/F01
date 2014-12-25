@@ -283,7 +283,7 @@ _MKonto:=_Idkonto
 _MU_I:="1"
 nStrana:=3
 return lastkey()
-*}
+
 
 
 // ------------------------------------------------------
@@ -523,6 +523,6 @@ _MKonto:=_Idkonto
 _MU_I:="1"
 nStrana:=3
 return lastkey()
-*}
+
 
 

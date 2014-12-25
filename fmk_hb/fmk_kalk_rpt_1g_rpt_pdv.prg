@@ -86,10 +86,10 @@ fill_uio(cIdFirma, cIdVd, cBrDok, lAkciznaRoba, lZasticeneCijene)
 show_uio( (cLandscape=="D"), (cSvakaHeader=="D"), lAkciznaRoba, lZasticeneCijene )
 
 close all
-*}
 
-/*! \fn get_uio_fields(aArr)
- *  \brief napuni matricu aArr sa specifikacijom polja tabele
+
+/*!  get_uio_fields(aArr)
+ *   napuni matricu aArr sa specifikacijom polja tabele
  *  \param aArr - matrica
  */
 static function get_uio_fields(aArr)
@@ -113,7 +113,7 @@ AADD(aArr, {"zad_pdv", "N", 17, 2})
 AADD(aArr, {"razlika", "N", 17, 3})
 
 return
-*}
+
 
 function t_uio_create()
 *{
@@ -133,7 +133,7 @@ CREATE_INDEX("ROB", "idRoba", PRIVPATH +  cUioTbl, .t.)
 CREATE_INDEX("TAR", "idTarifa+idRoba", PRIVPATH +  cUioTbl, .t.)
 
 return
-*}
+
 
 
 
@@ -239,7 +239,7 @@ next
 BoxC()
 
 return
-*}
+
 
 
 function show_uio(lLandscape, lSvakaHeader, lAkciznaRoba, lZasticenaRoba)
@@ -538,7 +538,7 @@ r_linija()
 FF
 END PRINT
 return
-*}
+
 
 
 static function uio_zagl()
@@ -594,4 +594,4 @@ for i=1 to LEN(aZaglLen)
 next
 
 return
-*}
+

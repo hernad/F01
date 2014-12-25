@@ -13,8 +13,8 @@
 #include "kalk01.ch"
 
 
-/*! \fn StKalk81(fzatops)
- *  \brief Stampa kalkulacije 81 - direktno zaduzenje prodavnice
+/*!  StKalk81(fzatops)
+ *   Stampa kalkulacije 81 - direktno zaduzenje prodavnice
  *  \param fzatops -
  */
 
@@ -283,8 +283,8 @@ return
 
 
 
-/*! \fn StKalk81_2()
- *  \brief Stampa kalkulacije 81 - direktno zaduzenje prodavnice
+/*!  StKalk81_2()
+ *   Stampa kalkulacije 81 - direktno zaduzenje prodavnice
  */
 
 function StKalk81_2()
@@ -527,6 +527,6 @@ RekTarife()
 ? "RUC:";  @ prow(),pcol()+1 SAY nTot6 pict picdem
 ? m
 return
-*}
+
 
 

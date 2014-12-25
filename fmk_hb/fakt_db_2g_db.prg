@@ -13,8 +13,8 @@
 #include "fakt01.ch"
 
 
-/*! \fn TDBFaktNew()
- *  \brief
+/*!  TDBFaktNew()
+ *  
  */
 function TDBFaktNew()
 local oObj
@@ -26,14 +26,14 @@ return oObj
 
 
 /*! \file fmk/fakt/db/2g/db.prg
- *  \brief FAKT Database
+ *   FAKT Database
  *
  * TDBFakt Database objekat 
  */
 
 
 /*! \class TDBFakt
- *  \brief Database objekat
+ *   Database objekat
  */
 
 
@@ -72,16 +72,16 @@ END CLASS
 #endif
 
 
-/*! \fn *void TDBFakt::dummy()
+/*!  *void TDBFakt::dummy()
  */
 *void TDBFakt::dummy()
 *{
 method dummy
 return
-*}
 
-/*! \fn *void TDBFakt::skloniSezonu(string cSezona, bool finverse,bool fda,bool fnulirati,bool fRS)
- *  \brief formiraj sezonsku bazu podataka
+
+/*!  *void TDBFakt::skloniSezonu(string cSezona, bool finverse,bool fda,bool fnulirati,bool fRS)
+ *   formiraj sezonsku bazu podataka
  *  \param cSezona - 
  *  \param fInverse - .t. iz sezone u radno, .f. iz radnog u sezonu
  *  \param fda - ne znam
@@ -242,10 +242,10 @@ Beep(4)
 
 restore screen from cScr
 return
-*}
 
-/*! \fn *void TDBFakt::setgaDBFs()
- *  \brief Setuje matricu gaDBFs 
+
+/*!  *void TDBFakt::setgaDBFs()
+ *   Setuje matricu gaDBFs 
  */
 *void TDBFakt::setgaDBFs()
 *{
@@ -304,11 +304,11 @@ PUBLIC gaDBFs := {;
 }
 
 return
-*}
 
 
-/*! \fn *void TDBFakt::install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7)
- *  \brief osnovni meni za instalacijske procedure
+
+/*!  *void TDBFakt::install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7)
+ *   osnovni meni za instalacijske procedure
  */
 
 *void TDBFakt::install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7)
@@ -317,10 +317,10 @@ return
 method install(cKorisn,cSifra,p3,p4,p5,p6,p7)
 	ISC_START(goModul,.f.)
 return
-*}
 
-/*! \fn *void TDBFakt::Kreiraj(int nArea)
- *  \brief Kreiranje baze podataka Fakt-a
+
+/*!  *void TDBFakt::Kreiraj(int nArea)
+ *   Kreiranje baze podataka Fakt-a
  */
  
 *void TDBFakt::Kreiraj(int nArea)
@@ -639,8 +639,8 @@ return
 
 
 
-/*! \fn *void TDBFakt::obaza(int i)
- *  \brief otvara odgovarajucu tabelu
+/*!  *void TDBFakt::obaza(int i)
+ *   otvara odgovarajucu tabelu
  *  
  *      
  */
@@ -698,10 +698,10 @@ endif
 
 
 return
-*}
 
-/*! \fn *void TDBFakt::ostalef()
- *  \brief Ostalef funkcije (bivsi install modul)
+
+/*!  *void TDBFakt::ostalef()
+ *   Ostalef funkcije (bivsi install modul)
  *  \note  sifra: SIGMAXXX
 */
 
@@ -711,10 +711,10 @@ method ostalef()
 
 
 return
-*}
 
-/*! \fn *void TDBFakt::konvZn()
- *  \brief koverzija 7->8 baze podataka KALK
+
+/*!  *void TDBFakt::konvZn()
+ *   koverzija 7->8 baze podataka KALK
  */
  
 *void TDBFakt::konvZn()
@@ -783,7 +783,7 @@ IF cPriv == "N"; aPriv := {}; ENDIF
 KZNbaza(aPriv,aKum,aSif,cIz,cU)
 
 return
-*}
+
 
 
 

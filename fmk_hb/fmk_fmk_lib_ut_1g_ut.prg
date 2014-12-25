@@ -18,8 +18,8 @@
  * ----------------------------------------------------------------
  */
  
-/*! \fn nToLongC(nN)
- *  \brief Pretvara broj u LONG (C-ovski prikaz long integera)
+/*!  nToLongC(nN)
+ *   Pretvara broj u LONG (C-ovski prikaz long integera)
  *
  */
  
@@ -34,7 +34,7 @@ nN:=INT(nN/256)
 next
 
 return cStr
-*}
+
 
 function CLongToN(cLong)
 *{
@@ -49,7 +49,7 @@ for i:=1 to 4
  nRez+=ASC(SUBSTR(cLong,i,1))*nExp
 next
 return nRez
-*}
+
 
 function Bios()
 *{
@@ -60,7 +60,7 @@ for i:=1 to 8
   cStr+=chr(peekbyte("F000",65524+i))
 next
 return cStr
-*}
+
 
 
 function BosTipke()
@@ -70,13 +70,13 @@ function BosTipke()
   SETKEY( ASC('`') , {|| __KEYBOARD('@') }  )
   SETKEY( ASC('~') , {|| __KEYBOARD('^') }  )
   SETKEY( ASC('}') , {|| __KEYBOARD(']') }  )
-  SETKEY( ASC('Á') , {|| __KEYBOARD('Ê') }  )
-  SETKEY( ASC('Ü') , {|| __KEYBOARD('è') }  )
-  SETKEY( ASC('ü') , {|| __KEYBOARD('¨') }  )
-  SETKEY( ASC('–') , {|| __KEYBOARD('—') }  )
-  SETKEY( ASC('ß') , {|| __KEYBOARD('¶') }  )
+  SETKEY( ASC('ÔøΩ') , {|| __KEYBOARD('ÔøΩ') }  )
+  SETKEY( ASC('ÔøΩ') , {|| __KEYBOARD('ÔøΩ') }  )
+  SETKEY( ASC('ÔøΩ') , {|| __KEYBOARD('ÔøΩ') }  )
+  SETKEY( ASC('ÔøΩ') , {|| __KEYBOARD('ÔøΩ') }  )
+  SETKEY( ASC('ÔøΩ') , {|| __KEYBOARD('ÔøΩ') }  )
 RETURN
-*}
+
 
 
 function USTipke()
@@ -85,39 +85,39 @@ SET KEY ASC('{') TO
   SET KEY ASC('`') TO
   SET KEY ASC('~') TO
   SET KEY ASC('}') TO
-  SET KEY ASC('Á') TO
-  SET KEY ASC('Ü') TO
-  SET KEY ASC('ü') TO
-  SET KEY ASC('–') TO
-  SET KEY ASC('ß') TO
+  SET KEY ASC('ÔøΩ') TO
+  SET KEY ASC('ÔøΩ') TO
+  SET KEY ASC('ÔøΩ') TO
+  SET KEY ASC('ÔøΩ') TO
+  SET KEY ASC('ÔøΩ') TO
 RETURN
 
 // ------------------------------
 // ------------------------------
 function KSTo852(cStr)
-  cStr:=strtran(cStr,"{","Á")
-  cStr:=strtran(cStr,"|","–")
-  cStr:=strtran(cStr,"`","ß")
-  cStr:=strtran(cStr,"~","ü")
-  cStr:=strtran(cStr,"}","Ü")
-  cStr:=strtran(cStr,"[","è")
-  cStr:=strtran(cStr,"\","—")
-  cStr:=strtran(cStr,"@","¶")
-  cStr:=strtran(cStr,"^","¨")
-  cStr:=strtran(cStr,"]","è")
+  cStr:=strtran(cStr,"{","ÔøΩ")
+  cStr:=strtran(cStr,"|","ÔøΩ")
+  cStr:=strtran(cStr,"`","ÔøΩ")
+  cStr:=strtran(cStr,"~","ÔøΩ")
+  cStr:=strtran(cStr,"}","ÔøΩ")
+  cStr:=strtran(cStr,"[","ÔøΩ")
+  cStr:=strtran(cStr,"\","ÔøΩ")
+  cStr:=strtran(cStr,"@","ÔøΩ")
+  cStr:=strtran(cStr,"^","ÔøΩ")
+  cStr:=strtran(cStr,"]","ÔøΩ")
 return cStr
 
 function BH7u8()
-SETKEY( ASC('}') , {|| __KEYBOARD('Á') }  )
-  SETKEY( ASC('{') , {|| __KEYBOARD('Ü') }  )
-  SETKEY( ASC('~') , {|| __KEYBOARD('ü') }  )
-  SETKEY( ASC('|') , {|| __KEYBOARD('–') }  )
-  SETKEY( ASC('`') , {|| __KEYBOARD('ß') }  )
-  SETKEY( ASC(']') , {|| __KEYBOARD('Ê') }  )
-  SETKEY( ASC('[') , {|| __KEYBOARD('è') }  )
-  SETKEY( ASC('^') , {|| __KEYBOARD('¨') }  )
-  SETKEY( ASC('\') , {|| __KEYBOARD('—') }  )
-  SETKEY( ASC('@') , {|| __KEYBOARD('¶') }  )
+SETKEY( ASC('}') , {|| __KEYBOARD('ÔøΩ') }  )
+  SETKEY( ASC('{') , {|| __KEYBOARD('ÔøΩ') }  )
+  SETKEY( ASC('~') , {|| __KEYBOARD('ÔøΩ') }  )
+  SETKEY( ASC('|') , {|| __KEYBOARD('ÔøΩ') }  )
+  SETKEY( ASC('`') , {|| __KEYBOARD('ÔøΩ') }  )
+  SETKEY( ASC(']') , {|| __KEYBOARD('ÔøΩ') }  )
+  SETKEY( ASC('[') , {|| __KEYBOARD('ÔøΩ') }  )
+  SETKEY( ASC('^') , {|| __KEYBOARD('ÔøΩ') }  )
+  SETKEY( ASC('\') , {|| __KEYBOARD('ÔøΩ') }  )
+  SETKEY( ASC('@') , {|| __KEYBOARD('ÔøΩ') }  )
 RETURN
 
 function Sleep(nSleep)
@@ -144,7 +144,7 @@ do while .t.
 enddo
 
 return
-*}
+
 
 function ScLibVer()
 return DBUILD

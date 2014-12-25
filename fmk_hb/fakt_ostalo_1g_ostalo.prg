@@ -36,5 +36,5 @@ cSekv:=chr(K_CTRL_A)
 	keyboard csekv
 next
 return
-*}
+
 

@@ -570,8 +570,8 @@ return .t.
 
 
 
-/*! \fn W_BrOtp(fNovi)
- *  \brief
+/*!  W_BrOtp(fNovi)
+ *  
  *  \param fNovi
  */
  
@@ -583,8 +583,8 @@ return .t.
 
 
 
-/*! \fn V_Rabat()
- *  \brief
+/*!  V_Rabat()
+ *  
  */
  
 function V_Rabat()
@@ -895,8 +895,8 @@ PushWa()
 PopWa()
 
 
-/*! \fn GetUsl(fNovi)
- *  \brief get usluga
+/*!  GetUsl(fNovi)
+ *   get usluga
  *  \param fNovi
  */
  
@@ -945,8 +945,8 @@ return .t.
 
 
 
-/*! \fn Nijedupla(fNovi)
- *  \brief
+/*!  Nijedupla(fNovi)
+ *  
  *  \param fNovi
  */
  
@@ -986,12 +986,12 @@ local nPrevRec
     ENDIF
     GO nPrevRec
 RETURN (.t.)
-*}
 
 
 
-/*! \fn OdsjPLK(cTxt)
- *  \brief Odsjeca prazne linije na kraju stringa
+
+/*!  OdsjPLK(cTxt)
+ *   Odsjeca prazne linije na kraju stringa
  *  \param cTxt
  */
  
@@ -1004,7 +1004,7 @@ for i:=len(cTxt) to 1 step -1
   endif
 next
 return left(cTxt,i)
-*}
+
 
 // -----------------------------------------------------------------------
 // ParsMemo(cTxt)
@@ -1034,8 +1034,8 @@ next
 return aMemo
 
 
-/*! \fn Prepak(cIdRoba,cPako,nPak,nKom,nKol,lKolUPak)
- *  \brief Preracunavanje paketa i komada ...
+/*!  Prepak(cIdRoba,cPako,nPak,nKom,nKol,lKolUPak)
+ *   Preracunavanje paketa i komada ...
  *  \param cIdRoba  - sifra artikla
  *  \param nPak     - broj paketa/kartona
  *  \param nKom     - broj komada u ostatku (dijelu paketa/kartona)
@@ -1076,12 +1076,12 @@ LOCAL lVrati:=.f., nArr:=SELECT(), aNaz:={}, cKar:="AMB ", nKO:=1, n_Pos:=0
   ENDIF
   SELECT (nArr)
 RETURN lVrati
-*}
 
 
 
-/*! \fn UGenNar()
- *  \brief U Generalnoj Narudzbi
+
+/*!  UGenNar()
+ *   U Generalnoj Narudzbi
  */
  
 function UGenNar()
@@ -1136,7 +1136,7 @@ LOCAL lVrati:=.t., nArr:=SELECT(), nIsporuceno, nNaruceno, dNajstariji:=CTOD("")
   ENDIF
   SELECT (nArr)
 RETURN lVrati
-*}
+
 
 
 // ako 

@@ -101,10 +101,10 @@ else   // gNW=="D"
 endif
 closeret
 return
-*}
 
-/*! \fn KnjNal()
- *  \brief Otvara pripremu za knjizenje naloga
+
+/*!  KnjNal()
+ *   Otvara pripremu za knjizenje naloga
  */
 
 function KnjNal()
@@ -151,8 +151,8 @@ closeret
 return
 
 
-/*! \fn WRbr()
- *  \brief Sredjivaje rednog broja u pripremi
+/*!  WRbr()
+ *   Sredjivaje rednog broja u pripremi
  */
 function WRbr()
 scatter()
@@ -171,22 +171,22 @@ enddo
 set order to 1
 go top
 return .t.
-*}
 
 
-/*! \fn VRbr()
- *  \brief
+
+/*!  VRbr()
+ *  
  */
 
 function vrbr()
 *{
 return .t.
-*}
 
 
 
-/*! \fn O_Edit()
- *  \brief Otvara unos nove stavke u pripremi
+
+/*!  O_Edit()
+ *   Otvara unos nove stavke u pripremi
  */
 
 function O_Edit()
@@ -234,12 +234,12 @@ go top
 
 // ulaz _IdFirma, _IdKonto, ...., nRBr (val(_RBr))
 return
-*}
 
 
 
-/*! \fn EditPripr()
- *  \brief Ispravka stavke u pripremi
+
+/*!  EditPripr()
+ *   Ispravka stavke u pripremi
  *  \param fNovi .t. - Nova stavka, .f. - Ispravka postojece
  */
 
@@ -383,7 +383,7 @@ _k3:=K3U256(_k3)
 _Rbr:=STR(nRbr,4)
 
 return 1
-*}
+
 
 // provjeri datum dokumenta na osnovu tek.sezona i upozori
 static function chk_sezona()
@@ -413,8 +413,8 @@ endif
 return .t.
 
 
-/*! \fn MinKtoLen(cIdKonto)
- *  \brief Provjerava minimalnu dozvoljenu duzinu konta pri knjizenju
+/*!  MinKtoLen(cIdKonto)
+ *   Provjerava minimalnu dozvoljenu duzinu konta pri knjizenju
  *  \param cIdKonto - konto id
  */
 function MinKtoLen(cIdKonto)
@@ -433,11 +433,11 @@ if gKtoLimit=="D" .and. gnKtoLimit > 0
 endif
 
 return
-*}
 
 
-/*! \fn V_IznosDEM(p1, p2, cVar, oGet)
- *  \brief Sredjivanje iznosa
+
+/*!  V_IznosDEM(p1, p2, cVar, oGet)
+ *   Sredjivanje iznosa
  *  \param p1
  *  \param p2
  *  \param cVar
@@ -455,10 +455,10 @@ if lAutoPomUDom .and. oGet:changed
 endif
 
 return .t.
-*}
 
-/*! \fn CheckMark(cIdKonto)
- *  \brief Provjerava da li je konto markiran, ako nije izbrisi zapamceni _IdPartner
+
+/*!  CheckMark(cIdKonto)
+ *   Provjerava da li je konto markiran, ako nije izbrisi zapamceni _IdPartner
  *  \param cIdKonto - oznaka konta
  *  \param cIdPartner - sifra partnera koja ce se ponuditi
  *  \param cNewPartner - zapamcena sifra partnera
@@ -473,10 +473,10 @@ function CheckMark(cIdKonto, cIdPartner, cNewPartner)
     endif
 
 return .t.
-*}
 
-/*! \fn Partija(cIdKonto)
- *  \brief
+
+/*!  Partija(cIdKonto)
+ *  
  *  \param cIdKonto - oznaka konta
  */
 
@@ -489,7 +489,7 @@ if right(trim(cIdkonto),1)=="*"
    	select pripr
 endif
 return .t.
-*}
+
 
 
 // -----------------------------------------------------
@@ -516,8 +516,8 @@ return _D_P $ "12"
 
 
 
-/*! \fn DinDem(p1,p2,cVar)
- *  \brief
+/*!  DinDem(p1,p2,cVar)
+ *  
  *  \param p1
  *  \param p2
  *  \param cVar
@@ -538,15 +538,15 @@ elseif cVar="_IZNOSBHD"
 endif
 // select(nArr)
 AEVAL(GetList,{|o| o:display()})
-*}
+
 
 
 // poziva je ObjDbedit u KnjNal
 // c-T  -  Brisanje stavke,  F5 - kontrola zbira za jedan nalog
 // F6 -  Suma naloga, ENTER-edit stavke, c-A - ispravka naloga
 
-/*! \fn EdPRIPR()
- *  \brief Ostale operacije u ispravki stavke
+/*!  EdPRIPR()
+ *   Ostale operacije u ispravki stavke
  */
 
 function EdPRIPR()
@@ -876,8 +876,8 @@ cStr := PADL( ALLTRIM(cStr), 4 )
 return .t.
 
 
-/*! \fn StNal(lAuto)
- *  \brief Priprema za stampu naloga
+/*!  StNal(lAuto)
+ *   Priprema za stampu naloga
  *  \param lAuto
  */
 
@@ -887,11 +887,11 @@ private dDatNal:=date()
 StAnalNal(@lAuto)
 SintStav(lAuto)
 return
-*}
 
 
-/*! \fn StAnalNal(lAuto)
- *  \brief Stampanje analitickog naloga
+
+/*!  StAnalNal(lAuto)
+ *   Stampanje analitickog naloga
  *  \param lAuto
  */
 
@@ -995,11 +995,11 @@ endif
 
 closeret
 return
-*}
 
 
-/*! \fn Zagl11()
- *  \brief Zaglavlje analitickog naloga
+
+/*!  Zagl11()
+ *   Zaglavlje analitickog naloga
  */
 
 function Zagl11()
@@ -1073,10 +1073,10 @@ P_NRED
 ?? M
 select(nArr)
 return
-*}
 
-/*! \fn SintStav(lAuto)
- *  \brief Formiranje sintetickih stavki
+
+/*!  SintStav(lAuto)
+ *   Formiranje sintetickih stavki
  *  \param lAuto
  */
 
@@ -1253,8 +1253,8 @@ return cRet
 
 
 
-/*! \fn DifIdP(cIdPartner)
- *  \brief Formatira cIdPartner na 6 mjesta ako mu je duzina 8
+/*!  DifIdP(cIdPartner)
+ *   Formatira cIdPartner na 6 mjesta ako mu je duzina 8
  *  \param cIdPartner - id partnera
  */
 
@@ -1262,11 +1262,11 @@ function DifIdP(cIdPartner)
 *{
 return 0
 //return if(len(TRIM(cIDPARTNER))>6,2,0)
-*}
 
 
-/*! \fn Preduzece()
- *  \brief Vraca naziv firme
+
+/*!  Preduzece()
+ *   Vraca naziv firme
  */
 
 function Preduzece()
@@ -1285,11 +1285,11 @@ B_OFF
 ?
 select (nArr)
 return
-*}
 
 
-/*! \fn BrisiPBaze()
- *  \brief Brisi pomocne baze
+
+/*!  BrisiPBaze()
+ *   Brisi pomocne baze
  */
 
 function BrisiPBaze()
@@ -1301,11 +1301,11 @@ function BrisiPBaze()
   SELECT F_PNALOG; ZAP
   PopWA()
 RETURN (NIL)
-*}
 
 
-/*! \fn PreuzSezSPK(cSif)
- *  \brief Preuzimanje sifre iz sezone
+
+/*!  PreuzSezSPK(cSif)
+ *   Preuzimanje sifre iz sezone
  *  \param cSif
  */
 
@@ -1361,9 +1361,9 @@ RETURN
 
 
 
-/*! \fn SintFilt(lSint,cFilter)
- *  \brief Iz filterisane SUBAN.DBF tabele generise POM.DBF
- *  \brief Ova funkcija ne podrzava varijantu gDatNal:="D"
+/*!  SintFilt(lSint,cFilter)
+ *   Iz filterisane SUBAN.DBF tabele generise POM.DBF
+ *   Ova funkcija ne podrzava varijantu gDatNal:="D"
  *  \param lSint   - .t.-POM.DBF je analitika, .f.-POM.DBF
  *  \param cFilter
  */
@@ -1503,11 +1503,11 @@ IF lSint==NIL; lSint:=.f.; ENDIF
   GO TOP
 
 RETURN
-*}
 
 
-/*! \fn TekRec2()
- *  \brief Tekuci zapis
+
+/*!  TekRec2()
+ *   Tekuci zapis
  */
 
 function TekRec2()
@@ -1516,10 +1516,10 @@ function TekRec2()
  @ m_x+1, m_y+2 SAY PADC(ALLTRIM(STR(nSlog))+"/"+ALLTRIM(STR(nUkupno)),20)
  @ m_x+2, m_y+2 SAY "Obuhvaceno: "+STR(cmxKeysIncluded())
 RETURN (NIL)
-*}
 
-/*! \fn Reci(x,y,cT)
- *  \brief Ispisuje zeljenu poruku cT na odredjenu lokaciju x,y
+
+/*!  Reci(x,y,cT)
+ *   Ispisuje zeljenu poruku cT na odredjenu lokaciju x,y
  *  \param x
  *  \param y
  *  \param cT
@@ -1531,11 +1531,11 @@ LOCAL px:=ROW(),py:=COL()
  @ m_x+x,m_y+y SAY cT
  SETPOS(px,py)
 RETURN
-*}
 
 
-/*! \fn OstaleOpcije()
- *  \brief Ostale opcije koje se pozivaju sa <F10>
+
+/*!  OstaleOpcije()
+ *   Ostale opcije koje se pozivaju sa <F10>
  */
 
 function OstaleOpcije()
@@ -1577,11 +1577,11 @@ private opc[4]
   m_x:=am_x; m_y:=am_y
   O_Edit()
 RETURN
-*}
 
 
-/*! \fn PodijeliN()
- *  \brief
+
+/*!  PodijeliN()
+ *  
  */
 
 function PodijeliN()
@@ -1731,11 +1731,11 @@ MsgC()
 
 close all
 return DE_REFRESH
-*}
 
 
-/*! \fn SetDatUPripr()
- *  \brief Postavi datum u pripremi
+
+/*!  SetDatUPripr()
+ *   Postavi datum u pripremi
  */
 
 function SetDatUPripr()
@@ -1762,11 +1762,11 @@ function SetDatUPripr()
   ENDDO
 CLOSERET
 return
-*}
 
 
-/*! \fn StSubNal(cInd,lAuto)
- *  \brief Stapmanje subanalitickog naloga
+
+/*!  StSubNal(cInd,lAuto)
+ *   Stapmanje subanalitickog naloga
  *  \param cInd  - "1"-stampa pripreme, "2"-stampa azuriranog, "3"-stampa dnevnika
  *  \param lAuto
  */
@@ -1995,11 +1995,11 @@ DO WHILE !eof() .and. eval(b2)
       endif
    ENDIF
 RETURN
-*}
 
 
-/*! \fn PrenosDNal()
- *  \brief Ispis prenos na sljedecu stranicu
+
+/*!  PrenosDNal()
+ *   Ispis prenos na sljedecu stranicu
  */
 
 function PrenosDNal()
@@ -2032,11 +2032,11 @@ function PrenosDNal()
   FF
   nTSDugBHD:=nTSPotBHD:=nTSDugDEM:=nTSPotDEM:=0   // tekuca strana
 RETURN
-*}
 
 
-/*! \fn IzvodBanke()
- *  \brief Formira nalog u pripremi na osnovu txt-izvoda iz banke
+
+/*!  IzvodBanke()
+ *   Formira nalog u pripremi na osnovu txt-izvoda iz banke
  */
 
 function IzvodBanke()
@@ -2195,12 +2195,12 @@ function IzvodBanke()
  BoxC()
 CLOSERET
 return
-*}
 
 
 
-/*! \fn K3Iz256(cK3)
- *  \brief
+
+/*!  K3Iz256(cK3)
+ *  
  *  \param cK3
  */
 
@@ -2224,11 +2224,11 @@ function K3Iz256(cK3)
     cK3:=PADL(cK3,3)
   ENDIF
 RETURN cK3
-*}
 
 
-/*! \fn K3U256(cK3)
- *  \brief
+
+/*!  K3U256(cK3)
+ *  
  *  \cK3
  */
 
@@ -2254,8 +2254,8 @@ RETURN cK3
 
 
 
-/*! \fn KontrZbNal()
- *  \brief Kontrola zbira naloga
+/*!  KontrZbNal()
+ *   Kontrola zbira naloga
  */
 
 function KontrZbNal()
@@ -2332,11 +2332,11 @@ BoxC()
 PopWA()
 
 return
-*}
 
 
-/*! \fn BrDokOK()
- *  \brief
+
+/*!  BrDokOK()
+ *  
  */
 
 function BrDokOK()
@@ -2364,12 +2364,12 @@ if field->oznaka="TD"
 endif
 SELECT (nArr)
 return lOK
-*}
 
 
 
-/*! \fn SetTekucaRJ(cRJ)
- *  \brief Setuje tekucu radnu jedinicu
+
+/*!  SetTekucaRJ(cRJ)
+ *   Setuje tekucu radnu jedinicu
  *  \param cRJ
  */
 
@@ -2393,11 +2393,11 @@ if !lUsed
 endif
 select (nArr)
 return
-*}
 
 
-/*! \fn GetTekucaRJ()
- *  \brief Daje tekucu radnu jedinicu
+
+/*!  GetTekucaRJ()
+ *   Daje tekucu radnu jedinicu
  */
 
 function GetTekucaRJ()

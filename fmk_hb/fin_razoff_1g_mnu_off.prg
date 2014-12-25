@@ -27,12 +27,12 @@
 
 
 /*! \file fmk/fin/razoff/1g/mnu_off.prg
- *  \brief Menij prenosa podataka
+ *   Menij prenosa podataka
  */
  
 
-/*! \fn MnuUdaljeneLokacije()
- *  \brief Menij prenosa udaljenih lokacija
+/*!  MnuUdaljeneLokacije()
+ *   Menij prenosa udaljenih lokacija
  */
 
 function MnuUdaljeneLokacije()
@@ -47,5 +47,5 @@ AADD(opcexe, {|| FinDisk()})
 Menu_SC("rof")
 
 return
-*}
+
 

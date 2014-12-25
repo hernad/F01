@@ -31,11 +31,11 @@
 
 
 /*! \file fmk/fin/rpt/1g/proizv.prg
- *  \brief Proizvoljni izvjestaji
+ *   Proizvoljni izvjestaji
  */
 
-/*! \fn ProIzv()
- *  \brief Proizvoljni izvjestaji
+/*!  ProIzv()
+ *   Proizvoljni izvjestaji
  */
  
 function ProIzv()
@@ -64,12 +64,12 @@ PRIVATE cDPnaz10:= "", cDPx10:="", cDPf10:="D"
 PrIz()
 
 RETURN
-*}
 
 
 
-/*! \fn OtBazPI()
- *  \brief Otvara baze proizvoljnih izvjestaja
+
+/*!  OtBazPI()
+ *   Otvara baze proizvoljnih izvjestaja
  */
 
 function OtBazPI()
@@ -79,12 +79,12 @@ O_KONIZ
 O_KOLIZ
 O_ZAGLI
 return
-*}
 
 
 
-/*! \fn GenProIzv()
- *  \brief Generisanje proizvoljnih izvjestaja
+
+/*!  GenProIzv()
+ *   Generisanje proizvoljnih izvjestaja
  */
 
 function GenProIzv()
@@ -947,12 +947,12 @@ endif
 endif
 
 CLOSERET
-*}
 
 
 
-/*! \fn PrikaziTI(cSif)
- *  \brief Prikazuje tekuci izvjestaj
+
+/*!  PrikaziTI(cSif)
+ *   Prikazuje tekuci izvjestaj
  *  \param cSif - sifra
  */
 
@@ -981,11 +981,11 @@ LOCAL nArr:=SELECT(), nKol:=COL(), nRed:=ROW()
    SELECT (nArr)
   SETPOS(nRed,nKol)
 RETURN
-*}
 
 
-/*! \fn FForPI()
- *  \brief
+
+/*!  FForPI()
+ *  
  */
 
 function FForPI()
@@ -1005,11 +1005,11 @@ LOCAL lVrati:=.f.
    lVrati:=.t.
  ENDIF
 RETURN lVrati
-*}
 
 
-/*! \fn VidiUaKolS()
- *  \brief
+
+/*!  VidiUaKolS()
+ *  
  */
 
 function VidiUaKolS()
@@ -1023,12 +1023,12 @@ LOCAL lVrati:=.f., i:=0
     ENDIF
   NEXT
 RETURN lVrati
-*}
 
 
 
-/*! \fn FSvakiPI()
- *  \brief
+
+/*!  FSvakiPI()
+ *  
  */
 
 function FSvakiPI()
@@ -1047,11 +1047,11 @@ IF !lKljuc
    ENDIF
  ENDIF
 RETURN IF(!EMPTY(PODVUCI),"PODVUCI"+PODVUCI,NIL)
-*}
 
 
-/*! \fn PlBudzeta(cTipK,cKonto)
- *  \brief Plan budzeta, specificno za budzetske korisnike
+
+/*!  PlBudzeta(cTipK,cKonto)
+ *   Plan budzeta, specificno za budzetske korisnike
  *  \param cTipK
  *  \param cKonto
  */
@@ -1076,11 +1076,11 @@ function PlBudzeta(cTipK,cKonto)
  ENDDO
  SELECT (nArr)
 RETURN nVrati
-*}
 
 
-/*! \fn RebBudzeta(cTipK,cKonto)
- *  \brief Rebalans budzeta
+
+/*!  RebBudzeta(cTipK,cKonto)
+ *   Rebalans budzeta
  *  \param cTipK
  *  \param cKonto
  */
@@ -1106,13 +1106,13 @@ LOCAL nVrati:=0, nArr:=SELECT()
  ENDDO
  SELECT (nArr)
 RETURN nVrati
-*}
 
 
 
 
-/*! \fn ParSviIzvj()
- *  \brief Parametri za sve izvjestaje
+
+/*!  ParSviIzvj()
+ *   Parametri za sve izvjestaje
  */
  
 function ParSviIzvj()
@@ -1287,12 +1287,12 @@ IF LASTKEY()!=K_ESC
 
   SELECT PARAMS; USE
 ENDIF
-*}
 
 
 
-/*! \fn UKucice(cSta,nKucica)
- *  \brief
+
+/*!  UKucice(cSta,nKucica)
+ *  
  *  \param cSta
  *  \param nKucica
  */
@@ -1300,13 +1300,13 @@ ENDIF
 function UKucice(cSta,nKucica)
 *{
 RETURN ( "I"+CHARMIX(PADL(TRIM(cSta),nKucica,IF(EMPTY(cSta)," ","0")),"I") )
-*}
 
 
 
 
-/*! \fn KonvZnWin(cTekst,cWinKonv)
- *  \brief Konverzija znakova za Windows
+
+/*!  KonvZnWin(cTekst,cWinKonv)
+ *   Konverzija znakova za Windows
  *  \param cTekst
  *  \param cWinKonv
  */
@@ -1341,12 +1341,12 @@ LOCAL aNiz:={  {"[","�",chr(138),"S"}, {"{","�",chr(154),"s"}, {"}","�",ch
  endif
 
 RETURN cTekst
-*}
 
 
 
-/*! \fn KZnBazaWin(cDbf)
- *  \brief Konverzija znakova u bazama
+
+/*!  KZnBazaWin(cDbf)
+ *   Konverzija znakova u bazama
  */
  
 function KZnbazaWin(cDbf)
@@ -1380,6 +1380,6 @@ use
 endif //cWinKonv
 
 return
-*}
+
 
 

@@ -55,12 +55,12 @@
  
 
 /*! \file fmk/kalk/prod/dok/1g/rpt_41.prg
- *  \brief Stampa dokumenta tipa 41
+ *   Stampa dokumenta tipa 41
  */
 
 
-/*! \fn StKalk41()
- *  \brief Stampa dokumenta tipa 41
+/*!  StKalk41()
+ *   Stampa dokumenta tipa 41
  */
 
 function StKalk41()
@@ -263,7 +263,7 @@ RekTar41(cIdFirma, cIdVd, cBrDok, @nStr)
 set order to 1
 go nRec
 return
-*}
+
 
 
 /*
@@ -383,12 +383,12 @@ if cIdVd<>"47" .and. !lVoSaTa .and. !IsJerry()
 endif
 
 return
-*}
 
 
 
-/*! \fn Naslov4x()
- *  \brief Naslovi za dokumente tipa 4x
+
+/*!  Naslov4x()
+ *   Naslovi za dokumente tipa 4x
  */
  
 function Naslov4x()
@@ -452,7 +452,7 @@ ENDIF
 select KONTO; HSEEK cIdKonto
 ?  "Prodavnicki konto razduzuje:",cIdKonto,"-",naz
 return nil
-*}
+
 
 
 

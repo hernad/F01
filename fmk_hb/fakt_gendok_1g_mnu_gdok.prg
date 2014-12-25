@@ -40,11 +40,11 @@
  
 
 /*! \file fmk/fakt/gendok/1g/mnu_gdok.prg
- *  \brief Meni opcija za generisanje dokumenata za modul FAKT
+ *   Meni opcija za generisanje dokumenata za modul FAKT
  */
 
-/*! \fn MGenDoks()
- *  \brief Meni opcija za generisanje dokumenata za modul FAKT
+/*!  MGenDoks()
+ *   Meni opcija za generisanje dokumenata za modul FAKT
  */
 
 function MGenDoks()
@@ -61,11 +61,11 @@ private Izbor:=1
 Menu_SC("mgdok")
 CLOSERET
 return
-*}
 
 
-/*! \fn GPStanje()
- *  \brief Generisanje dokumenta pocetnog stanja
+
+/*!  GPStanje()
+ *   Generisanje dokumenta pocetnog stanja
  */
  
 function GPStanje()
@@ -87,6 +87,6 @@ if !EMPTY(goModul:oDataBase:cSezonDir) .and. Pitanje(,"Prebaciti dokument u radn
 endif
 close all
 return
-*}
+
 
 

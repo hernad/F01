@@ -1,8 +1,8 @@
 #include "sc.ch"
 
 
-/*! \fn CreInt1DB()
- *  \brief Kreiranje tabela dinteg1 i integ1
+/*!  CreInt1DB()
+ *   Kreiranje tabela dinteg1 i integ1
  */
 function CreDIntDB()
 *{
@@ -124,7 +124,7 @@ CREATE_INDEX("OID","_oid_",KUMPATH+"POS")
 CREATE_INDEX("OID","_oid_",SIFPATH+"ROBA")
 
 return
-*}
+
 
 
 // kreiranje tabele errors
@@ -146,8 +146,8 @@ return
 
 
 
-/*! \fn ChkDTbl()
- *  \brief 
+/*!  ChkDTbl()
+ *   
  */
 function ChkDTbl()
 *{
@@ -168,11 +168,11 @@ if FILE(KUMPATH + "INTEG1.DBF")
 	endif
 endif
 return
-*}
 
 
-/*! \fn DInt1NextID()
- *  \brief Vrati sljedeci zapis polja ID za tabelu DINTEG1
+
+/*!  DInt1NextID()
+ *   Vrati sljedeci zapis polja ID za tabelu DINTEG1
  */
 function DInt1NextID()
 *{
@@ -187,11 +187,11 @@ nId := NextDIntID()
 select (nArr)
 
 return nId
-*}
 
 
-/*! \fn DInt2NextID()
- *  \brief Vrati sljedeci zapis polja ID za tabelu DINTEG2
+
+/*!  DInt2NextID()
+ *   Vrati sljedeci zapis polja ID za tabelu DINTEG2
  */
 function DInt2NextID()
 *{
@@ -205,11 +205,11 @@ nId := NextDIntID()
 
 select (nArr)
 return nId
-*}
 
 
-/*! \fn NextDIntID()
- *  \brief Vraca sljedeci ID broj za polje ID
+
+/*!  NextDIntID()
+ *   Vraca sljedeci ID broj za polje ID
  */
 function NextDIntID()
 *{
@@ -220,7 +220,7 @@ nId := field->id
 nId := nId + 1
 
 return nID
-*}
+
 
 
 

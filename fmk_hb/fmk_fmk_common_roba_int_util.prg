@@ -13,8 +13,8 @@
 #include "sc.ch"
 
 
-/*! \fn GetKalkVars(cFirma, cKonto, cPath)
- *  \brief Vraca osnovne var.za rad sa kalk-om
+/*!  GetKalkVars(cFirma, cKonto, cPath)
+ *   Vraca osnovne var.za rad sa kalk-om
  *  \param cFirma - id firma kalk
  *  \param cKonto - konto prodavnice u kalk-u
  *  \param cPath - putanja do kalk.dbf
@@ -31,8 +31,8 @@ return
 
 
 
-/*! \fn IntegTekGod()
- *  \brief Vraca tekucu godinu, ako je tek.datum veci od 10.01.TG onda je godina = TG, ako je tek.datum <= 10.01.TG onda je godina (TG - 1)
+/*!  IntegTekGod()
+ *   Vraca tekucu godinu, ako je tek.datum veci od 10.01.TG onda je godina = TG, ako je tek.datum <= 10.01.TG onda je godina (TG - 1)
  *  \return string cYear
  */
 function IntegTekGod()
@@ -53,10 +53,10 @@ else
 endif
 
 return cYear
-*}
 
-/*! \fn IntegTekDat() 
- *  \brief Vraca datum od kada pocinje tekuca godina TOPS, 01.01.TG
+
+/*!  IntegTekDat() 
+ *   Vraca datum od kada pocinje tekuca godina TOPS, 01.01.TG
  */
 function IntegTekDat()
 *{
@@ -67,10 +67,10 @@ dYear := YEAR(DATE())
 cDate := ALLTRIM( IntegTekGod() ) + "0101"
 
 return SToD(cDate)
-*}
 
-/*! \fn AddToErrors(cType, cIdRoba, cDoks, cOpis)
- *  \brief dodaj zapis u tabelu errors
+
+/*!  AddToErrors(cType, cIdRoba, cDoks, cOpis)
+ *   dodaj zapis u tabelu errors
  */
 function AddToErrors(cType, cIDroba, cDoks, cOpis)
 *{
@@ -82,11 +82,11 @@ replace field->doks with cDoks
 replace field->opis with cOpis
 
 return
-*}
 
 
-/*! \fn GetErrorDesc(cType)
- *  \brief Vrati naziv greske po cType
+
+/*!  GetErrorDesc(cType)
+ *   Vrati naziv greske po cType
  *  \param cType - tip greske, C, W, N ...
  */
 function GetErrorDesc(cType)
@@ -104,11 +104,11 @@ do case
 endcase
 
 return cRet
-*}
 
 
-/*! \fn RptInteg()
- *  \brief report nakon testa integ1
+
+/*!  RptInteg()
+ *   report nakon testa integ1
  *  \param lFilter - filter za kriticne greske
  *  \param lAutoSent - automatsko slanje email-a
  */
@@ -211,10 +211,10 @@ END PRINT
 RptSendEmail(lAutoSent)
 
 return
-*}
 
-/*! \fn RptSendEmail()
- *  \brief Slanje reporta na email
+
+/*!  RptSendEmail()
+ *   Slanje reporta na email
  */
 function RptSendEmail(lAuto)
 *{
@@ -248,10 +248,10 @@ Sleep(3)
 restore screen from cRbScr
 
 return
-*}
 
 
-/*! \fn GetSendVars(cScript)
+
+/*!  GetSendVars(cScript)
  *  \param cScript - ruby skripta
  *  \param cPSite - prodavnicki site
  *  \param cRptFile - report fajl
@@ -262,12 +262,12 @@ cScript := IzFmkIni("Ruby","Err2Mail","c:\sigma\err2mail.rb", EXEPATH)
 cPSite := ALLTRIM(STR(gSqlSite))
 cRptFile := PRIVPATH + "outf.txt"
 return
-*}
 
 
 
-/*! \fn BrisiError()
- *  \brief Brisanje tabele Errors.dbf
+
+/*!  BrisiError()
+ *   Brisanje tabele Errors.dbf
  */
 function BrisiError()
 *{
@@ -275,13 +275,13 @@ O_ERRORS
 select errors
 zap
 return
-*}
 
 
 
 
-/*! \fn EmptDInt(nInteg)
- *  \brief Da li je prazna tabela dinteg
+
+/*!  EmptDInt(nInteg)
+ *   Da li je prazna tabela dinteg
  */
 function EmptDInt(nInteg)
 *{
@@ -299,7 +299,7 @@ else
 endif
 
 return
-*}
+
 
 
 
@@ -313,7 +313,7 @@ else
 	return .f.
 endif
 return .f.
-*}
+
 
 
 function SetGenSif2()
@@ -326,7 +326,7 @@ else
 	return .f.
 endif
 return .f.
-*}
+
 
 
 // provjera tabele robe

@@ -20,14 +20,14 @@
  */
  
 /*! \file fmk/fakt/dok/1g/stdokm.prg
- *  \brief 
+ *   
  */
 
 
 
 
-/*! \fn StDokM()
- *  \brief
+/*!  StDokM()
+ *  
  *  \param cIdFirma
  *  \param cIdTipDok
  *  \param cBrDok
@@ -160,11 +160,11 @@ IspisiPodnozje()
 ZAVRSI STAMPU
 
 CLOSERET
-*}
 
 
-/*! \fn UkupneVrijednosti()
- *  \brief 
+
+/*!  UkupneVrijednosti()
+ *   
  */
  
 function UkupneVrijednosti()
@@ -317,12 +317,12 @@ NSRNPIdRoba()   // Nastimaj (hseek) Sifr.Robe Na Pripr->IdRoba
     nRab+=round( Cijena*kolicina*PrerCij()*Rabat/100 , nZaokr)
    endif
 return .t.
-*}
 
 
 
-/*! \fn IspisiZaglavlje()
- *  \brief Ispisuje zaglavlje
+
+/*!  IspisiZaglavlje()
+ *   Ispisuje zaglavlje
  */
  
 function IspisiZaglavlje()
@@ -341,10 +341,10 @@ LOCAL i:=0
  NEXT
  for i:=1 to gOdvT2; ?; next
 RETURN
-*}
 
-/*! \fn IspisiPodnozje()
- *  \brief Ispisuje podnozje
+
+/*!  IspisiPodnozje()
+ *   Ispisuje podnozje
  */
  
 function IspisiPodnozje()
@@ -358,12 +358,12 @@ xKA:=prow()
  if gBold=="1"; B_OFF; endif
  FF
 RETURN
-*}
 
 
 
-/*! \fn MSay(cTxt,x,y,cKod)
- *  \brief 
+
+/*!  MSay(cTxt,x,y,cKod)
+ *   
  *  \param cTxt
  *  \param x
  *  \param y
@@ -380,8 +380,8 @@ STATIC nLine:=0
 RETURN
 
 
-/*! \fn PljuniKod(cKod)
- *  \brief Daje neke sekvence stampaca...
+/*!  PljuniKod(cKod)
+ *   Daje neke sekvence stampaca...
  *  \param cKod
  */
  
@@ -399,11 +399,11 @@ LOCAL i:=0, nKol:=PCOL()
     ENDCASE
   NEXT
 RETURN (PCOL()-nKol)
-*}
 
 
-/*! \fn LiziKod(cKod)
- *  \brief Nesto lize
+
+/*!  LiziKod(cKod)
+ *   Nesto lize
  *  \param cKod
  */
  
@@ -421,15 +421,15 @@ LOCAL i:=0, nKol:=PCOL()
     ENDCASE
   NEXT
 RETURN (PCOL()-nKol)
-*}
 
 
-/*! \fn MjestIDat()
- *  \brief 
+
+/*!  MjestIDat()
+ *   
  */
  
 function MjestIDat()
 *{
 RETURN ( padl(Mjesto(cIdFirma)+", "+dtoc(ddatdok)+" godine",39) )
-*}
+
 

@@ -21,12 +21,12 @@
  
 
 /*! \file fmk/fakt/razdb/1g/mnu_raz.prg
- *  \brief Centralni meni opcija za prenos podataka FAKT<->ostali moduli
+ *   Centralni meni opcija za prenos podataka FAKT<->ostali moduli
  */
 
 
-/*! \fn ModRazmjena()
- *  \brief Centralni meni opcija za prenos podataka FAKT<->ostali moduli
+/*!  ModRazmjena()
+ *   Centralni meni opcija za prenos podataka FAKT<->ostali moduli
  */
 
 function ModRazmjena()
@@ -50,4 +50,4 @@ Menu_SC("rpod")
 CLOSERET
 
 return
-*}
+

@@ -20,11 +20,11 @@
 
 
 /*! \file fmk/fakt/stampa/1g/mnu_izvj.prg
- *  \brief Izvjestaji vezani za opresu stampa
+ *   Izvjestaji vezani za opresu stampa
  */
 
-/*! \fn MnuStampa()
- *  \brief Menij izvjestaja za opresu stampa
+/*!  MnuStampa()
+ *   Menij izvjestaja za opresu stampa
  */
  
 function MnuStampa()
@@ -42,5 +42,5 @@ AADD(opcexe,{|| PorPoOps()})
 
 Menu_SC("stizv")
 return
-*}
+
 

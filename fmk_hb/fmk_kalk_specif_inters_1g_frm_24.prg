@@ -13,8 +13,8 @@
 #include "kalk01.ch"
 
 
-/*! \fn Get1_24()
- *  \brief Obradjuje kalkulacije usluga
+/*!  Get1_24()
+ *   Obradjuje kalkulacije usluga
  */
 
 function Get1_24()

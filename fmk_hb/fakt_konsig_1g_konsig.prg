@@ -18,8 +18,8 @@
  * ----------------------------------------------------------------
  */
  
-/*! \fn GKRacun()
- *  \brief Generisi Konsignacioni Racun
+/*!  GKRacun()
+ *   Generisi Konsignacioni Racun
  */
  
 function GKRacun()
@@ -245,5 +245,5 @@ RPar("c2",@dOd     )
   NEXT
 
 CLOSERET
-*}
+
 

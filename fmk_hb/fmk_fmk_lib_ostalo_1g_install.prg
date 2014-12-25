@@ -12,8 +12,8 @@
 
 #include "SC.CH"
 
-/* \fn KorPreg()
- * \brief Pregled korisnika programa
+/*  KorPreg()
+ *  Pregled korisnika programa
  */
  
 function KorPreg()
@@ -47,7 +47,7 @@ ObjDbEdit ('ks',10,nSir,{|| EdKorisn() },"",iif(System .or. (KLevel='0' .and. Ri
 
 closeret
 return
-*}
+
 
 
 function EdKorisn()
@@ -89,7 +89,7 @@ do case
 
 endcase
 return DE_CONT
-*}
+
 
 
 function GetKorisn(fnovi)
@@ -112,7 +112,7 @@ endif
 READ
 BoxC()
 return lastkey()
-*}
+
 
 
 /*
@@ -137,7 +137,7 @@ local nRec:=recno()
 *END IF
 
 return .t.
-*}
+
 
 
 function Zabrana()
@@ -154,7 +154,7 @@ else
  return .f.
 endif
 return
-*}
+
 
 
 function Secur()
@@ -174,7 +174,7 @@ Kol:={1,2,3}
 ObjDbEdit ('ks',10,50,{|| EdSecur() },"","",.f.,"Sistem pristupa opcijama programa")
 closeret
 return
-*}
+
 
 
 function EdSecur()
@@ -196,7 +196,7 @@ do case
 
 endcase
 return DE_CONT
-*}
+
 
 
 function GetSecur(fnovi)
@@ -231,7 +231,7 @@ if lastkey()<>K_ESC
 endif
 
 return NIL
-*}
+
 
 function ServisKom
 *{
@@ -275,5 +275,5 @@ do while .t.
    restore screen from cscr
 enddo
 return
-*}
+
 

@@ -24,7 +24,7 @@ return oObj
 
 #ifdef CPP
 /*! \class TFaktMod
- *  \brief FAKT aplikacijski modul
+ *   FAKT aplikacijski modul
  */
 
 class TFaktMod: public TAppMod
@@ -65,15 +65,15 @@ END CLASS
 #endif
 
 
-/*! \fn TFaktMod::dummy()
- *  \brief dummy
+/*!  TFaktMod::dummy()
+ *   dummy
  */
 
 *void TFaktMod::dummy()
 *{
 method dummy()
 return
-*}
+
 
 
 *void TFaktMod::initdb()
@@ -83,11 +83,11 @@ method initdb()
 ::oDatabase:=TDBFaktNew()
 
 return NIL
-*}
 
 
-/*! \fn *void TFaktMod::mMenu()
- *  \brief Osnovni meni FAKT modula
+
+/*!  *void TFaktMod::mMenu()
+ *   Osnovni meni FAKT modula
  */
 *void TFaktMod::mMenu()
 *{
@@ -114,7 +114,7 @@ USE
 ::quit()
 
 return nil
-*}
+
 
 
 *void TFaktMod::mMenuStandard()
@@ -191,7 +191,7 @@ private Izbor:=1
 Menu_SC("mfak", .t., lPodBugom)
 
 return
-*}
+
 
 
 *void TFaktMod::sRegg()
@@ -199,7 +199,7 @@ return
 method sRegg()
 sreg("FAKT.EXE","FAKT")
 return
-*}
+
 
 *void TFaktMod::srv()
 *{
@@ -225,8 +225,8 @@ return
 
 
 
-/*! \fn *void TFaktMod::setGVars()
- *  \brief opste funkcije FIN modula
+/*!  *void TFaktMod::setGVars()
+ *   opste funkcije FIN modula
  */
 *void TFaktMod::setGVars()
 *{

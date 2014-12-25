@@ -42,8 +42,8 @@ CLOSERET
 
 return .f.
 
-/*! \fn MAzurDoks()
- *  \brief Ostale operacije nad podacima
+/*!  MAzurDoks()
+ *   Ostale operacije nad podacima
  */
  
 function MAzurDoks()
@@ -68,4 +68,4 @@ AADD(opcexe,{|| Mnu_Narudzbenica()})
 
 Menu_SC("ostop")
 return .f.
-*}
+

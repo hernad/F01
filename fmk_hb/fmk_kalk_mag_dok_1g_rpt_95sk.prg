@@ -21,12 +21,12 @@
  
 
 /*! \file fmk/kalk/mag/dok/1g/rpt_95sk.prg
- *  \brief Stampa kalkulacije tipa 95, varijanta samo kolicine (bez cijena)
+ *   Stampa kalkulacije tipa 95, varijanta samo kolicine (bez cijena)
  */
 
 
-/*! \fn StKalk95_sk()
- *  \brief Stampa kalkulacije tipa 95, varijanta samo kolicine (bez cijena)
+/*!  StKalk95_sk()
+ *   Stampa kalkulacije tipa 95, varijanta samo kolicine (bez cijena)
  */
 
 function StKalk95_sk()
@@ -110,4 +110,4 @@ enddo
 ? m
 
 return (nil)
-*}
+

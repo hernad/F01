@@ -12,8 +12,8 @@
 
 // INSTALL MODUL
 
-/*! \fn Main()
- *  \brief Osnovna f-ja za instalaciju programa 
+/*!  Main()
+ *   Osnovna f-ja za instalaciju programa 
  */
 function Main()
 *{
@@ -605,7 +605,7 @@ fwrite(nH,"goto ASVE"+NL)
 fwrite(nH,":FDDBRI"+NL)
 fwrite(nH,"cls"+NL)
 if cMedij>"B"
-fwrite(nH,"echo Stavite ZIP/CD u ureðaj i pritisnite neku tipku"+NL)
+fwrite(nH,"echo Stavite ZIP/CD u ureï¿½aj i pritisnite neku tipku"+NL)
 else
 fwrite(nH,"echo Stavite flopy disketu i pritisnite neku tipku"+NL)
 endif
@@ -637,7 +637,7 @@ fwrite(nH,"goto ASVE"+NL)
 fwrite(nH,":FDDDIR"+NL)
 fwrite(nH,"cls"+NL)
 if cMedij>"B"
-fwrite(nH,"echo Stavite USB u ureðaj i pritisnite neku tipku radi pregleda sadrzaja"+NL)
+fwrite(nH,"echo Stavite USB u ureï¿½aj i pritisnite neku tipku radi pregleda sadrzaja"+NL)
 else
 fwrite(nH,"echo Stavite floppy disketu i pritisnite neku tipku radi pregleda sadrzaja diskete"+NL)
 endif
@@ -671,7 +671,7 @@ fwrite(nH,"goto ANAFDD"+NL)
 fwrite(nH,":ANAFDDS"+NL)
 fwrite(nH,"cls"+NL)
 if cMedij>"B"
-  fwrite(nH,"echo Stavite USB u ureðaj i pritisnite neku tipku za pocetak arhiviranja"+NL)
+  fwrite(nH,"echo Stavite USB u ureï¿½aj i pritisnite neku tipku za pocetak arhiviranja"+NL)
   else
   fwrite(nH,"echo Stavite floppy disketu i pritisnite neku tipku za pocetak arhiviranja"+NL)
 endif
@@ -696,7 +696,7 @@ endif
 fwrite(nH,":ANAFDDT"+NL)
 fwrite(nH,"cls"+NL)
 if cMedij>"B"
-fwrite(nH,"echo Stavite USB u ureðaj i pritisnite neku tipku za pocetak arhiviranja"+NL)
+fwrite(nH,"echo Stavite USB u ureï¿½aj i pritisnite neku tipku za pocetak arhiviranja"+NL)
 else
 fwrite(nH,"echo Stavite floppy disketu i pritisnite neku tipku za pocetak arhiviranja"+NL)
 endif
@@ -1036,7 +1036,7 @@ UnZipuj("UT.ZIP",cBdir1)
 for i:=1 to nPrograma
   cpom:=alltrim(str(i))
   cStr:="cd "+cBdir1+"\"+cnprog[i]
-  if cProg&cpom=="D"                    //       ÚÄÄÄÄÄÄ !! master program
+  if cProg&cpom=="D"                    //       ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ !! master program
      UnZipuj(cnprog[i]+".ZIP",cBdir1)
   endif
 
@@ -1114,7 +1114,7 @@ if cProg&cpom=="D"
 endif
 next
 return
-*}
+
 
 
 /***
@@ -1357,10 +1357,10 @@ public cBshema:="B1"
 #endif
 
 return
-*}
+
 
 function PreUseEvent(cImeDbf,fShared)
 *{
 return cImeDbf
-*}
+
 

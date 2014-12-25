@@ -68,7 +68,7 @@
 
 *string tbl_fakt_serBr
 /*! \var tbl_fakt_serBr
- *  \brief predvidjeno za evidenciju serijskog broja artikla
+ *   predvidjeno za evidenciju serijskog broja artikla
  *
  * \note koliko mi je poznato NIKO ovu mogucnost ne koristi
  *
@@ -103,10 +103,10 @@ local oObj
 oObj:self:=oObj
 oObj:lTerminate:=.f.
 return oObj
-*}
 
-/*! \fn FaUnosInv()
- *  \brief Poziva se unos dokumenta inventure
+
+/*!  FaUnosInv()
+ *   Poziva se unos dokumenta inventure
  */
 
 function FaUnosInv()
@@ -116,7 +116,7 @@ oMainFrm:=TFrmInvNew()
 oMainFrm:open()
 oMainFrm:close()
 return
-*}
+
 
 
 
@@ -160,7 +160,7 @@ END CLASS
 
 #endif
 
-/*! \fn TFrmInv::open()
+/*!  TFrmInv::open()
  */
 
 *void TFrmInv::open()
@@ -184,7 +184,7 @@ TekDokument()
 ObjDbedit("FInv", 21, 77, {|| ::onKeyBoard() }, "", "Priprema inventure", , , , ,4)
 
 return
-*}
+
 
 method azur()
 
@@ -269,10 +269,10 @@ endcase
 
 
 return DE_CONT
-*}
 
-/*! \fn TFrmInv::walk()
- *  \brief Prodji kroz sve stavke dokumenta
+
+/*!  TFrmInv::walk()
+ *   Prodji kroz sve stavke dokumenta
  */
 
 method walk()
@@ -297,10 +297,10 @@ enddo
 oFrmItem:=nil
 
 return
-*}
 
-/*! \fn TFrmInv::noveStavke()
- *  \brief Unos novih stavki
+
+/*!  TFrmInv::noveStavke()
+ *   Unos novih stavki
  */
 
 method noveStavke()
@@ -320,11 +320,11 @@ enddo
 oFrmItem:=nil
 
 return
-*}
 
 
-/*! \fn TFrmInv::sayKomande()
- *  \brief Stampa Liste komandi na dnu ekrana
+
+/*!  TFrmInv::sayKomande()
+ *   Stampa Liste komandi na dnu ekrana
  *
  */
 
@@ -338,11 +338,11 @@ method sayKomande()
 @ m_x+21, m_y+2 SAY " <F10>  Ostale opcije    �<a-F10> Asistent  "
 
 return
-*}
 
 
-/*! \fn TFrmInv::setColuns()
- *  \brief Postavi vrijednost aImeKol, aKol matrica
+
+/*!  TFrmInv::setColuns()
+ *   Postavi vrijednost aImeKol, aKol matrica
  *  \note takodje se na kraju postavljaju priv var: ImeKol:=aImeKol, Kol:=aKol
  */
 
@@ -379,10 +379,10 @@ next
 ImeKol:=::aImeKol
 Kol:=::aKol
 return
-*}
 
-/*! \fn TFrmInv::print()
- *  \brief Stampa obrasca uporednog prikaza knjiznih i popisanih kolicina
+
+/*!  TFrmInv::print()
+ *   Stampa obrasca uporednog prikaza knjiznih i popisanih kolicina
  *
  *  \code
  *  Izvjestaj sadrzi sljedece kolone
@@ -401,10 +401,10 @@ method print()
 RptInv()
 
 return
-*}
 
-/*! \fn TFrmInv::printOPop()
- *  \brief Stampa obrasca Popisa
+
+/*!  TFrmInv::printOPop()
+ *   Stampa obrasca Popisa
  *
  *  \code
  *  Izvjestaj sadrzi sljedece kolone
@@ -426,7 +426,7 @@ method printOPop()
 RptInvObrPopisa()
 
 return
-*}
+
 
 *void TFrmInv::close()
 *{
@@ -434,10 +434,10 @@ method close
 BoxC()
 CLOSERET
 return
-*}
 
-/*! \fn TFrmInv::itemsCount()
- *  \brief Prodji kroz sve stavke dokumenta
+
+/*!  TFrmInv::itemsCount()
+ *   Prodji kroz sve stavke dokumenta
  */
 
 *{ TFrmInv::itemsCount()
@@ -454,7 +454,7 @@ do while !EOF()
 enddo
 PopWa()
 return nCnt
-*}
+
 
 
 *void TFrmInv::deleteAll()
@@ -465,17 +465,17 @@ if Pitanje(,"Zelite li zaista izbrisati cijeli dokument?","N")=="D"
 	ZAP
 endif
 return
-*}
+
 
 *void TFrmInv::deleteItem()
 *{
 method deleteItem()
 DELETE
 return 1
-*}
 
-/*! \fn *void TFrmInv::popup()
- *  \brief PopupMeni forme Inventure
+
+/*!  *void TFrmInv::popup()
+ *   PopupMeni forme Inventure
  *
  */
 
@@ -500,9 +500,9 @@ AADD(opcexe, {|| ::genDokVisak() })
 Menu_SC("ppin")
 
 return nil
-*}
 
-/*! \fn TFrmInv::genDok()
+
+/*!  TFrmInv::genDok()
  */
 
 *void TFrmInv::genDok()
@@ -523,9 +523,9 @@ if Pitanje(,"Generisati dokument inventure za RJ "+cIdRj,"N")=="D"
 endif
 
 return
-*}
 
-/*! \fn TFrmInv::genDokManjak()
+
+/*!  TFrmInv::genDokManjak()
  */
 
 *void TFrmInv::genDokManjak()
@@ -568,10 +568,10 @@ fakt_Knjiz()
 ::lTerminate:=.t.
 
 return
-*}
 
 
-/*! \fn TFrmInv::genDokVisak()
+
+/*!  TFrmInv::genDokVisak()
  */
 
 *void TFrmInv::genDokVisak()
@@ -613,4 +613,4 @@ fakt_Knjiz()
 
 ::lTerminate:=.t.
 return
-*}
+

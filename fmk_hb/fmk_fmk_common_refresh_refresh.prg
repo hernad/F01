@@ -366,10 +366,10 @@ public cBshema:="B1"
 #endif
 
 return
-*}
+
 
 function PreUseEvent(cImeDbf,fShared)
 *{
 return cImeDbf
-*}
+
 

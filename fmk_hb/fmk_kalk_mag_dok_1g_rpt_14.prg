@@ -29,12 +29,12 @@
  
 
 /*! \file fmk/kalk/mag/dok/1g/rpt_14.prg
- *  \brief Stampa dokumenta tipa 14
+ *   Stampa dokumenta tipa 14
  */
 
 
-/*! \fn StKalk14()
- *  \brief Stampa kalkulacije 14
+/*!  StKalk14()
+ *   Stampa kalkulacije 14
  */
 
 function StKalk14()
@@ -314,12 +314,12 @@ if fnafta
 endif
 
 return
-*}
 
 
 
-/*! \fn StKalk14_3()
- *  \brief Stampa kalkulacije 14 - varijanta za A3 papir
+
+/*!  StKalk14_3()
+ *   Stampa kalkulacije 14 - varijanta za A3 papir
  */
  
 function StKalk14_3()
@@ -447,12 +447,12 @@ ENDIF
               ,;
               ,.f.)                  // ne centrirati tabelu
 return
-*}
 
 
 
-/*! \fn Blok14_3()
- *  \brief Koristi je StampaTabele() u StKalk14_3()
+
+/*!  Blok14_3()
+ *   Koristi je StampaTabele() u StKalk14_3()
  */
 function Blok14_3()
 *{
@@ -512,5 +512,5 @@ function Blok14_3()
       nNC:=99999999
     endif
 return .t.
-*}
+
 

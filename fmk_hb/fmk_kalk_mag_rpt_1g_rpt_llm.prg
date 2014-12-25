@@ -1477,8 +1477,8 @@ return
 
 
 
-/*! \fn PocStMag()
- *  \brief Generacija pocetnog stanja magacina
+/*!  PocStMag()
+ *   Generacija pocetnog stanja magacina
  */
 
 function PocStMag()
@@ -1499,11 +1499,11 @@ LLM(.t.)
         endif
         close all
 return
-*}
 
 
-/*! \fn IsInGroup(cGr, cPodGr, cIdRoba)
- *  \brief Provjerava da li artikal pripada odredjenoj grupi i podgrupi
+
+/*!  IsInGroup(cGr, cPodGr, cIdRoba)
+ *   Provjerava da li artikal pripada odredjenoj grupi i podgrupi
  *  \param cGr - grupa
  *  \param cPodGr - podgrupa
  *  \param cIdRoba - id roba
@@ -1535,6 +1535,6 @@ if bRet
 endif
 
 return bRet
-*}
+
 
 

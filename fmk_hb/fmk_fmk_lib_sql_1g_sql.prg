@@ -54,7 +54,7 @@ cSQL:="update "+alias()+" set "+cfield+"="+SqlValue(xxVar)+;
       " where _OID_="+SQLValue(Oid2Num(field->_OID_),0)
 Gw(cSQL, @nHandle, cAkcija )
 return .t.
-*}
+
 
 function sql_append( nHandle, cAkcija )
 *{
@@ -72,7 +72,7 @@ cSQL:="insert into "+ALIAS()+" (_OID_) values("+sqlvalue(oid2num(field->_OID_),0
 Gw(cSQL, @nHandle, cAkcija )
 
 return .t.
-*}
+
 
 function sql_delete(cTip, nHandle, cAkcija)
 *{
@@ -101,7 +101,7 @@ if cTip=="DBF"
 endif
 Gw(cSQL, @nHandle, cAkcija )
 return .t.
-*}
+
 
 
 function GathSQL(cZnak,fAppend, nHandle, cAkcija)
@@ -164,12 +164,12 @@ if goModul:lSqlDirektno
 endif
 Gw(cSQL, @nHandle, cAkcija)
 return
-*}
 
 
 
-/*! \fn sql_azur(fLock)
- *  \brief
+
+/*!  sql_azur(fLock)
+ *  
  *  \param fLock - True - zakljucaj record u koji upisujes; False - vec je zakljucan, default value
  *  \return True - uspjesno, False - neuspjesno
  */
@@ -203,7 +203,7 @@ if fLock
    UNLOCK
 endif
 return .t.
-*}
+
 
 
 function SQLValue(xVar,nDec, cKonv)
@@ -274,11 +274,11 @@ elseif valtype(xVar)="D"
 else
    return "NULL"
 endif
-*}
 
 
-/*! \fn New_OID()
- *  \brief utvrdjuje novi OID (Object identification)
+
+/*!  New_OID()
+ *   utvrdjuje novi OID (Object identification)
  */
  
 function New_OID()
@@ -307,7 +307,7 @@ UNLOCK
 
 PopWa()
 return nPom
-*}
+
 
 function Last_OID()
 *{
@@ -322,24 +322,24 @@ else
 endif
 PopWa()
 return Num2Oid(nPom+1) // novi OID
-*}
 
-/*! \fn Oid2Num(cOID)
+
+/*!  Oid2Num(cOID)
  *  \todo izbaciti ovu funkciju - nepotrebna
  */
 function Oid2Num(cOID)
 *{
 local i,nPom
 return cOID
-*}
 
-/*! \fn Num2Oid(cOID)
+
+/*!  Num2Oid(cOID)
  *  \todo izbaciti ovu funkciju - nepotrebna
  */
 function Num2Oid(nOid)
 *{
 return nOid
-*}
+
 
 function sql_log(cSQL, nHandle, cAkcija )
 *{
@@ -347,4 +347,4 @@ local i
 i:=0
 Gw(cSQL, @nHandle, cAkcija )
 return
-*}
+

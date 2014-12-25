@@ -12,7 +12,7 @@
 
 
 /*! \file sclib/sql/1g/sql_ext.prg
- *  \brief Komande direktno upucene externoj SQL bazi
+ *   Komande direktno upucene externoj SQL bazi
  *  \note Koristeno za CROBA, sada je neaktivno
  */
 
@@ -59,7 +59,7 @@ else
 endif
 fclose(nh)
 return aResult
-*}
+
 
 /*
 sqlselect("c:\sigma\sql", test, "select y,y from partn xxxx yyyy")
@@ -82,7 +82,7 @@ run &cKomLin
 
 // daj mi matricu rezultata
 return sqlresult("c:\sigma\sqlout", aSQLType )
-*}
+
 
 
 /*
@@ -135,5 +135,5 @@ if fOdmah
 endif  
 
 return "OK"
-*}
+
 

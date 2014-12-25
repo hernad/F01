@@ -97,7 +97,7 @@ ObradiImport(0, .f., .f.)
 
 
 return
-*}
+
 
 
 function GetPstPDV()
@@ -189,13 +189,13 @@ MsgBeep("Zavrseno filovanje pomocne tabele pokrecem obradu!")
 ObradiImport(0, .f., .f.)
 
 return
-*}
 
 
 
 
-/*! \fn GetProdKto(aProd)
- *  \brief Vrati matricu sa prodavnicama
+
+/*!  GetProdKto(aProd)
+ *   Vrati matricu sa prodavnicama
  *  \param aProd
  */
 function GetProdKto(aProd)
@@ -226,7 +226,7 @@ do while !EOF()
 enddo
 
 return
-*}
+
 
 
 function roba_pdv17()
@@ -250,11 +250,11 @@ do while !eof()
 enddo
 MsgC()
 return
-*}
 
 
-/*! \fn GenPreknj(cPKonto, cPrTarifa, dDatOd, dDatDo, cBrKalk, lPst)
- *  \brief Opcija generisanja dokumenta preknjizenja
+
+/*!  GenPreknj(cPKonto, cPrTarifa, dDatOd, dDatDo, cBrKalk, lPst)
+ *   Opcija generisanja dokumenta preknjizenja
  *  \param cPKonto - prodavnicki konto
  *  \param cPrTarifa - tarifa preknjizenja
  *  \param dDatOd - datum od kojeg se pravi preknjizenje
@@ -703,5 +703,5 @@ do while !eof() .and. cIdFirma+cPKonto==idfirma+pkonto .and. IspitajPrekid()
 enddo
 
 return
-*}
+
 

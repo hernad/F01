@@ -553,8 +553,8 @@ return
 
 
 
-/*! \fn PrenosNo2()
- *  \brief Prenos FAKT -> KALK 10 po normativima
+/*!  PrenosNo2()
+ *   Prenos FAKT -> KALK 10 po normativima
  */
 
 function PrenosNo2()
@@ -684,7 +684,7 @@ enddo
 Boxc()
 closeret
 return
-*}
+
 
 
 

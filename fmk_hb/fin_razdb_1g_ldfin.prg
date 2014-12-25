@@ -14,11 +14,11 @@
 
 
 /*! \file fmk/fin/razdb/1g/ldfin.prg
- *  \brief Prenos podataka LD->FIN
+ *   Prenos podataka LD->FIN
  */
  
-/*! \fn LdFin() 
- *  \brief Prenos podataka LD->FIN
+/*!  LdFin() 
+ *   Prenos podataka LD->FIN
  */
 
 function LdFin()
@@ -258,8 +258,8 @@ return
 
 
 
-/*! \fn RLD(cId, nIz12)
- *  \brief
+/*!  RLD(cId, nIz12)
+ *  
  *  \param cId
  *  \param nIz12
  */
@@ -277,11 +277,11 @@ else
 	nVrati:=npom2
 endif
 return nVrati
-*}
 
 
-/*! \fn RekapLD(cId, nGodina, nMjesec, nIzn1, nIzn2, cOpis)
- *  \brief Rekapitulacija LD
+
+/*!  RekapLD(cId, nGodina, nMjesec, nIzn1, nIzn2, cOpis)
+ *   Rekapitulacija LD
  *  \param cId
  *  \param nGodina
  *  \param nMjesec
@@ -313,11 +313,11 @@ enddo
 
 select (nArr)
 return
-*}
 
 
-/*! \fn RLDP(cId, cBrDok, nIz12)
- *  \brief
+
+/*!  RLDP(cId, cBrDok, nIz12)
+ *  
  *  \param cId
  *  \param cBrDok
  *  \param nIz12
@@ -335,11 +335,11 @@ else
  return npom2
 endif
 return 0
-*}
 
 
-/*! \fn RekapLDP(cId, nGodina, nMjesec, nIzn1, nIzn2, cBrDok)
- *  \brief
+
+/*!  RekapLDP(cId, nGodina, nMjesec, nIzn1, nIzn2, cBrDok)
+ *  
  *  \param cId
  *  \param nGodina
  *  \param nMjesec
@@ -374,4 +374,4 @@ enddo
 
 select (nArr)
 return
-*}
+

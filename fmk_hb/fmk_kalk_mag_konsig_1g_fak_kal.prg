@@ -21,12 +21,12 @@
  
 
 /*! \file fmk/kalk/mag/konsig/1g/fak_kal.prg
- *  \brief Prenos dokumenata FAKT->KALK za konsignaciju
+ *   Prenos dokumenata FAKT->KALK za konsignaciju
  */
 
 
-/*! \fn FaktKonsig()
- *  \brief Meni opcija prenosa FAKT->KALK za konsignaciju
+/*!  FaktKonsig()
+ *   Meni opcija prenosa FAKT->KALK za konsignaciju
  */
 
 function FaktKonsig()
@@ -40,11 +40,11 @@ private Izbor:=1
 Menu_SC("fkon")
 CLOSERET
 return
-*}
 
 
-/*! \fn Prenos16()
- *  \brief Racun konsignacije (FAKT 16) -> ulaz od dobavljaca (KALK 10)
+
+/*!  Prenos16()
+ *   Racun konsignacije (FAKT 16) -> ulaz od dobavljaca (KALK 10)
  */
  
 function Prenos16()
@@ -201,5 +201,5 @@ enddo
 BoxC()
 CLOSERET
 return
-*}
+
 

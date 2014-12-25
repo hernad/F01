@@ -396,12 +396,12 @@ FF
 ZAVRSI STAMPU
 
 closeret
-*}
 
 
 
-/*! \fn Zagl()
- *  \brief Ispis zaglavlja
+
+/*!  Zagl()
+ *   Ispis zaglavlja
  */
  
 function Zagl()
@@ -423,11 +423,11 @@ else
 endif
 ? space(gnLMarg); ?? m
 return
-*}
 
 
-/*! \fn NStr0(bZagl)
- *  \brief Nova strana, prelazak na novu stranu
+
+/*!  NStr0(bZagl)
+ *   Nova strana, prelazak na novu stranu
  */
  
 function NStr0(bZagl)
@@ -440,11 +440,11 @@ Eval(bZagl)
 ? space(gnLmarg+IF(gVarF=="9".and.gTipF=="2",14,0)),"Prenos sa strane "+str(nStrana,3)+":"; @ prow(),nCol1  SAY nUk pict picdem
 ? space(gnLmarg); ?? m
 return
-*}
 
 
-/*! \fn Koef(cDinDem)
- *  \brief Konverzija valute
+
+/*!  Koef(cDinDem)
+ *   Konverzija valute
  *  \param cDinDem
  */
  
@@ -457,11 +457,11 @@ if cDinDem==left(ValSekund(),3)
 else
  	return 1
 endif
-*}
 
 
-/*! \fn Mjesto(cRJ)
- *  \brief Uzima mjesto
+
+/*!  Mjesto(cRJ)
+ *   Uzima mjesto
  *  \todo Postoji nesto slicno u db.prg, treba pogledati
  *  \param cRJ
  */
@@ -483,12 +483,12 @@ LOCAL cVrati:=""
     cVrati:=gMjStr
   ENDIF
 return TRIM(cVrati)
-*}
 
 
 
-/*! \fn JokSBr()
- *  \brief
+
+/*!  JokSBr()
+ *  
  */
  
 function JokSBr()
@@ -497,11 +497,11 @@ if "U" $ TYPE("BK_SB")
 	BK_SB := .f.
 endif
 return IF(gNW=="R","  KJ/KG ", IF(glDistrib,"", IF(BK_SB, "  BARKOD   ","Ser.broj")))
-*}
 
 
-/*! \fn NSRNPIIdRoba(cSR,fSint)
- *  \brief Nasteli sif->roba na pripr->idroba
+
+/*!  NSRNPIIdRoba(cSR,fSint)
+ *   Nasteli sif->roba na pripr->idroba
  *  \param cSR
  *  \param fSint  - ako je fSint:=.t. sinteticki prikaz
  */
@@ -529,11 +529,11 @@ ELSE
 ENDIF
 
 return
-*}
 
 
-/*! \fn PrStr2T(cIdTipDok)
- *  \brief Stampa potpisa na kraju fakture
+
+/*!  PrStr2T(cIdTipDok)
+ *   Stampa potpisa na kraju fakture
  *  \param cIdTipDok
  */
  
@@ -607,11 +607,11 @@ if !EMPTY(gNazPotStr) .and. cIdTipDok $ "10#11#20#25"
 endif
 
 return
-*}
 
 
-/*! \fn PrStr2R(cIdTipDok)
- *  \brief Vraca tekst potpisa RTF
+
+/*!  PrStr2R(cIdTipDok)
+ *   Vraca tekst potpisa RTF
  *  \param cIdTipDok
  *  \return cVrati
  */
@@ -628,11 +628,11 @@ LOCAL cVrati:=""
    cVrati:=&cPom
  endif
 return (cVrati)
-*}
 
 
-/*! \fn ShowIdPar(cId,n,lNoviRed,lVratiRPBNiz)
- *  \brief Prikazi ID partnera na fakturi
+
+/*!  ShowIdPar(cId,n,lNoviRed,lVratiRPBNiz)
+ *   Prikazi ID partnera na fakturi
  *  \param cId
  *  \param n
  *  \param lNoviRed
@@ -720,7 +720,7 @@ if IzFMkIni("FAKT","RegBrPorBr","D",KUMPATH)=="D" .or. lVratiRPBNiz
     	
 endif
 return (nil)
-*}
+
 
 
 // StAzFakt()
@@ -940,8 +940,8 @@ return
 
 
 
-/*! \fn RbrUNum(cRBr)
- *  \brief 
+/*!  RbrUNum(cRBr)
+ *   
  *  \param cRBr
  */
  
@@ -952,11 +952,11 @@ if left(cRbr,1)>"9"
 else
    return val(cRbr)
 endif
-*}
 
 
-/*! \fn GetRtmFile(cDefRtm)
- *  \brief Vraca naziv rtm fajla za stampu
+
+/*!  GetRtmFile(cDefRtm)
+ *   Vraca naziv rtm fajla za stampu
  */
 function GetRtmFile(cDefRtm)
 *{
@@ -980,4 +980,4 @@ Box(,6, 30)
 BoxC()
 
 return cRet
-*}
+

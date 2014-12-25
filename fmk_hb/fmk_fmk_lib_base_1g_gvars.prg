@@ -182,15 +182,15 @@ public gJODTemplate := PADR("c:\", 200)
 return
 
 
-/* \fn SetScGVar2(()
- * \fn postavljanje varijabli koje traze setovane *PATH varijable Db-a
+/*  SetScGVar2(()
+ *  postavljanje varijabli koje traze setovane *PATH varijable Db-a
  */
 function SetScGVar2()
 *{
 gSql:=IzFmkIni("Svi", "SQLLog", "N", KUMPATH)
 gSqlLogBase:=IzFmkIni("SQL","SQLLogBase","c:\sigma",EXEPATH)
 
-*}
+
 
 
 function IniGparams(fSve)
@@ -257,11 +257,11 @@ select (F_GPARAMS)
 use
 
 return nil
-*}
 
 
-/*! \fn IniGParam2(lSamoKesiraj)
- *  \brief Ucitava globalne parametre gPTKonv ... gKesiraj
+
+/*!  IniGParam2(lSamoKesiraj)
+ *   Ucitava globalne parametre gPTKonv ... gKesiraj
  *  \param lSamoKesiraj - ucitaj samo gKesiraj
  *  Prvo ucitava "p?" koji je D ako zelimo ucitavati globalne parametre iz PRIVDIR
  *  Nakon toga ucitava iz GPARAMS ( gPTKonv, ... gKesiraj )
@@ -329,7 +329,7 @@ if (cPosebno=="D")
 endif
 
 return
-*}
+
 
 
 function IniPrinter()
@@ -436,4 +436,4 @@ ELSE
 ENDIF
 
 return
-*}
+

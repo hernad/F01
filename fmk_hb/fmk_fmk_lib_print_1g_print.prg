@@ -361,7 +361,7 @@ if gPrinter<>cTekPrinter
 endif
 
 return
-*}
+
 
 function SPrint2(cKom)
 *{
@@ -449,7 +449,7 @@ do while .t.
   SET(_SET_DEFAULT,cDDir)
   INI
 return .t.
-*}
+
 
 
 function EPrint2(xPos)
@@ -527,12 +527,12 @@ endif
   Msg( "Stampanje zavrseno. Pritisnite bilo koju tipku za nastavak rada!", ;
        15, xPos )
 return
-*}
+
 
 function lPrn()
 *{
 return lPrn
-*}
+
 
 // ------------------------------------------
 // PPrint()
@@ -803,7 +803,7 @@ else
 		endif
 	endif
 endif
-*}
+
 
 // -----------------------------------
 // -----------------------------------
@@ -833,7 +833,7 @@ endif
 enddo
 cStr:=cPom
 return cPom
-*}
+
 
 // ----------------------------------------
 // izbaci ini seqvencu za printer
@@ -933,7 +933,7 @@ Setpxlat()
 qqout(gPB_ON)
 konvtable(iif(gPrinter="R",.t.,NIL))
 return ""
-*}
+
 
 // ----------------------------------------
 // ---------------------------------------
@@ -943,7 +943,7 @@ Setpxlat()
 qqout(gPB_OFF)
 konvtable(iif(gPrinter="R",.t.,NIL))
 return ""
-*}
+
 
 // ----------------------------------------
 // ---------------------------------------
@@ -953,7 +953,7 @@ Setpxlat()
 qqout(gPU_ON)
 konvtable(iif(gPrinter="R",.t.,NIL))
 return ""
-*}
+
 
 // ----------------------------------------
 // ---------------------------------------
@@ -963,7 +963,7 @@ Setpxlat()
 qqout(gPU_OFF)
 konvtable(iif(gPrinter="R",.t.,NIL))
 return ""
-*}
+
 
 // ----------------------------------------
 // ---------------------------------------
@@ -973,7 +973,7 @@ Setpxlat()
 qqout(gPI_ON)
 konvtable(iif(gPrinter="R",.t.,NIL))
 return ""
-*}
+
 
 // ----------------------------------------
 // ---------------------------------------
@@ -983,7 +983,7 @@ Setpxlat()
 qqout(gPI_OFF)
 konvtable(iif(gPrinter="R",.t.,NIL))
 return ""
-*}
+
 
 // ----------------------------------------
 // ---------------------------------------
@@ -993,7 +993,7 @@ Setpxlat()
 qqout(gPReset)
 konvtable(iif(gPrinter="R",.t.,NIL))
 return ""
-*}
+
 
 // ----------------------------------------
 // ---------------------------------------
@@ -1003,7 +1003,7 @@ Setpxlat()
 qout()
 konvtable(iif(gPrinter="R",.t.,NIL))
 return ""
-*}
+
 
 // ----------------------------------------
 // ---------------------------------------
@@ -1014,7 +1014,7 @@ qqout(CHR(13)+Chr(10)+gPFF)
 setprc(0,0)
 konvtable(iif(gPrinter="R",.t.,NIL))
 return ""
-*}
+
 
 // ----------------------------------------
 // ---------------------------------------
@@ -1024,7 +1024,7 @@ Setpxlat()
 qqout(gPO_Port)
 konvtable(iif(gPrinter="R",.t.,NIL))
 return ""
-*}
+
 
 // ----------------------------------------
 // ---------------------------------------
@@ -1034,7 +1034,7 @@ Setpxlat()
 qqout(gPO_Land)
 konvtable(iif(gPrinter="R",.t.,NIL))
 return ""
-*}
+
 
 // ----------------------------------------
 // ---------------------------------------
@@ -1044,7 +1044,7 @@ Setpxlat()
 qqout(gRPL_Normal)
 konvtable(iif(gPrinter="R",.t.,NIL))
 return ""
-*}
+
 
 // ----------------------------------------
 // ---------------------------------------
@@ -1054,7 +1054,7 @@ Setpxlat()
 qqout(gRPL_Gusto)
 konvtable(iif(gPrinter="R",.t.,NIL))
 return ""
-*}
+
 
 
 // ----------------------------------------
@@ -1075,7 +1075,7 @@ LOCAL nArr:=SELECT()
   COPY FILE ("TEMP.DBF") TO (ccExt)
  SELECT (nArr)
 return
-*}
+
 
 // ----------------------------------------
 // ---------------------------------------
@@ -1106,7 +1106,7 @@ RPar("r-",@gPStranica)
 RPar("pt",@gPPTK)
 
 return
-*}
+
 
 // ----------------------------------------
 // ---------------------------------------
@@ -1136,11 +1136,11 @@ WPar("r-",gPStranica)
 WPar("pt",gPPTK)
 
 return
-*}
 
 
-/*! \fn InigEpson()
- *  \brief Inicijaliziraj globalne varijable za Epson stampace (matricne) ESC/P2
+
+/*!  InigEpson()
+ *   Inicijaliziraj globalne varijable za Epson stampace (matricne) ESC/P2
  */
 function InigEpson()
 public gPIni:=""
@@ -1165,7 +1165,7 @@ public gPReset:=""
 public gPFF:=Chr(12)
   
 return
-*}
+
 
 // ----------------------------------------
 // ---------------------------------------
@@ -1191,7 +1191,7 @@ public gRPL_Normal:="&l6D&a3L"
 public gRPL_Gusto :="&l8D(s12H&a6L"
 
 return
-*}
+
 
 // ----------------------------------------
 // ---------------------------------------

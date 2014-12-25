@@ -14,11 +14,11 @@
 
 
 /*! \file fmk/fin/specif/ramaglas/rpt/1g/mnu_rpt.prg
- *  \brief Meni izvjestaja za rama glas - "pogonsko knjigovodstvo"
+ *   Meni izvjestaja za rama glas - "pogonsko knjigovodstvo"
  */
 
-/*! \fn Izvjestaji()
- *  \brief Glavni menij za izbor izvjestaja
+/*!  Izvjestaji()
+ *   Glavni menij za izbor izvjestaja
  *  \param 
  */
  
@@ -34,5 +34,5 @@ AADD(opcexe,{|| SpecTrosRN()})
 Menu_SC("izPK")
 
 return .f.
-*}
+
 

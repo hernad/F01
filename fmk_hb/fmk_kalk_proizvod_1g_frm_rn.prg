@@ -28,12 +28,12 @@
  
 
 /*! \file fmk/kalk/proizvod/1g/frm_rn.prg
- *  \brief Maska za unos dokumenta tipa RN
+ *   Maska za unos dokumenta tipa RN
  */
 
 
-/*! \fn Get1_RN()
- *  \brief Prva strana maske za unos dokumenta tipa RN
+/*!  Get1_RN()
+ *   Prva strana maske za unos dokumenta tipa RN
  */
 
 function Get1_RN()
@@ -222,13 +222,13 @@ read; ESC_RETURN K_ESC
 _FCJ2:=_FCJ*(1-_Rabat/100)
 
 return lastkey()
-*}
 
 
 
 
-/*! \fn Get2_RN()
- *  \brief Druga strana maske za unos dokumenta tipa RN
+
+/*!  Get2_RN()
+ *   Druga strana maske za unos dokumenta tipa RN
  */
 
 function Get2_RN()
@@ -302,6 +302,6 @@ endif
 _MKonto:=_Idkonto; _MU_I:="1"
 nStrana:=3
 return lastkey()
-*}
+
 
 

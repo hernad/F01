@@ -22,7 +22,7 @@
 
 /*! \ingroup Planika
  *  \var tbl_roba_k2
- *  \brief Polje koje odredjuje da li ce se artikal uzeti u obzir pri sumiranju kolicina (u slucaju planike "kolicina"="pari")
+ *   Polje koje odredjuje da li ce se artikal uzeti u obzir pri sumiranju kolicina (u slucaju planike "kolicina"="pari")
  *  \param "X" - ne sumiraj
  *  \param "ostale vrijednosti" - uvrsti u suma pari
  *  \param Atributi polja C(4,0)
@@ -32,7 +32,7 @@
 *tbl tbl_kalk_rekap1;
 
 /*! \var tbl_kalk_rekap1
- *  \brief Pomocna tabela formira je GenRekap1
+ *   Pomocna tabela formira je GenRekap1
  *
  * \code
  * Create Table "REKAP1" ( 
@@ -57,7 +57,7 @@
  */
 
 /*! \ingroup Planika
- * \fn GenRekap1(cKartica, cVarijanta, cKesiraj, fSMark)
+ *  GenRekap1(cKartica, cVarijanta, cKesiraj, fSMark)
  * \param cKartica  - "D" - ocitaj cijene sa kartica
  * \param cVarijanta - "1" - pregled kretanja zaliha; "2" - iskazi
  * \param fSMark  .t. - selekcija robe vrsi se na osnovu polja _M1_ iz sifrarnika
@@ -211,7 +211,7 @@ if (nSec>1)
 endif
 
 return
-*}
+
 
 function ScanMKonto(dDatOd, dDatDo, cIdKPovrata, cKartica, cVarijanta, cKesiraj)
 *{
@@ -311,7 +311,7 @@ endif
 
 
 return 1
-*}
+
 
 
 function ScanPKonto(dDatOd, dDatDo, cIdKPovrata, cKartica, cVarijanta, cKesiraj)
@@ -469,6 +469,6 @@ endif
 
 
 return 1
-*}
+
 
 

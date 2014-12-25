@@ -193,8 +193,8 @@ LOCAL nDana := ABS(IF( EMPTY(datval) , datdok , datval ) - dNaDan), nVrati
 RETURN nVrati
 
 
-/*! \fn IspisRocnosti()
- *  \brief Ispis rocnosti
+/*!  IspisRocnosti()
+ *   Ispis rocnosti
  */
  
 function IspisRocnosti()
@@ -206,7 +206,7 @@ LOCAL cRocnost:=Rocnost(), cVrati
     cVrati:=" DO "+cRocnost+" DANA"
   ENDIF
 RETURN cVrati
-*}
+
 
 // --------------------------------
 // rocnost

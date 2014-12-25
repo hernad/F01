@@ -29,12 +29,12 @@
  
 
 /*! \file fmk/kalk/proizvod/1g/rpt_pr.prg
- *  \brief Stampa kalkulacije PR
+ *   Stampa kalkulacije PR
  */
 
 
-/*! \fn StKalkPR()
- *  \brief Stampa kalkulacije PR
+/*!  StKalkPR()
+ *   Stampa kalkulacije PR
  */
 
 function StKalkPR()
@@ -191,6 +191,6 @@ if prow()>61+gPStranica; FF; @ prow(),125 SAY "Str:"+str(++nStr,3); endif
 
 ? m
 return
-*}
+
 
 

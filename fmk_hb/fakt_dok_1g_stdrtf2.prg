@@ -19,13 +19,13 @@
  */
  
 /*! \file fmk/fakt/dok/1g/stdrtf2.prg
- *  \brief Stampa faktura u RTF formatu varijanta 2
+ *   Stampa faktura u RTF formatu varijanta 2
  */
 
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_RTF_PartnerFS
-  * \brief Velicina fonta za ispis partnera u rtf-fakturi
+  *  Velicina fonta za ispis partnera u rtf-fakturi
   * \param 28 - default vrijednost
   * \param
   */
@@ -34,7 +34,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_RTF_PartnerSB
-  * \brief Format necega?! Nisam mogao testirati jer nemam instaliran MS Word!
+  *  Format necega?! Nisam mogao testirati jer nemam instaliran MS Word!
   * \param 90 - default vrijednost
   */
 *string FmkIni_KumPath_RTF_PartnerSB;
@@ -42,7 +42,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_IzgledRTF_PotpisUzTabelu
-  * \brief Odredjuje da li ce se potpis na kraju fakture ispisati odmah ispod tabele ili striktno na kraju lista
+  *  Odredjuje da li ce se potpis na kraju fakture ispisati odmah ispod tabele ili striktno na kraju lista
   * \param N - potpis striktno na kraju lista, default vrijednost
   * \param D - potpis odmah ispod tabele
   */
@@ -50,8 +50,8 @@
 
 
 
-/*! \fn StdRtf2()
- *  \brief 
+/*!  StdRtf2()
+ *   
  *  \param cImeF
  *  \param cIdFirma
  *  \param cIdTipDok
@@ -587,13 +587,13 @@ use
 select pripr
 
 closeret
-*}
 
 
 
 
-/*! \fn BosNum(cNPom)
- *  \brief npr. 123,222.00 -> 123.222,00
+
+/*!  BosNum(cNPom)
+ *   npr. 123,222.00 -> 123.222,00
  *  \param cNPom
  */
  
@@ -603,7 +603,7 @@ cNPom:=strtran(cnpom,",","#")
  cNPom:=strtran(cnpom,".",",")
  cNPom:=strtran(cnpom,"#",".")
 return cNPom
-*}
+
 
 
 

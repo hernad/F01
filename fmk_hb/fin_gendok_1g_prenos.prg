@@ -587,12 +587,12 @@ endif
 
 close all
 return
-*}
 
 
 
-/*! \fn PreKart()
- *  \brief Prebacivanje subanalitickih konta... 
+
+/*!  PreKart()
+ *   Prebacivanje subanalitickih konta... 
  */
  
 function PreKart()
@@ -733,11 +733,11 @@ ENDDO
 
 CLOSERET
 return NIL
-*}
 
 
-/*! \fn EPPK()
- *  \brief Ispravka konta, promjena konta 
+
+/*!  EPPK()
+ *   Ispravka konta, promjena konta 
  */
  
 function EPPK()
@@ -776,11 +776,11 @@ do case
 endcase
 
 return DE_CONT
-*}
 
 
-/*! \fn AzurPPK()
- *  \brief Azuriranje promjena konta 
+
+/*!  AzurPPK()
+ *   Azuriranje promjena konta 
  */
  
 function AzurPPK()
@@ -951,11 +951,11 @@ function AzurPPK()
 
   SELECT TEMP77
 RETURN
-*}
 
 
-/*! \fn ZadnjiRbr()
- *  \brief Vraca zadnji redni broj 
+
+/*!  ZadnjiRbr()
+ *   Vraca zadnji redni broj 
  */
  
 function ZadnjiRBR()
@@ -969,5 +969,5 @@ nZRBR:=VAL(rbr)
 use
 select (nObl)
 return (nZRBR)
-*}
+
 

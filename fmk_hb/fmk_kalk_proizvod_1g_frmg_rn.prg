@@ -29,12 +29,12 @@
  
 
 /*! \file fmk/kalk/proizvod/1g/frmg_rn.prg
- *  \brief Ispravka broja veze - radni nalozi
+ *   Ispravka broja veze - radni nalozi
  */
 
 
-/*! \fn BrowseRn()
- *  \brief Ispravka broja veze - radni nalozi
+/*!  BrowseRn()
+ *   Ispravka broja veze - radni nalozi
  */
 
 function BrowseRn()
@@ -87,14 +87,14 @@ BoxC()
 
 closeret
 return
-*}
 
 
 
 
 
-/*! \fn EdBrn(Ch)
- *  \brief Obrada opcija u browse-u radnih naloga
+
+/*!  EdBrn(Ch)
+ *   Obrada opcija u browse-u radnih naloga
  */
 
 function EdBrn(Ch)
@@ -132,7 +132,7 @@ do case
      nRet:=DE_REFRESH
 endcase
 return nRet
-*}
+
 
 
 

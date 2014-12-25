@@ -31,11 +31,11 @@
 
 
 /*! \file fmk/fin/rpt/1g/ostalo.prg
- *  \brief Ostali izvjestaji
+ *   Ostali izvjestaji
  */
 
-/*! \fn Ostalo()
- *  \brief Menij ostalih izvjestaja
+/*!  Ostalo()
+ *   Menij ostalih izvjestaja
  */
  
 function Ostalo()
@@ -76,5 +76,5 @@ endif
 
 Menu_SC("ost")
 return .f.
-*}
+
 

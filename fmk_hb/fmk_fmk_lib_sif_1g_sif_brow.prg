@@ -131,7 +131,7 @@ IF cId <>NIL
      seek LEFT(cId, len(trim(cid))-1)
      cId:=id
    else
-     seek "‡·‚"
+     seek "ÔøΩÔøΩÔøΩ"
    endif
 
    if !FOUND()
@@ -1638,8 +1638,8 @@ return .t.
 
 
 /*!
- *\fn IzSifk
- *\brief Izvlaci vrijednost iz tabele SIFK
+ * IzSifk
+ * Izvlaci vrijednost iz tabele SIFK
  *\param cDBF ime DBF-a
  *\param cOznaka oznaka BARK , GR1 itd
  *\param cIDSif  interna sifra, npr  000000232  ,
@@ -1800,8 +1800,8 @@ return NIL
 
 
 /*!
- *\fn USifk
- *\brief Postavlja vrijednost u tabel SIFK
+ * USifk
+ * Postavlja vrijednost u tabel SIFK
  *\note Pretpostavke: Otvorene tabele SIFK, SIFV
  *
  *\param cDBF ime DBF-a
@@ -2002,12 +2002,12 @@ set filter to
 set order to tag "ID"
 go bottom
 if id>"99"
-   seek "ˆˆ·"  
-   // ˆ - chr(246) pokusaj
+   seek "ÔøΩÔøΩÔøΩ"  
+   // ÔøΩ - chr(246) pokusaj
    skip -1
-   if id<"ˆˆ9"
+   if id<"ÔøΩÔøΩ9"
       cPom:=   str( val(substr(id,4))+nCount , len(id)-2 )
-      xRet:= "ˆˆ"+padl(  cPom , len(id)-2 ,"0")
+      xRet:= "ÔøΩÔøΩ"+padl(  cPom , len(id)-2 ,"0")
    endif
 else
   cPom:= str( val(id) + nCount , len(id) )
@@ -2054,7 +2054,7 @@ PushWA()
 
 nTrec:=recno()
 set order to tag "ID_J"
-seek cStr+"‚"
+seek cStr+"ÔøΩ"
 skip -1
 // ova fja se uvijek poziva nakon Edsif-a
 // ako je __LAST_CH__=f4 onda se radi o dupliciranju
@@ -2374,7 +2374,7 @@ local cPom
 local nDuzSif:=0
 local lPopuni:=.f.
 local nDuzUn:=0
-local cLast:="¨è¶Ê—"
+local cLast:="ÔøΩÔøΩÔøΩÔøΩÔøΩ"
 local nKor:=0
 
 IF IzFmkIni("NovaSifraOpc_F8","PopunjavaPraznine","N")=="D"
@@ -2408,21 +2408,21 @@ IF cImeVar == "WID"
       			IF LEN(TRIM(id))<=nDuzUn .or. RIGHT(TRIM(id),1)=="."
 				SKIP 1
 			ENDIF
-      			IF cLast=="¨è¶Ê—" // tj. prva konkretna u nizu
+      			IF cLast=="ÔøΩÔøΩÔøΩÔøΩÔøΩ" // tj. prva konkretna u nizu
         			IF VAL(SUBSTR(id,nDuzUn+1)) > 1
-          				// rupa odmah na poüetku
+          				// rupa odmah na poÔøΩetku
           				nKor:= nDuzSif-LEN(TRIM(id))
           				EXIT
         			ENDIF
       			ELSEIF VAL(SUBSTR(id,nDuzUn+1))-VAL(cLast) > 1
-        			// rupa izme–u
+        			// rupa izmeÔøΩu
         			EXIT
       			ENDIF
       			cLast:=SUBSTR(id,nDuzUn+1)
       			SKIP 1
     		ENDDO
-    		// na osnovu cLast formiram slijedeÜu Áifru
-    		cPom:=LEFT(cPom,nDuzUn)+IF(cLast=="¨è¶Ê—",REPL("0",nDuzSif-nDuzUn-nKor),cLast)
+    		// na osnovu cLast formiram slijedeÔøΩu ÔøΩifru
+    		cPom:=LEFT(cPom,nDuzUn)+IF(cLast=="ÔøΩÔøΩÔøΩÔøΩÔøΩ",REPL("0",nDuzSif-nDuzUn-nKor),cLast)
     		&(cImeVar):=PADR(NovaSifra( IF( EMPTY(cPom) , cPom , RTRIM(cPom) ) ),nDuzSif," ")
   	ELSE
     		
@@ -2440,8 +2440,8 @@ RETURN (NIL)
 
 
 
-/*! \fn VpSifra(wId)
- *  \brief Stroga kontrola ID-a sifre pri unosu nove ili ispravci postojece!
+/*!  VpSifra(wId)
+ *   Stroga kontrola ID-a sifre pri unosu nove ili ispravci postojece!
  *  \param wId - ID koji se provjerava
  */
 
@@ -2473,8 +2473,8 @@ return nRet
 
 
 
-/*! \fn VpNaziv(wNaziv)
- *  \brief Stroga kontrola naziva sifre pri unosu nove ili ispravci postojece sifre
+/*!  VpNaziv(wNaziv)
+ *   Stroga kontrola naziva sifre pri unosu nove ili ispravci postojece sifre
  *  \param wNaziv - Naziv koji se provjerava
  */
  
@@ -2692,7 +2692,7 @@ endif
 
 set filter to // pocisti filter
 set order to tag "BARKOD"
-seek cPrefix+"·" // idi na kraj
+seek cPrefix+"ÔøΩ" // idi na kraj
 skip -1 // lociraj se na zadnji slog iz grupe prefixa
 if left(barkod,nDuzPrefix) == cPrefix
  if cEAN=="13"
@@ -2827,7 +2827,7 @@ if lNFGR
 	nRec:=RECNO()
 endif
 
-if fieldpos("BARKOD")<>0 // traßi glavni barkod
+if fieldpos("BARKOD")<>0 // traÔøΩi glavni barkod
 	set order to tag "BARKOD"
 	seek cID
 	gOcitBarkod:=.t.
@@ -2838,7 +2838,7 @@ if fieldpos("BARKOD")<>0 // traßi glavni barkod
 		seek cID
 	endif
 else
-	seek "‡·‚"
+	seek "ÔøΩÔøΩÔøΩ"
 endif
 
 // nisam nasao barkod u polju BARKOD

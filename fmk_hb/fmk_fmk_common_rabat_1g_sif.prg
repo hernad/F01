@@ -14,8 +14,8 @@
 #include "rabat.ch"
 
 
-/*! \fn P_Rabat(cid, dx, dy)
- *  \brief Vraca ID rabata ukoliko postoji, u suprotnom izvali prozor za odabir iz sif.
+/*!  P_Rabat(cid, dx, dy)
+ *   Vraca ID rabata ukoliko postoji, u suprotnom izvali prozor za odabir iz sif.
  *  \param cid - ??
  *  \param dx - ??
  *  \return dy - ??
@@ -46,11 +46,11 @@ for i:=1 to LEN(ImeKol)
 next
 
 return PostojiSifra(F_RABAT, 1, 10, 70, "Rabatne skale", @cId, dx, dy, {|Ch| RabatBlock(Ch)}, , , , , {"ID"})
-*}
 
 
-/*! \fn RabatBlock()
- *  \brief Opcije sifrarnika rabata
+
+/*!  RabatBlock()
+ *   Opcije sifrarnika rabata
  */
 function RabatBlock(Ch)
 *{
@@ -65,11 +65,11 @@ do case
 endcase
 
 return DE_CONT
-*}
 
 
-/*! \fn FillRabats()
- *  \brief Napuni rabate iz sifrarnika robe
+
+/*!  FillRabats()
+ *   Napuni rabate iz sifrarnika robe
  */
 function FillRabats()
 *{
@@ -126,11 +126,11 @@ MsgBeep("Preneseno " + ALLTRIM(STR(nCnt)) + " zapisa...")
 select rabat
 
 return
-*}
 
 
-/*! \fn RabSExist(cRabId, cRabType, cArticle)
- *  \brief provjerava da li rabatna skala postoji
+
+/*!  RabSExist(cRabId, cRabType, cArticle)
+ *   provjerava da li rabatna skala postoji
  */
 function RabSExist(cRabId, cRabType, cArticle)
 *{
@@ -148,11 +148,11 @@ endif
 go nRec
 
 return bRet
-*}
 
 
-/*! \fn CopyRabat()
- *  \brief Kopiraj rabat 
+
+/*!  CopyRabat()
+ *   Kopiraj rabat 
  */
 function CopyRabat()
 *{
@@ -204,7 +204,7 @@ BoxC()
 MsgBeep("Kopirano " + ALLTRIM(STR(nCnt)) + " zapisa...")
 
 return
-*}
+
 
 
 
@@ -223,7 +223,7 @@ if LastKey() == K_ESC
 endif
 
 return .t.
-*}
+
 
 
 function GetCpRabat(cFIdRab, cFTipRab, cTIdRab, cTTipRab)
@@ -245,7 +245,7 @@ if LastKey() == K_ESC
 endif
 
 return .t.
-*}
+
 
 
 
@@ -263,5 +263,5 @@ if LastKey() == K_ESC
 endif
 
 return .t.
-*}
+
 

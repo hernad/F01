@@ -244,7 +244,7 @@ PDVRekTar41(cIdFirma, cIdVd, cBrDok, @nStr)
 set order to 1
 go nRec
 return
-*}
+
 
 
 function PDVRekTar41(cIdFirma, cIdVd, cBrDok, nStr)

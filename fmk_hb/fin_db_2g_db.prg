@@ -20,12 +20,12 @@
  
 
 /*! \file fmk/fin/db/2g/db.prg
- *  \brief TDBFin database objekat
+ *   TDBFin database objekat
  */
 
 
-/*! \fn TDBFinNew()
- *  \brief Kreira novi database objekat TDBFin
+/*!  TDBFinNew()
+ *   Kreira novi database objekat TDBFin
  */
  
 function TDBFinNew()
@@ -38,12 +38,12 @@ oObj:cName:="FIN"
 oObj:lAdmin:=.f.
 //Logg("TDBFinNew:"+oObj:cName)
 return oObj
-*}
+
 
 
 
 /*! \class TDBFin
- *  \brief FIN Database objekat
+ *   FIN Database objekat
  */
 
 #ifdef CPP
@@ -85,17 +85,17 @@ END CLASS
 #endif
 
 
-/*! \fn *void TDBFin::dummy()
+/*!  *void TDBFin::dummy()
  */
 *void TDBFin::dummy()
 *{
 method dummy
 return
-*}
 
 
-/*! \fn *void TDBFin::skloniSez(string cSezona, bool finverse, bool fda, bool fnulirati, bool fRS)
- *  \brief formiraj sezonsku bazu podataka
+
+/*!  *void TDBFin::skloniSez(string cSezona, bool finverse, bool fda, bool fnulirati, bool fRS)
+ *   formiraj sezonsku bazu podataka
  */
  
 *void TDBFin::skloniSez(string cSezona, bool finverse, bool fda, bool fnulirati, bool fRS)
@@ -219,10 +219,10 @@ Beep(4)
 
 restore screen from cScr
 return
-*}
 
-/*! \fn *void TDBFin::setgaDBFs()
- *  \brief Setuje matricu gaDBFs 
+
+/*!  *void TDBFin::setgaDBFs()
+ *   Setuje matricu gaDBFs 
  */
 *void TDBFin::setgaDBFs()
 *{
@@ -278,10 +278,10 @@ PUBLIC gaDBFs:={ ;
 }
 
 return
-*}
 
-/*! \fn *void TDBFin::install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7)
- *  \brief osnovni meni za instalacijske procedure
+
+/*!  *void TDBFin::install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7)
+ *   osnovni meni za instalacijske procedure
  *  \todo  prosljedjuje se goModul, ovo ce biti eliminsano eliminisanjem ISC_START-a procedure (tj zamjenom odgovarajucim klasama)
  */
 
@@ -290,10 +290,10 @@ return
 method install()
 ISC_START(goModul,.f.)
 return
-*}
+
 
 /*! *void TDBFin::kreiraj(int nArea)
- *  \brief kreirane baze podataka FIN
+ *   kreirane baze podataka FIN
  */
  
 *void TDBFin::kreiraj(int nArea)
@@ -1024,8 +1024,8 @@ return
 
 
 
-/*! \fn *void TDBFin::obaza(int i)
- *  \brief otvara odgovarajucu tabelu
+/*!  *void TDBFin::obaza(int i)
+ *   otvara odgovarajucu tabelu
  *  
  *  S obzirom da se koristi prvenstveno za instalacijske funkcije
  *  otvara tabele u exclusive rezimu
@@ -1092,10 +1092,10 @@ else
 endif
 
 return
-*}
 
-/*! \fn *void TDBFin::ostalef()
- *  \brief Ostalef funkcije (bivsi install modul)
+
+/*!  *void TDBFin::ostalef()
+ *   Ostalef funkcije (bivsi install modul)
 */
 
 *void TDBFin::ostalef()
@@ -1105,10 +1105,10 @@ method ostalef()
 
 closeret
 return
-*}
 
-/*! \fn *void TDBFin::konvZn()
- *  \brief Koverzija znakova
+
+/*!  *void TDBFin::konvZn()
+ *   Koverzija znakova
  *  \note sifra: KZ
  */
  
@@ -1178,10 +1178,10 @@ aSif  := { F_KONTO, F_PARTN, F_TNAL, F_TDOK, F_PKONTO, F_VALUTE, F_TRFP2,;
 KZNbaza(aPriv,aKum,aSif,cIz,cU)
 
 return
-*}
 
 
-/*! \fn *void TDbFin::scan()
+
+/*!  *void TDbFin::scan()
  */
 *void TDbFin::scan()
 *{
@@ -1211,5 +1211,5 @@ return
 
 
 return
-*}
+
 

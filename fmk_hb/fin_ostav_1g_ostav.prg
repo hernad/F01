@@ -18,8 +18,8 @@
  * ----------------------------------------------------------------
  */
  
-/*! \fn Ostav()
- *  \brief Menij otvorenih stavki
+/*!  Ostav()
+ *   Menij otvorenih stavki
  */
  
 function Ostav()
@@ -54,13 +54,13 @@ Izbor:=1
 Menu_SC("oas")
 
 return
-*}
 
 
 
 
-/*! \fn SpecOtSt()
- *  \brief Specifikacija otvorenih stavki
+
+/*!  SpecOtSt()
+ *   Specifikacija otvorenih stavki
  */
  
 static function SpecOtSt()
@@ -250,11 +250,11 @@ FF
 END PRINT
 closeret
 return
-*}
 
 
-/*! \fn ZaglSpK()
- *  \brief Zaglavlje specifikacije
+
+/*!  ZaglSpK()
+ *   Zaglavlje specifikacije
  */
  
 function ZaglSpK()
@@ -296,12 +296,12 @@ nDSP:=LEN(PARTN->id)
 ? M
 SELECT SUBAN
 RETURN
-*}
 
 
 
-/*! \fn AutoZat() 
- *  \brief Zatvaranje stavki automatski
+
+/*!  AutoZat() 
+ *   Zatvaranje stavki automatski
  */
 function AutoZat(lAuto, cKto, cPtn)
 *{
@@ -447,11 +447,11 @@ BoxC() // counter zatvaranja
 
 closeret
 return
-*}
 
 
-/*! \fn RucnoZat()
- *  \brief Rucno zatvaranje otvaranih stavki
+
+/*!  RucnoZat()
+ *   Rucno zatvaranje otvaranih stavki
  */
  
 function RucnoZat()
@@ -571,12 +571,12 @@ BoxC()
 
 closeret
 return
-*}
 
 
 
-/*! \fn EdROS()
- *  \brief Rucno zatvaranje otvorenih stavki 
+
+/*!  EdROS()
+ *   Rucno zatvaranje otvorenih stavki 
  */
  
 function EdROS()
@@ -674,12 +674,12 @@ do case
      nRet:=DE_REFRESH
 endcase
 return nRet
-*}
 
 
 
-/*! \fn OSt_StatLin()
- *  \brief 
+
+/*!  OSt_StatLin()
+ *   
  */
  
 function OSt_StatLin()
@@ -699,11 +699,11 @@ else
 endif
 
 return
-*}
 
 
-/*! \fn StKart(fSolo,fTiho,bFilter)
- *  \brief Otvorene stavke grupisane po brojevima veze
+
+/*!  StKart(fSolo,fTiho,bFilter)
+ *   Otvorene stavke grupisane po brojevima veze
  *  \param fSolo
  *  \param fTiho
  *  \param bFilter - npr. {|| Mjesto(cMjesto)}
@@ -1070,12 +1070,12 @@ IF fSolo
 ELSE
   RETURN (NIL)
 ENDIF
-*}
 
 
 
-/*! \fn CrePom(fTiho)
- *  \brief Kreira pomocnu tabelu
+
+/*!  CrePom(fTiho)
+ *   Kreira pomocnu tabelu
  *  \fTiho
  */
  
@@ -1122,12 +1122,12 @@ USEX (cPom)
 INDEX ON IDPARTNER+DTOS(DATDOK)+DTOS(IIF(EMPTY(DATVAL),DATDOK,DATVAL))+BRDOK TAG "1"
 SET ORDER TO TAG "1" ; GO TOP
 return .t.
-*}
 
 
 
-/*! \fn ZagKStSif(fStrana,lEx)
- *  \brief Zaglavlje kartice OS-a
+
+/*!  ZagKStSif(fStrana,lEx)
+ *   Zaglavlje kartice OS-a
  *  \param fStrana
  *  \param lEx
  */
@@ -1185,12 +1185,12 @@ ENDIF
 
 SELECT SUBAN
 RETURN
-*}
 
 
 
-/*! \fn StBrVeze()
- *  \brief Stampa broja veze
+
+/*!  StBrVeze()
+ *   Stampa broja veze
  */
  
 function StBrVeze()
@@ -1281,11 +1281,11 @@ ENDIF
 
 FF
 END PRINT
-*}
 
 
-/*! \fn ZagBRVeze()
- *  \brief Zaglavlje izvjestaja broja veze
+
+/*!  ZagBRVeze()
+ *   Zaglavlje izvjestaja broja veze
  */
  
 function ZagBRVeze()
@@ -1318,13 +1318,13 @@ ENDIF
 
 SELECT SUBAN
 RETURN
-*}
 
 
 
 
-/*! \fn Kompenzacija()
- *  \brief Pravljenje "Izjave o kompenzaciji"
+
+/*!  Kompenzacija()
+ *   Pravljenje "Izjave o kompenzaciji"
  */
  
 function Kompenzacija()
@@ -1678,11 +1678,11 @@ BoxC()
 #ENDIF
 CLOSERET
 return
-*}
 
 
-/*! \fn EdKomp()
- *  \brief Ispravka kompenzacije 
+
+/*!  EdKomp()
+ *   Ispravka kompenzacije 
  */
  
 function EdKomp()
@@ -1749,11 +1749,11 @@ ENDIF
 m_x:=nX
 m_y:=nY
 return nVrati
-*}
 
 
-/*! \fn StKompenz()
- *  \brief Stampa kompenzacije
+
+/*!  StKompenz()
+ *   Stampa kompenzacije
  */
  
 function StKompenz()
@@ -1926,11 +1926,11 @@ LOCAL a1:={}, a2:={}, GetList:={}
   END PRINT
  PopWA()
 RETURN (NIL)
-*}
 
 
-/*! \fn SkipT12i60()
- *  \brief 
+
+/*!  SkipT12i60()
+ *   
  */
  
 static function SkipT12i60()
@@ -1947,11 +1947,11 @@ LOCAL nArr:=SELECT()
 
   SELECT (nArr)
 RETURN (NIL)
-*}
 
 
-/*! \fn UzmiVar(cVar)
- *  \brief Uzmi varijable 
+
+/*!  UzmiVar(cVar)
+ *   Uzmi varijable 
  *  \param cVar - varijabla
  */
  
@@ -2037,11 +2037,11 @@ LOCAL cVrati:=""
        cVrati := { "K", "gPI_OFF()" }
  ENDCASE
 RETURN cVrati
-*}
 
 
-/*! \fn PrnKod_ON(cKod)
- *  \brief
+
+/*!  PrnKod_ON(cKod)
+ *  
  */
  
 function PrnKod_ON(cKod)
@@ -2058,12 +2058,12 @@ LOCAL i:=0
     ENDCASE
   NEXT
 RETURN (NIL)
-*}
 
 
 
-/*! \fn PrnKod_OFF(cKod)
- *  \brief Iskljucivanje printerskog koda
+
+/*!  PrnKod_OFF(cKod)
+ *   Iskljucivanje printerskog koda
  *  \param cKod - kod printera
  */
  
@@ -2081,11 +2081,11 @@ LOCAL i:=0
     ENDCASE
   NEXT
 RETURN (NIL)
-*}
 
 
-/*! \fn GenAZ()
- *  \brief 
+
+/*!  GenAZ()
+ *   
  */
  
 function GenAZ()
@@ -2582,11 +2582,11 @@ endif
 
 closeret
 return
-*}
 
 
-/*! \fn StAz()
- *  \brief Stampa promjena
+
+/*!  StAz()
+ *   Stampa promjena
  */
  
 function StAz()
@@ -2619,12 +2619,12 @@ StampaTabele(aKol,,,0,,;
     ,"Rezultati asistenta otvorenih stavki za: "+idkonto+"/"+idpartner+" na datum:"+dtoc(Date()))
 END PRINT
 return .t.
-*}
 
 
 
-/*! \fn SkipDBBK(nRequest)
- *  \brief 
+
+/*!  SkipDBBK(nRequest)
+ *   
  *  \param nRequest
  */
  
@@ -2665,6 +2665,6 @@ if LastRec() != 0
    endif
 endif
 return (nCount)
-*}
+
 
 

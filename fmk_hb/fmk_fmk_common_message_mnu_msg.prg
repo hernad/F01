@@ -14,8 +14,8 @@
 #include "msg.ch"
 
 
-/*! \fn Mnu_Poruke()
- *  \brief Glavni menij poruka
+/*!  Mnu_Poruke()
+ *   Glavni menij poruka
  */
 function Mnu_Poruke()
 *{
@@ -40,5 +40,5 @@ endif
 Menu_SC("msg")
 
 return
-*}
+
 

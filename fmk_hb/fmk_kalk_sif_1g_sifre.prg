@@ -19,11 +19,11 @@
  */
  
 /*! \file fmk/kalk/sif/1g/sifre.prg
- *  \brief Sifrarnici
+ *   Sifrarnici
  */
 
-/*! \fn Sifre()
- *  \brief Glavni menij za izbor sifrarnika
+/*!  Sifre()
+ *   Glavni menij za izbor sifrarnika
  */
  
 function Sifre()
@@ -66,12 +66,12 @@ private Izbor:=1
 Menu_SC("msif")
 CLOSERET
 return .f.
-*}
 
 
 
-/*! \fn ServFun()
- *  \brief Servisne funkcije 
+
+/*!  ServFun()
+ *   Servisne funkcije 
  */
  
 function ServFun()
@@ -79,11 +79,11 @@ function ServFun()
 Msg("Nije u upotrebi")
 closeret
 return
-*}
 
 
-/*! \fn RobaBlock(Ch)
- *  \brief Obrada funkcija nad sifrarnikom robe
+
+/*!  RobaBlock(Ch)
+ *   Obrada funkcija nad sifrarnikom robe
  *  \param Ch - Pritisnuti taster
  */
  
@@ -148,21 +148,21 @@ elseif upper(Chr(Ch))=="S"
 endif
 
 return DE_CONT
-*}
 
 
-/*! \fn FSvaki2()
- *  \brief Ne radi ama bas nista!!!
+
+/*!  FSvaki2()
+ *   Ne radi ama bas nista!!!
  */
  
 function FSvaki2()
 *{
 return
-*}
 
 
-/*! \fn IspisFirme(cIdRj)
- *  \brief Ispis firme na osnovu radne jedinice
+
+/*!  IspisFirme(cIdRj)
+ *   Ispis firme na osnovu radne jedinice
  *  \param cIdRj - radna jedinica
  */
 function IspisFirme(cIdRj)
@@ -181,11 +181,11 @@ if !EMPTY(cIdrj)
   ?? "  RJ",rj->naz
 endif
 return
-*}
 
 
-/*! \fn OSifBaze()
- *  \brief Otvara sve tabele vezane za sifrarnike
+
+/*!  OSifBaze()
+ *   Otvara sve tabele vezane za sifrarnike
  */
  
 function OSifBaze()
@@ -204,7 +204,7 @@ O_TARIFA
 O_ROBA
 O_SAST
 return
-*}
+
 
 
 

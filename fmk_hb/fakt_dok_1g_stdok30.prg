@@ -30,11 +30,11 @@
  */
 
 /*! \file fmk/fakt/dok/1g/stdok30.prg
- *  \brief Stampa faktura u varijanti 3 0
+ *   Stampa faktura u varijanti 3 0
  */
  
-/*! \fn StDok30()
- *  \brief Stampa fakture u varijanti 3 0
+/*!  StDok30()
+ *   Stampa fakture u varijanti 3 0
  *  \param cIdFirma
  *  \param cIdTipDok
  *  \param cBrdok
@@ -95,11 +95,11 @@ IF !StFD0(); RETURN; ENDIF
   FF
  ZAVRSI STAMPU
 CLOSERET
-*}
 
 
-/*! \fn StFD0()
- *  \brief Uslovi za stampu fakture
+
+/*!  StFD0()
+ *   Uslovi za stampu fakture
  */
  
 function StFD0() 
@@ -125,12 +125,12 @@ if val(podbr)=0  .and. val(rbr)==1
    if substr(cTxt2,i,1)=chr(13); ++nLTxt2; endif
  next
 return .t.
-*}
 
 
 
-/*! \fn StFD1()
- *  \brief Zaglavlje (naziv firme, broj ziro racuna, telefon)
+
+/*!  StFD1()
+ *   Zaglavlje (naziv firme, broj ziro racuna, telefon)
  */
  
 function StFD1() 
@@ -138,11 +138,11 @@ function StFD1()
 P_10CPI
 StZaglavlje(gVlZagl,PRIVPATH)
 return
-*}
 
 
-/*! \fn StFD2()
- *  \brief Broj fakture, datum, kupac, dobavljac, valuta itd..
+
+/*!  StFD2()
+ *   Broj fakture, datum, kupac, dobavljac, valuta itd..
  */
  
 function StFD2()    
@@ -164,12 +164,12 @@ function StFD2()
  ? space(gnLmarg)+"VALUTA    : "+PADR(valuta,10)+" KURS VALUTE : "+STR(Ocitaj(F_VALUTE,valuta,"kurs1"),10,3)
  SELECT PRIPR
 return
-*}
 
 
 
-/*! \fn StFD3()
- *  \brief Tabela (stavke)
+
+/*!  StFD3()
+ *   Tabela (stavke)
  */
  
 function StFD3() 
@@ -195,11 +195,11 @@ LOCAL aKol
               {|| cIdFirma+cIdTipDok+cBrDok==IdFirma+IdTipDok+BrDok},;
               ,,,,,,)
 return
-*}
 
 
-/*! \fn Blok30()
- *  \brief 
+
+/*!  Blok30()
+ *   
  */
  
 function Blok30()
@@ -238,11 +238,11 @@ LOCAL nPom,nPoz
     ENDIF
   ENDIF
 return
-*}
 
 
-/*! \fn StFD4()
- *  \brief Rekapitulacije
+
+/*!  StFD4()
+ *   Rekapitulacije
  */
  
 function StFD4()
@@ -264,11 +264,11 @@ nUk:= round(nUk, nZaokr)
    NEXT
  ENDIF
 RETURN
-*}
 
 
-/*! \fn StFD5()
- *  \brief Tekst na kraju fakture (napomena, odobrio, primio ...)
+
+/*!  StFD5()
+ *   Tekst na kraju fakture (napomena, odobrio, primio ...)
  */
  
 function StFD5()    
@@ -295,10 +295,10 @@ nUk:=nUk*(1+gCarEv/100)+nUkCar+nUkPor
  private cpom:=""
  ? g10Str2T
 RETURN
-*}
 
-/*! \fn Znakova(nZnakova,nModIz,nModU)
- *  \brief Modovi: npr. 10, 12, 17, 20
+
+/*!  Znakova(nZnakova,nModIz,nModU)
+ *   Modovi: npr. 10, 12, 17, 20
  *  \param nZnakova
  *  \param nModIz
  *  \param nModU
@@ -307,6 +307,6 @@ RETURN
 function Znakova(nZnakova,nModIz,nModU)  
 *{
 RETURN ROUND(nZnakova*nModU/nModIz,0)
-*}
+
 
 

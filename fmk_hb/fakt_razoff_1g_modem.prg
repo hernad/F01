@@ -19,12 +19,12 @@
  */
 
 /*! \file fmk/fakt/razoff/1g/modem.prg
- *  \brief Prenos podataka modemom
+ *   Prenos podataka modemom
  */
  
 
-/*! \fn PrModem(fSif)
- *  \brief
+/*!  PrModem(fSif)
+ *  
  */
  
 function PrModem(fSif)
@@ -156,11 +156,11 @@ MsgBeep("Datoteka "+cDestMod+"je izgenerisana")
 
 endif
 return nil
-*}
 
 
-/*! \fn PovModem()
- *  \brief
+
+/*!  PovModem()
+ *  
  */
  
 function PovModem()
@@ -273,12 +273,12 @@ if gModemVeza $ "KS" .and. fprenesi
 endif
 
 closeret
-*}
 
 
 
-/*! \fn UChkPostoji(cFullFileName)
- *  \brief U chk direktoriju postoji fajl
+
+/*!  UChkPostoji(cFullFileName)
+ *   U chk direktoriju postoji fajl
  *  \param cFullFileName  - puni naziv fajla (path+ime)
  */
  
@@ -289,11 +289,11 @@ if File(strtran(cFullFileName,":\",":\chk\"))
 else
    return .f.
 endif
-*}
 
 
-/*! \fn BrisiSFajlove(cDir)
- *  \brief Brise sve fajlove iz zadatog direktorija starije od 45 dana
+
+/*!  BrisiSFajlove(cDir)
+ *   Brise sve fajlove iz zadatog direktorija starije od 45 dana
  *  \param cDir  - direktorij
  */
  
@@ -310,5 +310,5 @@ do while !empty(cFile)
     cfile:=fileseek()
 enddo
 return NIL
-*}
+
 

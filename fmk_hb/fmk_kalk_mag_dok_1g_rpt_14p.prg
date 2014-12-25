@@ -20,8 +20,8 @@
  */
  
 
-/*! \fn StKalk14PDV()
- *  \brief Stampa kalkulacije 14
+/*!  StKalk14PDV()
+ *   Stampa kalkulacije 14
  */
 
 function StKalk14PDV()
@@ -250,7 +250,7 @@ endif
 ? m
 
 return
-*}
+
 
 
 

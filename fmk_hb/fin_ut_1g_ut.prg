@@ -29,8 +29,8 @@ return .t.
 
 
 
-/*! \fn OtkljucajBug()
-    \brief ??Otkljucaj lafo bug?
+/*!  OtkljucajBug()
+     ??Otkljucaj lafo bug?
     \note sifra: BUG
  */
  
@@ -41,10 +41,10 @@ if SigmaSif("BUG     ")
     	gaKeys:={}
 endif
 return NIL
-*}
 
-/*! \fn Izvj0()
- *  \brief
+
+/*!  Izvj0()
+ *  
  */
 function Izvj0()
 *{
@@ -57,10 +57,10 @@ function Izvj0()
 Izvjestaji()
 
 return
-*}
 
-/*! \fn PovratNaloga()
- *  \brief Povrat naloga
+
+/*!  PovratNaloga()
+ *   Povrat naloga
  */
 function PovratNaloga()
 *{
@@ -69,10 +69,10 @@ if gBezVracanja=="N"
 endif
 
 return
-*}
 
-/*! \fn Preknjizenje()
- *  \brief preknjizenje
+
+/*!  Preknjizenje()
+ *   preknjizenje
  */
 function Preknjizenje()
 *{
@@ -84,10 +84,10 @@ else
 	Preknjiz()
 endif
 return
-*}
 
-/*! \fn PrebKartica()
- *  \brief Prebacivanja kartica
+
+/*!  PrebKartica()
+ *   Prebacivanja kartica
  */
 function PrebKartica()
 //cSecur:=SecurR(KLevel,"Prekart")
@@ -100,8 +100,8 @@ function PrebKartica()
 return
 
 
-/*! \fn GenPocStanja()
- *  \brief generacija pocetnog stanja
+/*!  GenPocStanja()
+ *   generacija pocetnog stanja
  */
 function GenPocStanja()
 *{
@@ -113,10 +113,10 @@ else
 	PrenosFin()
 endif
 return
-*}
 
-/*! \fn ImaUSubanNemaUNalog()
- *  \brief Ispituje da li nalog postoji u SUBAN ako ga nema u NALOG
+
+/*!  ImaUSubanNemaUNalog()
+ *   Ispituje da li nalog postoji u SUBAN ako ga nema u NALOG
  */
 function ImaUSubanNemaUNalog()
 *{

@@ -443,11 +443,11 @@ MyFERASE(cTMPFAKT)
 
 CLOSERET
 return
-*}
 
 
-/*! \fn ZaglSRobe()
- *  \brief Zaglavlje izvjestaja stanje robe
+
+/*!  ZaglSRobe()
+ *   Zaglavlje izvjestaja stanje robe
  */
 function ZaglSRobe()
 if nstr > 0
@@ -510,6 +510,6 @@ endif
 ? space(gnLMarg)
 ?? m
 return
-*}
+
 
 

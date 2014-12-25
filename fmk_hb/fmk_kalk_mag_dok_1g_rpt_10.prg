@@ -20,12 +20,12 @@
  
 
 /*! \file fmk/kalk/mag/dok/1g/rpt_10.prg
- *  \brief Stampa dokumenta tipa 10
+ *   Stampa dokumenta tipa 10
  */
 
 
-/*! \fn StKalk10_2()
- *  \brief Stampa dokumenta tipa 10, varijanta sa troskovima u kolonama
+/*!  StKalk10_2()
+ *   Stampa dokumenta tipa 10, varijanta sa troskovima u kolonama
  */
 
 function StKalk10_2()
@@ -190,12 +190,12 @@ DokNovaStrana(125, @nStr, 5)
 ? m
 
 return
-*}
 
 
 
-/*! \fn StKalk10_3()
- *  \brief Stampa kalkulacije 10 - magacin po vp, DEFAULT VARIJANTA
+
+/*!  StKalk10_3()
+ *   Stampa kalkulacije 10 - magacin po vp, DEFAULT VARIJANTA
  */
 
 function StKalk10_3(lBezNC)
@@ -518,12 +518,12 @@ endif
 ? m
 endif
 return
-*}
 
 
 
-/*! \fn StKalk10_4()
- *  \brief Stampa kalkulacije 10 - varijanta 3, za papir formata A3
+
+/*!  StKalk10_4()
+ *   Stampa kalkulacije 10 - varijanta 3, za papir formata A3
  */
 
 function StKalk10_4()
@@ -650,5 +650,5 @@ DokNovaStrana(230, @nStr, 3)
 ? m
 ?
 return
-*}
+
 

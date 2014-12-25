@@ -73,12 +73,12 @@ DO WHILE .T.
    ENDCASE
 enddo
 return
-*}
 
 
 
-/*! \fn SpecIOS()
- *  \brief Specifikacija otvorenih stavki
+
+/*!  SpecIOS()
+ *   Specifikacija otvorenih stavki
  */
  
 procedure SpecIOS()
@@ -244,12 +244,12 @@ FF
 END PRINT
 closeret
 return
-*}
 
 
 
-/*! \fn ZagSpecIOS() 
- *  \brief Zaglavlje specifikacije otvorenih stavki
+
+/*!  ZagSpecIOS() 
+ *   Zaglavlje specifikacije otvorenih stavki
  */
  
 function ZagSpecIOS()
@@ -275,7 +275,7 @@ HSEEK cIdFirma
 
 SELECT SUBAN
 RETURN
-*}
+
 
 
 
@@ -366,8 +366,8 @@ return 1
 
 
 
-/*! \fn IOSPrekid()
- *  \brief Ukoliko dodje do prekida u IOSS nastavlja dalje
+/*!  IOSPrekid()
+ *   Ukoliko dodje do prekida u IOSS nastavlja dalje
  */
  
 function IOSPrekid()
@@ -428,12 +428,12 @@ FF
 END PRINT
 closeret
 return
-*}
 
 
 
-/*! \fn IOSPojed()
- *  \brief Pojedinacni IOS
+
+/*!  IOSPojed()
+ *   Pojedinacni IOS
  */
  
 function IOSPojed()
@@ -926,8 +926,8 @@ RETURN
 
 
 
-/*! \fn OstatakOpisa(cO,nCO,bUslov,nSir)
- *  \brief Stampa ostatka opisa
+/*!  OstatakOpisa(cO,nCO,bUslov,nSir)
+ *   Stampa ostatka opisa
  *  \param cO
  *  \param nCO
  *  \param bUslov
@@ -945,6 +945,6 @@ IF nSir==NIL; nSir:=20; ENDIF
     ENDIF
   ENDDO
 RETURN
-*}
+
 
 

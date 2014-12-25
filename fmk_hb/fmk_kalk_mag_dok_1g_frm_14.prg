@@ -18,8 +18,8 @@
  * ----------------------------------------------------------------
  */
 
-/*! \fn Get1_14()
- *  \brief Prva strana maske za unos dokumenta tipa 14
+/*!  Get1_14()
+ *   Prva strana maske za unos dokumenta tipa 14
  */
 
 function Get1_14()
@@ -287,13 +287,13 @@ endif
 
 set key K_ALT_K to
 return lastkey()
-*}
 
 
 
 
-/*! \fn PPP14(fret)
- *  \brief Prikaz poreza pri unosu 14-ke
+
+/*!  PPP14(fret)
+ *   Prikaz poreza pri unosu 14-ke
  */
 
 function PPP14(fret)
@@ -309,13 +309,13 @@ qqout("   PRUC:",transform(iif(nmarza<0,0,nmarza)*;
         iif(gVarVP=="1",tarifa->vpp/100,tarifa->vpp/100/(1+tarifa->vpp/100)),picdem))
 _VPCSaP:=iif(_VPC<>0, _VPC*(1-_RABATV/100)+iif(nMarza<0,0,nMarza)*TARIFA->VPP/100,0)
 return fret
-*}
 
 
 
 
-/*! \fn KM2()
- *  \brief Magacinska kartica kao pomoc pri unosu 14-ke
+
+/*!  KM2()
+ *   Magacinska kartica kao pomoc pri unosu 14-ke
  */
 
 function KM2()
@@ -339,13 +339,13 @@ function KM2()
   go nR3
   select pripr
 return nil
-*}
 
 
 
 
-/*! \fn MarkBrDok(fNovi)
- *  \brief Odredjuje sljedeci broj dokumenta uzimajuci u obzir marker definisan u polju koncij->m1
+
+/*!  MarkBrDok(fNovi)
+ *   Odredjuje sljedeci broj dokumenta uzimajuci u obzir marker definisan u polju koncij->m1
  */
 
 function MarkBrDok(fNovi)
@@ -371,5 +371,5 @@ function MarkBrDok(fNovi)
   ENDIF
   @  m_x+2,m_y+46  SAY _BrDok COLOR INVERT
 return .t.
-*}
+
 

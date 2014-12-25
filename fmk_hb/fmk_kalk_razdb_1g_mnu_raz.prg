@@ -57,7 +57,7 @@ Menu_SC("rmod")
 CLOSERET
 
 return
-*}
+
 
 
 function r_tops_kalk()
@@ -74,4 +74,4 @@ AADD(opcexe,{|| tops_nor_96() })
 Menu_SC("rpka")
 
 return
-*}
+

@@ -430,4 +430,4 @@ if ((cSifDBF)->_M1_ <> "*")
   return .t.
 endif
 return .f.
-*}
+

@@ -15,7 +15,7 @@
 
  
 /*! \file fmk/kalk/db/1g/ut.prg
- *  \brief KALK utilities
+ *   KALK utilities
  */
 
 
@@ -31,12 +31,12 @@ O_PARTN
 O_DOKS
 O_KALK
 return
-*}
 
 
 
-/*! \fn KalkNaF(cidroba,nKols)
- *  \brief Stanje zadanog artikla u FAKT
+
+/*!  KalkNaF(cidroba,nKols)
+ *   Stanje zadanog artikla u FAKT
  */
 
 function KalkNaF(cidroba,nKols)
@@ -59,13 +59,13 @@ do while !eof() .and. cidroba==idroba
 enddo
 select pripr
 return
-*}
+
 
 
 // ako nije razduzeno kako bi trebalo po metodi NC
 
-/*! \fn MsgNCRazd()
- *  \brief
+/*!  MsgNCRazd()
+ *  
  *  \todo ukinuti?
  */
 
@@ -74,11 +74,11 @@ function MsgNCRazd()
 //ne moze raditi
 //if round(nab-> kalk->kolicina) .and. round(nab->nc-kalk->nc,3)<>0;  Msg("U dokumentu "+kalk->(idfirma+"-"+idvd+"-"+brdok)+" nije dobra NC po metodi razduzenja !"); endif
 return
-*}
 
 
-/*! \fn P_Kalk(cIdFirma,cIdVD,cBrDok)
- *  \brief Ispituje postojanje zadanog dokumenta medju azuriranim
+
+/*!  P_Kalk(cIdFirma,cIdVD,cBrDok)
+ *   Ispituje postojanje zadanog dokumenta medju azuriranim
  */
 
 function P_Kalk(cIdFirma,cIdVD,cBrDok)
@@ -99,11 +99,11 @@ endif
 //PopWa()
 SELECT (nArr)
 return nRez
-*}
 
 
-/*! \fn VVT()
- *  \brief Prikaz PPP i proracun marze za visokotarifnu robu
+
+/*!  VVT()
+ *   Prikaz PPP i proracun marze za visokotarifnu robu
  */
 
 function VVT()
@@ -119,13 +119,13 @@ else
 endif
 _tmarza:="A"
 return .t.
-*}
 
 
 
 
-/*! \fn DuplRoba()
- *  \brief Obrada slucaja pojavljivanja duplog unosa robe u dokumentu
+
+/*!  DuplRoba()
+ *   Obrada slucaja pojavljivanja duplog unosa robe u dokumentu
  */
 
 function DuplRoba()
@@ -165,12 +165,12 @@ private GetList:={}
  select pripr
  set order to 1
 return .t.
-*}
 
 
 
-/*! \fn DatPosljK()
- *  \brief Ispituje da li je datum zadnje promjene na zadanom magacinu i za zadani artikal noviji od one koja se unosi
+
+/*!  DatPosljK()
+ *   Ispituje da li je datum zadnje promjene na zadanom magacinu i za zadani artikal noviji od one koja se unosi
  */
 
 function DatPosljK()
@@ -186,11 +186,11 @@ if _idfirma+_idkonto+_idroba==idfirma+mkonto+idroba .and. _datdok<datdok
 endif
 select pripr
 return
-*}
 
 
-/*! \fn DatPosljP()
- *  \brief Ispituje da li je datum zadnje promjene na zadanoj prodavnici i za zadani artikal noviji od one koja se unosi
+
+/*!  DatPosljP()
+ *   Ispituje da li je datum zadnje promjene na zadanoj prodavnici i za zadani artikal noviji od one koja se unosi
  */
 
 function DatPosljP()
@@ -215,12 +215,12 @@ else
 endif
 select pripr
 return
-*}
 
 
 
-/*! \fn SljBroj(cidfirma,cIdvD,nMjesta)
- *  \brief Sljedeci slobodan broj dokumenta za zadanu firmu i vrstu dokumenta
+
+/*!  SljBroj(cidfirma,cIdvD,nMjesta)
+ *   Sljedeci slobodan broj dokumenta za zadanu firmu i vrstu dokumenta
  */
 
 function SljBroj(cidfirma,cIdvD,nMjesta)
@@ -339,8 +339,8 @@ return cResult
 
 
 
-/*! \fn MMarza2()
- *  \brief Daje iznos maloprodajne marze
+/*!  MMarza2()
+ *   Daje iznos maloprodajne marze
  */
 
 function MMarza2()
@@ -353,12 +353,12 @@ function MMarza2()
      nMarza2:=Marza2
   endif
 return nMarza2
-*}
 
 
 
-/*! \fn KnjizSt()
- *  \brief Proracun knjiznog stanja za zadanu robu i prodavnicu 
+
+/*!  KnjizSt()
+ *   Proracun knjiznog stanja za zadanu robu i prodavnicu 
  */
 
 function KnjizSt()
@@ -422,12 +422,12 @@ endif
 PopWa()
 select pripr
 return
-*}
 
 
 
-/*! \fn RenumPripr(cDok,cidvd)
- *  \brief Prenumerisanje stavki zadanog dokumenta u pripremi
+
+/*!  RenumPripr(cDok,cidvd)
+ *   Prenumerisanje stavki zadanog dokumenta u pripremi
  */
 
 function RenumPripr(cDok,cidvd)
@@ -449,12 +449,12 @@ select pripr
 set order to 1
 go top
 return
-*}
 
 
 
-/*! \fn IspitajPrekid()
- *  \brief Ispituje da li je pritisnuta tipka ESC. Koristi se u do while uslovu
+
+/*!  IspitajPrekid()
+ *   Ispituje da li je pritisnuta tipka ESC. Koristi se u do while uslovu
  *  \return Ako je pritisnut ESC vraca .f., u suprotnom .t.
  */
 
@@ -462,14 +462,14 @@ function IspitajPrekid()
 *{
  INKEY()
 return IF(LASTKEY()==27,PrekSaEsc(),.t.)
-*}
 
 
 
 
 
-/*! \fn KaKaProd(nUlaz,nIzlaz,nMPV,nNV)
- *  \brief Kalkulacija stanja za karticu artikla u prodavnici
+
+/*!  KaKaProd(nUlaz,nIzlaz,nMPV,nNV)
+ *   Kalkulacija stanja za karticu artikla u prodavnici
  */
 
 function KaKaProd(nUlaz,nIzlaz,nMPV,nNV)
@@ -494,12 +494,12 @@ function KaKaProd(nUlaz,nIzlaz,nMPV,nNV)
     nMPV+=mpcsapp*kolicina
   endif
 return
-*}
 
 
 
-/*! \fn NCuMP(_idfirma,_idroba,_idkonto,nKolicina,dDatDok)
- *  \brief Proracun stanja i nabavne vrijednosti za zadani artikal i prodavnicu
+
+/*!  NCuMP(_idfirma,_idroba,_idkonto,nKolicina,dDatDok)
+ *   Proracun stanja i nabavne vrijednosti za zadani artikal i prodavnicu
  */
 
 function NCuMP(_idfirma,_idroba,_idkonto,nKolicina,dDatDok)
@@ -520,12 +520,12 @@ function NCuMP(_idfirma,_idroba,_idkonto,nKolicina,dDatDok)
   PopWA()
   SELECT (nArr)
 return nc2
-*}
 
 
 
-/*! \fn KalkTrUvoz()
- *  \brief Proracun carine i ostalih troskova koji se javljaju pri uvozu
+
+/*!  KalkTrUvoz()
+ *   Proracun carine i ostalih troskova koji se javljaju pri uvozu
  *  \todo samo otvorena f-ja
  */
 
@@ -542,11 +542,11 @@ function KalkTrUvoz()
   BoxC()
   MsgBeep("Opcija jos nije u funkciji jer je dorada u toku!")
 CLOSERET
-*}
 
 
-/*! \fn ObracunPorezaUvoz()
- *  \brief Proracun poreza pri uvozu
+
+/*!  ObracunPorezaUvoz()
+ *   Proracun poreza pri uvozu
  */
 
 function ObracunPorezaUvoz()
@@ -609,7 +609,7 @@ endif
 
 CLOSERET
 return
-*}
+
 
 
 function ImePoljaTroska(n)
@@ -617,11 +617,11 @@ function ImePoljaTroska(n)
 local aTros
 aTros:={"Prevoz","BankTr","SpedTr","CarDaz","ZavTr"}
 return aTros[n]
-*}
 
 
-/*! \fn KTroskovi()
- *  \brief Proracun iznosa troskova pri unosu u pripremi
+
+/*!  KTroskovi()
+ *   Proracun iznosa troskova pri unosu u pripremi
  */
 
 function KTroskovi()
@@ -746,13 +746,13 @@ else
 	nMarza2:=MPC-VPC
 endif
 return
-*}
 
 
 
 
-/*! \fn Preduzece()
- *  \brief Ispis naziva preduzeca/firme
+
+/*!  Preduzece()
+ *   Ispis naziva preduzeca/firme
  */
 
 function Preduzece()
@@ -767,12 +767,12 @@ B_OFF
 ?
 ?
 return
-*}
 
 
 
-/*! \fn ImaUKumul(cKljuc,cTag)
- *  \brief Ispituje postojanje zadanog kljuca u zadanom indeksu kumulativa KALK
+
+/*!  ImaUKumul(cKljuc,cTag)
+ *   Ispituje postojanje zadanog kljuca u zadanom indeksu kumulativa KALK
  */
 
 function ImaUKumul(cKljuc,cTag)
@@ -799,12 +799,12 @@ function ImaUKumul(cKljuc,cTag)
   ENDIF
   select (nArr)
 return lVrati
-*}
 
 
 
-/* \fn UkupnoKolP(nTotalUlaz, nTotalIzlaz)
- * \brief Obracun kolicine za prodavnicu 
+
+/*  UkupnoKolP(nTotalUlaz, nTotalIzlaz)
+ *  Obracun kolicine za prodavnicu 
  * \note funkciju staviti unutar petlje koja prolazi kroz kalk
  * \code
  *    nUlazKP:=0
@@ -855,9 +855,9 @@ endif
 
 
 return
-*}
 
-/*! \fn UkupnoKolM(nTotalUlaz, nTotalIzlaz)
+
+/*!  UkupnoKolM(nTotalUlaz, nTotalIzlaz)
  *  \sa UkupnoKolP
  */
  
@@ -900,7 +900,7 @@ elseif field->mu_i=="8"
 endif
 
 return
-*}
+
 
 
 function RptSeekRT()
@@ -915,11 +915,11 @@ HSEEK (nArea)->IdTarifa
 SELECT (nArea)
 
 return
-*}
 
 
-/*! \fn UzmiIzP(cSta)
- *  \brief Uzmi iz parametara
+
+/*!  UzmiIzP(cSta)
+ *   Uzmi iz parametara
  *  \param cSta - "KOL", "NV", "MPV", MPVBP"...
  */
 function UzmiIzP(cSta)  
@@ -976,7 +976,7 @@ LOCAL nVrati:=0, nArr:=0
     endif
   ENDIF
 RETURN nVrati
-*}
+
 
 
 function Generisi11ku_iz10ke(cBrDok)
@@ -1041,7 +1041,7 @@ select (nArr)
 
 MsgBeep("Formirao dokument " + ALLTRIM(gFirma) + "-11-" + ALLTRIM(cBrDok))
 return
-*}
+
 
 
 function Get11FromSmece(cBrDok)
@@ -1069,7 +1069,7 @@ enddo
 select (nArr)
 MsgBeep("Asistentom obraditi dokument !")
 return
-*}
+
 
 
 function Generisati11_ku()
@@ -1089,7 +1089,7 @@ else
 	return .f.
 endif
 return
-*}
+
 
 
 // set pdv cijene
@@ -1212,7 +1212,7 @@ BoxC()
 MsgBeep("Formirao PDV cijene u sifrarniku Roba tekuca godina")
 
 closeret
-*}
+
 
 
 // set pdv cijene
@@ -1293,7 +1293,7 @@ BoxC()
 MsgBeep("Formirao nove cijene, pomnozio sa faktorom !")
 
 closeret
-*}
+
 
 
 

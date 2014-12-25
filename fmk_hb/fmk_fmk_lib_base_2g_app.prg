@@ -19,7 +19,7 @@
  */
  
 /*! \file sclib/base/2g/app.prg
- *  \brief Bazni aplikacijski objekat - TAppMod
+ *   Bazni aplikacijski objekat - TAppMod
  */
 
 
@@ -33,12 +33,12 @@ oObj:=TAppMod():new()
 oObj:self:=oObj
 
 return oObj
-*}
+
 
 #ifdef CPP
 
 /*! \class TAppMod
- *  \brief Bazni Aplikacijski objekt
+ *   Bazni Aplikacijski objekt
  */
 
 class TAppMod
@@ -121,8 +121,8 @@ END CLASS
 #endif
 #endif
 
-/*! \fn *void TAppMod::init(TObject oParent,string cModul,string cVerzija,string cPeriod,string cKorisn,string cSifra,string p3,string p4,string p5,string p6,string p7)
- *  \brief Incijalizacija AppMod objekta
+/*!  *void TAppMod::init(TObject oParent,string cModul,string cVerzija,string cPeriod,string cKorisn,string cSifra,string p3,string p4,string p5,string p6,string p7)
+ *   Incijalizacija AppMod objekta
  */
 
 *void TAppMod::init(TObject oParent,string cModul,string cVerzija,string cPeriod,string cKorisn,string cSifra,string p3,string p4,string p5,string p6,string p7)
@@ -145,10 +145,10 @@ method init(oParent, cModul, cVerzija, cPeriod, cKorisn, cSifra, p3,p4,p5,p6,p7)
 ::lTerminate:=.f.
 
 return
-*}
 
-/*! \fn *bool TAppMod::hasParent()
- *  \brief ima li objekat "roditelja"
+
+/*!  *bool TAppMod::hasParent()
+ *   ima li objekat "roditelja"
  */
  
 *bool TAppMod::hasParent()
@@ -156,11 +156,11 @@ return
 method hasParent()
 
 return !(::oParent==nil)
-*}
 
 
-/*! \fn *TObject TAppMod::setParent(TObject oParent)
- *  \brief postavi roditelja ovog objekta
+
+/*!  *TObject TAppMod::setParent(TObject oParent)
+ *   postavi roditelja ovog objekta
  *
  *  Roditelj je programski modul (objekat) koji je izvrsio kreiranje ovog objekta. To bi znacilo za oPos to parent oFMK - "master" aplikacijski modul koji poziva pojedinacne programske module (oFIN, oKALK, oFAKT)
  */
@@ -171,18 +171,18 @@ method setParent(oParent)
 ::parent:=oParent
 
 return
-*}
 
 
-/*! \fn *TObject TAppMod::getParent()
- *  \brief Daj mi roditelja ovog objekta
+
+/*!  *TObject TAppMod::getParent()
+ *   Daj mi roditelja ovog objekta
  */
 
 *TObject TAppMod::getParent()
 *{
 method getParent()
 return ::oParent
-*}
+
 
 
 *string TAppMod::setName(string cName)
@@ -190,7 +190,7 @@ return ::oParent
 method setName()
 ::cName:="SCAPP"
 return
-*}
+
 
 
 
@@ -219,7 +219,7 @@ endif
 ::MMenu()
 
 return
-*}
+
 
 
 *void TAppMod::gProc(char Ch)
@@ -277,11 +277,11 @@ do case
 endcase
 
 return
-*}
 
 
-/*! \fn *void TAppMod::quit(bool lVratiseURP)
- *  \brief izlazak iz aplikacijskog modula
+
+/*!  *void TAppMod::quit(bool lVratiseURP)
+ *   izlazak iz aplikacijskog modula
  *  \param lVratiSeURP - default vrijednost .t.; kada je .t. vrati se u radno podrucje; .f. ne mjenjaj radno podrucje
  *
  *  \todo proceduru izlaska revidirati, izbaciti Rad.sys iz upotrebe, kao i korisn.dbf
@@ -335,7 +335,7 @@ if !(::hasParent())
 endif
 
 return
-*}
+
 
 
 *void TAppMod::gParams()
@@ -675,8 +675,8 @@ endif
 return .t.
 
 
-/*! \fn TAppMod::setTGVars() 
- *  \brief Setuje globalne varijable, te setuje incijalne vrijednosti objekata koji pripadaju glavnom app objektu
+/*!  TAppMod::setTGVars() 
+ *   Setuje globalne varijable, te setuje incijalne vrijednosti objekata koji pripadaju glavnom app objektu
  */
 
 *void TAppMod::setTGVars()
@@ -704,10 +704,10 @@ endif
 ::oDesktop:=TDesktopNew()
 	
 return
-*}
 
-/*! \fn TAppMod::limitKLicenca(nLevel)
- *  \brief Prikazuje poruku o ogranicenosti korisnicke licence
+
+/*!  TAppMod::limitKLicenca(nLevel)
+ *   Prikazuje poruku o ogranicenosti korisnicke licence
  *  \return  True ako je nLevel> oApp:nKLicenca return .t.
  */
 
@@ -724,4 +724,4 @@ if (nLevel>::nKLicenca)
 	return .t.
 endif
 return .f.
-*}
+

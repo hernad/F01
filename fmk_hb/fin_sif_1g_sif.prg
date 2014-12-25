@@ -21,12 +21,12 @@
 
 
 /*! \file fmk/fin/sif/1g/sif.prg
- *  \brief Sifrarnici
+ *   Sifrarnici
  */
 
 
-/*! \fn ServFun()
- *  \brief Servisne funkcije
+/*!  ServFun()
+ *   Servisne funkcije
  */
  
 function ServFun()
@@ -67,14 +67,14 @@ if cOdg=="1"
 endif
 closeret
 return
-*}
+
 
 
 
 /*!
  * \ingroup ini
  * \var FmkIni_ExePath_FIN_PartnerNaziv2
- * \brief Prikaz polja Naz2 u PARTN tabeli 
+ *  Prikaz polja Naz2 u PARTN tabeli 
  * \param D - prikaz polja Naz2 u tabeli partnera
  * \param N - ne prikaz, default vrijednost
  * \sa P_Firma
@@ -84,7 +84,7 @@ return
 /*!
  * \ingroup ini
  * \var FmkIni_ExePath_SifPartn_DZIROR
- * \brief Prikaz polja DZIROR - devizni ziro racun 
+ *  Prikaz polja DZIROR - devizni ziro racun 
  * \param D - prikaz polja
  * \param N - ne prikaz, default vrijednost
  * \sa P_Firma
@@ -95,7 +95,7 @@ return
 /*!
  * \ingroup ini
  * \var FmkIni_ExePath_SifPartn_Fax
- * \brief Prikaz polja Fax
+ *  Prikaz polja Fax
  * \param D - prikaz Ziro racun
  * \param N - ne prikaz, default vrijednost
  * \sa P_Firma
@@ -103,8 +103,8 @@ return
 *string FmkIni_ExePath_SifPartn_Fax;
 
 
-/*! \fn P_Firma(cId,dx,dy)
- *  \brief Otvara sifrarnik partnera 
+/*!  P_Firma(cId,dx,dy)
+ *   Otvara sifrarnik partnera 
  *  \param cId
  *  \param dx
  *  \param dy
@@ -205,12 +205,12 @@ PopWa()
 
 private gTBDir:="N"
 return PostojiSifra(F_PARTN,1,10,60,"Lista Partnera",@cId,dx,dy,{|Ch| PartnBlok(Ch)},,,,,{"ID"})
-*}
 
 
 
-/*! \fn PartnBlok(Ch)
- *  \brief Obrada funkcija nad sifrarnikom partnera
+
+/*!  PartnBlok(Ch)
+ *   Obrada funkcija nad sifrarnikom partnera
  *  \param Ch  - pritisnuti taster
  */
  
@@ -245,14 +245,14 @@ elseif Ch==K_F5
 endif
 
 RETURN DE_CONT
-*}
 
 
 
 
 
-/*! \fn IzfUgovor()
- *  \brief Pregled ugovora za partnere, specificno za ZIPS
+
+/*!  IzfUgovor()
+ *   Pregled ugovora za partnere, specificno za ZIPS
  */
  
 function IzfUgovor()
@@ -330,12 +330,12 @@ altd()
 endif // iz fmk.ini
 
 return .t.
-*}
 
 
 
-/*! \fn P_VN(cId,dx,dy)
- *  \brief Otvara sifranik vrta naloga
+
+/*!  P_VN(cId,dx,dy)
+ *   Otvara sifranik vrta naloga
  *  \param cId
  *  \param dx
  *  \param dy
@@ -350,11 +350,11 @@ ImeKol:={ { "ID  ",  {|| id },     "id"   , {|| .t.}, {|| vpsifra(wid)}    },;
 Kol:={1,2}
 private gTBDir:="N"
 return PostojiSifra(F_TNAL,1,10,60,"Lista: Vrste naloga",@cId,dx,dy)
-*}
 
 
-/*! \fn P_TipDok(cId,dx,dy)
- *  \brief Otvara sifrarnik tipova dokumenata
+
+/*!  P_TipDok(cId,dx,dy)
+ *   Otvara sifrarnik tipova dokumenata
  *  \param cId
  *  \param dx
  *  \param dy
@@ -369,11 +369,11 @@ ImeKol:={ { "ID  ",  {|| id },     "id"   , {|| .t.}, {|| vpsifra(wid)}    },;
 Kol:={1,2}
 private gTBDir:="N"
 return PostojiSifra(F_TDOK,1,10,60,"Lista: Tipovi dokumenata",@cId,dx,dy)
-*}
 
 
-/*! \fn P_KontoFin(cId,dx,dy,lBlag)
- *  \brief Otvara sifrarnik konta spec. za FIN
+
+/*!  P_KontoFin(cId,dx,dy,lBlag)
+ *   Otvara sifrarnik konta spec. za FIN
  *  \param cId
  *  \param dx
  *  \param dy
@@ -454,12 +454,12 @@ PopWa()
 
 private gTBDir:="N"
 return PostojiSifra(F_KONTO,1,10,60,"Lista: Konta ",@cId,dx,dy,{|Ch| KontoBlok(Ch)},,,,,{"ID"})
-*}
 
 
 
-/*! \fn KontoBlok(Ch)
- *  \brief Obradjuje funkcije nad sifrarnikom konta
+
+/*!  KontoBlok(Ch)
+ *   Obradjuje funkcije nad sifrarnikom konta
  *  \param Ch  - pritisnuti taster
  */
  
@@ -561,12 +561,12 @@ SET FILTER TO
 GO nRec
 
 return DE_CONT
-*}
 
 
 
-/*! \fn P_PKonto(cId,dx,dy)
- *  \brief Otvara sifrarnik prenosa konta u novu godinu
+
+/*!  P_PKonto(cId,dx,dy)
+ *   Otvara sifrarnik prenosa konta u novu godinu
  *  \param cId
  *  \param dx
  *  \param dy
@@ -581,11 +581,11 @@ ImeKol:={ { "ID  ",  {|| id },   "id"   , {|| .t.}, {|| vpsifra(wid)}    },;
 Kol:={1,2}
 private gTBDir:="N"
 return PostojiSifra(F_PKONTO,1,10,60,"Lista: Nacin prenosa konta u novu godinu",@cId,dx,dy)
-*}
 
 
-/*! \fn TipPKonto(cTip)
- *  \brief Tip prenosa konta u novu godinu
+
+/*!  TipPKonto(cTip)
+ *   Tip prenosa konta u novu godinu
  *  \param cTip
  */
  
@@ -606,11 +606,11 @@ elseif cTip="6"
 else
   return "??????????????"
 endif
-*}
 
 
-///*! \fn P_Valuta(cId,dx,dy)
-// *  \brief Otvara sifrarnik valuta
+
+///*!  P_Valuta(cId,dx,dy)
+// *   Otvara sifrarnik valuta
 // *  \param cId
 // *  \param dx
 // *  \param dy
@@ -631,12 +631,12 @@ endif
 //Kol:={1,2,3,4,5,6,7,8}
 //private gTBDir:="N"
 //return PostojiSifra(F_VALUTE,1,10,77,"Valute",@cid,dx,dy)
-//*}
+//
 
 
 
-/*! \fn P_Funk(cId,dx,dy)
- *  \brief Otvara sifranik funkcionalnih klasifikacija 
+/*!  P_Funk(cId,dx,dy)
+ *   Otvara sifranik funkcionalnih klasifikacija 
  *  \param cId
  *  \param dx
  *  \param dy
@@ -652,11 +652,11 @@ ImeKol:={ { padr("Id",5)    , {|| id}  , "id", {|| .t.}, {|| vpsifra(wid)} },;
 Kol:={1,2}
 private gTBDir:="N"
 return PostojiSifra(F_FUNK,1,10,70,"Lista funkcionalne klasifikacije",@cId,dx,dy)
-*}
 
 
-/*! \fn P_Fond(cId,dx,dy)
- *  \brief Otvara sifrarnik fondova
+
+/*!  P_Fond(cId,dx,dy)
+ *   Otvara sifrarnik fondova
  *  \param cId
  *  \param dx
  *  \param dy
@@ -672,11 +672,11 @@ ImeKol:={ { padr("Id",3)    , {|| id}  , "id", {|| .t.}, {|| vpsifra(wid)} },;
 Kol:={1,2}
 private gTBDir:="N"
 return PostojiSifra(F_FOND,1,10,70,"Lista: Fondovi",@cId,dx,dy)
-*}
 
 
-/*! \fn P_BuIz(cId,dx,dy)
- *  \brief Otvara sifrarnik konta-izuzetci
+
+/*!  P_BuIz(cId,dx,dy)
+ *   Otvara sifrarnik konta-izuzetci
  *  \param cId
  *  \param dx
  *  \param dy
@@ -692,11 +692,11 @@ ImeKol:={ { padr("Konto",10)    , {|| id}  , "id", {|| .t.}, {|| vpsifra(wid)} }
 Kol:={1,2}
 private gTBDir:="N"
 return PostojiSifra(F_BUIZ,1,10,70,"Lista: konta-izuzeci u sortiranju",@cId,dx,dy)
-*}
 
 
-/*! \fn P_Budzet(cId,dx,dy)
- *  \brief Otvara sifrarnik plana budzeta
+
+/*!  P_Budzet(cId,dx,dy)
+ *   Otvara sifrarnik plana budzeta
  *  \param cId
  *  \param dx
  *  \param dy
@@ -716,12 +716,12 @@ ImeKol:={ { "Glava",   {|| idrj}, "idrj",, {|| empty(wIdRj) .or. P_RJ (@wIdRj)}}
 Kol:={1,2,3,4,5,6}
 private gTBDir:="N"
 return PostojiSifra(F_BUDZET,1,10,55,"Plan budzeta za tekucu godinu",@cId,dx,dy)
-*}
 
 
 
-/*! \fn P_ParEK(cId,dx,dy)
- *  \brief Otvara sifrarnik ekonomskih kategorija
+
+/*!  P_ParEK(cId,dx,dy)
+ *   Otvara sifrarnik ekonomskih kategorija
  *  \param cId
  *  \param dx
  *  \param dy
@@ -737,11 +737,11 @@ ImeKol:={ { "Partija", {|| IdPartija}, "idpartija",, {|| vpsifra (wIdPartija)}},
 Kol:={1,2}
 private gTBDir:="N"
 return PostojiSifra(F_PAREK,1,10,55,"Partije->Konta" ,@cId,dx,dy)
-*}
 
 
-/*! \fn P_TRFP2(cId,dx,dy)
- *  \brief Otvara sifrarnik parametri prenosa u FP
+
+/*!  P_TRFP2(cId,dx,dy)
+ *   Otvara sifrarnik parametri prenosa u FP
  *  \param cId
  *  \param dx
  *  \param dy
@@ -785,12 +785,12 @@ return PostojiSifra(F_TRFP2,1,15,76,"Parametri prenosa u FP",@cId,dx,dy)
 select trfp2
 set filter to
 return
-*}
 
 
 
-/*! \fn P_TRFP3(cId,dx,dy)
- *  \brief Otvara sifrarnik shema kontiranja obracuna LD
+
+/*!  P_TRFP3(cId,dx,dy)
+ *   Otvara sifrarnik shema kontiranja obracuna LD
  *  \param cId
  *  \param dx
  *  \param dy
@@ -828,11 +828,11 @@ return PostojiSifra(F_TRFP3,1,15,76,"Sheme kontiranja obracuna LD",@cId,dx,dy)
 select trfp3
 set filter to
 return
-*}
 
 
-/*! \fn ImaUSuban(cKljuc,cTag)
- *  \brief 
+
+/*!  ImaUSuban(cKljuc,cTag)
+ *   
  *  \param cKljuc
  *  \param cTag
  */
@@ -857,11 +857,11 @@ LOCAL lVrati:=.f., lUsed:=.t., nArr:=SELECT()
   ENDIF
   select (nArr)
 RETURN lVrati
-*}
 
 
-/*! \fn P_Roba(cId,dx,dy)
- *  \brief Otvara sifranik robe
+
+/*!  P_Roba(cId,dx,dy)
+ *   Otvara sifranik robe
  *  \param cId
  *  \param dx
  *  \param dy
@@ -888,11 +888,11 @@ local cPrikazi
 // u isrpravci sifre ispadao kod ugovora, izbacio nije ni potrebno ..?
 
 return .t.
-*}
 
 
-/*! \fn P_VrsteP(cId,dx,dy)
- *  \brief Otvara sifrarnik vrsta placanja
+
+/*!  P_VrsteP(cId,dx,dy)
+ *   Otvara sifrarnik vrsta placanja
  *  \param cId
  *  \param dx
  *  \param dy
@@ -906,11 +906,11 @@ ImeKol:={ { "ID ",  {|| id },       "id"  , {|| .t.}, {|| vpsifra(wId)}      },;
         }
  FOR i:=1 TO LEN(ImeKol); AADD(Kol,i); NEXT
 return PostojiSifra(F_VRSTEP,1,10,55,"Sifrarnik vrsta placanja",@cid,dx,dy)
-*}
 
 
-/*! \fn P_ULimit(cId,dx,dy)
- *  \brief Otvara sifrarnik limita po ugovorima
+
+/*!  P_ULimit(cId,dx,dy)
+ *   Otvara sifrarnik limita po ugovorima
  *  \param cId
  *  \param dx
  *  \param dy
@@ -925,11 +925,11 @@ ImeKol:={ { "ID "        , {|| id       }, "id"       , {|| .t.}, {|| vpsifra(wI
         }
  FOR i:=1 TO LEN(ImeKol); AADD(Kol,i); NEXT
 return PostojiSifra(F_ULIMIT,1,10,55,"Sifrarnik limita po ugovorima",@cid,dx,dy)
-*}
 
 
-/*! \fn P_Ftxt(cId,dx,dy)
- *  \brief Otvara sifrarnik tekst na kraju fakture
+
+/*!  P_Ftxt(cId,dx,dy)
+ *   Otvara sifrarnik tekst na kraju fakture
  *  \param cId
  *  \param dx
  *  \param dy
@@ -947,11 +947,11 @@ Kol:={1,2}
 Private gTBDir:="N"
 vrati:=PostojiSifra(F_FTXT,1,7,77,"Faktura - tekst na kraju fakture",@cId)
 RETURN vrati
-*}
 
 
-/*! \fn Labelu()
- *  \brief Napomena da se u modulu fakt vrsi labeliranje
+
+/*!  Labelu()
+ *   Napomena da se u modulu fakt vrsi labeliranje
  *  \param
  */
  
@@ -959,11 +959,11 @@ function Labelu()
 *{
 Msgo("U modulu FAKT vrsi se labeliranje...")
 return
-*}
 
 
-/*! \fn DFTParU2(lIni)
- *  \brief Tekuci podaci za nove ugovore
+
+/*!  DFTParU2(lIni)
+ *   Tekuci podaci za nove ugovore
  *  \param lIni
  */
  
@@ -1024,11 +1024,11 @@ LOCAL GetList:={}
   ENDIF
   USE
 RETURN
-*}
 
 
-/*! \fn SifkFill(cSifk,cSifv,cSifrarnik,cIdSif)
- *  \brief Puni pomocne tabele radi prenosa
+
+/*!  SifkFill(cSifk,cSifv,cSifrarnik,cIdSif)
+ *   Puni pomocne tabele radi prenosa
  *  \param cSifk
  *  \param cSifv
  *  \param cSifrarnik
@@ -1074,10 +1074,10 @@ select _sifk ;use
 
 PopWa()
 return
-*}
 
-/*! \fn SifkOsv(cSifk,cSifv,cSifrarnik,cIdSif)
- *  \brief Osvjezava sifk i sifv iz pomocnih tabela
+
+/*!  SifkOsv(cSifk,cSifv,cSifrarnik,cIdSif)
+ *   Osvjezava sifk i sifv iz pomocnih tabela
  *  \param cSifk
  *  \param cSifv
  *  \param cSifrarnik
@@ -1122,11 +1122,11 @@ select _SIFV; use
 
 PopWa()
 return
-*}
 
 
-/*! \fn DaUSifv(cBaza,cIdKar,cId,cVrKar)
- *  \brief 
+
+/*!  DaUSifv(cBaza,cIdKar,cId,cVrKar)
+ *   
  *  \param cBaza
  *  \param cIdKar
  *  \param cId
@@ -1143,11 +1143,11 @@ LOCAL nArr:=SELECT(), lVrati:=.f.
  ENDIF
  SELECT (nArr)
 RETURN lVrati
-*}
 
 
-/*! \fn P_Kuf(cId,dx,dy)
- *  \brief Otvara sifrarnik KUF
+
+/*!  P_Kuf(cId,dx,dy)
+ *   Otvara sifrarnik KUF
  *  \param cId
  *  \param dx
  *  \param dy
@@ -1176,12 +1176,12 @@ PRIVATE ImeKol:={},Kol:={}
  AADD( ImeKol , { "Placeno"     , {|| PLACENO  }, "PLACENO"  ,,,,"@!"    } )
  FOR i:=1 TO LEN(ImeKol); AADD(Kol,i); NEXT
 return PostojiSifra(F_KUF,IF(gRJ=="D","ID2",1),15,77,"KUF",@cid,dx,dy,{|Ch| KUFBlok(Ch)})
-*}
 
 
 
-/*! \fn KUFBlok(Ch)
- *  \brief Obradjuje operacije nad sifrarnikom KUF-a
+
+/*!  KUFBlok(Ch)
+ *   Obradjuje operacije nad sifrarnikom KUF-a
  *  \param Ch - pritisnuti taster
  */
  
@@ -1256,33 +1256,33 @@ LOCAL nRec:=RECNO()
   END PRINT
   GO nRec
 return DE_CONT
-*}
 
 
-/*! \fn KUFFor1()
- *  \brief
+
+/*!  KUFFor1()
+ *  
  */
  
 function KUFFor1()
 *{
 RETURN .t.
-*}
 
 
-/*! \fn KUFSvaki1()
- *  \brief
+
+/*!  KUFSvaki1()
+ *  
  */
  
 function KUFSvaki1()
 *{
 cNPartnera:=Ocitaj(F_PARTN,IDPARTN,"naz")
 RETURN
-*}
 
 
 
-/*! \fn P_Kif(cId,dx,dy)
- *  \brief Otvara sifrarnik KIF-a
+
+/*!  P_Kif(cId,dx,dy)
+ *   Otvara sifrarnik KIF-a
  *  \param cId
  *  \param dx
  *  \param dy
@@ -1311,11 +1311,11 @@ PRIVATE ImeKol:={},Kol:={}
  AADD( ImeKol , { "Placeno"     , {|| PLACENO  }, "PLACENO"  ,,,,"@!"    } )
  FOR i:=1 TO LEN(ImeKol); AADD(Kol,i); NEXT
 RETURN PostojiSifra(F_KIF,IF(gRJ=="D","ID2",1),15,77,"KIF",@cid,dx,dy,{|Ch| KIFBlok(Ch)})
-*}
 
 
-/*! \fn KifBlok(Ch)
- *  \brief Obradjuje funkcije nad sifrarnikom KIF-a
+
+/*!  KifBlok(Ch)
+ *   Obradjuje funkcije nad sifrarnikom KIF-a
  *  \param Ch - pritisnuti taster
  */
  
@@ -1389,31 +1389,31 @@ LOCAL nRec:=RECNO()
   END PRINT
   GO nRec
 return DE_CONT
-*}
 
 
-/*! \fn KifFor1()
- *  \brief
+
+/*!  KifFor1()
+ *  
  */
  
 function KIFFor1()
 *{
 RETURN .t.
-*}
 
-/*! \fn KifSvaki1()
- *  \brief
+
+/*!  KifSvaki1()
+ *  
  */
  
 function KIFSvaki1()
 *{
 cNPartnera:=Ocitaj(F_PARTN,IDPARTN,"naz")
 RETURN
-*}
 
 
-/*! \fn P_VPrih(cId,dx,dy)
- *  \brief Otvara sifrarnik vrsta prihoda
+
+/*!  P_VPrih(cId,dx,dy)
+ *   Otvara sifrarnik vrsta prihoda
  *  \param cId
  *  \param dx
  *  \param dy
@@ -1427,12 +1427,12 @@ ImeKol:={ { "ID ",  {|| id },       "id"  , {|| .t.}, {|| vpsifra(wId)}      },;
         }
  FOR i:=1 TO LEN(ImeKol); AADD(Kol,i); NEXT
 return PostojiSifra(F_VPRIH,1,10,55,"Sifrarnik vrsta prihoda",@cid,dx,dy)
-*}
 
 
 
-/*! \fn Mvpsifra(wId)
- *  \brief Zabranjuje dupli unos sifre
+
+/*!  Mvpsifra(wId)
+ *   Zabranjuje dupli unos sifre
  *  \param wId
  */
  
@@ -1459,11 +1459,11 @@ endif
 ordsetfocus(nPrevOrd)     //vrati order sifranika !!
 go nrec
 return nRet
-*}
 
 
-/*! \fn MNNSifru()
- *  \brief Nadji novu sifru - radi na pritisak <F8> pri unosu nove sifre
+
+/*!  MNNSifru()
+ *   Nadji novu sifru - radi na pritisak <F8> pri unosu nove sifre
  */
  
 function MNNSifru()     
@@ -1492,5 +1492,5 @@ function MNNSifru()
   PopWA()
  ENDIF
 RETURN .t.
-*}
+
 

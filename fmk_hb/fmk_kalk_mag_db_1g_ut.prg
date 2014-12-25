@@ -14,12 +14,12 @@
 
 
 /*! \file fmk/kalk/mag/db/1g/ut.prg
- *  \brief Razne funkcije vezane za magacin
+ *   Razne funkcije vezane za magacin
  */
 
 
-/*! \fn KalkNabP(cIdFirma,cIdRoba,cIdKonto,nKolicina,nKolZN,nNC,nSNC,dDatNab,dRokTr)
- *  \brief 
+/*!  KalkNabP(cIdFirma,cIdRoba,cIdKonto,nKolicina,nKolZN,nNC,nSNC,dDatNab,dRokTr)
+ *   
  *  \param nNC - zadnja nabavna cijena
  *  \param nSNC - srednja nabavna cijena
  *  \param nKolZN - kolicina koja je na stanju od zadnjeg ulaza u prodavnicu, a ako se radi sa prvom nabavkom - prvi ulaz u prodavnicu
@@ -291,11 +291,11 @@ else
 endif
 AEVAL(GetList,{|o| o:display()})
 return
-*}
 
 
-/*! \fn Marza(fmarza)
- *  \brief Proracun veleprodajne marze
+
+/*!  Marza(fmarza)
+ *   Proracun veleprodajne marze
  */
 
 function Marza(fmarza)
@@ -366,12 +366,12 @@ else
 endif
 AEVAL(GetList,{|o| o:display()})
 return
-*}
 
 
 
-/*! \fn FaktVPC(nVPC,cseek,dDatum)
- *  \brief Fakticka veleprodajna cijena
+
+/*!  FaktVPC(nVPC,cseek,dDatum)
+ *   Fakticka veleprodajna cijena
  */
 
 function FaktVPC(nVPC,cseek,dDatum)
@@ -419,12 +419,12 @@ enddo
 PopWa()
 //dbsetorder(nOrder)
 return
-*}
 
 
 
-/*! \fn PratiKMag(cIdFirma,cIdKonto,cIdRoba)
- *  \brief Prati karticu magacina
+
+/*!  PratiKMag(cIdFirma,cIdKonto,cIdRoba)
+ *   Prati karticu magacina
  */
  
 function PratiKMag(cIdFirma,cIdKonto,cIdRoba)
@@ -468,12 +468,12 @@ do while !eof() .and.  cIdFirma+cIdKonto+cIdRoba==idfirma+idkonto+idroba
 
 enddo
 return
-*}
 
 
 
-/*! \fn ObSetVPC(nNovaVrijednost)
- *  \brief Obavezno setuj VPC
+
+/*!  ObSetVPC(nNovaVrijednost)
+ *   Obavezno setuj VPC
  */
 
 function ObSetVPC(nNovaVrijednost)
@@ -491,12 +491,12 @@ function ObSetVPC(nNovaVrijednost)
    replace &cPom with nNovaVrijednost
   select (nArr)
 return .t.
-*}
 
 
 
-/*! \fn UzmiVPCSif(cMKonto,lKoncij)
- *  \brief Za zadani magacinski konto daje odgovarajucu VPC iz sifrarnika robe
+
+/*!  UzmiVPCSif(cMKonto,lKoncij)
+ *   Za zadani magacinski konto daje odgovarajucu VPC iz sifrarnika robe
  */
 
 function UzmiVPCSif(cMKonto,lKoncij)
@@ -512,12 +512,12 @@ function UzmiVPCSif(cMKonto,lKoncij)
    ENDIF
   SELECT (nArr)
 return nCV
-*}
 
 
 
-/*! \fn NabCj()
- *  \brief Proracun nabavne cijene za ulaznu kalkulaciju 10
+
+/*!  NabCj()
+ *   Proracun nabavne cijene za ulaznu kalkulaciju 10
  */
 
 function NabCj()
@@ -586,14 +586,14 @@ endif
 _NC:=_FCj2+nPrevoz+nCarDaz+nBanktr+nSpedTr+nZavTr
 
 return
-*}
 
 
 
-/*! \fn NabCj2(n1,n2)  
+
+/*!  NabCj2(n1,n2)  
  *  \param n1 - ukucana NC
  *  \param n2 - izracunata NC
- *  \brief Ova se f-ja koristi samo za 10-ku bez troskova (gVarijanta="1")
+ *   Ova se f-ja koristi samo za 10-ku bez troskova (gVarijanta="1")
  */
 
 function NabCj2(n1,n2)  
@@ -607,13 +607,13 @@ function NabCj2(n1,n2)
    ShowGets()
  ENDIF
 return .t.
-*}
 
 
 
-/*! \fn SetujVPC(nNovaVrijednost,fUvijek)
+
+/*!  SetujVPC(nNovaVrijednost,fUvijek)
  *  \param fUvijek -.f. samo ako je vrijednost u sifrarniku 0, .t. uvijek setuj
- *  \brief Utvrdi varijablu VPC. U sifrarnik staviti novu vrijednost
+ *   Utvrdi varijablu VPC. U sifrarnik staviti novu vrijednost
  */
 
 function SetujVPC(nNovaVrijednost, lUvijek)
@@ -647,8 +647,8 @@ return .t.
 
 
 
-/*! \fn KoncijVPC()
- *  \brief Daje odgovarajucu VPC iz sifrarnika robe
+/*!  KoncijVPC()
+ *   Daje odgovarajucu VPC iz sifrarnika robe
  */
 
 function KoncijVPC()
@@ -666,12 +666,12 @@ else
 endif
 
 return (nil)
-*}
 
 
 
-/*! \fn MMarza()
- *  \brief Preracunava iznos veleprodajne marze
+
+/*!  MMarza()
+ *   Preracunava iznos veleprodajne marze
  */
 
 function MMarza()
@@ -686,12 +686,12 @@ Skol:=Kolicina-GKolicina-GKolicin2
      nMarza:=Marza
   endif
 return nMarza
-*}
 
 
 
-/*! \fn PrerRab()
- *  \brief Rabat veleprodaje - 14
+
+/*!  PrerRab()
+ *   Rabat veleprodaje - 14
  */
 
 function PrerRab()
@@ -718,7 +718,7 @@ _rabatv:=nPrRab
 cTrabat:="%"
 showgets()
 return .t.
-*}
+
 
 
 // Validacija u prilikom knjizenja (knjiz.prg) - VALID funkcija u get-u
@@ -759,8 +759,8 @@ return .t.
 
 
 
-/*! \fn V_RabatV()
- *  \brief Ispisuje vrijednost rabata u VP
+/*!  V_RabatV()
+ *   Ispisuje vrijednost rabata u VP
  */
  
 // Trenutna pozicija u tabeli KONCIJ (na osnovu koncij->naz ispituje cijene)
@@ -819,7 +819,7 @@ private getlist:={}, cPom:="VPC"
  ShowGets()
 
 return .t.
-*}
+
 
 
 
@@ -1189,7 +1189,7 @@ else
 	return .f.
 endif
 return
-*}
+
 
 // -------------------------------------
 // magacin samo po nabavnim cijenama

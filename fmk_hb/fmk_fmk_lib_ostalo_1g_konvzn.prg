@@ -12,8 +12,8 @@
 
 #include "SC.CH"
 
-/*! \fn KonvZnWin(cTekst, cWinKonv)
- *  \brief Konverzija znakova u stringu
+/*!  KonvZnWin(cTekst, cWinKonv)
+ *   Konverzija znakova u stringu
  *  \param cTekst - tekst
  *  \param cWinKonv - tip konverzije
  */
@@ -22,16 +22,16 @@ local aNiz:={}
 local i
 local j
 
-AADD(aNiz, {"[","Ê",chr(138),"S","ä"})
-AADD(aNiz, {"{","Á",chr(154),"s","Á"})
-AADD(aNiz, {"}","Ü",chr(230),"c","Ü"})
-AADD(aNiz, {"]","è", chr(198),"C","è"})
-AADD(aNiz, {"^","¨", chr(200),"C","¨"})
-AADD(aNiz, {"~","ü",chr(232),"c","ü"})
-AADD(aNiz, {"`","ß",chr(158),"z","ß"})
-AADD(aNiz, {"@","¶",chr(142),"Z","¶"})
-AADD(aNiz, {"|","–", chr(240),"dj",""})
-AADD(aNiz, {"\","—", chr(208),"DJ","—"})
+AADD(aNiz, {"[","ÔøΩ",chr(138),"S","ÔøΩ"})
+AADD(aNiz, {"{","ÔøΩ",chr(154),"s","ÔøΩ"})
+AADD(aNiz, {"}","ÔøΩ",chr(230),"c","ÔøΩ"})
+AADD(aNiz, {"]","ÔøΩ", chr(198),"C","ÔøΩ"})
+AADD(aNiz, {"^","ÔøΩ", chr(200),"C","ÔøΩ"})
+AADD(aNiz, {"~","ÔøΩ",chr(232),"c","ÔøΩ"})
+AADD(aNiz, {"`","ÔøΩ",chr(158),"z","ÔøΩ"})
+AADD(aNiz, {"@","ÔøΩ",chr(142),"Z","ÔøΩ"})
+AADD(aNiz, {"|","ÔøΩ", chr(240),"dj","ÔøΩ"})
+AADD(aNiz, {"\","ÔøΩ", chr(208),"DJ","ÔøΩ"})
 
 if cWinKonv = NIL
 	cWinKonv:=IzFmkIni("DelphiRb","Konverzija","5")
@@ -73,20 +73,20 @@ if i<>j
 endif
 
 return cTekst
-*}
 
 
 
-/*! \fn StrKZN(cInput, cIz, cU)
- *  \brief Vrsi zamjenu cInputa
+
+/*!  StrKZN(cInput, cIz, cU)
+ *   Vrsi zamjenu cInputa
  */
  
 function StrKZN( cInput, cIz, cU, aFrom, aTo )
-local a852:={"Ê","—","¨","è","¶","Á","–","ü","Ü","ß"}
+local a852:={"ÔøΩ","ÔøΩ","ÔøΩ","ÔøΩ","ÔøΩ","ÔøΩ","ÔøΩ","ÔøΩ","ÔøΩ","ÔøΩ"}
 local a437:={"[","\","^","]","@","{","|","~","}","`"}
 local aEng:={"S","D","C","C","Z","s","d","c","c","z"}
 local aEngB:={"SS","DJ","CH","CC","ZZ","ss","dj","ch","cc","zz"}
-local aWin:= {"ä", "–", "∆", "»", "é", "ö", "", "Ê", "Ë", "û"}
+local aWin:= {"ÔøΩ", "ÔøΩ", "ÔøΩ", "ÔøΩ", "ÔøΩ", "ÔøΩ", "ÔøΩ", "ÔøΩ", "ÔøΩ", "ÔøΩ"}
 local aUTF:= {"&#352;", "&#272;", "&#268;", "&#262;", "&#381;", "&#353;", ;
 	"&#273;", "&#269;", "&#263;", "&#382;"}
 local i := 0
@@ -150,8 +150,8 @@ for i:=1 to LEN( aU )
 	endif
 	
 	if (goModul:oDataBase:cName=="LD" .and. i==10)
-		if AT("dß", cInput)<>0
-			cInput:=STRTRAN(cInput, "dß", "dz")
+		if AT("dÔøΩ", cInput)<>0
+			cInput:=STRTRAN(cInput, "dÔøΩ", "dz")
 		elseif AT("d`", cInput)<>0
 			cInput:=STRTRAN(cInput, "d`", "dz")
 		endif
@@ -196,16 +196,16 @@ local aTmp := {}
 
 // windows kodovi...
 AADD( aWin, "&" ) 
-AADD( aWin, "ä" )
-AADD( aWin, "–" )
-AADD( aWin, "∆" )
-AADD( aWin, "»" )
-AADD( aWin, "é" )
-AADD( aWin, "ö" )
-AADD( aWin, "" )
-AADD( aWin, "Ê" )
-AADD( aWin, "Ë" )
-AADD( aWin, "û" )
+AADD( aWin, "ÔøΩ" )
+AADD( aWin, "ÔøΩ" )
+AADD( aWin, "ÔøΩ" )
+AADD( aWin, "ÔøΩ" )
+AADD( aWin, "ÔøΩ" )
+AADD( aWin, "ÔøΩ" )
+AADD( aWin, "ÔøΩ" )
+AADD( aWin, "ÔøΩ" )
+AADD( aWin, "ÔøΩ" )
+AADD( aWin, "ÔøΩ" )
 AADD( aWin, "!" ) 
 AADD( aWin, '"' ) 
 AADD( aWin, "'" ) 
@@ -226,16 +226,16 @@ AADD( aWin, ">" )
 
 // pandan 852 je...
 AADD( a852, "&" ) // feature
-AADD( a852, "Ê" ) // SS
-AADD( a852, "—" ) // DJ
-AADD( a852, "¨" ) // CC
-AADD( a852, "è" ) // CH
-AADD( a852, "¶" ) // ZZ
-AADD( a852, "Á" ) // ss
-AADD( a852, "–" ) // dj
-AADD( a852, "ü" ) // cc
-AADD( a852, "Ü" ) // ch
-AADD( a852, "ß" ) // zz
+AADD( a852, "ÔøΩ" ) // SS
+AADD( a852, "ÔøΩ" ) // DJ
+AADD( a852, "ÔøΩ" ) // CC
+AADD( a852, "ÔøΩ" ) // CH
+AADD( a852, "ÔøΩ" ) // ZZ
+AADD( a852, "ÔøΩ" ) // ss
+AADD( a852, "ÔøΩ" ) // dj
+AADD( a852, "ÔøΩ" ) // cc
+AADD( a852, "ÔøΩ" ) // ch
+AADD( a852, "ÔøΩ" ) // zz
 AADD( a852, "!" ) // uzvicnik
 AADD( a852, '"' ) // navodnici
 AADD( a852, "'" ) // jedan navodnik
@@ -301,16 +301,16 @@ return cRet
 
 
 function KSto7(cStr)
-  cStr:=strtran(cStr,"Á","{")
-  cStr:=strtran(cStr,"–","|")
-  cStr:=strtran(cStr,"ß","`")
-  cStr:=strtran(cStr,"ü","~")
-  cStr:=strtran(cStr,"Ü","}")
-  cStr:=strtran(cStr,"è","[")
-  cStr:=strtran(cStr,"—","\")
-  cStr:=strtran(cStr,"¶","@")
-  cStr:=strtran(cStr,"¨","^")
-  cStr:=strtran(cStr,"è","]")
+  cStr:=strtran(cStr,"ÔøΩ","{")
+  cStr:=strtran(cStr,"ÔøΩ","|")
+  cStr:=strtran(cStr,"ÔøΩ","`")
+  cStr:=strtran(cStr,"ÔøΩ","~")
+  cStr:=strtran(cStr,"ÔøΩ","}")
+  cStr:=strtran(cStr,"ÔøΩ","[")
+  cStr:=strtran(cStr,"ÔøΩ","\")
+  cStr:=strtran(cStr,"ÔøΩ","@")
+  cStr:=strtran(cStr,"ÔøΩ","^")
+  cStr:=strtran(cStr,"ÔøΩ","]")
 return cStr
 
 * ako je gPTKonv == 0   nema konverzije
@@ -323,16 +323,16 @@ function KonvTable(fGraf)
 if left(gPTKonv,1)=="0"
  SetPxLat()
 elseif left(gPTKonv,1)=="1"
- SetPxLat(ASC("["),"Ê"  )
- SetPxLat(ASC("{"),"Á"  )
- SetPxLat(ASC("}"),"Ü"  )
- SetPxLat(ASC("]"),"è"  )
- SetPxLat(ASC("^"),"¨" )
- SetPxLat(ASC("~"),"ü" )
- SetPxLat(ASC("`"),"ß" )
- SetPxLat(ASC("@"),"¶" )
- SetPxLat(ASC("|"),"–" )
- SetPxLat(ASC("\"),"—" )
+ SetPxLat(ASC("["),"ÔøΩ"  )
+ SetPxLat(ASC("{"),"ÔøΩ"  )
+ SetPxLat(ASC("}"),"ÔøΩ"  )
+ SetPxLat(ASC("]"),"ÔøΩ"  )
+ SetPxLat(ASC("^"),"ÔøΩ" )
+ SetPxLat(ASC("~"),"ÔøΩ" )
+ SetPxLat(ASC("`"),"ÔøΩ" )
+ SetPxLat(ASC("@"),"ÔøΩ" )
+ SetPxLat(ASC("|"),"ÔøΩ" )
+ SetPxLat(ASC("\"),"ÔøΩ" )
 elseif left(gPTKonv,1)=="2"
  SetPxLat(ASC("["),"S"  )
  SetPxLat(ASC("{"),"s"  )
@@ -345,52 +345,52 @@ elseif left(gPTKonv,1)=="2"
  SetPxLat(ASC("|"),"d" )
  SetPxLat(ASC("\"),"D" )
 elseif left(gPTKonv,1)=="3"
- SetPxLat(ASC("Ê"),"["  )
- SetPxLat(ASC("Á"),"{"  )
- SetPxLat(ASC("Ü"),"}"  )
- SetPxLat(ASC("è"),"]"  )
- SetPxLat(ASC("¨"),"^" )
- SetPxLat(ASC("ü"),"~" )
- SetPxLat(ASC("ß"),"`" )
- SetPxLat(ASC("¶"),"@" )
- SetPxLat(ASC("–"),"|" )
- SetPxLat(ASC("—"),"\" )
+ SetPxLat(ASC("ÔøΩ"),"["  )
+ SetPxLat(ASC("ÔøΩ"),"{"  )
+ SetPxLat(ASC("ÔøΩ"),"}"  )
+ SetPxLat(ASC("ÔøΩ"),"]"  )
+ SetPxLat(ASC("ÔøΩ"),"^" )
+ SetPxLat(ASC("ÔøΩ"),"~" )
+ SetPxLat(ASC("ÔøΩ"),"`" )
+ SetPxLat(ASC("ÔøΩ"),"@" )
+ SetPxLat(ASC("ÔøΩ"),"|" )
+ SetPxLat(ASC("ÔøΩ"),"\" )
 elseif left(gPTKonv,1)=="4"
- SetPxLat(ASC("Ê"),"S"  )
- SetPxLat(ASC("Á"),"s"  )
- SetPxLat(ASC("Ü"),"c"  )
- SetPxLat(ASC("è"),"C"  )
- SetPxLat(ASC("¨"),"C" )
- SetPxLat(ASC("ü"),"c" )
- SetPxLat(ASC("ß"),"z" )
- SetPxLat(ASC("¶"),"Z" )
- SetPxLat(ASC("–"),"d" )
- SetPxLat(ASC("—"),"D" )
+ SetPxLat(ASC("ÔøΩ"),"S"  )
+ SetPxLat(ASC("ÔøΩ"),"s"  )
+ SetPxLat(ASC("ÔøΩ"),"c"  )
+ SetPxLat(ASC("ÔøΩ"),"C"  )
+ SetPxLat(ASC("ÔøΩ"),"C" )
+ SetPxLat(ASC("ÔøΩ"),"c" )
+ SetPxLat(ASC("ÔøΩ"),"z" )
+ SetPxLat(ASC("ÔøΩ"),"Z" )
+ SetPxLat(ASC("ÔøΩ"),"d" )
+ SetPxLat(ASC("ÔøΩ"),"D" )
 endif
 
 if fGraf<>NIL .or. substr(gPtkonv,2,1)="1"
- SetPxLat(ASC("ƒ"),"-" )
- SetPxLat(ASC("≥"),":" )
- SetPxLat(ASC("⁄"),"+" )
- SetPxLat(ASC("¿"),"+" )
- SetPxLat(ASC("ø"),"+" )
- SetPxLat(ASC("Ÿ"),"+" )
- SetPxLat(ASC("ﬂ"),"=" )
- SetPxLat(ASC("…"),"+" )
- SetPxLat(ASC("…"),"+" )
- SetPxLat(ASC("ª"),"+" )
- SetPxLat(ASC("Ã"),"+" )
- SetPxLat(ASC("π"),"+" )
- SetPxLat(ASC("»"),"+" )
- SetPxLat(ASC("º"),"+" )
- SetPxLat(ASC("∫"),":" )
- SetPxLat(ASC("≈"),"+" )
- SetPxLat(ASC("√"),"+" )
+ SetPxLat(ASC("ÔøΩ"),"-" )
+ SetPxLat(ASC("ÔøΩ"),":" )
+ SetPxLat(ASC("ÔøΩ"),"+" )
+ SetPxLat(ASC("ÔøΩ"),"+" )
+ SetPxLat(ASC("ÔøΩ"),"+" )
+ SetPxLat(ASC("ÔøΩ"),"+" )
+ SetPxLat(ASC("ÔøΩ"),"=" )
+ SetPxLat(ASC("ÔøΩ"),"+" )
+ SetPxLat(ASC("ÔøΩ"),"+" )
+ SetPxLat(ASC("ÔøΩ"),"+" )
+ SetPxLat(ASC("ÔøΩ"),"+" )
+ SetPxLat(ASC("ÔøΩ"),"+" )
+ SetPxLat(ASC("ÔøΩ"),"+" )
+ SetPxLat(ASC("ÔøΩ"),"+" )
+ SetPxLat(ASC("ÔøΩ"),":" )
+ SetPxLat(ASC("ÔøΩ"),"+" )
+ SetPxLat(ASC("ÔøΩ"),"+" )
 
- SetPxLat(ASC("√"),"+" )
- SetPxLat(ASC("¥"),"+" )
- SetPxLat(ASC("¬"),"+" )
- SetPxLat(ASC("¡"),"+" )
+ SetPxLat(ASC("ÔøΩ"),"+" )
+ SetPxLat(ASC("ÔøΩ"),"+" )
+ SetPxLat(ASC("ÔøΩ"),"+" )
+ SetPxLat(ASC("ÔøΩ"),"+" )
 endif
 
 
@@ -408,16 +408,16 @@ FUNCTION BHSORT(cInput)
    cInput:=STRTRAN(cInput,"}","c"+CHR(255))
    cInput:=STRTRAN(cInput,"`","z"+CHR(255))
  ELSE  // "8"
-   cInput:=STRTRAN(cInput,"Ê","S"+CHR(255))
-   cInput:=STRTRAN(cInput,"—","D"+CHR(255))
-   cInput:=STRTRAN(cInput,"¨","C"+CHR(254))
-   cInput:=STRTRAN(cInput,"è","C"+CHR(255))
-   cInput:=STRTRAN(cInput,"¶","Z"+CHR(255))
-   cInput:=STRTRAN(cInput,"Á","s"+CHR(255))
-   cInput:=STRTRAN(cInput,"–","d"+CHR(255))
-   cInput:=STRTRAN(cInput,"ü","c"+CHR(254))
-   cInput:=STRTRAN(cInput,"Ü","c"+CHR(255))
-   cInput:=STRTRAN(cInput,"ß","z"+CHR(255))
+   cInput:=STRTRAN(cInput,"ÔøΩ","S"+CHR(255))
+   cInput:=STRTRAN(cInput,"ÔøΩ","D"+CHR(255))
+   cInput:=STRTRAN(cInput,"ÔøΩ","C"+CHR(254))
+   cInput:=STRTRAN(cInput,"ÔøΩ","C"+CHR(255))
+   cInput:=STRTRAN(cInput,"ÔøΩ","Z"+CHR(255))
+   cInput:=STRTRAN(cInput,"ÔøΩ","s"+CHR(255))
+   cInput:=STRTRAN(cInput,"ÔøΩ","d"+CHR(255))
+   cInput:=STRTRAN(cInput,"ÔøΩ","c"+CHR(254))
+   cInput:=STRTRAN(cInput,"ÔøΩ","c"+CHR(255))
+   cInput:=STRTRAN(cInput,"ÔøΩ","z"+CHR(255))
  ENDIF
 RETURN PADR(cInput,100)
 

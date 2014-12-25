@@ -13,8 +13,8 @@
 #include "sc.ch"
 
 
-/*! \fn RabVrijednost(cIdRab, cTipRab, cIdRoba, nTekIzn)
- *  \brief Vrati vrijednost rabata - pozovi func. GetRabatForArticle()
+/*!  RabVrijednost(cIdRab, cTipRab, cIdRoba, nTekIzn)
+ *   Vrati vrijednost rabata - pozovi func. GetRabatForArticle()
  */
 function RabVrijednost(cIdRab, cTipRab, cIdRoba, nTekIzn)
 *{
@@ -26,11 +26,11 @@ endif
 nRet := GetRabForArticle(cIdRab, cTipRab, cIdRoba, nTekIzn)
 
 return nRet
-*}
 
 
-/*! \fn GetDays(cIdRab, cTipRab)
- *  \brief Vrati vrijednost broja dana za rabat - poziva GetDaysForRabat() 
+
+/*!  GetDays(cIdRab, cTipRab)
+ *   Vrati vrijednost broja dana za rabat - poziva GetDaysForRabat() 
  */
 function GetDays(cIdRab, cTipRab)
 *{
@@ -38,10 +38,10 @@ function GetDays(cIdRab, cTipRab)
 nRet := GetDaysForRabat(cIdRab, cTipRab)
 
 return nRet
-*}
 
-/*! \fn GetSKntForArticle()
- *  \brief Vrati vrijdnost SKONTO za artikal - poziva GetSkontoArtcile()
+
+/*!  GetSKntForArticle()
+ *   Vrati vrijdnost SKONTO za artikal - poziva GetSkontoArtcile()
  */
 function SKVrijednost(cIdRab, cTipRab, cIdRoba)
 *{
@@ -49,11 +49,11 @@ function SKVrijednost(cIdRab, cTipRab, cIdRoba)
 nRet := GetSkontoArticle(cIdRab, cTipRab, cIdRoba)
 
 return nRet
-*}
 
 
-/*! \fn SrediRabate()
- *  \brief Sredjivanje rabata u pripremi
+
+/*!  SrediRabate()
+ *   Sredjivanje rabata u pripremi
  */
 function SrediRabate()
 *{
@@ -118,7 +118,7 @@ O_Edit()
 
 select pripr
 return .t.
-*}
+
 
 
 function EdRabat(Ch)
@@ -141,7 +141,7 @@ do case
 		nRet:=DE_REFRESH
 endcase
 return nRet
-*}
+
 
 
 function SetRabToAll()
@@ -182,11 +182,11 @@ do while !EOF() .and. idfirma = gFirma .and. idtipdok $ gcRabDok
 enddo
 
 return nRet
-*}
 
 
-/*! \fn CheckMemo(aMemo)
- *  \brief Provjerava da li je memo prazan
+
+/*!  CheckMemo(aMemo)
+ *   Provjerava da li je memo prazan
  */
 function CheckMemo(aMemo)
 *{
@@ -201,6 +201,6 @@ if (LEN(aMemo) < 9)
 endif
 
 return
-*}
+
 
 

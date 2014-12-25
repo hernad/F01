@@ -106,7 +106,7 @@ else
 endif
 
 return .t.
-*}
+
 
 function GlobalErrorHandler(objErr,lLocalHandler)
 *{
@@ -336,7 +336,7 @@ close all
 goModul:quit()
 
 RETURN
-*}
+
 
 function ShowFERROR()
 *{
@@ -363,11 +363,11 @@ LOCAL aGr:={ {  0, "Successful"},;
     MsgBeep( "FERROR: " + ALLTRIM(STR(k)) )
   ENDIF
 RETURN
-*}
+
 
 
 function MyErrH(o)
 *{
 BREAK o
 return
-*}
+

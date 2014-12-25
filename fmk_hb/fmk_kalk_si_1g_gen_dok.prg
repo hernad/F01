@@ -21,11 +21,11 @@
 
 
 /*! \file fmk/kalk/si/1g/gen_dok.prg
- *  \brief Generacija dokumenata sitnog inventara
+ *   Generacija dokumenata sitnog inventara
  */
 
-/*! \fn Otpis16SI()
- *  \brief Otpis 16 sitnog inventara. Kada je izvrsena doprema SI 16kom, napraviti novu 16ku na konto troskovnog mjesta otpisanog SI.
+/*!  Otpis16SI()
+ *   Otpis 16 sitnog inventara. Kada je izvrsena doprema SI 16kom, napraviti novu 16ku na konto troskovnog mjesta otpisanog SI.
  */
  
 function Otpis16SI()
@@ -65,5 +65,5 @@ enddo
 
 close all
 RETURN .t.
-*}
+
 

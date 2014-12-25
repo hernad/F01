@@ -64,10 +64,10 @@ if (nArea==-1 .or. nArea==F_KORISN)
 endif
 
 return
-*}
 
-/*! \fn CreSystemDb()
- *  \brief Kreiraj sistemske tabele (gparams, params, adres, ...)
+
+/*!  CreSystemDb()
+ *   Kreiraj sistemske tabele (gparams, params, adres, ...)
  */
 function CreSystemDb(nArea)
 *{
@@ -95,7 +95,7 @@ if lShowMsg
 endif
 
 return
-*}
+
 
 function CreParams(nArea)
 *{
@@ -175,7 +175,7 @@ if (nArea==-1 .or. nArea==F_SECUR)
 endif
 
 return NIL
-*}
+
 
 
 function CreAdres(nArea)
@@ -209,7 +209,7 @@ if (nArea==-1 .or. nArea==F_KPARAMS)
 endif
 
 return
-*}
+
 
 
 * kreiraj gparams u glavnom modulu
@@ -242,7 +242,7 @@ if (nArea==-1 .or. nArea==F_GPARAMS)
 endif
 
 return
-*}
+
 
 
 function KonvParams(cImeDBF)
@@ -265,7 +265,7 @@ endif
 endif
 close all
 return
-*}
+
 
 function DBCREATE2(cIme,aDbf,cDriver)
 *{
@@ -289,7 +289,7 @@ endif
 
 DBCREATE(cIme,aDbf,cDriver)
 return
-*}
+
 
 function AddOidFields(aDbf)
 *{
@@ -302,4 +302,4 @@ AADD(aDbf,{"_COMMIT_", "C", 1, 0})
 AADD(aDbf,{"_USER_", "N", 3, 0})
 
 return
-*}
+

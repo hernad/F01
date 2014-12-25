@@ -12,8 +12,8 @@
 
 #include "sc.ch"
 
-/*! \fn MnuEvents()
- *  \brief Menij events
+/*!  MnuEvents()
+ *   Menij events
  */
 function MnuEvents()
 *{
@@ -45,6 +45,6 @@ endif
 Menu_SC("evnt")
 
 return
-*}
+
 
 

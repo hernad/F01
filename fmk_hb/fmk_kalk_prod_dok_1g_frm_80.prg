@@ -22,12 +22,12 @@
 
 
 /*! \file fmk/kalk/prod/dok/1g/frm_80.prg
- *  \brief Maska za unos dokumenta tipa 80
+ *   Maska za unos dokumenta tipa 80
  */
 
 
-/*! \fn Get1_80()
- *  \brief Prva strana maske za unos dokumenta tipa 80
+/*!  Get1_80()
+ *   Prva strana maske za unos dokumenta tipa 80
  */
 
 // prijem prodavnica, predispozicija
@@ -178,7 +178,7 @@ _MU_I:=""
 
 nStrana:=3
 return lastkey()
-*}
+
 
 
 
@@ -286,8 +286,8 @@ return lastkey()
 
 
 
-/*! \fn Svedi(cSvedi)
- *  \brief Svodi vrijednost protustavke na vrijednost stavke
+/*!  Svedi(cSvedi)
+ *   Svodi vrijednost protustavke na vrijednost stavke
  */
 
 function Svedi(cSvedi)
@@ -313,13 +313,13 @@ elseif csvedi=="S"
    endif
 endif
 return .t.
-*}
 
 
 
 
-/*! \fn VKol()
- *  \brief Validacija unesene kolicine u dokumentu tipa 80
+
+/*!  VKol()
+ *   Validacija unesene kolicine u dokumentu tipa 80
  */
 
 static function VKol()
@@ -345,5 +345,5 @@ nKolS:=0;nKolZN:=0;nc1:=nc2:=0; dDatNab:=ctod("")
 select PRIPR
 endif
 return .t.
-*}
+
 

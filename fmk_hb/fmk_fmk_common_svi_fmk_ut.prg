@@ -20,8 +20,8 @@
  * ----------------------------------------------------------------
  */
  
-/*! \fn UBrojDok(nBroj,nNumDio,cOstatak)
- * \brief Pretvara Broj podbroj u string format "Broj dokumenta"
+/*!  UBrojDok(nBroj,nNumDio,cOstatak)
+ *  Pretvara Broj podbroj u string format "Broj dokumenta"
  * \code
  * UBrojDok ( 123,  5, "/99" )   =>   00123/99
  * \encode
@@ -30,10 +30,10 @@
 function UBrojDok(nBroj,nNumdio,cOstatak)
 *{
 return padl( alltrim(str(nBroj)), nNumDio, "0")+cOstatak
-*}
 
-/*! \fn Calc()
- *  \brief Kalkulator
+
+/*!  Calc()
+ *   Kalkulator
  */
 function Calc()
 *{
@@ -119,7 +119,7 @@ else
 endif
 
 return
-*}
+
 
 
 // -----------------------------------
@@ -184,7 +184,7 @@ if round(nkontrola,2)>=10
    nKontrola:=0
 endif
 return cSifra+alltrim(str(nKontrola,0))
-*}
+
 
 
 function round2(nizraz,niznos)
@@ -192,8 +192,8 @@ function round2(nizraz,niznos)
 
 *
 * pretpostavlja definisanu globalnu varijablu g50F
-* za g50F="5" vrçi se zaokru§enje na 0.5
-*        =" " odraÐuje obiŸni round()
+* za g50F="5" vrï¿½i se zaokruï¿½enje na 0.5
+*        =" " odraï¿½uje obiï¿½ni round()
 
 local npom,npom2,nznak
 if g50f="5"
@@ -218,7 +218,7 @@ else
    return round(nizraz,niznos)
 endif
 return
-*}
+
 
 
 // --------------------------------------
@@ -280,7 +280,7 @@ IF nK1==0 .or. type(cIzraz)<>"N"
   	KEYBOARD CHR(K_ENTER)
   endif
 RETURN
-*}
+
 
 
 static function DefKonv()
@@ -321,7 +321,7 @@ static function DefKonv()
  PopWA()
  SETKEY(K_ALT_V,bKeyOld)
 RETURN
-*}
+
 
 
 function Adresar()
@@ -347,7 +347,7 @@ USE
 
 PopWa()
 return nil
-*}
+
 
 
 function P_Adres(cId,dx,dy)
@@ -428,7 +428,7 @@ enddo
 PopWa()
 
 return PostojiSifra(F_ADRES,1,15,77,"Adresar:",@cId,dx,dy, {|Ch| AdresBlok(Ch)} )
-*}
+
 
 function Pkoverte()
 
@@ -786,12 +786,12 @@ LOCAL aFiles, nCnt, nRes
   BoxC()
 
 return
-*}
+
 
 function FmkSviVer()
 *{
 return DBUILD
-*}
+
 
 // ------------------------
 // ------------------------

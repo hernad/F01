@@ -14,8 +14,8 @@
 
  
 
-/*! \fn DokNovaStrana(nColumn, nStr, nSlijediRedovaZajedno)
- *  \brief Prelazak na novu stranicu
+/*!  DokNovaStrana(nColumn, nStr, nSlijediRedovaZajedno)
+ *   Prelazak na novu stranicu
  *  \param nColumn - kolona na kojoj se stampa "Str: XXX"
  *  \param nStr  - stranica
  *  \param nSlijediRedovaZajedno - koliko nakon ove funkcije redova zelimo odstampati, nakon preloma se treba zajedno odstmpati "nSlijediRedova"; za vrijednost -1 stampa bez obzira na trenutnu poziciju (koristiti za stampu na prvoj strani) 
@@ -38,7 +38,7 @@ if (nSlijediRedovaZajedno==-1) .or. (PROW()>(62+gPStranica-nSlijediRedovaZajedno
 endif
 
 return
-*}
+
 
 
 function NovaStrana(bZagl, nOdstampatiStrana)
@@ -56,7 +56,7 @@ if PROW()>(62+gPStranica-nOdstampatiStrana)
 endif
 return
 
-*}
+
 
 function PrnClanoviKomisije()
 *{
@@ -69,22 +69,22 @@ P_10CPI
 ?
 
 return
-*}
 
 
 
-/*! \fn FSvaki2()
- *  \brief
+
+/*!  FSvaki2()
+ *  
  */
  
 function FSvaki2()
 *{
 RETURN
-*}
+
 
  
-/*! \fn IspisFirme(cIdRj)
- *  \brief Ispisuje naziv fime
+/*!  IspisFirme(cIdRj)
+ *   Ispisuje naziv fime
  *  \param cIdRj  - Oznaka radne jedinice
  */
  
@@ -108,5 +108,5 @@ function IspisNaDan(nEmptySpace)
 *{
 ?? REPLICATE(" ",nEmptySpace) + " Na dan: " + DToC(DATE())
 return
-*}
+
 

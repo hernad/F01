@@ -1009,7 +1009,7 @@ endif
 
 
 return
-*}
+
 
 
 // funkcija za novu stranu
@@ -1055,7 +1055,7 @@ else
 endif
 
 return
-*}
+
 
 
 // ---------------------------------------

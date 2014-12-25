@@ -61,7 +61,7 @@ nLength := FSEEK(nHandle, 0, FS_END)
 FSEEK(nHandle, nCurrent)
 
 return nLength
-*}
+
 
 #ifdef CLIP
 function ScFEof(nHandle)
@@ -78,7 +78,7 @@ else
 endif
 
 return lRet
-*}
+
 
 
 /***
@@ -163,6 +163,6 @@ nCount++
 ENDDO
 
 RETURN cLines
-*}
+
 
 

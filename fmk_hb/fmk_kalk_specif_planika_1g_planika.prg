@@ -100,6 +100,6 @@ if cKesiraj=="D" .and. ( !FILE(GSCTEMP+iif(gKalks,"kalks.dbf","kalk.dbf")) .or. 
 endif
 
 return
-*}
+
 
 

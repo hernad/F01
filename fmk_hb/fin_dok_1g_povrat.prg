@@ -358,8 +358,8 @@ endif
 return 1
 
 
-/*! \fn Preknjiz()
- *  \brief Preknjizenje naloga
+/*!  Preknjiz()
+ *   Preknjizenje naloga
  */
 
 function Preknjiz()
@@ -648,4 +648,4 @@ do whileSC !eof()
 enddo // eof
 closeret
 return
-*}
+

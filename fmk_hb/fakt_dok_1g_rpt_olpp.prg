@@ -22,15 +22,15 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_Cijena13MPC
-  * \brief Da li je MPC cijena koja se pamti u dokumentu tipa 13 (otpremnica u MP) ?
+  *  Da li je MPC cijena koja se pamti u dokumentu tipa 13 (otpremnica u MP) ?
   * \param N - ne, default vrijednost
   * \param D - da
   */
 *string FmkIni_KumPath_FAKT_Cijena13MPC;
 
 
-/*! \fn StOLPP()
- *  \brief Stampa obracunaskog lista poreza na promet
+/*!  StOLPP()
+ *   Stampa obracunaskog lista poreza na promet
  *  \todo Prebaciti u /RPT
  */
 
@@ -39,7 +39,7 @@ function StOLPP()
 // sada se koristi StOLPDV()
 StOLPDV()
 return
-*}
+
 
 // stampa obracunskog lista PDV-a
 function StOLPDV()
@@ -245,7 +245,7 @@ picdem:=InPicDem
 pickol:=InPicKol
 
 return
-*}
+
 
 // ----------------------------------
 // zaglavlje obracunskog lista 

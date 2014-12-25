@@ -205,7 +205,7 @@ if lStartPrint
 endif
 
 return
-*}
+
 
 // zaglavlje glavne tabele sa stavkama
 static function st_zagl_data(cLine, cRazmak, cVarijanta)
@@ -243,7 +243,7 @@ endif
 ? cLine
 
 return
-*}
+
 
 
 // funkcija za ispis slobodnog teksta na kraju fakture
@@ -273,7 +273,7 @@ do while !EOF() .and. field->tip = "F"
 enddo
 
 return
-*}
+
 
 
 // generalna funkcija footer
@@ -288,7 +288,7 @@ P_12CPI
 ? cRazmak + SPACE(10) + get_dtxt_opis("F10")
 
 return
-*}
+
 
 
 // funkcija za ispis headera
@@ -374,7 +374,7 @@ endif
 ?
 
 return
-*}
+
 
 
 // definicija linije za glavnu tabelu sa stavkama
@@ -402,7 +402,7 @@ cLine += REPLICATE("-",11) + SPACE(1)
 cLine += REPLICATE("-",11) + SPACE(1)
 
 return
-*}
+
 
 
 // funkcija za ispis podataka o kupcu, dokument, datum fakture, otpremnica itd..
@@ -515,7 +515,7 @@ else
 endif
 
 return
-*}
+
 
 
 
@@ -544,5 +544,5 @@ else
 endif
 
 return
-*}
+
 

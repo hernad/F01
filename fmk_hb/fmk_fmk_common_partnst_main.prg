@@ -12,8 +12,8 @@
 
 #include "sc.ch"
 
-/*! \fn GenPartnSt(lGenPartnSt, nSldMinIzn, cPosId)
- *  \brief Postavljanje upita za generisanje stanja partnera te setovanje varijabli
+/*!  GenPartnSt(lGenPartnSt, nSldMinIzn, cPosId)
+ *   Postavljanje upita za generisanje stanja partnera te setovanje varijabli
  *  \param lGenPartnSt - da li se koristi ovaj feature
  *  \param nMinIznos - minimalan iznos 
  *  \param cPosId - id oznaka pos-a
@@ -56,11 +56,11 @@ if cDN=="D"
 endif
 
 return
-*}
 
 
-/*! \fn AzurTopsOstav(nId, cIdFmk, cNaziv, nIznosG, nSldMinIzn)
- *  \brief Poziva funkciju AddToOstav() i odredjuje da li je nIznosG manji od nSldMinIzn 
+
+/*!  AzurTopsOstav(nId, cIdFmk, cNaziv, nIznosG, nSldMinIzn)
+ *   Poziva funkciju AddToOstav() i odredjuje da li je nIznosG manji od nSldMinIzn 
  */
 function AzurTopsOstav(nId, cIdFmk, cNaziv, nIznosG, nSldMinIzn)
 *{
@@ -71,22 +71,22 @@ O_PrenHH()
 AddToPartn(nId, cIdFmk, cNaziv)
 AddToOstav(nId, nIznosG)
 return
-*}
 
 
-/*! \fn AzurTopsParams(cId, cNaziv, cOpis)
- *  \brief Poziva f-ju AddToParams()
+
+/*!  AzurTopsParams(cId, cNaziv, cOpis)
+ *   Poziva f-ju AddToParams()
  */
 function AzurTopsParams(cId, cNaziv, cOpis)
 *{
 O_PrenHH()
 AddToParams(cId, cNaziv, cOpis)
 return
-*}
 
 
-/*! \fn AzurFinOstav(cPosId, cIdFmk, nIznos1, nIznos2, nIznos3, nIznos4, nSldMinIzn)
- *  \brief Poziva f-ju AddFinIntervalsToOstav() 
+
+/*!  AzurFinOstav(cPosId, cIdFmk, nIznos1, nIznos2, nIznos3, nIznos4, nSldMinIzn)
+ *   Poziva f-ju AddFinIntervalsToOstav() 
  */
 function AzurFinOstav(cPosId, cIdFmk, cParNaz, nIznos1, nIznos2, nIznos3, nIznos4, nIznos5, nSldMinIzn)
 *{
@@ -99,22 +99,22 @@ O_PrenHH(cPosId)
 AddFinIntervalsToOstav(cIdFmk, cParNaz, nIznos1, nIznos2, nIznos3, nIznos4, nIznos5)
 select (nArr)
 return
-*}
 
 
-/*! \fn AddPAzToParams(dDate)
- *  \brief Poziva f-ju AddToParams() i dodjeljuje joj parametre PAZ
+
+/*!  AddPAzToParams(dDate)
+ *   Poziva f-ju AddToParams() i dodjeljuje joj parametre PAZ
  *  \param dDate - datum azuriranja
  */
 function AddPAzToParams(dDate)
 *{
 AzurTopsParams("PAZ", "Posljednje azuriranje", DToS(dDate))
 return
-*}
 
 
-/*! \fn AddSCnToParams(lSilent)
- *  \brief Poziva f-ju AddToParams() i dodjeljuje joj parametre SCN
+
+/*!  AddSCnToParams(lSilent)
+ *   Poziva f-ju AddToParams() i dodjeljuje joj parametre SCN
  *  \param lSilent - .t. - tihi mod, .f. - prijavi MSG o prenesenim parametrima
  */
 function AddSCnToParams(lSilent)
@@ -128,11 +128,11 @@ if !lSilent
 	MsgBeep("Preneseno " + ALLTRIM(STR(nOstav)) + " otvorenih stavki!")
 endif
 return
-*}
 
 
-/*! \fn AddPCnToParams(lSilent)
- *  \brief Poziva f-ju AddToParams() i dodjeljuje joj parametre PCN
+
+/*!  AddPCnToParams(lSilent)
+ *   Poziva f-ju AddToParams() i dodjeljuje joj parametre PCN
  *  \param lSilent - .t. - tihi mod, .f. - prijavi MSG o prenesenim parametrima
  */
 function AddPCnToParams(lSilent)
@@ -146,12 +146,12 @@ if !lSilent
 	MsgBeep("Preneseno " + ALLTRIM(STR(nPartners)) + " partnera!")
 endif
 return
-*}
 
 
 
-/*! \fn Rpt_Ostav()
- *  \brief Stampa kontrolnog izvjestaja
+
+/*!  Rpt_Ostav()
+ *   Stampa kontrolnog izvjestaja
  */
 function Rpt_Ostav()
 *{
@@ -223,7 +223,7 @@ FF
 END PRINT
 
 return
-*}
+
 
 
 

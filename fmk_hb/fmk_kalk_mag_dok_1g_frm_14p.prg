@@ -12,8 +12,8 @@
 
 #include "kalk01.ch"
 
-/*! \fn Get1_14PDV()
- *  \brief Prva strana maske za unos dokumenta tipa 14
+/*!  Get1_14PDV()
+ *   Prva strana maske za unos dokumenta tipa 14
  */
 
 function Get1_14PDV()
@@ -250,8 +250,8 @@ return lastkey()
 
 
 
-/*! \fn pPDV14(fret)
- *  \brief Prikaz PDV pri unosu 14-ke
+/*!  pPDV14(fret)
+ *   Prikaz PDV pri unosu 14-ke
  */
 
 function pPDV14(fRet)
@@ -265,6 +265,6 @@ endif
 
 _VPCSaP:=iif(_VPC<>0, _VPC*(1-_RABATV/100) + iif(nMarza<0,0,nMarza) * TARIFA->VPP/100,0)
 return fret
-*}
+
 
 

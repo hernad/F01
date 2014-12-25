@@ -694,7 +694,7 @@ endif
 go nTrec
 
 return DE_CONT
-*}
+
 
 // print radni nalog
 function pr_rn()
@@ -723,7 +723,7 @@ else
 endif
 go nTrec
 return DE_CONT
-*}
+
 
 // stampaj poresku fakturu
 function pr_pf()
@@ -1113,8 +1113,8 @@ return
 
 
 
-/*! \fn EdDatN()
- *  \brief Ispravka azuriranih dokumenata (u tabelarnom pregledu)
+/*!  EdDatN()
+ *   Ispravka azuriranih dokumenata (u tabelarnom pregledu)
  */
 
 function EdDatn()
@@ -1400,11 +1400,11 @@ do case
 
 endcase
 return nRet
-*}
 
 
-/*! \fn RekTarife(cPMP,cRegion)
- *  \brief Rekapitulacija po tarifama
+
+/*!  RekTarife(cPMP,cRegion)
+ *   Rekapitulacija po tarifama
  *  \todo Prebaciti u /RPT
  *  \param cPMP
  *  \param cRegion
@@ -1517,12 +1517,12 @@ if !fDelphiRb
 endif
 
 return
-*}
 
 
 
-/*! \fn VTPorezi()
- *  \brief Smjesta poreze iz tarifa u javne varijable
+
+/*!  VTPorezi()
+ *   Smjesta poreze iz tarifa u javne varijable
  */
 
 function VTPorezi()
@@ -1541,11 +1541,11 @@ else
   public _PORVT:=0
 endif
 return
-*}
 
 
-/*! \fn RealPartn()
- *  \brief Realizacija po partnerima
+
+/*!  RealPartn()
+ *   Realizacija po partnerima
  *  \todo Prebaciti u /RPT
  */
 
@@ -1740,7 +1740,7 @@ FF
 END PRINT
 
 return
-*}
+
 
 
 // --------------------------------------------------------
@@ -1770,4 +1770,4 @@ P_12CPI
 ? space(gnLMarg); ?? m
 
 return
-*}
+

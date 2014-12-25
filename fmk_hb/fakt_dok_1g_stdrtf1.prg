@@ -51,13 +51,13 @@
  */
  
 /*! \file fmk/fakt/dok/1g/stdrtf1.prg
- *  \brief Stampa faktura u RTF formatu varijanta 1
+ *   Stampa faktura u RTF formatu varijanta 1
  */
 
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_RTF_PartnerFS
-  * \brief Velicina fonta za ispis partnera u rtf-fakturi
+  *  Velicina fonta za ispis partnera u rtf-fakturi
   * \param 28 - default vrijednost
   */
 *string FmkIni_KumPath_RTF_PartnerFS;
@@ -65,7 +65,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_RTF_PartnerSB
-  * \brief Format necega?! Nisam mogao testirati jer nemam instaliran MS Word!
+  *  Format necega?! Nisam mogao testirati jer nemam instaliran MS Word!
   * \param 90 - default vrijednost
   */
 *string FmkIni_KumPath_RTF_PartnerSB;
@@ -73,15 +73,15 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_RegBrPorBr
-  * \brief Da li se ispisuju registarski i poreski broj na fakturi
+  *  Da li se ispisuju registarski i poreski broj na fakturi
   * \param D - da, default vrijednost
   * \param N - ne 
   */
 *string FmkIni_KumPath_FAKT_RegBrPorBr;
 
 
-/*! \fn StdRtf1()
- *  \brief Stampa fakture u RTF formatu
+/*!  StdRtf1()
+ *   Stampa fakture u RTF formatu
  *  \param cImeF
  *  \param cIdFirma
  *  \param cIdTipDok
@@ -442,11 +442,11 @@ else
   restore screen from cScr
 endif
 BoxC()
-*}
 
 
-/*! \fn Zagl1()
- *  \brief Stampa zaglavlja
+
+/*!  Zagl1()
+ *   Stampa zaglavlja
  */
  
 function Zagl1()
@@ -463,11 +463,11 @@ WWRowDef({ {CO1,{"l","s",0.1},{"r","s",0.1},{"b","s",0.4},{"t","s",0.4} } , ;
          })
 WWCellS({"\f2\fs18\qc\sb30\sa20 Rbr","\fs22 Sifra","Naziv robe","Kol.","jmj","Cijena","\fs20 Rab", "Por", "Ukupno"})
 return
-*}
 
 
-/*! \fn NStr(fPrvaStr)
- *  \brief Prelazak na novu stranu
+
+/*!  NStr(fPrvaStr)
+ *   Prelazak na novu stranu
  *  \param fPrvaStrana
  */
  
@@ -496,12 +496,12 @@ WWCells({" "," ","\ql {\b Prenos sa strane "+alltrim(str(nStr++,3))+".}",;
         "\qr {\b "+alltrim(str(nUk,12,nZaokr))+"}";
        })
 return
-*}
 
 
 
-/*! \fn RegIPorBr()
- *  \brief Registarski i poreski broj
+
+/*!  RegIPorBr()
+ *   Registarski i poreski broj
  */
  
 function RegIPorBr()
@@ -518,7 +518,7 @@ LOCAL cDodatak:="", cRegBr, cPorBr
     ENDIF
   ENDIF
 return cDodatak
-*}
+
 
 
 

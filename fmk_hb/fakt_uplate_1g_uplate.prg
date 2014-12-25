@@ -19,12 +19,12 @@
  */
 
 /*! \file fmk/fakt/uplate/1g/uplate.prg
- *  \brief Uplate
+ *   Uplate
  */
 
 
-/*! \fn Uplate()
- *  \brief Uplate
+/*!  Uplate()
+ *   Uplate
  */
  
 function Uplate()
@@ -102,11 +102,11 @@ BoxC()
 
 CLOSERET
 return nil
-*}
 
 
-/*! \fn EdUplata()
- *  \brief Obradjuje funkcije nad uplatama
+
+/*!  EdUplata()
+ *   Obradjuje funkcije nad uplatama
  */
  
 function EdUplata()
@@ -159,11 +159,11 @@ do case
 endcase
 
 return nRet
-*}
 
 
-/*! \fn DajStanjeKupca()
- *  \brief Vraca stanje kupca
+
+/*!  DajStanjeKupca()
+ *   Vraca stanje kupca
  */
  
 function DajStanjeKupca()
@@ -172,11 +172,11 @@ function DajStanjeKupca()
 	@ m_x+18,m_y+49 SAY STR(nUkUplata,15,2) COLOR "N/W"
 	@ m_x+20,m_y+49 SAY STR(nUkZaduz-nUkUplata,15,2) COLOR "N/W"
 return nil
-*}
 
 
-/*! \fn UkZaduz()
- *  \brief Ukupno zaduzenje
+
+/*!  UkZaduz()
+ *   Ukupno zaduzenje
  */
  
 function UkZaduz()
@@ -196,11 +196,11 @@ enddo
 select (nArr)
 
 return nVrati
-*}
 
 
-/*! \fn UkUplata(lPushWA)
- *  \brief Ukupno uplata
+
+/*!  UkUplata(lPushWA)
+ *   Ukupno uplata
  *  \param lPushWA - .t.-skeniraj pa vrati stanje baze uplata, .f.-ne radi to
  */
  
@@ -235,11 +235,11 @@ endif
 select (nArr)
 
 return nVrati
-*}
 
 
-/*! \fn SkipDBBK(nRequest)
- *  \brief
+
+/*!  SkipDBBK(nRequest)
+ *  
  *  \param nRequest
  */
  
@@ -280,11 +280,11 @@ if LASTREC()!=0
 	endif
 endif
 return (nCount)
-*}
 
 
-/*! \fn StKartKup()
- *  \brief Stanje na kartici kupca
+
+/*!  StKartKup()
+ *   Stanje na kartici kupca
  */
  
 static function StKartKup()
@@ -329,11 +329,11 @@ FF
 END PRINT
 
 return nil
-*}
 
 
-/*! \fn SaldaKupaca(lPocStanje)
- *  \brief Izvjestaj koji daje salda svih kupaca
+
+/*!  SaldaKupaca(lPocStanje)
+ *   Izvjestaj koji daje salda svih kupaca
  *  \param lPocStanje - .t.-generisi i pocetno stanje, .f.-daj samo pregled
  */
  
@@ -467,11 +467,11 @@ END PRINT
 
 CLOSERET
 return nil
-*}
 
 
-/*! \fn GPSUplata()
- *  \brief Generisanje pocetnog stanja za evidenciju uplata
+
+/*!  GPSUplata()
+ *   Generisanje pocetnog stanja za evidenciju uplata
  */
 
 function GPSUplata()
@@ -487,6 +487,6 @@ elseif Pitanje(,"Generisati pocetno stanje za evidenciju uplata? (D/N)","N")=="D
 	MsgBeep("Generisanje pocetnog stanja za evidenciju uplata zavrseno!#Provjerite salda kupaca u tekucoj godini!")
 endif
 return nil
-*}
+
 
 

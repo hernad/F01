@@ -392,8 +392,8 @@ CLOSERET
 return
 
 
-/*! \fn ZaglDuznici(fStrana, lSvi)
- *  \brief Zaglavlje izvjestaja duznika
+/*!  ZaglDuznici(fStrana, lSvi)
+ *   Zaglavlje izvjestaja duznika
  *  \param fStrana
  *  \param lSvi
  */
