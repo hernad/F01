@@ -48,7 +48,7 @@ private opcexe:={}
 AADD(opc,"1. prenos dokumenata   =>            ")
 AADD(opcexe, {|| kalk_prenos_diskete()})
 AADD(opc,"2. prijem dokumenata   <= ")
-AADD(opcexe, {|| PovDisk()})
+AADD(opcexe, {|| kalk_povrat_sa_diskete()})
 AADD(opc,"3. podesavanje prenosa i prijema")
 AADD(opcexe, {|| PPPDisk() })
 AADD(opc,"7. prebaci dokument iz druge firme")
@@ -292,11 +292,11 @@ return
 
 
 
-/*!  PovDisk()
+/*!  kalk_povrat_sa_diskete()
  *   Preuzimanje podataka sa diskete
  */
 
-static function PovDisk()
+static function kalk_povrat_sa_diskete()
 
 local nRec
 

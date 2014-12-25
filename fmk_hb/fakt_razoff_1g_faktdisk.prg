@@ -55,7 +55,7 @@ private Izbor:=1
 AADD(opc,"1. prenos dokumenata   =>        ")
 AADD(opcexe,{|| fakt_prenos_diskete()})
 AADD(opc,"2. prijem dokumenata   <= ")
-AADD(opcexe,{|| PovDisk()})
+AADD(opcexe,{|| fakt_povrat_sa_diskete()})
 AADD(opc,"3. podesavanje prenosa i prijema")
 AADD(opcexe,{|| PPPDisk()})
 Menu_SC("faktd")
@@ -339,11 +339,11 @@ return
 
 
 
-/*!  PovDisk()
+/*!  fakt_povrat_sa_diskete()
  *   Povrat podataka 
  */
  
-function PovDisk()
+function fakt_povrat_sa_diskete()
 
 local nRec, cDiff:=""
 PRIVATE cLokPren    := "A:\"
