@@ -813,7 +813,7 @@ return
 
 
 /*!  CijeneOK(cStr)
- *  
+ *
  *   cStr
  */
 
@@ -875,7 +875,7 @@ return nRet
 
 
 /*!  RenumPripr(cVezOtpr,dNajnoviji)
- *  
+ *
  *   cVezOtpr
  *   dNajnoviji - datum posljednje radjene otpremnice
  */
@@ -2023,7 +2023,7 @@ return .t.
 
 
 /*!  SljBrDok13(cBrD,nBrM,cKon)
- *  
+ *
  *   cBrD
  *   nBrM
  *   cKon
@@ -2640,7 +2640,7 @@ return nVrati
 
 
 /*!  TestMainIndex()
- *  
+ *
  *  \return lVrati
  */
 
@@ -2706,8 +2706,7 @@ return lVrati
 
 
 /*!  PRNKod_ON(cKod)
- *  
- *  \todo Prebaciti u /RPT
+ *
  *   cKod
  */
 
@@ -2729,7 +2728,7 @@ return (nil)
 
 
 /*!  PRNKod_OFF(cKod)
- *  
+ *
  *  \todo Prebaciti u /RPT
  *   cKod
  */
@@ -3043,7 +3042,7 @@ return cVrati
 
 
 /*!  KonZbira(lVidi)
- *  
+ *
  *   lVidi - ako je .t. ili nil mora da postoji i privatna varijabla nC:=1
  */
 
@@ -3099,7 +3098,7 @@ return glDistrib .and. _idtipdok=="10" .and. UPPER(RIGHT(TRIM(_BrDok),1))=="S"
 
 
 /*!  RabPor10()
- *  
+ *
  */
 
 function RabPor10()
@@ -3350,4 +3349,3 @@ else
 	y:=m_y+2
 endif
 return
-

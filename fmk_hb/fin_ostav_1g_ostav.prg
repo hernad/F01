@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,14 +14,14 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
- 
+
 /*!  Ostav()
  *   Menij otvorenih stavki
  */
- 
+
 function Ostav()
 
 private izbor:=1
@@ -62,7 +62,7 @@ return
 /*!  SpecOtSt()
  *   Specifikacija otvorenih stavki
  */
- 
+
 static function SpecOtSt()
 
 local nKolTot:=85
@@ -127,7 +127,7 @@ CistiK1k4(.f.)
 
 select SUBAN
 //IdFirma+IdKonto+IdPartner+BrDok+dtos(DatDok)
-set order to 3   
+set order to 3
 
 cFilt1:="OTVST==' '"
 
@@ -256,7 +256,7 @@ return
 /*!  ZaglSpK()
  *   Zaglavlje specifikacije
  */
- 
+
 function ZaglSpK()
 
 local nDSP:=0
@@ -300,7 +300,7 @@ RETURN
 
 
 
-/*!  AutoZat() 
+/*!  AutoZat()
  *   Zatvaranje stavki automatski
  */
 function AutoZat(lAuto, cKto, cPtn)
@@ -453,7 +453,7 @@ return
 /*!  RucnoZat()
  *   Rucno zatvaranje otvaranih stavki
  */
- 
+
 function RucnoZat()
 
 
@@ -576,9 +576,9 @@ return
 
 
 /*!  EdROS()
- *   Rucno zatvaranje otvorenih stavki 
+ *   Rucno zatvaranje otvorenih stavki
  */
- 
+
 function EdROS()
 
 local cDn:="N",nRet:=DE_CONT
@@ -679,9 +679,9 @@ return nRet
 
 
 /*!  OSt_StatLin()
- *   
+ *
  */
- 
+
 function OSt_StatLin()
 
 if gTBDir="D"
@@ -708,7 +708,7 @@ return
  *   fTiho
  *   bFilter - npr. {|| Mjesto(cMjesto)}
  */
- 
+
 function StKart(fSolo,fTiho,bFilter)
 
 local nCol1:=72,cSvi:="N",cSviD:="N",lEx:=.f.
@@ -1078,7 +1078,7 @@ ENDIF
  *   Kreira pomocnu tabelu
  *  \fTiho
  */
- 
+
 function CrePom(fTiho, nParLen)
 
 local nPartLen
@@ -1192,7 +1192,7 @@ RETURN
 /*!  StBrVeze()
  *   Stampa broja veze
  */
- 
+
 function StBrVeze()
 
 local nCol1:=35
@@ -1287,7 +1287,7 @@ END PRINT
 /*!  ZagBRVeze()
  *   Zaglavlje izvjestaja broja veze
  */
- 
+
 function ZagBRVeze()
 ?
 IF gVar1=="0"
@@ -1326,7 +1326,7 @@ RETURN
 /*!  Kompenzacija()
  *   Pravljenje "Izjave o kompenzaciji"
  */
- 
+
 function Kompenzacija()
 
 cIdFirma:=gFirma
@@ -1339,7 +1339,7 @@ if !IzvrsenIn(,,"KOMPEN", .t. )
 endif
 
 
-O_KONTO 
+O_KONTO
 O_PARTN
 
 dDatOd:=dDatDo:=ctod("")
@@ -1682,9 +1682,9 @@ return
 
 
 /*!  EdKomp()
- *   Ispravka kompenzacije 
+ *   Ispravka kompenzacije
  */
- 
+
 function EdKomp()
 
 local nTr2, GetList:={}, nRec:=RECNO(), nX:=m_x, nY:=m_y, nVrati:=DE_CONT
@@ -1755,7 +1755,7 @@ return nVrati
 /*!  StKompenz()
  *   Stampa kompenzacije
  */
- 
+
 function StKompenz()
 
 LOCAL a1:={}, a2:={}, GetList:={}
@@ -1874,7 +1874,7 @@ LOCAL a1:={}, a2:={}, GetList:={}
         DO WHILE .t.
           nPom:=AT("#", cLin)
 	  nPom2:=AT("#%", cLin)
-	  if nPom == nPom2 
+	  if nPom == nPom2
 	  	nPom := 0
 	  endif
           IF nPom>0
@@ -1930,9 +1930,9 @@ RETURN (NIL)
 
 
 /*!  SkipT12i60()
- *   
+ *
  */
- 
+
 static function SkipT12i60()
 
 LOCAL nArr:=SELECT()
@@ -1951,10 +1951,10 @@ RETURN (NIL)
 
 
 /*!  fin_uzmi_var(cVar)
- *   Uzmi varijable 
+ *   Uzmi varijable
  *   cVar - varijabla
  */
- 
+
 function fin_uzmi_var(cVar)
 
 LOCAL cVrati:=""
@@ -2040,64 +2040,25 @@ RETURN cVrati
 
 
 
-/*!  PrnKod_ON(cKod)
- *  
- */
- 
-function PrnKod_ON(cKod)
-
-LOCAL i:=0
-  FOR i:=1 TO LEN(cKod)
-    DO CASE
-      CASE SUBSTR(cKod,i,1)=="U"
-         gPU_ON()
-      CASE SUBSTR(cKod,i,1)=="I"
-         gPI_ON()
-      CASE SUBSTR(cKod,i,1)=="B"
-         gPB_ON()
-    ENDCASE
-  NEXT
-RETURN (NIL)
-
-
-
-
-/*!  PrnKod_OFF(cKod)
- *   Iskljucivanje printerskog koda
- *   cKod - kod printera
- */
- 
-function PRNKod_OFF(cKod)
-
-LOCAL i:=0
-  FOR i:=1 TO LEN(cKod)
-    DO CASE
-      CASE SUBSTR(cKod,i,1)=="U"
-         gPU_OFF()
-      CASE SUBSTR(cKod,i,1)=="I"
-         gPI_OFF()
-      CASE SUBSTR(cKod,i,1)=="B"
-         gPB_OFF()
-    ENDCASE
-  NEXT
-RETURN (NIL)
 
 
 
 /*!  GenAZ()
- *   
+ *
  */
- 
+
 function GenAZ()
 
 local nSaldo
 local nSljRec
 local nOdem
 
+/*
 if !IzvrsenIn(,,"OASIST", .t. )
 	MsgBeep("Ovaj modul nije registrovan za koristenje !")
   	return
 endif
+*/
 
 private cIdKonto
 private cIdFirma
@@ -2189,7 +2150,7 @@ do while !eof() .and. idfirma+idkonto+idpartner=cidfirma+cidkonto+cidpartner
       		skip
    	enddo
    	// saldo za dokument + partner postoji
-        if round(nsaldo,4)<>0 
+        if round(nsaldo,4)<>0
 		// napuni tabelu osuban za partner+dokument
       		seek cidfirma+cidkonto+cidpartner+cbrdok
 		lStorno:=.f.
@@ -2220,7 +2181,7 @@ do while !eof() .and. idfirma+idkonto+idpartner=cidfirma+cidkonto+cidpartner
    	endif
 enddo
 
-select osuban 
+select osuban
 set order to tag "DATUM"
 
 //if nBrojStornoRacuna>0
@@ -2235,7 +2196,7 @@ do while .t.
 
         //varijabla koja kazuje da je racun/storno racun nadjen
   	fNasao:=.f.
-  	
+
         // prvi krug  (nadji ukupno stvorene obaveze za jednog partnera
   	nZatvori:=0
 	// nijedan brdok dokument u bazi ne moze biti chr(200)+chr(255)
@@ -2250,12 +2211,12 @@ do while .t.
         do while !eof()
 
 		// neobradjene stavke
-   		if empty(_PPK1) 
+   		if empty(_PPK1)
 
 			// nastanak duga
-    			if !fNasao .and. d_p==cDugPot 
+    			if !fNasao .and. d_p==cDugPot
 
-				
+
 				if (iznosbhd>0)
 				  if nBrojStornoRacuna>0
 					// prvo se moraju zatvoriti storno racuni
@@ -2270,7 +2231,7 @@ do while .t.
          			  cZatvori:=brdok
 				  dDatDok:=datdok
 				  cZatvoriStorno:=chr(200)+chr(255)
-				 
+
  				else
 
 				  // storno racun
@@ -2300,9 +2261,9 @@ do while .t.
             				nZatvori-=iznosbhd
          			endif
         			// prosli smo ovo - marker
- 				replace _PPK1 with "1" 
+ 				replace _PPK1 with "1"
 
-    			elseif fNasao .and. (cZatvoriStorno == Brdok) 
+    			elseif fNasao .and. (cZatvoriStorno == Brdok)
 
          			// isto vrijedi i za stavke iza storno racuna
 				// a koje imaju isti broj veze
@@ -2321,7 +2282,7 @@ do while .t.
 	if !fNasao
 		// nema racuna za zatvoriti
 		MsgBeep("prosao sve racune - nisam  nista nasao - izlazim")
-      		exit 
+      		exit
   	endif
 
   	// drugi krug - sada se formiraju uplate
@@ -2332,7 +2293,7 @@ do while .t.
     		if empty(_PPK1)
 
 			// potrazna strana
-     			if d_p<>cDugPot 
+     			if d_p<>cDugPot
 
         			nUplaceno:=iznosbhd
 
@@ -2343,7 +2304,7 @@ do while .t.
 						nSljRec:=recno()
 						skip -1
                 				nOdem:=iznosdem-nZatvoriStorno*iznosdem/iznosbhd
-                				
+
 						// zatvaram storno racun
                 				replace brdok with cZatvoriStorno, _PPk1 with "1", iznosbhd with nZatvoriStorno, iznosdem with iznosdem-nODem
                 				scatter()
@@ -2355,16 +2316,16 @@ do while .t.
                  					_brdok:="AVANS"
                  					__PPK1:=""
                  					gather()
-							//MsgBeep("AVANS-1" + STR(_iznosbhd)) 
+							//MsgBeep("AVANS-1" + STR(_iznosbhd))
                 				endif
                 				nZatvoriStorno:=0
-                				go nSljRec 
+                				go nSljRec
 						loop
 
-				elseif nUplaceno>0 .and. nZatvori>0  
-					
+				elseif nUplaceno>0 .and. nZatvori>0
+
 					//pozitivni iznosi
-           				if  nZatvori>=nUplaceno  
+           				if  nZatvori>=nUplaceno
 
 						//MsgBeep(" nZatvori >= nUplaceno :" + STR(nZatvori) + "/" + STR(nUplaceno))
 						// vise treba zatvoriti nego je uplaceno
@@ -2391,10 +2352,10 @@ do while .t.
                  					_brdok:="AVANS"
                  					__PPK1:=""
                  					gather()
-							//MsgBeep("AVANS-2" + STR(_iznosbhd)) 
+							//MsgBeep("AVANS-2" + STR(_iznosbhd))
                 				endif
                 				nZatvori:=0
-                				go nSljRec 
+                				go nSljRec
 						loop
 					endif
            				if nZatvori<=0
@@ -2588,7 +2549,7 @@ return
 /*!  StAz()
  *   Stampa promjena
  */
- 
+
 function StAz()
 
 aKol:={}
@@ -2624,10 +2585,10 @@ return .t.
 
 
 /*!  SkipDBBK(nRequest)
- *   
+ *
  *   nRequest
  */
- 
+
 function SkipDBBK(nRequest)
 
 local nCount
@@ -2665,6 +2626,3 @@ if LastRec() != 0
    endif
 endif
 return (nCount)
-
-
-
