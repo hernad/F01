@@ -106,7 +106,7 @@ CLOSERET
  */
 
 function TraziRbr(cKljuc)
-*{
+
  LOCAL cVrati:="  1"
  SELECT PRIPR; GO TOP
  SEEK cKljuc
@@ -123,7 +123,7 @@ return cVrati
  */
 
 function TraziNC(cTrazi,dDat)
-*{
+
  LOCAL nSlog:=0, aNiz:={{0,0}}, nPom:=0, nVrati:=0
   SELECT KALK
   nSlog:=RECNO()

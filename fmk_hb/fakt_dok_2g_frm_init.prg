@@ -66,7 +66,7 @@
 
  
 function TFrmInvItNew(oOwner)
-*{
+
 local oObj
 
 #ifdef CLIP
@@ -216,7 +216,7 @@ END CLASS
  */
 
 *void TFrmInvIt::open()
-*{
+
 method open()
 
 Box(,20,77)
@@ -271,7 +271,7 @@ return 1
 
  
 *void TFrmInvIt::close()
-*{
+
 method close
 BoxC()
 return
@@ -324,7 +324,7 @@ return
  */
 
 *int TFrmInvIt::nextItem()
-*{
+
 method nextItem()
 
 SELECT pripr
@@ -341,7 +341,7 @@ return 1
 
 
 *void TFrmInvIt::loadFromTbl()
-*{
+
 method loadFromTbl()
 local aMemo
 
@@ -410,7 +410,7 @@ return
 
 
 static function AddTxt(cTxt, cStr)
-*{
+
 cTxt:=cTxt+Chr(16)+cStr+Chr(17)
 return nil
 
@@ -440,7 +440,7 @@ return .t.
  */
  
 *bool TFrmInvIt::wheBrDok()
-*{
+
 method wheBrDok()
 return .t.
 
@@ -450,7 +450,7 @@ return .t.
  *   Validacija Redni broj
  */
 *bool TFrmInvIt::vldRbr()
-*{
+
 method vldRbr()
 return .f.
 
@@ -460,7 +460,7 @@ return .f.
  *   Validacija BrDok
  */
 *bool TFrmInvIt::vldBrDok()
-*{
+
 method vldBrDok()
 if !EMPTY(::cBrDok)
 	return .t.
@@ -473,7 +473,7 @@ endif
  *   validacija IdRoba
  */
 method vldIdRoba()
-*{
+
 local cPom
 
 if LEN(TRIM(::cIdRoba))<10
@@ -498,7 +498,7 @@ return .t.
  *   When (pred ulazak u) IdRoba
  */
 method wheIdRoba()
-*{
+
 private GetList
 
 ::cIdRoba:=PADR(::cIdroba, goModul:nDuzinaSifre)
@@ -522,7 +522,7 @@ return .t.
  *   Uzmi Podatke partnera
  */
 method getPartner(nRow)
-*{
+
 
 @  m_x+nRow, m_y+2  SAY "Partner " get ::cPartner  picture "@S30" WHEN ::whePartner() VALID ::vldPartner()
 
@@ -537,7 +537,7 @@ return
  */
 
 *void TFrmInvIt::sayPartner(int nRow)
-*{
+
 method sayPartner(nRow)
 
 @  m_x+nRow, m_y+2  SAY "Partner " 
@@ -554,7 +554,7 @@ return
  *   When Partner polja
  */
 method whePartner()
-*{
+
 
 ::cPartner:=PADR(::cPartner, 30)
 ::cAdresa:=PADR(::cAdresa, 30)
@@ -567,7 +567,7 @@ return .t.
  *   Validacija nakon unosa Partner polja - vidi je li sifra
  */
 method vldPartner()
-*{
+
 local cSif
 local nPos
 
@@ -596,7 +596,7 @@ return  .t.
  */
 
 method vldPKolicina()
-*{
+
 local cRjTip
 local nUl
 local nIzl
@@ -631,7 +631,7 @@ return .t.
  *   Validacija Knjizne Kolicine
  */
 method vldKKolicina()
-*{
+
 
 if ::nKKolPrijeEdita<>::nKKolicina
 	MsgBeep("Zasto mjenjate knjiznu kolicinu ??")
@@ -647,7 +647,7 @@ return .t.
  *   Prije ulaska u polje Knjizne Kolicine
  */
 method wheKKolicina()
-*{
+
 ::nKKolPrijeEdita:=::nKKolicina
 return .t.
 

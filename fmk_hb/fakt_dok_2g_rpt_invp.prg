@@ -61,7 +61,7 @@
  */
  
 function RptInvObrPopisa()
-*{
+
 local nRecNo
 private nStr:=0
 

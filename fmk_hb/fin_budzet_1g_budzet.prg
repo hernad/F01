@@ -48,7 +48,7 @@
  */
 
 function IzvrsBudz()
-*{
+
 local cLM:=SPACE (5)
 local fKraj
 local n
@@ -956,7 +956,7 @@ return
  */
  
 function IB_Zagl1()
-*{
+
 IF fPrvaStr
 	fPrvaStr := .F.
 Else
@@ -982,7 +982,7 @@ RETURN
  */
  
 function IB_Zagl2()
-*{
+
 IF fPrvaStr
 	fPrvaStr := .F.
 Else
@@ -1002,7 +1002,7 @@ RETURN
  */
  
 function IB_Zagl3()
-*{
+
 IF fPrvaStr
 	fPrvaStr := .F.
 Else
@@ -1024,7 +1024,7 @@ RETURN
  */
  
 function IB_Zagl4()
-*{
+
 IF fPrvaStr
 	fPrvaStr := .F.
 Else
@@ -1048,7 +1048,7 @@ RETURN
  */
  
 function Prihodi()
-*{
+
 local fKraj
 local n
 private picBHD:=FormPicL(gPicBHD,15)
@@ -1445,7 +1445,7 @@ return
  */
  
 function PR_Zagl()
-*{
+
 IF fPrvaStr
 	fPrvaStr := .F.
 Else
@@ -1470,7 +1470,7 @@ RETURN
  */
  
 function Razmak(nBrRed)
-*{
+
 private i
 
 for i:=1 to nBrRed
@@ -1488,7 +1488,7 @@ return
  */
  
 function BuIz(cKonto)
-*{
+
 // primjer BUIZ: ID=6138931 , NAZ=6138910030
 //                7 cifri,     10 cifri
 local nselect

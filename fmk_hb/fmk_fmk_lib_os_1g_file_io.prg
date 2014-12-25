@@ -48,7 +48,7 @@ return xRet
 *
 */
 function FileSize(nHandle)
-*{
+
 local nCurrent, nLength
 
 // Get file position
@@ -68,7 +68,7 @@ function ScFEof(nHandle)
 #else
 function FEof(nHandle)
 #endif
-*{
+
 local lRet
 
 if (FileSize(nHandle)==FilePos(nHandle))
@@ -102,7 +102,7 @@ return SC_FReadLn(nHandle, nLines, nLineLength, cDelim)
 
 
 function SC_FReadLn(nHandle, nLines, nLineLength, cDelim)
-*{
+
 LOCAL nCurPos, nFileSize, nChrsToRead, nChrsRead
 LOCAL cBuffer, cLines
 LOCAL nCount

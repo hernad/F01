@@ -53,7 +53,7 @@
 ****/
 
 function SetScGVars()
-*{
+
 
 public ZGwPoruka:=""
 public GW_STATUS:="-"
@@ -186,7 +186,7 @@ return
  *  postavljanje varijabli koje traze setovane *PATH varijable Db-a
  */
 function SetScGVar2()
-*{
+
 gSql:=IzFmkIni("Svi", "SQLLog", "N", KUMPATH)
 gSqlLogBase:=IzFmkIni("SQL","SQLLogBase","c:\sigma",EXEPATH)
 
@@ -194,7 +194,7 @@ gSqlLogBase:=IzFmkIni("SQL","SQLLogBase","c:\sigma",EXEPATH)
 
 
 function IniGparams(fSve)
-*{
+
 local cImeDbf
 
 if fsve==nil
@@ -269,7 +269,7 @@ return nil
  */
  
 function IniGParam2(lSamoKesiraj)
-*{
+
 
 local cPosebno:="N"
 
@@ -333,7 +333,7 @@ return
 
 
 function IniPrinter()
-*{
+
 
 *
 * procitaj gprinter, gpini, itd..

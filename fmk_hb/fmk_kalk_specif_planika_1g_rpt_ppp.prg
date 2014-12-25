@@ -50,7 +50,7 @@
  */
  
 function PPProd()
-*{
+
 local i
 local dDatumOd
 local dDatumDo
@@ -161,7 +161,7 @@ return
 
 
 static function InitAPolozi(aPolozi)
-*{
+
 local i
 
 aPolozi:={}
@@ -177,7 +177,7 @@ next
 
 
 static function Header(dDatumOd, dDatumDo, aPolozi, nStr)
-*{
+
 local i
 local nSirina
 
@@ -224,7 +224,7 @@ return
 
 
 static function Footer(nUPari, nUBruto1, nUBruto2, nUBruto, nUNeto1, nUNeto2, nUNeto, aPolozi)
-*{
+
 local i
 local cPicKol
 local nUkupnoPolozi
@@ -252,7 +252,7 @@ return
 
 
 static function Linija(nPologa)
-*{
+
 local i
 
 ? REPLICATE("-", NAZIV_PROD_LEN)
@@ -268,7 +268,7 @@ return
 
 
 static function FldPolog(nPos)
-*{
+
 do case
 	case nPos==1
 		return field->polog01
@@ -299,7 +299,7 @@ return
 
 
 static function OTblPPProd()
-*{
+
 local cTbl
 
 // kreiraj tabelu ppprod
@@ -311,7 +311,7 @@ return
 
 
 static function GetVars(dDatumOd, dDatumDo, cListaKonta, cPopustDN)
-*{
+
 
 #ifdef PROBA
 dDatumOd:=DATE()
@@ -337,7 +337,7 @@ return 1
 
 
 static function ScanKoncij(dDatumOd, dDatumDo)
-*{
+
 local cTSifPath
 local nSifPath
 local cTKumPath
@@ -418,7 +418,7 @@ return 1
 
 
 static function ScanPos(dDatumOd, dDatumDo, cTKumP)
-*{
+
 local aPorezi
 
 SELECT 0
@@ -485,7 +485,7 @@ return
  */
 
 static function AFPos(cIdKonto, cVisaNiza, nCijena, nCijenaBp, nKolicina) 	
-*{
+
 local nPari
 
 SELECT ppprod
@@ -519,7 +519,7 @@ return
 
 
 static function ScanPromVp(dDatumOd, dDatumDo, cTKumPath)
-*{
+
 
 SELECT 0
 USE (cTKumPath+"PROMVP")
@@ -553,7 +553,7 @@ return 1
  */
  
 static function ARFPromVp(cIdKonto, nPolog01, nPolog02, nPolog03, nPolog04, nPolog05, nPolog06, nPolog07, nPolog08, nPolog09, nPolog10, nPolog11, nPolog12)
-*{
+
 
 SELECT ppprod
 SEEK cIdKonto

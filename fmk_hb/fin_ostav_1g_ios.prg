@@ -253,7 +253,7 @@ return
  */
  
 function ZagSpecIOS()
-*{
+
 P_COND
 
 ??  "FIN: SPECIFIKACIJA IOS-a     NA DAN "
@@ -437,7 +437,7 @@ return
  */
  
 function IOSPojed()
-*{
+
 local dDatDo := DATE()
 memvar->DATUM=date()
 cIdFirma:=gFirma
@@ -935,7 +935,7 @@ RETURN
  */
  
 function OstatakOpisa(cO,nCO,bUslov,nSir)
-*{
+
 IF nSir==NIL; nSir:=20; ENDIF
   DO WHILE LEN(cO)>nSir
     IF bUslov!=NIL; EVAL(bUslov); ENDIF

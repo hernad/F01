@@ -17,7 +17,7 @@
  *   Otvorene stavke - UNDO operacija
  */
 function OStUndo()
-*{
+
 
 if !SigmaSif("SCUNDO")
 	MsgBeep("Nemate ovlastenja za koristenje ove operacije!")
@@ -60,7 +60,7 @@ return
  *   Setuj parametre
  */
 static function GetVars(dDatOd, dDatDo, cPartn, cKonto, cDp, cVNal)
-*{
+
 O_PARTN
 O_KONTO
 
@@ -86,7 +86,7 @@ return 1
  *   glavna funkcija obrade dokumenta 
  */
 static function OStRunUndo(dDOd, dDDo, cIdPartn, cIdKonto, cDugPot, cVNal)
-*{
+
 select suban
 set order to tag "1"
 go top
@@ -182,7 +182,7 @@ return
  *   Pokrece asistenta otvorenih stavki poslije azuriranja naloga
  */
 function OStAfterAzur(aPartList, cIdPart, cIdKonto, cDp)
-*{
+
 
 
 

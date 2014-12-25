@@ -576,7 +576,7 @@ closeret
 
 
 static function Legenda()
-*{
+
 
 ? "Legenda:" 
 ? "( 1) Pocetna zaliha: sadrzi stanje zalihe na Datum-od i to "
@@ -601,7 +601,7 @@ return
  */
  
 function ZagOPoMF()
-*{
+
 P_10CPI
 //if gPrinter<>"R"
 //	B_ON

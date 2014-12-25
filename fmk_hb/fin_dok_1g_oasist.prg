@@ -413,7 +413,7 @@ RETURN (NIL)
  */
  
 function EdKonsROS()
-*{
+
 local oBrDok:=""
 local cBrdok:=""
 local nTrec

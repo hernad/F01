@@ -20,7 +20,7 @@
  */
 
 function PocSkSez()
-*{
+
 if OFSveuDir(PRIVPATH,@aFilesP) .and.;
    iif(SIFPATH<>PRIVPATH, OFSveuDir(SIFPATH,@aFilesS),.t.) .and.;
    iif(KUMPATH<>SIFPATH.and.KUMPATH<>PRIVPATH,OFSveuDir(KUMPATH, @aFilesK),.t.)
@@ -36,7 +36,7 @@ return .t.
 
 
 function KrajskSez(cOldSezona)
-*{
+
 
 ZFSveuDir(@aFilesP)
 ZFSveuDir(@aFilesS)
@@ -46,7 +46,7 @@ return nil
 
 
 function StSezona(cSezona)
-*{
+
 
 if cSezona==goModul:oDataBase:cSezona
   MsgBeep("Ne mozete odabrati tekucu sezonu")
@@ -91,7 +91,7 @@ return .t.
 
 
 function Skloni(cPath,cIme,cSezona,fInverse,fDa,fNuliraj)
-*{
+
 
 if Empty(cSezona)
 	MsgBeep("Nepostojeca sezona!!!" + cSezona)
@@ -166,7 +166,7 @@ return
 
 
 function BrisiSezonu()
-*{
+
 
 if !sigmasif("SIGMABS")
     return
@@ -271,7 +271,7 @@ return
 // a nalaze se u direktoriju cPath (npr. "c:\sigma\fin\kum1\")
 // -----------------------------------------------------------
 FUNCTION ASezona(cPath)
-*{
+
 LOCAL aSezone
   aSezone := DIRECTORY(cPath+"*.","DV")
 FOR i:=LEN(aSezone) TO 1 STEP -1
@@ -285,7 +285,7 @@ RETURN aSezone
 
 
 function ProcPrenos(fSilent)
-*{
+
 
 if gProcPrenos="N"
 	MsgBeep("Ovaj program nema procedure prenosa !")
@@ -357,7 +357,7 @@ return
 ****/
 
 function SetOznNoGod()
-*{
+
 IF OzNoGod() <> goModul:oDataBase:cSezona .and.;
    VAL(OzNoGod()) > VAL(goModul:oDataBase:cSezona) .and. VAL(OzNoGod())>2000
 	if JelSeRadilo()
@@ -390,7 +390,7 @@ return
 
 
 function JelSeRadilo()
-*{
+
  LOCAL lVrati:=.t.
   IF "U" $ TYPE("gGlBaza") .or. EMPTY(gGlBaza)
     // bolje da se uzme da se radilo
@@ -410,12 +410,12 @@ RETURN lVrati
 
 
 FUNCTION OzNoGod()
-*{
+
 RETURN PADR( IzFMKIni( "Svi" , "NovaGodina" , STR(YEAR(DATE()),4) ) ,4)
 
 
 function SezRad(cDir)
-*{
+
 local cPom
 if !empty(goModul:oDatabase:cSezonDir) // u sezoni sam
   if  right(cDir,5)==goModul:oDatabase:cSezonDir
@@ -436,7 +436,7 @@ return
 
 
 function URadPodr(fset, oDatabase)
-*{
+
 *
 * fset == .t. -> upisi u kparams
 
@@ -484,7 +484,7 @@ return
 
 
 function PromOzSez(oDatabase)
-*{
+
 local cPom
 
 if (oDatabase==nil)
@@ -530,13 +530,13 @@ return
  */
  
 function BrowseSezone()
-*{
+
 
 return "000"
 
 
 function InfoPodrucja()
-*{
+
 Box("#PODACI O TRENUTNOM PODRUCJU PODATAKA",20,77)
 	@ m_x+2, m_y+2 SAY "goModul:oDataBase:cSezona      ='"+(goModul:oDataBase:cSezona)+"'"
 	@ m_x+3, m_y+2 SAY "goModul:oDataBase:cSezonDir    ='"+(goModul:oDataBase:cSezonDir)+"'"

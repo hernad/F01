@@ -40,7 +40,7 @@
 
 
 function MnuSifrarnik()
-*{
+
 private opc:={}
 private opcexe:={}
 private Izbor:=1
@@ -73,7 +73,7 @@ return
  *   Specificni sifrarnika
  */
 function MnuSpecSif()
-*{
+
 private opc:={}
 private opcexe:={}
 private izbor:=1
@@ -152,7 +152,7 @@ return
  *   Menij budzetskog poslovanja
  */
 function MnuBudzSif()
-*{
+
 private opc:={}
 private opcexe:={}
 private Izbor:=1
@@ -187,7 +187,7 @@ return
  *   Otvara potrebne tabele za budzetsko poslovanje
  */
 function OSifBudzet()
-*{
+
 O_RJ
 O_FUNK
 O_FOND

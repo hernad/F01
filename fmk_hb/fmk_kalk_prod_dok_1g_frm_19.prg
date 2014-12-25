@@ -30,7 +30,7 @@
  */
 
 function Get1_19()
-*{
+
 _DatFaktP:=_datdok
 _DatKurs:=_DatFaktP
 private aPorezi:={}

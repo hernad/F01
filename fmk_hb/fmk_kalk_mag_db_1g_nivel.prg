@@ -43,7 +43,7 @@
  */
 
 function Niv_10()
-*{
+
 local nRVPC:=0
 
 O_KONCIJ

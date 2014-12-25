@@ -22,7 +22,7 @@ static nDuzStrKorekcija := 0
 // glavna funkcija za poziv stampe fakture a4
 // lStartPrint - pozovi funkcije stampe START PRINT
 function omp_print(lStartPrint)
-*{
+
 // ako je nil onda je uvijek .t.
 if lStartPrint == nil
 	lStartPrint := .t.
@@ -51,7 +51,7 @@ return
 
 // stampa otpremnica maloprodaja
 function otpr_mp(lStartPrint)
-*{
+
 local cBrDok
 local dDatDok
 local aRNaz
@@ -223,7 +223,7 @@ return
 
 // uzmi osnovne parametre za stampu dokumenta
 function get_omp_vars(nLMargina, nGMargina, nDodRedova, nSlTxtRow, lSamoKol, lZaglStr, lStZagl, lDatOtp, cValuta, cPDVStavka)
-*{
+
 
 // uzmi podatak za lijevu marginu
 nLMargina := VAL(get_dtxt_opis("P01"))
@@ -278,7 +278,7 @@ return
 
 // zaglavlje glavne tabele sa stavkama
 static function st_zagl_data()
-*{
+
 
 local cRed1:=""
 local cRed2:=""
@@ -397,7 +397,7 @@ return
 // datum fakture, otpremnica itd..
 // -----------------------------------------------
 static function omp_kupac()
-*{
+
 local cPartMjesto
 local cPartPTT
 
@@ -528,7 +528,7 @@ return
 // funkcija za novu stranu
 // ------------------------------------
 static function NStr_a4(nStr, lShZagl)
-*{
+
 
 // korekcija duzine je na svako strani razlicita
 nDuzStrKorekcija := 0 

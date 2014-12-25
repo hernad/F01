@@ -17,7 +17,7 @@
  */
  
 function KorPreg()
-*{
+
 local nSir
 
 O_KORISN
@@ -51,7 +51,7 @@ return
 
 
 function EdKorisn()
-*{
+
 do case
   case Ch==K_CTRL_N
       if System .or. (KLevel='0' .and. Right(trim(ImeKorisn),1)='1')
@@ -93,7 +93,7 @@ return DE_CONT
 
 
 function GetKorisn(fnovi)
-*{
+
 Box("",8,60,.F.,'Unos novog korisnika,sifre')
 SET CURSOR ON
 @ m_x+1,m_y+2 SAY "Ime korisnika......"
@@ -122,7 +122,7 @@ return lastkey()
 */
 
 static function ProvIme(m_ime)
-*{
+
 local nRec:=recno()
 
 *seek m_ime
@@ -141,7 +141,7 @@ return .t.
 
 
 function Zabrana()
-*{
+
 if !( System  .or. (KLevel='0' .and. Right(trim(ImeKorisn),1)='1') )
   MsgO("Samo korisnik SYSTEM ima pristup ovoj opciji")
   Beep(4)
@@ -158,7 +158,7 @@ return
 
 
 function Secur()
-*{
+
 PRIVATE ImeKol,Kol
 Kol:={1,2,3,4,5,6}
 
@@ -178,7 +178,7 @@ return
 
 
 function EdSecur()
-*{
+
 do case
   case Ch==K_CTRL_N
        GetSecur(.t.)
@@ -200,7 +200,7 @@ return DE_CONT
 
 
 function GetSecur(fnovi)
-*{
+
 Box("",8,60,.F.,'Definicija pristupa')
 SET CURSOR ON
 
@@ -234,7 +234,7 @@ return NIL
 
 
 function ServisKom
-*{
+
 local cScr
 local izbor
 

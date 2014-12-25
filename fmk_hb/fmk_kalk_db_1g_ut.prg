@@ -20,7 +20,7 @@
 
 
 function ODbKalk()
-*{
+
 O_SIFK
 O_SIFV
 O_TARIFA
@@ -40,7 +40,7 @@ return
  */
 
 function KalkNaF(cidroba,nKols)
-*{
+
 select (F_FAKT)
 if !used(); XO_FAKT; endif
 
@@ -70,7 +70,7 @@ return
  */
 
 function MsgNCRazd()
-*{
+
 //ne moze raditi
 //if round(nab-> kalk->kolicina) .and. round(nab->nc-kalk->nc,3)<>0;  Msg("U dokumentu "+kalk->(idfirma+"-"+idvd+"-"+brdok)+" nije dobra NC po metodi razduzenja !"); endif
 return
@@ -82,7 +82,7 @@ return
  */
 
 function P_Kalk(cIdFirma,cIdVD,cBrDok)
-*{
+
 local nRez:=.f.
 local nArr:=SELECT()
 //PushWa()
@@ -107,7 +107,7 @@ return nRez
  */
 
 function VVT()
-*{
+
 @ m_x+13,m_y+2 SAY "PPP:"
 @ m_x+13,col()+2 SAY tarifa->opp pict "99.99%"
 if roba->tip="X"
@@ -129,7 +129,7 @@ return .t.
  */
 
 function DuplRoba()
-*{
+
 local nRREC,fdupli:=.f.,dkolicina:=0,dfcj:=0
 private GetList:={}
  // pojava robe vise puta unutar kalkulacije!!!
@@ -174,7 +174,7 @@ return .t.
  */
 
 function DatPosljK()
-*{
+
 select kalk
 set order to 3
 seek _idfirma+_mkonto+_idroba+chr(254)
@@ -194,7 +194,7 @@ return
  */
 
 function DatPosljP()
-*{
+
 select kalk
 set order to 4
 
@@ -248,7 +248,7 @@ return cReturn
 // ------------------------------------------------
 // ------------------------------------------------
 function SljBrKalk(cTipKalk, cIdFirma, cSufiks)
-*{
+
 local cBrKalk:=space(8)
 if cSufiks==nil
 	cSufiks:=SPACE(3)
@@ -344,7 +344,7 @@ return cResult
  */
 
 function MMarza2()
-*{
+
   if TMarza2=="%".or.EMPTY(tmarza2)
      nMarza2:=kolicina*Marza2/100*VPC
   elseif TMarza2=="A"
@@ -362,7 +362,7 @@ return nMarza2
  */
 
 function KnjizSt()
-*{
+
 local nUlaz:=nIzlaz:=0
 local nMPVU:=nMPVI:=nNVU:=nNVI:=0
 local cIdRoba:=_Idroba
@@ -431,7 +431,7 @@ return
  */
 
 function RenumPripr(cDok,cidvd)
-*{
+
 select pripr
 set order to 0
 go top
@@ -459,7 +459,7 @@ return
  */
 
 function IspitajPrekid()
-*{
+
  INKEY()
 return IF(LASTKEY()==27,PrekSaEsc(),.t.)
 
@@ -473,7 +473,7 @@ return IF(LASTKEY()==27,PrekSaEsc(),.t.)
  */
 
 function KaKaProd(nUlaz,nIzlaz,nMPV,nNV)
-*{
+
   if pu_i=="1"
     nUlaz+=kolicina-GKolicina-GKolicin2
     nMPV+=mpcsapp*kolicina
@@ -503,7 +503,7 @@ return
  */
 
 function NCuMP(_idfirma,_idroba,_idkonto,nKolicina,dDatDok)
-*{
+
  LOCAL nArr:=SELECT()
   nKolS:=0
   nKolZN:=0
@@ -530,7 +530,7 @@ return nc2
  */
 
 function KalkTrUvoz()
-*{
+
  LOCAL nT1:=0 , nT2:=0 , nT3:=0 , nT4:=0 , nT5:=0, CP:="999999999.999999999"
   Box("#Unos troskova",7,75)
     @ m_x+2, m_y+2 SAY c10T1 GET nT1 PICT CP
@@ -550,7 +550,7 @@ CLOSERET
  */
 
 function ObracunPorezaUvoz()
-*{
+
 local nTP, qqT1, qqT2, aUT1, aUT2
 
 O_PRIPR
@@ -613,7 +613,7 @@ return
 
 
 function ImePoljaTroska(n)
-*{
+
 local aTros
 aTros:={"Prevoz","BankTr","SpedTr","CarDaz","ZavTr"}
 return aTros[n]
@@ -625,7 +625,7 @@ return aTros[n]
  */
 
 function KTroskovi()
-*{
+
 local Skol:=0,nPPP:=0
 
 if gKalo=="1"
@@ -756,7 +756,7 @@ return
  */
 
 function Preduzece()
-*{
+
 P_INI
 P_10CPI
 P_B_ON
@@ -776,7 +776,7 @@ return
  */
 
 function ImaUKumul(cKljuc,cTag)
-*{
+
  local lVrati:=.f.
  local lUsed:=.t.
  local nArr:=SELECT()
@@ -819,7 +819,7 @@ return lVrati
  */
  
 function UkupnoKolP(nTotalUlaz, nTotalIzlaz)
-*{
+
 local cIdRoba
 local lUsedRoba
 
@@ -862,7 +862,7 @@ return
  */
  
 function UkupnoKolM(nTotalUlaz, nTotalIzlaz)
-*{
+
 local cIdRoba
 local lUsedRoba
 
@@ -904,7 +904,7 @@ return
 
 
 function RptSeekRT()
-*{
+
 local nArea
 
 nArea:=SELECT()
@@ -923,7 +923,7 @@ return
  *  \param cSta - "KOL", "NV", "MPV", MPVBP"...
  */
 function UzmiIzP(cSta)  
-*{
+
 LOCAL nVrati:=0, nArr:=0
   IF cSta=="KOL"
     if pu_i=="1"
@@ -980,7 +980,7 @@ RETURN nVrati
 
 
 function Generisi11ku_iz10ke(cBrDok)
-*{
+
 local nArr
 nArr:=SELECT()
 O_TARIFA
@@ -1045,7 +1045,7 @@ return
 
 
 function Get11FromSmece(cBrDok)
-*{
+
 local nArr
 nArr:=SELECT()
 
@@ -1073,7 +1073,7 @@ return
 
 
 function Generisati11_ku()
-*{
+
 // daj mi vrstu dokumenta pripreme
 nTRecNo:=RECNO()
 go top
@@ -1094,7 +1094,7 @@ return
 
 // set pdv cijene
 function SetPdvCijene()
-*{
+
 
 if !SigmaSif("SETPDVC")
    MsgBeep("Ne cackaj!")
@@ -1217,7 +1217,7 @@ closeret
 
 // set pdv cijene
 function SetPomnoziCijene()
-*{
+
 
 local cIdTarifa:=SPACE(6)
 local cZaTarifu:=SPACE(6)
@@ -1299,7 +1299,7 @@ closeret
 
 // kopiraj stavke u pript tabelu iz KALK
 function cp_dok_pript(cIdFirma, cIdVd, cBrDok)
-*{
+
 // kreiraj pript
 crepriptdbf()
 O_PRIPT

@@ -1089,7 +1089,7 @@ return
  */
  
 function Telefon(cTel)
-*{
+
 local nSelect
 nselect:=select()
 select partn
@@ -1231,7 +1231,7 @@ RETURN
  */
  
 function Rasclan()
-*{
+
 if cRasclaniti=="D"
 	return cRasclan == suban->(idrj+funk+fond)
 else
@@ -1246,7 +1246,7 @@ endif
  */
  
 function SubKart2(lOtvSt)
-*{
+
 local cBrza:="D"
 local nSirOp:=20
 local nCOpis:=0
@@ -1904,7 +1904,7 @@ RETURN
  */
  
 function V_Firma(cIdFirma)
-*{
+
 P_Firma(@cIdFirma)
 cIdFirma:=trim(cIdFirma)
 cIdFirma:=left(cIdFirma,2)
@@ -1920,7 +1920,7 @@ return .t.
  */
  
 function Prelomi(nDugX,nPotX)
-*{
+
 if (ndugx-npotx)>0
    nDugX:=nDugX-nPotX
    nPotX:=0

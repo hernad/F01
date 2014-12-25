@@ -1089,7 +1089,7 @@ return
 // filovanje podataka partnera
 // -------------------------------------------
 function fill_part_data(cId, lPdvObveznik)
-*{
+
 local cIdBroj:=""
 local cPorBroj:=""
 local cBrRjes:=""
@@ -1181,7 +1181,7 @@ return
 
 
 function fill_firm_data()
-*{
+
 local i
 local cBanke
 local cPom

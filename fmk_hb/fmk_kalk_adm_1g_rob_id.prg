@@ -37,7 +37,7 @@
  */
 
 function RobaIdSredi()
-*{
+
 cSifOld:=space(10)
 cSifNew:=space(10)
 
@@ -120,7 +120,7 @@ closeret
  */
 
 function Sljedeci(cIdFirma,cVrsta)
-*{
+
 local cBrKalk
 if gBrojac=="D"
  select kalk

@@ -75,7 +75,7 @@ END CLASS
 /*!  *void TDBFakt::dummy()
  */
 *void TDBFakt::dummy()
-*{
+
 method dummy
 return
 
@@ -90,7 +90,7 @@ return
  */
 
 *void TDBFakt::skloniSezonu(string cSezona, bool fInverse,bool fDa,bool fNulirati,bool fRS)
-*{
+
 
 method skloniSezonu(cSezona,fInverse,fDa,fNulirati,fRS)
 
@@ -248,7 +248,7 @@ return
  *   Setuje matricu gaDBFs 
  */
 *void TDBFakt::setgaDBFs()
-*{
+
 method setgaDBFs()
 
 PUBLIC gaDBFs := {;
@@ -312,7 +312,7 @@ return
  */
 
 *void TDBFakt::install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7)
-*{
+
 
 method install(cKorisn,cSifra,p3,p4,p5,p6,p7)
 	ISC_START(goModul,.f.)
@@ -324,7 +324,7 @@ return
  */
  
 *void TDBFakt::Kreiraj(int nArea)
-*{
+
 method Kreiraj(nArea)
 
 #ifdef CAX
@@ -646,7 +646,7 @@ return
  */
 
 *void TDBFakt::obaza(int i)
-*{
+
 
 method obaza (i)
 local lIdIDalje
@@ -706,7 +706,7 @@ return
 */
 
 *void TDBFakt::ostalef()
-*{
+
 method ostalef()
 
 
@@ -718,7 +718,7 @@ return
  */
  
 *void TDBFakt::konvZn()
-*{
+
 method konvZn()
 
 LOCAL cIz:="7", cU:="8", aPriv:={}, aKum:={}, aSif:={}

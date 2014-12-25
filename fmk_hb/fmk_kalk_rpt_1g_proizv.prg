@@ -28,7 +28,7 @@
  */
  
 function Proizv()
-*{
+
 PrIz()
 return
 
@@ -38,7 +38,7 @@ return
  */
 
 function OtBazPI()
-*{
+
 O_ROBA
 O_TARIFA
 OProizv()
@@ -51,7 +51,7 @@ return
  */
  
 function GenProIzv()
-*{ 
+ 
  local nPr:=1, lKumSuma:=.f.
  private lDvaKonta:=.f.  // ? ukinuti ovu var. ?
  private lKljuc:=.f.
@@ -648,7 +648,7 @@ return
  */
 
 function PrikaziTI(cSif)
-*{
+
 local nArr:=SELECT(), nKol:=COL(), nRed:=ROW()
    SELECT (F_IZVJE)
    SEEK cSif
@@ -681,7 +681,7 @@ return
  */
  
 function FForPI()
-*{
+
 local lVrati:=.f.
  if cSaNulama=="D" .or.;
     !lKljuc .and. ( KUMSUMA<>0 .or. TEKSUMA<>0 .or. KPGSUMA<>0 .or.;
@@ -700,7 +700,7 @@ return lVrati
  */
  
 function VidiUaKolS()
-*{
+
 local lVrati:=.f., i:=0
   FOR i:=1 TO LEN(aKolS)
     cPom777:=aKolS[i,1]
@@ -718,7 +718,7 @@ return lVrati
  */
 
 function FSvakiPI()
-*{
+
 if !lKljuc
    if EMPTY(U1)
      uTekSuma:=TEKSUMA
@@ -742,7 +742,7 @@ return IF(!EMPTY(PODVUCI),"PODVUCI"+PODVUCI,NIL)
  */
  
 function ParSviIzvj()
-*{
+
 gTabela:=1; cPrikBezDec:="D"; cSaNulama:="D"; nKorZaLands:=-18
 
 O_PARAMS

@@ -61,7 +61,7 @@
  */
 
 function KeyboardEvent(nZnak)
-*{
+
 local nBroji2
   
 nBroji2:=seconds()
@@ -74,12 +74,12 @@ return
 
 
 function SqlKeyboardHandler(nBroji2)
-*{
+
 return  CekaHandler(@nBroji2)
 
 
 function CekaHandler(nBroji2)
-*{
+
 local cRez:=""
 if gSQL=="N"
   return nil
@@ -128,7 +128,7 @@ ENDIF
 RETURN nChar
 
 function ScreenSaver()
-*{
+
 
 local nBroji3
 local i, nRow, nCol, x:=0, y:=0, nSek, xs:=0, ys:=0, cTXT
@@ -173,7 +173,7 @@ return
 
 
 function VuciULin(xs,ys,x,y,cTXT)
-*{
+
 local a,b,i,j,is:=99
 
 if y==ys .or. x==xs

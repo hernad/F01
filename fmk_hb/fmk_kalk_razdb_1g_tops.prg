@@ -204,7 +204,7 @@ return
  */
 
 function SifKalkTops()
-*{
+
 private cDirZip:="C:\SIGMA\PREN\"
 
 O_PARAMS
@@ -259,7 +259,7 @@ return
  */
 
 function Mnu_GenKaTOPS()
-*{
+
 private cIDFirma:=gFirma
 private cIDTipDokumenta:="80"
 private cBrojDokumenta:=SPACE(8)
@@ -295,7 +295,7 @@ return
  */
 
 function CheckKALKDokument(idfirma, tipdokumenta, brojdokumenta)
-*{
+
 O_DOKS
 
 select doks
@@ -317,7 +317,7 @@ endif
  */
 
 function GenTopsAzur(idfirma, idtipdokumenta, brojdokumenta)
-*{
+
 local nExpr:=0
 local nExpr2:=0
 local cPom:=""
@@ -524,7 +524,7 @@ return
  *   Kreira datoteku prenosa
  */
 function CreDBKaTOPS()
-*{
+
 
 MsgO("Kreiram tabelu prenosa")
 

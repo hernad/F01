@@ -29,7 +29,7 @@ static nSlogova:=0
 
 
 function CREATE_INDEX(cImeInd, cKljuc, cImeDbf, fSilent)
-*{
+
 local bErr
 local cFulDbf
 local nH
@@ -188,7 +188,7 @@ return
 
 
 function IsFreeForReading(cFulDBF, fSilent)
-*{
+
 local nH
 
 nH:=FOPEN(cFulDbf,2)  // za citanje i pisanje
@@ -212,7 +212,7 @@ return .t.
 
 
 function AddFldBrisano(cImeDbf)
-*{
+
 use
 save screen to cScr
 CLS
@@ -231,7 +231,7 @@ return
 
 
 function KZNbaza(aPriv,aKum,aSif,cIz,cU, cSamoId)
-*{
+
 
 // cSamoId  "1"- konvertuj samo polja koja pocinju sa id
 //          "2"- konvertuj samo polja koja ne pocinju sa id
@@ -314,14 +314,14 @@ return
 
 
 function MyErrHt(o)
-*{
+
 BREAK o
 return .t.
 
 
 
 function Reindex(ff)
-*{
+
 
 *  REINDEXiranje DBF-ova
 
@@ -413,7 +413,7 @@ return nil
 
 
 function Pakuj(ff)
-*{
+
 local nDbfff,cDN
 
 IF (ff<>nil .and. ff==.t.) .or. (cDN:=Pitanje("pp","Prepakovati bazu (D/N/L)","N")) $ "DL"
@@ -475,7 +475,7 @@ return
 
 
 function BrisiPAk(fSilent)
-*{
+
 if fSilent==nil
   fSilent:=.f.
 endif
@@ -544,7 +544,7 @@ return
  *  \param cCHSName - ime chs fajla (npr. FIN)
  */
 function AppModS(cCHSName)
-*{
+
 local cCHSFile:=""
 
 if !gAppSrv
@@ -588,7 +588,7 @@ return
  */
 
 function RunModS(fDa)
-*{
+
 
 if fda==nil
 	fda:=.f.
@@ -632,7 +632,7 @@ return
 
 
 static function PitMstru(cImeChs)
-*{
+
 local cDN:="N"
 
 cImeChs:=padr(cImeChs,200)
@@ -658,7 +658,7 @@ endif
  *   procedura modifikacija struktura
  */
 function ModStru
-*{
+
 parameters cImeF,cPath, fString
 
 
@@ -848,7 +848,7 @@ return
 
 
 function Rjec(cLin)
-*{
+
 local cOp,nPos
 
 nPos:=aT(" ",cLin)
@@ -866,7 +866,7 @@ return cOp
 
 
 function Prepakuj(aNStru)
-*{
+
 local i,aPom
 aPom:={}
 for i:=1 to len(aNStru)
@@ -885,7 +885,7 @@ return nil
 */
 
 function FGets(nHandle, nLines, nLineLength, cDelim)
-*{
+
 return FReadLn(nHandle, nLines, nLineLength, cDelim)
 
 
@@ -897,7 +897,7 @@ return FReadLn(nHandle, nLines, nLineLength, cDelim)
  */
 
 function FileTop(nHandle)
-*{      
+      
 return FSEEK(nHandle, 0)
 
 
@@ -908,14 +908,14 @@ return FSEEK(nHandle, 0)
  */
 
 function FileBottom(nHandle)
-*{      
+      
 return FSEEK(nHandle, 0, FS_END)
 
 
 
 
 function SetgaSDBFs
-*{
+
 PUBLIC gaSDBFs:={ ;
  {F_GPARAMS  , "GPARAMS",  P_ROOTPATH },; 
  {F_GPARAMSP , "GPARAMS",  P_PRIVPATH},;
@@ -936,7 +936,7 @@ return
 
 
 function FillOid(cImeDbf, cImeCDX)
-*{
+
 private cPomKey
 
 if FIELDPOS("_OID_")==0
@@ -993,7 +993,7 @@ return
  */
  
 function ImeDBFCDX(cIme)
-*{
+
 cIme:=trim(strtran(ToUnix(cIme),"."+DBFEXT,"."+INDEXEXT))
 if right(cIme,4)<>"."+INDEXEXT
 	cIme:=cIme+"."+INDEXEXT
@@ -1002,7 +1002,7 @@ return  cIme
 
 
 static function Every()
-*{
+
 //nSlogova=nSlogova+1
 //@ 24, 10 SAY "Slogova: "+STR(nSlogova*100)
 //OL_Yield()

@@ -32,7 +32,7 @@
  */
  
 function CjenR()
-*{
+
 private cKomLin
 
 if Pitanje(,"Formiranje cjenovnika ?","N")=="N"

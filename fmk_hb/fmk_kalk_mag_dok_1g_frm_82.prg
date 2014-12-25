@@ -51,7 +51,7 @@
  */
 
 function Get1_82()
-*{
+
 pIzgSt:=.f.   // izgenerisane stavke jos ne postoje
 //private cisMarza:=0
 

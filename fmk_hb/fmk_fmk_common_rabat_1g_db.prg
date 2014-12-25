@@ -18,7 +18,7 @@
  */
  
 function CreRabDB()
-*{
+
 // RABAT.DBF
 aDbf:={}
 AADD(aDbf,{"IDRABAT"      , "C", 10, 0})
@@ -53,7 +53,7 @@ return
  *  \return nRet - vrijednost rabata
  */
 function GetRabForArticle(cIdRab, cTipRab, cIdRoba, nTekIznos)
-*{
+
 local nArr
 nArr:=SELECT()
 
@@ -82,7 +82,7 @@ return nRet
  *  \return nRet - vrijednost dana
  */
 function GetDaysForRabat(cIdRab, cTipRab)
-*{
+
 local nArr
 nArr:=SELECT()
 
@@ -106,7 +106,7 @@ return nRet
  *  \param cTekIzn - tekuce polje koje se uzima
  */
 function GetRabIznos(cTekIzn)
-*{
+
 if (cTekIzn == nil)
 	cTekIzn := "1"
 endif
@@ -128,7 +128,7 @@ return nRet
  *  \return nRet - vrijednost skonto
  */
 function GetSkontoArticle(cIdRab, cTipRab, cIdRoba)
-*{
+
 local nArr
 nArr:=SELECT()
 

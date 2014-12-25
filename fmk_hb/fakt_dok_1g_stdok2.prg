@@ -234,7 +234,7 @@
  */
  
 function StDok2()
-*{
+
 parameters cIdFirma,cIdTipDok,cBrDok
 
 private i,nCol1:=0,cTxt1,cTxt2,aMemo,nMPVBP:=nVPVBP:=0
@@ -1247,7 +1247,7 @@ CLOSERET
  *   Stampa zaglavlja na fakturi u varijanti 2
  */ 
 static function Zagl2()
-*{
+
 P_COND
 ? space(gnLMarg)
 ?? m
@@ -1324,7 +1324,7 @@ return
  */
  
 static function NStr0(bZagl,fPrenos)
-*{
+
 if fprenos=NIL
   fPrenos:=.t.
 endif
@@ -1361,7 +1361,7 @@ endif
  */
  
 static function StKupac(fDelphiRb)
-*{
+
 local cMjesto:=padl(Mjesto(cIdFirma)+", "+dtoc(ddatdok),iif(gFPZag=99,gnTMarg3,0)+39)
 
 IF "U" $ TYPE("lPartic")
@@ -1582,7 +1582,7 @@ return
  */
  
 function KatBr()
-*{
+
 if roba->(fieldpos("KATBR"))<>0
   if !empty(roba->katbr)
      return " ("+trim(roba->katbr)+")"
@@ -1598,7 +1598,7 @@ return ""
  */
  
 static function UgRabTXT()
-*{
+
 local cPom:=""
 local cFajl:=PRIVPATH+gFUgRab
 if FILE(cFajl)
@@ -1614,7 +1614,7 @@ return cPom
  */
  
 function DiVoRel()
-*{
+
 LOCAL nArr:=SELECT(), cIdVozila:=idvozila
   SELECT (F_VOZILA)
   IF !USED()
@@ -1635,7 +1635,7 @@ return
  */
  
 function IspisiAmbalazu()
-*{
+
 // LOCAL nPak:=0, nKom:=0
 // Prepak(IdRoba,ROBA->jmj,@nPak,@nKom,kolicina)
 // @ prow(),pcol()+1 SAY STR(nPak,2)+"P+"+STR(nKom,2)+"K"
@@ -1650,7 +1650,7 @@ return
  */
  
 function IspisiPoNar()
-*{
+
 LOCAL cV:=""
  IF lPoNarudzbi
    IF !EMPTY(brojnar)
@@ -1674,14 +1674,14 @@ return cV
  */
  
 function Kolicina()
-*{
+
 return IF(lPovDob,-kolicina,kolicina)
 
 
 
 
 function ImaC1_3()
-*{
+
 local cPom:=""
 if pripr->(fieldpos("C1"))<>0
 	cPom+=pripr->c1
@@ -1698,7 +1698,7 @@ return !EMPTY(cPom)
 
 
 function PrintC1_3()
-*{
+
 if pripr->(fieldpos("C1"))<>0 .and. !empty(pripr->c1)
 	?? "C1="+trim(pripr->c1),""
 endif

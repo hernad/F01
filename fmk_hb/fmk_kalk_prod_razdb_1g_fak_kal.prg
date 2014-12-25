@@ -678,7 +678,7 @@ return
  */
 
 function Prenos01_2()
-*{
+
 local cIdFirma:=gFirma,cIdTipDok:="01",cBrDok:=cBrKalk:=space(8)
 O_PRIPR
 O_KALK
@@ -820,7 +820,7 @@ return
  */
 
 function Prenos13_2()
-*{
+
 local cIdFirma:=gFirma,cIdTipDok:="13",cBrDok:=cBrKalk:=space(8)
 
 O_PRIPR
@@ -993,7 +993,7 @@ return
  */
 
 function Prenos15()
-*{
+
 local cIdFirma:=gFirma,cIdTipDok:="15",cBrDok:=cBrKalk:=space(8)
 local dDatPl:=ctod("")
 local fDoks2:=.f.

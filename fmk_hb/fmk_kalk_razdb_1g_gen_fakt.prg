@@ -53,7 +53,7 @@
  */
 
 function P_Fakt()
-*{
+
 local cIdFirma:=gFirma,cIdTipDok:="10",cBrDok:=space(8),cBrFakt
 local cDir:=space(25), cFaktFirma:="", lRJKonto:=.f.
 local lRJKon97:=.f.
@@ -379,7 +379,7 @@ return
 
 
 static function fakt_Azur()
-*{
+
 XO_PRIPR
 XO_FAKT
 XO_DOKS
@@ -477,7 +477,7 @@ return
  */
 
 function PrModem(fSif)
-*{
+
 local nRec, gModemVeza:="S"
 
 if gFakt<>"0 " .and. Pitanje(,"Izvrsiti prenos u FAKT modemom ?","D")=="D"

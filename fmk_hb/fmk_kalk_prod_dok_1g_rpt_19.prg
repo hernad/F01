@@ -31,7 +31,7 @@
  */
 
 function StKalk19()
-*{
+
 local nCol1:=nCol2:=0,npom:=0
 
 Private nPrevoz,nCarDaz,nZavTr,nBankTr,nSpedTr,nMarza,nMarza2, aPorezi
@@ -154,7 +154,7 @@ return
 
 
 function head_19()
-*{
+
 if IsPDV()
 	? "*R * ROBA     * Kolicina *  STARA   * RAZLIKA  * PDV   %  *IZN. PDV  * UK. PDV  * RAZLIKA  *  NOVA   *"
 	? "*BR*          *          *MPC SA PDV*   MPC    *          *          *          *MPC SA PDV*MPC SA PDV*"
@@ -174,7 +174,7 @@ return
  */
 
 function Obraz19()
-*{
+
 local nCol1:=nCol2:=0,npom:=0
 
 Private nPrevoz,nCarDaz,nZavTr,nBankTr,nSpedTr,nMarza,nMarza2

@@ -23,7 +23,7 @@
  */
 
 function PregProdaje()
-*{
+
 O_PARTN
 
 cPA:="N"
@@ -313,7 +313,7 @@ return
 // kreiranje i otvaranje pomocne baze POM.DBF za pregled prodaje
 // -------------------------------------------------------------
 static function CrePom2()
-*{
+
 
 select 0      // idi na slobodno podrucje
 cPom:=PRIVPATH+"PRODAJA"
@@ -351,7 +351,7 @@ RETURN .T.
 // sa artiklima
 // ------------
 function ForPPr()
-*{
+
 LOCAL lVrati:=.t.
 gaSubTotal  := {}
 gaDodStavke := {}
@@ -403,7 +403,7 @@ RETURN lVrati
 // bez artikala
 // ------------
 function ForPPr2()
-*{
+
 LOCAL lVrati:=.t.
 gaSubTotal  := {}
 gaDodStavke := {}
@@ -465,14 +465,14 @@ RETURN .f.
 
 
 static function OpisSubGr(cId)
-*{
+
 local cVrati
 cVrati:="UKUPNO GRUPA '"+cId+"-"+IzFmkIni("VINDIJA","NazGr"+cId,"",KUMPATH)+"'"
 return cVrati
 
 
 static function OpisSubPG(cIdG,cIdPG)
-*{
+
 local cVrati
 cVrati:="PODGRUPA '"+cIdPG+"-"+IzFmkIni("VINDIJA","NazPG"+cIdG+cIdPG,"",KUMPATH)+"'"
 return cVrati
@@ -480,7 +480,7 @@ return cVrati
 
 
 function SDiv(nDjelilac,nDijeljenik)
-*{
+
 local nV
 if nDjelilac<>0
 	nV:=nDijeljenik/nDjelilac
@@ -497,7 +497,7 @@ return nV
  *  \param nDec
  */
 function GetPictDem(nLen, nDec)
-*{
+
 // ovo odmah znamo = duzina
 nLen := LEN(gPicDem)
 

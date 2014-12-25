@@ -47,7 +47,7 @@
 // Otvara se fajl PRIVPATH+para.txt i citaju parametri
  
 function BatchObrada(p3,p4,p5,p6,p7)
-*{
+
 if mpar37("/B",p3,p4,p5,p6,p7)
   // sada cemo staviti da je batch stampa azuriranog dokumenta
   KEYBOARD Chr(K_ENTER) + Chr(K_ESC)

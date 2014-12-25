@@ -18,7 +18,7 @@
  */
  
 function Test_StrUt()
-*{
+
 
 // TC-STR-UT-1: kreiranje hash stringa
 TestCreHashStr()
@@ -44,7 +44,7 @@ return
  *   Test case kreiranja hash stringa
  */
 function TestCreHashStr()
-*{
+
 ? REPLICATE("-", 70)
 ? "TC-STR-UT-1: Create hash string"
 ? REPLICATE("-", 70)
@@ -82,7 +82,7 @@ return
  *   Test case citanja hash stringa
  */
 function TestRdHashStr()
-*{
+
 
 ? REPLICATE("-", 70)
 ? "TC-STR-UT-2: Read hash string"
@@ -135,7 +135,7 @@ return
  *   Test kreiranja niza iz stringa
  */
 function TestStr2Arr()
-*{
+
 
 ? REPLICATE("-", 70)
 ? "TC-STR-UT-3: String 2 Array"

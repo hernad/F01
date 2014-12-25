@@ -30,7 +30,7 @@
  */
 
 function Get1_16()
-*{
+
 local nRVPC
 pIzgSt:=.f.   // izgenerisane stavke jos ne postoje
 
@@ -217,7 +217,7 @@ return lastkey()
 // _odlval nalazi se u knjiz, filuje staru vrijednost
 // _odlvalb nalazi se u knjiz, filuje staru vrijednost nabavke
 function Get1_16b()
-*{
+
 local cSvedi:=" "
 
 fnovi:=.t.
@@ -309,7 +309,7 @@ return lastkey()
  */
 
 function SvediM(cSvedi)
-*{
+
 if koncij->naz=="N1"
   _VPC:=_NC
 endif

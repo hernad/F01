@@ -399,7 +399,7 @@ return
  */
 
 function ZaglDuznici(fStrana, lSvi)
-*{
+
 local nArr
 nArr:=SELECT()
 ?

@@ -24,7 +24,7 @@
  */
  
 function Fakt_Kalk(lFaktFakt)
-*{
+
 local cIdFirma,qqRoba,nRezerv,nRevers
 local nul,nizl,nRbr,cRR,nCol1:=0
 local m:=""

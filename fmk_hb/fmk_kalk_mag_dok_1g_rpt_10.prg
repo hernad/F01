@@ -29,7 +29,7 @@
  */
 
 function StKalk10_2()
-*{
+
 local nCol1:=nCol2:=0,npom:=0
 
 Private nPrevoz,nCarDaz,nZavTr,nBankTr,nSpedTr,nMarza,nMarza2
@@ -199,7 +199,7 @@ return
  */
 
 function StKalk10_3(lBezNC)
-*{
+
 local nCol1:=nCol2:=0,npom:=0
 
 if lBezNC==NIL
@@ -527,7 +527,7 @@ return
  */
 
 function StKalk10_4()
-*{
+
 local nCol1:=nCol2:=0,npom:=0
 
 Private nPrevoz,nCarDaz,nZavTr,nBankTr,nSpedTr,nMarza,nMarza2

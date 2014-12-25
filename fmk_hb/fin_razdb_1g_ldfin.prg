@@ -265,7 +265,7 @@ return
  */
  
 function RLD(cId, nIz12)
-*{
+
 local npom1:=0, npom2:=0, nVrati
 if nIz12==NIL
 	niz12:=1
@@ -290,7 +290,7 @@ return nVrati
  *  \param cOpis
  */
 function RekapLD(cId, nGodina, nMjesec, nIzn1, nIzn2, cOpis)
-*{
+
 local nArr:=SELECT()
 
 if SELECT("REKLD")=0
@@ -323,7 +323,7 @@ return
  *  \param nIz12
  */
 function RLDP(cId, cBrDok, nIz12)
-*{
+
 local npom1:=0, npom2:=0
 if niz12=NIL
 	niz12:=1
@@ -349,7 +349,7 @@ return 0
  */
 
 function RekapLDP(cId, nGodina, nMjesec, nIzn1, nIzn2, cBrDok)
-*{
+
 local nArr:=SELECT()
 
 if SELECT("REKLDP")=0

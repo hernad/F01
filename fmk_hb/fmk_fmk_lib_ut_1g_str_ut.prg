@@ -20,7 +20,7 @@
  */
  
 function ToStr(xVal)
-*{
+
 
 do case
   case VALTYPE(xVal)  == "C"
@@ -41,7 +41,7 @@ return
 // --------------------------------
 // --------------------------------
 function SjeciStr(cStr, nLen, aRez)
-*{
+
 
 if aRez == nil
 	aRez:={}
@@ -87,7 +87,7 @@ return aRez
 
 
 function CryptSC(cStr)
-*{
+
 local nLen,cC,cPom,i
 
 cPom:=""
@@ -159,7 +159,7 @@ return cPom
 
 
 function ChADD(cC,n)
-*{
+
 
 *
 *
@@ -171,7 +171,7 @@ RETURN NIL
 
 
 function ChSub(cC,cC2)
-*{
+
 
 * poziv ChSub("C","A") -> 2
 
@@ -179,7 +179,7 @@ return ASC(cC)-ASC(cC2)
 
 
 function Crypt2(cStr, cModul)
-*{
+
 *
 *
 local nLen,cC,cPom,i
@@ -214,7 +214,7 @@ return cPom
 // ---------------------------
 // ---------------------------
 FUNCTION Razrijedi (cStr)
-*{
+
 LOCAL cRazrStr, nLenM1, nCnt
 cStr := ALLTRIM (cStr)
 nLenM1 := LEN (cStr) - 1
@@ -229,22 +229,22 @@ RETURN (cRazrStr)
 // f-je chr256() i asc256() rade sa tekstom duzine 2 znaka
 // -------------------------------------------------------
 FUNCTION CHR256(nKod)
-*{
+
 RETURN ( CHR(INT(nKod/256)) + CHR(nKod%256) )
 
 
 FUNCTION ASC256(cTxt)
-*{
+
 RETURN ( ASC(LEFT(cTxt,1)) * 256 + ASC(RIGHT(cTxt,1)) )
 
 
 FUNCTION KPAD(n,l)
-*{
+
 RETURN PADL(LTRIM(TRANS(ROUND(n,gZaokr),PicDEM)),l,".")
 
 
 function OdsjPLK(cTxt)
-*{
+
 local i
 for i:=len(cTxt) to 1 step -1
   if !(substr(cTxt,i,1) $ Chr(13)+Chr(10)+" �")
@@ -255,7 +255,7 @@ return left(cTxt,i)
 
 
 function ParsMemo(cTxt)
-*{
+
 
 * Struktura cTxt-a je: Chr(16) txt1 Chr(17)  Chr(16) txt2 Chr(17) ...
 local aMemo:={}
@@ -279,7 +279,7 @@ return aMemo
 
 
 function StrLinija(cTxt2)
-*{
+
 local nTxt2
 
 nLTxt2:=1
@@ -299,7 +299,7 @@ return nLTxt2
  *  \param cSE - separator niza
  */
 function TokToNiz(cTok,cSE)
-*{
+
 local aNiz:={}
 local nE:=0
 local i:=0
@@ -321,7 +321,7 @@ return (aNiz)
 
 
 FUNCTION BrDecimala(cFormat)
-*{
+
  LOCAL i:=0,cPom,nVrati:=0
  i:=AT(".",cFormat)
  IF i!=0
@@ -347,7 +347,7 @@ RETURN nVrati
  */
  
 function StrKZN(cInput,cIz,cU)
-*{
+
 LOCAL a852:={"�","�","�","�","�","�","�","�","�","�"}
  LOCAL a437:={"[","\","^","]","@","{","|","~","}","`"}
  LOCAL aEng:={"S","D","C","C","Z","s","d","c","c","z"}
@@ -368,7 +368,7 @@ return cInput
  */
  
 function Slovima(nIzn,cDinDem)
-*{
+
 local npom; cRez:=""
 fI:=.f.
 
@@ -441,7 +441,7 @@ return
  */
  
 static function Stotice(nIzn, cRez, fDecimale, fMnozina, cDinDem)
-*{
+
 local fDec,fSto:=.f.,i
 
    if (nPom:=int(nIzn/100))>=1
@@ -536,7 +536,7 @@ return cRez
  *  \return cHStr - hash string
  */
 function CreateHashString(aColl)
-*{
+
 cHStr:=""
 
 // Ako je duzina matrice 0 izadji
@@ -559,7 +559,7 @@ return cHStr
  *  \return aColl - matrica popunjena podacima iz stringa
  */
 function ReadHashString(cHashString)
-*{
+
 if LEN(cHashString)==0
 	cHashString:=""
 endif
@@ -577,7 +577,7 @@ return aColl
  *  \param nLen - na svakih nLen upisi novu stavku u array 
  */
 function StrToArray(cStr, nLen)
-*{
+
 aColl:={}
 cTmp:=""
 cStr:=ALLTRIM(cStr)
@@ -607,7 +607,7 @@ return aColl
  *   Vraca vrijednost memo niza u string
  */
 function FlushMemo(aMemo)
-*{
+
 local i, cPom
 cPom:=""
 cPom += Chr(16)

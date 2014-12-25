@@ -46,7 +46,7 @@
  */
 
 function PocStProd()
-*{
+
 LLP(.t.)
 if !empty(goModul:oDataBase:cSezonDir) .and. Pitanje(,"Prebaciti dokument u radno podrucje","D")=="D"
 	O_PRIPRRP

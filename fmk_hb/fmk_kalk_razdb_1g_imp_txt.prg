@@ -183,7 +183,7 @@ return
  *   Vraca filter za naziv dokumenta u zavisnosti sta je odabrano VP ili MP
  */
 static function GetImpFilter()
-*{
+
 cVPMP := "V"
 // pozovi box za izbor
 Box(,5, 60)
@@ -214,7 +214,7 @@ return cRet
  *   Obrada dokumenata iz pomocne tabele
  */
 static function MnuObrDok()
-*{
+
 if Pitanje(,"Obraditi dokumente iz pomocne tabele (D/N)?", "D") == "D"
 	ObradiImport( nil, nil, __stampaj )
 else
@@ -230,7 +230,7 @@ return
  *   Import sifrarnika partnera
  */
 static function ImpTxtPartn()
-*{
+
 private cExpPath
 private cImpFile
 
@@ -352,7 +352,7 @@ return
  *  \param aDbf - matrica
  */
 static function SetTblDok(aDbf)
-*{
+
 
 AADD(aDbf,{"idfirma", "C", 2, 0})
 AADD(aDbf,{"idtipdok", "C", 2, 0})
@@ -382,7 +382,7 @@ return
  *  \param aDbf - matrica sa def.polja
  */
 static function SetTblPartner(aDbf)
-*{
+
 
 AADD(aDbf,{"idpartner", "C", 6, 0})
 AADD(aDbf,{"naz", "C", 25, 0})
@@ -426,7 +426,7 @@ return
  *  \param aRule - matrica pravila
  */
 static function SetRuleDok(aRule)
-*{
+
 // idfirma
 AADD(aRule, {"SUBSTR(cVar, 1, 2)"})
 // idtipdok
@@ -473,7 +473,7 @@ return
  *  \param aRule - matrica pravila
  */
 static function SetRulePartn(aRule)
-*{
+
 // id
 AADD(aRule, {"SUBSTR(cVar, 1, 6)"})
 // naz
@@ -536,7 +536,7 @@ return
  *  \param cPath - putanja, zadaje se sa argumentom @ kao priv.varijabla
  */
 static function GetExpPath(cPath)
-*{
+
 cPath:=IzFmkIni("KALK", "ImportPath", "c:\liste\", PRIVPATH)
 if Empty(cPath) .or. cPath == nil
 	cPath := "c:\liste\"
@@ -554,7 +554,7 @@ return
  */
  */
 static function Txt2TTbl(aDbf, aRules, cTxtFile)
-*{
+
 // prvo kreiraj tabelu temp
 close all
 
@@ -622,7 +622,7 @@ return
  *  \param cTxtFile - txt fajl
  */
 function CheckFile(cTxtFile)
-*{
+
 nBrLin:=BrLinFajla(cTxtFile)
 return nBrLin
 
@@ -633,7 +633,7 @@ return nBrLin
  *  \param aDbf - def.polja
  */
 static function CreTemp(aDbf)
-*{
+
 cTmpTbl := PRIVPATH + "TEMP"
 
 if File(cTmpTbl + ".DBF") .and. FErase(cTmpTbl + ".DBF") == -1
@@ -667,7 +667,7 @@ return
  *   Kreiranje tabele PRIVPATH + PRIPT.DBF
  */
 function CrePripTDbf()
-*{
+
 close all
 FErase(PRIVPATH + "PRIPT.DBF")
 FErase(PRIVPATH + "PRIPT.CDX")
@@ -1446,7 +1446,7 @@ return cRet
  *  \param lEditOld - ispraviti stare zapise
  */
 static function TTbl2Partn(lEditOld)
-*{
+
 
 O_PARTN
 O_SIFK
@@ -1586,7 +1586,7 @@ return 1
  *  \param cRazd - razdvajati dokumente po broju fakture (D ili N)
  */
 static function GetKVars(dDatDok, cBrKalk, cTipDok, cIdKonto, cIdKonto2, cRazd)
-*{
+
 dDatDok:=DATE()
 cTipDok:="14"
 cIdFirma:=gFirma
@@ -1741,7 +1741,7 @@ return
  *   Snima momenat do kojeg je dosao pri obradi dokumenata
  */
 static function SaveObrada(nPRec)
-*{
+
 local nArr
 nArr := SELECT()
 
@@ -1763,7 +1763,7 @@ return
  *   Pokrece ponovo obradu od momenta do kojeg je stao
  */
 static function RestoreObrada()
-*{
+
 O_PARAMS
 select params
 private cSection:="K"
@@ -1809,7 +1809,7 @@ return
  *  \param cIdVd - id vrsta dokumenta
  */
 static function ObradiDokument(cIdVd, lAsPokreni, lStampaj)
-*{
+
 
 // 1. pokreni asistenta
 // 2. azuriraj kalk
@@ -1947,7 +1947,7 @@ return 0
  *  \result vraca 1 ako je sve ok, ili 2 ako vezni dokument ne odgovara
  */
 static function ChkTD14(cVezniDok)
-*{
+
 if cVezniDok $ "18#19#95#16#11"
 	return 1
 endif
@@ -1959,7 +1959,7 @@ return 2
  *   Provjeri vezne dokumente za tip dokumenta 41
  */
 static function ChkTD41(cVezniDok)
-*{
+
 if cVezniDok $ "18#19#95#16#11"
 	return 1
 endif
@@ -1971,7 +1971,7 @@ return 2
  *   Provjeri vezne dokumente za tip dokumenta 11
  */
 static function ChkTD11(cVezniDok)
-*{
+
 if cVezniDok $ "18#19#95#16#11"
 	return 1
 endif
@@ -1983,7 +1983,7 @@ return 2
  *   Provjeri vezne dokumente za tip dokumenta 95
  */
 static function ChkTD95(cVezniDok)
-*{
+
 if cVezniDok $ "18#19#95#16#11"
 	return 1
 endif
@@ -1996,7 +1996,7 @@ return 2
  *   Popunjavanje polja sifradob prema kljucu
  */
 static function FillDobSifra()
-*{
+
 if !SigmaSif("FILLDOB")
 	MsgBeep("Nemate ovlastenja za ovu opciju!!!")
 	return

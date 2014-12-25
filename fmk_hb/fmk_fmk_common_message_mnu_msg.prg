@@ -18,7 +18,7 @@
  *   Glavni menij poruka
  */
 function Mnu_Poruke()
-*{
+
 private opc:={}
 private opcexe:={}
 private Izbor:=1

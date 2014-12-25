@@ -297,7 +297,7 @@ return
  */
 
 static function PovDisk()
-*{
+
 local nRec
 
 PRIVATE cLokPren    := "A:\"
@@ -457,7 +457,7 @@ return
  */
 
 static function PPPDisk(lIni)
-*{
+
  LOCAL GetList:={}
   IF lIni==NIL; lIni:=.f.; ENDIF
   O_PARAMS

@@ -75,14 +75,14 @@ END CLASS
  */
 
 *void TKalkMod::dummy()
-*{
+
 method dummy()
 return
 
 
 
 *void TKalkMod::initdb()
-*{
+
 method initdb()
 
 ::oDatabase:=TDBKalkNew()
@@ -95,7 +95,7 @@ return nil
  *   Osnovni meni KALK modula
  */
 *void TKalkMod::mMenu()
-*{
+
 method mMenu()
 
 private Izbor
@@ -135,7 +135,7 @@ return nil
 
 
 *void TKalkMod::mMenuStandard()
-*{
+
 method mMenuStandard
 
 private opc:={}
@@ -212,7 +212,7 @@ return
 
 
 *void TKalkMod::sRegg()
-*{
+
 method sRegg()
 sreg("KALK.EXE","KALK")
 return
@@ -220,7 +220,7 @@ return
 
 
 *void TKalkMod::srv()
-*{
+
 method srv()
 ? "Pokrecem KALK aplikacijski server"
 if (MPar37("/KONVERT", goModul))
@@ -246,7 +246,7 @@ return
  *   opste funkcije KALK modula
  */
 *void TKalkMod::setGVars()
-*{
+
 method setGVars()
 
 local cPPSaMr

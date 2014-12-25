@@ -405,7 +405,7 @@ closeret
  */
  
 function Zagl()
-*{
+
 P_COND
 ? space(gnLMarg); ?? m
 if gVarF=="1"
@@ -431,7 +431,7 @@ return
  */
  
 function NStr0(bZagl)
-*{
+
 ? space(gnLmarg); ?? m
 ? space(gnLmarg+IF(gVarF=="9".and.gTipF=="2",14,0)),"Ukupno na strani "+str(++nStrana,3)+":"; @ prow(),nCol1  SAY nUk  pict picdem
 ? space(gnLmarg); ?? m
@@ -449,7 +449,7 @@ return
  */
  
 function Koef(cdindem)
-*{
+
 local nNaz,nRet,nArr,dDat
 
 if cDinDem==left(ValSekund(),3)
@@ -468,7 +468,7 @@ endif
 
 
 function Mjesto(cRJ)
-*{
+
 LOCAL cVrati:=""
   IF gMjRJ=="D"
     PushWA()
@@ -492,7 +492,7 @@ return TRIM(cVrati)
  */
  
 function JokSBr()
-*{
+
 if "U" $ TYPE("BK_SB")
 	BK_SB := .f.
 endif
@@ -507,7 +507,7 @@ return IF(gNW=="R","  KJ/KG ", IF(glDistrib,"", IF(BK_SB, "  BARKOD   ","Ser.bro
  */
  
 function NSRNPIdRoba(cSR,fSint)
-*{
+
 if fSint=NIL
   fSint:=.f.
 endif
@@ -538,7 +538,7 @@ return
  */
  
 function PrStr2T(cIdTipDok)
-*{
+
 local cPom2:=""
 
 if "U" $ TYPE("fDelphiRB")
@@ -617,7 +617,7 @@ return
  */
  
 function PrStr2R(cIdTipDok)
-*{
+
 LOCAL cVrati:=""
  // IF "U" $ TYPE("fDelphiRB"); fDelphiRB:=.f.; ENDIF
  private cpom:=""
@@ -640,7 +640,7 @@ return (cVrati)
  */
  
 function ShowIDPar(cId,n,lNoviRed,lVratiRPBNiz)
-*{
+
 local cRegBr
 local cPorBr
 local cUgovBr
@@ -946,7 +946,7 @@ return
  */
  
 function RbrUNum(cRBr)
-*{
+
 if left(cRbr,1)>"9"
    return  (asc(left(cRbr,1))-65+10)*100  + val(substr(cRbr,2,2))
 else
@@ -959,7 +959,7 @@ endif
  *   Vraca naziv rtm fajla za stampu
  */
 function GetRtmFile(cDefRtm)
-*{
+
 aRtm:={}
 AADD(aRtm, {IzFmkIni("DelphiRb", "Rtm1", "", KUMPATH)})
 AADD(aRtm, {IzFmkIni("DelphiRb", "Rtm2", "", KUMPATH)})

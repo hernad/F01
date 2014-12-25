@@ -596,7 +596,7 @@ return
  */
  
 function PreKart()
-*{
+
 LOCAL aNiz:={}
  PRIVATE cKonto:=SPACE(60), cPartn:=SPACE(60)
  PRIVATE dDat0:=CTOD(""), dDat1:=CTOD(""), cFirma:=gFirma
@@ -741,7 +741,7 @@ return NIL
  */
  
 function EPPK()
-*{
+
 local nTr2
 
 if (Ch==K_CTRL_T .or. Ch==K_ENTER) .and. reccount2()==0
@@ -784,7 +784,7 @@ return DE_CONT
  */
  
 function AzurPPK()
-*{
+
  LOCAL lIndik1:=.f., lIndik2:=.f., nZapisa:=0, nSlog:=0, cStavka:="   "
   SELECT SUBAN
   SET FILTER TO
@@ -959,7 +959,7 @@ RETURN
  */
  
 function ZadnjiRBR()
-*{
+
 local nZRBR:=0
 local nObl:=SELECT()
 

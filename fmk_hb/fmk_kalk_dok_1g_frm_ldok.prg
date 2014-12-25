@@ -381,7 +381,7 @@ return nRet
  */
 
 function BrowseDok()
-*{
+
 select kalk; set order to 1
 
 Box(,15,77,.t.,"Pregled dokumenta")
@@ -413,7 +413,7 @@ BoxC()
  */
 
 function EdDOK(Ch)
-*{
+
 local cDn:="N",nTrecDok:=0,nRet:=DE_CONT
 do case
   case Ch==K_ENTER
@@ -433,7 +433,7 @@ return nRet
  */
 
 function BrowseKart()
-*{
+
 // tekuca baza: KALK
 // prikaz kartice koja je odredjena tekucim zapisom u KALK
 
@@ -596,7 +596,7 @@ return
  */
 
 function OznaciMag(fsilent)
-*{
+
 // oznaci markiraj stavke koje su
 // vjerovatno neispravne
 
@@ -670,7 +670,7 @@ return .f.
  */
 
 function OznaciPro(fsilent)
-*{
+
 // oznaci markiraj stavke koje su
 // vjerovatno neispravne
 
@@ -739,7 +739,7 @@ return .f.
  */
 
 function EdKart(Ch)
-*{
+
 local cDn:="N",nTrecDok:=0,nRet:=DE_CONT
 do case
   case Ch==K_ENTER

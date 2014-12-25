@@ -91,7 +91,7 @@
  */
 
 function TFrmInvNew()
-*{
+
 local oObj
 
 #ifdef CLIP
@@ -110,7 +110,7 @@ return oObj
  */
 
 function FaUnosInv()
-*{
+
 local oMainFrm
 oMainFrm:=TFrmInvNew()
 oMainFrm:open()
@@ -192,7 +192,7 @@ alert( "todo azur" )
 
 
 *void TFrmInv::onKeyboard()
-*{
+
 method onKeyboard()
 local nRet
 local oFrmItem
@@ -329,7 +329,7 @@ return
  */
 
 *void TFrmInv::sayKomande()
-*{
+
 method sayKomande()
 
 @ m_x+18, m_y+2 SAY " <c-N> Nove Stavke       �<ENT> Ispravi stavku      �<c-T> Brisi Stavku "
@@ -347,7 +347,7 @@ return
  */
 
 *void TFrmInv::setColuns()
-*{
+
 method setColumns()
 local i
 
@@ -395,7 +395,7 @@ return
  *  \sa DokNovaStrana
  */
 *void TFrmInv::print()
-*{
+
 method print()
 
 RptInv()
@@ -420,7 +420,7 @@ return
  *  \sa PrnClanoviKomisije, DokNovaStrana
  */
 *void TFrmInv::printOPop()
-*{
+
 method printOPop()
 
 RptInvObrPopisa()
@@ -429,7 +429,7 @@ return
 
 
 *void TFrmInv::close()
-*{
+
 method close
 BoxC()
 CLOSERET
@@ -440,8 +440,8 @@ return
  *   Prodji kroz sve stavke dokumenta
  */
 
-*{ TFrmInv::itemsCount()
-*{
+ TFrmInv::itemsCount()
+
 method itemsCount()
 local nCnt
 
@@ -458,7 +458,7 @@ return nCnt
 
 
 *void TFrmInv::deleteAll()
-*{
+
 method deleteAll()
 
 if Pitanje(,"Zelite li zaista izbrisati cijeli dokument?","N")=="D"
@@ -468,7 +468,7 @@ return
 
 
 *void TFrmInv::deleteItem()
-*{
+
 method deleteItem()
 DELETE
 return 1
@@ -480,7 +480,7 @@ return 1
  */
 
 *void TFrmInv::popup()
-*{
+
 method popup
 private opc
 private opcexe
@@ -506,7 +506,7 @@ return nil
  */
 
 *void TFrmInv::genDok()
-*{
+
 method genDok()
 local cIdRj
 
@@ -529,7 +529,7 @@ return
  */
 
 *void TFrmInv::genDokManjak()
-*{
+
 method genDokManjak()
 local cIdRj
 local cBrDok
@@ -575,7 +575,7 @@ return
  */
 
 *void TFrmInv::genDokVisak()
-*{
+
 method genDokVisak
 local cIdRj
 local cBrDok

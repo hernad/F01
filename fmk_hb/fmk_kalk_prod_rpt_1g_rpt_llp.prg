@@ -659,7 +659,7 @@ return
 
 // zaglavlje llp
 function ZaglLLP(lSint)
-*{
+
 if lSint==NIL
 	lSint:=.f.
 endif

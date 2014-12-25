@@ -37,7 +37,7 @@ return
 
 
 *void TFinMod::initdb()
-*{
+
 method initdb()
 
 //Logg("kreiram database POS objekt")
@@ -53,7 +53,7 @@ return NIL
  */
 
 *void TFinMod::mMenu()
-*{
+
 method mMenu()
 
 //goModul:oDataBase:setSigmaBD(IzFmkIni("Svi","SigmaBD","c:"+SLASH+"sigma",EXEPATH))
@@ -106,7 +106,7 @@ return nil
  */
 
 *void TFinMod::mMenuStandard()
-*{
+
 method mMenuStandard()
 
 private Izbor:=1
@@ -202,7 +202,7 @@ return
 
 
 *void TFinMod::sRegg()
-*{
+
 method sRegg()
 sreg("FIN.EXE","FIN")
 return
@@ -210,7 +210,7 @@ return
 
 
 *void TFinMod::srv()
-*{
+
 method srv()
 ? "Pokrecem FIN aplikacijski server"
 
@@ -261,7 +261,7 @@ return
  */
 
 *void TFinMod::setGVars()
-*{
+
 
 method setGVars()
 

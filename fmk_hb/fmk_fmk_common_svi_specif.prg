@@ -281,12 +281,12 @@ static lTehnoprom
  *  \sa IzFmkIni_KumPath_FMK_Planika
  */
 function IsPlanika()
-*{
+
 return lPlanika
 
 
 function SetPlanika(lValue)
-*{
+
 lPlanika:=lValue
 
 
@@ -296,203 +296,203 @@ lPlanika:=lValue
  *  \sa IzFmkIni_KumPath_FMK_PlNS
  */
 function IsPlNS()
-*{
+
 return lPlNS
 
 
 function SetPlNS(lValue)
-*{
+
 lPlNS:=lValue
 
 
 function IsRobaGroup()
-*{
+
 return lRobaGroup
 
 
 function SetRobaGroup(lValue)
-*{
+
 lRobaGroup:=lValue
 
 
 
 function IsVindija()
-*{
+
 return lVindija
 
 
 function SetVindija(lValue)
-*{
+
 lVindija:=lValue
 
 
 function IsZips()
-*{
+
 return lZips
 
 
 function SetZips(lValue)
-*{
+
 lZips:=lValue
 
 
 function IsTvin()
-*{
+
 return lTvin
 
 
 function SetTvin(lValue)
-*{
+
 lTvin:=lValue
 
 
 
 function IsNiagara()
-*{
+
 return lNiagara
 
 
 function SetNiagara(lValue)
-*{
+
 lNiagara:=lValue
 
 
 
 function IsTrgom()
-*{
+
 return lTrgom
 
 
 function SetTrgom(lValue)
-*{
+
 lTrgom:=lValue
 
 
 function IsRudnik()
-*{
+
 return lRudnik
 
 
 function SetRudnik(lValue)
-*{
+
 lRudnik:=lValue
 
 
 function IsKonsig()
-*{
+
 return lKonsig
 
 
 function SetKonsig(lValue)
-*{
+
 lKonsig:=lValue
 
 
 function IsStampa()
-*{
+
 return lStampa
 
 
 function SetStampa(lValue)
-*{
+
 lStampa:=lValue
 
 
 function IsUgovori()
-*{
+
 return lUgovori
 
 
 function SetUgovori(lValue)
-*{
+
 lUgovori:=lValue
 
 
 function IsRabati()
-*{
+
 return lRabati
 
 
 function SetRabati(lValue)
-*{
+
 lRabati:=lValue
 
 
 
 function IsRamaGlas()
-*{
+
 return lRamaGlas
 
 
 function IsLdFin()
-*{
+
 return lLdFin
 
 
 function SetRamaGlas(lValue)
-*{
+
 lRamaGlas:=lValue
 
 
 
 function SetLdFin(lValue)
-*{
+
 lLdFin:=lValue
 
 
 
 
 function IsJerry()
-*{
+
 return lJerry
 
 
 function SetJerry(lValue)
-*{
+
 lJerry:=lValue
 
 
 
 function IsMupZeDo()
-*{
+
 return lMupZeDo
 
 
 function SetMupZeDo(lValue)
-*{
+
 lMupZeDo:=lValue
 
 
 
 function IsFakultet()
-*{
+
 return lFakultet
 
 
 function SetFakultet(lValue)
-*{
+
 lFakultet:=lValue
 
 
 
 function IsDomZdr()
-*{
+
 return lDomZdr
 
 
 function SetDomZdr(lValue)
-*{
+
 lDomZdr:=lValue
 
 
 
 function IsTehnoprom()
-*{
+
 return lTehnoprom
 
 
 function SetTehnoprom(lValue)
-*{
+
 lTehnoprom:=lValue
 
 
@@ -502,7 +502,7 @@ lTehnoprom:=lValue
  */
  
 function SetSpecifVars()
-*{
+
 if IzFmkIni("FMK","Tvin","N",KUMPATH)=="D"
 	SetTvin(.t.)
 else

@@ -16,7 +16,7 @@
  *   Osnovna f-ja za instalaciju programa 
  */
 function Main()
-*{
+
 local i,j,ii
 local cNprog[17],cMProg[17],cTProg[17]
 
@@ -1259,7 +1259,7 @@ function SkloniSezonu()
 
 
 function SetScGVars()
-*{
+
 
 public ZGwPoruka:=""
 public GW_STATUS:="-"
@@ -1360,7 +1360,7 @@ return
 
 
 function PreUseEvent(cImeDbf,fShared)
-*{
+
 return cImeDbf
 
 

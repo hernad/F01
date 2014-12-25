@@ -31,7 +31,7 @@
  */
 
 function VidiFajl(cImeF, aLinFiks, aKolFiks)
-*{
+
 
 local nDF:=VelFajla(cImeF,0)
 local nKol:=1
@@ -501,7 +501,7 @@ return
 
 
 function SljedLin(cFajl,nPocetak)
-*{
+
 local cPom,nPom
 cPom:=FILESTR(cFajl,400,nPocetak)
 nPom:=AT(NRED,cPom)
@@ -510,7 +510,7 @@ return {LEFT(cPom,nPom-1),nPocetak+nPom+1}    // {cLinija,nPocetakSljedece}
 
 
 function PrethLin(cFajl,nKraj)
-*{ 
+ 
  local nKor:=400,cPom,nPom
  if nKraj-nKor-2<0; nKor:=nKraj-2; endif
  cPom:=FILESTR(cFajl,nKor,nKraj-nKor-2)
@@ -522,7 +522,7 @@ return
 
 
 function BrLinFajla(cImeF)
-*{ 
+ 
  local nOfset:=0,nSlobMem:=0,cPom:="",nVrati:=0
  if FILESTR(cImeF,2,VelFajla(cImeF)-2)!= NRED ; nVrati:=1; endif
  do while LEN(cPom)>=nSlobMem
@@ -535,7 +535,7 @@ return nVrati
 
 
 function VelFajla(cImeF,cAttr)
-*{
+
  local aPom:=DIRECTORY(cImeF,cAttr)
 return if (!EMPTY(aPom),aPom[1,2],0)
 
@@ -544,7 +544,7 @@ return if (!EMPTY(aPom),aPom[1,2],0)
 
 
 function PripadaNInt(nBroj,nOd,nDo,lSaKrajnjim)
-*{
+
 local lVrati:=.f.
   if lSaKrajnjim==nil; lSaKrajnjim:=.t.; endif
   if lSaKrajnjim .and. nBroj>=nOd .and. nBroj<=ndo .or.;
@@ -556,7 +556,7 @@ return lVrati
 
 
 function DioFajlaUNiz(cImeF,nPocRed,nUkRedova,nUkRedUF)
-*{  
+  
   local aVrati:={},nTekRed:=0,nOfset:=0,aPom:={}
   if nUkRedUF==nil; nUkRedUF:=BrLinFajla(cImeF); endif
   for nTekRed:=1 to nUkRedUF
@@ -573,7 +573,7 @@ return aVrati
 
 
 function VratiOfset(cTrazeniTekst,nOdPojavljivanja,nDoPojavljivanja,cUFajlu,nVelicinaFajla)
-*{
+
  local nOfset:=0, aPom:={}, aOfsetOdDo:={0,0}, nPojava:=0
  do while nVelicinaFajla>nOfset            // ?? mozda treba >nOfset+1
    aPom:=SljedLin(cUFajlu,nOfset)
@@ -597,7 +597,7 @@ return aOfsetOdDo
 
 
 static function SendFile(cImeF)
-*{
+
 local cSendIme
 local cLokacija
 private cKom

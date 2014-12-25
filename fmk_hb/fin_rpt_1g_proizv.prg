@@ -39,7 +39,7 @@
  */
  
 function ProIzv()
-*{
+
 if !IzvrsenIn(,,"PROIZV", .t. )
   MsgBeep("Modul PROIZV nije registrovan !")
   return
@@ -73,7 +73,7 @@ RETURN
  */
 
 function OtBazPI()
-*{
+
 O_IZVJE
 O_KONIZ
 O_KOLIZ
@@ -88,7 +88,7 @@ return
  */
 
 function GenProIzv()
-*{
+
 LOCAL nPr:=1, lKumSuma:=.f., GetList:={}
  PRIVATE lDvaKonta:=.f.
  PRIVATE lKljuc:=.f.
@@ -957,7 +957,7 @@ CLOSERET
  */
 
 function PrikaziTI(cSif)
-*{
+
 LOCAL nArr:=SELECT(), nKol:=COL(), nRed:=ROW()
    SELECT (F_IZVJE)
    SEEK cSif
@@ -989,7 +989,7 @@ RETURN
  */
 
 function FForPI()
-*{
+
 LOCAL lVrati:=.f.
  IF cSaNulama=="D" .or.;
     !lKljuc .and. ( PLBUDZET<>0 .or. REBALANS<>0 .or. KUMSUMA<>0 .or.;
@@ -1013,7 +1013,7 @@ RETURN lVrati
  */
 
 function VidiUaKolS()
-*{
+
 LOCAL lVrati:=.f., i:=0
   FOR i:=1 TO LEN(aKolS)
     cPom777:=aKolS[i,1]
@@ -1032,7 +1032,7 @@ RETURN lVrati
  */
 
 function FSvakiPI()
-*{
+
 IF !lKljuc
    IF EMPTY(U1)
      uTekSuma:=TEKSUMA
@@ -1057,7 +1057,7 @@ RETURN IF(!EMPTY(PODVUCI),"PODVUCI"+PODVUCI,NIL)
  */
 
 function PlBudzeta(cTipK,cKonto)
-*{
+
  LOCAL nVrati:=0, nArr:=SELECT()
  IF cKonto==".f."; RETURN 0; ENDIF
  SELECT BUDZET
@@ -1087,7 +1087,7 @@ RETURN nVrati
 
  
 function RebBudzeta(cTipK,cKonto)
-*{
+
 LOCAL nVrati:=0, nArr:=SELECT()
  IF cKonto==".f."; RETURN 0; ENDIF
  SELECT BUDZET
@@ -1116,7 +1116,7 @@ RETURN nVrati
  */
  
 function ParSviIzvj()
-*{
+
 LOCAL GetList:={}
 cPotrazKon:=PADR(cPotrazKon,120)
 
@@ -1298,7 +1298,7 @@ ENDIF
  */
  
 function UKucice(cSta,nKucica)
-*{
+
 RETURN ( "I"+CHARMIX(PADL(TRIM(cSta),nKucica,IF(EMPTY(cSta)," ","0")),"I") )
 
 
@@ -1312,7 +1312,7 @@ RETURN ( "I"+CHARMIX(PADL(TRIM(cSta),nKucica,IF(EMPTY(cSta)," ","0")),"I") )
  */
  
 function KonvZnWin(cTekst,cWinKonv)
-*{
+
 LOCAL aNiz:={  {"[","�",chr(138),"S"}, {"{","�",chr(154),"s"}, {"}","�",chr(230),"c"}, {"]","�", chr(198),"C"}, {"^","�", chr(200),"C"},;
                 {"~","�",chr(232),"c"}, {"`","�",chr(158),"z"}, {"@","�",chr(142),"Z"}, {"|","�", chr(240),"dj"}, {"\","�", chr(208),"DJ"}  }
  LOCAL i,j
@@ -1350,7 +1350,7 @@ RETURN cTekst
  */
  
 function KZnbazaWin(cDbf)
-*{
+
 local cWinKonv
 
 cWinKonv:=IzFmkIni("DelphiRb","Konverzija","5")

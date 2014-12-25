@@ -38,7 +38,7 @@
  */
 
 function StKalk82()
-*{
+
 local nCol0:=nCol1:=nCol2:=0,npom:=0
 
 Private nMarza,nMarza2

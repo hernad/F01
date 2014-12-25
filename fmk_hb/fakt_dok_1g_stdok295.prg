@@ -169,7 +169,7 @@
  */
  
 function StDok295()
-*{
+
 parameters cIdFirma,cIdTipDok,cBrDok
 private i,nCol1:=0,cTxt1,cTxt2,aMemo,nMPVBP:=nVPVBP:=0
 private cTi,nUk,nRab,nUk2:=nRab2:=0
@@ -578,7 +578,7 @@ CLOSERET
  */
  
 static function zagl295()
-*{
+
 P_10CPI
 for i:=1 to val(IzFmkIni("Fakt295","GMarg","3",PRIVPATH)) // 3=gnTMarg  // Top Margina
   ?

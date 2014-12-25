@@ -30,7 +30,7 @@
  */
 
 function StKalk95_1()
-*{
+
 local cKto1
 local cKto2
 local cIdZaduz2

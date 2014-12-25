@@ -25,7 +25,7 @@
  */
  
 function StViseDokMenu(cVarijanta)
-*{
+
   STATIC nPom:=0
   LOCAL aPom:={}, cKljuc:="", i:=0, nD1:=0, nD2:=0, nD3:=0
 
@@ -88,7 +88,7 @@ return IF(nPom=LEN(aPom).and.cVarijanta!="BRISI".or.nPom==0,.f.,.t.)
  */
  
 function FilterPrNovine()
-*{
+
 SET FILTER TO IDFIRMA+IDTIPDOK+BRDOK=gFiltNov
 GO TOP
 return

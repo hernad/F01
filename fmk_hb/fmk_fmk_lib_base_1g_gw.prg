@@ -107,7 +107,7 @@ static GW_STRING
  */
  
 function Gw(cStr, nHandle, cAkcija)
-*{
+
 local nHgw
 local cBaza
 local cBazaInOut
@@ -221,7 +221,7 @@ return ""
  *  \param cBazaInOut  - c:/sigma
  */
 static function GwOdgovor(cBazaInOut)
-*{
+
 local nGwSec
 
 nHgw:=-100
@@ -290,7 +290,7 @@ return LEFT(cBuf,nRead)
  */
  
 static function TimeOutIzaci(nGwSec)
-*{
+
 private cKom
 
 if (SECONDS()-nGwSec)> 60 + iif(gAppSrv, 60, 0)
@@ -376,7 +376,7 @@ return .f.
  */
 
 function GwStaMai(nBroji2)
-*{
+
 local cRezultat
 local xRez
 local nOldcursor
@@ -467,7 +467,7 @@ return cRezultat
 
 
 static function cmdHocuSynchro(cRezultat, GW_STATUS, ZGwPoruka)
-*{
+
 
 Beep(6)
 MsgBeep("Zahtjev:" + cRezultat)
@@ -501,7 +501,7 @@ return
 
 
 static function cmdHocuShutdown(cRezultat, GW_STATUS, ZGwPoruka)
-*{
+
    
 Beep(6)
 MsgBeep("Udaljena strana "+substr(cRezultat,13)+" ugasiti racunar.")
@@ -523,7 +523,7 @@ return
 
 
 static function cmdImportStat(cRezultat,GW_STATUS, ZGwPoruka)
-*{
+
 
 // ali GW_STATUS nije NA_CEKI_K_SQL
 Beep(1)
@@ -533,7 +533,7 @@ return
 
 
 static function cmdNaCekiSql(cRezultat, GW_STATUS, ZGwPoruka)
-*{
+
 
 do case
 
@@ -558,7 +558,7 @@ return
 
 
 static function cmdZavrsenaSyn(cRezultat, GW_STATUS, ZGwPoruka)
-*{
+
 
 GW_STATUS:="-"
 Beep(5)
@@ -590,7 +590,7 @@ return
 
 
 static function cmdImpSqlError(cRezultat, GW_STATUS, ZGwPoruka)
-*{
+
 Beep(5)
 MsgBeep("NEUSPJESNO Zavrsena sinhronizacija  !!!!")
 Beep(5)
@@ -618,7 +618,7 @@ return
 
 
 function ZGwPoruka()
-*{
+
 // uzmi trenutno stanje ...
 GwStamai(-1)
 return ZGwPoruka
@@ -626,7 +626,7 @@ return ZGwPoruka
 
 
 function GW_STRING()
-*{
+
 return GW_STRING
 
 
@@ -637,7 +637,7 @@ return GW_STRING
  */
 
 function GwDirektno(cSql)
-*{
+
 
 local nHLog
 local cLogName
@@ -671,7 +671,7 @@ return ""
 
 
 static function OpenLog(cLogName)
-*{
+
 local nHLog
 
 if !FILE(cLogName)
@@ -703,7 +703,7 @@ return
 
 
 function GwDiskFree()
-*{
+
 local cOdgovor
 
 cOdgovor:=Gw('GETINFO DISKFREE')

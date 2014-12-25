@@ -90,7 +90,7 @@ return cRet
  */
  
 function Tarifa(cIdKonto, cIdRoba, aPorezi, cIdTar)
-*{
+
 local cTarifa
 local lUsedRoba
 local lUsedTarifa
@@ -180,7 +180,7 @@ return cIdTarifa
  *  \param aPorezi Matrica poreza, aPorezi:={PPP,PP,PPU,PRUC,PRUCMP,DLRUC}
  */
 function SetAPorezi(aPorezi)
-*{
+
 if (aPorezi==nil)
 	aPorezi:={}
 endif
@@ -210,7 +210,7 @@ return nil
  *  \param aPorezi Matrica sa porezima
  */
 function MpcSaPorUgost(nPosebniPorez, nPorezNaRuc, aPorezi)
-*{
+
 local nPom
 
 // (MpcSapp - PorezNaRuc) * StopaPP = PosebniPorez
@@ -251,7 +251,7 @@ else
 endif 
 
 function MpcSaPorO(nMPCBp, aPorezi, aPoreziIzn)
-*{
+
 local nPom
 local nDLRUC
 local nMPP
@@ -338,7 +338,7 @@ endif
  *  \param nNC Nabavna cijena
  */
 function MpcBezPorO(nMpcSaPP, aPorezi, nRabat, nNC)
-*{
+
 local nPor1
 local nPor2
 local nPom
@@ -444,7 +444,7 @@ return nPom
  *  \param nMpcSaP Maloprodajna cijena sa porezom
  */
 function Izn_P_PPP(nMpcBp, aPorezi, aPoreziIzn, nMpcSaP)
-*{
+
 local nPom
 local nUkPor
 
@@ -498,7 +498,7 @@ return nPom
  *  \param aPoreziIzn Matrica izracunatih poreza
  */
 function Izn_P_PPU(nMPCBp, aPorezi, aPoreziIzn)
-*{
+
 local nPom
 nPom:= nMpcBp * (aPorezi[POR_PPP]/100+1)*(aPorezi[POR_PPU]/100) 
 return nPom
@@ -512,7 +512,7 @@ return nPom
  *  \param aPoreziIzn Matrica izracunatih poreza
  */
 function Izn_P_PP(nMpcBp, aPorezi, aPoreziIzn)
-*{
+
 local nOsnovica
 local nMpcSaPor
 local nPom
@@ -548,7 +548,7 @@ return nPom
  *  \param aPorezi Matrica poreza
  */
 function Izn_P_PPUgost(nMpcSaPP, nIznPRuc, aPorezi)
-*{
+
 local nPom
 local nDLRUC
 local nMPP
@@ -578,7 +578,7 @@ return nPom
  *  \param aPoreziIzn matrica izracunatih poreza
  */
 function Izn_P_PRugost(nMpcSaPP, nMPCBp, nNc, aPorezi, aPoreziIzn)
-*{
+
 
 // ovo se ne koristi u rezimu PDV-a
 
@@ -629,7 +629,7 @@ return nPom
  *   Korekcija tarifa
  */
 function KorekTar()
-*{
+
 local cTekIdTarifa
 local cPriprema
 
@@ -724,7 +724,7 @@ return
  *   Vraca procenat poreza na usluge. U ugostiteljstvu to je porez na razliku u cijeni. aPorezi, _mpp i _ppp moraju biti definisane (privatne ili javne var.)
 */
 function PrPPUMP()
-*{
+
 local nV
 if !glPoreziLegacy
 	if glUgost
@@ -752,7 +752,7 @@ return nV
  * \param nNc Nabavna cijena
 */
 function RacPorezeMP(aPorezi, nMpc, nMpcSaPP, nNc)
-*{
+
 local nIznPRuc
 local nP1, nP2, nP3
 

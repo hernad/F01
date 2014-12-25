@@ -363,7 +363,7 @@ return 1
  */
 
 function Preknjiz()
-*{
+
 local fK1:="N"
 local fk2:="N"
 local fk3:="N"

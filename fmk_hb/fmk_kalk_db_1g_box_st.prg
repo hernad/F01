@@ -35,7 +35,7 @@
  */
 
 function KalkStanje(cIdRoba)
-*{
+
 local nUl,nIzl,nRezerv,nRevers,fOtv:=.f.,nIOrd,nFRec, aStanje
 local aZN := { CTOD("") , 0 , 0 , 0 } // zadnja nabavka
 select roba
@@ -121,7 +121,7 @@ return
  */
 
 function BoxStanje(aStanje,cIdroba)
-*{
+
 local picdem:="9999999.999", nR, nC, nTSta := 0, nTUl := 0, nTIzl := 0,;
       npd, cDiv := " � ", nLen, nRPoc:=0
 

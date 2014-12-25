@@ -28,7 +28,7 @@
  */
 
 function KalkNabP(cIdFirma, cIdroba, cIdkonto, nKolicina, nKolZN, nNC, nSNC, dDatNab, dRokTr)
-*{
+
 local npom,fproso
 local nIzlNV
 local nIzlKol
@@ -299,7 +299,7 @@ return
  */
 
 function Marza(fmarza)
-*{
+
 local SKol:=0,nPPP
 
 if fmarza==NIL
@@ -375,7 +375,7 @@ return
  */
 
 function FaktVPC(nVPC,cseek,dDatum)
-*{
+
 local nOrder
 
 if koncij->naz=="V2" .and. roba->(fieldpos("vpc2"))<>0
@@ -428,7 +428,7 @@ return
  */
  
 function PratiKMag(cIdFirma,cIdKonto,cIdRoba)
-*{
+
 local nPom
 select kalk ; set order to 3
 hseek cIdFirma+cIdKonto+cIdRoba
@@ -477,7 +477,7 @@ return
  */
 
 function ObSetVPC(nNovaVrijednost)
-*{
+
   local nArr:=SELECT()
   private cPom:="VPC"
   if koncij->naz=="P2"
@@ -500,7 +500,7 @@ return .t.
  */
 
 function UzmiVPCSif(cMKonto,lKoncij)
-*{
+
  LOCAL nCV:=0, nArr:=SELECT()
  IF lKoncij=NIL; lKoncij:=.f.; ENDIF
   SELECT KONCIJ
@@ -521,7 +521,7 @@ return nCV
  */
 
 function NabCj()
-*{
+
 local Skol
 
 if gKalo=="1"
@@ -597,7 +597,7 @@ return
  */
 
 function NabCj2(n1,n2)  
-*{
+
  IF glEkonomat
    _fcj:=_fcj2:=_nc
    _rabat:=0
@@ -652,7 +652,7 @@ return .t.
  */
 
 function KoncijVPC()
-*{
+
 // podrazumjeva da je nastimana tabela koncij
 // ------------------------------------------
 if koncij->naz=="P2"
@@ -675,7 +675,7 @@ return (nil)
  */
 
 function MMarza()
-*{
+
 local SKol:=0
 Skol:=Kolicina-GKolicina-GKolicin2
   if TMarza=="%".or.empty(tmarza)
@@ -695,7 +695,7 @@ return nMarza
  */
 
 function PrerRab()
-*{
+
 local nPrRab
 if cTRabat=="%"
    nPrRab:=_rabatv
@@ -767,7 +767,7 @@ return .t.
 // Trenutan pozicija u tabeli ROBA (roba->tip)
 
 function V_RabatV()
-*{
+
 local nPom, nMPCVT
 local nRVPC:=0
 private getlist:={}, cPom:="VPC"

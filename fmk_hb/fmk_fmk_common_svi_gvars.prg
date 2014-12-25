@@ -61,7 +61,7 @@
  
 
 function SetFmkSGVars()
-*{
+
 
 SetSpecifVars()
 SetValuta()
@@ -162,7 +162,7 @@ return
 
 
 function SetPDVBoje()
-*{
+
 if IsPDV()
 	PDVBoje()
 	goModul:oDesktop:showMainScreen()
@@ -177,7 +177,7 @@ return
 
 
 function SetValuta()
-*{
+
 // ako se radi o planici Novi Sad onda je naziv valute DIN
 public gOznVal
 if IsPlNS()
@@ -194,7 +194,7 @@ return
  *   Provjeri parametar pdv
  */
 function ParPDV()
-*{
+
 if (gPDV == "") .or. (gPDV $ "ND" .and. gModul=="TOPS")
 	// ako je tekuci datum >= 01.01.2006
 	if DATE() >= CToD("01.01.2006")
@@ -212,7 +212,7 @@ return
  *  \ret .t. or .f.
  */
 function IsPDV()
-*{
+
 if gPDV=="D"
 	return .t.
 endif

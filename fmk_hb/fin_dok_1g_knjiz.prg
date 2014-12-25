@@ -179,7 +179,7 @@ return .t.
  */
 
 function vrbr()
-*{
+
 return .t.
 
 
@@ -190,7 +190,7 @@ return .t.
  */
 
 function O_Edit()
-*{
+
 IF IzFMKIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
 	O_VRSTEP
 ENDIF
@@ -244,7 +244,7 @@ return
  */
 
 function EditPripr()
-*{
+
 parameters fNovi
 
 if fNovi .and. nRbr==1
@@ -418,7 +418,7 @@ return .t.
  *  \param cIdKonto - konto id
  */
 function MinKtoLen(cIdKonto)
-*{
+
 if gKtoLimit=="N"
 	return .t.
 endif
@@ -445,7 +445,7 @@ return
  */
 
 function V_IznosDEM(p1,p2,cVar,oGet)
-*{
+
 if lAutoPomUDom .and. oGet:changed
 
 	altd()
@@ -465,7 +465,7 @@ return .t.
  */
 
 function CheckMark(cIdKonto, cIdPartner, cNewPartner)
-*{
+
     if (ChkKtoMark(_idkonto))
         cIdPartner := cNewPartner
     else
@@ -481,7 +481,7 @@ return .t.
  */
 
 function Partija(cIdKonto)
-*{
+
 if right(trim(cIdkonto),1)=="*"
 	select parek
    	hseek strtran(cIdkonto,"*","")+" "
@@ -523,7 +523,7 @@ return _D_P $ "12"
  *  \param cVar
  */
 function DinDem(p1,p2,cVar)
-*{
+
 local nNaz
 
 nNaz:=Kurs(_datdok)
@@ -550,7 +550,7 @@ AEVAL(GetList,{|o| o:display()})
  */
 
 function EdPRIPR()
-*{
+
 local nTr2
 local lLogUnos := .f.
 local lLogBrisanje := .f.
@@ -882,7 +882,7 @@ return .t.
  */
 
 function StNal(lAuto)
-*{
+
 private dDatNal:=date()
 StAnalNal(@lAuto)
 SintStav(lAuto)
@@ -896,7 +896,7 @@ return
  */
 
 function StAnalNal(lAuto)
-*{
+
 private aNalozi:={}
 
 if lAuto==NIL
@@ -1081,7 +1081,7 @@ return
  */
 
 function SintStav(lAuto)
-*{
+
 if lAuto==NIL; lAuto:=.f.; ENDIF
 
 O_PSUBAN
@@ -1259,7 +1259,7 @@ return cRet
  */
 
 function DifIdP(cIdPartner)
-*{
+
 return 0
 //return if(len(TRIM(cIDPARTNER))>6,2,0)
 
@@ -1270,7 +1270,7 @@ return 0
  */
 
 function Preduzece()
-*{
+
 local nArr:=select()
 F10CPI
 B_ON
@@ -1293,7 +1293,7 @@ return
  */
 
 function BrisiPBaze()
-*{
+
   PushWA()
   SELECT F_PSUBAN; ZAP
   SELECT F_PANAL; ZAP
@@ -1310,7 +1310,7 @@ RETURN (NIL)
  */
 
 function PreuzSezSPK(cSif)
-*{
+
 *static string
 static cSezNS:="1998"
 *;
@@ -1369,7 +1369,7 @@ RETURN
  */
 
 function SintFilt(lSint,cFilter)
-*{
+
 IF lSint==NIL; lSint:=.f.; ENDIF
   // napravimo pomocnu bazu
   aDbf := {}
@@ -1511,7 +1511,7 @@ RETURN
  */
 
 function TekRec2()
-*{
+
  nSlog++
  @ m_x+1, m_y+2 SAY PADC(ALLTRIM(STR(nSlog))+"/"+ALLTRIM(STR(nUkupno)),20)
  @ m_x+2, m_y+2 SAY "Obuhvaceno: "+STR(cmxKeysIncluded())
@@ -1526,7 +1526,7 @@ RETURN (NIL)
  */
 
 function Reci(x,y,cT)
-*{
+
 LOCAL px:=ROW(),py:=COL()
  @ m_x+x,m_y+y SAY cT
  SETPOS(px,py)
@@ -1539,7 +1539,7 @@ RETURN
  */
 
 function OstaleOpcije()
-*{
+
 private opc[4]
   opc[1]:="1. novi datum->datum, stari datum->dat.valute "
   opc[2]:="2. podijeli nalog na vise dijelova"
@@ -1585,7 +1585,7 @@ RETURN
  */
 
 function PodijeliN()
-*{
+
 if !SigmaSif("PVNAPVN")
  return
 endif
@@ -1739,7 +1739,7 @@ return DE_REFRESH
  */
 
 function SetDatUPripr()
-*{
+
   PRIVATE cTDok:="00"
   PRIVATE dDatum:=CTOD("01.01."+STR(YEAR(DATE()),4))
   IF !VarEdit({ {"Postaviti datum dokumenta","dDatum",,,},;
@@ -2003,7 +2003,7 @@ RETURN
  */
 
 function PrenosDNal()
-*{
+
 ? m
   ? PADR("UKUPNO NA STRANI "+ALLTRIM(STR(nStr)),30)+":"
    @ prow(),nColIzn  SAY nTSDugBHD PICTURE picBHD
@@ -2040,7 +2040,7 @@ RETURN
  */
 
 function IzvodBanke()
-*{
+
  LOCAL nIF:=1, cBrNal:=""
  PRIVATE cLFSpec := "A:\ZEN*.", cIdVn:="99"
 
@@ -2205,7 +2205,7 @@ return
  */
 
 function K3Iz256(cK3)
-*{
+
  LOCAL i,c,o,d:=0,aC:={" ","0","1","2","3","4","5","6","7","8","9"}
   IF IzFMKIni("FIN","LimitiPoUgovoru_PoljeK3","N",SIFPATH)=="D"
     IF !EMPTY(cK3)
@@ -2233,7 +2233,7 @@ RETURN cK3
  */
 
 function K3U256(cK3)
-*{
+
 LOCAL i,c,o,d:=0,aC:={" ","0","1","2","3","4","5","6","7","8","9"}
   IF !EMPTY(cK3) .and. IzFMKIni("FIN","LimitiPoUgovoru_PoljeK3","N",SIFPATH)=="D"
     FOR i:=1 TO LEN(cK3)
@@ -2259,7 +2259,7 @@ RETURN cK3
  */
 
 function KontrZbNal()
-*{
+
 
 PushWa()
 Box("kzb",12,70,.f.,"Kontrola zbira naloga")
@@ -2340,7 +2340,7 @@ return
  */
 
 function BrDokOK()
-*{
+
 local nArr
 local lOK
 local nLenBrDok
@@ -2374,7 +2374,7 @@ return lOK
  */
 
 function SetTekucaRJ(cRJ)
-*{
+
 local nArr
 local lUsed
 nArr:=SELECT()
@@ -2401,7 +2401,7 @@ return
  */
 
 function GetTekucaRJ()
-*{
+
 local nArr
 local lUsed
 local cRJ

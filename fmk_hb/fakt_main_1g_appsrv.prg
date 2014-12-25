@@ -37,7 +37,7 @@
  */
  
 function RunAppSrv()
-*{
+
 local nH, nH1, nH2
 
 // aplikacijski server ...................................
@@ -157,7 +157,7 @@ enddo
  */
  
 function ExecKomande(cFileName,nHXApsLog)
-*{
+
 local nHOut
 private cLnApsrv:=""
 

@@ -24,7 +24,7 @@ static PIC_UKUPNO := "9999999.99"
 // glavna funkcija za stampu PDV blag.racuna na traci
 // lStartPrint - .t. - pozivaju se funkcije za stampu START PRINT itd...
 function rb_print(lStartPrint)
-*{
+
 local nIznUkupno
 local lPrintPfTraka := .f.
 local lGetKupData := .f.
@@ -147,7 +147,7 @@ return
 
 
 function isPfTraka(lRet)
-*{
+
 // inace iscitati parametar
 if gPorFakt == "D"
 	lRet := .t.
@@ -177,14 +177,14 @@ return nUkupno
 
 
 function get_rn_mjesto()
-*{
+
 local cMjesto := get_dtxt_opis("R01")
 return cMjesto
 
 
 
 function rb_traka_line(cLine)
-*{
+
 cLine := REPLICATE("-", LEN_RBR) + " " + REPLICATE("-", LEN_NAZIV) + " " + REPLICATE("-", LEN_UKUPNO)
 return
 
@@ -193,7 +193,7 @@ return
 // st_rb_traka() - funkcija za stampu stavki trake
 // lStartPrint - ako je .t. pozivaju se funkcije stampe
 function st_rb_traka(lStartPrint, lAzurDok)
-*{
+
 local cBrDok
 local dDatDok
 local aRNaz
@@ -460,7 +460,7 @@ return
 // -----------------------------------
 // -----------------------------------
 function hd_rb_traka(nRedukcija)
-*{
+
 local cDuplaLin
 local cINaziv
 local cIAdresa
@@ -519,7 +519,7 @@ return
 
 
 function g_br_stola(cBrStola)
-*{
+
 cBrStola := get_dtxt_opis("R11")
 if cBrStola == "-"
 	cBrStola := ""
@@ -529,7 +529,7 @@ return
 
 
 function g_vez_racuni(aRacuni)
-*{
+
 local cRead
 cRead := get_dtxt_opis("R12")
 if cRead == "-"
@@ -542,7 +542,7 @@ return
 
 
 function ft_rb_traka(cIdRadnik)
-*{
+
 local cRadnik
 local cSmjena
 local cVrstaP

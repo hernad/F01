@@ -59,7 +59,7 @@
  */
  
 function StdRtf2()
-*{
+
 parameters cImeF,cIdFirma,cIdTipDok,cBrDok
 local cTxt1,cTxt2,aMemo,nH,cPomoc:="", coutf:=""
 local i,ii,ImeKol:={}, nRedova, fPrvaStr,cNPom
@@ -598,7 +598,7 @@ closeret
  */
  
 function BosNum(cNPom)
-*{
+
 cNPom:=strtran(cnpom,",","#")
  cNPom:=strtran(cnpom,".",",")
  cNPom:=strtran(cnpom,"#",".")

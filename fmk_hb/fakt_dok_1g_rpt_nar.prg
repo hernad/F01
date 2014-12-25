@@ -75,7 +75,7 @@
  */
  
 function StNarKup()
-*{
+
 
 //if Pitanje(,"Fmk.NET narudzba (D/N)?","D")=="D"
 //	Mnu_Narudzbenica()
@@ -283,7 +283,7 @@ return
  */
 
 function UzmiVar(cVar)
-*{
+
 local cVrati:=""
 local cFS:="UIB"
 IF gPrinter=="R"

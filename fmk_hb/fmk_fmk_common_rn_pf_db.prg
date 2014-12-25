@@ -15,7 +15,7 @@
 
 // delete rn dbf's
 function del_rndbf()
-*{
+
 close all
 // drn.dbf
 FErase(PRIVPATH + "DRN.DBF")
@@ -37,7 +37,7 @@ return 1
  *   kreiranje tabela RN i DRN
  */
 function drn_create()
-*{
+
 local cDRnName := "DRN.DBF"
 local cRnName := "RN.DBF"
 local cDRTxtName := "DRNTEXT.DBF"
@@ -88,7 +88,7 @@ return
 
 // kreiranje tabele DOKSPF (POS tabela za podatke o kupcu)
 function dokspf_create()
-*{
+
 local aDbf:={}
 
 if !FILE(KUMPATH + "\DOKSPF.DBF")
@@ -118,7 +118,7 @@ return
  *  \param aArr - matrica
  */
 function get_drn_fields(aArr)
-*{
+
 if gModul == "TOPS"
 	AADD(aArr, {"BRDOK",   "C",  6, 0})
 else
@@ -166,7 +166,7 @@ return
  *  \param aArr - matrica
  */
 function get_rn_fields(aArr)
-*{
+
 if gModul == "TOPS"
 	AADD(aArr, {"BRDOK",   "C",  6, 0})
 else
@@ -201,7 +201,7 @@ return
  *  \param aArr - matrica
  */
 function get_dtxt_fields(aArr)
-*{
+
 AADD(aArr, {"TIP",   "C",   3, 0})
 AADD(aArr, {"OPIS",  "C", 200, 0})
 return
@@ -209,7 +209,7 @@ return
 
 
 function add_drntext(cTip, cOpis)
-*{
+
 local lFound
 if !USED(F_DRNTEXT)
 	O_DRNTEXT
@@ -235,7 +235,7 @@ return
 
 // dodaj u drn.dbf
 function add_drn(cBrDok, dDatDok, dDatVal, dDatIsp, cTime, nUBPDV, nUPopust, nUBPDVPopust, nUPDV, nUkupno, nCSum, nUPopTp, nZaokr, nUkkol)
-*{
+
 local cnt1
 
 if !USED(F_DRN)
@@ -364,7 +364,7 @@ return xRet
 // dodaj u rn.dbf
 // ---------------------------------
 function add_rn(cBrDok, cRbr, cPodBr, cIdRoba, cRobaNaz, cJmj, nKol, nCjenPdv, nCjenBPdv, nCjen2Pdv, nCjen2BPdv, nPopust, nPPdv, nVPdv, nUkupno, nPopNaTeretProdavca, nVPopNaTeretProdavca, cC1, cC2, cC3, cOpis)
-*{
+
 if !USED(F_RN)
 	O_RN
 endif
@@ -421,7 +421,7 @@ return
 
 // isprazni drn tabele
 function drn_empty()
-*{
+
 O_DRN
 select drn
 zap
@@ -440,7 +440,7 @@ return
 
 // otvori rn tabele
 function drn_open()
-*{
+
 O_DRN
 O_DRNTEXT
 O_RN
@@ -450,7 +450,7 @@ return
 
 // provjera checksum-a
 function drn_csum()
-*{
+
 local nCSum
 local nRNSum
 
@@ -473,7 +473,7 @@ return .f.
 
 // vrati vrijednost polja opis iz tabele drntext.dbf po id kljucu
 function get_dtxt_opis(cTip)
-*{
+
 local cRet
 
 if !USED(F_DRNTEXT)
@@ -494,7 +494,7 @@ return cRet
 
 // azuriranje podataka o kupcu
 function AzurKupData(cIdPos)
-*{
+
 local cKNaziv
 local cKAdres
 local cKIdBroj

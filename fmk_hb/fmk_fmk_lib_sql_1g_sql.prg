@@ -40,7 +40,7 @@
  */
  
 function sql_repl(cField, xxVar, nHandle, cAkcija )
-*{
+
 local i,nh,cSQL
 
 if (gSQL=="N" .or. fieldpos("_OID_")==0)
@@ -57,7 +57,7 @@ return .t.
 
 
 function sql_append( nHandle, cAkcija )
-*{
+
 local i,nh, cSQL
 
 if (gSQL=="N" .or. fieldpos("_OID_")==0)
@@ -75,7 +75,7 @@ return .t.
 
 
 function sql_delete(cTip, nHandle, cAkcija)
-*{
+
 local i,nh, cSQL
 
 if fieldpos("_SITE_")==0
@@ -105,7 +105,7 @@ return .t.
 
 
 function GathSQL(cZnak,fAppend, nHandle, cAkcija)
-*{
+
 local i,j,aStruct
 private cVar
 
@@ -175,7 +175,7 @@ return
  */
  
 function sql_azur(fLock)
-*{
+
 if gSQL=="N"
 	return .f.
 endif
@@ -207,7 +207,7 @@ return .t.
 
 
 function SQLValue(xVar,nDec, cKonv)
-*{
+
 local cPom, cChar, cChar2, nStat,ilok
 
 if cKonv=NIL
@@ -282,7 +282,7 @@ endif
  */
  
 function New_OID()
-*{
+
 local nPom
 
 PushWa()
@@ -310,7 +310,7 @@ return nPom
 
 
 function Last_OID()
-*{
+
 local nPom
 PushWa()
 set order to tag "_OID_"
@@ -328,7 +328,7 @@ return Num2Oid(nPom+1) // novi OID
  *  \todo izbaciti ovu funkciju - nepotrebna
  */
 function Oid2Num(cOID)
-*{
+
 local i,nPom
 return cOID
 
@@ -337,12 +337,12 @@ return cOID
  *  \todo izbaciti ovu funkciju - nepotrebna
  */
 function Num2Oid(nOid)
-*{
+
 return nOid
 
 
 function sql_log(cSQL, nHandle, cAkcija )
-*{
+
 local i
 i:=0
 Gw(cSQL, @nHandle, cAkcija )

@@ -30,7 +30,7 @@
  */
 
 function StKalk11_2(fZaTops)
-*{
+
 local nCol0:=nCol1:=nCol2:=0,npom:=0, n11BezNC
 private aPorezi
 
@@ -279,7 +279,7 @@ return
 
 
 function head_11(lPrikPRUC, cLine)
-*{
+
 if IsPDV()
   	? cLine
   	if koncij->naz=="P2"

@@ -41,7 +41,7 @@ return
  */
  
 function StOANal()
-*{
+
 private fK1:=fk2:=fk3:=fk4:=cDatVal:="N",gnLOst:=0,gPotpis:="N"
 O_PARAMS
 Private cSection:="1",cHistory:=" ",aHistory:={}
@@ -116,7 +116,7 @@ return
  */
  
 function StOSNal(fkum)
-*{
+
 if fkum==NIL
   fkum:=.t.
 endif

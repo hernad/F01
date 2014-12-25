@@ -39,7 +39,7 @@
  */
  
 function Ostalo()
-*{
+
 private Izbor:=1
 private opc:={}
 private opcexe:={}

@@ -20,7 +20,7 @@
  *  \param cModulName - ime modula - generisi tabele samo dok si u modulu POS
  */
 function CrePStDB(cModulName)
-*{
+
 
 if cModulName<>"POS"
 	return
@@ -72,7 +72,7 @@ return
  *  \param cPosID - id oznaka POS-a - bitan za modul FIN
  */
 function O_PrenHH(cPosID)
-*{
+
 local nArr
 nArr:=SELECT()
 
@@ -109,7 +109,7 @@ return
  *  \todo razraditi procedure ako nema podesenog PATH-a
  */
 function GetTopsKumPathFromKoncij()
-*{
+
 cTKPath:=""
 O_KONCIJ
 select koncij
@@ -133,7 +133,7 @@ return cTKPath
  *  \param nIznosG - saldo partnera iz TOPS-a
  */
 function AddToOstav(nId, nIznosG)
-*{
+
 local nArr
 nArr:=SELECT()
 
@@ -160,7 +160,7 @@ return
  *  \param cNaziv - naziv partnera
  */
 function AddToPartn(nId, cIdFmk, cNaziv)
-*{
+
 local nArr
 nArr:=SELECT()
 
@@ -183,7 +183,7 @@ return
  *  \param cOpis - Opis promjene
  */
 function AddToParams(cID, cNaziv, cOpis)
-*{
+
 local nArr
 nArr:=SELECT()
 
@@ -208,7 +208,7 @@ return
  *  \param nIznos4 - saldo do 20 dana
  */
 function AddFinIntervalsToOstav(cIdPartn, cParNaz, nIznos1, nIznos2, nIznos3, nIznos4, nIznos5)
-*{
+
 local nArr, nId
 nArr:=SELECT()
 
@@ -263,7 +263,7 @@ return
  *   Vraca broj prenesenih partnera u OSTAV
  */
 function GetOstavCnt()
-*{
+
 local nArr
 nArr:=SELECT()
 O_OSTAV
@@ -277,7 +277,7 @@ return nCnt
  *   Vraca broj prenesenih partnera u OSTAV iz modula FIN
  */
 function GetFOstavCnt()
-*{
+
 local nArr
 nArr:=SELECT()
 select (F_F_OSTAV)
@@ -291,7 +291,7 @@ return nCnt
  *   Vraca broj prenesenih partnera u OSTAV
  */
 function GetPartnCnt()
-*{
+
 local nArr
 nArr:=SELECT()
 O_PARTN

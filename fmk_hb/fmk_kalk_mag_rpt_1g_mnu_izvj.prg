@@ -85,7 +85,7 @@ return
  */
 
 function MPoreziMag()
-*{
+
 private Opc:={}
 private opcexe:={}
 AADD(Opc,"1. realizacija - veleprodaja po tarifama")
@@ -108,7 +108,7 @@ return
  */
  
 function MRekMag()
-*{
+
 private Opc:={}
 private opcexe:={}
 AADD(Opc,"1. rekapitulacija finansijskog stanja")

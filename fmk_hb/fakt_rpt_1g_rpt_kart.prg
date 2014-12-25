@@ -43,7 +43,7 @@
  */
  
 function Kartica()
-*{
+
 local cIdfirma, nRezerv, nRevers
 local nul, nizl, nRbr, cRR, nCol1:=0, cKolona, cBrza:="D"
 local cPredh:="2"

@@ -41,7 +41,7 @@
  */
  
 function Log_Tabela(cTn)
-*{
+
 local cSQL
 local i
 local aStruct
@@ -114,7 +114,7 @@ return
  *   Logiraj record
  */
 function Log_Record(cTn)
-*{
+
 local cSQL
 local i
 local aStruct
@@ -172,7 +172,7 @@ return
  *   Napravi novi record na osnovu postojeceg
  */
 function New_Record(cTn)
-*{
+
 local cSQL
 local i
 local aStruct

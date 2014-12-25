@@ -67,7 +67,7 @@ return
 
 
 static function ApndInvItem(cIdRj, cIdRoba, cBrDok, nKolicina, cRbr)
-*{
+
 
 APPEND BLANK
 REPLACE idFirma WITH cIdRj
@@ -98,7 +98,7 @@ return
 
 
 static function AddTxt(cTxt, cStr)
-*{
+
 cTxt:=cTxt+Chr(16)+cStr+Chr(17)
 return nil
 
@@ -112,7 +112,7 @@ return nil
  *   Generacija dokumenta 19 tj. otpreme iz mag na osnovu dok. IM
  */
 function GDokInvManjak(cIdRj, cBrDok)
-*{
+
 local nRBr
 local nRazlikaKol
 local cRBr
@@ -159,7 +159,7 @@ return
  */
  
 static function ApndInvMItem(cIdRj, cIdRoba, cBrDok, nKolicina, cRbr)
-*{
+
 APPEND BLANK
 REPLACE idFirma WITH cIdRj
 REPLACE idRoba  WITH cIdRoba
@@ -194,7 +194,7 @@ return
  *   Generacija dokumenta 01 tj.primke u magacin na osnovu dok. IM
  */
 function GDokInvVisak(cIdRj, cBrDok)
-*{
+
 local nRBr
 local nRazlikaKol
 local cRBr
@@ -242,7 +242,7 @@ return
  */
 
 static function ApndInvVItem(cIdRj, cIdRoba, cBrDok, nKolicina, cRbr)
-*{
+
 APPEND BLANK
 REPLACE idFirma WITH cIdRj
 REPLACE idRoba  WITH cIdRoba
@@ -609,7 +609,7 @@ return .t.
 
 
 function Iz22u10()
-*{
+
 local cIdFirma:=gFirma
 local cVDok:="22"
 local cBrojDokumenta:=SPACE(8)

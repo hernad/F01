@@ -31,7 +31,7 @@
  */
  
 function BrowseKart()
-*{
+
 parameters cIdRoba
 
 cSecur:=SecurR(KLevel,"FKKARTICA")
@@ -202,7 +202,7 @@ BoxC()
  */
  
 function OznaciMag(fSilent)
-*{
+
 return .f.
 
 
@@ -213,7 +213,7 @@ return .f.
  */
  
 function OznaciPro(fSilent)
-*{
+
 if round(kartica->stanje,4)<>0
 
    if idvd <> "19"
@@ -279,7 +279,7 @@ return .f.
  */
  
 function EdKart(Ch)
-*{
+
 local cDn:="N",nTrecDok:=0,nRet:=DE_CONT
 do case
   case Ch==K_ENTER

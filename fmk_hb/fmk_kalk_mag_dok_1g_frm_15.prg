@@ -27,7 +27,7 @@
  */
 
 function Get1_15()
-*{
+
 private aPorezi:={}
 pIzgSt:=.f.   // izgenerisane stavke jos ne postoje
 

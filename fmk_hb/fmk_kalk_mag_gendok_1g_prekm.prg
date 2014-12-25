@@ -18,7 +18,7 @@ static aPorezi:={}
 
 
 function GetPreknM()
-*{
+
 local aMag // matrica sa magacinima
 local cMagKto // magacinski konto
 local nUvecaj // uvecaj broj kalkulacije za
@@ -99,7 +99,7 @@ return
 
 
 function GetPstPreknj()
-*{
+
 local aMag // matrica sa prodavnicama
 local cMagKto // prodavnicki konto
 local nUvecaj // uvecaj broj kalkulacije za
@@ -195,7 +195,7 @@ return
  *  \param aMag
  */
 function GetMagKto(aMag)
-*{
+
 local cTip
 local cKPath
 
@@ -235,7 +235,7 @@ return
  *  \param lPst - pocetno stanje
  */
 function GenPreknM(cMKonto, cPrTarifa, dDatOd, dDatDo, cBrKalk, lPst, dDatPs, cCjSet, lAkciznaRoba)
-*{
+
 local cIdFirma
 local nRbr
 local fPocStanje:=.t.

@@ -55,7 +55,7 @@ static cTblPriv:="#PARAM#YY"
  */
 
 function TSqlLogNew()
-*{
+
 local oObj
 
 #ifdef CLIP
@@ -116,7 +116,7 @@ END CLASS
  */
 
 *bool TSqlLog::open()
-*{
+
 method open()
 local cPom
 local cLogF
@@ -154,7 +154,7 @@ return .t.
  */
 
 *bool TSqlLog::import(integer nSite)
-*{
+
 method import(nSite)
 
 //Box(,2,60)
@@ -199,7 +199,7 @@ return .t.
  */
 
 *void TSqlLog::importInteractive()
-*{
+
 method importInteractive()
 local nSite
 
@@ -224,7 +224,7 @@ return .t.
  */
 
 *void TSqlLog::genZeroState()
-*{
+
 method genZeroState()
 local nStartSec
 
@@ -334,7 +334,7 @@ return nil
  */
 
 *void TSqlLog::genPeriod(dDatOd, dDatDo)
-*{
+
 method genPeriod(dDatOd, dDatDo)
 
 return nil
@@ -346,9 +346,9 @@ return nil
  */
 
 *void TSqlLog::menuAdmin()
-*{
+
 method menuAdmin()
-*{
+
 private opc:={}
 private opcexe:={}
 private Izbor:=1
@@ -381,7 +381,7 @@ return .f.
  */
 
 *void TSqlLog::autoImport()
-*{
+
 method autoImport()
 local i
 local cPomIni
@@ -409,7 +409,7 @@ return 1
  */
 
 *bool TSqlLog::startSynchro()
-*{
+
 method startSynchro()
 
 

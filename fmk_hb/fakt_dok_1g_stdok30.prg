@@ -42,7 +42,7 @@
  
 
 function StDok30()
-*{
+
 parameters cIdFirma,cIdTipDok,cBrDok
 private aMemo,nUk:=0,nCol1:=Znakova(gnlmarg,10,17)+117,nUkCar:=0,nUkPor:=0
 private nLMRek:=Znakova(gnlmarg,10,17)+107
@@ -103,7 +103,7 @@ CLOSERET
  */
  
 function StFD0() 
-*{
+
 if val(podbr)=0  .and. val(rbr)==1
     aMemo:=ParsMemo(txt)
     if len(aMemo)>0
@@ -134,7 +134,7 @@ return .t.
  */
  
 function StFD1() 
-*{
+
 P_10CPI
 StZaglavlje(gVlZagl,PRIVPATH)
 return
@@ -146,7 +146,7 @@ return
  */
  
 function StFD2()    
-*{
+
 ?? space(gnLmarg)+gPB_ON+padc(alltrim(cTxt3a),30)+gPB_OFF; ?? padl(Mjesto(cIdFirma)+", "+dtoc(datdok)+" godine",39)
  ?  space(gnLmarg)+gPB_ON+padc(alltrim(cTxt3b),30)+gPB_OFF
  ?  space(gnLmarg)+gPB_ON+padc(alltrim(cTxt3c),30)+gPB_OFF
@@ -173,7 +173,7 @@ return
  */
  
 function StFD3() 
-*{
+
 LOCAL aKol
  aKol:={  { "Redni"        , {|| rbr+"."               }, .f., "C",  5, 0, 1, 1},;
           { "broj"         , {|| "#"                   }, .f., "C",  5, 0, 2, 1},;
@@ -203,7 +203,7 @@ return
  */
  
 function Blok30()
-*{
+
 LOCAL nPom,nPoz
   select roba; hseek pripr->idroba; select pripr
   nUk+=round(kolicina*cijena , nZaokr)
@@ -246,7 +246,7 @@ return
  */
  
 function StFD4()
-*{
+
 nUk:= round(nUk, nZaokr)
  ? space(Znakova(gnLMarg,10,17)); ??  m
  ? space(Znakova(gnLMarg,10,17)); ??  padl("Ukupno ("+cDinDem+") :",nLMRek); @ prow(),nCol1 SAY nUk pict picdem
@@ -272,7 +272,7 @@ RETURN
  */
  
 function StFD5()    
-*{
+
 nUk:=nUk*(1+gCarEv/100)+nUkCar+nUkPor
  if !empty(picdem)
   cPom:=Slovima(round(nUk,nZaokr),cDinDem)
@@ -305,7 +305,7 @@ RETURN
  */
  
 function Znakova(nZnakova,nModIz,nModU)  
-*{
+
 RETURN ROUND(nZnakova*nModU/nModIz,0)
 
 

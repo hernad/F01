@@ -30,7 +30,7 @@
  */
 
 function Params()
-*{
+
 O_KONTO
 O_PARAMS
 private cSection:="K",cHistory:=" "; aHistory:={}
@@ -277,7 +277,7 @@ return .t.
  */
 
 function SetMetoda()
-*{
+
 private  GetList:={}
 
  Box(,4,75,.f.,"METODA NC, ISPRAVKA DOKUMENATA")
@@ -305,7 +305,7 @@ return .f.
  */
 
 function Recimu()
-*{
+
 if gMetodanc==" "
   Beep(2)
   Msg("Ova metoda omogucava da izvrsite proizvoljne ispravke#"+;
@@ -330,7 +330,7 @@ return .t.
  */
 
 function SetFirma()
-*{
+
 private  GetList:={}
 
  Box(,4,65,.f.,"MATICNA FIRMA, BAZNA VALUTA")
@@ -362,7 +362,7 @@ return .f.
  */
 
 function SetPICT()
-*{
+
 private  GetList:={}
 
 Box(,10,60,.f.,"PARAMETRI PRIKAZA - PICTURE KODOVI")
@@ -402,7 +402,7 @@ return .t.
  */
 
 function SetKomis()
-*{
+
 private  GetList:={}
 
  Box(,6,76,.f.,"PARAMETRI KOMISIONE PRODAJE")
@@ -427,7 +427,7 @@ return nil
  */
 
 function SetZavDok()
-*{
+
 private  GetList:={}
  Box(,8,76,.f.,"NACINI FORMIRANJA ZAVISNIH DOKUMENATA")
   @ m_x+1,m_y+2 SAY "Automatika formiranja FIN naloga D/N/0" GET gAFin pict "@!" valid gAFin $ "DN0"
@@ -466,7 +466,7 @@ return nil
  */
 
 function SetODirs()
-*{
+
 private  GetList:={}
 
  gDirFin:=padr(gDirFin,30)
@@ -512,7 +512,7 @@ return nil
  */
 
 function SetT1()
-*{
+
 private  GetList:={}
 
  Box(,5,76,.T.,"Troskovi 10-ka")
@@ -543,7 +543,7 @@ return nil
  */
 
 function SetTRN()
-*{
+
 private  GetList:={}
 
  Box(,5,76,.t.,"RADNI NALOG")
@@ -575,7 +575,7 @@ return nil
  */
 
 function SetT24()
-*{
+
 private  GetList:={}
 
  Box(,5,76,.t.,"24 - USLUGE")

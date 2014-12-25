@@ -68,7 +68,7 @@ return
 
 
 function PrijavaOK(cIme,cLozinka)
-*{
+
 local lOK
 lOK:=.f.
 select (F_USERS)
@@ -86,7 +86,7 @@ return lOK
 
 
 function ShowUser()
-*{
+
 local nArea
 local aPos
 nArea:=SELECT()
@@ -104,7 +104,7 @@ return
 
 
 function ImaPravoPristupa(cObjekat,cKomponenta,cFunkcija)
-*{
+
 local lMoze
 local cUser
 local nArea
@@ -178,7 +178,7 @@ return lMoze
 
 
 function UGrupiUsera(nId,nId2,aId)
-*{
+
 local lUGrupi
 lUGrupi:=.f.
 if (nId==0 .and. nId2==0)
@@ -247,7 +247,7 @@ return cUserName
 
 
 function FmkSecVer()
-*{
+
 return DBUILD
 
 
@@ -259,7 +259,7 @@ return DBUILD
  *  \param cSetLicenceTo - postavlja dozvolu na "D" ili "N" za sve stavke za novih pravila
  */
 function MigrateRulesForGroup(cExistingGroup, cNewGroup, cSetLicenceTo)
-*{
+
 local aMigrate:={}
 
 select rules

@@ -27,7 +27,7 @@ static cKonverzija := "4"
 
 // kreiraj tabelu u privpath
 function t_exp_create(aFields)
-*{
+
 local cExpTbl := "R_EXPORT.DBF"
 close all
 
@@ -42,7 +42,7 @@ return
 
 // export tabele
 function tbl_export(cLauncher)
-*{
+
 
 close all
 
@@ -69,7 +69,7 @@ return
 
 
 function set_launcher(cLauncher)
-*{
+
 local cPom
 
 cPom = UPPER(ALLTRIM(cLauncher))
@@ -95,7 +95,7 @@ return .t.
 
 
 function msoff_start(cVersion)
-*{
+
 local cPom :=  'start "C:\Program Files\Microsoft Office\Office#\excel.exe"'
 
 if (cVersion == "XP")

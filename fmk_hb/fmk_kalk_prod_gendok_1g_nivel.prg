@@ -18,7 +18,7 @@ static aPorezi:={}
 
 
 function get_nivel_p()
-*{
+
 local aProd // matrica sa prodavnicama
 local cProd // prodavnica
 local cPKonto
@@ -480,7 +480,7 @@ return
 
 // generisanje nivelacije sa zadzavanjem cijena
 function gen_zcnivel(cPKonto, dDatDok, cBrKalk)
-*{
+
 local nRbr
 local cIdFirma 
 local cIdVd
@@ -620,7 +620,7 @@ return
 
 
 function result_nivel_p()
-*{
+
 local cVarijanta
 local cKolNula
 

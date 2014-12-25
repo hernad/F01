@@ -37,7 +37,7 @@
  */
 
 function MGenDoks()
-*{
+
 private Opc:={}
 private opcexe:={}
 AADD(opc,"1. magacin - generacija dokumenata    ")

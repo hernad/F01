@@ -49,7 +49,7 @@
  */
 
 function Get1_12()
-*{
+
 pIzgSt:=.f.   // izgenerisane stavke jos ne postoje
 private aPorezi:={}
 

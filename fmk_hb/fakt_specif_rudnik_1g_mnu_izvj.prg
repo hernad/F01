@@ -39,7 +39,7 @@
  */
  
 function MnuRudnik()
-*{
+
 private opc:={}
 private opcexe:={}
 private Izbor:=1

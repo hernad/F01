@@ -295,7 +295,7 @@ RETURN
  */
 
 function SinKart2()
-*{
+
 cIdFirma:=gFirma
 qqKonto:=""
 dDatOd:=dDAtDo:=ctod("")
@@ -499,7 +499,7 @@ return
  */
  
 function ZaglSink2()
-*{
+
 ?
 P_COND
 ?? "FIN.P: SINTETICKA KARTICA  PO MJESECIMA NA DAN: "; ?? DATE()
@@ -544,7 +544,7 @@ RETURN
  */
  
 function AnKart()
-*{
+
 local nCOpis:=0,cOpis:=""
 
 cIdFirma:=gFirma
@@ -838,7 +838,7 @@ return
  */
 
 function AnalKZagl()
-*{
+
 ?
 P_COND
 ?? "FIN.P: ANALITICKA KARTICA  NA DAN: "; ?? DATE()

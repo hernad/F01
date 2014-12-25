@@ -47,7 +47,7 @@
 
 
 function PrenosDiskete()
-*{
+
 private opc:={}
 private opcexe:={}
 private Izbor:=1
@@ -69,7 +69,7 @@ closeret
  */
  
 function PrDisk()
-*{
+
 local nRec
 PRIVATE cLokPren    := "A:\"
 PRIVATE cFZaPredaju := "FAKT"
@@ -344,7 +344,7 @@ return
  */
  
 function PovDisk()
-*{
+
 local nRec, cDiff:=""
 PRIVATE cLokPren    := "A:\"
 PRIVATE cFZaPredaju := "FAKT"
@@ -553,7 +553,7 @@ closeret
  */
  
 function PPPDisk(lIni)
-*{
+
 LOCAL GetList:={}
   IF lIni==NIL; lIni:=.f.; ENDIF
   O_PARAMS

@@ -23,7 +23,7 @@
  */
  
 function IzvjPogonK()
-*{
+
 private Izbor:=1
 private opc:={}
 private opcexe:={}

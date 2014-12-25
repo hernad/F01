@@ -301,7 +301,7 @@ return
  */
 
 function Zagl11()
-*{
+
 local nArr
 P_COND
 B_ON
@@ -1093,7 +1093,7 @@ return
  */
 
 function DinDem(p1,p2,cVar)
-*{
+
 local nNaz
 
 // nArr:=SELECT()
@@ -1130,7 +1130,7 @@ return
  */
 
 function PovFin(cidfirma,cidvn,cbrnal)
-*{
+
 local nRec
 
 if Klevel<>"0"

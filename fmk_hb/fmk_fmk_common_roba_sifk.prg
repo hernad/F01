@@ -35,7 +35,7 @@
   */
   
 function SifkFill(cSifk,cSifv,cSifrarnik,cIDSif)
-*{
+
 PushWa()
 
 use (cSifK) new   alias _SIFK
@@ -87,7 +87,7 @@ return
 */
 
 function SifkOsv(cSifk,cSifv,cSifrarnik,cIDSif)
-*{
+
 PushWa()
 
 use (cSifK) new   alias _SIFK

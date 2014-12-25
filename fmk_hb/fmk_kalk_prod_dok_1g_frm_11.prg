@@ -30,7 +30,7 @@
  */
 
 function Get1_11()
-*{
+
 pIzgSt:=.f.   // izgenerisane stavke jos ne postoje
 
 if nRbr==1 .and. fnovi

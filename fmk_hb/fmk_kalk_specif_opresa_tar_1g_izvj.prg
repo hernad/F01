@@ -35,7 +35,7 @@
  */
  
 function IzvjTar()
-*{
+
 private Opc:={}
 private opcexe:={}
 
@@ -58,7 +58,7 @@ return .f.
  */
 
 function Kart41_42()
-*{
+
 local PicCDEM:=gPicCDEM
  local PicProc:=gPicProc
  local PicDEM:= gPicDem
@@ -255,7 +255,7 @@ CLOSERET
  */
  
 static function Zagl2()
-*{
+
 select konto; hseek cidkonto
 
 Preduzece()
@@ -279,7 +279,7 @@ return (nil)
  */
  
 function Kart412v2()
-*{
+
 local PicCDEM:=gPicCDEM
  local PicProc:=gPicProc
  local PicDEM:= gPicDem
@@ -499,7 +499,7 @@ CLOSERET
  */
  
 static function Zagl3()
-*{
+
 select konto; hseek cidkonto
 
 Preduzece()

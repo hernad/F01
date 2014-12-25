@@ -17,7 +17,7 @@
  *   Vrati vrijednost rabata - pozovi func. GetRabatForArticle()
  */
 function RabVrijednost(cIdRab, cTipRab, cIdRoba, nTekIzn)
-*{
+
 
 if Empty(cIdRoba)
 	return
@@ -33,7 +33,7 @@ return nRet
  *   Vrati vrijednost broja dana za rabat - poziva GetDaysForRabat() 
  */
 function GetDays(cIdRab, cTipRab)
-*{
+
 
 nRet := GetDaysForRabat(cIdRab, cTipRab)
 
@@ -44,7 +44,7 @@ return nRet
  *   Vrati vrijdnost SKONTO za artikal - poziva GetSkontoArtcile()
  */
 function SKVrijednost(cIdRab, cTipRab, cIdRoba)
-*{
+
 
 nRet := GetSkontoArticle(cIdRab, cTipRab, cIdRoba)
 
@@ -56,7 +56,7 @@ return nRet
  *   Sredjivanje rabata u pripremi
  */
 function SrediRabate()
-*{
+
 local nOrder
 local cBrDok:=""
 local cIdTipDok:=""
@@ -122,7 +122,7 @@ return .t.
 
 
 function EdRabat(Ch)
-*{
+
 local cDn:="N"
 nRet:=DE_CONT
 do case
@@ -145,7 +145,7 @@ return nRet
 
 
 function SetRabToAll()
-*{
+
 go top
 hseek gFirma + "10"
 
@@ -189,7 +189,7 @@ return nRet
  *   Provjerava da li je memo prazan
  */
 function CheckMemo(aMemo)
-*{
+
 // ako je prazan
 if (LEN(aMemo) < 9)
 	aMemo := {}

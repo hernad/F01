@@ -21,6 +21,6 @@
  */
  
 function dummy()
-*{
+
 return 
 

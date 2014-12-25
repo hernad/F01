@@ -30,7 +30,7 @@
  */
 
 function GenProd()
-*{
+
 private Opc:={}
 private opcexe:={}
 
@@ -67,7 +67,7 @@ return
 
 
 function MnuPNivel()
-*{
+
 private Opc:={}
 private OpcExe:={}
 
@@ -128,7 +128,7 @@ return
  */
 
 function GenNivP()
-*{
+
 O_KONTO
 O_TARIFA
 O_SIFK
@@ -252,7 +252,7 @@ return
  */
 
 function NivPoProc()
-*{
+
 local nStopa:=0.0
 local nZaokr:=1
 
@@ -424,7 +424,7 @@ return
  */
 
 function VratiZadNiv()
-*{
+
 local nSlog:=0,nPom:=0,cStBrDok:=""
 
 O_KONTO
@@ -519,7 +519,7 @@ return
  */
 
 function KorekMPC()
-*{
+
 //pravljenje nivelacije za prodavnicu
  LOCAL dDok:=date(), nPom:=0
  PRIVATE cMagac:="1320   "
@@ -701,7 +701,7 @@ return
  */
 
 function Iz13u11()
-*{
+
 O_KONTO
 O_PRIPR
 O_PRIPR2
@@ -776,7 +776,7 @@ return
  */
 
 function Gen41S()
-*{
+
 O_PRIPR
 select pripr
 if idvd<>"42"
@@ -909,7 +909,7 @@ return .t.
  */
 
 function Iz11u412()
-*{
+
   OEdit()
   cIdFirma := gFirma
   cIdVdU   := "11"
@@ -1017,7 +1017,7 @@ return
  */
 
 function Iz10u11()
-*{
+
   OEdit()
   cIdFirma := gFirma
   cIdVdU   := "10"
@@ -1116,7 +1116,7 @@ return
 
 // generisi 80-ku na osnovu IP-a
 function gen_ip_80()
-*{
+
 local cIdFirma := gFirma
 local cTipDok := "IP"
 local cIpBrDok := SPACE(8)

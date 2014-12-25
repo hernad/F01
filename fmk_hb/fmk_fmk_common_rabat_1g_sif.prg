@@ -21,7 +21,7 @@
  *  \return dy - ??
  */
 function P_Rabat(cId, dx, dy)
-*{
+
 private ImeKol,Kol
 
 ImeKol:={}
@@ -53,7 +53,7 @@ return PostojiSifra(F_RABAT, 1, 10, 70, "Rabatne skale", @cId, dx, dy, {|Ch| Rab
  *   Opcije sifrarnika rabata
  */
 function RabatBlock(Ch)
-*{
+
 
 do case
 	case (Ch==K_ALT_B) // fill rabat from roba
@@ -72,7 +72,7 @@ return DE_CONT
  *   Napuni rabate iz sifrarnika robe
  */
 function FillRabats()
-*{
+
 private cIdRabat:=SPACE(10)
 private cTipRabat:=SPACE(10)
 
@@ -133,7 +133,7 @@ return
  *   provjerava da li rabatna skala postoji
  */
 function RabSExist(cRabId, cRabType, cArticle)
-*{
+
 local nRec
 nRec := RecNo()
 bRet := .f.
@@ -155,7 +155,7 @@ return bRet
  *   Kopiraj rabat 
  */
 function CopyRabat()
-*{
+
 private cFIdRab:=SPACE(10) // copy from
 private cFTipRab:=SPACE(10) // copy from
 private cTTipRab:=SPACE(10) // copy to
@@ -209,7 +209,7 @@ return
 
 
 function GetIdRabat(cIdRabat, cTipRabat)
-*{
+
 private GetList:={}
 
 Box(, 2, 40)
@@ -227,7 +227,7 @@ return .t.
 
 
 function GetCpRabat(cFIdRab, cFTipRab, cTIdRab, cTTipRab)
-*{
+
 private GetList:={}
 
 Box("#Kopiranje rabatnih skala", 6, 60)
@@ -250,7 +250,7 @@ return .t.
 
 
 function GetTRabat(cTipRab)
-*{
+
 private GetList:={}
 
 Box(, 1, 40)

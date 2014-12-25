@@ -266,7 +266,7 @@ return
  */
  
 function Prenos()
-*{
+
 local nRabat:=0
 local cIdFirma:=gFirma
 local cIdTipDok:="10"
@@ -700,7 +700,7 @@ return
 
 
 function SufBrKalk(cIdKonto)
-*{
+
 local nArr:=SELECT()
 local cSufiks:=SPACE(3)
 select koncij
@@ -715,7 +715,7 @@ return cSufiks
 // --------------------------
 // --------------------------
 function IsNumeric(cString)
-*{
+
 if AT(cString, "0123456789")<>0
 	lResult:=.t.
 else

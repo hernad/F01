@@ -93,7 +93,7 @@ close all
  *  \param aArr - matrica
  */
 static function get_uio_fields(aArr)
-*{
+
 AADD(aArr, {"IdTarifa",   "C",  6, 0})
 AADD(aArr, {"Tarifa",   "N",  10, 2})
 AADD(aArr, {"IdRoba",   "C",  10, 0})
@@ -116,7 +116,7 @@ return
 
 
 function t_uio_create()
-*{
+
 local cUioTbl := "R_UIO.DBF"
 local aArr:={}
 
@@ -139,7 +139,7 @@ return
 
 // napuni r_uio
 function fill_uio( cIdFirma, cIdVd,  cBrDok, lAkciznaRoba, lZasticeneCijene)
-*{
+
 
 // + stavka preknjizenja = pdv
 // - stavka = ppp
@@ -243,7 +243,7 @@ return
 
 
 function show_uio(lLandscape, lSvakaHeader, lAkciznaRoba, lZasticenaRoba)
-*{
+
 
 nCurrLine := 0
 
@@ -585,7 +585,7 @@ r_linija()
 return
 
 static function r_linija()
-*{
+
 ++nCurrLine
 ?
 for i=1 to LEN(aZaglLen)

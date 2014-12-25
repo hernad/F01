@@ -37,7 +37,7 @@
  */
 
 function IzKalk2f()
-*{
+
  LOCAL cDir:=KUMPATH, cF
  cDir := IzFMKIni( "KALK"                                            ,;
                    "PutanjaKumulativaDrugeFirmeKaoIzvoraKalkulacija" ,;

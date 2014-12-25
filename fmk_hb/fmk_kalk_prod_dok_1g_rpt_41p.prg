@@ -248,7 +248,7 @@ return
 
 
 function PDVRekTar41(cIdFirma, cIdVd, cBrDok, nStr)
-*{
+
 local nTot1
 local nTot2
 local nTot3

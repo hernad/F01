@@ -20,7 +20,7 @@
  sqlResult("c:\sigma\sqlout.sql",{"C","C","D","N"})
 */
 function sqlresult(cFile, aSQLType )
-*{
+
 local cLin,ctok
 local i
 local aResult, aSQLRow
@@ -65,7 +65,7 @@ return aResult
 sqlselect("c:\sigma\sql", test, "select y,y from partn xxxx yyyy")
 */
 function sqlselect(cFile, cDatabase, cSQL, aSQLType)
-*{
+
 //static SQLKom:="mysql -f -h localhost -B -N "
 local  nH
 
@@ -90,7 +90,7 @@ return sqlresult("c:\sigma\sqlout", aSQLType )
 */
 
 function sqlexec(nH, cFile, cDatabase, cSQL)
-*{
+
 local fOdmah:=.f.
 
 private cKomLin:=""

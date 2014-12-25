@@ -42,7 +42,7 @@
  */
 
 function SumirajKolicinu(nUlaz, nIzlaz, nTotalUlaz, nTotalIzlaz, fPocStanje, lPrikazK2)
-*{
+
 
 if fPocStanje==nil
 	fPocStanje:=.f.
@@ -73,7 +73,7 @@ return
 
 
 function FillPObjekti()
-*{
+
 
 SELECT pobjekti    
 GO TOP

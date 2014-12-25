@@ -115,7 +115,7 @@ return
  */
 
 function TekDokument()
-*{
+
 local nRec
 local aMemo
 local cTxt
@@ -146,7 +146,7 @@ return
  */
 
 function Rbr()
-*{
+
 local cRet
 
 if EOF()
@@ -202,7 +202,7 @@ return padr( cRet, 30)
  */
 
 function JedinaStavka()
-*{
+
 nTekRec := RECNO()
 nBrStavki := 0
 cIdFirma := IdFirma
@@ -228,7 +228,7 @@ return IIF(nBrStavki==1, .t., .f.)
  */
 
 function EdPripr()
-*{
+
 // poziva je ObjDbedit u KnjNal
 local nTr2
 local cPom
@@ -768,7 +768,7 @@ return
 
 
 function RekZadMpO()
-*{
+
 
 SELECT PRIPR
 GO TOP
@@ -854,7 +854,7 @@ return (lRetFlag)
  */
 
 function EdOtpr(Ch)
-*{
+
 local cDn:="N",nRet:=DE_CONT
 do case
 	case Ch==ASC(" ") .or. Ch==K_ENTER
@@ -881,7 +881,7 @@ return nRet
  */
 
 function RenumPripr(cVezOtpr,dNajnoviji)
-*{
+
 //poziva se samo pri generaciji otpremnica u fakturu
 local dDatDok
 local lSetujDatum:=.f.
@@ -2030,7 +2030,7 @@ return .t.
  */
 
 function SljBrDok13(cBrD,nBrM,cKon)
-*{
+
 local nPom
 local cPom:=""
 local cPom2
@@ -2052,7 +2052,7 @@ return cPom2+cPom+"/"+PADL(ALLTRIM(STR(nBrM)),2,"0")
  */
 
 function PrCijSif()
-*{
+
 NSRNPIdRoba()
    SELECT (F_ROBA)
 
@@ -2083,7 +2083,7 @@ return
  */
 
 function RJIzKonta(cKonto)
-*{
+
 local cVrati:="  ", nArr:=SELECT(), nRec
   SELECT (F_RJ)
   nRec:=RECNO()
@@ -2098,7 +2098,7 @@ local cVrati:="  ", nArr:=SELECT(), nRec
   GO (nRec)
   SELECT (nArr)
 return cVrati
-*{
+
 
 
 /*!  KontoIzRJ(cRJ)
@@ -2108,7 +2108,7 @@ return cVrati
  */
 
 function KontoIzRJ(cRJ)
-*{
+
 local cVrati:=SPACE(7)
  PushWA()
    SELECT (F_RJ)
@@ -2130,7 +2130,7 @@ return cVrati
  */
 
 function NarBrDok(fNovi)
-*{
+
 local nPrev:=SELECT()
 
 if !EMPTY (PRIPR->BrDok) .or. eof()  // nema dokumenata
@@ -2272,7 +2272,7 @@ return _BrDok
  */
 
 function StampTXT(cIdFirma, cIdTipDok, cBrDok, lJFill)
-*{
+
 private InPicDEM:=PicDEM  // picture iznosa
 private InPicCDEM:=PicCDEM  // picture iznosa
 
@@ -2448,7 +2448,7 @@ return
  */
 
 function StampRtf(cImeF,cIdFirma,cIdTipdok,cbrdok)
-*{
+
 private InPicDEM:=PicDEM  // picture iznosa
 private InPicCDEM:=PicCDEM  // picture iznosa
 
@@ -2504,7 +2504,7 @@ return
  * Argument To String
  */
 function ArgToStr(xArg)
-*{
+
 if (xArg==NIL)
 	return "NIL"
 else
@@ -2629,7 +2629,7 @@ return
  */
 
 function PrerCij()
-*{
+
 local cSBr:=ALLTRIM(_field->serbr), nVrati:=1
  if !EMPTY(cSbr) .and. cSbr!="*" .and. gNW=="R"
    nVrati := VAL(cSBr)/1000
@@ -2645,7 +2645,7 @@ return nVrati
  */
 
 function TestMainIndex()
-*{
+
 local lVrati:=.t., lUsedFAKT:=.t., lUsedDOKS:=.t., nOblast:=SELECT()
 
  local cProblemDok:=""
@@ -2712,7 +2712,7 @@ return lVrati
  */
 
 function PRNKod_ON(cKod)
-*{
+
 local i:=0
   for i:=1 to LEN(cKod)
     do CASE
@@ -2735,7 +2735,7 @@ return (nil)
  */
 
 function PRNKod_OFF(cKod)
-*{
+
 local i:=0
   for i:=1 to LEN(cKod)
     do CASE
@@ -2774,7 +2774,7 @@ return
  */
 
 function NazProdObj()
-*{
+
 local cVrati:=""
 
 cVrati:=TRIM(cTxt3a)
@@ -2789,7 +2789,7 @@ return cVrati
  */
 
 function EdDoks2()
-*{
+
 
 local cPom:="", nArr:=SELECT(), GetList:={}
 
@@ -2894,7 +2894,7 @@ return lRet
  */
 
 function SKCKalk(lSet)
-*{
+
 // knjizna obavijest obavezno, a mo�e se podesiti i za ostale dokumente
 if _idtipdok=="25" .or.;
      IzFMKIni("FAKT","TipDok"+_idtipdok+"_OmoguciUzimanjeFCJizKALK","N",KUMPATH)=="D"
@@ -2920,7 +2920,7 @@ return .t.
  */
 
 function StUgRabKup()
-*{
+
 lUgRab:=.t.
 lSSIP99:=.f.
 StDok2()
@@ -2935,7 +2935,7 @@ return
  */
 
 function Naziv19ke()
-*{
+
 local cVrati:=""
 cVrati:="Izlaz po ostalim osnovama"
 return cVrati
@@ -2949,7 +2949,7 @@ return cVrati
  */
 
 function IzborBanke(cToken)
-*{
+
 local aOpc
 local cVrati:=""
 local nIzb:=1
@@ -2989,7 +2989,7 @@ return cVrati
  */
 
 function TokToNiz(cTok, cSE)
-*{
+
 local aNiz
 local nE:=0, i:=0, cE:=""
 
@@ -3019,7 +3019,7 @@ return aNiz
 // ----------------------------------
 // ----------------------------------
 function IspisBankeNar(cBanke)
-*{
+
 local aOpc
 O_BANKE
 aOpc:=TokToNiz(cBanke,",")
@@ -3048,7 +3048,7 @@ return cVrati
  */
 
 function KonZbira(lVidi)
-*{
+
 if lVidi==nil
 	lVidi:=.t.
 endif
@@ -3093,7 +3093,7 @@ return
  */
 
 function JeStorno10()
-*{
+
 return glDistrib .and. _idtipdok=="10" .and. UPPER(RIGHT(TRIM(_BrDok),1))=="S"
 
 
@@ -3103,7 +3103,7 @@ return glDistrib .and. _idtipdok=="10" .and. UPPER(RIGHT(TRIM(_BrDok),1))=="S"
  */
 
 function RabPor10()
-*{
+
 local nArr:=SELECT()
 SELECT FAKT
 SET ORDER to TAG "1"
@@ -3275,7 +3275,7 @@ return
 
 
 function ImportTxt()
-*{
+
 CLOSE ALL
 cKom :="fmk.exe --batch --exe:ImportTxt --db:"+STRTRAN(TRIM(gNFirma), " ", "_")
 RUN &cKom
@@ -3286,7 +3286,7 @@ return
 
 
 function GetKarC3N2(mx)
-*{
+
 local nKor:=0
 local nDod:=0
 local x:=0
@@ -3336,7 +3336,7 @@ return nKor
 
 
 static function SljPozGet(x,y,nKor,mx,nDod)
-*{
+
 if nDod>0
 	if nDod%3==0
 		x:=mx+(++nKor)

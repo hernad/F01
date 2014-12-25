@@ -194,7 +194,7 @@ return
 
 // generisanje dokumenta tipa IM razlike na osnovu postojece inventure
 function gen_im_razlika()
-*{
+
 O_KONTO
 
 Box(,8,70)
@@ -420,7 +420,7 @@ return
 
 
 function RowKolicina(nUlaz, nIzlaz)
-*{ 
+ 
   
 if field->mu_i=="1" .and. !(field->idVd $ "12#22#94")
 	nUlaz+=field->kolicina-field->gkolicina-field->gkolicin2
@@ -437,7 +437,7 @@ return
 
 
 function RowVpvRabat(nVpvU, nVpvI, nRabat)
-*{
+
 if mu_i=="1" .and. !(idvd $ "12#22#94")
 	nVPVU+=vpc*(kolicina-gkolicina-gkolicin2)
 elseif mu_i=="5"
@@ -458,7 +458,7 @@ endif
  */
  
 function RowNC(nNcU, nNcI)
-*{
+
 if mu_i=="1" .and. !(idvd $ "12#22#94")
 	nNcU+=nc*(kolicina-gkolicina-gkolicin2)
 elseif mu_i=="5"

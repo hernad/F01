@@ -67,7 +67,7 @@
  */
  
 function RptInv()
-*{
+
 local nTota:=0
 local nTotb:=0
 local nTotc:=0

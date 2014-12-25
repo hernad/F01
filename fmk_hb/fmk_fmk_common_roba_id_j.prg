@@ -27,7 +27,7 @@
  */
  
 function OsvjeziIDj()
-*{
+
 if pitanje(,"Osvjeziti FAKT javnim siframa ....","N")=="N"
   return
 endif
@@ -79,7 +79,7 @@ CLOSERET
 // prikaz idroba
 // nalazim se u tabeli koja sadrzi IDROBA, IDROBA_J
 function StIdROBA()
-*{
+
 static cPrikIdRoba:=""
 
 if cPrikIdroba == ""

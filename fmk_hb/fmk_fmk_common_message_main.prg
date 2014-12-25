@@ -21,7 +21,7 @@
  *   Kreiranje poruka
  */
 function CreateMsg(cIdPos)
-*{
+
 private cIdMsg:=" "
 // preuzeti poruku iz clipboard-a
 if gSamoProdaja=="N" .and. Pitanje(,"Preuzeti poruku iz clipboard-a (D/N)","N")=="D"
@@ -102,7 +102,7 @@ return
  *   Snimanje poruke u tabelu MESSAGE
  */
 function SaveMessage(aLinijeText, cFrom, cUserName, cPrioritet, cTo)
-*{
+
 O_MESSAGE
 
 for i=1 to LEN(aLinijeText)
@@ -130,7 +130,7 @@ return
  *  \param lNeprocitane - samo koje nisu procitane (.t.) ili sve (.f.)
  */
 function ReadMsg(lNeprocitane)
-*{
+
 local nArr:=SELECT()
 local aPoruke
 private cFilter:=""
@@ -225,7 +225,7 @@ return
  *   Da li postoji nova poruka sa praznim poljem READ
  */
 function IsNewMsgExists()
-*{
+
 
 
 local nArr
@@ -257,7 +257,7 @@ return lVrati
 
 
 function ShowMessage()
-*{
+
 if M->Ch==0
 	return (DE_CONT)
 endif
@@ -280,7 +280,7 @@ return (DE_CONT)
 
 
 function MsgInfo()
-*{
+
 local nTRec
 private cMarkiraj:="N"
 
@@ -336,7 +336,7 @@ return
 
 
 function MarkMsgAsRead()
-*{
+
 local nTRec
 local nRow
 
@@ -380,7 +380,7 @@ return (DE_REFRESH)
  *   Salje poruku u TMPMSG.DBF
  */
 function SendMsgToClipboard(idMsg, aLinijeTXT, idpos, fromuser, prioritet, to)
-*{
+
 // ako nema temp tabele kreiraj je
 CreTempDBMsg()
 
@@ -422,7 +422,7 @@ return
  *  \param idMsg - oznaka poruke
  */
 function GetMsgFromClipboard(idMsg)
-*{
+
 O_TMPMSG
 O_MESSAGE
 CreTempDBMsg()

@@ -23,7 +23,7 @@
  */
 
 function kalk_VTPOREZI()
-*{
+
 public _ZPP:=0
 
 public _OPP:=tarifa->opp/100
@@ -50,7 +50,7 @@ return
 
 
 function SetStPor_()
-*{
+
 public _ZPP:=0
 
 // ovo je stopa PDV-a

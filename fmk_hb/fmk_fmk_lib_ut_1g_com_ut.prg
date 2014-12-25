@@ -23,7 +23,7 @@
  *   Vraca oznaku COM port-a: 1, 2, 3...
  */
 function GetComPort()
-*{
+
 cComPort:=IzFmkIni("Ports","ComPort","1",KUMPATH)
 if Empty(cComPort)
 	// ako nema parametra u INI fajlu uzmi "1"
@@ -37,7 +37,7 @@ return VAL(cComPort)
  *   Baud rate
  */
 function GetComBaudRate()
-*{
+
 cBaudRate:=IzFmkIni("Ports","BaudRate","9600",KUMPATH)
 if Empty(cBaudRate)
 	cBaudRate:="9600"
@@ -54,7 +54,7 @@ return VAL(cBaudRate)
  *  \result 1 - OK, 0 - not OK
  */
 function TestComPort(nPort, nBuffSize, lClose)
-*{
+
 local lComOK
 
 if lClose==NIL
@@ -79,7 +79,7 @@ return
  *  \result 1 - OK, 0 - not OK
  */
 function InitComPort(nPort)
-*{
+
 local lInitOK
 
 nBaudR:=GetComBaudRate()
@@ -98,7 +98,7 @@ return
  *  \param cOutPut - string koji se salje na com port
  */
 function Send2ComPort(cOutPut)
-*{
+
 local nPort
 local nRest
 
@@ -132,7 +132,7 @@ return
  *  \param lSpace - pravi razmak izmedju karaktera
  */
 function CnvrtStr2Hex(cStr, lSpace)
-*{
+
 if lSpace==NIL
 	lSpace:=.t.
 endif

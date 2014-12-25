@@ -13,7 +13,7 @@
 #include "sc.ch"
 
 function CreSecurity(nArea)
-*{
+
 
 close all
 
@@ -134,7 +134,7 @@ return
 
 
 function P_Users(cId,dx,dy)
-*{
+
 local i
 local nArr
 nArr:=SELECT()
@@ -168,7 +168,7 @@ return PostojiSifra(F_USERS,1,10,70,"Users - korisnici",@cId,dx,dy)
 
 
 function WhenPsw()
-*{
+
 if (!EMPTY(wpsw))
 	wpsw:=CRYPT(wpsw,"SIGMASE")
 endif
@@ -177,7 +177,7 @@ return .t.
 
 
 function ValidPsw()
-*{
+
 if (!EMPTY(wpsw))
 	wpsw:=CRYPT(wpsw,"SIGMASE")
 endif
@@ -187,7 +187,7 @@ return .t.
 
 
 function P_Groups(cId,dx,dy)
-*{
+
 local i
 local nArr
 nArr:=SELECT()
@@ -211,7 +211,7 @@ return PostojiSifra(F_GROUPS,1,10,70,"Groups - korisnicke grupe",@cId,dx,dy)
 
 
 function P_Rules(cId,dx,dy)
-*{
+
 local i
 local nArr
 nArr:=SELECT()

@@ -30,7 +30,7 @@
  */
 
 function FaktKonsig()
-*{
+
 private Opc:={}
 private opcexe:={}
 
@@ -48,7 +48,7 @@ return
  */
  
 function Prenos16()
-*{
+
 local cIdFirma:=gFirma, cIdTipDok:="16", cBrDok:=cBrKalk:=space(8)
 local cTipKalk:="10"
 

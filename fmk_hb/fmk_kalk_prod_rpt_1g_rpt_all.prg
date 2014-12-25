@@ -42,7 +42,7 @@ return
 
 // PDV obracun
 function RekTarPDV()
-*{
+
 local nKolona
 local aPKonta
 local nIznPRuc
@@ -210,7 +210,7 @@ return
  */
 
 function PKontoCnt(cSeek)
-*{
+
 local nPos, aPKonta
 aPKonta:={}
 // baza: PRIPR, order: 2
@@ -228,7 +228,7 @@ return aPKonta
 
 
 function DokKolicina(cIdVd)
-*{
+
 local nKol
 if cIdVd=="IP"
         // kolicina = popisana kolicina
@@ -245,7 +245,7 @@ return nKol
 
 
 function DokMpc(cIdVd,aPorezi)
-*{
+
 local nMpc
 if cIdVd=="IP"
 	nMpc:=MpcBezPor(mpcSaPP, aPorezi, , nc)

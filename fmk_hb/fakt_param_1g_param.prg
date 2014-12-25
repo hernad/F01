@@ -651,7 +651,7 @@ return
  */
  
 function SetPict()
-*{
+
 local nX
 
 private  GetList:={}
@@ -849,7 +849,7 @@ return
  */
  
 function SetVarijante()
-*{
+
 private  GetList:={}
 
 O_PARAMS
@@ -1199,7 +1199,7 @@ return
  */
  
 function SetT1()
-*{
+
 local nX
 
 local nDx1 := 0
@@ -1792,7 +1792,7 @@ return
  */
  
 function SetT2()
-*{
+
 private  GetList:={}
 
 O_PARAMS
@@ -2089,7 +2089,7 @@ return
  */
  
 function V_VZagl()
-*{
+
 private cKom:="q "+PRIVPATH+gVlZagl
 
 if Pitanje(,"Zelite li izvrsiti ispravku zaglavlja ?","N")=="D"
@@ -2108,7 +2108,7 @@ return .t.
  */
  
 function V_VNar()
-*{
+
 private cKom:="q "+PRIVPATH+gFNar
 
 if Pitanje( , "Zelite li izvrsiti ispravku fajla obrasca narudzbenice ?","N")=="D"
@@ -2128,7 +2128,7 @@ return .t.
  *   Ispravka fajla ugovora o rabatu
  */
 function V_VUgRab()
-*{
+
 private cKom:="q "+PRIVPATH+gFUgRab
 
 if Pitanje(,"Zelite li izvrsiti ispravku fajla-teksta ugovora o rabatu ?","N")=="D"
@@ -2243,7 +2243,7 @@ return .t.
  */
 
 function P_WinFakt()
-*{
+
 
 cIniName:=EXEPATH+'proizvj.ini'
 
@@ -2383,7 +2383,7 @@ return
  */
  
 function PRabat()
-*{
+
 private  GetList:={}
 
 O_PARAMS

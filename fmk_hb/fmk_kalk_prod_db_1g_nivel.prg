@@ -30,7 +30,7 @@
  */
 
 function Niv_11()
-*{
+
 O_TARIFA
 O_KONCIJ
 O_PRIPR

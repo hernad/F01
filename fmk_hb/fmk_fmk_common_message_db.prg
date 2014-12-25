@@ -18,7 +18,7 @@
  *   Kreiranje tabele za razmjenu poruka
  */
 function CreDB_Message()
-*{
+
 aDBF:={}
 AADD(aDbf,{"FROMHOST","C",7,0})  
 AADD(aDbf,{"FROMUSER","C",10,0})  
@@ -78,7 +78,7 @@ return
 
 
 function CreTempDBMsg()
-*{
+
 aDbf:={}
 
 AADD(aDbf, {"idmsg", "C", 1, 0})

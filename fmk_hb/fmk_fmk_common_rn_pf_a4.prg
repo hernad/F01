@@ -1014,7 +1014,7 @@ return
 
 // funkcija za novu stranu
 static function NStr_a4(nStr, lShZagl)
-*{
+
 local cLine
 
 cLine := a4_line("pf")

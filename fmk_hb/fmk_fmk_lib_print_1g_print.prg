@@ -364,7 +364,7 @@ return
 
 
 function SPrint2(cKom)
-*{
+
 
 // cKom je oznaka porta, npr. "3"
 
@@ -453,7 +453,7 @@ return .t.
 
 
 function EPrint2(xPos)
-*{
+
 private cPom
 
 if gPrinter=="R"
@@ -530,7 +530,7 @@ return
 
 
 function lPrn()
-*{
+
 return lPrn
 
 
@@ -776,7 +776,7 @@ return IIF(nZnak<161, gP10cpi, IIF(nZnak<193, gP12cpi, IIF(nZnak<275,gPCOND,gPCo
 */
 
 function GuSt2(nZnak,cPapir)
-*{
+
 
 if cPapir=="POS"
 	return gP12cpi()
@@ -928,7 +928,7 @@ return ""
 // ----------------------------------------
 // ---------------------------------------
 function gpB_ON()
-*{
+
 Setpxlat()
 qqout(gPB_ON)
 konvtable(iif(gPrinter="R",.t.,NIL))
@@ -938,7 +938,7 @@ return ""
 // ----------------------------------------
 // ---------------------------------------
 function gpB_OFF()
-*{
+
 Setpxlat()
 qqout(gPB_OFF)
 konvtable(iif(gPrinter="R",.t.,NIL))
@@ -948,7 +948,7 @@ return ""
 // ----------------------------------------
 // ---------------------------------------
 function gpU_ON()
-*{
+
 Setpxlat()
 qqout(gPU_ON)
 konvtable(iif(gPrinter="R",.t.,NIL))
@@ -958,7 +958,7 @@ return ""
 // ----------------------------------------
 // ---------------------------------------
 function gpU_OFF()
-*{
+
 Setpxlat()
 qqout(gPU_OFF)
 konvtable(iif(gPrinter="R",.t.,NIL))
@@ -968,7 +968,7 @@ return ""
 // ----------------------------------------
 // ---------------------------------------
 function gpI_ON()
-*{
+
 Setpxlat()
 qqout(gPI_ON)
 konvtable(iif(gPrinter="R",.t.,NIL))
@@ -978,7 +978,7 @@ return ""
 // ----------------------------------------
 // ---------------------------------------
 function gpI_OFF()
-*{
+
 Setpxlat()
 qqout(gPI_OFF)
 konvtable(iif(gPrinter="R",.t.,NIL))
@@ -988,7 +988,7 @@ return ""
 // ----------------------------------------
 // ---------------------------------------
 function gpReset()
-*{
+
 Setpxlat()
 qqout(gPReset)
 konvtable(iif(gPrinter="R",.t.,NIL))
@@ -998,7 +998,7 @@ return ""
 // ----------------------------------------
 // ---------------------------------------
 function gpNR()
-*{
+
 Setpxlat()
 qout()
 konvtable(iif(gPrinter="R",.t.,NIL))
@@ -1008,7 +1008,7 @@ return ""
 // ----------------------------------------
 // ---------------------------------------
 function gPFF()
-*{
+
 Setpxlat()
 qqout(CHR(13)+Chr(10)+gPFF)
 setprc(0,0)
@@ -1019,7 +1019,7 @@ return ""
 // ----------------------------------------
 // ---------------------------------------
 function gpO_Port()
-*{
+
 Setpxlat()
 qqout(gPO_Port)
 konvtable(iif(gPrinter="R",.t.,NIL))
@@ -1029,7 +1029,7 @@ return ""
 // ----------------------------------------
 // ---------------------------------------
 function gpO_Land()
-*{
+
 Setpxlat()
 qqout(gPO_Land)
 konvtable(iif(gPrinter="R",.t.,NIL))
@@ -1039,7 +1039,7 @@ return ""
 // ----------------------------------------
 // ---------------------------------------
 function gRPL_Normal()
-*{
+
 Setpxlat()
 qqout(gRPL_Normal)
 konvtable(iif(gPrinter="R",.t.,NIL))
@@ -1049,7 +1049,7 @@ return ""
 // ----------------------------------------
 // ---------------------------------------
 function gRPL_Gusto()
-*{
+
 Setpxlat()
 qqout(gRPL_Gusto)
 konvtable(iif(gPrinter="R",.t.,NIL))
@@ -1060,7 +1060,7 @@ return ""
 // ----------------------------------------
 // ---------------------------------------
 function CurToExtBase(ccExt)
-*{ 
+ 
 LOCAL nArr:=SELECT()
   PRIVATE cFilter:=DBFILTER()
   copy structure extended to struct
@@ -1080,7 +1080,7 @@ return
 // ----------------------------------------
 // ---------------------------------------
 function RPar_Printer()
-*{
+
 RPAR("01",@gPINI)
 RPAR("02",@gPCOND)
 RPAR("03",@gPCOND2)

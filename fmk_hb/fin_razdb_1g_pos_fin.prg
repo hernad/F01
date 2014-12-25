@@ -22,7 +22,7 @@
  *  \param dDatDok - datum dokumenta
  */
 function GetPrVPParams(cProdId, dDatOd, dDatDo, dDatDok, cTipNal, cShema)
-*{
+
 dDatOd:=DATE()-30
 dDatDo:=DATE()
 dDatDok:=DATE()
@@ -55,7 +55,7 @@ return
  *   Centralna funkcija za prenos PROMVP u FIN
  */
 function PromVP2Fin()
-*{
+
 private cProdId
 private dDatOd
 private dDatDo
@@ -150,7 +150,7 @@ return
  *  \param dDatNal - datum naloga
  */
 static function Azur2Pripr(cBrojNal, dDatNal)
-*{
+
 local nArr
 nArr:=SELECT()
 
@@ -179,7 +179,7 @@ return
  *  \param cField - polje, npr "POLOG01"
  */
 function NaDan(cField)
-*{
+
 local nArr
 nArr:=SELECT()
 select F_T_PROMVP
@@ -213,7 +213,7 @@ return 1
  *  \param cField - polje, npr "POLOG01"
  */
 static function GetVrPlIznos(cField)
-*{
+
 local nArr
 nArr:=SELECT()
 select F_T_PROMVP
@@ -245,7 +245,7 @@ return nIzn
  *   Otvaranje neophodnih tabela 
  */
 static function O_PrVP_DB()
-*{
+
 O_KONCIJ
 O_PARTN
 O_SUBAN
@@ -265,7 +265,7 @@ return
  *  \param cProdKonto - prodavnicki konto
  */
 static function GetTopsParams(cTKPath, cProdKonto)
-*{
+
 O_KONCIJ
 select koncij
 // setuj filter po cProdId

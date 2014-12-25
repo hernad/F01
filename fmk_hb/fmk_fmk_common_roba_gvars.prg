@@ -31,7 +31,7 @@
 
 
 function SetFmkRGVars()
-*{
+
 public gUVarPP
 public glProvNazRobe
 public gRobaBlock

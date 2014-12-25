@@ -71,7 +71,7 @@
  */
  
 function GenRekap1(aUsl1, aUsl2, aUslR, cKartica, cVarijanta, cKesiraj, fSMark,  cK1, cK7, cK9, cIdKPovrata, aUslSez)
-*{
+
 local nSec
 
 if (cKesiraj=nil)
@@ -214,7 +214,7 @@ return
 
 
 function ScanMKonto(dDatOd, dDatDo, cIdKPovrata, cKartica, cVarijanta, cKesiraj)
-*{
+
 local nGGOrd
 local nGGo
 local nMpc
@@ -315,7 +315,7 @@ return 1
 
 
 function ScanPKonto(dDatOd, dDatDo, cIdKPovrata, cKartica, cVarijanta, cKesiraj)
-*{
+
 local nGGOrd
 local nGGo
 local nMpc

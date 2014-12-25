@@ -61,7 +61,7 @@ return
 
 
 function r_tops_kalk()
-*{
+
 private Opc:={}
 private opcexe:={}
 private Izbor:=1

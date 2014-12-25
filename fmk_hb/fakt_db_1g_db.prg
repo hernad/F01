@@ -1650,7 +1650,7 @@ return
  */
 
 function KomIznosFakt()
-*{
+
 local nIznos:=0
 local cIdRoba
 

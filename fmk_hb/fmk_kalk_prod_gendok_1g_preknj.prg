@@ -18,7 +18,7 @@ static aPorezi:={}
 
 
 function GetPreknj()
-*{
+
 local aProd // matrica sa prodavnicama
 local cProdKto // prodavnicki konto
 local nUvecaj // uvecaj broj kalkulacije za
@@ -101,7 +101,7 @@ return
 
 
 function GetPstPDV()
-*{
+
 local aProd // matrica sa prodavnicama
 local cProdKto // prodavnicki konto
 local nUvecaj // uvecaj broj kalkulacije za
@@ -199,7 +199,7 @@ return
  *  \param aProd
  */
 function GetProdKto(aProd)
-*{
+
 local cTip
 local cKPath
 
@@ -230,7 +230,7 @@ return
 
 
 function roba_pdv17()
-*{
+
 if !IsPDV()
 	MsgBeep("Opcija raspoloziva samo za PDV rezim!")
 	return
@@ -263,7 +263,7 @@ return
  *  \param lPst - pocetno stanje
  */
 function GenPreknj(cPKonto, cPrTarifa, dDatOd, dDatDo, cBrKalk, lPst, dDatPs, cCjSet, lAkciznaRoba, lZasticeneCijene)
-*{
+
 local cIdFirma
 local nRbr
 local fPocStanje:=.t.

@@ -89,7 +89,7 @@
  */
 
 function StdRtf1()
-*{
+
 parameters cImeF,cIdFirma,cIdTipDok,cBrDok
 local cTxt1,cTxt2,aMemo,nH, coutf:=""
 local i,ii,ImeKol:={}, nRedova, fPrvaStr
@@ -450,7 +450,7 @@ BoxC()
  */
  
 function Zagl1()
-*{
+
 WWRowDef({ {CO1,{"l","s",0.1},{"r","s",0.1},{"b","s",0.4},{"t","s",0.4} } , ;
            {CO2,{"l","s",0.1},{"r","s",0.1},{"b","s",0.4},{"t","s",0.4} } , ;
            {CO3+CO4,{"l","s",0.1},{"r","s",0.1},{"b","s",0.4},{"t","s",0.4} }, ;
@@ -472,7 +472,7 @@ return
  */
  
 function NStr(fPrvaStr)
-*{
+
 WWRowDef({ {CO1+CO2+CO3+CO4+CO5+CO6+CO7+CO8+CO9+COA,{"l","s",0.1},{"t","s",0.4},{"r","s",0.1},{"b","s",0.1} } ;
             })
 WWCells({ "\tqr\tx"+ToP(156.8)+"\tqr\tx"+ToP(174.3)+;
@@ -505,7 +505,7 @@ return
  */
  
 function RegIPorBr()
-*{
+
 LOCAL cDodatak:="", cRegBr, cPorBr
   IF IzFMkIni('FAKT',"RegBrPorBr",'D',KUMPATH)=="D"
     cRegBr := IzSifK( "PARTN" , "REGB" , idpartner , .f. )

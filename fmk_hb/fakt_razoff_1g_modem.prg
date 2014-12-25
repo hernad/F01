@@ -28,7 +28,7 @@
  */
  
 function PrModem(fSif)
-*{
+
 local nRec
 
 if gModemVeza $ "SK" .and. Pitanje(,"Izvrsiti prenos za modem ?","D")=="D"
@@ -164,7 +164,7 @@ return nil
  */
  
 function PovModem()
-*{
+
 local nRec, cPath
 
 if gmodemveza=="N"
@@ -283,7 +283,7 @@ closeret
  */
  
 function UChkPostoji(cFullFileName)
-*{
+
 if File(strtran(cFullFileName,":\",":\chk\"))
    return .t.
 else
@@ -298,7 +298,7 @@ endif
  */
  
 function BrisiSFajlove(cDir)
-*{
+
 local cFile
 
 cDir:=trim(cdir)

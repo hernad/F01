@@ -44,7 +44,7 @@
  */
 
 function P_RVrsta(cid,dx,dy)
-*{
+
 local nSelect
 private ImeKol,Kol:={}
 
@@ -66,7 +66,7 @@ return PostojiSifra(F_RVRSTA, 1, 10, 75, "Planika vrste artikala", @cid, dx, dy)
 
 
 function P_PlSezona(cId) 
-*{
+
 cPom:=IzSifK("ROBA","SEZ",roba->id, .f.)
 if (EMPTY(cId) .and. !EMPTY(cPom) .and. Pitanje(,"Konverzija na osnovu polja SEZONA","D")=="D")
 	cId:=SubStr(cPom,3)
@@ -76,20 +76,20 @@ return .t.
 
 
 function P_TPurchase(cId) 
-*{
+
 return .t.
 
 
 
 
 function P_IdPartner(cId) 
-*{
+
 return .t.
 
 
 
 function PlFill_Sezona()
-*{
+
 local cSezonaPf
 local cSezonaPk
 local cSez
@@ -136,7 +136,7 @@ return
 
 
 function PlFill_Vrsta()
-*{
+
 local cVrstaPf
 local cVrstaPk
 local nI
@@ -175,7 +175,7 @@ return
 
 
 function PlFillIdPartner(cIdPartner, cIdRoba)
-*{
+
 local nArr
 if EMPTY(cIdPartner) .or. EMPTY(cIdRoba)
 	return

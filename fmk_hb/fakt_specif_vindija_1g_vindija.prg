@@ -35,7 +35,7 @@
  */
  
 function PuniDVRIz10()
-*{
+
 LOCAL nArr:=SELECT(), lVrati:=.f.
   SELECT FAKT; SET ORDER TO TAG "1"
   SEEK _idfirma+"10"+left(_brdok,gNumDio)

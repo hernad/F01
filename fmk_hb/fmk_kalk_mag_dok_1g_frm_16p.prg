@@ -24,7 +24,7 @@
  */
 
 function Get1_16PDV()
-*{
+
 local nRVPC
 pIzgSt:=.f.   // izgenerisane stavke jos ne postoje
 
@@ -190,7 +190,7 @@ return lastkey()
 // _odlval nalazi se u knjiz, filuje staru vrijednost
 // _odlvalb nalazi se u knjiz, filuje staru vrijednost nabavke
 function Get1_16bPDV()
-*{
+
 local cSvedi:=" "
 
 fnovi:=.t.

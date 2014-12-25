@@ -20,7 +20,7 @@
  *   Menij razmjene podataka
  */
 function MnuRazmjenaPodataka()
-*{
+
 private opc:={}
 private opcexe:={}
 private Izbor:=1
@@ -49,7 +49,7 @@ return
  *   Prenos prometa pologa
  */
 function PosFin()
-*{
+
 private opc:={}
 private opcexe:={}
 private Izbor:=1
@@ -66,7 +66,7 @@ return
  *   Prenos blagajne
  */
 function BlagFin()
-*{
+
 private opc:={}
 private opcexe:={}
 private Izbor:=1

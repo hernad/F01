@@ -46,7 +46,7 @@ endif
 
 
 function DiskPrazan(cDisk)
-*{
+
  if diskspace(asc(cDisk)-64)<15000
    Beep(4)
    Msg("Nema dovoljno prostora na ovom disku, stavite drugu disketu",6)
@@ -64,7 +64,7 @@ return .t.
  */
 
 function UgasitiR()
-*{
+
 local cPitanje
 
 if (gSQL=="D")
@@ -118,7 +118,7 @@ return
  */
 
 function ChangeEXT(cImeF,cExt, cExtNew, fBezAdd)
-*{
+
 local cTacka
 
 if fBezAdd==NIL
@@ -141,7 +141,7 @@ return  cImeF
 
 
 function DirExists(cDir1)
-*{
+
 
 local nH
 
@@ -166,7 +166,7 @@ endif
 
 
 function PostDir(cDir1)
-*{
+
 local cDirTek, fPostoji
 
 cDir1:=ToUnix(cDir1)
@@ -196,7 +196,7 @@ return fPostoji
   */
 
 function BrisiSFajlove(cDir, nDana)
-*{
+
 local cFile
 
 if nDana == nil
@@ -215,7 +215,7 @@ return NIL
 
 
 function ShowMem()
-*{
+
 Box(,3,50)
            @ m_x+1,m_y+2 SAY "(0) :"
 	   ?? memory()
@@ -230,7 +230,7 @@ RETURN
 
 
 function ToUnix(cFileName)
-*{
+
 local nPos
 
 #ifdef CLIP

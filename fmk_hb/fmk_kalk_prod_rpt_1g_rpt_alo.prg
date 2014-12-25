@@ -29,7 +29,7 @@
 
 // porez na promet proizvoda
 function RekTarPPP( lVisak )
-*{
+
 local aPKonta
 local nIznPRuc
 private aPorezi

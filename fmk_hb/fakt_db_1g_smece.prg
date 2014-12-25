@@ -87,7 +87,7 @@ return DE_CONT
 return
 
 
-function PovPr9()
+static function PovPr9()
 local nArr
 nArr:=SELECT()
 

@@ -15,7 +15,7 @@
 
 
 function PrintMsg()
-*{
+
 nTRec:=RECNO()
 
 START PRINT CRET

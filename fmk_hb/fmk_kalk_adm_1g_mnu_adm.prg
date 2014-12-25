@@ -30,7 +30,7 @@
  */
  
 function MAdminKALK()
-*{
+
 private Opc:={}
 private opcexe:={}
 AADD(Opc,"1. instalacija db-a                               ")
@@ -76,7 +76,7 @@ CLOSERET
  */
 
 function MenuSK()
-*{
+
 PRIVATE Opc:={}
 PRIVATE opcexe:={}
 AADD(Opc,"1. korekcija prodajne cijene - nivelacija (VPC iz sifr.robe)    ")

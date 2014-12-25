@@ -177,7 +177,7 @@ endif
 
 
 function Marza2O(fMarza)
-*{
+
 local nPrevMP, nPPP
 
 if fMarza==nil
@@ -250,7 +250,7 @@ return
  */
 
 function Marza2R()
-*{
+
 local nPPP
 
 nPPP:=1/(1+tarifa->opp/100)
@@ -294,7 +294,7 @@ return
  */
 
 function MarzaMpR()
-*{
+
 local nPPP
 
 nPPP:=1/(1+tarifa->opp/100)
@@ -340,7 +340,7 @@ return
  */
 
 function FaktMPC(nMPC,cseek,dDatum)
-*{
+
 local nOrder
   nMPC:=UzmiMPCSif()
   select kalk
@@ -376,7 +376,7 @@ return
  */
 
 function UzmiMPCSif()
-*{
+
  LOCAL nCV:=0
   if koncij->naz=="M2" .and. roba->(fieldpos("mpc2"))<>0
     nCV:=roba->mpc2
@@ -467,7 +467,7 @@ return lRet
  */
 
 function V_KolPro()
-*{
+
 local ppKolicina
 
 if empty(gMetodaNC) .or. _TBankTr=="X" // .or. lPoNarudzbi
@@ -497,7 +497,7 @@ return .t.
  */
 
 function StanjeProd(cKljuc,ddatdok)
-*{
+
  LOCAL nUlaz:=0, nIzlaz:=0
  SELECT KALK
  SET ORDER TO 4

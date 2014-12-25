@@ -27,7 +27,7 @@
  */
  
 function Blagajna()
-*{
+
 local nRbr,nCOpis:=0,cOpis:=""
 private pici:=FormPicL("9,"+gPicDEM,12)
 
@@ -310,7 +310,7 @@ return
  */
  
 function Slovima(nIzn,cDinDem)
-*{
+
 local nPom; cRez:=""
 fI:=.f.
 
@@ -380,7 +380,7 @@ return
  */
  
 function Stotice(nIzn,cRez,fDecimale,fMnozina,cDinDem)
-*{
+
 local fDec,fSto:=.f.
 
 if (nPom:=int(nIzn/100))>=1
@@ -443,7 +443,7 @@ return cRez
 
 // stampa blagajne na osnovu azuriranog dokumenta
 function blag_azur()
-*{
+
 local nRbr:=0
 local nCOpis:=0
 local cOpis:=""

@@ -20,7 +20,7 @@
  */
  
 function TDesktopNew()
-*{
+
 local oObj
 
 #ifdef CLIP
@@ -121,20 +121,20 @@ END CLASS
 #endif
 
 *void TDesktop::getRow()
-*{
+
 method getRow()
 return ::nRow
 
 
 *void TDesktop::getCol()
-*{
+
 method getCol()
 return ::nCol
 
 
 
 *void TDesktop::showLine(string cTekst, string cRow)
-*{
+
 method showLine(cTekst,cRow)
 LOCAL nCol
 
@@ -152,7 +152,7 @@ RETURN
 
 
 *void TDesktop::SetColors(string cIzbor)
-*{
+
 method setColors(cIzbor)
  
 IF ISCOLOR()
@@ -209,7 +209,7 @@ return
 
 
 *void showMainScreen(bool lClear)
-*{
+
 method showMainScreen(lClear)
 
 if lClear==NIL

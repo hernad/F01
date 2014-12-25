@@ -29,7 +29,7 @@
  */
 
 function mBrDoks()
-*{
+
 PRIVATE opc:={}
 PRIVATE opcexe:={}
 
@@ -59,7 +59,7 @@ return
  */
 
 function MAzurDoks()
-*{
+
 private Opc:={}
 private opcexe:={}
 AADD(opc,"1. povrat dokumenta u pripremu")

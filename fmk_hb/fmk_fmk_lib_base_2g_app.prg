@@ -24,7 +24,7 @@
 
 
 function TAppModNew(oParent, cVerzija, cPeriod, cKorisn, cSifra, p3,p4,p5,p6,p7)
-*{
+
 
 local oObj
 
@@ -126,7 +126,7 @@ END CLASS
  */
 
 *void TAppMod::init(TObject oParent,string cModul,string cVerzija,string cPeriod,string cKorisn,string cSifra,string p3,string p4,string p5,string p6,string p7)
-*{
+
 
 method init(oParent, cModul, cVerzija, cPeriod, cKorisn, cSifra, p3,p4,p5,p6,p7)
 
@@ -152,7 +152,7 @@ return
  */
  
 *bool TAppMod::hasParent()
-*{
+
 method hasParent()
 
 return !(::oParent==nil)
@@ -165,7 +165,7 @@ return !(::oParent==nil)
  *  Roditelj je programski modul (objekat) koji je izvrsio kreiranje ovog objekta. To bi znacilo za oPos to parent oFMK - "master" aplikacijski modul koji poziva pojedinacne programske module (oFIN, oKALK, oFAKT)
  */
 *TObject TAppMod::setParent(TObject oParent)
-*{
+
 method setParent(oParent)
 
 ::parent:=oParent
@@ -179,14 +179,14 @@ return
  */
 
 *TObject TAppMod::getParent()
-*{
+
 method getParent()
 return ::oParent
 
 
 
 *string TAppMod::setName(string cName)
-*{
+
 method setName()
 ::cName:="SCAPP"
 return
@@ -195,7 +195,7 @@ return
 
 
 *void TAppMod::run()
-*{
+
 method run()
 
 if ::oDesktop==nil
@@ -223,7 +223,7 @@ return
 
 
 *void TAppMod::gProc(char Ch)
-*{
+
 method gProc(Ch)
 local lPushWa
 local i
@@ -288,7 +288,7 @@ return
  */
  
 *void TAppMod::quit(bool lVratiSeURP)
-*{
+
 method quit(lVratiseURP)
 
 local cKontrDbf
@@ -339,7 +339,7 @@ return
 
 
 *void TAppMod::gParams()
-*{
+
 method gParams()
 
 local cFMKINI:="N"
@@ -680,7 +680,7 @@ return .t.
  */
 
 *void TAppMod::setTGVars()
-*{
+
 method setTGVars()
 
 #ifdef CLIP
@@ -712,7 +712,7 @@ return
  */
 
 *void TAppMod::limitKLicenca(nLevel)
-*{
+
 method limitKLicenca(nLevel)
 
 if (::nKLicenca==nil)

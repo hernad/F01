@@ -14,7 +14,7 @@
 
 
 function EventLog(nUser,cModul,cKomponenta,cFunkcija,nN1,nN2,nCount1,nCount2,cC1,cC2,cC3,dDatum1,dDatum2,cSql,cOpis)
-*{
+
 local nArr
 nArr:=SELECT()
 
@@ -101,7 +101,7 @@ return
  */
 
 function Logirati(cModul, cKomponenta, cFunkcija)
-*{
+
 local nArr
 local lLogirati
 nArr:=SELECT()

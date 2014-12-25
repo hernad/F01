@@ -48,7 +48,7 @@
  */
 
 function MGenDoks()
-*{
+
 private Opc:={}
 private opcexe:={}
 
@@ -69,7 +69,7 @@ return
  */
  
 function GPStanje()
-*{
+
 local gSezonDir
 Lager(.t.)
 if !EMPTY(goModul:oDataBase:cSezonDir) .and. Pitanje(,"Prebaciti dokument u radno podrucje","D")=="D"

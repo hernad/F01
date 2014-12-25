@@ -43,7 +43,7 @@
  
 
 function OKreSQLPAr(cPom)
-*{
+
 local nOid1, nOid2
 
 if goModul:oDatabase:cRadimUSezona<>"RADP"
@@ -93,7 +93,7 @@ endif
 
 
 function GetSqlSite()
-*{
+
 if gSQL=="D"
 	return gSQLSite
 else

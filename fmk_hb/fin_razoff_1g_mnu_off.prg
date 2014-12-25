@@ -36,7 +36,7 @@
  */
 
 function MnuUdaljeneLokacije()
-*{
+
 private opc:={}
 private opcexe:={}
 private Izbor:=1

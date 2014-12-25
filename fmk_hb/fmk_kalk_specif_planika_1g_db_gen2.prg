@@ -120,7 +120,7 @@
  */
 
 function GenRekap2(lK2X, cC, lPrDatOd, lVpRab, lMarkiranaRoba)
-*{
+
 local lMagacin
 local lProdavnica
 
@@ -459,7 +459,7 @@ return
 
 
 static function GRekap22()
-*{
+
 
 // REKAP2 je gotova, formirati REKA22
 

@@ -19,7 +19,7 @@
  */
  
 function TDbKalkNew()
-*{
+
 local oObj
 oObj:=TDbKalk():new()
 oObj:self:=oObj
@@ -59,7 +59,7 @@ END CLASS
 /*!  *void TDbKalk::dummy()
  */
 *void TDbKalk::dummy()
-*{
+
 method dummy
 return
 
@@ -74,7 +74,7 @@ return
  */
 
 *void TDbKalk::skloniSezonu(string cSezona, bool finverse,bool fda,bool fnulirati,bool fRS)
-*{
+
 
 method skloniSezonu(cSezona,finverse,fda,fnulirati, fRS)
 save screen to cScr
@@ -205,7 +205,7 @@ return
  *   Setuje matricu gaDbfs 
  */
 *void TDbKalk::setgaDbfs()
-*{
+
 method setgaDBFs()
 
 PUBLIC gaDbfs := {;
@@ -257,7 +257,7 @@ return
  */
 
 *void TDbKalk::install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7)
-*{
+
 
 method install(cKorisn,cSifra,p3,p4,p5,p6,p7)
 	ISC_START(goModul,.f.)
@@ -269,7 +269,7 @@ return
  */
  
 *void TDbKalk::kreiraj(int nArea)
-*{
+
 method kreiraj(nArea)
 
 #ifdef CAX
@@ -670,7 +670,7 @@ return
  */
 
 *void TDbKalk::obaza(int i)
-*{
+
 
 method obaza (i)
 local lIdIDalje
@@ -753,7 +753,7 @@ return
 */
 
 *void TDbKalk::ostalef()
-*{
+
 method ostalef()
 
 if pitanje(,"Formirati Bosanski sort","N")=="D"
@@ -824,7 +824,7 @@ return
  */
  
 *void TDbKalk::konvZn()
-*{
+
 method konvZn() 
 LOCAL cIz:="7", cU:="8", aPriv:={}, aKum:={}, aSif:={}
 LOCAL GetList:={}, cSif:="D", cKum:="D", cPriv:="D"

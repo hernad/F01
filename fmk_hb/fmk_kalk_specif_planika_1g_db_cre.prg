@@ -86,7 +86,7 @@
  */
  
 function CreTblPObjekti()
-*{
+
 local cTbl
 local aDbf
 
@@ -137,7 +137,7 @@ return
 
 
 function CreTblRek1(cVarijanta)
-*{
+
 
 aDbf:={ {"idroba"  ,"C", 10,0},;
         {"objekat" ,"C", 7 ,0},;
@@ -199,7 +199,7 @@ return
 
 
 function CreTblRek2()
-*{
+
 local aDbf
 
 aDbf:={ {"objekat" ,"C", 7 ,0},;
@@ -293,7 +293,7 @@ return
  */
 
 function CrePPProd()
-*{
+
 local cTblName
 local aTblCols
 

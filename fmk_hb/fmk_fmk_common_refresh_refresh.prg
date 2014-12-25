@@ -268,7 +268,7 @@ function SkloniSezonu()
 
 
 function SetScGVars()
-*{
+
 
 public ZGwPoruka:=""
 public GW_STATUS:="-"
@@ -369,7 +369,7 @@ return
 
 
 function PreUseEvent(cImeDbf,fShared)
-*{
+
 return cImeDbf
 
 

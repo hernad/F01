@@ -35,7 +35,7 @@ static aPorezi:={}
 
 // direktni ulaz u prodavnicu
 function Get1_81()
-*{
+
 
 if nRbr==1 .and. fnovi
   _DatFaktP:=_datdok
@@ -144,7 +144,7 @@ return lastkey()
  */
 
 static function VKol()
-*{
+
 if _kolicina<0  // storno
 //////// kalkulacija nabavne cijene
 //////// nKolZN:=kolicina koja je na stanju a porijeklo je od zadnje nabavke
@@ -176,7 +176,7 @@ return .t.
  */
 
 function Get2_81()
-*{
+
 local cSPom:=" (%,A,U,R) "
 private getlist:={}
 private fMarza:=" "

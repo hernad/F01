@@ -231,7 +231,7 @@ closeret
  */
  
 function PorezMp(cVar)
-*{
+
 local nVrati, nCSP, nD, nMBVBP
 local nPor1, nPor2, nPor3
 local nMPP, nPPP, nPP, nPPU
@@ -302,7 +302,7 @@ return nVrati
  */
  
 function KontNal(dDatNal)
-*{
+
 local cidfirma,cidvd,cbrdok, lafin, lafin2
 
 O_ROBA
@@ -507,7 +507,7 @@ return
  */
  
 function ParsMemo(cTxt)
-*{
+
 local aMemo:={}
 local i,cPom,fPoc
 
@@ -535,7 +535,7 @@ return aMemo
  *  \param cTip  - cTip je string sa dva znaka od kojih prvi uslovljava da li ce se izvrsiti zaokruzivanje, a drugi predstavlja broj decimala na koji ce se izvrsiti zaokruzivanje. Zaokruzivanje se vrsi uvijek izuzev ako je taj prvi znak "." */
 
 function Round7(nBroj,cTip)
-*{
+
 LOCAL cTip1:="", cTip2:=""
  AltD()
  cTip1:=LEFT(cTip,1)
@@ -559,7 +559,7 @@ RETURN nBroj
  */
  
 function RasKon(cRoba,aSifre,aKonta)
-*{
+
 local nPom
 nPom:=ASCAN(aSifre,cRoba)
 
@@ -574,7 +574,7 @@ return if(nPom>0,aKonta[nPom],"")
  */
  
 function PrStopa(nProc)
-*{
+
 return (if(nProc==0,0,1/(1+1/(nProc/100))))
 
 
@@ -588,7 +588,7 @@ return (if(nProc==0,0,1/(1+1/(nProc/100))))
  */
  
 function IzKalk(cIdRoba,cKonSir,cSta)
-*{
+
 local x:=0, nArr:=SELECT(), nNV, nUlaz, nIzlaz
   SELECT KALK
   DO CASE

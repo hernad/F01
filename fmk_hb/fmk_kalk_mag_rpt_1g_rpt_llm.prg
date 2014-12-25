@@ -1482,7 +1482,7 @@ return
  */
 
 function PocStMag()
-*{
+
 LLM(.t.)
          if !empty(goModul:oDataBase:cSezonDir) .and. Pitanje(,"Prebaciti dokument u radno podrucje","D")=="D"
           O_PRIPRRP
@@ -1509,7 +1509,7 @@ return
  *  \param cIdRoba - id roba
  */
 function IsInGroup(cGr, cPodGr, cIdRoba)
-*{
+
 bRet := .f.
 
 if Empty(cGr)

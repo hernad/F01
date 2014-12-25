@@ -24,7 +24,7 @@
 
 
 function FaAsistent()
-*{
+
 local nEntera
 
 nEntera:=30

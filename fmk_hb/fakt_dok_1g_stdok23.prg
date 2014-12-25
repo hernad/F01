@@ -297,7 +297,7 @@
  */
 
 function StDok23()
-*{
+
 parameters cIdFirma,cIdTipDok,cBrDok
 private i,nCol1:=0,cTxt1,cTxt2,aMemo,nMPVBP:=nVPVBP:=0
 private cTi,nUk,nRab,nUk2:=nRab2:=0
@@ -1232,7 +1232,7 @@ CLOSERET
  */
  
 static function Zagl2()
-*{
+
 P_COND
 if !fDelphiRB
 	? space(gnLMarg)
@@ -1285,7 +1285,7 @@ return
  */
  
 static function NStr0(bZagl, fPrenos)
-*{
+
 if fPrenos=NIL
   fPrenos:=.f.  // ako je true -> stampaj prenos sa strane ....
 endif
@@ -1328,7 +1328,7 @@ endif
  */
  
 static function StKupac(fDelphiRB)
-*{
+
 local cMjesto:=padl(Mjesto(cIdFirma)+", "+dtoc(ddatdok),iif(gFPZag=99,gnTMarg3,0)+39)
 //local cMjesto:=padl(Mjesto(cIdFirma)+", "+dtoc(ddatdok)+" godine",iif(gFPZag=99,gnTMarg3,0)+39)
 
@@ -1419,7 +1419,7 @@ else
     		IF glDistrib .and. !EMPTY(cidpm)
       			? space(6),gPB_ON+padc(alltrim(cidpm),30)+gPB_OFF
     		ENDIF
-    		? space(5),gPB_ON+"����������������������������������"+gPB_OFF
+    		? space(5),gPB_ON+"������������������������������������"+gPB_OFF
   	ENDIF
 endif
 
@@ -1593,7 +1593,7 @@ return
  */
  
 function ListDodP()
-*{
+
 LOCAL aVrati:={}, nArr:=SELECT(), aPom:={}, cPom:=""
     IF !EMPTY(d2k1)
       AADD( aPom , IzFMKINI( "Doks2" , "ZK1" , "K1" , KUMPATH )+;
@@ -1647,7 +1647,7 @@ return aVrati
 
 
 function RegPorBrGet(cRegBr,cPorDjBr)
-*{
+
 local cPom
 cPom:=IzSifK("PARTN","REGB",cIdPartner,.f.)
 if !empty(cPom)

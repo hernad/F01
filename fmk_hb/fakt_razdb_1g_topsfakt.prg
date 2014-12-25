@@ -30,7 +30,7 @@
  */
  
 function TopsFakt()
-*{
+
 local cLokacija:=PADR("A:\",40)
 local cTopsFakt
 local nRBr
@@ -149,7 +149,7 @@ return
  */
  
 static function SljedBrFakt(cIdRj,cIdVd,dDo,cIdPartner)
-*{
+
 local nArr:=SELECT()
 local cBrFakt
 _datdok:=dDo

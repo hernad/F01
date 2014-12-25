@@ -309,8 +309,6 @@
 .hbmk/win/mingw/fmk_kalk_ut_1g_ut.o:fmk_kalk_ut_1g_ut.c:(.text+0x20): multiple definition of `HB_FUN_OTKLJUCAJBUG'
 .hbmk/win/mingw/fin_ut_1g_ut.o:fin_ut_1g_ut.c:(.text+0x40): first defined here
 .hbmk/win/mingw/fmk_kalk_ut_1g_ut.o:fmk_kalk_ut_1g_ut.c:(.text+0x40): multiple definition of `HB_FUN_PRIPR9VIEW'
-.hbmk/win/mingw/fakt_db_1g_smece.o:fakt_db_1g_smece.c:(.text+0x40): first defined here
-.hbmk/win/mingw/fmk_kalk_ut_1g_ut.o:fmk_kalk_ut_1g_ut.c:(.text+0x60): multiple definition of `HB_FUN_EDPR9'
 .hbmk/win/mingw/fakt_db_1g_smece.o:fakt_db_1g_smece.c:(.text+0x60): first defined here
 .hbmk/win/mingw/fmk_kalk_ut_1g_ut.o:fmk_kalk_ut_1g_ut.c:(.text+0x80): multiple definition of `HB_FUN_POVPR9'
 .hbmk/win/mingw/fakt_db_1g_smece.o:fakt_db_1g_smece.c:(.text+0x80): first defined here

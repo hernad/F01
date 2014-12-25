@@ -33,7 +33,7 @@ external RIGHT
  */
 
 function Main(cKorisn,cSifra,p3,p4,p5,p6,p7)
-*{
+
 	MainKalk(cKorisn,cSifra,p3,p4,p5,p6,p7)
 return
 
@@ -47,7 +47,7 @@ return
  */
 
 function MainKALK(cKorisn,cSifra,p3,p4,p5,p6,p7)
-*{
+
 local oKalk
 
 oKalk:=TKalkModNew()

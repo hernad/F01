@@ -30,7 +30,7 @@
  */
 
 function AnaKart()
-*{
+
 O_KONCIJ
 O_SIFK
 O_SIFV
@@ -154,7 +154,7 @@ return
  */
 
 function EdLLM()
-*{
+
 local cDn:="N",nTrecDok:=0,nRet:=DE_CONT
 do case
   case Ch==K_ENTER

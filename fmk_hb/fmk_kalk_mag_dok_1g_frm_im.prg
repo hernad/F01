@@ -24,7 +24,7 @@
  */
 
 function Get1_IM()
-*{
+
 local nFaktVPC
 
 _DatFaktP:=_datdok

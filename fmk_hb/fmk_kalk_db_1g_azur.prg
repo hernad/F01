@@ -22,7 +22,7 @@
  */
 
 function kalk_Azur(lAuto)
-*{
+
 local cidfirma
 local cidvd
 local cbrdok
@@ -555,7 +555,7 @@ return
  */
 
 function Azur9()
-*{
+
  // pametno azuriranje
 local cPametno:="D"
 
@@ -617,7 +617,7 @@ closeret
  */
 
 function Povrat()
-*{
+
 local nRec
 local gEraseKum
 
@@ -808,7 +808,7 @@ return
  */
 
 function Povrat9(cIdFirma, cIdVd, cBrDok)
-*{
+
 local nRec
 
 if Klevel<>"0"
@@ -944,7 +944,7 @@ return
  */
 
 function P9najst()
-*{
+
 local nRec
 
 if Klevel<>"0"
@@ -1007,7 +1007,7 @@ closeret
  */
 
 function Pnajn()
-*{
+
 local nRec,cbrsm, fbof, nVraceno:=0
 
 if Klevel<>"0"
@@ -1101,7 +1101,7 @@ closeret
  *   Brise dokument iz tabele PRIPR9
  */
 function ErPripr9(cIdF, cIdVd, cBrDok)
-*{
+
 if Pitanje(,"Sigurno zelite izbrisati dokument?","N")=="N"
 	return
 endif
@@ -1125,7 +1125,7 @@ return
  *   Brisi sve zapise iz tabele PRIPR9
  */
 function ErP9All()
-*{
+
 
 if Pitanje(,"Sigurno zelite izbrisati sve zapise?","N")=="N"
 	return

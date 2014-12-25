@@ -36,7 +36,7 @@
  */
  
 function Gen9999()
-*{  
+  
   if !(gRadnoPodr=="9999")  // sezonsko kumulativno podrucje za zbirne izvje�taje
   	MsgBeep("Ova operacija se radi u 9999 podrucju")
 	return

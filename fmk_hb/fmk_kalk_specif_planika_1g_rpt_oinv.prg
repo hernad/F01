@@ -53,7 +53,7 @@
  */
  
 function ObrazInv()
-*{
+
 local nRec
 private nCnt:=i:=nT1:=nT4:=nT5:=nT6:=nT7:=0
 private nTT1:=nTT4:=nTT5:=nTT6:=nTT7:=0
@@ -725,7 +725,7 @@ return
  */
  
 function ZaglObrPC(cKako)
-*{
+
 local cString:="NALOG ZA PROMJENU CIJENA"
 local cString2:="promjena"
 Preduzece()
@@ -759,7 +759,7 @@ return
  */
  
 function ZaglInv()
-*{
+
 P_10CPI
 //; B_ON
 ?? gTS+":",gNFirma,space(40),"Strana:"+str(++nStr,3)

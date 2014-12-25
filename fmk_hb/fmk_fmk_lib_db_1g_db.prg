@@ -50,7 +50,7 @@ static nPreuseLevel:=0
   */
   
 function Scatter(cZn)
-*{
+
 local i,aStruct
 private cImeP,cVar
 
@@ -73,7 +73,7 @@ return nil
 
 
 function Gather(cZn)
-*{
+
 local i,aStruct
 
 if cZn==nil
@@ -125,7 +125,7 @@ return nil
 
 
 function GatherR(cZn)
-*{
+
 local i,j,aStruct
 
 if cZn==nil
@@ -190,7 +190,7 @@ return nil
 */
 
 function Gather2(cZn)
-*{
+
 local i,aStruct
 
 if cZn==nil
@@ -213,7 +213,7 @@ return
 
 
 function delete2()
-*{
+
 local nRec
 
 do while .t.
@@ -232,7 +232,7 @@ return nil
 
 
 function dbdelete2()
-*{
+
 if gReadonly
 	return
 endif
@@ -252,7 +252,7 @@ return nil
 */
 
 function appblank2(fcisti,funl)
-*{
+
 local aStruct,i, nPrevOrd, cnew_oid
 
 if fcisti==nil
@@ -346,7 +346,7 @@ return nil
 */
 
 function AppFrom(cFDbf,fOtvori)
-*{
+
 local nArr
 nArr:=SELECT()
 
@@ -395,7 +395,7 @@ return
 
 
 function PrazanDbf()
-*{
+
 local fret:=.f.,nRec, nPrevOrd
 
 nPrevOrd:=indexord()
@@ -420,7 +420,7 @@ return fret
  */
  
 function reccount2()
-*{
+
 local nC:=0,nRec, nPrevOrd
 
 if ORDNUMBER("BRISAN")<>0
@@ -444,7 +444,7 @@ return reccount()-nC
  * \note COMIX - CDX verzija
  */
 function reccount2()
-*{
+
 local nC:=0,nRec, nPrevOrd
 
 if ORDNUMBER("BRISAN")<>0
@@ -468,7 +468,7 @@ return reccount()-nC
 
 
 function seek2(cArg)
-*{
+
 dbseek( cArg)
 return nil
 
@@ -478,7 +478,7 @@ return nil
 */
 
 function zapp()
-*{
+
 if gReadonly; return; endif
 
 PushWa()
@@ -509,7 +509,7 @@ return nil
 
 
 function nerr(oe)
-*{
+
 break oe
 
 
@@ -520,7 +520,7 @@ break oe
  */
  
 function EofFndRet(ef, close)
-*{
+
 local fRet:=.f., cStr:="Ne postoje trazeni podaci.."
 if ef // eof()
   if eof()
@@ -730,7 +730,7 @@ return
  *   Set write atributa
  */
 function SetWOnly(lSilent)
-*{
+
 
 if (lSilent == nil)
 	lSilent := .f.
@@ -994,7 +994,7 @@ return
 
 
 function PoljeBrisano(cImeDbf)
-*{
+
 * select je na bazi koju ispitujes
 
 if fieldpos("BRISANO")=0 // ne postoji polje "brisano"
@@ -1018,7 +1018,7 @@ return nil
  */
  
 function SmReplace(cField, xValue, lReplAlways)
-*{
+
 private cPom
 
 if (lReplAlways == nil)
@@ -1048,7 +1048,7 @@ return
  */
 
 function PreUseEvent(cImeDbf, fShared)
-*{
+
 local cImeCdx
 local cImeGwu
 local nArea

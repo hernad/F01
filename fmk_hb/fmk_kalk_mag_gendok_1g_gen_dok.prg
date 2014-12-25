@@ -33,7 +33,7 @@ return
 
 // menij sa inventurama
 function MnuMInv()
-*{
+
 private Opc:={}
 private opcexe:={}
 
@@ -54,7 +54,7 @@ return
  */
  
 function Iz12u97()
-*{
+
   OEdit()
 
   cIdFirma    := gFirma
@@ -138,7 +138,7 @@ return
  */
  
 function InvManj()
-*{
+
 local nFaktVPC:=0, lOdvojiVisak:=.f., nBrSl:=0
 
 O_KONCIJ
@@ -262,7 +262,7 @@ return
  */
 
 function MNivPoProc()
-*{
+
 LOCAL nStopa:=0.0, nZaokr:=1
 
 O_KONTO
@@ -398,7 +398,7 @@ return
  */
  
 function KorekPC()
-*{
+
  LOCAL dDok:=date(), nPom:=0, nRobaVPC:=0
  PRIVATE cMagac:=padr("1310   ",gDuzKonto)
  O_KONCIJ
@@ -572,7 +572,7 @@ return
 // ??????????? Kakva je razlika Otprema i Iz96u16 ???????????
 
 function Otprema()
-*{
+
 O_KONCIJ
 O_PRIPR
 O_PRIPR2
@@ -665,7 +665,7 @@ return
  */
  
 function Iz96u16()
-*{
+
   OEdit()
   cIdFirma    := gFirma
   cIdVdU      := "96"
@@ -735,7 +735,7 @@ return
  */
  
 function Iz16u14()
-*{
+
   OEdit()
 
   cIdFirma    := gFirma

@@ -37,7 +37,7 @@
  */
 
 function KMag()
-*{
+
 local nR1,nR2,nR3,cidfirma:=space(2),cidroba:=space(10),ckonto:=space(7)
 private GetList:={}
 select  roba

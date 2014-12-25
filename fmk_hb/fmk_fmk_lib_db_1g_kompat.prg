@@ -20,7 +20,7 @@
  */
 
 function DBT2FPT(cImeDBF)
-*{
+
 
 cImeDbf:=strtran(ToUnix(cImeDBF),"."+DBFEXT,"")
 close all
@@ -79,7 +79,7 @@ return
 
 
 function kopi(fProm)
-*{
+
 
 if fBrisiDBF
      nPos:=at(".",cDbf)

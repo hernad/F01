@@ -26,7 +26,7 @@ static cENTER:=chr(K_ENTER)+chr(K_ENTER)+chr(K_ENTER)
  */
 
 function kalk_Knjiz()
-*{
+
 local izbor:=1
 
 PRIVATE PicCDEM:=gPicCDEM
@@ -88,7 +88,7 @@ return
  */
 
 function KUnos(lAObrada)
-*{
+
 O_PARAMS
 
 private lAutoObr := .f.
@@ -177,7 +177,7 @@ return
  */
 
 function OEdit()
-*{
+
 O_DOKS
 O_PRIPR
 O_DOKSRC
@@ -206,7 +206,7 @@ return
  */
 
 function EdPRIPR()
-*{
+
 local nTr2,cSekv,nkekk
 local isekv
 
@@ -380,7 +380,7 @@ return DE_CONT
  */
 
 function EditStavka()
-*{
+
 if reccount2()==0
 	Msg("Ako zelite zapoceti unos novog dokumenta: <Ctrl-N>")
       	return DE_CONT
@@ -462,7 +462,7 @@ return DE_CONT
  */
 
 function NovaStavka()
-*{
+
 	// isprazni kontrolnu matricu
         aNC_ctrl := {}
 	Box("knjn",21,77,.f.,"Unos novih stavki")
@@ -545,7 +545,7 @@ return DE_REFRESH
  */
 
 function EditAll()
-*{
+
 // ovu opciju moze pozvati i asistent alt+F10 !
 PushWA()
 select PRIPR
@@ -644,7 +644,7 @@ return DE_REFRESH
  */
 
 function KnjizAsistent()
-*{
+
 lAutoAsist:=.f.
 private nEntera:=30
 IF IzFMKIni("KALK","PametniAsistent","D",KUMPATH)=="D"
@@ -675,7 +675,7 @@ return DE_REFRESH
  */
 
 function MeniF10()
-*{
+
 private opc[9]
 
 if gVodiSamoTarife=="D"
@@ -822,7 +822,7 @@ return DE_REFRESH
  */
 
 function MeniF11()
-*{
+
 private opc:={}
 private opcexe:={}
 AADD(opc, "1. preuzimanje kalkulacije iz druge firme        ")
@@ -854,7 +854,7 @@ return DE_REFRESH
  *   Brisi sve protustavke
  */
 function ProtStErase()
-*{
+
 if Pitanje(,"Pobrisati protustavke dokumenta (D/N)?", "N") == "N"
 	return
 endif
@@ -878,7 +878,7 @@ return
  *   Setuj sve NC na 0
  */
 function SetNcTo0()
-*{
+
 if Pitanje(, "Setovati NC na 0 (D/N)?", "N") == "N"
 	return
 endif
@@ -905,7 +905,7 @@ return
 
 //ulaz _IdFirma, _IdRoba, ...., nRBr (val(_RBr))
 function EditPripr(fNovi)
-*{
+
 private nMarza:=0,nMarza2:=0,nR
 private PicDEM:="9999999.99999999",PicKol:=gPicKol
 nStrana:=1
@@ -969,7 +969,7 @@ return
  */
 
 function Get1()
-*{
+
 parameters fnovi
 
 private pIzgSt:=.f.   // izgenerisane stavke postoje
@@ -1067,7 +1067,7 @@ return
  */
 
 function Get2()
-*{
+
 parameters fnovi
 if _idvd $ "10"
 	if IsPDV()
@@ -1093,7 +1093,7 @@ return K_ESC
  */
 
 function Get1Header()
-*{
+
 if fnovi; _idfirma:=gFirma; endif
 if fnovi .and. _TBankTr=="X"; _TBankTr:="%"; endif  // izgenerisani izlazi
 if gNW $ "DX"
@@ -1146,7 +1146,7 @@ return 1
  */
 
 function VpcSaPpp()
-*{
+
 if _VPC==0
   _RabatV:=0
   _VPC:=(_VPCSAPPP+_NC*tarifa->vpp/100)/(1+tarifa->vpp/100+_mpc/100)
@@ -1167,7 +1167,7 @@ return .t.
  */
 
 function RaspTrosk(fSilent)
-*{
+
 local nStUc:=20
 
 if fsilent==NIL
@@ -1410,7 +1410,7 @@ return
  */
 
 function Savjetnik()
-*{
+
  LOCAL nRec:=RECNO(),lGreska:=.f.
 
  // pripremne radnje za stampu u fajl
@@ -1498,7 +1498,7 @@ return
  */
 
 function OpisStavke(lGreska)
-*{
+
  IF !lGreska
   ? "Dokument:    "+idfirma+"-"+idvd+"-"+brdok+", stavka "+rbr
   ? "Artikal: "+idroba+"-"+LEFT(Ocitaj(F_ROBA,idroba,"naz"), 40)
@@ -1515,7 +1515,7 @@ return
  */
 
 function Soboslikar(aNiz,nIzKodaBoja,nUKodBoja)
-*{
+
  LOCAL i, cEkran
   FOR i:=1 TO LEN(aNiz)
     cEkran:=SAVESCREEN(aNiz[i,1],aNiz[i,2],aNiz[i,3],aNiz[i,4])
@@ -1532,7 +1532,7 @@ return
  */
 
 function StrKZN(cInput,cIz,cU)
-*{
+
  LOCAL a852:={"�","�","�","�","�","�","�","�","�","�"}
  LOCAL a437:={"[","\","^","]","@","{","|","~","}","`"}
  LOCAL aEng:={"S","D","C","C","Z","s","d","c","c","z"}
@@ -1552,7 +1552,7 @@ return cInput
  */
 
 function ZagFirma()
-*{
+
 P_12CPI
 U_OFF
 B_OFF
@@ -1582,7 +1582,7 @@ return
  */
 
 function NazProdObj()
-*{
+
  LOCAL cVrati:=""
   SELECT KONTO
   SEEK PRIPR->pkonto
@@ -1598,7 +1598,7 @@ return cVrati
  */
 
 function IzbDokOLPP()
-*{
+
 O_SIFK
 O_SIFV
 O_ROBA
@@ -1651,7 +1651,7 @@ return
  */
 
 function PlusMinusKol()
-*{
+
   OEdit()
   SELECT PRIPR
   GO TOP
@@ -1677,7 +1677,7 @@ return
  */
 
 function UzmiTarIzSif()
-*{
+
   OEdit()
   SELECT PRIPR
   GO TOP
@@ -1703,7 +1703,7 @@ return
  */
 
 function DiskMPCSAPP()
-*{
+
 aPorezi:={}
 OEdit()
 SELECT PRIPR
@@ -1737,7 +1737,7 @@ return
  */
 
 function MPCSAPPuSif()
-*{
+
   OEdit()
   SELECT PRIPR
   GO TOP
@@ -1765,7 +1765,7 @@ return
  */
 
 function MPCSAPPiz80uSif()
-*{
+
   OEdit()
 
   cIdFirma := gFirma
@@ -1806,7 +1806,7 @@ return
  */
 
 function VPCSifUDok()
-*{
+
   OEdit()
   SELECT PRIPR
   GO TOP
@@ -1837,7 +1837,7 @@ return
  */
 
 function StKalk()
-*{
+
 parameters fstara, cSeek, lAuto
 local nCol1
 local nCol2
@@ -2192,7 +2192,7 @@ return nil
  */
 
 function PopustKaoNivelacijaMP()
-*{
+
 local lImaPromjena
 lImaPromjena:=.f.
 OEdit()
@@ -2234,7 +2234,7 @@ return
  */
 
 function StOLPPAz()
-*{
+
 local nCol1
 local nCol2
 local nPom

@@ -29,7 +29,7 @@
  */
  
 function TDBFinNew()
-*{
+
 local oObj
 
 oObj:=TDBFin():new()
@@ -88,7 +88,7 @@ END CLASS
 /*!  *void TDBFin::dummy()
  */
 *void TDBFin::dummy()
-*{
+
 method dummy
 return
 
@@ -99,7 +99,7 @@ return
  */
  
 *void TDBFin::skloniSez(string cSezona, bool finverse, bool fda, bool fnulirati, bool fRS)
-*{
+
 method skloniSezonu(cSezona, finverse, fda, fnulirati, fRS)
 local cScr
 
@@ -225,7 +225,7 @@ return
  *   Setuje matricu gaDBFs 
  */
 *void TDBFin::setgaDBFs()
-*{
+
 method setgaDBFs()
 PUBLIC gaDBFs:={ ;
 { F_PRIPR  ,  "PRIPR"   , P_PRIVPATH  },;
@@ -286,7 +286,7 @@ return
  */
 
 *void TDBFin::install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7)
-*{
+
 method install()
 ISC_START(goModul,.f.)
 return
@@ -297,7 +297,7 @@ return
  */
  
 *void TDBFin::kreiraj(int nArea)
-*{
+
 method kreiraj(nArea)
 local cImeDbf
 
@@ -1032,7 +1032,7 @@ return
  */
 
 *void TDBFin::obaza(int i)
-*{
+
 method obaza (i)
 local lIdIDalje
 local cDbfName
@@ -1099,7 +1099,7 @@ return
 */
 
 *void TDBFin::ostalef()
-*{
+
 
 method ostalef()
 
@@ -1113,7 +1113,7 @@ return
  */
  
 *void TDBFin::konvZn()
-*{
+
 method konvZn()
 
 LOCAL cIz:="7", cU:="8", aPriv:={}, aKum:={}, aSif:={}
@@ -1184,7 +1184,7 @@ return
 /*!  *void TDbFin::scan()
  */
 *void TDbFin::scan()
-*{
+
 method scan
 local cSlaveRadnaStanica
 

@@ -64,7 +64,7 @@
  */
 
 function StKalk41()
-*{
+
 local nCol0:=nCol1:=nCol2:=0
 local nPom:=0
 
@@ -270,7 +270,7 @@ return
  * Rekapitulacija tarifa - nova fja 
  */
 function RekTar41(cIdFirma, cIdVd, cBrDok, nStr)
-*{
+
 local nTot1
 local nTot2
 local nTot3
@@ -392,7 +392,7 @@ return
  */
  
 function Naslov4x()
-*{
+
 local cSvediDatFakt
 B_ON
 IF CIDVD=="41"

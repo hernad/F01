@@ -174,7 +174,7 @@
  */
  
 function StDok13()
-*{
+
 PARAMETERS cIdFirma,cIdTipDok,cBrDok
 local aKol:={}, cZag:="",i:=0,nI:=0,nK:=0
 
@@ -478,7 +478,7 @@ CLOSERET
  */
  
 function NadjiVr()
-*{
+
 local nPor
 
 // Nastimaj (hseek) Sifr.Robe Na Pripr->IdRoba
@@ -532,7 +532,7 @@ return
  */
  
 function BrDecimala(cFormat)
-*{
+
 local i:=0,cPom,nVrati:=0
  i:=AT(".",cFormat)
  if i!=0
@@ -554,7 +554,7 @@ return nVrati
  */
  
 function Rob13Naz()
-*{
+
 if fPBarkod
   return PADR(trim(LEFT(roba->naz,40))+" ("+TRIM(roba->barkod)+")",49)
 else
@@ -568,7 +568,7 @@ endif
  */
  
 function StDok13s()
-*{
+
 PARAMETERS cIdFirma,cIdTipDok,cBrDok
 local aKol:={}, cZag:="",i:=0,nI:=0,nK:=0
 
@@ -847,7 +847,7 @@ CLOSERET
  */
  
 function GetRegion()
-*{
+
 local cRegion:=" "
 local nArr
 
@@ -864,7 +864,7 @@ return cRegion
 
 
 function ForDok13()
-*{
+
 local lPom
 
 lPom:=cIdFirma+cIdTipDok+cBrDok==pripr->IdFirma+pripr->IdTipDok+pripr->brDok

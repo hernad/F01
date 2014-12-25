@@ -57,7 +57,7 @@ return
  */
  
 function IzvjMaPr()
-*{
+
 private opc:={}
 private opcexe:={}
 

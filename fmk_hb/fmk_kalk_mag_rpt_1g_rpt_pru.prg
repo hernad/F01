@@ -15,7 +15,7 @@
 
 // pregled poreza na RUC
 function RekPorMag()
-*{
+
 local nT1:=nT4:=nT5:=nT6:=nT7:=0
 local nTT1:=nTT4:=nTT5:=nTT6:=nTT7:=0
 local n1:=n4:=n5:=n6:=n7:=0

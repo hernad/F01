@@ -22,7 +22,7 @@ static DEC_VRIJEDNOST := 2
 
 
 function pf_traka_print()
-*{
+
 drn_open()
 
 // stampaj racun
@@ -33,7 +33,7 @@ return
 
 
 function f7_pf_traka(lSilent)
-*{
+
 local lPfTraka
 
 if lSilent == nil
@@ -65,7 +65,7 @@ return
 
 
 function read_kup_data()
-*{
+
 local cKNaziv
 cKNaziv := get_dtxt_opis("K01")
 if cKNaziv == "-"
@@ -76,7 +76,7 @@ return .t.
 
 
 function get_kup_data()
-*{
+
 
 local cKNaziv := SPACE(35)
 local cKAdres := SPACE(35)
@@ -141,7 +141,7 @@ cPom += REPLICATE("-", LEN_VRIJEDNOST)
 return cPom
 
 function st_pf_traka()
-*{
+
 local cBrDok
 local dDatDok
 local aRNaz

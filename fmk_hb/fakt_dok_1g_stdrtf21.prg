@@ -79,7 +79,7 @@
  */
  
 function StdRtf21()
-*{
+
 parameters cImeF,cIdFirma,cIdTipDok,cBrDok
 local cTxt1,cTxt2,aMemo,nH,cPomoc:="", coutf:=""
 local i,ii,ImeKol:={}, nRedova, fPrvaStr,cNPom

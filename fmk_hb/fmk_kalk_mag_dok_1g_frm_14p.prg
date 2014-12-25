@@ -255,7 +255,7 @@ return lastkey()
  */
 
 function pPDV14(fRet)
-*{
+
 devpos(m_x+16+IF(lPoNarudzbi,1,0),m_y+41)
 if roba->tip $ "VKX"
 	// nista ppp

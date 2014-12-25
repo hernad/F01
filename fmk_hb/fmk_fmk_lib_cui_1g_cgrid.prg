@@ -63,7 +63,7 @@
 */
 
 function ObjDBedit(cImeBoxa, xw, yw, bUserF, cMessTop, cMessBot, lInvert, aMessage, nFreeze, bPodvuci, nPrazno, nGPrazno, aPoredak, skipblock)
-*{
+
 
 local nBroji2
 local cSmj,nRez,i,K,aUF, cPomDB, nTTrec
@@ -296,7 +296,7 @@ RETURN
 
 
 function NeTBDirektni(lIzOBJDB)
-*{
+
 LOCAL i,j,k
 IF lIzOBJDB==NIL; lIzOBJDB:=.f.; ENDIF
 
@@ -344,7 +344,7 @@ RETURN
 
 
 function DaTBDirektni(lIzOBJDB)
-*{ 
+ 
 LOCAL i,j,k
  IF lIzOBJDB==NIL; lIzOBJDB:=.f.; ENDIF
 
@@ -403,7 +403,7 @@ static function DoGet()
  *Izvrsi GET za tekucu kolonu u browse-u
  */
 
-*{
+
 LOCAL bIns, lScore, lExit
 LOCAL col, get, nKey
 LOCAL xOldKey, xNewKey
@@ -471,14 +471,14 @@ RETURN
 
 
 static function ForceStable()
-*{
+
 DO WHILE .NOT. TB:stabilize()
     ENDDO
 RETURN
 
 
 static function InsToggle()
-*{
+
 IF READINSERT()
         READINSERT(.F.)
         SETCURSOR(SC_NORMAL)
@@ -490,7 +490,7 @@ RETURN
 
 
 static function EditPolja(nX,nY,xIni,cNazPolja,bWhen,bValid,cBoje)
-*{  
+  
   local i
   local cStaraVr:=gTBDir
   local cPict
@@ -576,7 +576,7 @@ RETURN
 
 
 function Eval2(bblock,p1,p2,p3,p4,p5)
-*{
+
 if bBlock<>NIL
   Eval(bBlock,p1,p2,p3,p4,p5)
 endif
@@ -584,7 +584,7 @@ endif
 
 
 static function GoBottomDB( nTBLine )
-*{
+
 // You are receiving a reference
    DBGOBOTTOM()
    nTBLine := nTBLastLine
@@ -592,7 +592,7 @@ static function GoBottomDB( nTBLine )
 
 
 static function GoTopDB( nTBLine )
-*{
+
 // You are receiving a reference
    DBGOTOP()
    // Since you are pointing to the first record
@@ -602,7 +602,7 @@ static function GoTopDB( nTBLine )
 
 
 function SkipDB( nRequest, nTBLine )
-*{
+
 // nTBLine is a reference
    LOCAL nActually := 0
 
@@ -665,7 +665,7 @@ function SkipDB( nRequest, nTBLine )
 
 
 function StandTBKomande(TB, Ch, nRez, nPored, aPoredak)
-*{
+
 local cSmj,i,K,aUF
 local cLoc:=space(40)
 local cStVr, cNovVr, nRec, nOrder, xcpos, ycpos
@@ -834,7 +834,7 @@ return
 
 
 function StandTBTipke()
-*{
+
 * ove tipke ne smiju aktivirati edit-mod
 
 
@@ -854,7 +854,7 @@ return .f.
  */
 
 function TBPomjeranje(TB, cPomjeranje)
-*{
+
 local cPomTB
 
 if (cPomjeranje)=">"
@@ -887,7 +887,7 @@ endif
 
 
 function EvEr(cExpr,cmes,cT)
-*{ 
+ 
  LOCAL lVrati:=.t.
  IF cmes==nil; cmes:="Greska!"; ENDIF
  IF cT==nil; cT:="L"; ENDIF
@@ -903,7 +903,7 @@ RETURN lVrati
 function BrowseKey(y1,x1,y2,x2,;
                    ImeKol,bfunk,uslov,traz,brkol,;
                    dx,dy,bPodvuci)
-*{
+
 static poziv:=0
 local lk, REKORD,TCol
 local nCurRec:=1,nRecCnt:=0
@@ -1001,7 +1001,7 @@ return (nil)
 
 
 static function Korisnik(nRequest,traz,dx,dy,nCurRec,nRecCnt)
-*{
+
 local nCount
 nCount := 0
 if LastRec() != 0

@@ -301,7 +301,7 @@ return nil
 
 
 function ZaRedBlok()
-*{
+
 ++RedBr
  
 WhileEvent(RedBr,nil)
@@ -314,7 +314,7 @@ return .t.
 
 
 function UkloniRet(xTekst,lPrazno)
-*{
+
 local cTekst
  if lPrazno==nil; lPrazno:=.f.; endif
  if VALTYPE(xTekst)=="B"
@@ -332,7 +332,7 @@ return cTekst
 
 
 static function Karaktera(cK)
-*{
+
 if cK=="10"
   return 80
 elseif cK=="12"
@@ -346,7 +346,7 @@ endif
 
 
 function IzborP2(Kol,cImef)
-*{
+
 private aOBjG,cKolona,Kl
 
 Kl:=ARRAY(len(Kol))
@@ -436,7 +436,7 @@ return
  */
  
 function DobraKol(Kol,i)
-*{
+
 local n
 
 if Kol[i]=0 ; return .T. ; END IF
@@ -457,7 +457,7 @@ return
 
 
 function Nuliraj()
-*{
+
 local i
  for i:=1 to len(Kl)
    Kl[i]:=0
@@ -467,7 +467,7 @@ return
 
 
 static function TrebaPrelom(nPos,nPosRKol)
-*{
+
 local lVrati:=.f., i:=0
  for i:=1 to LEN(RKol)
    if RKol[i,1]==nPos
@@ -949,7 +949,7 @@ return nSuma
 
 
 function MDDReda(nZnak,lA4papir)
-*{
+
 nZnak=IF(lA4papir=="4",nZnak*2-1,IF(lA4papir=="L4",nZnak*1.4545-1,nZnak))
 return INT(IF(nZnak<161,160,IF(nZnak<193,192,IF(nZnak<275,274,320)))/IF(lA4papir=="4",2,IF(lA4papir=="L4",1.4545,1)))
 
@@ -1025,7 +1025,7 @@ return
 
 
 function nPodStr(cPod,cStr)
-*{
+
 local nVrati:=0,nPod:=LEN(cPod)
  for i:=1 to LEN(cStr)+1-nPod
   if SUBSTR(cStr,i,nPod)==cPod; nVrati++; endif
@@ -1034,13 +1034,13 @@ return nVrati
 
 
 function PrekSaEsc()
-*{
+
 Msg("Priprema izvjestaja prekinuta tipkom <Esc>!",2)
 return .f.
 
 
 function NaSljedStranu(lMozeL,lPrenos,cLM2,cOk,aPom,nKol,nStr,cLM,nDReda,nOdvoji,aPrSum,aKol,nSuma,cTek3,bZagl,cNaslov,aPrZag,cTek1,xTot)
-*{
+
   local i, xPom, j, cPom
     lMozeL:=.f.
     if !lPrenos
@@ -1104,7 +1104,7 @@ return
 
 
 static function StStavku(aKol,xPom,i,nKol,cOk)
-*{
+
 if xPom==nil
    QQOUT(SPACE(aKol[i,5]))
  elseif aKol[i,4]="N"
@@ -1132,7 +1132,7 @@ return
 
 
 function DajRed(tekst,kljuc)
-*{
+
 local cVrati:="", nPom:=0, nPoc:=0
   nPom := AT( kljuc , tekst )
   nPoc := RAT( NRED , LEFT(tekst,nPom) )
@@ -1144,7 +1144,7 @@ return cVrati
 
 
 function WhileEvent(nValue, nCnt)
-*{
+
 
 /*!
 if (nCnt==nil)

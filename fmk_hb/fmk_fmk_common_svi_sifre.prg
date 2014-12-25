@@ -19,7 +19,7 @@
  */
  
 function SifFmkSvi()
-*{
+
 private Opc:={}
 private opcexe:={}
 

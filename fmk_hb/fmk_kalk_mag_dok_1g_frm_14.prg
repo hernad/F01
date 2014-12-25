@@ -23,7 +23,7 @@
  */
 
 function Get1_14()
-*{
+
 pIzgSt:=.f.   // izgenerisane stavke jos ne postoje
 //private cisMarza:=0
 
@@ -297,7 +297,7 @@ return lastkey()
  */
 
 function PPP14(fret)
-*{
+
 devpos(m_x+16+IF(lPoNarudzbi,1,0),m_y+41)
 if roba->tip $ "VKX"
   // nista ppp
@@ -319,7 +319,7 @@ return fret
  */
 
 function KM2()
-*{
+
  local nR1,nR2,nR3
   private GetList:={}
   select  roba
@@ -349,7 +349,7 @@ return nil
  */
 
 function MarkBrDok(fNovi)
-*{
+
  LOCAL nArr:=SELECT()
   _brdok:=cNBrDok
   IF fNovi .and. KONCIJ->(FIELDPOS("M1"))<>0

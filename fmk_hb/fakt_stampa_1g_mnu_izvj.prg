@@ -28,7 +28,7 @@
  */
  
 function MnuStampa()
-*{
+
 private opc:={}
 private opcexe:={}
 private Izbor:=1

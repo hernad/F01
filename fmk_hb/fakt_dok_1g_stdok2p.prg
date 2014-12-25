@@ -562,7 +562,7 @@ CLOSERET
  */
  
 static function StKupac()
-*{
+
 local cMjesto:=padl(Mjesto(cIdFirma)+", "+dtoc(ddatdok),iif(gFPZag=99,gnTMarg3,0)+39)
 
 IF "U" $ TYPE("lPartic")

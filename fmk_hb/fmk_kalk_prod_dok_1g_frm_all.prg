@@ -49,7 +49,7 @@ return .t.
  */
 
 function WMpc(fRealizacija, fMarza)
-*{
+
 if fRealizacija==nil
 	fRealizacija:=.f.
 endif
@@ -82,7 +82,7 @@ return .t.
  */
 
 function VMpc(fRealizacija, fMarza)
-*{
+
 if fRealizacija==NIL
 	fRealizacija:=.f.
 endif
@@ -113,7 +113,7 @@ return .t.
  */
 
 function VMpcSaPP(fRealizacija, fMarza)
-*{
+
 local nRabat
 
 if fRealizacija==NIL
@@ -160,7 +160,7 @@ return .t.
  */
 
 function SayPorezi(nRow)
-*{
+
 if IsPDV()
 	@ m_x+nRow,m_y+2  SAY "PDV (%):"
 	@ row(),col()+2 SAY aPorezi[POR_PPP] PICTURE "99.99"
@@ -188,7 +188,7 @@ return
  */
 
 function FillIzgStavke(pIzgStavke)
-*{
+
 if pIzgSt .and. _kolicina>0 .and. lastkey()<>K_ESC // izgenerisane stavke postoje
  private nRRec:=recno()
  go top
@@ -234,7 +234,7 @@ return
  */
 
 function VRoba_lv(fNovi, aPorezi)
-*{
+
 P_Roba(@_IdRoba)
 Reci(12,23,trim(LEFT(roba->naz,40))+" ("+ROBA->jmj+")",40)
 
@@ -288,7 +288,7 @@ return .t.
  */
 
 function WMpc_lv(fRealizacija, fMarza, aPorezi)
-*{
+
 
 // legacy
 
@@ -325,7 +325,7 @@ return .t.
  */
 
 function VMpc_lv(fRealizacija, fMarza, aPorezi)
-*{
+
 if fRealizacija==nil
   fRealizacija:=.f.
 endif
@@ -348,7 +348,7 @@ return .t.
  */
 
 function V_Mpc_( cIdVd, lNaprijed, aPorezi)
-*{
+
 local nPopust
 
 if cIdVd $ "41#42#47"
@@ -376,7 +376,7 @@ return .t.
  */
 
 function VMpcSaPP_lv(fRealizacija, fMarza, aPorezi, lShowGets)
-*{
+
 local nPom
 
 if lShowGets == nil
@@ -421,7 +421,7 @@ return .t.
  */
 
 function V_MpcSaPP_( cIdVd, lNaprijed, aPorezi, lShowGets)
-*{
+
 local nPom
 
 if lShowGets == nil
@@ -464,7 +464,7 @@ return .t.
  */
 
 function SayPorezi_lv(nRow, aPorezi)
-*{
+
 if IsPDV()
 	@ m_x+nRow,m_y+2  SAY "PDV (%):"
 	@ row(),col()+2 SAY  aPorezi[POR_PPP] PICTURE "99.99"

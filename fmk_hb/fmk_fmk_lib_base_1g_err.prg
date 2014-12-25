@@ -47,7 +47,7 @@
  
 
 function MyErrorHandler(objErr,lLocalHandler)
-*{
+
 local cOldDev
 local cOldCon
 local Odg
@@ -109,7 +109,7 @@ return .t.
 
 
 function GlobalErrorHandler(objErr,lLocalHandler)
-*{
+
 local cOldDev
 local cOldCon
 local cScr
@@ -339,7 +339,7 @@ RETURN
 
 
 function ShowFERROR()
-*{
+
 LOCAL aGr:={ {  0, "Successful"},;
               {  2, "File not found"},;
               {  3, "Path not found"},;
@@ -367,7 +367,7 @@ RETURN
 
 
 function MyErrH(o)
-*{
+
 BREAK o
 return
 

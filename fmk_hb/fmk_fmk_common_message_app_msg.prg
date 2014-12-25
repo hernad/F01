@@ -19,7 +19,7 @@
  *   Importuje poruke iz svih prodavnica u zbirnu tabelu poruka AMESSAGE (all messages) 
  */ 
 function InsertIntoAMessage()
-*{
+
 local i
 O_AMESSAGE
 // da li ovu tabelu treba brisati svaki put ili ne
@@ -76,7 +76,7 @@ return
  *  \param lAppSrv - ako se poziva kroz appsrv onda brise DATE()-93
  */
 function DeleteAllOldMsg(lAppSrv)
-*{
+
 
 if !lAppSrv
 	cBrojDana:=SPACE(3)
@@ -138,7 +138,7 @@ return
  *   Brise sve procitane poruke
  */
 function DeleteReadMsg()
-*{
+
 O_MESSAGE
 select message
 go top
@@ -165,7 +165,7 @@ return
  *   Brise sve poruke koje su poslane
  */
 function DeleteSentMsg()
-*{
+
 O_MESSAGE
 select message
 go top
@@ -195,7 +195,7 @@ return
  *  \param cSite - oznaka site-a prodavnice (npr. 50)
  */
 function ImportMsgFrom(cDrive, cSite)
-*{
+
 O_MESSAGE
 
 // postavi parametre SITE i USER
@@ -277,7 +277,7 @@ return
  *  \param cTo
  */
 function IsMsgExistLocaly(cFromHost, cFromUser, cText, dCreated, dSent, cTo)
-*{
+
 select message
 // TAG "5"
 // fromhost+fromuser+PADR(text,40)+DToS(created)+DToS(sent)+to

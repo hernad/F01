@@ -37,7 +37,7 @@
  */
 
 function Get1_RN()
-*{
+
 // ovim funkcijama je proslije|en parametar fnovi kao privatna varijabla
 if nRbr==1 .and. fnovi
   _DatFaktP:=_datdok
@@ -232,7 +232,7 @@ return lastkey()
  */
 
 function Get2_RN()
-*{
+
 local cSPom:=" (%,A,U,R) "
 private getlist:={}
 

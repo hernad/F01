@@ -30,7 +30,7 @@ STATIC cLDirekt := "0"
  */
  
 function Pitanje(cId, cPitanje, cOdgDefault, cMogOdg)
-*{
+
 local cPom
 local cOdgovor
 
@@ -89,7 +89,7 @@ RETURN .f.
  */
  
 function Pitanje2(cId,cPitanje,cOdgDefault)
-*{
+
 local cOdg
 local nDuz:=LEN(cPitanje)+4
 local cPom:=SET(_SET_DEVICE)
@@ -196,7 +196,7 @@ endif
  */
  
 function GetLozinka(nSiflen)
-*{
+
 local cKorsif
 
 cKorsif:=""
@@ -252,7 +252,7 @@ return padr(cKorSif,nSifLen)
  */
  
 function TrebaRegistrovati(nSlogova)
-*{
+
 if gAppSrv
 	return
 endif
@@ -290,7 +290,7 @@ return
  */
  
 function PozdravMsg(cNaslov,cVer, lGreska)
-*{
+
 local lInvert
 
 if gAppSrv

@@ -38,7 +38,7 @@
  */
 
 function NaPrimPak()
-*{
+
  LOCAL nStavki:=0, nKolicina:=0, nUlaz:=0, nIzlaz:=0, dDatKalk, cBrDok
   IF IzFMKIni("Svi","Sifk")<>"D"
     MsgBeep("Sifrarnik dodatnih karakteristika nedostupan! (Sifk<>'D')")
@@ -217,7 +217,7 @@ return
  */
 
 function NaPrPak2()
-*{
+
  LOCAL nStavki:=0, nKolicina:=0, nUlaz:=0, nIzlaz:=0, dDatKalk, cBrDok
   IF IzFMKIni("Svi","Sifk")<>"D"
     MsgBeep("Sifrarnik dodatnih karakteristika nedostupan! (Sifk<>'D')")

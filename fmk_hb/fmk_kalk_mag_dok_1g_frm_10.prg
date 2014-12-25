@@ -29,7 +29,7 @@
  */
 
 function Get1_10()
-*{
+
 // ovim funkcijama je proslijedjen parametar fnovi kao privatna varijabla
 if nRbr==1 .and. fnovi
 	_DatFaktP:=_datdok
@@ -155,7 +155,7 @@ return lastkey()
  */
 
 function Get2_10()
-*{
+
 local cSPom:=" (%,A,U,R) "
 private getlist:={}
 
@@ -241,7 +241,7 @@ return lastkey()
  */
 
 function Get1_10s()
-*{
+
 LOCAL nNCpom:=0
 
 if nRbr==1  .or. !fnovi
@@ -352,7 +352,7 @@ return lastkey()
  */
 
 function V_kol10()
-*{
+
 if _kolicina<0  // storno
 nKolS:=0;nKolZN:=0;nc1:=nc2:=0; dDatNab:=ctod("")
  if !empty(gMetodaNC)

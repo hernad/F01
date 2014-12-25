@@ -29,7 +29,7 @@
  */
 
 function GenProizvodnja()
-*{
+
 private Opc:={}
 private opcexe:={}
 
@@ -50,7 +50,7 @@ return
  */
 
 function Iz47u96Norm()
-*{
+
 local cIdFirma:=gFirma, cBrDok:=cBrKalk:=space(8)
 O_PRIPR
 O_KALK

@@ -22,7 +22,7 @@
  */
 
 function MPSifk()
-*{
+
 cUvijek:="N"
 qqIdVD:=padr("10;81;",20)
 
@@ -81,7 +81,7 @@ return
  */
 
 function DobUSifk()
-*{
+
 cUvijek:="N"
 qqIdVD:=padr("10;81;",20)
 

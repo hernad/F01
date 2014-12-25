@@ -51,7 +51,7 @@
  */
 
 function Get1_18()
-*{
+
 _DatFaktP:=_datdok
 
 _DatKurs:=_DatFaktP

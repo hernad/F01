@@ -24,7 +24,7 @@
  */
 
 function StKalk95_PDV()
-*{
+
 local cKto1
 local cKto2
 local cIdZaduz2

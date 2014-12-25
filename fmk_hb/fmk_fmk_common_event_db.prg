@@ -18,7 +18,7 @@
  *  \param nArea - podrucje
  */
 function CreEvents(nArea)
-*{
+
 close all
 
 if VALTYPE(goModul:oDatabase:cSigmaBD) <> "C"
@@ -107,7 +107,7 @@ return
  *   Pregled sifrarnika dogadjaja
  */
 function P_Events(cId,dx,dy)
-*{
+
 local nArr
 private imekol
 private kol
@@ -139,7 +139,7 @@ return PostojiSifra(F_EVENTS,1,10,60,"Events - dogadjaji koji se logiraju",@cId,
  *   Povecava vrijednost polja ID za 1
  */
 static function IncID(wId)
-*{
+
 local nRet:=.t.
 if ((Ch==K_CTRL_N) .or. (Ch==K_F4))
 	if (LastKey()==K_ESC)
@@ -159,7 +159,7 @@ return nRet
  *  \param nRecNo - broj zapisa na koji se pointer treba vratiti poslije uzete vrijednosti
  */
 static function LastID(nRecNo)
-*{
+
 go bottom
 nLastID:=field->id
 go nRecNo
@@ -171,7 +171,7 @@ return nLastID
  *  \param lAutomatic - .t. brisi automatski, .f. nemoj brisati automatski
  */
 function BrisiLogove(lAutomatic)
-*{
+
 if lAutomatic
 	NotImp()
 	return
@@ -210,7 +210,7 @@ return
 
 
 function PobrisiLOG(dDatOd,dDatDo,cModul)
-*{
+
 lAuto:=.f.
 //prvo provjeri da li se radi o automatskom brisanju
 if (dDatOd==nil .and. dDatDo==nil .and. cModul==nil)

@@ -46,7 +46,7 @@
  */
 
 function StDoks()
-*{
+
 local nCol1:=0,cImeKup
 local cidfirma
 local nul,nizl,nRbr
@@ -69,7 +69,7 @@ return
  */
 
 function SStDoks()
-*{
+
 local lImaUkSt:=.f.
 O_DOKS
 O_PARTN
@@ -265,7 +265,7 @@ return
  */
 
 function GenDoks()
-*{
+
 O_KALK
 
 select kalk

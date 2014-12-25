@@ -35,7 +35,7 @@
  */
  
 function O_Log()
-*{
+
 return
 
 

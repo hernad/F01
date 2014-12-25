@@ -16,7 +16,7 @@
  *   Arhiviranje podataka 
  */
 function ArhSigma()
-*{
+
 local cPomD
 local cDbfKontr
 local cPomd2
@@ -90,7 +90,7 @@ return
 */
 
 function OtkUredj(cDIr)
-*{
+
 local nPos
 nPos:=AT(":",cDir)
 if nPos<>0
@@ -122,7 +122,7 @@ return  cDir
  */
  
 function Dirmak2(cDir)
-*{
+
 local nPos, npom
 
 nPom:=dirmake(cdir)
@@ -147,7 +147,7 @@ endif
 */
 
 function CopySve(cMask,cInPath,cOutPath)
-*{
+
 local aFiles:={} , i
 aFiles:=Directory(cInPath+cMask)
 for i:=1 to  len(aFiles)
@@ -170,7 +170,7 @@ return NIL
  */
 
 function DelSve(cMask,cInPath)
-*{
+
 local aFiles:={} , i, cPom
 
 cPom:=cInPath+iif(right(cInPath,1)<>SLASH,SLASH,"")+cMask
@@ -200,7 +200,7 @@ return NIL
 
 
 function Zakljucaj(cIme)
-*{
+
 local fRet:=.t., nHandle
 local nPos
 nPos:=ASCAN(aFilesK,{|x| x[1]==upper(cIme)})
@@ -225,7 +225,7 @@ endif
 
 
 function Otkljucaj(cIme)
-*{
+
 local nPos
 nPos:=ASCAN(aFilesK,{|x| x[1]==upper(cIme)})
 if nPos<>0; fclose(aFilesK[nPos,2]); endif
@@ -356,7 +356,7 @@ return
 
 
 function UnZipuj(cImeArh,cLokacija,cDest)
-*{
+
 
 *
 * unzipuj
@@ -422,7 +422,7 @@ return fret
 
 
 function IscitajCRC(cFajl)
-*{
+
 
 LOCAL cPom
 IF cFajl==NIL
@@ -434,7 +434,7 @@ RETURN { VAL(LEFT(cPom,10)) , VAL(RIGHT(cPom,10)) }
 
 
 function NapraviCRC(cFajl,n1,n2)
-*{ 
+ 
  LOCAL nH:=0
   IF cFajl==NIL; cFajl:="CRC.CRC"; ENDIF
   IF FILE( cFajl )
@@ -450,7 +450,7 @@ RETURN
 
 
 function IntegDBF(cBaza)
-*{
+
 LOCAL berr, nRec:=RECNO(), nExpr:=0, nExpr2:=0, cStr:="", j:=0
    bErr:=ERRORBLOCK({|o| MyErrH(o)})
    BEGIN SEQUENCE
@@ -487,7 +487,7 @@ RETURN { nExpr , nExpr2 }
 
 
 function UzmiIzArj(fBrisi,cEXT, cSwitch)
-*{
+
 
 * fBrisi
 * cSwitch - extra switchevi
@@ -564,7 +564,7 @@ return
 
 
 function StaviUArj(aDirs)
-*{
+
 
 local fRet:=.t.
 local fCDX:=.f.
@@ -658,7 +658,7 @@ return fret
  */
 
 function OFSveuDir(cPath,aFiles)
-*{
+
 local nRet:=.t.
 local i
 aFiles:=Directory(trim(cPath)+"*.DBF")
@@ -682,7 +682,7 @@ return nRet
  */
 
 function ZFSveuDir(aFiles)
-*{
+
 local i
 for i:=1 to len(afiles)
  if aFiles[i,2]>0  // ako je -1 preskoci

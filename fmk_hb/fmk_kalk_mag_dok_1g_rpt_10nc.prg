@@ -38,7 +38,7 @@
  */
 
 function StKalk10_1()
-*{
+
 local nCol1:=nCol2:=0,npom:=0
 
 

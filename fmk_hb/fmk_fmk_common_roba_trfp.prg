@@ -21,7 +21,7 @@
  
 
 function P_TRFP(cId,dx,dy)
-*{
+
 Private imekol,kol
 ImeKol:={  ;
            { "Kalk",  {|| padc(IdVD,4)} ,    "IdVD"                  },;
@@ -71,7 +71,7 @@ set filter to
 
 
 function TrfpB(Ch)
-*{
+
 local cShema2:="1"
 local cTekShema
 local cIdvd:=""
@@ -183,7 +183,7 @@ return DE_CONT
 
 
 FUNCTION UndoSheme(lKopi)
-*{
+
 LOCAL cPom:="170771.POM", cStari:=SIFPATH+"TRFP.ST", cTekuci:=SIFPATH+"TRFP.DBF"
   LOCAL cStari2:=SIFPATH+"TRFPI1.ST", cTekuci2:=SIFPATH+"TRFP.CDX"
   IF lKopi==NIL; lKopi:=.f.; ENDIF
@@ -210,7 +210,7 @@ RETURN
 
 
 FUNCTION PostTRFP(cDirSa)
-*{
+
 LOCAL lVrati:=.f.
  IF FILE(TRIM(cDirSa)+"TRFP.DBF")
    IF FILE(TRIM(cDirSa)+"TRFP.CDX")
@@ -226,7 +226,7 @@ RETURN lVrati
 
 
 function v_setform()
-*{
+
 local cscsr
 if file(SIFPATH+gSetForm+"TRXX.ZIP") .and. pitanje(,"Sifranik parametara kontiranja iz arhive br. "+gSetForm+" ?","N")=="D"
  private ckomlin:="unzip  -o -d "+SIFPATH+gSetForm+"TRXX.ZIP "+SIFPATH

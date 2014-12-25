@@ -20,7 +20,7 @@
  
 
 function ViseDokUPripremi(cIdd)
-*{
+
 
 if field->idPartner+field->brFaktP+field->idKonto+field->idKonto2<>cIdd
      set device to screen
@@ -78,7 +78,7 @@ return cRet
  */
 
 function PrikaziDobavljaca(cIdRoba, nRazmak, lNeIspisujDob)
-*{
+
 if lNeIspisujDob==NIL
 	lNeIspisujDob:=.t.
 else

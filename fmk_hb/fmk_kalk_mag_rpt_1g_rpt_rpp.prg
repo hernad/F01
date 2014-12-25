@@ -15,7 +15,7 @@
 
 // pregled poreza na promet u vp
 function RekPorNap()
-*{
+
 local nT0:=nT1:=nT2:=nT3:=nT4:=0
 local nCol1:=0
 local PicCDEM:=gPicCDEM       

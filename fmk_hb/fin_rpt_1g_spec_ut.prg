@@ -198,7 +198,7 @@ RETURN nVrati
  */
  
 function IspisRocnosti()
-*{
+
 LOCAL cRocnost:=Rocnost(), cVrati
   IF cRocnost=="999"
     cVrati:=" PREKO "+STR(nDoDana4,3)+" DANA"

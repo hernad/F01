@@ -31,7 +31,7 @@
  */
 
 function IP()
-*{
+
 O_KONTO
 O_TARIFA
 O_SIFK
@@ -150,7 +150,7 @@ return
 
 // generacija inventure - razlike postojece inventure
 function gen_ip_razlika()
-*{
+
 O_KONTO
 
 Box(,4,50)
@@ -296,7 +296,7 @@ return
  */
 
 function RedniBroj(nRbr)
-*{
+
 // max mjesta je 3
 local nOst
 if nRbr>999
@@ -317,7 +317,7 @@ return
  */
 
 function RbrUNum(cRBr)
-*{
+
 if left(cRbr,1)>"9"
    return  (asc(left(cRbr,1))-65+10)*100  + val(substr(cRbr,2,2))
 else
@@ -335,7 +335,7 @@ return
  */
 
 function Get1_IP()
-*{
+
 local nFaktVPC
 
 _DatFaktP:=_datdok
@@ -394,7 +394,7 @@ return lastkey()
 
 
 static function VKol()
-*{
+
 local lMoze:=.t.
 if (glZabraniVisakIP)
 	if (_kolicina>_gkolicina)

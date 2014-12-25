@@ -321,7 +321,7 @@ RETURN
  */
 
 function SpecBrDan()
-*{
+
 local nCol1:=0
 picBHD:=FormPicL("9 "+gPicBHD,16)
 picDEM:=FormPicL("9 "+gPicDEM,16)
@@ -662,7 +662,7 @@ RETURN
  */
  
 function SpecPoK()
-*{
+
 local cSK:="N"
 PRIVATE nC:=66
 
@@ -1436,7 +1436,7 @@ return
  */
  
 function SpecSubPro()
-*{
+
 PRIVATE fK1:=fk2:=fk3:=fk4:="N",cSK:="N", cSkVar:="N"
 
 O_PARAMS
@@ -1735,7 +1735,7 @@ return
  */
  
 function SpecKK2(lOtvSt)
-*{
+
 local fK1:=fk2:=fk3:=fk4:="N",nC1:=35
 cIdFirma:=gFirma
 
@@ -2022,7 +2022,7 @@ return
  *   Specifikacija konta za odredjene partnere
  */
 function SpecPop()
-*{
+
 local nCol1:=nCol2:=0
 
 M:="----- ------- ----------------------------- ----------------- ---------------- ------------ ------------ ---------------- ------------"
@@ -2697,7 +2697,7 @@ return
  *  \param lK
  */
 function UpitK1K4(mxplus,lK)
-*{
+
 IF lK==NIL; lK:=.t.; ENDIF
 
 IF lK
@@ -2767,7 +2767,7 @@ return
  */
  
 function PrikK1K4(lK)
-*{
+
 local fProso:=.f.
 local nArr:=SELECT()
 local lVrsteP:=.f.
@@ -2875,7 +2875,7 @@ return
  */
  
 function PartVanProm()
-*{
+
 LOCAL   dDatOd := CTOD (""), dDatDo := DATE ()
 private picBHD:=FormPicL(gPicBHD,16)
 private picDEM:=FormPicL(gPicDEM,12)
@@ -2973,7 +2973,7 @@ return
  */
  
 function FormDat1(dUlazni)
-*{
+
 LOCAL cVrati
   SET CENTURY ON
   cVrati:=DTOC(dUlazni)+"."
@@ -4180,7 +4180,7 @@ return PADC(cTxt, nLen)
  */
  
 function Rocnost()
-*{
+
 LOCAL nDana := ABS(IF( EMPTY(datval) , datdok , datval ) - dNaDan), cVrati
   IF nDana<=nDoDana1
     cVrati := STR( nDoDana1 , 3 )
@@ -4206,7 +4206,7 @@ RETURN cVrati
  */
  
 function RekPPG(lPDV)
-*{
+
 LOCAL GetList:={}
 
   IF lPDV==NIL; lPDV:=.f.; ENDIF     // popuni dat.val.
@@ -4407,7 +4407,7 @@ CLOSERET
  */
  
 function Mjesto(cMjesto)
-*{
+
 local fRet
 local nSel := select()
 
@@ -4430,7 +4430,7 @@ return fRet
  */
  
 function TraziUPGod(cKrit,cDP)
-*{
+
 FOR i:=2 TO LEN(aGod)
     cKrit:=STUFF(cKrit,3,7,aGod[i,2])    // mozda je stari konto
     IF SELECT("PG"+aGod[i,1])==0
@@ -4492,7 +4492,7 @@ RETURN
  */
  
 function P_VKSG(cId,dx,dy)
-*{
+
 PRIVATE ImeKol,Kol
 ImeKol:={ { "Konto"   , {|| id    },     "id"       },;
           { "Godina"  , {|| godina},     "godina"   },;
@@ -4510,7 +4510,7 @@ return PostojiSifra(F_VKSG,1,10,60,"Veze konta sa prethodnim godinama",@cId,dx,d
  */
  
 function FFor1()
-*{
+
 cIdP:=IDPARTNER
 
   ukPartner:=0
@@ -4549,7 +4549,7 @@ RETURN .t.
  */
 
 function FSvaki1()
-*{
+
 ++nRbr
 cNPartnera:=PADR(Ocitaj(F_PARTN,IDPARTNER,"naz"), 25)
 RETURN
@@ -4561,7 +4561,7 @@ RETURN
  */
 
 function RPPG()
-*{
+
 local izbor
 
 private opc[3]
@@ -4604,7 +4604,7 @@ return
  *  \note Preduslov je da je podeseno polje ROKP u sif.partnera (preko SifK)
  */
 function PopValIzSifPartn()
-*{
+
 
 PRIVATE cIdKonto:=PADR("2120",7), cTGodina:=STR(YEAR(DATE()),4)
 PRIVATE cIdFirma:=gFirma, cIdPartner:=space(6), cBrisi:="N"

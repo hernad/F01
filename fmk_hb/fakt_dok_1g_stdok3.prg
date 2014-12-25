@@ -71,7 +71,7 @@
  */
  
 function Stdok3()
-*{
+
 parameters cIdFirma,cIdTipDok,cBrDok
 private i,nCol1:=0,cTxt1,cTxt2,aMemo,nMPVBP:=nVPVBP:=0
 private cTi,nUk,nRab,nUk2:=nRab2:=0
@@ -464,7 +464,7 @@ closeret
  */
  
 function Zagl3()
-*{
+
 P_COND
 ? space(gnLMarg); ?? m
 ? space(gnLMarg); ?? " R.br   Sifra    Tarifa u MP         Naziv                            jmj   kolicina      Cijena   Rabat  Por    Ukupno"

@@ -21,7 +21,7 @@
  *  \param dDatDok - datum dokumenta
  */
 function GetBlPrParams(dDatOd, dDatDo, dDatDok, cTipNal, cShema)
-*{
+
 dDatOd:=DATE()-30
 dDatDo:=DATE()
 dDatDok:=DATE()
@@ -52,7 +52,7 @@ return
  *   Centralna funkcija za prenos PROMVP u FIN
  */
 function PrenBl2Fin()
-*{
+
 private dDatOd
 private dDatDo
 private dDatDok
@@ -142,7 +142,7 @@ return
  *  \param dDatNal - datum naloga
  */
 static function Azur2Pripr(cBrojNal, dDatNal)
-*{
+
 local nArr
 nArr:=SELECT()
 
@@ -171,7 +171,7 @@ return
  *  \param cField - polje, npr "POLOG01"
  */
 static function BlDan(cField)
-*{
+
 local nArr
 nArr:=SELECT()
 select F_B_BLAG
@@ -205,7 +205,7 @@ return 1
  *  \param cField - polje, npr "POLOG01"
  */
 static function GetBlIznos(cField)
-*{
+
 local nArr
 nArr:=SELECT()
 select F_B_BLAG
@@ -237,7 +237,7 @@ return nIzn
  *   Otvaranje neophodnih tabela 
  */
 static function OpenKtDB()
-*{
+
 O_KONCIJ
 O_PARTN
 O_SUBAN
@@ -258,7 +258,7 @@ return
  *  \param cBlagKPath - putanja
  */
 static function SetBlagKPath(cBlagKPath)
-*{
+
 cPom := ""
 cPom := IzFmkIni("FIN", "BlagKumPath", "c:\sigma\blag\kum1", KUMPATH)
 if (cPom == nil) .or. Empty(cPom)

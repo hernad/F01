@@ -19,7 +19,7 @@
  */
  
 function OiNIsplate()
-*{
+
 LOCAL nRec:=0
  PRIVATE cBrojOiN:="T"     // T,S,O
   SELECT PRIPR
@@ -187,7 +187,7 @@ return
  *  \param cIdKonto - id konto
  */
 function ChkKtoMark(cIdKonto)
-*{
+
 bRet:=.t.
 cMark:=IzSifK("KONTO", "MARK", cIdKonto, NIL)
 do case

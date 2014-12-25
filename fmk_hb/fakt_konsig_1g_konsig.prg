@@ -23,7 +23,7 @@
  */
  
 function GKRacun()
-*{
+
 O_PRIPR
 O_FAKT
 SET ORDER TO TAG "3"

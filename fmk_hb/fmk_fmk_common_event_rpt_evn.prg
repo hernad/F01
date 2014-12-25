@@ -17,7 +17,7 @@
  */
  
 function KarticaLog()
-*{
+
 O_USERS
 O_EVENTS
 O_EVENTLOG
@@ -289,7 +289,7 @@ return
  */
  
 function ZaglKartEvent(cLinija)
-*{
+
 nStrana:=0
 
 set century on

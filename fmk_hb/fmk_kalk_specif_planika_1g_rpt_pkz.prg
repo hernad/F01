@@ -570,7 +570,7 @@ return
 
 
 static function NadjiPMpc()
-*{
+
 local nMpc
 local nTRec
 select rekap1
@@ -595,7 +595,7 @@ return nMpc
 
 
 static function SetK1K2(cG1, cIdTarifa, cIdRoba, nK1, nK2)
-*{
+
 nK2:=0
 nK1:=0
 select pobjekti
@@ -619,7 +619,7 @@ return
  */
 
 static function Izmj_cPrSort()
-*{
+
 local GetList:={}
  Box(,3,75)
   cPrSort:=PADR(cPrSort,80)
@@ -631,7 +631,7 @@ return
 
 
 static function PaperFormatHelp()
-*{
+
 cPoruka:="Formati papira - legenda:"
 cPoruka+="##A3  - A3 format papira"
 cPoruka+="##A3L - A3 landscape papir"
@@ -650,7 +650,7 @@ return
  */
 
 static function ZagPKret(cVarijanta)
-*{
+
 if cPapir=="A4L" .or. cPapir=="A3L"
 	P_COND2
 endif
@@ -744,7 +744,7 @@ return nil
 
 
 static function GetVars(cNObjekat, dDatOd, dDatDo, cIdKPovrata, cRekPoRobama, cRekPoDobavljacima, cRekPoGrupamaRobe, cK1, cK7, cK9, cPlVrsta, cPapir, cPrikazDob,  aUsl1, aUsl2, aUslR, aUslSez)
-*{
+
 
 O_PARAMS
 private cSection:="F",cHistory:=" ",aHistory:={}
@@ -827,7 +827,7 @@ return 1
 
 
 function SetLinija(cLinija, nUkObj)
-*{
+
 cLinija:="---- --------- ----------------------------"
 select pobjekti
 // inicijalizuj cLinija
@@ -844,7 +844,7 @@ return
 
 
 function SetGaZag(cRekPoRobama, cRekPoDobavljacima, cRekPoGrupamaRobe, gaZagFix, gaKolFix)
-*{
+
 
 if cRekPoRobama=="D"
 	// 7.red fajla, 4 reda ukupno (7.,8.,9. i 10.) (ovi redovi su zaglavlje ovog izvjestaja i fiksno se prikazuju na ekranu)
@@ -864,7 +864,7 @@ return
 
 
 function RekPoRobama(cLinija, nCol1)
-*{
+
 
 ? cLinija
 
@@ -908,7 +908,7 @@ return
 
 
 function RekPoDob(cRekPoRobama, cLinija, nCol1, nUkObj, aUTar)
-*{
+
 
  aPom:={"U",""}
   for i:=1 to nUkObj+2
@@ -978,7 +978,7 @@ return
 
 
 function RekPoGrup(cRekPoGrupama, cRekPoDobavljacima, aUGArt)
-*{
+
 
 ASORT( aUGArt , , , { |x,y|  x[2] < y[2] } )
 aPom:={"U",""}

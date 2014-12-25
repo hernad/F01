@@ -22,7 +22,7 @@
  */
  
 function DokNovaStrana(nColumn, nStr, nSlijediRedovaZajedno)
-*{
+
 
 if (nSlijediRedovaZajedno==nil)
 	nSlijediRedovaZajedno:=1
@@ -42,7 +42,7 @@ return
 
 
 function NovaStrana(bZagl, nOdstampatiStrana)
-*{
+
 
 if (nOdstampatiStrana==nil)
 	nOdstampatiStrana:=1
@@ -59,7 +59,7 @@ return
 
 
 function PrnClanoviKomisije()
-*{
+
 
 ?
 P_10CPI
@@ -78,7 +78,7 @@ return
  */
  
 function FSvaki2()
-*{
+
 RETURN
 
 
@@ -105,7 +105,7 @@ endif
 return
 
 function IspisNaDan(nEmptySpace)
-*{
+
 ?? REPLICATE(" ",nEmptySpace) + " Na dan: " + DToC(DATE())
 return
 

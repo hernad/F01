@@ -43,7 +43,7 @@
  */
  
 function Planika2()
-*{
+
 cIdFirma:=gFirma
 cIdKonto:=padr("1320",gDuzKonto)
 if IzFMKIni("Svi","Sifk")=="D"
@@ -302,7 +302,7 @@ return
  */
  
 function ZPlanika()
-*{
+
 select konto
 hseek cIdKonto
 ?? "Prodavnica:", cIdKonto, "-", konto->naz

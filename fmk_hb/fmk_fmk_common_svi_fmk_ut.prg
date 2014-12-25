@@ -28,7 +28,7 @@
  */
  
 function UBrojDok(nBroj,nNumdio,cOstatak)
-*{
+
 return padl( alltrim(str(nBroj)), nNumDio, "0")+cOstatak
 
 
@@ -36,7 +36,7 @@ return padl( alltrim(str(nBroj)), nNumDio, "0")+cOstatak
  *   Kalkulator
  */
 function Calc()
-*{
+
 local GetList:={}
 private cIzraz:=SPACE(40)
 
@@ -149,7 +149,7 @@ return
 
 
 function kbroj(cSifra)
-*{
+
 local i,cPom,nPom,nKontrola, nPom3
 
 cSifra:=alltrim(cSifra)
@@ -188,7 +188,7 @@ return cSifra+alltrim(str(nKontrola,0))
 
 
 function round2(nizraz,niznos)
-*{
+
 
 *
 * pretpostavlja definisanu globalnu varijablu g50F
@@ -284,7 +284,7 @@ RETURN
 
 
 static function DefKonv()
-*{
+
  LOCAL GetList:={}, bKeyOld:=SETKEY(K_ALT_V,NIL)
  PushWA()
  select 99
@@ -325,7 +325,7 @@ RETURN
 
 
 function Adresar()
-*{
+
 
 PushWa()
 select (F_ADRES)
@@ -351,7 +351,7 @@ return nil
 
 
 function P_Adres(cId,dx,dy)
-*{
+
 
 local fkontakt:=.f.
 
@@ -769,7 +769,7 @@ RETURN .T.
 
 
 function BrisiIzDir (cDir)
-*{
+
 LOCAL aFiles, nCnt, nRes
   Beep (4)
   Box (,1,60)
@@ -789,7 +789,7 @@ return
 
 
 function FmkSviVer()
-*{
+
 return DBUILD
 
 

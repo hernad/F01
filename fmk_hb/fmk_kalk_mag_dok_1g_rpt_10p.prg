@@ -20,7 +20,7 @@
  
 
 function StKalk10_PDV()
-*{
+
 local nCol1:=0
 local nCol2:=0
 local nPom:=0

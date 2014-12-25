@@ -382,7 +382,7 @@ return
  */
  
 function ZaglRPartn(fTabela)
-*{
+
 if ftabela=NIL
   ftabela:=.t.
 endif

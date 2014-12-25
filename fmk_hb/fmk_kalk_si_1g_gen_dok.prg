@@ -29,7 +29,7 @@
  */
  
 function Otpis16SI()
-*{
+
 O_KONCIJ
 O_PRIPR
 O_PRIPR2

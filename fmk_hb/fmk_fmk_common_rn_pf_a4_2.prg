@@ -14,7 +14,7 @@
 
 // stampa fakture a4
 function st_pf_a4_2(lStartPrint)
-*{
+
 local cBrDok
 local dDatDok
 local aRNaz
@@ -209,7 +209,7 @@ return
 
 // zaglavlje glavne tabele sa stavkama
 static function st_zagl_data(cLine, cRazmak, cVarijanta)
-*{
+
 local cRed1:=""
 local cRed2:=""
 local cRed3:=""
@@ -248,7 +248,7 @@ return
 
 // funkcija za ispis slobodnog teksta na kraju fakture
 function pf_a4_sltxt(cRazmak, cLine)
-*{
+
 local cTxt
 local nFTip
 
@@ -278,7 +278,7 @@ return
 
 // generalna funkcija footer
 static function pf_a4_footer(cRazmak, cLine)
-*{
+
 // ispisi slobodni text
 pf_a4_sltxt(cRazmak, cLine)
 ?
@@ -293,7 +293,7 @@ return
 
 // funkcija za ispis headera
 static function pf_a4_header()
-*{
+
 local cRazmak := SPACE(3)
 local cDLHead := REPLICATE("=", 72) // double line header
 local cSLHead := REPLICATE("-", 72) // single line header
@@ -379,7 +379,7 @@ return
 
 // definicija linije za glavnu tabelu sa stavkama
 static function pf_a4_line(cLine, cRazmak)
-*{
+
           
 cLine := cRazmak
 // RBR
@@ -407,7 +407,7 @@ return
 
 // funkcija za ispis podataka o kupcu, dokument, datum fakture, otpremnica itd..
 static function pf_a4_kupac(cRazmak)
-*{
+
 local cKNaziv
 local cKAdresa
 local cKIdBroj
@@ -521,7 +521,7 @@ return
 
 // funkcija za novu stranu
 static function NStr(cLine, nStr, cRazmak, lShZagl)
-*{
+
 
 ? cLine
 ? cRazmak + "Prenos na sljedecu stranicu"

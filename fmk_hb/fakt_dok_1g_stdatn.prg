@@ -667,7 +667,7 @@ return nRet
 
 // printaj narudzbenicu
 function pr_nar()
-*{
+
 select doks
 nTrec:=recno()
 _cIdFirma:=idfirma
@@ -698,7 +698,7 @@ return DE_CONT
 
 // print radni nalog
 function pr_rn()
-*{
+
 select doks
 nTrec:=recno()
 _cIdFirma:=idfirma
@@ -727,7 +727,7 @@ return DE_CONT
 
 // stampaj poresku fakturu
 function pr_pf()
-*{
+
 select doks
 nTrec:=recno()
 _cIdFirma:=idfirma
@@ -968,7 +968,7 @@ return DE_REFRESH
 
 
 function pr_choice()
-*{
+
 local nSelected
 private Opc:={}
 private opcexe:={}
@@ -1411,7 +1411,7 @@ return nRet
  */
 
 function RekTarife(cPMP,cRegion)
-*{
+
 // prosljedjuje cidfirma,cidvd,cbrdok
 local nArea:=select()
 
@@ -1526,7 +1526,7 @@ return
  */
 
 function VTPorezi()
-*{
+
 public _ZPP:=0
 if roba->tip=="V"
   public _OPP:=0,_PPP:=tarifa->ppp/100
@@ -1550,7 +1550,7 @@ return
  */
 
 function RealPartn()
-*{
+
 O_DOKS
 O_PARTN
 O_VALUTE

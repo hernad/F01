@@ -37,7 +37,7 @@
  */
 
 function StKalk18()
-*{
+
 local nCol1:=nCol2:=0,npom:=0,nCR:=0
 
 Private nPrevoz,nCarDaz,nZavTr,nBankTr,nSpedTr,nMarza,nMarza2

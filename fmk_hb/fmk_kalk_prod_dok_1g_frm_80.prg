@@ -33,7 +33,7 @@
 // prijem prodavnica, predispozicija
 
 function Get1_80()
-*{
+
 private aPorezi:={}
 if nRbr==1 .and. fnovi
   _DatFaktP:=_datdok
@@ -291,7 +291,7 @@ return lastkey()
  */
 
 function Svedi(cSvedi)
-*{
+
 if cSvedi=="M"
 
     select koncij
@@ -323,7 +323,7 @@ return .t.
  */
 
 static function VKol()
-*{
+
 if _kolicina<0  // storno
 //////// kalkulacija nabavne cijene
 //////// nKolZN:=kolicina koja je na stanju a porijeklo je od zadnje nabavke

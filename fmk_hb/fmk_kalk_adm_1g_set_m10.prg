@@ -37,7 +37,7 @@
  */
 
 function SetMarza10()
-*{
+
 if !SigmaSif("BERINA")
  return
 endif

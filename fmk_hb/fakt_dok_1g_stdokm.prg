@@ -34,7 +34,7 @@
  */
 
 function StDokM()
-*{
+
 parameters cIdFirma,cIdTipDok,cBrDok
 PRIVATE aZagl:={}, aZagl2:={}, aKol:={}, aPodn:={}, yKor:=0
 
@@ -168,7 +168,7 @@ CLOSERET
  */
  
 function UkupneVrijednosti()
-*{
+
 NSRNPIdRoba()   // Nastimaj (hseek) Sifr.Robe Na Pripr->IdRoba
    if alltrim(podbr)=="."   .or. roba->tip="U"
       aMemo:=ParsMemo(txt)
@@ -326,7 +326,7 @@ return .t.
  */
  
 function IspisiZaglavlje()
-*{
+
 LOCAL i:=0
  P_10CPI
  if gBold=="1"; B_ON; endif
@@ -348,7 +348,7 @@ RETURN
  */
  
 function IspisiPodnozje()
-*{
+
 xKA:=prow()
  FOR i:=1 TO LEN(aPodn)
    //  aPodn : { kx , ky , tipslova , formula }
@@ -371,7 +371,7 @@ RETURN
  */
  
 function MSay(cTxt,x,y,cKod)
-*{
+
 STATIC nLine:=0
   IF nLine<>x; yKor:=0; ENDIF
   @ xKA+x,y+ykor SAY ""
@@ -386,7 +386,7 @@ RETURN
  */
  
 function PljuniKod(cKod)
-*{
+
 LOCAL i:=0, nKol:=PCOL()
   FOR i:=1 TO LEN(cKod)
     DO CASE
@@ -408,7 +408,7 @@ RETURN (PCOL()-nKol)
  */
  
 function LiziKod(cKod)
-*{
+
 LOCAL i:=0, nKol:=PCOL()
   FOR i:=1 TO LEN(cKod)
     DO CASE
@@ -429,7 +429,7 @@ RETURN (PCOL()-nKol)
  */
  
 function MjestIDat()
-*{
+
 RETURN ( padl(Mjesto(cIdFirma)+", "+dtoc(ddatdok)+" godine",39) )
 
 

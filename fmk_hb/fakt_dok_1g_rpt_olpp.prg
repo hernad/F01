@@ -35,7 +35,7 @@
  */
 
 function StOLPP()
-*{
+
 // sada se koristi StOLPDV()
 StOLPDV()
 return
@@ -43,7 +43,7 @@ return
 
 // stampa obracunskog lista PDV-a
 function StOLPDV()
-*{
+
 local nUkPDV:=0
 local nTotPDV:=0
 local ii:=0

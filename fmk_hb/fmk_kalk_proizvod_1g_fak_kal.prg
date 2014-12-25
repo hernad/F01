@@ -558,7 +558,7 @@ return
  */
 
 function PrenosNo2()
-*{
+
 local cIdFirma:=gFirma,cIdTipDok:="10;11;12;      ",cBrDok:=cBrKalk:=space(8)
 
 O_PRIPR

@@ -286,7 +286,7 @@ return
  */
  
 function PovDisk()
-*{
+
 local nRec
 PRIVATE cLokPren    := "A:\"
 PRIVATE cFZaPredaju := "AFIN"
@@ -422,7 +422,7 @@ return
  */
  
 function PPPDisk(lIni)
-*{
+
 LOCAL GetList:={}
   IF lIni==NIL; lIni:=.f.; ENDIF
   O_PARAMS

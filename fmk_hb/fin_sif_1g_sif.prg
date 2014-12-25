@@ -30,7 +30,7 @@
  */
  
 function ServFun()
-*{
+
 Box(,4,60)
   cOdg:="1"
   @ m_x+1,m_y+2 SAY "1. zamjeni u prometu sifru partnera:"
@@ -111,7 +111,7 @@ return
  */
  
 function P_dummy(cId,dx,dy)
-*{
+
 local cN2Fin, i
 
 PRIVATE ImeKol,Kol
@@ -215,7 +215,7 @@ return PostojiSifra(F_PARTN,1,10,60,"Lista Partnera",@cId,dx,dy,{|Ch| PartnBlok(
  */
  
 function PartnBlok(Ch)
-*{
+
 LOCAL cSif:=PARTN->id, cSif2:=""
 
 if Ch==K_CTRL_T .and. gSKSif=="D"
@@ -256,7 +256,7 @@ RETURN DE_CONT
  */
  
 function IzfUgovor()
-*{ 
+ 
 if IzFMkIni('FIN','VidiUgovor','N')=="D"
 
 Pushwa()
@@ -342,7 +342,7 @@ return .t.
  */
  
 function P_VN(cId,dx,dy)
-*{
+
 PRIVATE ImeKol,Kol
 ImeKol:={ { "ID  ",  {|| id },     "id"   , {|| .t.}, {|| vpsifra(wid)}    },;
           { "Naziv", {|| naz},     "naz"      };
@@ -361,7 +361,7 @@ return PostojiSifra(F_TNAL,1,10,60,"Lista: Vrste naloga",@cId,dx,dy)
  */
  
 function P_TipDok(cId,dx,dy)
-*{
+
 PRIVATE ImeKol,Kol
 ImeKol:={ { "ID  ",  {|| id },     "id"   , {|| .t.}, {|| vpsifra(wid)}    },;
           { "Naziv", {|| naz},     "naz"  };
@@ -381,7 +381,7 @@ return PostojiSifra(F_TDOK,1,10,60,"Lista: Tipovi dokumenata",@cId,dx,dy)
  */
  
 function P_KontoFin(cId,dx,dy,lBlag)
-*{
+
 private ImeKol:={}
 private Kol:={}
 ImeKol:={ { PADR("ID",7),  {|| id },     "id"  , {|| .t.}, {|| vpsifra(wid)} },;
@@ -464,7 +464,7 @@ return PostojiSifra(F_KONTO,1,10,60,"Lista: Konta ",@cId,dx,dy,{|Ch| KontoBlok(C
  */
  
 function KontoBlok(Ch)
-*{
+
 LOCAL nRec:=RECNO(), cId:=""
 LOCAL cSif:=KONTO->id, cSif2:=""
 
@@ -573,7 +573,7 @@ return DE_CONT
  */
  
 function P_PKonto(CId,dx,dy)
-*{
+
 PRIVATE ImeKol,Kol
 ImeKol:={ { "ID  ",  {|| id },   "id"   , {|| .t.}, {|| vpsifra(wid)}    },;
           { PADC("Tip prenosa",25), {|| PADC(TipPkonto(tip),25)},     "tip" ,{|| .t.}, {|| wtip $ "123456"}     };
@@ -590,7 +590,7 @@ return PostojiSifra(F_PKONTO,1,10,60,"Lista: Nacin prenosa konta u novu godinu",
  */
  
 function TipPKonto(cTip)
-*{
+
 if cTip="2"
   return "po saldu partnera"
 elseif cTip="1"
@@ -617,7 +617,7 @@ endif
 // */
 // *************************** koristi se zajednicka funkcija 
 //function P_Valuta(cid,dx,dy)
-//*{
+//
 //PRIVATE ImeKol,Kol
 //ImeKol:={ { "ID "       , {|| id }   , "id"        },;
 //          { "Naziv"     , {|| naz}   , "naz"       },;
@@ -643,7 +643,7 @@ endif
  */
  
 function P_Funk(cId,dx,dy)
-*{
+
 private imekol,kol
 
 ImeKol:={ { padr("Id",5)    , {|| id}  , "id", {|| .t.}, {|| vpsifra(wid)} },;
@@ -663,7 +663,7 @@ return PostojiSifra(F_FUNK,1,10,70,"Lista funkcionalne klasifikacije",@cId,dx,dy
  */
  
 function P_Fond(cId,dx,dy)
-*{
+
 private imekol,kol
 
 ImeKol:={ { padr("Id",3)    , {|| id}  , "id", {|| .t.}, {|| vpsifra(wid)} },;
@@ -683,7 +683,7 @@ return PostojiSifra(F_FOND,1,10,70,"Lista: Fondovi",@cId,dx,dy)
  */
  
 function P_BuIz(cId,dx,dy)
-*{
+
 private imekol,kol
 
 ImeKol:={ { padr("Konto",10)    , {|| id}  , "id", {|| .t.}, {|| vpsifra(wid)} },;
@@ -703,7 +703,7 @@ return PostojiSifra(F_BUIZ,1,10,70,"Lista: konta-izuzeci u sortiranju",@cId,dx,d
  */
  
 function P_Budzet(cId,dx,dy)
-*{
+
 private imekol,kol
 
 ImeKol:={ { "Glava",   {|| idrj}, "idrj",, {|| empty(wIdRj) .or. P_RJ (@wIdRj)}},;
@@ -728,7 +728,7 @@ return PostojiSifra(F_BUDZET,1,10,55,"Plan budzeta za tekucu godinu",@cId,dx,dy)
  */
  
 function P_ParEK(cId,dx,dy)
-*{
+
 private imekol,kol
 
 ImeKol:={ { "Partija", {|| IdPartija}, "idpartija",, {|| vpsifra (wIdPartija)}},;
@@ -748,7 +748,7 @@ return PostojiSifra(F_PAREK,1,10,55,"Partije->Konta" ,@cId,dx,dy)
  */
  
 function P_TRFP2(cId,dx,dy)
-*{
+
 private imekol,kol
 ImeKol:={  ;
            { "VD",  {|| padc(IdVD,4)} ,    "IdVD"                  },;
@@ -797,7 +797,7 @@ return
  */
  
 function P_TRFP3(cId,dx,dy)
-*{
+
 private imekol,kol
 ImeKol:={  { padc("Shema",5),    {|| padc(shema,5)},      "shema"     },;
            { padc("Formula/ID",10),    {|| id },      "id"            },;
@@ -838,7 +838,7 @@ return
  */
  
 function ImaUSuban(cKljuc,cTag)
-*{
+
 LOCAL lVrati:=.f., lUsed:=.t., nArr:=SELECT()
   SELECT (F_SUBAN)
   IF !USED()
@@ -868,7 +868,7 @@ RETURN lVrati
  */
  
 function P_Roba(CId,dx,dy)
-*{
+
 local cPrikazi
 
 //PRIVATE ImeKol,Kol:={}, xRet
@@ -899,7 +899,7 @@ return .t.
  */
  
 function P_VrsteP(cId,dx,dy)
-*{
+
 PRIVATE ImeKol,Kol:={}
 ImeKol:={ { "ID ",  {|| id },       "id"  , {|| .t.}, {|| vpsifra(wId)}      },;
           { PADC("Naziv",20), {|| naz},      "naz"       };
@@ -917,7 +917,7 @@ return PostojiSifra(F_VRSTEP,1,10,55,"Sifrarnik vrsta placanja",@cid,dx,dy)
  */
  
 function P_ULIMIT(cId,dx,dy)
-*{
+
 PRIVATE ImeKol,Kol:={}
 ImeKol:={ { "ID "        , {|| id       }, "id"       , {|| .t.}, {|| vpsifra(wId)},,"999" },;
           { "ID partnera", {|| idpartner}, "idpartner", {|| .t.}, {|| P_Firma(@wIdPartner)} },;
@@ -936,7 +936,7 @@ return PostojiSifra(F_ULIMIT,1,10,55,"Sifrarnik limita po ugovorima",@cid,dx,dy)
  */
  
 function P_Ftxt(cId,dx,dy)
-*{
+
 LOCAL vrati
 PRIVATE ImeKol,Kol
 ImeKol:={ { PADR("ID",2),   {|| id },     "id"   , {|| .t.}, {|| vpsifra(wid)}    },;
@@ -956,7 +956,7 @@ RETURN vrati
  */
  
 function Labelu()
-*{
+
 Msgo("U modulu FAKT vrsi se labeliranje...")
 return
 
@@ -968,7 +968,7 @@ return
  */
  
 function DFTParU2(lIni)
-*{
+
 LOCAL GetList:={}
   IF lIni==NIL; lIni:=.f.; ENDIF
   select (F_PARAMS)
@@ -1036,7 +1036,7 @@ RETURN
  */
  
 function SifkFill(cSifk,cSifv,cSifrarnik,cIDSif)
-*{
+
 PushWa()
 
 use (cSifK) new   alias _SIFK
@@ -1085,7 +1085,7 @@ return
  */
 
 function SifkOsv(cSifk,cSifv,cSifrarnik,cIdSif)
-*{
+
 PushWa()
 
 use (cSifK) new   alias _SIFK
@@ -1134,7 +1134,7 @@ return
  */
  
 function DaUSifV(cBaza,cIdKar,cId,cVrKar)
-*{
+
 LOCAL nArr:=SELECT(), lVrati:=.f.
  SELECT SIFV
  SEEK PADR(cBaza,8)+PADR(cIdKar,4)+PADR(cId,15)+cVrKar
@@ -1154,7 +1154,7 @@ RETURN lVrati
  */
  
 function P_KUF(cId,dx,dy)
-*{
+
 PRIVATE ImeKol:={},Kol:={}
  PRIVATE pbF8:={|| MNNSifru()}
  IF gRJ=="D"
@@ -1186,7 +1186,7 @@ return PostojiSifra(F_KUF,IF(gRJ=="D","ID2",1),15,77,"KUF",@cid,dx,dy,{|Ch| KUFB
  */
  
 function KUFBlok(Ch)
-*{
+
 LOCAL nRec:=RECNO()
   @ m_x+16,45 SAY "<a-P> - stampa KUF-a"
   IF Ch<>K_ALT_P
@@ -1264,7 +1264,7 @@ return DE_CONT
  */
  
 function KUFFor1()
-*{
+
 RETURN .t.
 
 
@@ -1274,7 +1274,7 @@ RETURN .t.
  */
  
 function KUFSvaki1()
-*{
+
 cNPartnera:=Ocitaj(F_PARTN,IDPARTN,"naz")
 RETURN
 
@@ -1288,7 +1288,7 @@ RETURN
  *  \param dy
  */
 function P_KIF(cId,dx,dy)
-*{
+
 PRIVATE ImeKol:={},Kol:={}
  PRIVATE pbF8:={|| MNNSifru()}
  IF gRJ=="D"
@@ -1320,7 +1320,7 @@ RETURN PostojiSifra(F_KIF,IF(gRJ=="D","ID2",1),15,77,"KIF",@cid,dx,dy,{|Ch| KIFB
  */
  
 function KifBlok(Ch)
-*{
+
 LOCAL nRec:=RECNO()
   @ m_x+16,45 SAY "<a-P> - stampa KIF-a"
   IF Ch<>K_ALT_P
@@ -1397,7 +1397,7 @@ return DE_CONT
  */
  
 function KIFFor1()
-*{
+
 RETURN .t.
 
 
@@ -1406,7 +1406,7 @@ RETURN .t.
  */
  
 function KIFSvaki1()
-*{
+
 cNPartnera:=Ocitaj(F_PARTN,IDPARTN,"naz")
 RETURN
 
@@ -1420,7 +1420,7 @@ RETURN
  */
  
 function P_VPrih(cId,dx,dy)
-*{
+
 PRIVATE ImeKol,Kol:={}
 ImeKol:={ { "ID ",  {|| id },       "id"  , {|| .t.}, {|| vpsifra(wId)}      },;
           { PADC("Naziv",20), {|| naz},      "naz"       };
@@ -1437,7 +1437,7 @@ return PostojiSifra(F_VPRIH,1,10,55,"Sifrarnik vrsta prihoda",@cid,dx,dy)
  */
  
 static function MvpSifra(wId)
-*{
+
 local nrec:=recno(), nRet:=.t., nPrevOrd:=INDEXORD()
 SET ORDER TO TAG "ID2"
 seek wid
@@ -1467,7 +1467,7 @@ return nRet
  */
  
 function MNNSifru()     
-*{                        
+                        
  LOCAL cPom, nDuzSif:=0, nDuzUn:=0, cLast:="�����", nKor:=0
  LOCAL lKUFKIF:=.f.
  PRIVATE cImeVar:=READVAR()

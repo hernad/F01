@@ -14,7 +14,7 @@
 
  
 function RedniBroj(nRbr)
-*{
+
 local nOst
 if nRbr>999
     nOst:=nRbr%100
@@ -29,7 +29,7 @@ endif
  */
  
 function UzmiMpcSif()
-*{
+
 local nCV:=0
 
 if RJ->tip=="N1"
@@ -62,7 +62,7 @@ return nCV
  */
  
 function UzmiVPCSif()
-*{
+
 local nCV:=0
 
 if rj->tip=="V1"
@@ -87,7 +87,7 @@ return nCV
  */
  
 function Pregled1()
-*{
+
 O_PARTN
 O_FAKT
 
@@ -262,7 +262,7 @@ return
  */
  
 function FFor1()
-*{
+
 cIdPartner:=idpartner
  nRoba1:=nRoba2:=nRoba3:=nRoba4:=nRoba5:=nRoba6:=nUkRoba:=nUkIznos:=0
  nIzR1:=nIzR2:=nIzR3:=nIzR4:=nIzR5:=nIzR6:=0
@@ -305,7 +305,7 @@ return .t.
  */
  
 function FSvaki1()
-*{
+
 RETURN
 
 
@@ -316,7 +316,7 @@ RETURN
  */
  
 function TekRec()
-*{
+
 nSlog++
  @ m_x+1, m_y+2 SAY PADC(ALLTRIM(STR(nSlog))+"/"+ALLTRIM(STR(nUkupno)),20)
  @ m_x+2, m_y+2 SAY "Obuhvaceno: "+STR(cmxKeysIncluded())
@@ -332,7 +332,7 @@ return (nil)
  */
  
 function Pregled2()
-*{
+
 O_PARTN
 O_FAKT
 
@@ -464,7 +464,7 @@ return
  */
  
 function FFor2()
-*{
+
 cIdTipDok:=idtipdok; cBrDok:=brdok; dDatum:=datdok
  nUkKol:=0; nUkIznos:=0
  DO WHILE !EOF() .and. datdok==dDatum .and. idtipdok==cIdTipDok .and. brdok==cBrDok
@@ -488,7 +488,7 @@ return .t.
  */
  
 function Pregled3()
-*{
+
 O_PARTN
 O_RJ
 O_FAKT
@@ -661,7 +661,7 @@ return
  */
  
 function FFor3()
-*{
+
 cIdRj:=LEFT(IDROBA,2)
  nRoba1:=nRoba2:=nRoba3:=nRoba4:=nRoba5:=nRoba6:=nUkRoba:=nUkIznos:=0
  nIzR1:=nIzR2:=nIzR3:=nIzR4:=nIzR5:=nIzR6:=0
@@ -703,7 +703,7 @@ return .t.
  *  
  */
 function FSvaki3()
-*{
+
 RETURN
 
 
@@ -715,7 +715,7 @@ RETURN
  */
 
 function Pregled4()
-*{
+
 O_PARTN
 O_FAKT
 
@@ -814,7 +814,7 @@ return
  */
  
 function FFor4()
-*{
+
 cIdTipDok:=idtipdok; cBrDok:=brdok; dDatum:=datdok
  nUkKol:=0; nUkIznos:=0
  DO WHILE !EOF() .and. datdok==dDatum .and. idtipdok==cIdTipDok .and. brdok==cBrDok
@@ -834,7 +834,7 @@ return .t.
  */
  
 function FSvaki4()
-*{
+
 RETURN
 
 
@@ -844,7 +844,7 @@ RETURN
  *   Izvjestaj specifican za rudnik
  */
 function Pregled5()
-*{
+
 O_PARTN
 O_FAKT
 
@@ -987,7 +987,7 @@ return
  */
  
 function FFor5()
-*{
+
 cIdTipDok:=IDTIPDOK; cBrDok:=BRDOK; dDatum:=DATDOK
  nPor1:=nPor2:=nPor3:=nPor4:=nPor5:=nUkPor:=0
  DO WHILE !EOF() .and. datdok==dDatum .and. idtipdok==cIdTipDok .and. brdok==cBrDok
@@ -1024,7 +1024,7 @@ return .t.
 /*!  FSvaki5()
  */
 function FSvaki5()
-*{
+
 RETURN
 
 
@@ -1034,7 +1034,7 @@ RETURN
  */
  
 function VRobPoPar()
-*{
+
 IF IzFmkIni("FAKT","Opcine","N",SIFPATH)=="D"
     O_OPS
   ENDIF
@@ -1168,7 +1168,7 @@ return
  */
  
 function FFor6()
-*{
+
 LOCAL nIznos:=0
  IF fSMark .and. SkLoNMark("ROBA",SiSiRo()) 
    RETURN .f.
@@ -1218,7 +1218,7 @@ RETURN .t.
  */
  
 function FSvaki6()
-*{
+
 RETURN
 
 
@@ -1228,7 +1228,7 @@ RETURN
  */
  
 function SubTot6()
-*{
+
 LOCAL aVrati:={.f.,""}, cOps:="", cIdOpc:=""
   IF lSubTot6 .or. EOF()
     IF cVarSubTot=="1"
@@ -1250,7 +1250,7 @@ RETURN aVrati
  */
  
 function VRobPoIzd()
-*{
+
 O_SIFK; O_SIFV
   O_RJ
   O_ROBA
@@ -1362,7 +1362,7 @@ return
  */
  
 function FFor7()
-*{
+
 LOCAL nIznos:=0
 IF fSMark .and. SkLoNMark("ROBA",SiSiRo()) //skip+loop gdje je roba->_M1_ != "*"
    RETURN .f.
@@ -1396,7 +1396,7 @@ RETURN .t.
  */
  
 function FSvaki7()
-*{
+
 RETURN
 
 
@@ -1407,7 +1407,7 @@ RETURN
  */
  
 function SubTot7()
-*{
+
 LOCAL aVrati:={.f.,""}, cIzd:="", cIdIzd:=""
   IF lSubTot7 .or. EOF()
     cIdIzd := IF(EOF(),SUBSTR(cIdRoba,nPP7,nDS7),cSubTot7)
@@ -1424,7 +1424,7 @@ RETURN aVrati
  */
 
 function PorPoOps()
-*{
+
 O_SIFK; O_SIFV
   O_ROBA
   O_TARIFA
@@ -1642,7 +1642,7 @@ return
  */
 
 function FFor8()
-*{
+
 RETURN .t.
 
 
@@ -1652,7 +1652,7 @@ RETURN .t.
  */
 
 function FSvaki8()
-*{
+
 IF por="�UKUPNO"
     RETURN "PODVUCI="
   ENDIF
@@ -1673,7 +1673,7 @@ RETURN (NIL)
  */
 
 function SiSiRo()
-*{
+
 LOCAL cSR:=FAKT->idroba
   IF gNovine=="D"
     cSR := PADR(LEFT(cSR,gnDS),LEN(cSR))
@@ -1688,7 +1688,7 @@ RETURN cSR
  */
  
 function KarticaKons()
-*{
+
 local cidfirma,nRezerv,nRevers
 local nul,nizl,nRbr,nCol1:=0,cKolona,cBrza:="N"
 local lpickol:="@Z "+pickol
@@ -2038,7 +2038,7 @@ return
  */
  
 static function ZagKartKons(lIniStrana)
-*{
+
 
 *static integer
 static nZStrana:=0
@@ -2077,7 +2077,7 @@ return
  */
  
 function Oporezovana(cIdTarifa)
-*{
+
 LOCAL nArr
  IF cIdTarifa<>NIL
    nArr:=SELECT()
@@ -2093,7 +2093,7 @@ return (TARIFA->opp<>0 .or. TARIFA->ppp<>0 .or. TARIFA->zpp<>0)
  */
  
 function TekRec2()
-*{
+
 nSlog++
  @ m_x+1, m_y+2 SAY PADC(ALLTRIM(STR(nSlog))+"/"+ALLTRIM(STR(nUkupno)),20)
  @ m_x+2, m_y+2 SAY "Obuhvaceno: "+STR(cmxKeysIncluded())
@@ -2109,7 +2109,7 @@ return (nil)
  */
  
 function SortFakt(cId,cSort)
-*{
+
 LOCAL cVrati:="", nArr:=SELECT()
  SELECT ROBA
  HSEEK cId
@@ -2131,7 +2131,7 @@ RETURN cVrati
  */
  
 function BhSort(cInput)
-*{
+
 IF gKodnaS=="7"
    cInput:=STRTRAN(cInput,"[","S"+CHR(255))
    cInput:=STRTRAN(cInput,"\","D"+CHR(255))
@@ -2163,7 +2163,7 @@ RETURN PADR(cInput,100)
  */
  
 function TmpFakt()
-*{
+
 RETURN TEMPFILE(KUMPATH,"CDX",0)
 
 
@@ -2173,7 +2173,7 @@ RETURN TEMPFILE(KUMPATH,"CDX",0)
  */
  
 function MyFErase()
-*{
+
 PARAMETERS cFajl
   IF !(cFajl==NIL .or. "U" $ TYPE("cFajl") )
     FERASE(cFajl)

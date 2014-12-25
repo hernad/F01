@@ -739,7 +739,7 @@ RETURN
  */
  
 function AnalBB()
-*{
+
 private A1,D4PS,P4PS,D4TP,P4TP,D4KP,P4KP,D4S,P4S
 
 cIdFirma:=gFirma
@@ -1091,7 +1091,7 @@ RETURN
  */
 
 function SintBB()
-*{
+
 local nPom
 
 cIdFirma:=gFirma
@@ -1457,7 +1457,7 @@ RETURN
  */
 
 function GrupBB()
-*{
+
 local nPom
 
 cIdFirma:=gFirma
@@ -1774,7 +1774,7 @@ RETURN
  */
  
 function BBMnoziSaK()
-*{
+
 LOCAL nArr:=SELECT()
   IF cTip==ValDomaca().and.;
      IzFMKIni("FIN","BrutoBilansUDrugojValuti","N",KUMPATH)=="D"
@@ -1798,7 +1798,7 @@ RETURN
  */
 
 function ImaUSifVal(cKratica)
-*{
+
   LOCAL lIma:=.f., nArr:=SELECT()
    SELECT (F_VALUTE)
    IF !USED(); O_VALUTE; ENDIF

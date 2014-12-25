@@ -14,7 +14,7 @@
 
 
 function stdokpd2(cIdFirma, cIdTipDok, cBrDok)
-*{
+
 local lSamoKol:=.f. // samo kolicine
 
 drn_create()
@@ -80,7 +80,7 @@ return
 // ----------------------------------------------------------------------
 // ----------------------------------------------------------------------
 function fill_porfakt_data(cIdFirma, cIdTipDok, cBrDok, lBarKod, lSamoKol)
-*{
+
 local cTxt1,cTxt2,cTxt3,cTxt4,cTxt5
 local cIdPartner
 local dDatDok
@@ -350,7 +350,7 @@ return
 
 
 function fill_potpis(cIdVD)
-*{
+
 local cPom
 local cPotpis
 local cStdPot
@@ -373,7 +373,7 @@ return
 
 // filovanje dodatnog teksta
 function fill_dod_text(cTxt)
-*{
+
 local aLines // matrica sa linijama teksta
 local nFId // polje Fnn counter od 20 pa nadalje
 local nCnt // counter upisa u DRNTEXT
@@ -401,7 +401,7 @@ return
 
 
 function fill_part_data(cId, lPdvObveznik)
-*{
+
 local cIdBroj:=""
 local cPorBroj:=""
 local cBrRjes:=""
@@ -478,7 +478,7 @@ return
 
 
 function fill_firm_data()
-*{
+
 // opci podaci
 add_drntext("I01", gFNaziv)
 add_drntext("I02", gFAdresa)

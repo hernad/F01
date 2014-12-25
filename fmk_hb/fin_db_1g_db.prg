@@ -22,7 +22,7 @@
  */
 
 function SifkPartnBank()
-*{
+
 O_SIFK
 set order to tag "ID2"
 seek padr("PARTN",8)+"BANK"
@@ -49,7 +49,7 @@ return NIL
  */
 
 function OKumul(nArea,cStaza,cIme,nIndexa,cDefault)
-*{
+
 local cPath,cScreen
 
 if cDefault==NIL
@@ -738,7 +738,7 @@ return
  */
 
 function Dupli(cIdFirma,cIdVn,cBrNal)
-*{
+
 PushWa()
 
 select NALOG

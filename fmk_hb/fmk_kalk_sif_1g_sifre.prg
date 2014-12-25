@@ -27,7 +27,7 @@
  */
  
 function Sifre()
-*{
+
 PRIVATE PicDem
 PicDem:=gPICDem
 close all
@@ -75,7 +75,7 @@ return .f.
  */
  
 function ServFun()
-*{
+
 Msg("Nije u upotrebi")
 closeret
 return
@@ -88,7 +88,7 @@ return
  */
  
 function RobaBlock(Ch)
-*{
+
 LOCAL cSif:=ROBA->id, cSif2:=""
 
 if Ch==K_CTRL_T .and. gSKSif=="D"
@@ -156,7 +156,7 @@ return DE_CONT
  */
  
 function FSvaki2()
-*{
+
 return
 
 
@@ -166,7 +166,7 @@ return
  *  \param cIdRj - radna jedinica
  */
 function IspisFirme(cIdRj)
-*{
+
 local nOArr
 
 nOArr:=SELECT()
@@ -189,7 +189,7 @@ return
  */
  
 function OSifBaze()
-*{
+
 O_SIFK
 O_SIFV
 O_KONTO

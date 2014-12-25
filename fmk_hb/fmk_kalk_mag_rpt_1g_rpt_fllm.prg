@@ -394,7 +394,7 @@ return
  */
 
 function ZaglFLLM()
-*{
+
 Preduzece()
 if cPapir=="2"
 	P_COND2

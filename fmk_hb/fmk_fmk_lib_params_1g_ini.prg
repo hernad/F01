@@ -38,7 +38,7 @@ static INI_SECTION := 'xx'
 
 
 function R_IniRead ( cSection, cEntry, cDefault, cFName, lAppend )
-*{
+
 local	nHandle
 local	cString
 local	nPos
@@ -167,7 +167,7 @@ return cDefault
  */
 
 function R_IniWrite( cSection, cEntry, cString, cFName )
-*{
+
 local	nHandle
 local	nBytes
 local	nPos
@@ -365,7 +365,7 @@ return .t.
  *  \param nStart - pocni pretragu od nStart pozicije
  */
 static function I_At(cSearch, lUpper, nStart)
-*{
+
 local nPos
 if lUpper
 	nPos := At( cSearch, SubStr(UPPER(cCache), nStart) )
@@ -393,7 +393,7 @@ return if ( nPos > 0, nPos + nStart - 1, 0 )
  */
 
 function IzFmkIni(cSection, cVar, cValue, cLokacija, lAppend)
-*{
+
 local cRez:=""
 local cNazIni:='FMK.INI'
 
@@ -429,7 +429,7 @@ return
 
 
 function TEMPINI(cSection, cVar, cValue, cread)
-*{
+
 *
 * cValue  - tekuca vrijednost
 * cREAD = "WRITE" , "READ"
@@ -461,7 +461,7 @@ return
 
 
 function IniRefresh()
-*{
+
 
 //cCache:=NIL
 //cIniFile:=NIL
@@ -474,7 +474,7 @@ return
 
 
 function UzmiIzINI(cNazIni,cSection, cVar, cValue, cread)
-*{
+
 *
 * cValue  - tekuca vrijednost
 * cREAD = "WRITE" , "READ"
@@ -508,7 +508,7 @@ return
 
 static function SeekSection( sect, pos )
 // Look for the specified section in buffer
-*{
+
 pos:= At ('['+Upper (sect)+']', Upper (cCache) )  
 
 return pos>0
@@ -516,7 +516,7 @@ return pos>0
 
 
 static function ReadFile( hnd)
-*{
+
 
 //if VALTYPE(gCnt1)<>"N"
 //	gCnt1:=0
@@ -533,7 +533,7 @@ return
 
 
 static function PutSection(hnd, sect)
-*{
+
 if !EMPTY( sect )
   return FWrite ( hnd, '[' + sect + ']' + NRED )
 else
@@ -544,7 +544,7 @@ return
 
 
 static function PutEntry( hnd,entry,val )
-*{
+
 if !Empty ( entry ) .and. !Empty ( val )
  return FWrite ( hnd, entry + '=' + val + NRED )
 else
@@ -554,7 +554,7 @@ endif
 
 // Rewrite complete file from buffer
 static function ReWrite(hnd,fnm)
-*{
+
 if ( hnd!=NIL )
    FClose(hnd)
 endif
@@ -1067,7 +1067,7 @@ return oBuffObj
  */
 /*
 function IzFmkIni(cSection, cKey, cDefault, cLokacija)
-*{
+
 local cRez:=""
 local cNazIni:='FMK.INI'
 

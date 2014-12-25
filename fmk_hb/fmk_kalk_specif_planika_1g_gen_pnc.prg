@@ -99,7 +99,7 @@ return
  * *******************************
  */
 function IsRobaInProdavnica(cPKonto, cIdRoba)
-*{
+
 
 //  "4","idFirma+Pkonto+idroba+dtos(datdok)+podbr+PU_I+IdVD",KUMPATH+"KALK")
 SELECT kalk
@@ -119,7 +119,7 @@ endif
  * *******************************
  */
 function GetNcForProdavnica(cPKonto, cIdRoba)
-*{
+
 local nKolS
 local nKolZn
 local nNc1
@@ -146,7 +146,7 @@ return nSredNc
  */
  
 function SetProdNc(cPKonto, cIdRoba, cIdVd, cBrDok, dDatDok, nNc )
-*{
+
 local nArr
 nArr:=SELECT()
 
@@ -175,7 +175,7 @@ return
 
 
 function SetIdPartnerRoba()
-*{
+
 local cPKonto
 local cIdRoba
 

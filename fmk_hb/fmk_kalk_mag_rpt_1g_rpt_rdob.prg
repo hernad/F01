@@ -15,7 +15,7 @@
 
 // pregled robe za dobavljaca
 function PRobDob()
-*{
+
  O_SIFK
  O_SIFV
  O_ROBA

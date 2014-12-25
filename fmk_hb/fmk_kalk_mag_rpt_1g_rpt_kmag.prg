@@ -964,7 +964,7 @@ return (nil)
  */
 
 static function Zagl()
-*{
+
 select konto
 hseek cIdKonto
 Preduzece()

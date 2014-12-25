@@ -59,7 +59,7 @@
  */
 
 function StDok29()
-*{
+
 parameters cIdFirma,cIdTipDok,cBrDok
 private i,nCol1:=0,cTxt1,cTxt2,aMemo,nMPVBP:=nVPVBP:=0
 private cTi,nUk,nRab,nUk2:=nRab2:=0
@@ -551,7 +551,7 @@ closeret
  */
  
 function Zagl29()
-*{
+
 P_10CPI
  for i:=1 to gnTMarg  // Top Margina
    ?
@@ -632,7 +632,7 @@ return .t.
  */
  
 function Krizaj()
-*{
+
 IF cidtipdok$"20#27"
   ?? "  PRED         "+REPLICATE(gZnPrec,13)
   ??  padl(cStr,37-28)

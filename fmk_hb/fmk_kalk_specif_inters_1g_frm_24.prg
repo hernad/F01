@@ -18,7 +18,7 @@
  */
 
 function Get1_24()
-*{
+
 
 _DatFaktP:=_datdok
 

@@ -733,7 +733,7 @@ return lRet
  */
 
 function Konto(nBroj, cDef, cTekst)
-*{
+
 private GetList:={}
 
 if (nBroj==1 .and. len(ckonto1)<>0) .or. ;
@@ -765,7 +765,7 @@ return 0
 // Primjer SetKonto(1, IsInoDob(finmat->IdPartner) , "30", "31")
 //
 function SetKonto(nBroj, lValue, cTrue , cFalse)
-*{
+
 local cPom
 
 
@@ -804,7 +804,7 @@ return 0
  */
 
 function RJ(nBroj,cDef,cTekst)
-*{
+
 private GetList:={}
 
 if (nBroj==1 .and. len(cRJ1)<>0) .or. (nBroj==2 .and. len(cRj2)<>0)
@@ -836,7 +836,7 @@ return 0
  */
 
 function DatVal()
-*{
+
 local nUvecaj:=15
 private GetList:={}
 
@@ -902,7 +902,7 @@ return 0
  */
 
 function Partner(nBroj,cDef,cTekst,lFaktura,dp)
-*{
+
 IF lFaktura==NIL; lFaktura:=.f.; ENDIF
 IF dp==NIL; dp:=6; ENDIF
 IF cDef==NIL; cDef:=""; ENDIF
@@ -1018,7 +1018,7 @@ return
  */
 
 function IspitajRezim()
-*{
+
   IF !EMPTY(aRezim)
 //    Msg("aRezim[1]='"+aRezim[1]+"', aRezim[2]='"+aRezim[2]+"'")
     gCijene   = aRezim[1]
@@ -1036,7 +1036,7 @@ return
  */
 
 function RekapK()
-*{
+
 parameters fStara, cIdFirma, cIdVd, cBrDok, lAuto
 
 local fprvi

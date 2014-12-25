@@ -31,7 +31,7 @@
  */
 
 function StKalkIP(fZaTops)
-*{
+
 local nCol1:=nCol2:=0,npom:=0
 
 Private nPrevoz,nCarDaz,nZavTr,nBankTr,nSpedTr,nMarza,nMarza2,aPorezi
@@ -260,7 +260,7 @@ return
  */
 
 function StObrazSL()
-*{
+
 local nCol1:=nCol2:=0,npom:=0
 
 Private nPrevoz,nCarDaz,nZavTr,nBankTr,nSpedTr,nMarza,nMarza2

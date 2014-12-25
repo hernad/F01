@@ -64,7 +64,7 @@
 
 
 function KesirajKalks(dDatOd, dDatDo, cIdKPovrata, cKartica, cVarijanta, cKesiraj)
-*{
+
 local cPom
 
 // ugasena funkcija !!

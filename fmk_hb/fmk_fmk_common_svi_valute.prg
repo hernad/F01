@@ -264,7 +264,7 @@ return
 
 
 function ValBazna()
-*{
+
 if gBaznaV=="P"
   return ValPomocna()
 else

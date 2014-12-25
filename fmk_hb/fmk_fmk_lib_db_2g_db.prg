@@ -25,7 +25,7 @@
  */
 
 function TDBNew(oDesktop, cDirPriv, cDirKum, cDirSif)
-*{
+
 local oObj
 
 #ifdef CLIP
@@ -203,7 +203,7 @@ END CLASS
  */
  
 *void TDB::logAgain(string cSezona, bool lSilent, bool lWriteKParam)
-*{
+
 
 method logAgain(cSezona, lSilent, lWriteKParam)
 
@@ -346,7 +346,7 @@ return
 
 
 *void TDB::modstruAll()
-*{
+
 
 method modstruAll()
 local i
@@ -380,7 +380,7 @@ return
 
 
 *string TDB::setDirPriv(string cDir)
-*{
+
 method setDirPriv(cDir)
 local cPom
 
@@ -402,7 +402,7 @@ return cPom
 
 
 *string TDB::setDirSif(string cDir)
-*{
+
 method setDirSif(cDir)
 local cPom
 
@@ -423,7 +423,7 @@ return cPom
 
 
 *string TDB::setDirKum(string cDir)
-*{
+
 method setDirKum(cDir)
 local cPom
 
@@ -452,7 +452,7 @@ return cPom
 
 
 *string TDB::setSigmaBD(string cDir)
-*{
+
 method setSigmaBD(cDir)
 local cPom
 // dosadasnja vrijednost varijable
@@ -467,7 +467,7 @@ return cPom
 
 
 *string TDB::setUser(string cUser)
-*{
+
 method setUser(cUser)
 local cPom
 // dosadasnja vrijednost varijable
@@ -478,7 +478,7 @@ return cPom
 
 
 *string TDB::setPassword(integer nPassword)
-*{
+
 method setPassword(nPassword)
 local nPom
 // dosadasnja vrijednost varijable
@@ -489,7 +489,7 @@ return nPom
 
 
 *string TDB::setGroup1(integer nGroup)
-*{
+
 method setGroup1(nGroup)
 local nPom
 // dosadasnja vrijednost varijable
@@ -500,7 +500,7 @@ return nPom
 
 
 *string TDB::setGroup2(integer nGroup)
-*{
+
 method setGroup2(nGroup)
 local nPom
 // dosadasnja vrijednost varijable
@@ -511,7 +511,7 @@ return nPom
 
 
 *string TDB::setGroup3(integer nGroup)
-*{
+
 method setGroup3(nGroup)
 local nPom
 // dosadasnja vrijednost varijable
@@ -529,7 +529,7 @@ return nPom
  */
  
 *void TDB::mInstall()
-*{
+
 method mInstall()
 local i, cPom, aLst
 private nOldIzbor
@@ -609,7 +609,7 @@ return
  
 *void TDB::vratiSez()
 method vratiSez(oDatabase)
-*{
+
 
 if ::oApp:limitKLicence(AL_GOLD)
 	return
@@ -779,7 +779,7 @@ return
 
 
 *void TDB:saveSezona(string cValue)
-*{
+
 method saveSezona(cValue)
 
 #ifdef CLIP
@@ -796,7 +796,7 @@ return
 
 
 *void TDB:saveRadimUSezona(string cValue)
-*{
+
 method saveRadimUSezona(cValue)
 O_KPARAMS
 private cSection:="1"
@@ -824,7 +824,7 @@ return
  */
 
 *void TDB::radiUSezonskomPodrucju(bool lForceRadno)
-*{
+
 method radiUSezonskomPodrucju(lForceRadno)
 
 ::setIfNil()
@@ -851,7 +851,7 @@ endif
 
 
 *void TDB:setIfNil()
-*{
+
 method setIfNil()
 if (::oDesktop==nil)
 	::oDesktop:=goModul:oDesktop
@@ -863,7 +863,7 @@ return
 
 
 *void TDB:scan()
-*{
+
 method scan()
 
 return

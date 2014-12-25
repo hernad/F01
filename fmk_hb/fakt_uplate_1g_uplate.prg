@@ -28,7 +28,7 @@
  */
  
 function Uplate()
-*{
+
 O_DOKS
 set order to tag "6"
 //"6","IdFirma+idpartner+idtipdok",KUMPATH+"DOKS"
@@ -110,7 +110,7 @@ return nil
  */
  
 function EdUplata()
-*{
+
 local fK1:=.f.
 local nRet:=DE_CONT
 
@@ -167,7 +167,7 @@ return nRet
  */
  
 function DajStanjeKupca()
-*{
+
 	@ m_x+17,m_y+49 SAY STR(nUkZaduz,15,2) COLOR "N/W"
 	@ m_x+18,m_y+49 SAY STR(nUkUplata,15,2) COLOR "N/W"
 	@ m_x+20,m_y+49 SAY STR(nUkZaduz-nUkUplata,15,2) COLOR "N/W"
@@ -180,7 +180,7 @@ return nil
  */
  
 function UkZaduz()
-*{
+
 local nArr:=SELECT(), nVrati:=0
 
 select (F_DOKS)
@@ -205,7 +205,7 @@ return nVrati
  */
  
 function UkUplata(lPushWA)
-*{
+
 local nArr:=SELECT(), nVrati:=0
 
 if lPushWA==nil
@@ -244,7 +244,7 @@ return nVrati
  */
  
 function SkipDBBK(nRequest)
-*{
+
 local nCount
 nCount := 0
 if LASTREC()!=0
@@ -288,7 +288,7 @@ return (nCount)
  */
  
 static function StKartKup()
-*{
+
 local nRec:=0
 
 START PRINT CRET
@@ -338,7 +338,7 @@ return nil
  */
  
 function SaldaKupaca(lPocStanje)
-*{
+
 local nUkZaduz
 local nUkUplata
 local nStrana
@@ -475,7 +475,7 @@ return nil
  */
 
 function GPSUplata()
-*{
+
 local gSezonDir
 
 gSezonDir:=goModul:oDatabase:cSezonDir

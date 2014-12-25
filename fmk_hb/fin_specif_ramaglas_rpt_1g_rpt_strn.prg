@@ -23,7 +23,7 @@
  */
 
 function SpecTrosRN()
-*{
+
 
 picBHD:=FormPicL("9 "+gPicBHD,17)
 

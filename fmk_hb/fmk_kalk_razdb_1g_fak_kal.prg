@@ -30,7 +30,7 @@
  */
 
 function FaktKalk()
-*{
+
 private Opc:={}
 private opcexe:={}
 
@@ -57,7 +57,7 @@ return
 
 // Struktura cTxt-a je: Chr(16) txt1 Chr(17)  Chr(16) txt2 Chr(17) ...
 function ParsMemo(cTxt)
-*{
+
 local aMemo:={}
 local i,cPom,fPoc
 
@@ -89,7 +89,7 @@ return aMemo
  */
 
 function ProvjeriSif(clDok,cImePoljaID,nOblSif,clFor,lTest)
-*{
+
 LOCAL lVrati:=.t., nArr:=SELECT(), nRec:=RECNO(), lStartPrint:=.f., cPom3:=""
 LOCAL nR:=0
 

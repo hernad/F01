@@ -131,7 +131,7 @@ return .t.
  *  \param aArr - matrica
  */
 static function get_exp_fields(aArr, cIdVd, lVpcCij, lMpcCij)
-*{
+
 
 
 if lZaokruziti
@@ -191,7 +191,7 @@ return
 
 
 function kt_exp_create(cIdVd, lVpcCij, lMpcCij)
-*{
+
 local cExpTbl := "R_EXPORT.DBF"
 local aArr:={}
 
@@ -214,7 +214,7 @@ return
 
 // napuni r_uio
 static function fill_exp( cIdFirma, cIdVd,  cBrDok, lVpcCij, lMpcCij )
-*{
+
 local cPom1
 local cPom2
 local cKomShow

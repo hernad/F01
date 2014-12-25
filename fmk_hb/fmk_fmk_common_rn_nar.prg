@@ -32,7 +32,7 @@ static nSw6
 // glavna funkcija za poziv stampe fakture a4
 // lStartPrint - pozovi funkcije stampe START PRINT
 function nar_print(lStartPrint)
-*{
+
 // ako je nil onda je uvijek .t.
 if lStartPrint == nil
 	lStartPrint := .t.
@@ -64,7 +64,7 @@ return
 
 // stampa narudzbenice
 function narudzba(lStartPrint)
-*{
+
 local cBrDok
 local dDatDok
 local aRNaz
@@ -222,7 +222,7 @@ return
 
 // uzmi osnovne parametre za stampu dokumenta
 function get_nar_vars(nLMargina, nGMargina, nDodRedova, nSlTxtRow, lSamoKol, lZaglStr, lStZagl, lDatOtp, cValuta, cPDVStavka)
-*{
+
 
 // uzmi podatak za lijevu marginu
 nLMargina := VAL(get_dtxt_opis("P01"))
@@ -272,7 +272,7 @@ return
 
 // zaglavlje glavne tabele sa stavkama
 static function st_zagl_data()
-*{
+
 
 local cRed1:=""
 local cRed2:=""
@@ -407,7 +407,7 @@ return
 // funkcija za ispis podataka o kupcu
 // ----------------------------------------
 static function nar_header()
-*{
+
 local cPom, cPom2
 
 local cLin
@@ -655,7 +655,7 @@ return
 // funkcija za novu stranu
 // -----------------------------------------
 static function NStr_a4(nStr, lShZagl)
-*{
+
 
 // korekcija duzine je na svako strani razlicita
 nDuzStrKorekcija := 0 

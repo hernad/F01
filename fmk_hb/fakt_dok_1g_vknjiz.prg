@@ -901,7 +901,7 @@ PopWa()
  */
  
 function GetUsl(fNovi)
-*{
+
 private GetList:={}
 
 if gTBDir="N"
@@ -951,7 +951,7 @@ return .t.
  */
  
 function NijeDupla(fNovi)
-*{
+
 local nEntBK,ibk,uEntBK
 local nPrevRec 
 
@@ -996,7 +996,7 @@ RETURN (.t.)
  */
  
 function OdsjPLK(cTxt)
-*{
+
 local i
 for i:=len(cTxt) to 1 step -1
   if !(substr(cTxt,i,1) $ Chr(13)+Chr(10)+" �")
@@ -1044,7 +1044,7 @@ return aMemo
  */
  
 function Prepak(cIdRoba,cPako,nPak,nKom,nKol,lKolUPak)
-*{
+
 LOCAL lVrati:=.f., nArr:=SELECT(), aNaz:={}, cKar:="AMB ", nKO:=1, n_Pos:=0
   IF lKOLuPAK==NIL; lKOLuPAK:=.t.; ENDIF
   SELECT SIFV; SET ORDER TO TAG "ID"
@@ -1085,7 +1085,7 @@ RETURN lVrati
  */
  
 function UGenNar()
-*{
+
 LOCAL lVrati:=.t., nArr:=SELECT(), nIsporuceno, nNaruceno, dNajstariji:=CTOD("")
   SELECT (F_UGOV)
   IF !USED()

@@ -15,7 +15,7 @@
 
 // izvjestaj - promet grupe partnera
 function PrometGP()
-*{
+
   cgPicKol := IzFMKIni("PrometGrupePartnera","PicKolicina","999999999.999",KUMPATH)
   cgPicDem := IzFMKIni("PrometGrupePartnera","PicIznosa"  ,"999999999.99",KUMPATH)
 
@@ -276,7 +276,7 @@ return
  */
 
 function ZaglPGP()
-*{
+
  Preduzece()
 
  P_12CPI

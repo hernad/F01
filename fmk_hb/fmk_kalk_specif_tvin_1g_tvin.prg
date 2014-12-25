@@ -20,7 +20,7 @@
  */
  
 function IspisPoNar(lPartner,lString,lMVar)
-*{
+
 LOCAL cV:=""
   IF lPartner==NIL; lPartner:=.t.; ENDIF
   IF lString==NIL; lString:=.f.; ENDIF
@@ -49,7 +49,7 @@ RETURN cV
  */
  
 function KalkNab3m(cIdFirma,cIdRoba,cIdKonto,aNabavke,nKolS)
-*{
+
 select kalk
 set order to 3
 seek cidfirma+cidkonto+cidroba+"X"
@@ -116,7 +116,7 @@ RETURN
  */
  
 function KDNarNCm(aNabavke,lProsjNC)
-*{
+
 local nKolNeto:=0, nPom:=0
 if lProsjNC==nil
 	lProsjNC:=.f.
@@ -175,7 +175,7 @@ return
  *  \param nKolS
  */
 function KalkNab3p(cIdFirma,cIdRoba,cIdKonto,aNabavke,nKolS)
-*{
+
 select kalk
 set order to 4
 seek cidfirma+cidkonto+cidroba+"X"
@@ -244,7 +244,7 @@ RETURN
  */
  
 function KDNarNCp(aNabavke,lProsjNC)
-*{
+
 local nKolNeto:=0, nPom:=0
 if lProsjNC==nil
 	lProsjNC:=.f.
@@ -300,7 +300,7 @@ return
  */
  
 FUNCTION GenStPoNarudzbi(lGenStavke)
-*{
+
 IF lGenStavke
     pIzgSt:=.t.
     // vise od jedne stavke
@@ -357,7 +357,7 @@ RETURN 1
  */
  
 function KalkNab2(cIdFirma,cIdRoba,cIdKonto,aNabavke)
-*{
+
 
 select kalk
 set order to 3
@@ -422,7 +422,7 @@ RETURN
  */
  
 function KreDetNC(aNabavke)
-*{
+
 LOCAL nKolNeto:=0, nPom:=0
   if mu_i=="1" .or. mu_i=="5"
 

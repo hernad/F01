@@ -13,7 +13,7 @@
 #include "fin01.ch"
 
 function MnuOstOperacije()
-*{
+
 private opc:={}
 private opcexe:={}
 private Izbor:=1

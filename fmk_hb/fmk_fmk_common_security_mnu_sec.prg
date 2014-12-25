@@ -13,7 +13,7 @@
 #include "sc.ch"
 
 function MnuSecMain()
-*{
+
 private opc:={}
 private opcexe:={}
 private Izbor:=1
@@ -31,7 +31,7 @@ return
 
 
 function MnuSecurity()
-*{
+
 private opc:={}
 private opcexe:={}
 private Izbor:=1

@@ -36,7 +36,7 @@
  */
  
 function CreFmkPi()
-*{
+
 local cImeDBF
 
 cImeDBF:=ToUnix(KUMPATH+"izvje.dbf")

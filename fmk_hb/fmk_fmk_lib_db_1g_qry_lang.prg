@@ -421,7 +421,7 @@ return fRez
 
 
 function SkLoNMark(cSifDBF, cId)
-*{
+
 nArea:= select()
 select (cSifDBF)
 HSEEK cID

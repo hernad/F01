@@ -56,7 +56,7 @@ static nCnt:=0
  */
  
 function SC_START(oApp, lSezone)
-*{
+
 local cImeDbf
 
 public gAppSrv
@@ -183,7 +183,7 @@ return
  */
 
 function ISC_START(oApp, lSezone)
-*{
+
 
 RDDSETDEFAULT(RDDENGINE)
 
@@ -274,7 +274,7 @@ return
 
 function IBatchRun(oApp)
 
-*{
+
 if mpar37("/XM",oApp)
       oApp:oDatabase:modstruAll()
 endif
@@ -349,7 +349,7 @@ return
 
 
 function InitE(oApp)
-*{
+
 if (oApp:cKorisn<>nil .and. oApp:cSifra==nil)
 
     ? "Koristenje:  ImePrograma "
@@ -410,7 +410,7 @@ return nil
 
 
 function PokreniInstall(oApp)
-*{
+
 local cFile
 local lPitaj
 
@@ -447,7 +447,7 @@ return
 
 
 function mpar37(x, oApp)
-*{
+
 
 // proslijedjeni su parametri
 lp3:=oApp:cP3
@@ -463,7 +463,7 @@ return ( (lp3<>NIL .and. upper(lp3)==x) .or. (lp4<>NIL .and. upper(lp4)==x) .or.
 
 
 function mpar37cnt(oApp)
-*{
+
 local nCnt:=0
 
 if oApp:cP3<>nil
@@ -486,7 +486,7 @@ return nCnt
 
 
 function mparstring(oApp)
-*{
+
 local cPars
 cPars:=""
 
@@ -564,7 +564,7 @@ return cPars
  */
 
 function PID(cStart)
-*{
+
 local cPom, cDefault, cPidFile
 local lKoristitiPid
 
@@ -654,7 +654,7 @@ return
  
 function Prijava(oApp, lScreen)
 
-*{
+
 local i
 local nRec
 local cKontrDbf
@@ -828,7 +828,7 @@ return nil
 
 
 function ScShellIni(oApp)
-*{
+
 local cPPSaMr
 local cBazniDir
 local cMrRs
@@ -896,7 +896,7 @@ return
 
 
 static function GetSifra(oApp, m_ime, m_sif)
-*{
+
 
 @ 10,20 SAY ""
 m_ime:=Space(10)
@@ -924,7 +924,7 @@ return
 
 
 static function PrijRunInstall(m_sif, cKom)
-*{
+
 
 if m_sif=="I"
 	cKom:=cKom:="I"+gModul+" "+ImeKorisn+" "+CryptSC(sifrakorisn)
@@ -951,7 +951,7 @@ return
 
 
 static function ApndKorisn(cKorisn, cDirPriv, cDirSif, cDirKum)
-*{
+
 
 APPEND BLANK
 REPLACE ime WITH cKorisn
@@ -971,7 +971,7 @@ return
 
 
 function SetDirs(oApp, lScreen)
-*{
+
 local cDN:="N"
 local cPom
 
@@ -1038,7 +1038,7 @@ endif
 
 
 function RunInstall(cKom)
-*{
+
 local lIB
 
 lIB:=.f.
@@ -1064,7 +1064,7 @@ endif
 
 /*
 function T_Start(nHPid, cPath, cModul, cUser )
-*{
+
 local hH, nCnt
 local cFN
 local cBuf
@@ -1092,7 +1092,7 @@ return nHPid
 
 
 function T_Stop(nHPid, cPath, cModul, cUser )
-*{
+
 local cFN
 cFN:=cPath+cmodul+'.pid'
 fclose(nHPid)
@@ -1103,7 +1103,7 @@ return
 */
 
 function IzvrsenIn(p3,fImodul, cModul, fsilent)
-*{
+
 local i,nCheck,fid,nHBios,cBuffer,nBytes
 
 PUBLIC EVar:="#Erky#____SIGMA-COM_ZE____#0000"
@@ -1170,7 +1170,7 @@ return .t.
 
 #ifdef CLIP
 function Arg0()
-*{
+
 return "/dev/fmk/pos/1g/e.exe"
 
 #endif

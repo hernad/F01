@@ -36,7 +36,7 @@
  */
  
 function BilansS()
-*{
+
 dDo:=DATE()
   O_KONTO
   O_SINT
@@ -173,7 +173,7 @@ return
  */
  
 function BilansU()
-*{
+
 dDo:=DATE()
   O_KONTO
   O_SINT

@@ -38,7 +38,7 @@
  */
 
 function StKalk14()
-*{
+
 local nCol1:=nCol2:=0,npom:=0
 
 Private nPrevoz,nCarDaz,nZavTr,nBankTr,nSpedTr,nMarza,nMarza2
@@ -323,7 +323,7 @@ return
  */
  
 function StKalk14_3()
-*{
+
 LOCAL i:=0,aNiz
 Private nPrevoz:=0,nCarDaz:=0,nZavTr:=0,nBankTr:=0,nSpedTr:=0,nMarza:=0,nMarza2:=0
 // iznosi troskova i marzi koji se izracunavaju u KTroskovi()
@@ -455,7 +455,7 @@ return
  *   Koristi je StampaTabele() u StKalk14_3()
  */
 function Blok14_3()
-*{
+
     // !!!!!!!!!!!!!!!
     if idpartner+brfaktp+idkonto+idkonto2<>cidd
      set device to screen

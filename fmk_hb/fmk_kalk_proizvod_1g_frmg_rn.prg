@@ -38,7 +38,7 @@
  */
 
 function BrowseRn()
-*{
+
 O_KALK
 O_KONTO
 cmkonto:=space(7)
@@ -98,7 +98,7 @@ return
  */
 
 function EdBrn(Ch)
-*{
+
 local cDn:="N",nRet:=DE_CONT
 do case
   case Ch==K_F2

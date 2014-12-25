@@ -19,7 +19,7 @@
  */
 
 function CreKorisn(nArea)
-*{
+
 local cImeDBF
 
 if nArea==nil
@@ -70,7 +70,7 @@ return
  *   Kreiraj sistemske tabele (gparams, params, adres, ...)
  */
 function CreSystemDb(nArea)
-*{
+
 local lShowMsg
 
 lShowMsg:=.f.
@@ -98,7 +98,7 @@ return
 
 
 function CreParams(nArea)
-*{
+
 close all
 
 if gReadOnly
@@ -179,7 +179,7 @@ return NIL
 
 
 function CreAdres(nArea)
-*{
+
 
 if (nArea==nil)
 	nArea:=-1
@@ -214,7 +214,7 @@ return
 
 * kreiraj gparams u glavnom modulu
 function CreGparam(nArea)
-*{
+
 local aDbf
 if (nArea==nil)
 	nArea:=-1
@@ -246,7 +246,7 @@ return
 
 
 function KonvParams(cImeDBF)
-*{
+
 cImeDBF:=ToUnix(cImeDBF)
 close  all
 if file(cImeDBF) // ako postoji
@@ -268,7 +268,7 @@ return
 
 
 function DBCREATE2(cIme,aDbf,cDriver)
-*{
+
 local nPos
 local cCDX
 
@@ -292,7 +292,7 @@ return
 
 
 function AddOidFields(aDbf)
-*{
+
 
 AADD(aDbf,{"_OID_", "N", 12, 0})
 AADD(aDbf,{"_SITE_", "N", 2, 0})

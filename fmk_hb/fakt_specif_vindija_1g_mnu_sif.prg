@@ -45,7 +45,7 @@
  */
  
 function SifOVindija()
-*{
+
 private Opc:={}
 private opcexe:={}
 

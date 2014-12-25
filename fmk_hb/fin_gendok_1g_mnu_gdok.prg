@@ -35,7 +35,7 @@
 
 
 function MnuGenDok()
-*{
+
 private opc:={}
 private opcexe:={}
 private Izbor:=1

@@ -16,7 +16,7 @@
  *   Menij events
  */
 function MnuEvents()
-*{
+
 private opc:={}
 private opcexe:={}
 private Izbor:=1

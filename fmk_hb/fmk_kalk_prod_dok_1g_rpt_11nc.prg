@@ -47,7 +47,7 @@
  */
 
 function StKalk11_1()
-*{
+
 local nCol0:=nCol1:=nCol2:=0,npom:=0
 
 Private nMarza,nMarza2
@@ -229,7 +229,7 @@ return
 
 
 function head_11_1(lPrikPRUC, cLine)
-*{
+
 if IsPDV()
 	? cLine
   	? "*R * ROBA     * Kolicina *  NAB.CJ  *  TROSAK  *  NAB.CJ  *" + if(gPDVMagNab == "N", "MARZA   *", "") + "  MARZA   * PROD.CJ  *   PDV %  *   PDV    * PROD.CJ *"

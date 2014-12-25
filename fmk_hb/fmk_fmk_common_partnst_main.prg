@@ -19,7 +19,7 @@
  *  \param cPosId - id oznaka pos-a
  */
 function GenPartnSt(lGenPartnSt, nSldMinIzn, cPosId)
-*{
+
 local GetList:={}
 local cModName:=""
 local cDN:="D"
@@ -63,7 +63,7 @@ return
  *   Poziva funkciju AddToOstav() i odredjuje da li je nIznosG manji od nSldMinIzn 
  */
 function AzurTopsOstav(nId, cIdFmk, cNaziv, nIznosG, nSldMinIzn)
-*{
+
 if nIznosG < nSldMinIzn
 	return
 endif
@@ -78,7 +78,7 @@ return
  *   Poziva f-ju AddToParams()
  */
 function AzurTopsParams(cId, cNaziv, cOpis)
-*{
+
 O_PrenHH()
 AddToParams(cId, cNaziv, cOpis)
 return
@@ -89,7 +89,7 @@ return
  *   Poziva f-ju AddFinIntervalsToOstav() 
  */
 function AzurFinOstav(cPosId, cIdFmk, cParNaz, nIznos1, nIznos2, nIznos3, nIznos4, nIznos5, nSldMinIzn)
-*{
+
 local nArr
 nArr:=SELECT()
 if nIznos1+nIznos2+nIznos3+nIznos4+nIznos5 < nSldMinIzn
@@ -107,7 +107,7 @@ return
  *  \param dDate - datum azuriranja
  */
 function AddPAzToParams(dDate)
-*{
+
 AzurTopsParams("PAZ", "Posljednje azuriranje", DToS(dDate))
 return
 
@@ -118,7 +118,7 @@ return
  *  \param lSilent - .t. - tihi mod, .f. - prijavi MSG o prenesenim parametrima
  */
 function AddSCnToParams(lSilent)
-*{
+
 if lSilent == nil
 	lSilent := .t.
 endif
@@ -136,7 +136,7 @@ return
  *  \param lSilent - .t. - tihi mod, .f. - prijavi MSG o prenesenim parametrima
  */
 function AddPCnToParams(lSilent)
-*{
+
 if lSilent == nil
 	lSilent := .t.
 endif
@@ -154,7 +154,7 @@ return
  *   Stampa kontrolnog izvjestaja
  */
 function Rpt_Ostav()
-*{
+
 O_PrenHH()
 START PRINT CRET
 

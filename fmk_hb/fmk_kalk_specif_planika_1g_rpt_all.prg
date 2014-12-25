@@ -29,7 +29,7 @@
  */
  
 function PrintParovno(nKolUlaz, nKolIzlaz)
-*{
+
 ?
 ?
 ? REPLICATE("=",80)

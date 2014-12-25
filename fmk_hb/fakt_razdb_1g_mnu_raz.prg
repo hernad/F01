@@ -30,7 +30,7 @@
  */
 
 function ModRazmjena()
-*{
+
 private Opc:={}
 private opcexe:={}
 

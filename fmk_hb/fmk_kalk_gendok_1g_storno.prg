@@ -37,7 +37,7 @@
  */
 
 function StornoDok()
-*{
+
   OEdit()
   cIdFirma := gFirma
   cIdVdU   := "  "
@@ -91,7 +91,7 @@ return
  */
 
 function ImaDok(cDok)
-*{
+
 LOCAL lVrati:=.f., nArr:=SELECT()
   SELECT DOKS
   HSEEK cDok

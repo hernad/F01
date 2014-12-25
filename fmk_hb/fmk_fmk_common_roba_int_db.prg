@@ -5,7 +5,7 @@
  *   Kreiranje tabela dinteg1 i integ1
  */
 function CreDIntDB()
-*{
+
 ChkDTbl()
 
 // kreiraj tabelu errors
@@ -150,7 +150,7 @@ return
  *   
  */
 function ChkDTbl()
-*{
+
 if FILE(KUMPATH + "INTEG1.DBF")
 	O_INTEG1
 	// ako nema polja N1 pobrisi tabele i generisi nove tabele
@@ -175,7 +175,7 @@ return
  *   Vrati sljedeci zapis polja ID za tabelu DINTEG1
  */
 function DInt1NextID()
-*{
+
 local nArr 
 nArr := SELECT()
 
@@ -194,7 +194,7 @@ return nId
  *   Vrati sljedeci zapis polja ID za tabelu DINTEG2
  */
 function DInt2NextID()
-*{
+
 local nArr 
 nArr := SELECT()
 
@@ -212,7 +212,7 @@ return nId
  *   Vraca sljedeci ID broj za polje ID
  */
 function NextDIntID()
-*{
+
 nId := 0
 set order to tag "2"
 go bottom

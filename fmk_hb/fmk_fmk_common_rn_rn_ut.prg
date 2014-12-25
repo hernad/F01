@@ -18,7 +18,7 @@
  */
 
 function ShowIznRac(nIznos)
-*{
+
 LOCAL cIzn, nCnt, Char, NextY, nPrevRow := ROW(), nPrevCol := COL()
 SETPOS (0,0)
 
@@ -144,7 +144,7 @@ return
 
 // sekvenca za cjepanje trake
 function sjeci_traku(cSekv)
-*{
+
 if EMPTY(cSekv)
 	return
 endif
@@ -159,7 +159,7 @@ return
 
 // otvaranje ladice
 function otvori_ladicu(cSekv)
-*{
+
 if EMPTY(cSekv)
 	return
 endif

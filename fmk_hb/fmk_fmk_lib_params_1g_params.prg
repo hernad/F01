@@ -69,7 +69,7 @@
 ****/
 
 function RPar(cImeVar,xArg)
-*{
+
 local cPom, clTip
 
 SEEK cSection+cHistory+cImeVar+"1"
@@ -129,7 +129,7 @@ RETURN NIL
 
 
 function KonvertPath(cPath)
-*{
+
 local cPom, nKNum, cPravilo
 
 
@@ -152,7 +152,7 @@ return
 
 
 function WPar(cImeVar, xArg, fSQL, cAkcija)
-*{
+
 local cPom, nRec
 
 if TYPE("gSql")<>"C"
@@ -285,7 +285,7 @@ return nil
 
 
 static function NextAkcija(cAkcija)
-*{
+
 
 if goModul:lSqlDirektno
 	cAkcija:="L"
@@ -303,7 +303,7 @@ return
 
 
 function Params1()
-*{
+
 local ncx,ncy,nOldc
 
 if cHistory=="*" 
@@ -329,7 +329,7 @@ return NIL
 
 
 function Params2()
-*{
+
 local ncx,ncy,nOldC
 
 tone(320,1)
@@ -337,7 +337,7 @@ tone(320,1)
 return .t.
 
 function HistUser(Ch)
-*{
+
 local nRec,cHi
 
 do case

@@ -15,7 +15,7 @@
 // ----------------------
 // ----------------------
 function PP_Firma()
-*{
+
 
 // cDirSif - putanja (direktorij) sifrarnika aktivne firme
 cK2KS:=PADR(TRIM(cDirSif)+SLASH, 40)
@@ -95,7 +95,7 @@ RETURN
 
 
 function FFor3()
-*{
+
 cIdSif:=id
 cNazSif:=naz
 

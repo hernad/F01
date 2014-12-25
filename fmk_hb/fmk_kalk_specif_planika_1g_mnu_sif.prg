@@ -32,7 +32,7 @@
  */
  
 function KaSifPlanika()
-*{
+
 private opc:={}
 private opcexe:={}
 private Izbor

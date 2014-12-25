@@ -89,7 +89,7 @@ return
  *   (Vise)dnevni promet za period
  */
 function PromPeriod()
-*{
+
 local i
 local cOldIni
 local dDan
@@ -163,7 +163,7 @@ return
  *   Skenira tabele kasa i kupi promet
  */
 static function ScanTops(dDan, aR, dDatDo, cPKto)
-*{
+
 local cTSifP
 local nSifP
 local cTKumP
@@ -272,7 +272,7 @@ return 1
  *   Skenira tabelu kalk i kupi promet prodavnica
  */
 static function ScanKalk(dDan, aR, dDatDo, cPKto)
-*{
+
 
 O_ROBA
 O_KALK
@@ -323,7 +323,7 @@ return 1
 
 
 static function GetVars(dDan, cTops, cPodvuci, cFilterDn, cFilter, dDatDo, aUslPKto)
-*{
+
 local cIspraviFilter
 
 cIspraviFilter:="N"
@@ -367,7 +367,7 @@ return 1
 
 
 static function Header(dDan, nStr)
-*{
+
 local b1
 local b2
 local b3
@@ -390,7 +390,7 @@ return
 
 
 static function Footer(cPodvuci, nUk, nUkKol)
-*{
+
 ? cLinija
 ? PADR("UKUPNO:",60), TRANS(nUkKol, "9999999999"), SPACE(1), TRANS(nUk,"999999999.99")
 ? cLinija
@@ -399,7 +399,7 @@ return
 
 
 static function CopyZaSlanje(dDan)
-*{
+
 local cS
 local cLokS
 local cNf

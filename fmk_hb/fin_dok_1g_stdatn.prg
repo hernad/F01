@@ -215,7 +215,7 @@ return
  */
  
 function DnevnikNaloga()
-*{
+
 LOCAL cMjGod:=""
  private fK1:=fk2:=fk3:=fk4:=cDatVal:="N",gnLOst:=0,gPotpis:="N"
  private nColIzn:=20
@@ -328,7 +328,7 @@ return
  */
  
 function NazMjeseca(nMjesec)
-*{
+
 LOCAL aVrati:={"Januar","Februar","Mart","April","Maj","Juni","Juli",;
                 "Avgust","Septembar","Oktobar","Novembar","Decembar"}
 RETURN IF( nMjesec>0.and.nMjesec<13 , aVrati[nMjesec] , "" )
@@ -340,7 +340,7 @@ RETURN IF( nMjesec>0.and.nMjesec<13 , aVrati[nMjesec] , "" )
  */
  
 function VidiNaloge()
-*{
+
 O_NALOG; SET ORDER TO TAG "3"; GO TOP
   ImeKol:={ ;
           {"Firma",         {|| IDFIRMA }, "IDFIRMA" } ,;
@@ -364,7 +364,7 @@ return
  */
  
 function EdNal()
-*{
+
 LOCAL nVrati:=DE_CONT, dDatNal:=NALOG->datnal, GetList:={}
   IF Ch==K_ENTER
     Box(,4,77)

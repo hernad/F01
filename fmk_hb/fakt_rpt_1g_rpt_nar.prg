@@ -14,7 +14,7 @@
 
 
 function Mnu_Narudzba()
-*{
+
 local cNarFirma:=gFirma
 local cNarIdVD:=SPACE(2)
 local cNarBrDok:=SPACE(8)
@@ -50,7 +50,7 @@ return
 
 
 function Rpt_Narudzbenica(cIdFirma, cIdVD, cBrDok, lPriprema)
-*{
+
 private cComArgs:=""
 
 

@@ -14,7 +14,7 @@
 
 // stampa liste dokumenata koji se nalaze u pripremi
 function StPripr()
-*{
+
 m:="-------------- -------- ----------"
 O_PRIPR
 

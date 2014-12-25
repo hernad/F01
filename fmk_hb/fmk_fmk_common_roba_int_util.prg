@@ -36,7 +36,7 @@ return
  *  \return string cYear
  */
 function IntegTekGod()
-*{
+
 local dTDate
 local dPDate
 local dTYear
@@ -59,7 +59,7 @@ return cYear
  *   Vraca datum od kada pocinje tekuca godina TOPS, 01.01.TG
  */
 function IntegTekDat()
-*{
+
 local dYear
 local cDate
 
@@ -73,7 +73,7 @@ return SToD(cDate)
  *   dodaj zapis u tabelu errors
  */
 function AddToErrors(cType, cIDroba, cDoks, cOpis)
-*{
+
 O_ERRORS
 append blank
 replace field->type with cType
@@ -90,7 +90,7 @@ return
  *  \param cType - tip greske, C, W, N ...
  */
 function GetErrorDesc(cType)
-*{
+
 cRet := ""
 do case
 	case cType == "C"
@@ -113,7 +113,7 @@ return cRet
  *  \param lAutoSent - automatsko slanje email-a
  */
 function RptInteg(lFilter, lAutoSent)
-*{
+
 if (lFilter == nil)
 	lFilter := .f.
 endif
@@ -217,7 +217,7 @@ return
  *   Slanje reporta na email
  */
 function RptSendEmail(lAuto)
-*{
+
 local cScript
 local cPSite
 local cRptFile
@@ -257,7 +257,7 @@ return
  *  \param cRptFile - report fajl
  */
 function GetSendVars(cScript, cPSite, cRptFile)
-*{
+
 cScript := IzFmkIni("Ruby","Err2Mail","c:\sigma\err2mail.rb", EXEPATH)
 cPSite := ALLTRIM(STR(gSqlSite))
 cRptFile := PRIVPATH + "outf.txt"
@@ -270,7 +270,7 @@ return
  *   Brisanje tabele Errors.dbf
  */
 function BrisiError()
-*{
+
 O_ERRORS
 select errors
 zap
@@ -284,7 +284,7 @@ return
  *   Da li je prazna tabela dinteg
  */
 function EmptDInt(nInteg)
-*{
+
 local cInteg := ALLTRIM(STR(nInteg))
 local cTbl := "DINTEG" + cInteg
 O_DINTEG1
@@ -304,7 +304,7 @@ return
 
 
 function SetGenSif1()
-*{
+
 // da li je generisan log
 if ALLTRIM(integ1->c3) == "G"
 	return .t.
@@ -317,7 +317,7 @@ return .f.
 
 
 function SetGenSif2()
-*{
+
 // da li je generisan log
 if ALLTRIM(integ2->c3) == "G"
 	return .t.

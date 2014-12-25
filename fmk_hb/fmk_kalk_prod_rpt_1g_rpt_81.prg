@@ -288,7 +288,7 @@ return
  */
 
 function StKalk81_2()
-*{
+
 local nCol1:=nCol2:=0,npom:=0
 private aPorezi
 

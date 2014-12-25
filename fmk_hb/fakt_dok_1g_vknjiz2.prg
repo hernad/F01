@@ -217,7 +217,7 @@ return .t.
  */
  
 function IniVars()
-*{
+
 set cursor on
 
 // varijable koje se inicijalizuju iz baze
@@ -253,7 +253,7 @@ EndIF
  */
  
 function SetVars()
-*{
+
 if _podbr==" ." .or.  roba->tip="U" .or. (val(_Rbr)<=1 .and. val(_podbr)<1)
     _txt2:=OdsjPLK(_txt2)           // odsjeci na kraju prazne linije
     if ! "Faktura formirana na osnovu" $ _txt2
@@ -280,7 +280,7 @@ return
  */
  
 function Tb_V_RBr()
-*{
+
 replace Rbr with str(nRbr,3)
 return .t.
 
@@ -291,7 +291,7 @@ return .t.
  */
  
 function Tb_W_IdRoba()
-*{
+
 _idroba:=padr(_idroba,15)
 return W_Roba()
 
@@ -303,7 +303,7 @@ return W_Roba()
  */
  
 function tb_V_IdRoba()
-*{
+
 _idroba:=iif(len(trim(_idroba))<10,left(_idroba,10),_idroba)
 V_Roba()
 IniVars() // _txt1,2,3....
@@ -321,7 +321,7 @@ return tb_V_Cijena()
  */
  
 function Tb_V_Kolicina()
-*{
+
 NSRNPIdRoba()
 // select roba; hseek pripr->idroba; select pripr
 if gTBDir=="D" .and. roba->tip=="U"
@@ -339,7 +339,7 @@ return V_Kolicina()
  */
  
 function tb_W_Cijena()
-*{
+
 return KLevel<="1"
 
 
@@ -349,7 +349,7 @@ return KLevel<="1"
  */
  
 function Tb_V_Cijena()
-*{
+
 if _DINDEM==left(ValSekund(),3)   // preracunaj u KM
       _Cijena:=_Cijena*UBaznuValutu(_datdok)
 endif
@@ -362,7 +362,7 @@ return .t.
  */
  
 function Tb_W_TRabat()
-*{
+
 return !(_idtipdok $ "12#13#11#15#27") .and. _podbr<>" ."
 
 
@@ -373,7 +373,7 @@ return !(_idtipdok $ "12#13#11#15#27") .and. _podbr<>" ."
  */
  
 function Tb_V_Rabat()
-*{
+
 return .t.
 
 
@@ -385,7 +385,7 @@ return .t.
  */
  
 function Tb_V_TRabat()
-*{
+
 V_Rabat()
 TRabat:="%"
 return .t.
@@ -398,7 +398,7 @@ return .t.
  */
  
 function Tb_W_Porez()
-*{
+
 local nRet
 
 NSRNPIdRoba()
@@ -425,7 +425,7 @@ return nRet
  */
  
 function Tb_V_Porez()
-*{
+
 NSRNPIdRoba()
 // select roba; hseek pripr->idroba
 select tarifa
@@ -441,7 +441,7 @@ return V_Porez()
  */
  
 function ValidRed()
-*{
+
 TBCanClose:=.t.
 if eof()
   return .t.   // nisam na slogu !!
@@ -470,7 +470,7 @@ return TBCanClose
  */
  
 function PrGoreRed()
-*{
+
 if !ValidRed()
    TB:Down()
    return
@@ -484,7 +484,7 @@ endif
  */
  
 function PrDoleRed()
-*{
+
 local nLen:=len(Picdem)
 
 if !ValidRed()
@@ -542,7 +542,7 @@ return .t.  // uspjesno otiso u novi red
  */
  
 function PrDodajRed()
-*{
+
 
 local nRrbr
 
@@ -575,7 +575,7 @@ return
  */
  
 function TbRobaNaz()
-*{
+
 NSRNPIdRoba()
 // select roba; hseek pripr->idroba; select pripr
 return left(Roba->naz,25)
@@ -589,7 +589,7 @@ return left(Roba->naz,25)
  */
  
 function ObracunajPP(cSetPor,dDatDok)
-*{
+
 
 select (F_PRIPR)
 if !used()
@@ -641,7 +641,7 @@ RETURN
  */
  
 function UCKalk()
-*{
+
 LOCAL nArr:=SELECT(), aUlazi:={}, GetList:={}, cIdPartner:=_idpartner
   LOCAL cSezona:="RADP", cPKalk:=""
   PUBLIC gDirKalk:=""
@@ -710,7 +710,7 @@ RETURN
  */
  
 function ChSveStavke(fNovi)
-*{
+
 LOCAL nRec:=recno()
   set order to 0
   go top
@@ -763,7 +763,7 @@ RETURN
  */
  
 function TarifaR(cRegion, cIdRoba, aPorezi)
-*{
+
 local cTarifa
 private cPolje
 
@@ -809,7 +809,7 @@ return tarifa->id
  */
  
 function SetAPorezi(aPorezi)
-*{
+
 if (aPorezi==nil)
 	aPorezi:={}
 endif
@@ -840,7 +840,7 @@ return nil
  */
  
 function MpcSaPor(nMpcBP,aPorezi,aPoreziIzn)
-*{
+
 local nPom
 
 if gUVarPP=="R"
@@ -866,7 +866,7 @@ return nPom
  */
  
 function MpcBezPor(nMpcSaPP,aPorezi)
-*{
+
 local nPom
 
 if gUVarPP=="R" 
@@ -894,7 +894,7 @@ return nPom
  */
  
 function Izn_P_PPP(nMpcBP,aPorezi,aPoreziIzn)
-*{
+
 local nPom
 nPom:= nMpcBp*(aPorezi[POR_PPP]/100) 
 
@@ -911,7 +911,7 @@ return nPom
  */
  
 function Izn_P_PPU(nMpcBP, aPorezi, aPoreziIzn)
-*{
+
 local nPom
 nPom:= nMpcBp*(aPorezi[POR_PPP]/100+1)*(aPorezi[POR_PPU]/100) 
 return nPom
@@ -926,7 +926,7 @@ return nPom
  *  \param aPoreziIzn
  */
 function Izn_P_PP(nMpcBP, aPorezi, aPoreziIzn)
-*{
+
 local nPom
 
 if gUVarPP=="R"

@@ -35,7 +35,7 @@ return .t.
  */
  
 function OtkljucajBug()
-*{
+
 if SigmaSif("BUG     ")
 	lPodBugom:=.f.
     	gaKeys:={}
@@ -47,7 +47,7 @@ return NIL
  *  
  */
 function Izvj0()
-*{
+
 // sasa, 28.01.04, problem sa secur.dbf
 //cSecur:=SecurR(KLevel,"IZVJESTAJI")
 //if ImaSlovo("X",cSecur)
@@ -63,7 +63,7 @@ return
  *   Povrat naloga
  */
 function PovratNaloga()
-*{
+
 if gBezVracanja=="N"
 	Povrat()
 endif
@@ -75,7 +75,7 @@ return
  *   preknjizenje
  */
 function Preknjizenje()
-*{
+
 cSecur:=SecurR(KLevel,"Preknjiz")
 cSecur2:=SecurR(KLevel,"SGLEDAJ")
 if ImaSlovo("X",cSecur) .or. ImaSlovo("D",cSecur2)
@@ -104,7 +104,7 @@ return
  *   generacija pocetnog stanja
  */
 function GenPocStanja()
-*{
+
 cSecur:=SecurR(KLevel,"PrenosNG")
 cSecur2:=SecurR(KLevel,"SGLEDAJ")
 if ImaSlovo("X",cSecur) .or. ImaSlovo("D",cSecur2)
@@ -119,7 +119,7 @@ return
  *   Ispituje da li nalog postoji u SUBAN ako ga nema u NALOG
  */
 function ImaUSubanNemaUNalog()
-*{
+
 Box(,5,60)
 close all
 select 1

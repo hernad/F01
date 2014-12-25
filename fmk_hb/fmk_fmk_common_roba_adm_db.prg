@@ -30,7 +30,7 @@
  */
  
 function PP_Sast()
-*{
+
   PRIVATE cAkoNema:="N"
   // cDirSif - putanja (direktorij) sifrarnika aktivne firme
   cK2KS:=PADR(TRIM(cDirSif)+"\",40)
@@ -111,7 +111,7 @@ RETURN
 
 
 function FFor2()
-*{  
+  
   
 * NA ROBA.DBF SMO
 cIdSif:=ROBA->id                   
@@ -177,7 +177,7 @@ RETURN !EMPTY(cRezultat)
 
 
 function FmkRobaVer()
-*{
+
 return DBUILD
 
 

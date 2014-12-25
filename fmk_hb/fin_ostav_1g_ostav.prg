@@ -23,7 +23,7 @@
  */
  
 function Ostav()
-*{
+
 private izbor:=1
 private opc:={}
 private opcexe:={}
@@ -64,7 +64,7 @@ return
  */
  
 static function SpecOtSt()
-*{
+
 local nKolTot:=85
 cIdFirma:=gFirma
 nRok:=0
@@ -258,7 +258,7 @@ return
  */
  
 function ZaglSpK()
-*{
+
 local nDSP:=0
 ?
 P_COND
@@ -304,7 +304,7 @@ RETURN
  *   Zatvaranje stavki automatski
  */
 function AutoZat(lAuto, cKto, cPtn)
-*{
+
 cSecur:=SecurR(KLevel,"OSTAVKE")
 if ImaSlovo("X",cSecur)
    MsgBeep("Opcija nedostupna !")
@@ -455,7 +455,7 @@ return
  */
  
 function RucnoZat()
-*{
+
 
 cSecur:=SecurR(KLevel,"OSTAVKE")
 if ImaSlovo("X",cSecur)
@@ -580,7 +580,7 @@ return
  */
  
 function EdROS()
-*{
+
 local cDn:="N",nRet:=DE_CONT
 
 if Logirati(goModul:oDataBase:cName,"DOK","ASISTENT")
@@ -683,7 +683,7 @@ return nRet
  */
  
 function OSt_StatLin()
-*{
+
 if gTBDir="D"
  @ m_x+16,m_y+1 SAY space(78)
  @ m_x+17,m_y+1 SAY padr("Direktni mod za unos: ispravka opisa",78)
@@ -710,7 +710,7 @@ return
  */
  
 function StKart(fSolo,fTiho,bFilter)
-*{
+
 local nCol1:=72,cSvi:="N",cSviD:="N",lEx:=.f.
 
 IF fTiho==NIL; fTiho:=.f.; ENDIF
@@ -1080,7 +1080,7 @@ ENDIF
  */
  
 function CrePom(fTiho, nParLen)
-*{
+
 local nPartLen
 IF fTiho==NIL; fTiho:=.f.; ENDIF
 select (F_POM); USE
@@ -1194,7 +1194,7 @@ RETURN
  */
  
 function StBrVeze()
-*{
+
 local nCol1:=35
 cDokument:=SPACE(8)
 picBHD:=FormPicL(gPicBHD,13)
@@ -1328,7 +1328,7 @@ RETURN
  */
  
 function Kompenzacija()
-*{
+
 cIdFirma:=gFirma
 private picBHD:=FormPicL(gPicBHD,16)
 private picDEM:=FormPicL(gPicDEM,12)
@@ -1686,7 +1686,7 @@ return
  */
  
 function EdKomp()
-*{
+
 local nTr2, GetList:={}, nRec:=RECNO(), nX:=m_x, nY:=m_y, nVrati:=DE_CONT
 
 IF ! ( (Ch==K_CTRL_T .or. Ch==K_ENTER) .and. reccount2()==0 )
@@ -1757,7 +1757,7 @@ return nVrati
  */
  
 function StKompenz()
-*{
+
 LOCAL a1:={}, a2:={}, GetList:={}
  LOCAL cIdPov:=SPACE(6)
  LOCAL nLM:=5, nLin, nPocetak, i:=0, j:=0, k:=0
@@ -1934,7 +1934,7 @@ RETURN (NIL)
  */
  
 static function SkipT12i60()
-*{
+
 LOCAL nArr:=SELECT()
 
   SELECT TEMP12
@@ -1956,7 +1956,7 @@ RETURN (NIL)
  */
  
 function UzmiVar(cVar)
-*{
+
 LOCAL cVrati:=""
  DO CASE
    CASE cVar=="01"
@@ -2045,7 +2045,7 @@ RETURN cVrati
  */
  
 function PrnKod_ON(cKod)
-*{
+
 LOCAL i:=0
   FOR i:=1 TO LEN(cKod)
     DO CASE
@@ -2068,7 +2068,7 @@ RETURN (NIL)
  */
  
 function PRNKod_OFF(cKod)
-*{
+
 LOCAL i:=0
   FOR i:=1 TO LEN(cKod)
     DO CASE
@@ -2089,7 +2089,7 @@ RETURN (NIL)
  */
  
 function GenAZ()
-*{
+
 local nSaldo
 local nSljRec
 local nOdem
@@ -2590,7 +2590,7 @@ return
  */
  
 function StAz()
-*{
+
 aKol:={}
 AADD(aKol,{ "Originalni",    {|| _obrdok}, .f., "C", 10,  0, 1, 1    })
 AADD(aKol,{ "Br.Veze  " ,    {|| "#"}, .f., "C", 10,  0, 2, 1    })
@@ -2629,7 +2629,7 @@ return .t.
  */
  
 function SkipDBBK(nRequest)
-*{
+
 local nCount
 nCount := 0
 if LastRec() != 0
