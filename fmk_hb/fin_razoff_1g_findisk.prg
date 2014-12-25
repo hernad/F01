@@ -23,7 +23,7 @@ private opc:={}
 private opcexe:={}
 
 AADD(opc,"1. prenos dokumenata   =>        ")
-AADD(opcexe,{|| PrDisk()})
+AADD(opcexe,{|| fin_prenos_diskete()})
 AADD(opc,"2. prijem dokumenata   <= ")
 AADD(opcexe,{|| PovDisk()})
 AADD(opc,"3. podesavanje prenosa i prijema")
@@ -32,11 +32,11 @@ Menu_SC("pfin")
 return .f.
 
 
-/*!  PrDisk()
+/*!  fin_prenos_diskete()
  *   Prenos dokumenata 
  */
  
-function PrDisk()
+function fin_prenos_diskete()
 local nRec
 PRIVATE cLokPren    := "A:\"
 PRIVATE cFZaPredaju := "AFIN"

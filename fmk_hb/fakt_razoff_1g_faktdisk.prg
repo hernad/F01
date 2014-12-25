@@ -53,7 +53,7 @@ private opcexe:={}
 private Izbor:=1
 
 AADD(opc,"1. prenos dokumenata   =>        ")
-AADD(opcexe,{|| PrDisk()})
+AADD(opcexe,{|| fakt_prenos_diskete()})
 AADD(opc,"2. prijem dokumenata   <= ")
 AADD(opcexe,{|| PovDisk()})
 AADD(opc,"3. podesavanje prenosa i prijema")
@@ -64,11 +64,11 @@ closeret
 
 
 
-/*!  PrDisk()
+/*!  fakt_prenos_diskete()
  *   Prenos na diskete
  */
  
-function PrDisk()
+function fakt_prenos_diskete()
 
 local nRec
 PRIVATE cLokPren    := "A:\"

@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -46,7 +46,7 @@ private Opc:={}
 private opcexe:={}
 
 AADD(opc,"1. prenos dokumenata   =>            ")
-AADD(opcexe, {|| PrDisk()})
+AADD(opcexe, {|| kalk_prenos_diskete()})
 AADD(opc,"2. prijem dokumenata   <= ")
 AADD(opcexe, {|| PovDisk()})
 AADD(opc,"3. podesavanje prenosa i prijema")
@@ -64,14 +64,14 @@ return
 
 
 
-/*!  PrDisk()
+/*!  kalk_prenos_diskete()
  *   Prenos podataka na diskete
  */
 
-static function PrDisk()
+static function kalk_prenos_diskete()
 local nRec
 
-PRIVATE cLokPren    := "A:\"
+PRIVATE cLokPren    := "A:" + SLASH
 PRIVATE cFZaPredaju := "AKALK"
 PRIVATE cFZaPrijem  := "AKALK"
 PRIVATE cUslovVDok  := "1;"
@@ -527,7 +527,3 @@ static function PPPDisk(lIni)
   ENDIF
   USE
 return
-
-
-
-
