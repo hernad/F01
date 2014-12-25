@@ -73,10 +73,10 @@ endif
 return
 
 
-/*!  PrebKartica()
+/*!  Prebfin_kartica()
  *   Prebacivanja kartica
  */
-function PrebKartica()
+function Prebfin_kartica()
 //cSecur:=SecurR(KLevel,"Prekart")
 //cSecur2:=SecurR(KLevel,"SGLEDAJ")
 //if ImaSlovo("TX",cSecur) .or. ImaSlovo("D",cSecur2)

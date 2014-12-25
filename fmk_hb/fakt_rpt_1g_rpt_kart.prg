@@ -38,11 +38,11 @@
 
 
 
-/*!  Kartica()
+/*!  fakt_kartica()
  *   Izvjestaj - kartica
  */
  
-function Kartica()
+function fakt_kartica()
 
 local cIdfirma, nRezerv, nRevers
 local nul, nizl, nRbr, cRR, nCol1:=0, cKolona, cBrza:="D"
