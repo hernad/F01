@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,10 +14,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/fakt/dok/2g/frm_inv.prg,v $
- * $Author: sasa $ 
+ * $Author: sasa $
  * $Revision: 1.9 $
  * $Log: frm_inv.prg,v $
  * Revision 1.9  2002/06/29 09:11:43  sasa
@@ -65,13 +65,13 @@
  *
  *
  */
- 
+
 *string tbl_fakt_serBr
 /*! \var tbl_fakt_serBr
  *  \brief predvidjeno za evidenciju serijskog broja artikla
  *
  * \note koliko mi je poznato NIKO ovu mogucnost ne koristi
- *  
+ *
  *  Za dokument inventure cemo ga koristiti na SPECIFICAN nacin:
  *  "serBr"    -> pohranicemo vijednost Knjizne kolicine
  *
@@ -89,7 +89,7 @@
  * \todo takodje se koristi kod reklamacije za ... ali ne znam za sta
  * \sa tbl_fakt
  */
- 
+
 function TFrmInvNew()
 *{
 local oObj
@@ -108,7 +108,7 @@ return oObj
 /*! \fn FaUnosInv()
  *  \brief Poziva se unos dokumenta inventure
  */
- 
+
 function FaUnosInv()
 *{
 local oMainFrm
@@ -122,10 +122,10 @@ return
 
 #ifndef CPP
 #include "class(y).ch"
-CREATE CLASS TFrmInv 
+CREATE CLASS TFrmInv
 	EXPORTED:
 	var self
-	
+
 	//is partner field loaded
 	var lPartnerLoaded
 	var lTerminate
@@ -151,7 +151,7 @@ CREATE CLASS TFrmInv
 	method noveStavke
 	method popup
 	method sayKomande
-	
+
 	method genDok
 	method genDokManjak
 	method genDokVisak
@@ -223,7 +223,7 @@ do case
 		if nRet==1
 			return DE_REFRESH
 		else
-			return DE_CONT   
+			return DE_CONT
 		endif
 
 	case ::nCh==K_CTRL_A
@@ -237,7 +237,7 @@ do case
 	case ::nCh==K_CTRL_P
         	::print()
         	return DE_REFRESH
-	
+
 	case ::nCh==K_ALT_P
         	::printOPop()
         	return DE_REFRESH
@@ -262,19 +262,19 @@ do case
 	case ::nCh==K_ALT_F10
 		FaAsistent()
       		return DE_REFRESH
-	
+
 	case ::nCh==K_ESC
 		return DE_ABORT
 endcase
 
-	
+
 return DE_CONT
 *}
 
 /*! \fn TFrmInv::walk()
  *  \brief Prodji kroz sve stavke dokumenta
  */
- 
+
 method walk()
 local oFrmItem
 
@@ -302,7 +302,7 @@ return
 /*! \fn TFrmInv::noveStavke()
  *  \brief Unos novih stavki
  */
- 
+
 method noveStavke()
 local oFrmItem
 
@@ -332,10 +332,10 @@ return
 *{
 method sayKomande()
 
-@ m_x+18, m_y+2 SAY " <c-N> Nove Stavke       ³<ENT> Ispravi stavku      ³<c-T> Brisi Stavku "
-@ m_x+19, m_y+2 SAY " <c-A> Ispravka Dokumenta³<c-P> Stampa dokumenta    ³<a-P> Stampa obr. popisa"
-@ m_x+20, m_y+2 SAY " <a-A> Azuriranje dok.   ³<c-F9> Brisi pripremu     ³"
-@ m_x+21, m_y+2 SAY " <F10>  Ostale opcije    ³<a-F10> Asistent  "
+@ m_x+18, m_y+2 SAY " <c-N> Nove Stavke       ï¿½<ENT> Ispravi stavku      ï¿½<c-T> Brisi Stavku "
+@ m_x+19, m_y+2 SAY " <c-A> Ispravka Dokumentaï¿½<c-P> Stampa dokumenta    ï¿½<a-P> Stampa obr. popisa"
+@ m_x+20, m_y+2 SAY " <a-A> Azuriranje dok.   ï¿½<c-F9> Brisi pripremu     ï¿½"
+@ m_x+21, m_y+2 SAY " <F10>  Ostale opcije    ï¿½<a-F10> Asistent  "
 
 return
 *}
@@ -345,7 +345,7 @@ return
  *  \brief Postavi vrijednost aImeKol, aKol matrica
  *  \note takodje se na kraju postavljaju priv var: ImeKol:=aImeKol, Kol:=aKol
  */
- 
+
 *void TFrmInv::setColuns()
 *{
 method setColumns()
@@ -364,7 +364,7 @@ AADD(::aImeKol, {"Partn",         {|| field->idPartner}, "idPartner" })
 AADD(::aImeKol, {"IdTipDok",      {|| field->idTipDok}, "idtipdok" })
 AADD(::aImeKol, {"Brdok",         {|| field->brDok}, "brdok" })
 AADD(::aImeKol, {"DatDok",        {|| field->datDok}, "datDok" })
-       
+
 if pripr->(fieldpos("k1"))<>0 .and. gDK1=="D"
   	AADD(::aImeKol,{ "K1",{|| field->k1}, "k1" })
   	AADD(::aImeKol,{ "K2",{|| field->k2}, "k2" })
@@ -386,8 +386,8 @@ return
  *
  *  \code
  *  Izvjestaj sadrzi sljedece kolone
- *  Rbr; Artikal (id, naz); Knj.kol; Pop.kol; Razlika kol; <<nastavak dole>> 
- *  Vpc; Vpv Visak; Vpv Manjak  
+ *  Rbr; Artikal (id, naz); Knj.kol; Pop.kol; Razlika kol; <<nastavak dole>>
+ *  Vpc; Vpv Visak; Vpv Manjak
  *
  *  (izvjestaj je ostranicen)
  *  \endcode
@@ -408,15 +408,15 @@ return
  *
  *  \code
  *  Izvjestaj sadrzi sljedece kolone
- *  Rbr; Artikal (id, naz); Pop.kol; Vpc  
- *  
+ *  Rbr; Artikal (id, naz); Pop.kol; Vpc
+ *
  *  Kolona Pop.kol: sadrzi prostor "____________" za unos kolicine
  *
  *  Na kraju sadrzi potpis clanova komisije
  *
  *  (izvjestaj je ostranicen)
  *  \endcode
- *  
+ *
  *  \sa PrnClanoviKomisije, DokNovaStrana
  */
 *void TFrmInv::printOPop()
@@ -478,7 +478,7 @@ return 1
  *  \brief PopupMeni forme Inventure
  *
  */
- 
+
 *void TFrmInv::popup()
 *{
 method popup
@@ -563,7 +563,7 @@ MsgBeep("Not imp: GDokInvManjak")
 GDokInvManjak(cIdRj, cBrDok)
 
 // obrada "obicnih" dokumenata
-Knjiz()
+fakt_Knjiz()
 
 ::lTerminate:=.t.
 
@@ -576,7 +576,7 @@ return
 
 *void TFrmInv::genDokVisak()
 *{
-method genDokVisak 
+method genDokVisak
 local cIdRj
 local cBrDok
 
@@ -609,9 +609,8 @@ MsgBeep("Not imp: GDokInvVisak")
 GDokInvVisak(cIdRj, cBrDok)
 
 // obrada "obicnih" dokumenata
-Knjiz()
+fakt_Knjiz()
 
 ::lTerminate:=.t.
 return
 *}
-

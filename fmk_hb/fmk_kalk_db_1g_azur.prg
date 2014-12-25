@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -12,22 +12,16 @@
 
 #include "kalk.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
- * ----------------------------------------------------------------
- *
- */
 
 /*! \file fmk/kalk/db/1g/azur.prg
  *  \brief Azuriranje kalkulacija i povrat kalkulacija u pripremu
  */
 
-/*! \fn Azur()
- *  \brief Azuriranje kalkulacije
+/*!  kalk_Azur()
+ *   Azuriranje kalkulacije
  */
 
-function Azur(lAuto)
+function kalk_Azur(lAuto)
 *{
 local cidfirma
 local cidvd
@@ -36,7 +30,7 @@ local cOdg:="N"
 local lgAFin:=gAFin
 local lgAMat:=gAMat
 // pametno azuriranje
-local cPametno:="D" 
+local cPametno:="D"
 local nBrStavki:=0
 local lBrStDoks:=.f.
 
@@ -222,19 +216,19 @@ if cPametno=="D"
 		// 1. pdv rezim magacin po nabavnim cijenama
 		// ili
 		// 2. magacin samo po nabavnim cijenama
-		
+
 		// nivelacija 10,94,16
-		Niv_10()  
+		Niv_10()
 	endif
-	
+
 	Niv_11()  // nivelacija 11,81
 
 	Otprema() // iz otpreme napravi ulaza
  	Iz13u11()  // prenos iz prodavnice u prodavnicu
- 	
+
 	// inventura magacina - manjak / visak
 	InvManj()
-	
+
 	lOSitInv:=.f.
  	IF IzFMKIni("KALKSI","EvidentirajOtpis","N",KUMPATH)=="D"
    		lOSitInv:=Otpis16SI()
@@ -330,14 +324,14 @@ do while !eof()
   	private nNV:=0
 	private nVPV:=0
 	private nMPV:=0
-	private nRabat:=0  
+	private nRabat:=0
 	// za DOKS.DBF
-  	
+
 	IF lViseDok .and. ASCAN(aOstaju,cIdFirma+cIdVd+cBrDok)<>0  // preskoci postojece
     		SKIP 1
     		LOOP
   	ENDIF
-  	
+
 	select doks
   	append blank
   	replace idfirma with cidfirma, brdok with cbrdok,;
@@ -349,13 +343,13 @@ do while !eof()
   	if fieldpos("sifra")<>0
      		replace sifra with SifraKorisn
   	endif
-  
+
 	if Logirati(goModul:oDataBase:cName,"DOK","AZUR")
-		
+
 		cOpis := cIDFirma + "-" + cIdVd + "-" + ALLTRIM(cBrDok)
 
 		EventLog(nUser,goModul:oDataBase:cName,"DOK","AZUR",nil,nil,nil,nil,cOpis, "", "", pripr->datdok, Date(),"","Azuriranje dokumenta")
-	
+
 	endif
 
 	#ifdef SR
@@ -366,7 +360,7 @@ do while !eof()
   		append blank
   		_Id:="AZUR";_datum:=pripr->datdok; _datprom:=date()
   		_k1:=pripr->brdok; _k2:=pripr->brfaktp; Gather()
-  		O_LOGKD  
+  		O_LOGKD
 		// otvori logove kumulativa
 	#endif
 
@@ -386,7 +380,7 @@ do while !eof()
        			_mu_i    := "1"
      			Gather()
    		endif
-   
+
   		// popunjavanje roba->idpartner
   		// popunjavanje tabele prodnc
   		if IsPlanika()
@@ -399,7 +393,7 @@ do while !eof()
    		select pripr
 
    		if ! ( cIdVd $ "97" )
-     			SetZaDoks() 
+     			SetZaDoks()
 			// setuj nnv, nmpv ....
    		endif
 
@@ -423,7 +417,7 @@ select KALK
 if cPametno=="D"
 
  RekapK()
- 
+
  if (gafin=="D" .or. gamat=="D")
    	KontNal( .t., lAuto )
  endif
@@ -506,7 +500,7 @@ if cPametno=="D"
   endif
 
 
- elseif idvd $ "16"  .and. gGen16=="1" 
+ elseif idvd $ "16"  .and. gGen16=="1"
    // nakon otpreme doprema
 
   if pripr2->(reccount2())<>0
@@ -563,7 +557,7 @@ return
 function Azur9()
 *{
  // pametno azuriranje
-local cPametno:="D" 
+local cPametno:="D"
 
 if Pitanje("p1","Zelite li pripremu prebaciti u smece (D/N) ?","N")=="N"
   return
@@ -709,34 +703,34 @@ if cBrDok="."
       			select KALK
 			Scatter()
 			select PRIPR
-      			
+
 			IF ! ( _idvd $ "97" .and. _tbanktr=="X" )
         			append ncnl; _ERROR:="";  Gather2()
       			ENDIF
-			
+
 			if gEraseKum
       				select doks
 				seek kalk->(idfirma+idvd+brdok)   // izbrisi u doks
-      				if Found() 
+      				if Found()
 					delete
 				endif
 			endif
-			
+
 			select kalk
       			skip
-			
+
 			nRec:=recno()
-			
+
 			skip -1
-      			
+
 			if gEraseKum
 				dbdelete2()
 			endif
-      			
+
 			go nRec
     		enddo
     		select kalk
-		
+
 		MsgC()
   	endif
   	closeret
@@ -786,7 +780,7 @@ if gEraseKum
 	enddo
 
 	if Logirati(goModul:oDataBase:cName,"DOK","POVRAT")
-		
+
 		cOpis := idfirma + "-" + idvd + "-" + ALLTRIM(brdok)
 		EventLog(nUser, goModul:oDataBase:cName,"DOK","POVRAT",nil,nil,nil,nil,cOpis,"","",datdok,Date(),"","KALK - Povrat dokumenta u pripremu")
 	endif
@@ -1069,10 +1063,10 @@ do while !bof() .and. cIdFirma==IdFirma .and. datdok==dDatDok
      Msg("Dokument: "+cbrsm+" je izgenerisan,te je izbrisan bespovratno")
    endif
   endif
-  
+
   select kalk
   skip -1
-  
+
   if bof()
     fBof:=.t.
     nRec:=0
@@ -1143,4 +1137,3 @@ zap
 
 return
 *}
-

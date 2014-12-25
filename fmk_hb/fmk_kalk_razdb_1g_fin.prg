@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -24,20 +24,20 @@ if (lAuto == nil)
 endif
 
 if gafin=="D"
-	
+
 	// kontrola zbira - uravnotezenje
  	KZbira( lAuto )
-	
-	if lAuto == .f. .or. (lAuto == .t. .and. gAImpPrint == "D" ) 
+
+	if lAuto == .f. .or. (lAuto == .t. .and. gAImpPrint == "D" )
 		// stampa fin naloga
  		StNal( lAuto )
 	else
 		fill_psuban()
 		sintstav()
 	endif
-	
-	// azuriranje fin naloga
- 	Azur( lAuto )
+
+
+ 	fin_Azur( lAuto )
 
 endif
 
@@ -87,7 +87,7 @@ if EOF()
 endif
 
 DO WHILE !EOF()
-	
+
 	cIdFirma := IdFirma
 	cIdVN := IdVN
 	cBrNal := BrNal
@@ -103,14 +103,14 @@ DO WHILE !EOF()
 
          	SELECT PSUBAN
          	APPEND BLANK
-         	Gather()  
+         	Gather()
 		select PRIPR
-         
+
 	 SKIP
-      
+
       ENDDO
 
-ENDDO   
+ENDDO
 
 close all
 return
@@ -165,7 +165,7 @@ DO WHILE !EOF()
      read
      ESC_BCR
     BoxC()
-   endif	
+   endif
 
    HSEEK cIdFirma+cIdVN+cBrNal
    if eof()
@@ -374,7 +374,7 @@ endif
 
 A:=0
 
-DO WHILE !eof()   
+DO WHILE !eof()
    // svi nalozi
 
    nStr := 0
@@ -382,7 +382,7 @@ DO WHILE !eof()
    nD2 := 0
    nP1 := 0
    nP2 := 0
-   
+
    cIdFirma := IdFirma
    cIDVn := IdVN
    cBrNal := BrNal
@@ -397,7 +397,7 @@ DO WHILE !eof()
 	 nDugDEM:=0
          nPotBHD:=0
 	 nPotDEM:=0
-         
+
 	 if D_P="1"
                nDugBHD:=IznosBHD
 	       nDugDEM:=IznosDEM
@@ -406,22 +406,22 @@ DO WHILE !eof()
 	       nPotDEM:=IznosDEM
          endif
 
-         SELECT PANAL     
+         SELECT PANAL
 	 // analitika
          seek cIdFirma + cIdVn + cBrNal + cIdKonto
-	 
+
          fNasao:=.f.
-         
+
 	 DO WHILE !EOF() .and. cIdFirma == IdFirma ;
 	 	.and. cIdVN == IdVN .and. cBrNal==BrNal ;
                 .and. IdKonto == cIdKonto
-		
+
            if gDatNal=="N"
               if month(psuban->datdok) == month(datnal)
                 fNasao:=.t.
                 exit
               endif
-           else  
+           else
 	      // sintetika se generise na osnovu datuma naloga
               if month(dDatNal)==month(datnal)
                 fNasao:=.t.
@@ -447,7 +447,7 @@ DO WHILE !eof()
          SELECT PSINT
          seek cidfirma+cidvn+cbrnal+left(cidkonto,3)
          fNasao:=.f.
-         
+
 	 DO WHILE !eof() .and. cIdFirma==IdFirma ;
 	 	.AND. cIdVN==IdVN .AND. cBrNal==BrNal ;
                    .and. left(cidkonto,3)==idkonto
@@ -465,7 +465,7 @@ DO WHILE !eof()
 
            skip
          ENDDO
-         
+
 	 if !fNasao
              append blank
          endif
@@ -480,8 +480,8 @@ DO WHILE !eof()
 
         SELECT PSUBAN
         skip
-	
-   ENDDO  
+
+   ENDDO
    // nalog
 
    SELECT PNALOG    // datoteka naloga
@@ -495,7 +495,7 @@ DO WHILE !eof()
 
    SELECT PSUBAN
 
-ENDDO  
+ENDDO
 // svi nalozi
 
 select PANAL
@@ -529,10 +529,7 @@ endif
 return
 
 
-// ------------------------------------------
-// Azuriranje fin naloga
-// ------------------------------------------
-static function Azur(lAuto)
+static function fin_Azur(lAuto)
 local nLOst := gnLOst
 
 FO_PRIPR
@@ -604,15 +601,15 @@ do while !eof()
     		skip
 	enddo
 
-	if Round( nSaldo, 4 ) == 0 .or. gRavnot=="N" 
+	if Round( nSaldo, 4 ) == 0 .or. gRavnot=="N"
 
 		// nalog je uravnotezen, azuriraj ga !
-	
+
 		if !( SUBAN->(flock()) .and. ;
 			ANAL->(flock()) .and. ;
 			SINT->(flock()) .and. ;
 			NALOG->(flock())  )
-    			
+
 			if gAzurFinTO == nil
 				nTime := 150
 			else
@@ -631,11 +628,11 @@ do while !eof()
 					ANAL->(flock()) .and. ;
 					SINT->(flock()) .and. ;
 					NALOG->(flock())  )
-    				
+
 					exit
-			
+
 				endif
-			
+
 				sleep(1)
 
 			  enddo
@@ -646,7 +643,7 @@ do while !eof()
 				ANAL->(flock()) .and. ;
 				SINT->(flock()) .and. ;
 				NALOG->(flock())  )
-    
+
 				Beep(4)
     				BoxC()
     				Msg("Timeout za azuriranje istekao!#Ne mogu azurirati nalog...")
@@ -660,12 +657,12 @@ do while !eof()
   		if found()
   			BoxC()
 			Msg("Vec postoji proknjizen nalog "+IdFirma+"-"+IdVn+"-"+BrNal+ "  !")
-			closeret2 
+			closeret2
   		endif
 
   		select PNALOG
 		seek cNal
-  		
+
 		if found()
     			Scatter()
     			_sifra:=sifrakorisn
@@ -690,16 +687,16 @@ do while !eof()
   		enddo
 
   		@ m_x+3,m_y+2 SAY "SUBANALITIKA   "
-  		
+
 		select PSUBAN
 		seek cNal
-  		
+
 		do while !eof() .and. cNal==IdFirma+IdVn+BrNal
 
     		    Scatter()
 
     		    if gnLOst >= 0
-	                
+
 			if _d_p=="1"
 				nSaldo := _IznosBHD
 		    	else
@@ -728,18 +725,18 @@ do while !eof()
       				enddo
       				_OtvSt:="9"
     			endif
-		    
+
 		    endif
-			
+
 		    select suban
     		    append ncnl
 		    Gather2()
 
     		    select PSUBAN
 		    skip
-		
+
 		enddo
-  
+
 		@ m_x+3,m_y+2 SAY "ANALITIKA       "
 		select PANAL
 		seek cNal
@@ -768,7 +765,7 @@ do while !eof()
 
 	else
 		msgbeep("saldo <> 0")
-	endif 
+	endif
 	// saldo == 0
 
 	select PSUBAN
@@ -965,9 +962,9 @@ if lAuto == nil
 endif
 
 Box("kzb",12,70,.f.,"Kontrola zbira FIN naloga")
-	
+
 	set cursor on
- 	
+
 	cIdFirma:=IdFirma
 	cIdVN:=IdVN
 	cBrNal:=BrNal
@@ -984,7 +981,7 @@ Box("kzb",12,70,.f.,"Kontrola zbira FIN naloga")
 
 
  	do while  !eof() .and. (IdFirma+IdVn+BrNal==cIdFirma+cIdVn+cBrNal)
-   		
+
 		if D_P == "1"
 			dug += IznosBHD
 			dug2 += iznosdem
@@ -992,16 +989,16 @@ Box("kzb",12,70,.f.,"Kontrola zbira FIN naloga")
 			pot += IznosBHD
 			pot2 += iznosdem
 		endif
-   		
+
 		skip
  	enddo
- 	
+
 	SKIP -1
- 	
+
 	Scatter()
 
  	cPic:="999 999 999 999.99"
- 	
+
 	@ m_x+5,m_y+2 SAY "Zbir naloga:"
  	@ m_x+6,m_y+2 SAY "     Duguje:"
  	@ m_x+6,COL()+2 SAY Dug PICTURE cPic
@@ -1014,63 +1011,63 @@ Box("kzb",12,70,.f.,"Kontrola zbira FIN naloga")
  	@ m_x+8,COL()+2 SAY Dug2-Pot2  PICTURE cPic
 
  	IF Round(Dug-Pot, 2 ) <> 0
-   		
+
 		private cDN:="D"
-   		
+
 		if lAuto == .f.
-			
+
 		  set cursor on
-			
+
 		  @ m_x+10,m_y+2 SAY "Zelite li uravnoteziti nalog (D/N) ?" GET cDN valid (cDN $ "DN") pict "@!"
-   		  
+
 		  read
-		  
+
    		else
 			// uravnoteziti nalog ako je auto import
 			cDN := "D"
 		endif
-		
+
    		if cDN == "D"
-     	
+
 			_Opis:="GRESKA ZAOKRUZ."
      			_BrDok:=""
      			_D_P:="2"
 			_IdKonto:=SPACE(7)
-     			
+
 			if lAuto == .f.
-			  
+
 			  @ m_x+11,m_y+2 SAY "Staviti na konto ?" ;
 				GET _IdKonto valid P_Konto(@_IdKonto)
      			  @ m_x+11,col()+1 SAY "Datum dokumenta:" GET _DatDok
-     			  
+
 			  read
-			
+
 			else
-			
+
 			  _idkonto := gAImpRKonto
-			  
+
 			  if EMPTY(_idkonto)
 			  	_idkonto := "1370   "
 			  endif
-			  
+
 			endif
-			
+
      			if lAuto == .t. .or. lastkey() <> K_ESC
-			       				
+
 				_Rbr:=str(val(_Rbr)+1,4)
       				_IdPartner:=""
        				_IznosBHD:=Dug-Pot
-       			
+
 				nTArea := SELECT()
-				
+
 				DinDem(NIL,NIL,"_IZNOSBHD")
-       			
+
 				select (nTArea)
-			
+
 				append blank
-       				
+
 				Gather()
-				
+
      			endif
    		endif
  	endif
@@ -1239,4 +1236,3 @@ MsgC()
 closeret2
 return
 *}
-

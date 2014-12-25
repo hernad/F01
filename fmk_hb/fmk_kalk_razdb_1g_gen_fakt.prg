@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -15,10 +15,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/kalk/razdb/1g/gen_fakt.prg,v $
- * $Author: mirsad $ 
+ * $Author: mirsad $
  * $Revision: 1.6 $
  * $Log: gen_fakt.prg,v $
  * Revision 1.7  2004/09/23 amersed
@@ -41,7 +41,7 @@
  *
  *
  */
- 
+
 
 /*! \file fmk/kalk/razdb/1g/gen_fakt.prg
  *  \brief Generacija FAKT dokumenta na osnovu kalkulacije (dokumenta u KALK)
@@ -161,10 +161,10 @@ do while .t.
 
   elseif pripr->idvd $ "10#16#PR#RN"
     cIdFakt:="01"
-    
+
     //cBrFakt:=cidtipdok+"-"+right(alltrim(cBrDok),5)
     cBrFakt:=right(alltrim(cBrDok),6)
-    
+
     seek cFaktFirma+cidfakt+cBrFakt
   else
     if pripr->idvd $ "11#12#13"
@@ -172,8 +172,8 @@ do while .t.
     elseif pripr->idvd $ "95#96"
        cIdFakt:="19"
     endif
-//    seek pripr->idfirma+cidfakt+"È"
-    seek cFaktFirma+cidfakt+"È"
+//    seek pripr->idfirma+cidfakt+"ï¿½"
+    seek cFaktFirma+cidfakt+"ï¿½"
     skip -1
     if  cidfakt<>idtipdok
         cbrfakt:=padr("00001",len(brdok))
@@ -358,7 +358,7 @@ do while .t.
 
 	       if pripr->idvd<>"97"
 	       		exit
-	       endif       
+	       endif
        next
 
        select PRIPR
@@ -370,7 +370,7 @@ enddo
 Boxc()
 
 close all
-Azur()
+fakt_Azur()
 closeret2
 return
 *}
@@ -378,11 +378,7 @@ return
 
 
 
-/*! \fn Azur()
- *  \brief Azuriranje FAKT-dokumenta
- */
-
-static function Azur()
+static function fakt_Azur()
 *{
 XO_PRIPR
 XO_FAKT
@@ -479,13 +475,13 @@ return
 /*! \fn PrModem(fSif)
  *  \brief
  */
- 
+
 function PrModem(fSif)
 *{
 local nRec, gModemVeza:="S"
 
 if gFakt<>"0 " .and. Pitanje(,"Izvrsiti prenos u FAKT modemom ?","D")=="D"
- 
+
 if fSif==NIL;  fSif:=.f.; endif
 
 if fSif
@@ -613,6 +609,3 @@ MsgBeep("Datoteka "+cDestMod+"je izgenerisana")
 endif
 return nil
 *}
-
-
-

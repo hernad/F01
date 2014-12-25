@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -19,7 +19,7 @@
 function Povrat(lStorno)
 local nRec
 
-if lStorno==NIL 
+if lStorno==NIL
   lStorno:=.f.
 endif
 
@@ -317,40 +317,40 @@ local nTime
 private cAlias := ALIAS( f_area )
 
 if !( &(cAlias)->(flock()) )
- 	   
+
 	    if gAzurTimeOut == nil
 	    	nTime := 150
 	    else
 	        nTime := gAzurTimeOut
 	    endif
-	   
+
 	    Box(,1, 40)
 
 	    // daj mu vremena...
 	    do while nTime > 0
-	
+
 		-- nTime
 
 		@ m_x + 1, m_y + 2 SAY "timeout: " + ALLTRIM(STR(nTime))
-		
+
 		if ( &(cAlias)->(flock()) )
 			exit
 		endif
-	    
+
 		sleep(1)
 
 	    enddo
-	    
+
 	    BoxC()
 
 	    if nTime = 0 .and. !( &(cAlias)->(flock()) )
-	
-	    	Beep(4) 
- 	    	BoxC() 
- 	    	Msg("Timeout istekao !#Ponovite operaciju") 
+
+	    	Beep(4)
+ 	    	BoxC()
+ 	    	Msg("Timeout istekao !#Ponovite operaciju")
  	    	close
 		return 0
-	
+
 	    endif
 
 endif
@@ -361,7 +361,7 @@ return 1
 /*! \fn Preknjiz()
  *  \brief Preknjizenje naloga
  */
- 
+
 function Preknjiz()
 *{
 local fK1:="N"
@@ -446,8 +446,8 @@ do while .t.
  	// ako je cPreknjizi T onda mora odrediti na koju stranu knjizi
  	// posto moram provjeriti upravo upisanu varijablu ide READ
  	read
- 	
-	if cPreknjizi=="T" 
+
+	if cPreknjizi=="T"
    		@ m_x+9,m_y+38 SAY "Duguje/Potrazuje (D/P)" GET cStrana valid cStrana $ "DP" pict "@!"
  	endif
 
@@ -469,10 +469,10 @@ do while .t.
 
  	READ
 	ESC_BCR
- 
+
  	aUsl1:=Parsiraj(qqKonto,"IdKonto")
  	aUsl2:=Parsiraj(qqPartner,"IdPartner")
-	if gRJ=="D" 
+	if gRJ=="D"
 		if cRascl=="D"
 			lRJRascl := .t.
 		endif
@@ -483,11 +483,11 @@ do while .t.
 	if aUsl1<>NIL .and. aUsl2<>NIL
 		exit
 	endif
-	
+
 	if gRJ=="D" .and. aUsl3<>NIL
 		exit
 	endif
-	
+
 enddo
 BoxC()
 
@@ -515,7 +515,7 @@ endif
 select SUBAN
 
 if (gRj=="D" .and. lRjRascl)
-	set order to tag "9" //idfirma+idkonto+idrj+idpartner+...	
+	set order to tag "9" //idfirma+idkonto+idrj+idpartner+...
 else
 	set order to tag "1"
 endif
@@ -574,13 +574,13 @@ do whileSC !eof()
      		nP:=0
      		nD2:=0
      		nP2:=0
-		
+
 		if (gRj=="D" .and. lRjRascl)
 			bCond := {|| cIdKonto==IdKonto .and. IdRj==cIdRj .and. IdPartner==cIdPartner}
 		else
 			bCond := {|| cIdKonto==IdKonto .and. IdPartner==cIdPartner}
      		endif
-		
+
 		do whileSC !eof() .and. EVAL(bCond)
          		if d_P=="1"
            			nD+=iznosbhd
@@ -593,7 +593,7 @@ do whileSC !eof()
      		enddo    // partner
 
      		select pripr
-         
+
     		// dodata opcija za preknjizenje saldo T
      		if cPreknjizi=="T"
       			if round(nD-nP,2)<>0
@@ -605,7 +605,7 @@ do whileSC !eof()
 				endif
 			endif
      		endif
-		
+
 		if cPreknjizi=="P"
       			if round(nD-nP,2)<>0
        				append blank
@@ -616,7 +616,7 @@ do whileSC !eof()
 				endif
 			endif
      		endif
-     		
+
 		if cPreknjizi=="S"
         		if round(nD, 3)<>0
          			append blank
@@ -649,5 +649,3 @@ enddo // eof
 closeret
 return
 *}
-
-

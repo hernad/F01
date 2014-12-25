@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -12,7 +12,7 @@
 
 #include "fakt.ch"
 
- 
+
 function O_Edit(cVar2)
 if glRadNal
 	O_RNAL
@@ -62,7 +62,7 @@ if (PCount()==0)
 	if !used()
 		O_S_PRIPR
 	endif
-	
+
 	SELECT F_FAKT
 	if !used()
 	 	O_FAKT
@@ -152,7 +152,7 @@ Box(,4,60)
   		@ m_x+3,m_y+2 SAY "Broj dokumenata  "  GEt qqBrDok pict "@S40"
   		@ m_x+4,m_y+2 SAY "Datumi           "  GET qqDatDok pict "@S40"
   		read
-  	
+
 		private aUsl1:=Parsiraj(qqBrDok,"BrDok","C")
   		private aUsl2:=Parsiraj(qqDatDok,"DatDok","D")
   		private aUsl3:=Parsiraj(qqTipdok,"IdTipdok","C")
@@ -231,7 +231,7 @@ do while !eof()
    		endif
    		select pripr
    		append ncnl
-   		if fRezerv .and. _idtipdok$"20#27"  
+   		if fRezerv .and. _idtipdok$"20#27"
 		// ako je bio na rezervaciji
       			_serbr:=""
    		endif
@@ -239,7 +239,7 @@ do while !eof()
    		select fakt
    		skip
 	enddo
-	
+
 	if fPrenesi
   		select doks
   		seek cIdFirma+cIdTipDok+cBrDok
@@ -250,7 +250,7 @@ do while !eof()
     			DbDelete2()
     			go nRec
   		enddo
-  		
+
 		if lDoks2
     			select doks2
     			seek cIdFirma+cIdTipDok+cBrDok
@@ -339,7 +339,7 @@ if cIdFirma == nil  // bez parametara
       			cSifDok:="27"
     		endif
   	endif
-  	
+
 	cIdTipDok:=SPACE(2)
   	cBrDok:=SPACE(8)
 
@@ -347,14 +347,14 @@ if cIdFirma == nil  // bez parametara
    		@ m_x+1,m_y+2 SAY "Dokument:"
    		@ m_x+1,col()+1 GET cIdFirma
    		@ m_x+1,col()+1 SAY "-"
-   		
+
 		if fR
      			cIdTipDok:=cSifDok
      			@ m_x+1,col()+1 SAY cIdTipDok
    		else
      			@ m_x+1,col()+1 GET cIdTipDok
    		endif
-   		
+
 		@ m_x+1,col()+1 SAY "-" GET cBrDok
    		read
 		ESC_BCR
@@ -364,10 +364,10 @@ endif  // cidfirma=NIL
 
 // provjeri pravila
 if (ImaPravoPristupa(goModul:oDataBase:cName,"DOK","POVRATDOK" + cIdTipDok ))
-	
+
    if (ImaPravoPristupa(goModul:oDataBase:cName,"DOK","POVRATDOKDATUM" + ;
    	cIdTipDok )) .and. gSecurity == "D"
-	
+
 	nTArea := SELECT()
 
 	select fakt
@@ -379,13 +379,13 @@ if (ImaPravoPristupa(goModul:oDataBase:cName,"DOK","POVRATDOK" + cIdTipDok ))
 			return 0
 		endif
 	endif
-	
+
 	select (nTArea)
-   
+
    endif
 
-else	
-	msgbeep( cZabrana )	
+else
+	msgbeep( cZabrana )
 	close all
 	return 0
 endif
@@ -397,19 +397,19 @@ endif
 if gFc_use == "D" .and. cIdTipDok $ "10#11"
 
 	nTArea := SELECT()
-	
+
 	select doks
 	hseek cIdFirma+cIdTipDok+cBrDok
-	
+
 	if FOUND() .and. doks->fisc_rn <> 0
-		
+
 		// veza sa fisc_rn postoji
-		
+
 		msgbeep("Za ovaj dokument je izdat fiskalni racun.#Opcija povrata je onemogucena !!!")
 		close all
 		return 0
 	endif
-	
+
 	select (nTArea)
 
 endif
@@ -460,7 +460,7 @@ if !fR
 			return 0
     		endif
   	endif
-	
+
   	fRezerv:=.f.
   	fBrisao:=.f.
   	do while !eof() .and. cIdFirma==idfirma .and. cIdTipDok==idtipdok .and. cBrDok==brdok
@@ -471,21 +471,21 @@ if !fR
        			fRezerv:=.t.
        			// potvrda da se ukine rezervacija
     		endif
-    		
+
 		select pripr
     		append ncnl
-    		if (fRezerv .and. _idtipdok$"20#27")  
+    		if (fRezerv .and. _idtipdok$"20#27")
 			// ako je bio na rezervaciji
        			_serbr:=""
     		endif
-    		
+
 		if IsRabati()
 			select doks
 			hseek cIdFirma+cIdTipDok+cBrDok
 			select pripr
 			_tiprabat := doks->tiprabat
 		endif
-		
+
 		Gather2()
     		select fakt
     		skip
@@ -515,7 +515,7 @@ if (fR .or. fRezerv)
     		fBrisao:=.t.
     		skip
  	enddo
- 	
+
 	select doks
  	seek cIdFirma+cIdTipDok+cBrDok
  	//NFOUND CRET
@@ -542,7 +542,7 @@ if !fR
   	else
     		cBrisiKum:=Pitanje("","Zelite li izbrisati dokument iz datoteke kumulativa (D/N)?","N")
   	endif
-  	
+
 	if (cBrisiKum=="D")
     		if lDoks2
       			select doks2
@@ -555,7 +555,7 @@ if !fR
         			go nRec
       			enddo
     		endif
-    		
+
 		select doks
     		seek cIdFirma+cIdTipDok+cBrDok
     		do while !eof() .and. cIdFirma==idfirma .and. cIdTipDok==idtipdok .and. cBrDok==brdok
@@ -565,7 +565,7 @@ if !fR
       			DbDelete2()
       			go nRec
     		enddo
-	
+
 		select fakt
     		seek cIdFirma+cIdTipDok+cBrDok
 
@@ -573,11 +573,11 @@ if !fR
       			skip 1
 			nRec:=RecNo()
 			skip -1
-      			
+
 			DbDelete2()
       			go nRec
     		enddo
-    		
+
   	endif
 endif // !fr
 
@@ -586,7 +586,7 @@ if (cBrisiKum=="N")
 	select pripr
   	set order to 1
   	hseek cIdFirma+cIdTipDok+cBrDok
-  	
+
 	while !eof() .and. pripr->(idfirma+idtipdok+brdok)==(cIdFirma+cIdTipDok+cBrDok)
     		if (pripr->m1=="X")
       			replace m1 WITH " "
@@ -597,11 +597,11 @@ endif
 
 
 if Logirati(goModul:oDataBase:cName,"DOK","POVRAT")
-	
+
 	EventLog(nUser,goModul:oDataBase:cName,"DOK","POVRAT",nil,nil,nil,nil,"","","dokument: " + cIdFirma+"-"+cIdTipDok+"-"+cBrDok,Date(),Date(),"","Povrat dokumenta u pripremu")
 
 endif
-		
+
 close all
 return 1
 
@@ -613,9 +613,9 @@ return 1
 
 function SpojiDuple()
 local cIdRoba
-local nCnt 
+local nCnt
 local nKolicina
-local cSpojiti 
+local cSpojiti
 local nTrec
 
 select pripr
@@ -634,7 +634,7 @@ if gOcitBarkod
       			nCnt++
       			skip
     		enddo
-    		
+
 		if (nCnt>1) // imamo duple!!!
        			if cSpojiti=="N"
           			if Pitanje(,"Spojiti duple artikle ?","N")=="D"
@@ -643,13 +643,13 @@ if gOcitBarkod
              				cSpojiti:="0"
           			endif
        			endif
-       			
+
 			if cSpojiti=="D"
          			seek _idfirma + cIdRoba // idi na prvu stavku
          			replace kolicina with nKolicina
          			skip
          			do while !eof() .and. idroba==cIdRoba
-           				replace kolicina with 0  
+           				replace kolicina with 0
 					// ostale stavke imaju kolicinu 0
            				skip
          			enddo
@@ -666,9 +666,9 @@ if cSpojiti="D"
       		skip
       		nTrec:=RecNo()
       		skip -1
-      		
+
 		// markirano za brisanje
-		if (field->kolicina=0)  
+		if (field->kolicina=0)
          		delete
       		endif
       		go nTrec
@@ -696,7 +696,7 @@ set order to tag "1"
 go top
 
 do while !eof()
-	
+
 	_firma := field->idfirma
 	_tdok := field->idtipdok
 	_broj := field->brdok
@@ -705,18 +705,18 @@ do while !eof()
 	do while !EOF() .and. field->idfirma == _firma ;
 			.and. field->idtipdok == _tdok ;
 			.and. field->brdok == _broj
-			
-		
+
+
 		skip 1
-		
+
 		_t_rec := RECNO()
 
 		skip -1
 
 		replace field->rbr with PADL( ALLTRIM(STR( ++_cnt )), 3 )
-	
+
 		go ( _t_rec )
-	
+
 	enddo
 
 enddo
@@ -730,8 +730,8 @@ return 0
 // Azur(lSilent)
 // Azuriranje stavki u pripremi
 // lSilent
- 
-function Azur(lSilent)
+
+function fakt_Azur(lSilent)
 local fRobaIDJ:=.f.
 local cKontrolBroj:=""
 local nPom1
@@ -805,17 +805,17 @@ if (gProtu13=="D" .and. pripr->idtipdok=="13" .and. Pitanje(,"Napraviti protu-do
       		select rj
 		use
     	endif
-    	
+
 	lVecPostoji:=.f.
     	// prvo da provjerimo ima li isti broj dokumenta u DOKS
     	cKontrol2Broj:=pripr->(cPRJ+"01"+TRIM(brdok)+"/13")
     	select DOKS
 	seek cKontrol2Broj
-    	
+
 	if Found()
       		lVecPostoji:=.t.
     	else
-      		// ako nema u DOKS, 
+      		// ako nema u DOKS,
 		// provjerimo ima li isti broj dokumenta u FAKT
       		select fakt
 		seek cKontrol2Broj
@@ -823,7 +823,7 @@ if (gProtu13=="D" .and. pripr->idtipdok=="13" .and. Pitanje(,"Napraviti protu-do
 			lVecPostoji:=.t.
 		endif
     	endif
-    	
+
 	if lVecPostoji
       		Msg("Vec postoji dokument pod brojem "+pripr->(cPRJ+"-01-"+TRIM(brdok)+"/13"),4)
       		closeret
@@ -840,44 +840,44 @@ select pripr
 go top
 
 // lock-uj tabele prilikom azuriranja...
-if !( fakt->(flock()) .and. doks->(flock()) ) 
-    
+if !( fakt->(flock()) .and. doks->(flock()) )
+
 	if gAzurTimeOut == nil
 		nTime := 150
 	else
 	       	nTime := gAzurTimeOut
 	endif
-	   
+
 	Box(,1, 60)
 
 	    // daj mu vremena...
 	    do while nTime > 0
-	
+
 		    -- nTime
 
 		    @ m_x + 1, m_y + 2 SAY "Baza je trenutno zauzeta... " + ALLTRIM(STR(nTime))
-		
-		    if ( fakt->(flock()) .and. doks->(flock()) ) 
+
+		    if ( fakt->(flock()) .and. doks->(flock()) )
 			    exit
 		    endif
-	    
+
 		    sleep(1)
 
 	    enddo
-	    
+
     	BoxC()
 
 	if nTime = 0 .and. !( fakt->(flock()) .and. doks->(flock()) )
-	
-	    Beep(4) 
- 	    BoxC() 
- 	    Msg("Timeout za azuriranje istekao!#Ne mogu azuriranti dokument...") 
+
+	    Beep(4)
+ 	    BoxC()
+ 	    Msg("Timeout za azuriranje istekao!#Ne mogu azuriranti dokument...")
  	    close all
-            return nil 
-	
+            return nil
+
 	endif
 
-endif 
+endif
 
 // ako je vise dokumenata u pripremi provjeri duple stavke
 if lViseDok
@@ -939,21 +939,21 @@ do while !eof()
   	    select fakt
 
   	    // nemoj brisati i nemoj otkljucavati
-	    AppBlank2(.f.,.f.)   
-  	
-	    if fRobaIDJ  
+	    AppBlank2(.f.,.f.)
+
+	    if fRobaIDJ
 		    // nafiluj polje IDROBA_J u prometu
    		    select roba
 		    hseek _idroba
    		    _idroba_j:=roba->id_j
    		    select fakt
   	    endif
-       
+
             // opet nemoj otkljucavati
 	    Gather2()
 
   	    if (fProtu .and. idtipdok=="13")
-     		AppBlank2(.f.,.f.) 
+     		AppBlank2(.f.,.f.)
      		_idfirma:=cPRJ
      		_idtipdok:="01"
      		_brdok:=TRIM(_brdok)+"/13"
@@ -972,7 +972,7 @@ select pripr
 go top
 
 do while !eof()
-	
+
 	if (lViseDok .and. ASCAN(aOstaju,cPom:=idfirma+idtipdok+brdok)<>0)
     		do while !eof() .and. cPom==idfirma+idtipdok+brdok
       			skip 1
@@ -982,13 +982,13 @@ do while !eof()
 
   	select doks
   	set order to 1
-  	
+
 	hseek pripr->idfirma+pripr->idtipdok+pripr->brdok
-  	
+
 	if !Found()
      		AppBlank2(.f.,.f.)
   	endif
-  	
+
 	if lDoks2
     		select doks2
     		set order to 1
@@ -997,7 +997,7 @@ do while !eof()
        			AppBlank2(.f.,.f.)
     		endif
   	endif
-  	
+
 	select pripr
 
   	cIdFirma:=idfirma
@@ -1008,24 +1008,24 @@ do while !eof()
 	if IsRabati()
 		private cTipRabat:=tiprabat
 	endif
-	
+
   	aMemo:=ParsMemo(txt)
 	if (LEN(aMemo)>=5)
     		cTxt:=TRIM(aMemo[3])+" "+TRIM(aMemo[4])+","+TRIM(aMemo[5])
   	else
     		cTxt:=""
   	endif
-  	
+
 	cTxt:=PadR(cTxt,30)
   	cDinDem:=dindem
   	cRezerv:=" "
-  	
+
 	if (cIdTipDok$"10#20#27" .and. Serbr="*")
      		cRezerv:="*"
   	endif
-  	
+
 	select doks
-  	
+
 	_field->IdFirma   := cIdFirma
   	_field->BrDok     := cBrDok
   	_field->Rezerv    := cRezerv
@@ -1035,7 +1035,7 @@ do while !eof()
   	_field->dindem    := cDinDem
   	_field->IdPartner := pripr->idpartner
 	_field->idpm      := pripr->idpm
-	
+
 	if doks->(FIELDPOS("dok_veza")) <> 0
 		_field->dok_veza := pripr->dok_veza
 	endif
@@ -1043,13 +1043,13 @@ do while !eof()
 	if doks->(FIELDPOS("oper_id")) <> 0 .and. gSecurity == "D"
 		_field->oper_id := GetUserID()
 	endif
-  	
-	if doks->(FIELDPOS("fisc_rn")) <> 0 .and. gFc_use == "D" 
+
+	if doks->(FIELDPOS("fisc_rn")) <> 0 .and. gFc_use == "D"
 		_field->fisc_rn := pripr->fisc_rn
 	endif
-  
+
   	// datum isporuke, otpremnice, valute
-	if doks->(FIELDPOS("dat_isp")) <> 0 
+	if doks->(FIELDPOS("dat_isp")) <> 0
    		_field->dat_isp:=if(LEN(aMemo)>=7,CToD(aMemo[7]),CToD(""))
    		_field->dat_otpr:=if(LEN(aMemo)>=7,CToD(aMemo[7]),CToD(""))
    		_field->dat_val:=if(LEN(aMemo)>=9,CToD(aMemo[9]),CToD(""))
@@ -1061,24 +1061,24 @@ do while !eof()
 			_field->tiprabat := PADR(cTipRabat, 10)
   		endif
 	endif
-	
+
    	_field->IdVrsteP := pripr->idvrstep
-  	
+
 	if (FieldPos("DATPL")>0)
    		_field->DatPl:=if(LEN(aMemo)>=9,CToD(aMemo[9]),CToD(""))
   	endif
-  	
+
 	if (doks->m1=="Z")
     		// skidam zauzece i dobijam normalan dokument
     		// REPLACE m1 WITH " " -- isto kao i gore
     		_field->m1 := " "
   	endif
-  	
+
 	if (FieldPos("SIFRA")<>0)
      		// replace sifra with sifrakorisn
      		_field->sifra:=SifraKorisn
   	endif
-  	
+
 	if lDoks2
     		select doks2
     		_field->idfirma:=cIdFirma
@@ -1092,14 +1092,14 @@ do while !eof()
     		_field->n1:=if(LEN(aMemo)>=16,VAL(ALLTRIM(aMemo[16])),0)
     		_field->n2:=if(LEN(aMemo)>=17,VAL(ALLTRIM(aMemo[17])),0)
   	endif
-  	
+
 	select pripr
-  	
+
 	nDug:=0
 	nRab:=0
   	nDugD:=0
 	nRabD:=0
-  
+
 	do while !eof() .and. cIdFirma==idfirma .and. cIdTipdok==idtipdok .and. cBrDok==brdok
     		if cDinDem==LEFT(ValBazna(),3)
         		nPom1:=Round(kolicina*Cijena*PrerCij()*(1-Rabat/100),ZAOKRUZENJE)
@@ -1123,15 +1123,15 @@ do while !eof()
     		endif
     		skip
   	enddo
-  
+
   	select doks
-  
+
 	if (cDinDem==LEFT(ValBazna(),3))
-   		_field->Iznos:=nDug 
+   		_field->Iznos:=nDug
 		// iznos sadrzi umanjenje za rabat
    		_field->Rabat:=nRab
   	else
-   		_field->Iznos := nDugD 
+   		_field->Iznos := nDugD
    		_field->Rabat := nRabD
  	endif
 
@@ -1159,10 +1159,10 @@ do while !eof()
 	if Logirati(goModul:oDataBase:cName,"DOK","AZUR")
 		EventLog(nUser,goModul:oDataBase:cName,"DOK","AZUR",nil,nil,nil,nil,"","","dokument: " + cIdFirma+"-"+cIdTipDok+"-"+cBrDok,dDatDok,Date(),"","Azuriranje dokumenta")
 	endif
-	
+
 	// ponovo odradi lock tabele DOKS
 	if !(doks->(FLock()))
-		
+
 		Beep(4)
   		Msg( "Azuriranje NE moze vrsiti vise korisnika istovremeno !", 15 )
   		close all
@@ -1217,9 +1217,9 @@ else
       			endif
       			go (nRecNo)
     		enddo
-    		
+
 		    __dbpack()
-    		
+
 		    MsgBeep("U pripremi su ostali dokumenti koji izgleda da vec postoje medju azuriranim!")
   	else
     		ZAP
@@ -1235,7 +1235,7 @@ return aFD_data
 
 
 // provjeri duple stavke u pripremi za vise dokumenata
-function prov_duple_stavke() 
+function prov_duple_stavke()
 local cSeekDok
 local lDocExist:=.f.
 
@@ -1265,7 +1265,7 @@ if lDocExist
 			@ m_x+1, m_y+2 SAY "Zelite brisati stavke iz kumulativa ili pripreme (K/P)" GET cKumPripr VALID !Empty(cKumPripr) .or. cKumPripr $ "KP" PICT "@!"
 			read
 		BoxC()
-		
+
 		if cKumPripr == "P"
 			// brisi pripremu
 			return prip_brisi_duple()
@@ -1318,13 +1318,13 @@ go top
 
 do while !EOF()
 	cSeek := pripr->(idfirma + idtipdok + brdok)
-	
+
 	if dupli_dokument(cSeek)
 		// pobrisi stavku
 		select pripr
 		delete
 	endif
-	
+
 	select pripr
 	skip
 enddo
@@ -1341,24 +1341,24 @@ go top
 cKontrola := "XXX"
 
 do while !EOF()
-	
+
 	cSeek := pripr->(idfirma + idtipdok + brdok)
-	
+
 	if cSeek == cKontrola
 		skip
 		loop
 	endif
-	
+
 	if dupli_dokument(cSeek)
-		
+
 		// provjeri da li je tabela zakljucana
 		select doks
-		
+
 		if !FLock()
 			Msg("DOKS datoteka je zauzeta ", 3)
 			return 1
 		endif
-		
+
 		MsgO("Brisem stavke iz kumulativa ... sacekajte trenutak!")
 		// brisi doks
 		set order to 1
@@ -1373,7 +1373,7 @@ do while !EOF()
       				go nRec
     			enddo
     		endif
-		
+
 		// brisi iz fakt
 		select fakt
 		set order to 1
@@ -1381,7 +1381,7 @@ do while !EOF()
 		seek cSeek
 		if Found()
 			do while !EOF() .and. fakt->(idfirma + idtipdok + brdok) == cSeek
-				
+
 				skip 1
 				nRec:=RecNo()
 				skip -1
@@ -1391,9 +1391,9 @@ do while !EOF()
 		endif
 		MsgC()
 	endif
-	
+
 	cKontrola := cSeek
-	
+
 	select pripr
 	skip
 enddo
@@ -1438,20 +1438,20 @@ _prefix := PADL( ALLTRIM( STR( GetUserId() ) ), 2, "0" )
 
 // pretraga po prefiksu
 if gSecurity == "D" .and. _idtipdok $ "12#22" .and. !EMPTY( _prefix )
-    
+
     	_srch_tag := _prefix + "/"
 
-	seek _idfirma +_idtipdok + _srch_tag + "È"
+	seek _idfirma +_idtipdok + _srch_tag + "ï¿½"
  	skip -1
-    
+
    	if field->idfirma == _idfirma .and. field->idtipdok == _idtipdok .and. LEFT( field->brdok, 3 ) == _srch_tag
-    
+
         	_broj := UBrojDok( VAL( RIGHT( ALLTRIM( field->brdok ), 5 ) ) + 1, gNumDio, "" )
-        
+
 
     	else
 		_broj := UBrojDok( 1, gNumDio, "" )
-	endif 
+	endif
 
         _broj := PADR( _srch_tag + _broj, 8 )
 
@@ -1463,7 +1463,7 @@ return _broj
 
 // --------------------------------------
 // OdrediNBroj(_idfirma,_idtipdok)
-// ---------------------------------------- 
+// ----------------------------------------
 function OdrediNbroj( _idfirma, _idtipdok )
 local cNBrDok := ""
 local _ret
@@ -1486,7 +1486,7 @@ if (gVarNum=="2".and._idtipdok=="13")
    		skip -1
  	enddo
 else
-	seek _idfirma+_idtipdok+"È"
+	seek _idfirma+_idtipdok+"ï¿½"
  	skip -1
 
  	if (_idtipdok $ "10#11" .and. ;
@@ -1521,9 +1521,9 @@ return cNBrDok
 
 // -------------------------------------------------------
 //  FaNoviBroj(cIdFirma, cIdTiDdok)
-//  Odredi novi broj Fakt-dokumenta 
+//  Odredi novi broj Fakt-dokumenta
 //  Ne pokriva specif. slucajeve "a-la" Nijagara ...
-// ------------------------------------------------------- 
+// -------------------------------------------------------
 function FaNovibroj(cIdFirma, cIdTipDok)
 local cBrdok
 local cPom
@@ -1562,7 +1562,7 @@ function BrisiPripr()
 cSecur:=SecurR(KLevel,"BRISIGENDOK")
 
 // pripr->m1
-if (m1="X" .and. ImaSlovo("X",cSecur))   
+if (m1="X" .and. ImaSlovo("X",cSecur))
 	Beep(1)
   	Msg("Dokument izgenerisan, ne smije se brisati !!",0)
   	return DE_CONT
@@ -1574,34 +1574,34 @@ if !(ImaPravoPristupa(goModul:oDataBase:cName,"DOK","BRISANJE" ))
 endif
 
 if Pitanje(, "Zelite li izbrisati pripremu !!????","N")=="D"
-	
+
    if gcF9usmece == "D"
 
   	select pripr
 	go top
-	
+
 	cIdFirma:=IdFirma
 	cIdTipDok:=IdTipDok
 	cBrDok:=BrDok
-      
-	// baci dokument u smece umjesto da ga 
+
+	// baci dokument u smece umjesto da ga
 	// trajno izbrises
 	// lSilent = .t.
 
 	azur_smece( .t. )
-	
+
 	select pripr
 
    else
-	
-	
+
+
 	SELECT F_DOKS
 	if !used()
 		O_DOKS
 	endif
 	select pripr
    	go top
-   	
+
 	cIdFirma := ""
 	cIdTipDok := ""
 	cBrDok := ""
@@ -1631,7 +1631,7 @@ if Pitanje(, "Zelite li izbrisati pripremu !!????","N")=="D"
 
    // logiraj ako je potrebno brisanje dokumenta iz pripreme !
    if Logirati(goModul:oDataBase:cName,"DOK","BRISANJE")
-	
+
 	cOpis := "dokument: " + cIdFirma + "-" + cIdTipDok + "-" + ALLTRIM(cBrDok)
 
 	EventLog(nUser, goModul:oDataBase:cName, "DOK", "BRISANJE", ;
@@ -1648,7 +1648,7 @@ return
 /*! \fn KomIznosFakt()
  *  \brief Kompletiranje iznosa fakture pomocu usluga
  */
- 
+
 function KomIznosFakt()
 *{
 local nIznos:=0
@@ -1691,7 +1691,7 @@ _idroba:=cIdRoba
 _kolicina:=IF(nDug2-nRab2+nPor2>nIznos,-1,1)
 _rbr:=STR(RbrUnum(_Rbr)+1,3)
 _cijena:=ABS(nDug2-nRab2+nPor2-nIznos)
-_rabat:=0 
+_rabat:=0
 _porez:=0
 
 if !(_idtipdok $ "11#15#27")
@@ -1712,7 +1712,7 @@ CLOSERET
 // generisi storno dokument u pripremi
 // ---------------------------------------------------
 function storno_dok( cIdFirma, cIdTipDok, cBrDok )
-local cNoviBroj 
+local cNoviBroj
 
 if Pitanje(,"Formirati storno dokument ?","D") == "N"
 	return
@@ -1735,7 +1735,7 @@ O_PARTN
 cNoviBroj := ALLTRIM(cBrDok) + "/S"
 
 if LEN( ALLTRIM( cNoviBroj ) ) > 8
-	
+
 	// otkini prva dva karaktera
 	// da moze stati "/S"
 	cNoviBroj := RIGHT( ALLTRIM( cBrDok ), 6 ) + "/S"
@@ -1762,19 +1762,19 @@ seek cIdFirma + cIdTipDok + cBrDok
 do while !EOF() .and. field->idfirma == cIdFirma ;
 		.and. field->idtipdok == cIdTipDok ;
 		.and. field->brdok == cBrDok
-	
-	
+
+
 	scatter()
 
 	select pripr
 	append blank
-	
+
 	gather()
 
 	replace field->kolicina with ( field->kolicina * -1 )
 	replace field->brdok with cNoviBroj
 	replace field->datdok with DATE()
-	
+
 	if gFc_use == "D"
 		replace field->fisc_rn with nFiscal
 	endif
@@ -1793,8 +1793,3 @@ if nCnt > 0
 endif
 
 return
-
-
-
-
-

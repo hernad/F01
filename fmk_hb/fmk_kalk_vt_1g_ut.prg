@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -12,22 +12,17 @@
 
 #include "kalk.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
- * ----------------------------------------------------------------
- */
 
 
 /*! \file fmk/kalk/vt/1g/ut.prg
  *  \brief Visokotarifni artikli
  */
 
-/*! \fn VtPorezi()
- *  \brief Porezi za visokotarifne artikle
+/*! VtPorezi()
+ *  Porezi za visokotarifne artikle
  */
- 
-function VTPOREZI()
+
+function kalk_VTPOREZI()
 *{
 public _ZPP:=0
 
@@ -73,5 +68,3 @@ public _DLRUC := 0
 
 return
 *}
-
-

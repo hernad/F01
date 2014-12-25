@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -61,29 +61,29 @@ Box(, 10, 70)
 	@ m_x + nX, m_y + 2 SAY "Podesenja importa ********"
 
 	nX += 2
-	
+
 	@ m_x + nX, m_y + 2 SAY "Stampati dokumente pri auto obradi (D/N)" GET gAImpPrint VALID gAImpPrint $ "DN" PICT "@!"
 
 	nX += 1
-	
-	@ m_x + nX, m_y + 2 SAY "Automatska ravnoteza naloga na konto: " GET gAImpRKonto 
-	read	
+
+	@ m_x + nX, m_y + 2 SAY "Automatska ravnoteza naloga na konto: " GET gAImpRKonto
+	read
 BoxC()
 
 if LastKey() <> K_ESC
-	
+
 	O_PARAMS
-	
+
 	private cSection := "7"
 	private cHistory := " "
 	private aHistory := {}
 
 	WPar("ap", gAImpPrint )
 	WPar("ak", gAImpRKonto )
-	
+
 	select params
 	use
-	
+
 endif
 
 return
@@ -100,7 +100,7 @@ cMKto := PADR( "1312", 7 )
 cPart := PADR( "", 6 )
 
 O_PARAMS
-	
+
 private cSection := "8"
 private cHistory := " "
 private aHistory := {}
@@ -109,9 +109,9 @@ RPar("ik", @cMKto )
 RPar("ip", @cPart )
 
 Box(,5,55)
-	
-	@ m_x + 1, m_y + 2 SAY "*** parametri importa dokumenta" 
-	
+
+	@ m_x + 1, m_y + 2 SAY "*** parametri importa dokumenta"
+
 	@ m_x + 3, m_y + 2 SAY "Konto zaduzuje  :" GET cMKto VALID P_Konto(@cMKto)
 	@ m_x + 4, m_y + 2 SAY "Sifra dobavljaca:" GET cPart VALID P_Firma(@cPart)
 	read
@@ -129,7 +129,7 @@ private aHistory := {}
 WPar("ik", cMKto )
 WPar("ip", cPart )
 
-select params 
+select params
 use
 
 // setuj staticke varijable
@@ -229,7 +229,7 @@ endif
 
 if TTbl2Kalk() == 0
 	MsgBeep("Operacija prekinuta!")
-	return 
+	return
 endif
 
 // obrada dokumenata iz pript tabele
@@ -241,7 +241,7 @@ return
 
 
 // ----------------------------------------------
-// Vraca filter za naziv dokumenta 
+// Vraca filter za naziv dokumenta
 // ----------------------------------------------
 static function GetImpFilter()
 local cRet := "*.csv"
@@ -313,8 +313,8 @@ return
 
 
 // --------------------------------------------------------
-// Kreiranje temp tabele, te prenos zapisa iz text fajla 
-// "cTextFile" u tabelu 
+// Kreiranje temp tabele, te prenos zapisa iz text fajla
+// "cTextFile" u tabelu
 //  - param aDbf - struktura tabele
 //  - param cTxtFile - txt fajl za import
 // --------------------------------------------------------
@@ -340,13 +340,13 @@ nStart:=0
 
 // prodji kroz svaku liniju i insertuj zapise u temp.dbf
 for i:=1 to nBrLin
-	
+
 	altd()
 
 	aFMat := SljedLin(cTxtFile, nStart)
-      	
+
 	nStart:=aFMat[2]
-	
+
 	// uzmi u cText liniju fajla
 	cVar:=aFMat[1]
 
@@ -354,8 +354,8 @@ for i:=1 to nBrLin
 		loop
 	endif
 
-	aRow := csvrow2arr( cVar, cDelimiter ) 
-	
+	aRow := csvrow2arr( cVar, cDelimiter )
+
 	// selektuj temp tabelu
 	select temp
 	// dodaj novi zapis
@@ -364,7 +364,7 @@ for i:=1 to nBrLin
 	// struktura podataka u csv-u je
 	// [1] - redni broj
 	// [2] - broj narudzbe
-	
+
 	// pa uzimamo samo sta nam treba
 	cTmp := ALLTRIM( aRow[1] )
 
@@ -391,7 +391,7 @@ return
 // -------------------------------------------
 static function importost()
 local nTarea := SELECT()
-local cPartId 
+local cPartId
 local cRefId
 local nCnt := 0
 
@@ -401,7 +401,7 @@ select temp
 go top
 
 do while !EOF()
-	
+
 	cPartId := field->idpartner
 	cRefId := field->idrefer
 
@@ -413,7 +413,7 @@ do while !EOF()
 		++ nCnt
 		replace idrefer with cRefId
 	endif
-	
+
 	select temp
 
 	skip
@@ -428,14 +428,14 @@ return
 
 
 // --------------------------------------------------------
-// Kreiranje temp tabele, te prenos zapisa iz text fajla 
-// "cTextFile" u tabelu putem aRules pravila 
+// Kreiranje temp tabele, te prenos zapisa iz text fajla
+// "cTextFile" u tabelu putem aRules pravila
 //  - param aDbf - struktura tabele
 //  - param cTxtFile - txt fajl za import
 // --------------------------------------------------------
 function Txt2TTbl(aDbf, cTxtFile)
 local cDelimiter := ";"
-local cBrFakt 
+local cBrFakt
 local dDatDok
 local dDatIsp
 local dDatVal
@@ -484,7 +484,7 @@ aFirstRow := csvrow2arr( cFirstRow, cDelimiter )
 // [4] - datum isporuke
 // [5] - datum valute
 // [6] - ukupno faktura u EUR
-// [7]..[11] - troskovi manualno uneseni 
+// [7]..[11] - troskovi manualno uneseni
 
 // setuj glavne stavke dokumenta
 cBrDok := aFirstRow[1]
@@ -526,9 +526,9 @@ for i:=1 to nBrLin
 	altd()
 
 	aFMat:=SljedLin(cTxtFile, nStart)
-      	
+
 	nStart:=aFMat[2]
-	
+
 	// uzmi u cText liniju fajla
 	cVar:=aFMat[1]
 
@@ -536,8 +536,8 @@ for i:=1 to nBrLin
 		loop
 	endif
 
-	aRow := csvrow2arr( cVar, cDelimiter ) 
-	
+	aRow := csvrow2arr( cVar, cDelimiter )
+
 	// selektuj temp tabelu
 	select temp
 	// dodaj novi zapis
@@ -557,7 +557,7 @@ for i:=1 to nBrLin
 	// [11] - tezina
 	// [12] - cijena
 	// [13] - ukupno stavka (kol*cijena)
-	// [14] - broj hitne narudzbe 
+	// [14] - broj hitne narudzbe
 
 	// pa uzimamo samo sta nam treba
 
@@ -570,7 +570,7 @@ for i:=1 to nBrLin
 	replace rbr with aRow[1]
 	replace idroba with PADR( ALLTRIM( aRow[3] ), 10 )
 	replace nazroba with ALLTRIM( aRow[6] )
-	replace kolicina with _g_num( aRow[10] ) 
+	replace kolicina with _g_num( aRow[10] )
 	replace cijena with _g_num( aRow[12] )
 	replace rabat with 0
 	replace porez with 0
@@ -592,7 +592,7 @@ return
 
 
 // ----------------------------------------------------------------
-// Kreira tabelu PRIVPATH\TEMP.DBF prema definiciji polja iz aDbf
+// Kreira tabelu PRIVPATH/TEMP.DBF prema definiciji polja iz aDbf
 // ----------------------------------------------------------------
 static function CreTemp( aDbf, lIndex )
 cTmpTbl := PRIVPATH + "TEMP"
@@ -612,7 +612,7 @@ endif
 
 DbCreate2(cTmpTbl, aDbf)
 
-if lIndex 
+if lIndex
 	create_index("1","idfirma+idtipdok+brdok+rbr", cTmpTbl)
 endif
 
@@ -628,17 +628,17 @@ aPomFakt := FaktExist()
 if LEN(aPomFakt) > 0
 
 	START PRINT CRET
-	?	
+	?
 	? "Kontrola azuriranih dokumenata:"
 	? "-------------------------------"
 	? "Broj fakture => kalkulacija"
 	? "-------------------------------"
-	? 
-	
+	?
+
 	for i:=1 to LEN(aPomFakt)
 		? aPomFakt[i, 1] + " => " + aPomFakt[i, 2]
 	next
-	
+
 	?
 	? "Kontrolom azuriranih dokumenata, uoceno da se vec pojavljuju"
 	? "navedeni brojevi faktura iz fajla za import !"
@@ -649,7 +649,7 @@ if LEN(aPomFakt) > 0
 
 	aFakt := aPomFakt
 	return 0
-	
+
 endif
 
 aFakt := aPomFakt
@@ -665,25 +665,25 @@ local aPomArt
 aPomArt  := TempArtExist()
 
 if (LEN(aPomArt) > 0 )
-	
+
 	START PRINT CRET
-	
+
 	if (LEN(aPomArt) > 0)
 		? "Lista nepostojecih artikala:"
 		? "-----------------------------------------"
-		? 
+		?
 		for ii:=1 to LEN(aPomArt)
 
 			// sifra
 			? aPomArt[ii, 1]
-			
+
 			// naziv artikla
 			?? SPACE(2) + "-" + SPACE(1) + aPomArt[ii, 2]
-		
+
 		next
 		?
 	endif
-	
+
 	FF
 	END PRINT
 
@@ -700,7 +700,7 @@ static function GetKTipDok( cFaktTD )
 local cRet:=""
 
 if (cFaktTD == "" .or. cFaktTD == nil)
-	return "XX" 
+	return "XX"
 endif
 
 do case
@@ -708,7 +708,7 @@ do case
 	// FAKT 01 -> KALK 10
 	case cFaktTD == "01"
 		cRet := "10"
-		
+
 endcase
 
 return cRet
@@ -729,24 +729,24 @@ cDok := "XXXXXX"
 do while !EOF()
 
 	cBrFakt := ALLTRIM(temp->brdok)
-	
+
 	if cBrFakt == cDok
 		skip
 		loop
 	endif
-	
+
 	select doks
 	set order to tag "V_BRF"
 	go top
 	seek cBrFakt
-	
+
 	if Found()
 		AADD(aRet, {cBrFakt, doks->idfirma + "-" + doks->idvd + "-" + ALLTRIM(doks->brdok)})
 	endif
-	
+
 	select temp
 	skip
-	
+
 	cDok := cBrFakt
 enddo
 
@@ -791,20 +791,20 @@ do while !EOF()
 	// dodaj zapis u pripr
 	select pripr
 	append blank
-	
+
 	replace idfirma with gFirma
 	replace rbr with STR(++nRbr, 3)
-	
+
 	// uzmi pravilan tip dokumenta za kalk
 	replace idvd with cTDok
-	
+
 	replace brdok with cBrojKalk
 	replace datdok with temp->datdok
 	replace idpartner with __partn
 	replace idtarifa with ROBA->idtarifa
 	replace brfaktp with cFakt
 	replace datfaktp with temp->datdok
-	
+
 	// konta:
 	// =====================
 	// zaduzuje
@@ -814,13 +814,13 @@ do while !EOF()
 
 	// razduzuje
 	replace idkonto2 with ""
-	
+
 	replace idzaduz2 with ""
-	
+
 	replace datkurs with temp->datdok
 	replace kolicina with temp->kolicina
 	replace idroba with roba->id
-	
+
 	// posto je cijena u eur-u konvertuj u KM
 	// prema tekucem kursu
 
@@ -831,14 +831,14 @@ do while !EOF()
 	replace nc with nCijena
 	replace vpc with roba->vpc
 	replace rabatv with temp->rabatp
-	
+
 	// troskovi
 	replace tprevoz with "R"
 	replace tbanktr with "R"
 	replace tspedtr with "R"
 	replace tcardaz with "R"
 	replace tzavtr with "R"
-	
+
 	if nRbr = 1
 		replace prevoz with temp->trosk1
 		replace banktr with temp->trosk2
@@ -876,7 +876,7 @@ endif
 if lAsPokreni
 	// pozovi asistenta
 	KUnos(.t.)
-      	if __trosk == .t. 
+      	if __trosk == .t.
 		// otvori tabele
 		OEdit()
 		// fSilent = .t.
@@ -891,11 +891,9 @@ if lStampaj == .t.
 	StKalk( nil, nil, .t. )
 endif
 
-// azuriraj kalk
-Azur( .t. )
+
+kalk_Azur( .t. )
 
 OEdit()
 
 return
-
-

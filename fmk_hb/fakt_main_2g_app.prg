@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -38,14 +38,14 @@ class TFaktMod: public TAppMod
 	*void mMenuStandard();
 	*void sRegg();
 	*void initdb();
-	*void srv();	
+	*void srv();
 #endif
 
 #ifndef CPP
 #include "class(y).ch"
 CREATE CLASS TFaktMod INHERIT TAppMod
 	EXPORTED:
-	var nDuzinaSifre 
+	var nDuzinaSifre
 	var cTekVpc
 	var lVrstePlacanja
 	var lOpcine
@@ -54,7 +54,7 @@ CREATE CLASS TFaktMod INHERIT TAppMod
 	var lCRoba
 	var cRoba_Rj
 	var lOpresaStampa
-	method dummy 
+	method dummy
 	method setGVars
 	method mMenu
 	method mMenuStandard
@@ -128,7 +128,7 @@ say_fmk_ver()
 
 AADD(opc,"1. unos/ispravka dokumenta             ")
 if (ImaPravoPristupa(goModul:oDataBase:cName,"DOK","UNOSDOK"))
-	AADD(opcexe,{|| Knjiz()})
+	AADD(opcexe,{|| fakt_Knjiz()})
 else
 	AADD(opcexe,{|| MsgBeep(cZabrana)})
 endif
@@ -190,7 +190,7 @@ private Izbor:=1
 
 Menu_SC("mfak", .t., lPodBugom)
 
-return 
+return
 *}
 
 
@@ -271,29 +271,29 @@ public gMjStr:="Zenica", gMjRJ:="N"
 public gDK1:="N"
 public gDK2:="N"
 public gIspPart:="N" // ispravka partnera u unosu novog dokumenta
-public gResetRoba:="D" // resetuj uvijek artikal, pri unosu stavki dokumenta 
+public gResetRoba:="D" // resetuj uvijek artikal, pri unosu stavki dokumenta
 
-public g10Str:="RA¬UN/OTPREMNICA br."
+public g10Str:="RAï¿½UN/OTPREMNICA br."
 public g10Str2T:="              Predao                  Odobrio                  Preuzeo"
 public g10Str2R:="\tab Predao\tab Odobrio\tab Preuzeo"
 
-public g16Str:="KONSIGNAC.RA¬UN br."
+public g16Str:="KONSIGNAC.RAï¿½UN br."
 public g16Str2T:="              Predao                  Odobrio                  Preuzeo"
 public g16Str2R:="\tab Predao\tab Odobrio\tab Preuzeo"
 
-public g06Str:="ZADU¦.KONS.SKLAD.br."
+public g06Str:="ZADUï¿½.KONS.SKLAD.br."
 public g06Str2T:="              Predao                  Odobrio                  Preuzeo"
 public g06Str2R:="\tab Predao\tab Odobrio\tab Preuzeo"
 
-public g20Str:="PREDRA¬UN br."
+public g20Str:="PREDRAï¿½UN br."
 public g20Str2T:="                                                               Direktor"
 public g20Str2R:="\tab \tab \tab Direktor:"
 
-public g11Str:="RA¬UN MP br."
+public g11Str:="RAï¿½UN MP br."
 public g11Str2T:="              Predao                  Odobrio                  Preuzeo"
 public g11Str2R:="\tab Predao\tab Odobrio\tab Preuzeo"
 
-public g15Str:="RA¬UN br."
+public g15Str:="RAï¿½UN br."
 public g15Str2T:="              Predao                  Odobrio                  Preuzeo"
 public g15Str2R:="\tab Predao\tab Odobrio\tab Preuzeo"
 
@@ -317,15 +317,15 @@ public g23Str:="ZAKLJ.OTPR.MP    br."
 public g23Str2T:="              Predao                  Odobrio                  Preuzeo"
 public g23Str2R:="\tab Predao\tab Odobrio\tab Preuzeo"
 
-public g25Str:="KNJI¦NA OBAVIJEST br."
+public g25Str:="KNJIï¿½NA OBAVIJEST br."
 public g25Str2T:="              Predao                  Odobrio                  Preuzeo"
 public g25Str2R:="\tab Predao\tab Odobrio\tab Preuzeo"
 
-public g26Str:="NARUD¦BA SA IZJAVOM br."
+public g26Str:="NARUDï¿½BA SA IZJAVOM br."
 public g26Str2T:="                                      Potpis:"
 public g26Str2R:="\tab \tab Potpis:"
 
-public g27Str:="PREDRA¬UN MP br."
+public g27Str:="PREDRAï¿½UN MP br."
 public g27Str2T:="                                                               Direktor"
 public g27Str2R:="\tab \tab \tab Direktor:"
 public gNazPotStr:=SPACE(69)
@@ -425,7 +425,7 @@ public gFC_device := "P"
 public gFc_use := "N"
 public gFC_path := PADR("c:\fiscal\", 150)
 public gFC_path2 := PADR("", 150)
-public gFC_name := PADR("OUT.TXT", 150 ) 
+public gFC_name := PADR("OUT.TXT", 150 )
 public gFC_answ := PADR("ANSWER.TXT",40)
 public gFC_Pitanje := "D"
 public gFC_error := "N"
@@ -473,9 +473,9 @@ public cHistory:=" "
 public aHistory:={}
 
 // varijanta cijene
-RPar("50",@gVarC)      
+RPar("50",@gVarC)
 // prvenstveno za win 95
-RPar("95",@gKomLin)       
+RPar("95",@gKomLin)
 
 if empty(gKomLin)
  gKomLin:="start "+trim(goModul:oDataBase:cDirPriv)+"\fakt.rtf"
@@ -488,7 +488,7 @@ RPar("d2",@gnTMarg3)
 RPar("d3",@gnTMarg4)
 RPar("dc",@g13dcij)
 // dodatni parametri fakture broj otpremnice itd
-RPar("dp",@gDodPar)   
+RPar("dp",@gDodPar)
 RPar("dv",@gDatVal)
 RPar("er",@gERedova)
 RPar("fp",@gFPzag)
@@ -498,7 +498,7 @@ RPar("im",@gIMenu)
 RPar("k1",@gDK1)
 RPar("k2",@gDK2)
 // varijanta maloprodajne cijene
-RPar("mp",@gMP)       
+RPar("mp",@gMP)
 RPar("mr",@gMjRJ)
 RPar("nd",@gNumdio)
 RPar("PR",@gDetPromRj)
@@ -608,7 +608,7 @@ RPar("mC",@gMpCjenPDV)
 RPar("mZ",@gZ_5pf)
 
 // dodatni parametri fakture broj otpremnice itd
-RPar("za",@gZagl)   
+RPar("za",@gZagl)
 RPar("zb",@gbold)
 RPar("RT",@gRekTar)
 RPar("HL",@gHLinija)
@@ -678,15 +678,15 @@ RPar("fY", @gFC_serial)
 cSection := "1"
 // varijable PDV
 // firma naziv
-public gFNaziv:=SPACE(250) 
+public gFNaziv:=SPACE(250)
 // firma dodatni opis
-public gFPNaziv:=SPACE(250) 
+public gFPNaziv:=SPACE(250)
 // firma adresa
-public gFAdresa:=SPACE(35) 
+public gFAdresa:=SPACE(35)
 // firma id broj
 public gFIdBroj:=SPACE(13)
 // telefoni
-public gFTelefon:=SPACE(72) 
+public gFTelefon:=SPACE(72)
 // web
 public gFEmailWeb:=SPACE(72)
 // banka 1
@@ -706,7 +706,7 @@ public gFText2:=SPACE(72)
 // proizv.text 3
 public gFText3:=SPACE(72)
 // stampati zaglavlje
-public gStZagl:="D" 
+public gStZagl:="D"
 
 // picture header rows
 public gFPicHRow:=0
@@ -841,5 +841,3 @@ if !(goModul:oDatabase:lAdmin)
 endif
 
 return
-
-

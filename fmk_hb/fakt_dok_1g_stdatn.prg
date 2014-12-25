@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,7 +14,7 @@
 
 
 // -----------------------------------------------
-// pregled / stampa azuriranih dokumenata 
+// pregled / stampa azuriranih dokumenata
 // -----------------------------------------------
 function StDatN()
 local nCol1:=0
@@ -200,7 +200,7 @@ do while .t.
  if glRadNal
    @ m_x+18,m_y+2 SAY "Radni nalog (prazno-svi): "  get cRadniNalog valid EMPTY(cRadniNalog) .or. P_RNal(@cRadniNalog)
  endif
- 
+
  read
  ESC_BCR
  aUslBFD:=Parsiraj(cBrFakDok,"BRDOK","C")
@@ -298,7 +298,7 @@ EOF CRET
 if cTabela=="D"
 
    ImeKol:={}
-   
+
    if FIELDPOS("FISC_RN")>0
      AADD(ImeKol,{ " ", {|| g_fiscal_info(fisc_rn)} })
    endif
@@ -313,16 +313,16 @@ if cTabela=="D"
    AADD(ImeKol,{ "Ukupno-Rab ",    {|| iznos} })
    AADD(ImeKol,{ "Rabat",    {|| rabat} })
    AADD(ImeKol,{ "Ukupno",    {|| iznos+rabat} })
-   
+
    IF lVrsteP
      AADD(ImeKol,{ "Nacin placanja", {|| idvrstep} })
    ENDIF
-   
+
    IF FIELDPOS("DATPL")>0
      AADD(ImeKol,{ "Datum placanja", {|| datpl} })
    ENDIF
 
-   
+
    if FIELDPOS("DOK_VEZA") <> 0
      AADD(ImeKol,{ "Vezni dokumenti", ;
      	{|| PADR( ALLTRIM( g_d_veza(idfirma,idtipdok,brdok,dok_veza)) , ;
@@ -334,7 +334,7 @@ if cTabela=="D"
      AADD(ImeKol,{ "Dat.otpr", {|| dat_otpr} })
      AADD(ImeKol,{ "Dat.val.", {|| dat_val} })
    endif
-   
+
    // prikaz operatera
    IF FIELDPOS("oper_id")>0
      AADD(ImeKol,{ "Operater", {|| oper_id} })
@@ -343,10 +343,10 @@ if cTabela=="D"
    Kol:={}; for i:=1 to len(ImeKol); AADD(Kol,i); next
    Box(,21,72)
 
-   @ m_x+18,m_y+2 SAY " <ENTER> Stampa dokumenta        ³ <P> Povrat dokumenta u pripremu    ³"
-   @ m_x+19,m_y+2 SAY " <N>     Stampa narudzbenice     ³ <B> Stampa radnog naloga           ³ "
-   @ m_x+20,m_y+2 SAY " <S>     Storno dokument         ³ <R> Rezervacija/Realizacija        ³"
-   @ m_x+21,m_y+2 SAY " <R>  Stampa fiskalnog racuna    ³ <F> otpremnica -> faktura          ³"
+   @ m_x+18,m_y+2 SAY " <ENTER> Stampa dokumenta        ï¿½ <P> Povrat dokumenta u pripremu    ï¿½"
+   @ m_x+19,m_y+2 SAY " <N>     Stampa narudzbenice     ï¿½ <B> Stampa radnog naloga           ï¿½ "
+   @ m_x+20,m_y+2 SAY " <S>     Storno dokument         ï¿½ <R> Rezervacija/Realizacija        ï¿½"
+   @ m_x+21,m_y+2 SAY " <R>  Stampa fiskalnog racuna    ï¿½ <F> otpremnica -> faktura          ï¿½"
    fUPripremu:=.f.
 
    adImeKol:={}
@@ -364,9 +364,9 @@ if cTabela=="D"
    private  nTBLine:=1      // tekuca linija-kod viselinijskog browsa
    private  nTBLastLine:=1  // broj linija kod viselinijskog browsa
    private  TBPomjerise:="" // ako je ">2" pomjeri se lijevo dva
-                           // ovo se mo§e setovati u when/valid fjama
+                           // ovo se moï¿½e setovati u when/valid fjama
 
-   private  TBScatter:="N"  // uzmi samo teku†e polje
+   private  TBScatter:="N"  // uzmi samo tekuï¿½e polje
    for i:=1 TO LEN(ImeKol); AADD(adImeKol,ImeKol[i]); next
    ASIZE(adImeKol,LEN(adImeKol)+1)
    AINS(adImeKol,6)
@@ -378,7 +378,7 @@ if cTabela=="D"
    BoxC()
    if fupripremu
      close all
-     Knjiz()
+     fakt_Knjiz()
    endif
    closeret
 endif
@@ -470,7 +470,7 @@ do while !eof() .and. IdFirma=cIdFirma
    @ prow(),pcol()+1 SAY str(iznos+rabat,12,2)
    @ prow(),pcol()+1 SAY str(Rabat,12,2)
    @ prow(),pcol()+1 SAY str(ROUND(iznos,gFZaok),12,2)
-   
+
    // osnovica i pdv na prikazu
    @ prow(),pcol()+1 SAY ;
    	STR( nOsn_izn := ROUND(_osnovica( idtipdok, idpartner, iznos ),gFZaok),;
@@ -481,7 +481,7 @@ do while !eof() .and. IdFirma=cIdFirma
    @ prow(),pcol()+1 SAY ;
    	STR( nUkPdv_izn := ROUND(_uk_sa_pdv( idtipdok, idpartner, iznos ), ;
 		gFZaok), 12, 2 )
-  
+
    nIznos+=ROUND(iznos,gFZaok)
    nRab+=rabat
    nIznos3+=ROUND(iznos,gFZaok)
@@ -495,7 +495,7 @@ do while !eof() .and. IdFirma=cIdFirma
    @ prow(),pcol()+1 SAY str(iznos+rabat,12,2)
    @ prow(),pcol()+1 SAY str(Rabat,12,2)
    @ prow(),pcol()+1 SAY str(ROUND(iznos,gFZaok),12,2)
-   
+
    // osnovica i pdv na prikazu
    @ prow(),pcol()+1 SAY ;
    	STR( nOsn_izn := ROUND(_osnovica( idtipdok, idpartner, iznos ),gFZaok),;
@@ -564,7 +564,7 @@ if cRTarifa=="D" .and. empty(cImeKup) .and. qqTipDok $ "11#13#27"  // racun malo
   O_FAKT
 
   // zakaci se na roba!
-  set relation to idroba into roba  
+  set relation to idroba into roba
   cFilter+=".and. IdFirma="+cm2str(cIdFirma)
 
   index on roba->idtarifa to FaktTar for &cFilter  // pomocni index na tarifu!
@@ -749,7 +749,7 @@ else
 	set Filter to &cFilter
 endif
 go nTrec
-    
+
 return DE_CONT
 
 
@@ -777,7 +777,7 @@ else
 	set Filter to &cFilter
 endif
 go nTrec
-    
+
 return DE_CONT
 
 
@@ -816,14 +816,14 @@ cNBrFakt := cBrFakt
 
 // uslovi generisanja...
 Box(, 7, 55)
-	
-	@ m_x + 1, m_y + 2 SAY "*** Parametri fakture "  
-	
-	@ m_x + 3, m_y + 2 SAY "  Datum fakture: " GET dDatFakt VALID !EMPTY(dDatFakt) 
-	
-	@ m_x + 4, m_y + 2 SAY "   Datum valute: " GET dDatVal VALID !EMPTY(dDatVal) 
-	@ m_x + 5, m_y + 2 SAY " Datum isporuke: " GET dDatIsp VALID !EMPTY(dDatIsp) 
-	
+
+	@ m_x + 1, m_y + 2 SAY "*** Parametri fakture "
+
+	@ m_x + 3, m_y + 2 SAY "  Datum fakture: " GET dDatFakt VALID !EMPTY(dDatFakt)
+
+	@ m_x + 4, m_y + 2 SAY "   Datum valute: " GET dDatVal VALID !EMPTY(dDatVal)
+	@ m_x + 5, m_y + 2 SAY " Datum isporuke: " GET dDatIsp VALID !EMPTY(dDatIsp)
+
 
 	@ m_x + 7, m_y + 2 SAY "   Broj fakture: " GET cBrFakt VALID !EMPTY(cBrFakt)
 
@@ -837,15 +837,15 @@ go top
 seek cFirma + "10" + cBrFakt
 
 if FOUND()
-	
+
 	msgbeep("dokument vec postoji !!!!")
-	
+
 	if pitanje(, "Naci sljedeci broj dokumenta ?", "D") == "N"
 		return DE_CONT
 	endif
 
 	cNBrFakt := PADR( FaNoviBroj( cFirma, "10" ) , 8 )
-	
+
 endif
 
 select doks
@@ -876,7 +876,7 @@ do while !EOF() .and. field->idfirma + field->idtipdok + field->brdok == ;
 		cFirma + cTipDok + cBrFakt
 
 	++ nCnt
-	
+
 	nFRec := RECNO()
 
 	Scatter()
@@ -884,14 +884,14 @@ do while !EOF() .and. field->idfirma + field->idtipdok + field->brdok == ;
 	aMemo := ParsMemo(_txt)
 
 	append blank
-	
+
 	_idtipdok := "10"
 	_brdok := cNBrFakt
 	_datdok := dDatFakt
-	
+
 	// dodaj memo polje, samo prva stavka
 	if nCnt = 1
-	
+
 		_txt := ""
 		_txt += CHR(16) + aMemo[1] + CHR(17)
 		_txt += CHR(16) + aMemo[2] + CHR(17)
@@ -916,11 +916,11 @@ do while !EOF() .and. field->idfirma + field->idtipdok + field->brdok == ;
 		endif
 
 	endif
-	
+
 	Gather()
 
 	go ( nFRec )
-	
+
 	skip
 
 enddo
@@ -928,7 +928,7 @@ enddo
 if isugovori()
 
 	if pitanje(,"Setovati datum uplate za partnera ?", "N") == "D"
-		
+
 		O_UGOV
 		select ugov
 		set order to tag "PARTNER"
@@ -938,7 +938,7 @@ if isugovori()
 		if FOUND() .and. field->idpartner == cPart
 			replace field->dat_l_fakt with DATE()
 		endif
-		
+
 	endif
 
 endif
@@ -958,7 +958,7 @@ else
 endif
 
 go nTrec
-   
+
 msgbeep("Formiran dokument 10-" + cNBrFakt )
 
 return DE_REFRESH
@@ -973,7 +973,7 @@ local nSelected
 private Opc:={}
 private opcexe:={}
 private Izbor
-	
+
 AADD(opc, "   >  stampa dokumenta        " )
 AADD(opcexe, {|| nSelected:=Izbor, Izbor:=0  } )
 AADD(opc, "   >  stampa narudzbenice     " )
@@ -1008,7 +1008,7 @@ if lDok_veza .and. !EMPTY( cDok_veza )
 	// uzmi iz polja dok_veza
 	cVeza := ALLTRIM( cDok_veza )
 else
-	
+
 	if EMPTY( cTxt )
 		// uzmi iz fakt->memo polja broj veze
 		O_FAKT
@@ -1019,7 +1019,7 @@ else
 	endif
 
 	aTemp := ParsMemo( cTxt )
-	
+
 	select ( nTArea )
 
 	if LEN( aTemp ) >= 19
@@ -1064,7 +1064,7 @@ aTmp := TokToNiz( cTmp, "," )
 for i:=1 to LEN( aTmp )
 
 	cPom := PADR( aTmp[ i ], 10 )
-	
+
 	AADD(opc, cPom )
 	AADD(opcexe, {|| nSelected := Izbor, Izbor := 0  } )
 next
@@ -1095,7 +1095,7 @@ cFiscal := ALLTRIM( STR( doks->fisc_rn ) )
 
 // samo za izlazne dokumente
 if doks->idtipdok $ "10#11"
-	
+
 	if cFiscal == "0"
 		@ m_x + 1, m_y + 2 SAY ;
 			PADR( "nema fiskalnog racuna !!!", 40 ) ;
@@ -1116,7 +1116,7 @@ return
 /*! \fn EdDatN()
  *  \brief Ispravka azuriranih dokumenata (u tabelarnom pregledu)
  */
- 
+
 function EdDatn()
 local nRet:=DE_CONT
 
@@ -1126,7 +1126,7 @@ if gFC_use == "D"
 endif
 
 do case
- 
+
    case Ch==K_ALT_E
      IF gTBDir=="D"
         gTBDir:="N"
@@ -1139,7 +1139,7 @@ do case
          DaTBDirektni() // ELIB, promjeni tbrowse na edit rezim
        ENDIF
      ENDIF
-     
+
   case Ch==K_ENTER .and. gTBDir=="N"
      nRet := pr_pf()
 
@@ -1148,7 +1148,7 @@ do case
      nRet := pr_odt()
 
   case Ch == K_F5
-  
+
   	select doks
 	go top
 
@@ -1156,21 +1156,21 @@ do case
 	nRet := DE_REFRESH
 
   case CH == K_CTRL_V
-  	
+
 	// setovanje broj fiskalnog isjecka
 	select doks
-	
+
 	if field->fisc_rn <> 0
 		msgbeep("veza: fiskalni racun vec setovana !")
 		if Pitanje(,"Promjeniti postojecu vezu (D/N)?", "N") == "N"
 			return DE_CONT
 		endif
 	endif
-	
+
 	if Pitanje(,"Setovati novu vezu sa fiskalnim racunom (D/N)?") == "N"
 		return DE_CONT
 	endif
-	
+
 	nFiscal := field->fisc_rn
 
 	Box(,1,40)
@@ -1178,14 +1178,14 @@ do case
 			PICT "9999999999"
 		read
 	BoxC()
-	
+
 	if nFiscal <> field->fisc_rn
 		replace field->fisc_rn with nFiscal
 		return DE_REFRESH
 	endif
- 
+
   case chr(Ch) $ "kK"
-	
+
 	// korekcija dokumenta
 	// ispravka partnera itd...
 	if fakt_edit_data( field->idfirma, ;
@@ -1195,7 +1195,7 @@ do case
 	endif
 
   case chr(Ch) $ "iI"
-  	
+
 	// info dokument
 	msgbeep( getfullusername( field->oper_id ) )
 	return DE_CONT
@@ -1209,22 +1209,22 @@ do case
 
   	// stampa fiskalnog racuna
 	if field->idtipdok $ "10#11"
-		
+
 		if field->fisc_rn > 0
-			
+
 			msgbeep("Fiskalni racun vec stampan za ovaj dokument !!!#Ako je potrebna ponovna stampa resetujte broj veze.")
-			
+
 			return DE_CONT
-		
+
 		endif
-		
+
 		if Pitanje(,"Stampati fiskalni racun ?", "D") == "D"
 
 			fisc_rn( field->idfirma, field->idtipdok, field->brdok )
-		
+
 			select doks
 			set filter to &cFilter
-			
+
 			return DE_REFRESH
 
 		endif
@@ -1235,97 +1235,97 @@ do case
 
      // generisi storno dokument
      storno_dok( field->idfirma, field->idtipdok, field->brdok )
-     
+
      if Pitanje(,"Preci u tabelu pripreme ?","D")=="D"
           fUPripremu:=.t.
           nRet:=DE_ABORT
      else
      	  nRet := DE_CONT
      endif
-  
+
   case UPPER(chr(Ch)) == "V"
-  	
+
 	box_d_veza()
 
 	return DE_CONT
 
   case UPPER(chr(Ch)) == "B"
-     nRet:=pr_rn()  
-     
+     nRet:=pr_rn()
+
   case chr(Ch) $ "nN"
      nRet:=pr_nar()
-  
+
   case chr(Ch) $ "fF"
      if idtipdok $ "20"
        nRet:=gen_fakt()
      endif
-     
+
   case chr(Ch) $ "vV"
      // ispravka valutiranja
-     
-     
-     if ( PADR(dindem, 3) <> PADR(ValDomaca(), 3) ) 
-       
+
+
+     if ( PADR(dindem, 3) <> PADR(ValDomaca(), 3) )
+
        if !SigmaSif("PRVAL")
      		MsgBeep("!!! Opcija nedostupna !!!")
      		return DE_CONT
        endif
-      
+
        if Pitanje(,"Izvrsiti ispravku valutiranja na dokumentu (D/N)?","N") == "N"
      	  return DE_CONT
-	  
+
        endif
-       
-       O_FAKT 
+
+       O_FAKT
        seek  doks->idfirma + doks->idtipdok + doks->brdok
-       
+
        nPom1 := 0
        nPom2 := 0
        nPom3 := 0
        nDugD := 0
        nRabD := 0
-       
+
        do while !EOF() .and. fakt->(idfirma+idtipdok+brdok)==doks->(idfirma+idtipdok+brdok)
-         
+
 	  nPrCij := fakt->cijena
-	  
-       	  v_pretvori("D", fakt->DinDem, fakt->DatDok, @nPrCij ) 
-	  
-	  replace cijena with nPrCij 
-          
+
+       	  v_pretvori("D", fakt->DinDem, fakt->DatDok, @nPrCij )
+
+	  replace cijena with nPrCij
+
 	  nPom1 := round( kolicina*Cijena*PrerCij() / UBaznuValutu(datdok) * (1-Rabat/100), ZAOKRUZENJE)
           nPom2 := ROUND( kolicina*Cijena*PrerCij()/UBaznuValutu(datdok)*Rabat/100 , ZAOKRUZENJE)
           nPom3 := ROUND( nPom1 * Porez/100, ZAOKRUZENJE)
           nDugD += nPom1 + nPom3
-          nRabD += nPom2 
-	  
+          nRabD += nPom2
+
 	  skip
-       
+
        enddo
-       
+
        select doks
-       
+
        replace iznos with nDugD
        replace rabat with nRabD
-	  
+
        nRet := DE_REFRESH
-     
+
      else
-       
+
        MsgBeep("Opcija onemogucena !!! faktura je u domacoj valuti " + ValDomaca() )
        select doks
        nRet := DE_CONT
-     
+
      endif
-  
+
   case chr(Ch) $ "pP" .and. gTBDir=="N"  // povrat
-     
+
      if !(ImaPravoPristupa(goModul:oDataBase:cName,"DOK","POVRATDOK"))
      	msgbeep( cZabrana )
 	nRet := DE_CONT
 	return nRet
      endif
-     
+
      select doks
      nTrec:=recno()
      _cIdFirma:=idfirma
@@ -1409,7 +1409,7 @@ return nRet
  *  \param cPMP
  *  \param cRegion
  */
- 
+
 function RekTarife(cPMP,cRegion)
 *{
 // prosljedjuje cidfirma,cidvd,cbrdok
@@ -1502,7 +1502,7 @@ do while !eof()
   	@ prow(),pcol()+1   SAY nu3  pict gpicdem
   	@ prow(),pcol()+1   SAY nu2b pict gpicdem
   	@ prow(),pcol()+1   SAY nu4  pict gpicdem
-  endif	
+  endif
 enddo
 
 if !fDelphiRb
@@ -1676,15 +1676,15 @@ do while !eof() .and. IdFirma=cIdFirma
 			loop
 		endif
   	endif
-  	
+
 	nIznos:=0
 	nRabat:=0
   	cIdPartner:=idpartner
   	select partn
 	hseek cIdPartner
 	select doks
-	
-	
+
+
 	// uslov po opcini
 	if !Empty(qqOpc)
 		if AT(partn->idops, qqOpc)==0
@@ -1692,7 +1692,7 @@ do while !eof() .and. IdFirma=cIdFirma
 			loop
 		endif
 	endif
-	
+
   	do while !eof() .and. IdFirma=cIdFirma .and. idpartner==cIdpartner
 		if DinDem==left(ValBazna(),3)
       			nIznos+=ROUND(iznos,ZAOKRUZENJE)
@@ -1745,11 +1745,11 @@ return
 
 // --------------------------------------------------------
 // ZaglRPartn()
-// Zaglavlje izvjestaja realizacije partnera 
+// Zaglavlje izvjestaja realizacije partnera
 // --------------------------------------------------------
 function ZaglRPartn()
 
-? 
+?
 P_12CPI
 ?? space(gnLMarg)
 IspisFirme(cidfirma)
@@ -1771,4 +1771,3 @@ P_12CPI
 
 return
 *}
-

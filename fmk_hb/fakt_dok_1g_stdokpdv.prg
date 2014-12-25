@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -30,7 +30,7 @@ local cFax
 local lPrepisDok := .f.
 
 // samo kolicine
-local lSamoKol:=.f. 
+local lSamoKol:=.f.
 
 if lJFill == nil
 	lJFill := .f.
@@ -119,14 +119,14 @@ if cIdTipDok $ "13#23"
 else
 
   if cIdTipDok == "11" .and. gMPPrint $ "DXT"
-	
+
 	if gMPPrint == "D" .or. ( gMpPrint == "X" .and. Pitanje(,"Stampati na traku (D/N)?","D") == "D" ) .or. gMPPrint == "T"
-	
+
 		// stampa na traku
 		gLocPort := "LPT" + ALLTRIM( gMpLocPort )
 
 		lStartPrint := .t.
-		
+
 		cPrn := gPrinter
 		gPrinter := "0"
 
@@ -134,7 +134,7 @@ else
 			// test mode
 			gPrinter := "R"
 		endif
-	
+
 		st_rb_traka( lStartPrint, lPrepisDok )
 
 		gPrinter := cPrn
@@ -142,7 +142,7 @@ else
 	else
 		pf_a4_print(nil, cDocumentName)
 	endif
-  
+
   else
 	pf_a4_print(nil, cDocumentName)
   endif
@@ -151,7 +151,7 @@ endif
 
 return
 
-
+/*
 // ----------------------------------------------------------------------
 // puni  pomocne tabele rn drn
 // ----------------------------------------------------------------------
@@ -204,7 +204,7 @@ local nPom2
 local nPom3
 local nPom4
 local nPom5
-local cC1 := "" 
+local cC1 := ""
 local cC2 := ""
 local cC3 := ""
 local cOpis := ""
@@ -284,7 +284,7 @@ DEC_VRIJEDNOST(ZAO_VRIJEDNOST())
 lIno:=.f.
 do while !EOF() .and. idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==cBrDok
 	// Nastimaj (hseek) Sifr.Robe Na Pripr->IdRoba
-	NSRNPIdRoba()   
+	NSRNPIdRoba()
 
 	// nastimaj i tarifu
 	select tarifa
@@ -293,14 +293,14 @@ do while !EOF() .and. idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==c
 
      	aMemo:=ParsMemo(txt)
 	cIdRoba := field->idroba
-	
+
 	if roba->tip="U"
 
 		cRobaNaz:=aMemo[1]
-	
+
 	else
 		cRobaNaz := ALLTRIM( roba->naz )
-		
+
 		if lBarKod
 			cRobaNaz := cRobaNaz + " (BK: " + roba->barkod + ")"
 		endif
@@ -308,18 +308,18 @@ do while !EOF() .and. idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==c
 
 	// ako je roba grupa:
 	if glRGrPrn == "D" .and. isrobagroup()
-		
+
 		cPom := _op_gr(roba->id, "GR1") + ": " + _val_gr(roba->id, "GR1") + ;
 			", " + _op_gr(roba->id, "GR2") + ": " + _val_gr(roba->id, "GR2")
-		
+
 		cRobaNaz += " "
 		cRobaNaz += cPom
-		
+
 	endif
 
 	// dodaj i vrijednost iz polja SERBR
 	if !EMPTY(ALLTRIM(pripr->serbr))
-		cRobaNaz := cRobaNaz + ", " + ALLTRIM(pripr->serbr) 
+		cRobaNaz := cRobaNaz + ", " + ALLTRIM(pripr->serbr)
 	endif
 
 	//resetuj varijable sa cijenama
@@ -328,16 +328,16 @@ do while !EOF() .and. idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==c
 	nCjBPDV := 0
 	nCj2BPDV := 0
 	nVPopust := 0
-	
+
 	cRbr := rbr
 	cPodBr := podbr
 	cJmj := roba->jmj
 
 	// procenat pdv-a
 	nPPDV := tarifa->opp
-	
+
 	cIdPartner = pripr->IdPartner
-	
+
 	if pripr->(FIELDPOS("C1")) <> 0
 		cC1 := pripr->c1
 		cC2 := pripr->c2
@@ -373,8 +373,8 @@ do while !EOF() .and. idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==c
 	nKol := field->kolicina
 	nRCijen := field->cijena
 
-	
-	if LEFT(pripr->DINDEM, 3) <> LEFT(ValBazna(), 3) 
+
+	if LEFT(pripr->DINDEM, 3) <> LEFT(ValBazna(), 3)
 		// preracunaj u EUR
 		// omjer EUR / KM
       		nRCijen:= nRCijen / OmjerVal( ValBazna(), pripr->DINDEM, pripr->datdok)
@@ -395,12 +395,12 @@ do while !EOF() .and. idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==c
 	    	nPopust := field->rabat
 	    	nPopNaTeretProdavca := 0
 	endif
-	
+
 	// ako je 13-ka ili 27-ca
-	// cijena bez pdv se utvrdjuje unazad 
-	if (field->idtipdok == "13" .and. glCij13Mpc) .or. (field->idtipdok $ "11#27" .and. gMP $ "1234567") 
+	// cijena bez pdv se utvrdjuje unazad
+	if (field->idtipdok == "13" .and. glCij13Mpc) .or. (field->idtipdok $ "11#27" .and. gMP $ "1234567")
 		// cjena bez pdv-a
-		nCjPDV:= nRCijen	
+		nCjPDV:= nRCijen
 		nCjBPDV := (nRCijen / (1 + nPPDV/100))
 	else
 		// cjena bez pdv-a
@@ -415,31 +415,31 @@ do while !EOF() .and. idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==c
 		// vrijednost popusta
 		nVPopust := (nCjBPDV * (nPopust/100))
 	endif
-	
+
 	// resetuj prije eventualnog setovanja
 	nVPopNaTeretProdavca := 0
-	
+
 	// izacunaj vrijednost popusta na teret prodavca
 	if Round(nPopNaTeretProdavca, 4) <> 0
 		// vrijednost popusta
 		nVPopNaTeretProdavca := (nCjBPDV * (nPopNaTeretProdavca/100))
 	endif
 
-	
+
 	// cijena sa popustom bez pdv-a
 	nCj2BPDV := (nCjBPDV - nVPopust)
 	// izracuna PDV na cijenu sa popustom
 	nCj2PDV := (nCj2BPDV * (1 + nPPDV/100))
-	
+
 	// ukupno stavka
 	nUkStavka := nKol * nCj2PDV
 	nUkStavke := ROUND(nUkStavka, ZAO_VRIJEDNOST() + IIF(idtipdok$"11#13", 4, 0) )
 
-	nPom1 := nKol * nCjBPDV 
+	nPom1 := nKol * nCjBPDV
 	nPom1 := ROUND(nPom1, ZAO_VRIJEDNOST() + IIF(idtipdok$"11#13", 4, 0) )
 	// ukupno bez pdv
-	nUkBPDV += nPom1 
-	
+	nUkBPDV += nPom1
+
 
 	// ukupno popusta za stavku
 	nPom2 := nKol * nVPopust
@@ -451,17 +451,17 @@ do while !EOF() .and. idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==c
 
 
 	//  ukupno vrijednost bez pdva sa uracunatim poputstom
-	nPom3 := nPom1 - nPom2 
+	nPom3 := nPom1 - nPom2
 	nPom3 := ROUND(nPom3, ZAO_VRIJEDNOST() + IIF(idtipdok$"11#13", 4, 0))
 	nUkBPDVPop += nPom3
-	
+
 
 	// ukupno PDV za stavku = (ukupno bez pdv - ukupno popust) * stopa
 	nPom4 := nPom3 * nPPDV/100
 	// povecaj preciznost
 	nPom4 := ROUND(nPom4, ZAO_VRIJEDNOST() + IIF(idtipdok$"11#13", 4, 2))
 	nUkPDV += nPom4
-	
+
 	// ukupno za stavku sa pdv-om
 	nTotal +=  nPom3 + nPom4
 
@@ -470,7 +470,7 @@ do while !EOF() .and. idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==c
 	nUkPopNaTeretProdavca += nPom5
 
 	++ nCSum
-	
+
 	// planika treba sumarne kolicine na dokumentu
 	if IsPlanika()
 	  if roba->k2 <> "X"
@@ -479,26 +479,26 @@ do while !EOF() .and. idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==c
 	else
 		nUkKol += nKol
 	endif
-	
-	
+
+
 	add_rn(cBrDok, cRbr, cPodBr, cIdRoba, cRobaNaz, cJmj, nKol, nCjPDV, nCjBPDV, nCj2PDV, nCj2BPDV, nPopust, nPPDV, nVPDV, nUkStavka, nPopNaTeretProdavca, nVPopNaTeretProdavca, cC1, cC2, cC3, cOpis )
 
 	select pripr
 	skip
-enddo	
+enddo
 
 // zaokruzi pdv na zao_vrijednost()
-nUkPDV := ROUND( nUkPDV, ZAO_VRIJEDNOST() ) 
+nUkPDV := ROUND( nUkPDV, ZAO_VRIJEDNOST() )
 
 nTotal := (nUkBPDVPop + nUkPDV)
 
 // zaokruzenje
 //nFZaokr := ROUND(nTotal, ZAO_VRIJEDNOST()) - ROUND2(ROUND(nTotal, ZAO_VRIJEDNOST()), gFZaok)
 
-if goModul:oDataBase:cSezona >= "2011" 
+if goModul:oDataBase:cSezona >= "2011"
 	nFZaokr := zaokr_5pf( nTotal )
 	if gZ_5pf == "N"
-		nFZaokr := 0		
+		nFZaokr := 0
 	endif
 else
 	nFZaokr := ROUND(nTotal, ZAO_VRIJEDNOST()) - ROUND2(ROUND(nTotal, ZAO_VRIJEDNOST()), gFZaok)
@@ -602,9 +602,9 @@ add_drntext("P01", ALLTRIM(STR(gnLMarg)) )
 // zaglavlje na svakoj stranici
 add_drntext("P04", if(gZagl == "1", "D", "N"))
 
-// prikaz dodatnih podataka 
+// prikaz dodatnih podataka
 add_drntext("P05", if(gDodPar == "1", "D", "N"))
-// dodati redovi po listu 
+// dodati redovi po listu
 
 add_drntext("P06", ALLTRIM(STR(gERedova)) )
 
@@ -625,7 +625,7 @@ do case
 
  case !EMPTY(cPdvOslobadjanje)
  	add_drntext("P11", cPdvOslobadjanje)
-	
+
  otherwise
  	// domaca faktura
  	add_drntext("P11", "DOMACA" )
@@ -665,7 +665,7 @@ do case
 		gPtxtSw := "/noline /s /l /p"
 	case nSw5 == 1
 		gPtxtSw := "/p"
-		
+
 	otherwise
 		// citaj ini fajl
 		gPtxtSw := nil
@@ -717,7 +717,7 @@ function fill_potpis(cIdVD)
 local cPom
 local cPotpis
 
-if (cIdVd $ "01#00") 
+if (cIdVd $ "01#00")
 	cPotpis := REPLICATE(" ", 12) + "Odobrio" + REPLICATE(" ", 25) + "Primio"
 
 elseif cIdVd $ "19"
@@ -727,7 +727,7 @@ else
    	cPotpis := &cPom
 endif
 
-// potpis 
+// potpis
 add_drntext("F10", cPotpis)
 
 return
@@ -808,6 +808,7 @@ add_drntext( "I04", cPom )
 
 return
 
+*/
 
 // --------------------------------------------------------------
 // daj naziv dokumenta iz parametara
@@ -840,7 +841,7 @@ add_drntext("P03", cSamoKol)
 return
 
 
-
+/*
 
 // -----------------------------------------------
 // filovanje dodatnog teksta
@@ -856,9 +857,9 @@ local nCnt // counter upisa u DRNTEXT
 _txt_djokeri( @cTxt, cPartn )
 
 // slobodni tekst se upisuje u DRNTEXT od F20 -- F50
-cTxt := STRTRAN(cTxt, "ç" + Chr(10), "")
+cTxt := STRTRAN(cTxt, "ÔøΩ" + Chr(10), "")
 // daj mi matricu sa tekstom line1, line2 itd...
-aLines := TokToNiz(cTxt, Chr(13) + Chr(10)) 
+aLines := TokToNiz(cTxt, Chr(13) + Chr(10))
 
 nFId := 20
 nCnt := 0
@@ -874,7 +875,7 @@ add_drntext("P02", ALLTRIM(STR(nCnt)))
 return
 *}
 
-
+*/
 
 // ----------------------------------------
 // obradi djokere
@@ -918,7 +919,7 @@ __SH_SLD_VAR := gShSldVar
 
 // saldo kupca
 nSaldoKup := g_p_saldo( cPartn, __KTO_DUG )
-		
+
 // saldo dobavljaca
 nSaldoDob := g_p_saldo( cPartn, __KTO_POT )
 
@@ -937,22 +938,22 @@ dPPromDob := g_dpprom_part( cPartn, __KTO_POT )
 // SALDO KUPCA
 // -------------------------------------------------------
 if AT( cStrSlKup, cTxt ) <> 0
-		
+
 	if gShSld == "D"
 
-		cPom := ALLTRIM(STR( ROUND( nSaldoKup, 2 ) )) + " KM" 
+		cPom := ALLTRIM(STR( ROUND( nSaldoKup, 2 ) )) + " KM"
 		cPom2 := ""
-		
+
 		if __SH_SLD_VAR == 2
-			cPom2 := "Vaö posljednji saldo iznosi: "
+			cPom2 := "VaÔøΩ posljednji saldo iznosi: "
 		endif
 	else
-	
+
 		cPom := ""
 		cPom2 := ""
-	
+
 	endif
-	
+
 	cTxt := STRTRAN(cTxt, cStrSlKup, cPom2 + " " + cPom )
 endif
 
@@ -961,22 +962,22 @@ endif
 // SALDO DOBAVLJACA
 // -------------------------------------------------------
 if AT( cStrSlDob, cTxt ) <> 0
-		
+
 	if gShSld == "D"
 
-		cPom := ALLTRIM(STR( ROUND( nSaldoDob, 2 ) )) + " KM" 
+		cPom := ALLTRIM(STR( ROUND( nSaldoDob, 2 ) )) + " KM"
 		cPom2 := ""
-		
+
 		if __SH_SLD_VAR == 2
-			cPom2 := "Naö posljednji saldo iznosi: "
+			cPom2 := "NaÔøΩ posljednji saldo iznosi: "
 		endif
 	else
-	
+
 		cPom := ""
 		cPom2 := ""
-	
+
 	endif
-	
+
 	cTxt := STRTRAN(cTxt, cStrSlDob, cPom2 + " " + cPom )
 endif
 
@@ -984,22 +985,22 @@ endif
 // SALDO KUPCA/DOBAVLJACA prebijeno
 // -------------------------------------------------------
 if AT( cStrSlKD, cTxt ) <> 0
-		
+
 	if gShSld == "D"
 
-		cPom := ALLTRIM(STR( ROUND( nSaldoKup, 2 ) - ROUND( nSaldoDob, 2) )) + " KM" 
+		cPom := ALLTRIM(STR( ROUND( nSaldoKup, 2 ) - ROUND( nSaldoDob, 2) )) + " KM"
 		cPom2 := ""
-		
+
 		if __SH_SLD_VAR == 2
 			cPom2 := "Prebijeno stanje kupac/dobavljac : "
 		endif
 	else
-	
+
 		cPom := ""
 		cPom2 := ""
-	
+
 	endif
-	
+
 	cTxt := STRTRAN(cTxt, cStrSlKD, cPom2 + " " + cPom )
 endif
 
@@ -1008,9 +1009,9 @@ endif
 // DATUM POSLJEDNJE UPLATE KUPCA/DOBAVLJACA
 // -------------------------------------------------------
 if AT( cStrDUpKup, cTxt ) <> 0
-	
+
 	if gShSld == "D"
-		
+
 
 		// datum posljednje uplate kupca
 		cPom := DToC(dPUplKup)
@@ -1022,46 +1023,46 @@ if AT( cStrDUpKup, cTxt ) <> 0
 
 		cPom := ""
 		cPom2 := ""
-	
+
 	endif
-	
+
 	cTxt := STRTRAN(cTxt, cStrDUpKup, cPom2 + " " + cPom)
 
-endif	
+endif
 
 // -------------------------------------------------------
 // DATUM POSLJEDNJE PROMJENE NA KONTU KUPCA
 // -------------------------------------------------------
 if AT( cStrDPrKup, cTxt ) <> 0
-	
+
 	if gShSld == "D"
-	
+
 		// datum posljednje promjene kupac
 		cPom := DToC(dPPromKup)
 		cPom2 := ""
 		if __SH_SLD_VAR == 2
 			cPom2 := "Datum posljednje promjene na kontu kupca: "
 		endif
-	
+
 	else
-	
+
 		cPom := ""
 		cPom2 := ""
 
 	endif
-	
+
 	cTxt := STRTRAN(cTxt, cStrDPrKup, cPom2 + " " + cPom)
 
-endif	
+endif
 
 // -------------------------------------------------------
 // DATUM POSLJEDNJE PROMJENE NA KONTU DOBAVLJACA
 // -------------------------------------------------------
 if AT( cStrDPrDob, cTxt ) <> 0
-	
+
 	if gShSld == "D"
-	
-	
+
+
 		// datum posljednje promjene dobavljac
 		cPom := DToC(dPPromDob)
 		cPom2 := ""
@@ -1070,12 +1071,12 @@ if AT( cStrDPrDob, cTxt ) <> 0
 		endif
 
 	else
-	
+
 		cPom := ""
 		cPom2 := ""
-	
+
 	endif
-	
+
 	cTxt := STRTRAN(cTxt, cStrDPrDob, cPom2 + " " + cPom)
 
 endif
@@ -1083,7 +1084,7 @@ endif
 return
 
 
-
+/*
 // -------------------------------------------
 // filovanje podataka partnera
 // -------------------------------------------
@@ -1103,22 +1104,22 @@ local aMemo:={}
 local lFromMemo:=.f.
 
 if Empty(ALLTRIM(cID))
-	
+
 	// ako je prazan partner uzmi iz memo polja
 	aMemo:=ParsMemo(txt)
 	lFromMemo := .t.
-	
+
 else
-	
+
 	O_PARTN
 	select partn
 	set order to tag "ID"
 	hseek cId
-	
+
 endif
 
 if !lFromMemo .and. partn->id == cId
-	
+
 	// uzmi podatke iz SIFK
 	cIdBroj := IzSifK("PARTN", "REGB", cId, .f.)
 	cPorBroj := IzSifK("PARTN", "PORB", cId, .f.)
@@ -1130,7 +1131,7 @@ if !lFromMemo .and. partn->id == cId
 	cPartPtt := partn->ptt
 	cPartTel := partn->telefon
 	cPartFax := partn->fax
-	
+
 else
 	if LEN(aMemo) == 0
 		cPartNaziv := ""
@@ -1161,7 +1162,7 @@ add_drntext("K13", cPartTel)
 // fax
 add_drntext("K14", cPartFax)
 
-if !EMPTY(cIdBroj) 
+if !EMPTY(cIdBroj)
 	if LEN(ALLTRIM(cIdBroj)) == 12
 		lPdvObveznik := .t.
 	else
@@ -1170,7 +1171,7 @@ if !EMPTY(cIdBroj)
 else
 	lPdvObveznik := .f.
 endif
-	
+
 // brrjes
 add_drntext("K06", cBrRjes)
 // brupisa
@@ -1231,7 +1232,7 @@ add_drntext("I14", ALLTRIM(gFText3))
 
 return
 *}
-
+*/
 
 // ------------------------------------
 // ------------------------------------
@@ -1242,7 +1243,7 @@ local nLen
 // 999.99
 nPos := AT(".", PicDem)
 // = 4
-nLen := LEN(PicDEM) 
+nLen := LEN(PicDEM)
 // = 6
 
 if nPos == 0
@@ -1261,7 +1262,7 @@ local nLen
 // 999.99
 nPos := AT(".", PicCDem)
 // = 4
-nLen := LEN(PicDEM) 
+nLen := LEN(PicDEM)
 // = 6
 
 if nPos == 0

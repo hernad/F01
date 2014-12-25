@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -25,7 +25,7 @@ static __par_len
 // ---------------------------------------------
 // Unos fin naloga
 // ---------------------------------------------
-function Knjiz()
+function fin_Knjiz()
 local izbor
 private opc[4]
 
@@ -83,10 +83,10 @@ if gNW=="N"
      case izbor == 2
          StNal()
      case izbor == 3
-         Azur()
+         fin_Azur()
      case izbor == 4
        // prva vrijednost
-       if KursLis=="1"  
+       if KursLis=="1"
          KursLis:="2"
        else
          KursLis:="1"
@@ -106,7 +106,7 @@ return
 /*! \fn KnjNal()
  *  \brief Otvara pripremu za knjizenje naloga
  */
- 
+
 function KnjNal()
 O_Edit()
 ImeKol:={ ;
@@ -141,9 +141,9 @@ ENDIF
 
 
 Box(,20,77)
-@ m_x+18,m_y+2 SAY "<c-N>  Nove Stavke    Ё <ENT> Ispravi stavku   Ё <c-T> Brisi Stavku         "
-@ m_x+19,m_y+2 SAY "<c-A>  Ispravka NalogaЁ <c-P> Stampa Naloga    Ё <a-A> Azuriranje           "
-@ m_x+20,m_y+2 SAY "<c-F9> Brisi pripremu Ё <F5>  KZB, <a-F5> PrDatЁ <a-B> Blagajna,<F10> Ostalo"
+@ m_x+18,m_y+2 SAY "<c-N>  Nove Stavke    О©╫ <ENT> Ispravi stavku   О©╫ <c-T> Brisi Stavku         "
+@ m_x+19,m_y+2 SAY "<c-A>  Ispravka NalogaО©╫ <c-P> Stampa Naloga    О©╫ <a-A> Azuriranje           "
+@ m_x+20,m_y+2 SAY "<c-F9> Brisi pripremu О©╫ <F5>  KZB, <a-F5> PrDatО©╫ <a-B> Blagajna,<F10> Ostalo"
 
 ObjDbedit("PNal", 20, 77, {|| EdPRIPR()},"","Priprema...", , , , ,3)
 BoxC()
@@ -152,7 +152,7 @@ return
 
 
 /*! \fn WRbr()
- *  \brief Sredjivaje rednog broja u pripremi 
+ *  \brief Sredjivaje rednog broja u pripremi
  */
 function WRbr()
 scatter()
@@ -175,9 +175,9 @@ return .t.
 
 
 /*! \fn VRbr()
- *  \brief 
+ *  \brief
  */
- 
+
 function vrbr()
 *{
 return .t.
@@ -188,7 +188,7 @@ return .t.
 /*! \fn O_Edit()
  *  \brief Otvara unos nove stavke u pripremi
  */
- 
+
 function O_Edit()
 *{
 IF IzFMKIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
@@ -242,7 +242,7 @@ return
  *  \brief Ispravka stavke u pripremi
  *  \param fNovi .t. - Nova stavka, .f. - Ispravka postojece
  */
- 
+
 function EditPripr()
 *{
 parameters fNovi
@@ -262,7 +262,7 @@ endif
 if ((gRj=="D") .and. fNovi)
 	_idRj:=cTekucaRj
 endif
-	
+
 set cursor on
 
 if gNW=="D"
@@ -301,7 +301,7 @@ else
 	@  m_x+8,m_y+2   SAY "Vezni broj:" GET _BrDok
 endif
 
-@  m_x+8,m_y+COL()+2  SAY "Datum:" GET _DatDok VALID chk_sezona() 
+@  m_x+8,m_y+COL()+2  SAY "Datum:" GET _DatDok VALID chk_sezona()
 
 if cDatVal=="D"
 	@  m_x+8,col()+2 SAY "Valuta" GET _DatVal
@@ -310,7 +310,7 @@ endif
 @ m_x+11, m_y+2  SAY "Opis :" GET _Opis WHEN {|| USTipke(),.t.} VALID {|| BosTipke(),.t.} PICT "@S20"
 
 if fk1=="D"
-	@  m_x+11,col()+2 SAY "K1" GET _k1 pict "@!" 
+	@  m_x+11,col()+2 SAY "K1" GET _k1 pict "@!"
 endif
 
 if fk2=="D"
@@ -336,7 +336,7 @@ endif
 
 if gRj=="D" .and. pripr->(FIELDPOS("IDRJ")) <> 0
 	@  m_x+11,col()+2 SAY "RJ" GET _idrj valid empty(_idrj) .or. P_Rj(@_idrj) PICT "@!"
-	
+
 endif
 
 if gTroskovi=="D"
@@ -443,13 +443,13 @@ return
  *  \param cVar
  *  \param oGet
  */
- 
+
 function V_IznosDEM(p1,p2,cVar,oGet)
 *{
 if lAutoPomUDom .and. oGet:changed
-	
+
 	altd()
-	
+
 	_iznosdem:=oGet:unTransform()
    	DinDem(p1,p2,cVar)
 endif
@@ -463,7 +463,7 @@ return .t.
  *  \param cIdPartner - sifra partnera koja ce se ponuditi
  *  \param cNewPartner - zapamcena sifra partnera
  */
- 
+
 function CheckMark(cIdKonto, cIdPartner, cNewPartner)
 *{
     if (ChkKtoMark(_idkonto))
@@ -479,7 +479,7 @@ return .t.
  *  \brief
  *  \param cIdKonto - oznaka konta
  */
- 
+
 function Partija(cIdKonto)
 *{
 if right(trim(cIdkonto),1)=="*"
@@ -493,7 +493,7 @@ return .t.
 
 
 // -----------------------------------------------------
-// Ispis duguje/potrazuje u domacoj i pomocnoj valuti 
+// Ispis duguje/potrazuje u domacoj i pomocnoj valuti
 // -----------------------------------------------------
 function V_DP()
 SetPos(m_x+16,m_y+30)
@@ -595,7 +595,7 @@ case Ch==K_ALT_F5
         endif
      endif
      return DE_CONT
-  
+
   case Ch==K_F8
 
 	// brisi stavke u pripremi od - do
@@ -608,7 +608,7 @@ case Ch==K_ALT_F5
   case Ch==K_F9
   	SrediRbr()
 	return DE_REFRESH
-  
+
   case Ch==K_CTRL_T
      if Pitanje(,"Zelite izbrisati ovu stavku ?","D")=="D"
 
@@ -620,9 +620,9 @@ case Ch==K_ALT_F5
       cBIznos := STR(field->iznosbhd)
 
       delete
-     
+
       BrisiPBaze()
-      
+
       if lLogBrisanje
       	EventLog(nUser, goModul:oDataBase:cName, "DOK", "BRISANJE",;
 		nil,nil,nil,nil,;
@@ -630,13 +630,13 @@ case Ch==K_ALT_F5
 		" iznos=" + cBIznos + " KM", "",;
 		dBDatNal,;
 		Date(),;
-		"", "Obrisana stavka broj " + cStavka + " naloga!")		
+		"", "Obrisana stavka broj " + cStavka + " naloga!")
       endif
       return DE_REFRESH
      endif
      return DE_CONT
 
-   case Ch==K_F5 
+   case Ch==K_F5
       // kontrola zbira za jedan nalog
 
       KontrZbNal()
@@ -708,17 +708,17 @@ case Ch==K_ALT_F5
            	skip
         enddo
         go bottom
-	
+
 	Box("knjn",20,77,.f.,"Knjizenje naloga - nove stavke")
         do while .t.
            Scatter()
-	   
+
 	   if (IsRamaGlas())
 	   	_idKonto:=SPACE(LEN(_idKonto))
 		_idPartner:=SPACE(LEN(_idPartner))
 		_brDok:=SPACE(LEN(_brDok))
 	   endif
-	   
+
            nRbr:=VAL(_Rbr)+1
            @ m_x+1,m_y+1 CLEAR to m_x+19,m_y+76
            if EditPRIPR(.t.)==0
@@ -740,7 +740,7 @@ case Ch==K_ALT_F5
 	   //SrediRbr(.t.)
            APPEND BLANK
            Gather()
-           
+
 	   if lLogUnos
 
 	   	  cOpis := pripr->idfirma + "-" + ;
@@ -754,9 +754,9 @@ case Ch==K_ALT_F5
 		  	" potrazuje=" + STR(nPot), "", ;
 		  	Date(), Date(), ;
 		  	"", "Unos novih stavki na nalog")
-	   
+
 	   endif
-	   
+
 	enddo
         BoxC()
         return DE_REFRESH
@@ -797,13 +797,13 @@ case Ch==K_ALT_F5
 
      // pa azuriraj
      close all
-     Azur(.t.)
+     fin_Azur(.t.)
      O_Edit()
      return DE_REFRESH
 
 
    case Ch==K_ALT_A
-     Azur()
+     fin_Azur()
      O_Edit()
      return DE_REFRESH
 
@@ -817,7 +817,7 @@ case Ch==K_ALT_F5
      OiNIsplate()
      return DE_CONT
 
-   case Ch==K_F10 
+   case Ch==K_F10
      OstaleOpcije()
      return DE_REFRESH
 
@@ -851,7 +851,7 @@ endif
 go top
 
 do while !EOF()
-	
+
 	cRbr := field->rbr
 
 	if cRbr >= cOd .and. cRbr <= cDo
@@ -877,10 +877,10 @@ return .t.
 
 
 /*! \fn StNal(lAuto)
- *  \brief Priprema za stampu naloga 
+ *  \brief Priprema za stampu naloga
  *  \param lAuto
  */
- 
+
 function StNal(lAuto)
 *{
 private dDatNal:=date()
@@ -894,7 +894,7 @@ return
  *  \brief Stampanje analitickog naloga
  *  \param lAuto
  */
- 
+
 function StAnalNal(lAuto)
 *{
 private aNalozi:={}
@@ -926,7 +926,7 @@ EOF CRET
 
 fizgenerisi:=.f.
 
-if lAuto .or. field->idvn == "00" 
+if lAuto .or. field->idvn == "00"
 	if Pitanje(,"Staviti na stanje bez pojed stampe ?","N")=="D"
      		fizgenerisi:=.t.
    	else
@@ -982,7 +982,7 @@ DO WHILE !EOF()
      ENDIF
    ENDIF
 
-ENDDO   
+ENDDO
 
 if lAuto
   BoxC()
@@ -1001,7 +1001,7 @@ return
 /*! \fn Zagl11()
  *  \brief Zaglavlje analitickog naloga
  */
- 
+
 function Zagl11()
 
 local nArr, lDnevnik:=.f.
@@ -1055,16 +1055,16 @@ if gNW=="D"
  P_NRED
  ?? IF(lDnevnik,"R.BR. *   BROJ       *DAN*","")+"*R. * KONTO *" + PADC("PART", __par_len) + "*"+IF(gVar1=="1".and.lJerry,"       NAZIV PARTNERA         *                    ","    NAZIV PARTNERA ILI      ")+"*   D  O  K  U  M  E  N  T    *         IZNOS U  "+ValDomaca()+"         *"+IF(gVar1=="1","","    IZNOS U "+ValPomocna()+"    *")
  P_NRED
- 
+
  ?? IF(lDnevnik,"U DNE-*  NALOGA      *   *","")+"             " + PADC("NER", __par_len) + " "+IF(gVar1=="1".and.lJerry,"            ILI                      O P I S       ","                            ")+" ----------------------------- ------------------------------- "+IF(gVar1=="1","","---------------------")
  P_NRED
- 
+
  ?? IF(lDnevnik,"VNIKU *              *   *","")+"*BR *       *" + REPL(" ", __par_len) + "*"+IF(gVar1=="1".and.lJerry,"        NAZIV KONTA           *                    ","    NAZIV KONTA             ")+"* BROJ VEZE * DATUM  * VALUTA *  DUGUJE "+ValDomaca()+"  * POTRAZUJE "+ValDomaca()+"*"+IF(gVar1=="1",""," DUG. "+ValPomocna()+"* POT."+ValPomocna()+"*")
 ELSE
  P_NRED
  ?? IF(lDnevnik,"R.BR. *   BROJ       *DAN*","")+"*R. * KONTO *" + PADC("PART", __par_len) + "*"+IF(gVar1=="1".and.lJerry,"       NAZIV PARTNERA         *                    ","    NAZIV PARTNERA ILI      ")+"*           D  O  K  U  M  E  N  T             *         IZNOS U  "+ValDomaca()+"         *"+IF(gVar1=="1","","    IZNOS U "+ValPomocna()+"    *")
  P_NRED
- 
+
  ?? IF(lDnevnik,"U DNE-*  NALOGA      *   *","")+"             " + PADC("NER", __par_len) + " "+IF(gVar1=="1".and.lJerry,"            ILI                      O P I S       ","                            ")+" ---------------------------------------------- ------------------------------- "+IF(gVar1=="1","","---------------------")
  P_NRED
  ?? IF(lDnevnik,"VNIKU *              *   *","")+"*BR *       *" + REPL(" ", __par_len)+ "*"+IF(gVar1=="1".and.lJerry,"        NAZIV KONTA           *                    ","    NAZIV KONTA             ")+"*  TIP I NAZIV   * BROJ VEZE * DATUM  * VALUTA *  DUGUJE "+ValDomaca()+"  * POTRAZUJE "+ValDomaca()+"*"+IF(gVar1=="1",""," DUG. "+ValPomocna()+"* POT."+ValPomocna()+"*")
@@ -1079,7 +1079,7 @@ return
  *  \brief Formiranje sintetickih stavki
  *  \param lAuto
  */
- 
+
 function SintStav(lAuto)
 *{
 if lAuto==NIL; lAuto:=.f.; ENDIF
@@ -1109,7 +1109,7 @@ endif
 
 A:=0
 // svi nalozi
-DO WHILE !eof()  
+DO WHILE !eof()
 
 
    nStr:=0
@@ -1243,7 +1243,7 @@ enddo
 closeret
 return
 
- 
+
 function IdPartner(cIdPartner)
 local cRet
 
@@ -1257,7 +1257,7 @@ return cRet
  *  \brief Formatira cIdPartner na 6 mjesta ako mu je duzina 8
  *  \param cIdPartner - id partnera
  */
- 
+
 function DifIdP(cIdPartner)
 *{
 return 0
@@ -1268,7 +1268,7 @@ return 0
 /*! \fn Preduzece()
  *  \brief Vraca naziv firme
  */
- 
+
 function Preduzece()
 *{
 local nArr:=select()
@@ -1291,7 +1291,7 @@ return
 /*! \fn BrisiPBaze()
  *  \brief Brisi pomocne baze
  */
- 
+
 function BrisiPBaze()
 *{
   PushWA()
@@ -1308,7 +1308,7 @@ RETURN (NIL)
  *  \brief Preuzimanje sifre iz sezone
  *  \param cSif
  */
- 
+
 function PreuzSezSPK(cSif)
 *{
 *static string
@@ -1367,7 +1367,7 @@ RETURN
  *  \param lSint   - .t.-POM.DBF je analitika, .f.-POM.DBF
  *  \param cFilter
  */
- 
+
 function SintFilt(lSint,cFilter)
 *{
 IF lSint==NIL; lSint:=.f.; ENDIF
@@ -1454,7 +1454,7 @@ IF lSint==NIL; lSint:=.f.; ENDIF
                   DugDEM WITH DugDEM+nDugDEM, PotDEM WITH PotDEM+nPotDEM
 
         ELSE             // sintetika
-  
+
           SELECT SINT
           seek cidfirma+cidvn+cbrnal+left(cidkonto,3)
           fNasao:=.f.
@@ -1509,7 +1509,7 @@ RETURN
 /*! \fn TekRec2()
  *  \brief Tekuci zapis
  */
- 
+
 function TekRec2()
 *{
  nSlog++
@@ -1524,7 +1524,7 @@ RETURN (NIL)
  *  \param y
  *  \param cT
  */
- 
+
 function Reci(x,y,cT)
 *{
 LOCAL px:=ROW(),py:=COL()
@@ -1537,7 +1537,7 @@ RETURN
 /*! \fn OstaleOpcije()
  *  \brief Ostale opcije koje se pozivaju sa <F10>
  */
- 
+
 function OstaleOpcije()
 *{
 private opc[4]
@@ -1583,7 +1583,7 @@ RETURN
 /*! \fn PodijeliN()
  *  \brief
  */
- 
+
 function PodijeliN()
 *{
 if !SigmaSif("PVNAPVN")
@@ -1737,7 +1737,7 @@ return DE_REFRESH
 /*! \fn SetDatUPripr()
  *  \brief Postavi datum u pripremi
  */
- 
+
 function SetDatUPripr()
 *{
   PRIVATE cTDok:="00"
@@ -1770,7 +1770,7 @@ return
  *  \param cInd  - "1"-stampa pripreme, "2"-stampa azuriranog, "3"-stampa dnevnika
  *  \param lAuto
  */
- 
+
 function StSubNal(cInd,lAuto)
 LOCAL nArr:=SELECT(), aRez:={}, aOpis:={}
 
@@ -2001,7 +2001,7 @@ RETURN
 /*! \fn PrenosDNal()
  *  \brief Ispis prenos na sljedecu stranicu
  */
- 
+
 function PrenosDNal()
 *{
 ? m
@@ -2038,7 +2038,7 @@ RETURN
 /*! \fn IzvodBanke()
  *  \brief Formira nalog u pripremi na osnovu txt-izvoda iz banke
  */
- 
+
 function IzvodBanke()
 *{
  LOCAL nIF:=1, cBrNal:=""
@@ -2094,15 +2094,15 @@ function IzvodBanke()
   nH   := fopen(cIme)
   nRBr := 0
   cBrNal := nextnal( gFirma, cIdvn )
-  
+
   StartPrint(.t.)
 
   P_COND2
-  ? "зддддбддддддддбддддддддддддддддбддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддбдддддддддддддддддддддддддддддддддд©"
-  ? "ЁR.BRЁ DATUM  ЁZIRO-RACUN      ЁPOSILJAOC: NAZIV, ADRESA I MJESTO                                                         ЁPOZIV NA BROJ                     Ё"
-  ? "цддддаддддддддаддддддддддддддддаддддддддддддддддддддддддддддддддбддддддддддддддбдддбдддддддддддддбдддддддбддддддддбдддддддабддддддддбдддбддддддддддбддддддддд╢"
-  ? "ЁSIFRA I OPIS SVRHE DOZNAKE                                     Ё     IZNOS    ЁD/PЁMAT.BROJ     ЁVR.UPL.ЁVR.PRIH.Ё DAT.OD Ё DAT.DO ЁOP▐Ё P.NA BR. ЁBUDZ.ORG.Ё"
-  ? "юдддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддаддддддддддддддадддадддддддддддддадддддддаддддддддаддддддддаддддддддадддаддддддддддаддддддддды"
+  ? "О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫д©"
+  ? "О©╫R.BRО©╫ DATUM  О©╫ZIRO-RACUN      О©╫POSILJAOC: NAZIV, ADRESA I MJESTO                                                         О©╫POZIV NA BROJ                     О©╫"
+  ? "О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫д╢"
+  ? "О©╫SIFRA I OPIS SVRHE DOZNAKE                                     О©╫     IZNOS    О©╫D/PО©╫MAT.BROJ     О©╫VR.UPL.О©╫VR.PRIH.О©╫ DAT.OD О©╫ DAT.DO О©╫OPО©╫О©╫ P.NA BR. О©╫BUDZ.ORG.О©╫"
+  ? "О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫"
 
   DO WHILE .T.
 
@@ -2152,11 +2152,11 @@ function IzvodBanke()
 
     IF prow()>60
       FF
-      ? "зддддбддддддддбддддддддддддддддбддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддбдддддддддддддддддддддддддддддддддд©"
-      ? "ЁR.BRЁ DATUM  ЁZIRO-RACUN      ЁPOSILJAOC: NAZIV, ADRESA I MJESTO                                                         ЁPOZIV NA BROJ                     Ё"
-      ? "цддддаддддддддаддддддддддддддддаддддддддддддддддддддддддддддддддбддддддддддддддбдддбдддддддддддддбдддддддбддддддддбдддддддабддддддддбдддбддддддддддбддддддддд╢"
-      ? "ЁSIFRA I OPIS SVRHE DOZNAKE                                     Ё     IZNOS    ЁD/PЁMAT.BROJ     ЁVR.UPL.ЁVR.PRIH.Ё DAT.OD Ё DAT.DO ЁOP▐Ё P.NA BR. ЁBUDZ.ORG.Ё"
-      ? "юдддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддаддддддддддддддадддадддддддддддддадддддддаддддддддаддддддддаддддддддадддаддддддддддаддддддддды"
+      ? "О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫д©"
+      ? "О©╫R.BRО©╫ DATUM  О©╫ZIRO-RACUN      О©╫POSILJAOC: NAZIV, ADRESA I MJESTO                                                         О©╫POZIV NA BROJ                     О©╫"
+      ? "О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫д╢"
+      ? "О©╫SIFRA I OPIS SVRHE DOZNAKE                                     О©╫     IZNOS    О©╫D/PО©╫MAT.BROJ     О©╫VR.UPL.О©╫VR.PRIH.О©╫ DAT.OD О©╫ DAT.DO О©╫OPО©╫О©╫ P.NA BR. О©╫BUDZ.ORG.О©╫"
+      ? "О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫"
     ENDIF
 
 
@@ -2200,10 +2200,10 @@ return
 
 
 /*! \fn K3Iz256(cK3)
- *  \brief 
+ *  \brief
  *  \param cK3
  */
- 
+
 function K3Iz256(cK3)
 *{
  LOCAL i,c,o,d:=0,aC:={" ","0","1","2","3","4","5","6","7","8","9"}
@@ -2231,7 +2231,7 @@ RETURN cK3
  *  \brief
  *  \cK3
  */
- 
+
 function K3U256(cK3)
 *{
 LOCAL i,c,o,d:=0,aC:={" ","0","1","2","3","4","5","6","7","8","9"}
@@ -2257,7 +2257,7 @@ RETURN cK3
 /*! \fn KontrZbNal()
  *  \brief Kontrola zbira naloga
  */
- 
+
 function KontrZbNal()
 *{
 
@@ -2338,7 +2338,7 @@ return
 /*! \fn BrDokOK()
  *  \brief
  */
- 
+
 function BrDokOK()
 *{
 local nArr
@@ -2369,10 +2369,10 @@ return lOK
 
 
 /*! \fn SetTekucaRJ(cRJ)
- *  \brief Setuje tekucu radnu jedinicu 
+ *  \brief Setuje tekucu radnu jedinicu
  *  \param cRJ
  */
- 
+
 function SetTekucaRJ(cRJ)
 *{
 local nArr
@@ -2430,5 +2430,3 @@ if !lUsed
 endif
 select (nArr)
 return ( PADR( cRJ, nLen ) )
-
-

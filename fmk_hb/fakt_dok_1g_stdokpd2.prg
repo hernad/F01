@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -153,15 +153,15 @@ nRec:=RecNO()
 
 do while !EOF() .and. idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==cBrDok
 	NSRNPIdRoba()   // Nastimaj (hseek) Sifr.Robe Na Pripr->IdRoba
-	
+
 	// nastimaj i tarifu
 	select tarifa
 	hseek roba->idtarifa
 	select pripr
-	
+
      	aMemo:=ParsMemo(txt)
 	cIdRoba := field->idroba
-	
+
 	if roba->tip="U"
 		cRobaNaz:=aMemo[1]
 	else
@@ -173,7 +173,7 @@ do while !EOF() .and. idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==c
 
 	// dodaj i vrijednost iz polja SERBR
 	if !EMPTY(ALLTRIM(pripr->serbr))
-		cRobaNaz := cRobaNaz + ", " + ALLTRIM(pripr->serbr) 
+		cRobaNaz := cRobaNaz + ", " + ALLTRIM(pripr->serbr)
 	endif
 
 	//resetuj varijable sa cijenama
@@ -182,7 +182,7 @@ do while !EOF() .and. idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==c
 	nCjBPDV := 0
 	nCj2BPDV := 0
 	nVPopust := 0
-	
+
 	if pripr->(FIELDPOS("C1")) <> 0
 		cC1 := pripr->c1
 		cC2 := pripr->c2
@@ -196,14 +196,14 @@ do while !EOF() .and. idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==c
 
 	// procenat pdv-a
 	nPPDV := tarifa->opp
-	
+
 	// kolicina
 	nKol := field->kolicina
 	nRCijen := field->cijena
 
 	nPopNaTeretProdavca := 0
 	nPopust := 0
-	
+
 	// zasticena cijena, za krajnjeg kupca
 	if RobaZastCijena(tarifa->id)  .and. !lPdvObveznik
 		// krajnji potrosac
@@ -215,9 +215,9 @@ do while !EOF() .and. idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==c
 	    	nPopust := field->rabat
 	    	nPopNaTeretProdavca := 0
 	endif
-	
+
 	// ako je 13-ka ili 27-ca
-	if (field->idtipdok == "13" .and. glCij13Mpc) .or. (field->idtipdok $ "11#27" .and. gMP $ "1234567") 
+	if (field->idtipdok == "13" .and. glCij13Mpc) .or. (field->idtipdok $ "11#27" .and. gMP $ "1234567")
 		// cjena bez pdv-a
 		nCjPDV:= nRCijen
 		nCjBPDV := (nRCijen / (1 + nPPDV/100))
@@ -226,7 +226,7 @@ do while !EOF() .and. idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==c
 		nCjBPDV:= nRCijen
 		nCjPDV := (nRCijen * (1 + nPPDV/100))
 	endif
-	
+
 	nVPopust := 0
 
 	// izracunaj vrijednost popusta
@@ -234,7 +234,7 @@ do while !EOF() .and. idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==c
 		// vrijednost popusta
 		nVPopust := (nCjBPDV * (nPopust/100))
 	endif
-	
+
 	nVPopNaTeretProdavca := 0
 
 	// izacunaj vrijednost popusta na teret prodavca
@@ -258,20 +258,20 @@ do while !EOF() .and. idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==c
 	nUkBPDV += nKol * nCjBPDV
 	nUkBPDVPop += nKol * nCj2BPDV
 	nTotal += nKol * (nCj2BPDV + nVPDV)
-	nUkPopNaTeretProdavca += nKol * nVPopNaTeretProdavca 
+	nUkPopNaTeretProdavca += nKol * nVPopNaTeretProdavca
 
 	++ nCSum
-	
+
 	add_rn(cBrDok, cRbr, cPodBr, cIdRoba, cRobaNaz, cJmj, nKol, nCjPDV, nCjBPDV, nCj2PDV, nCj2BPDV, nPopust, nPPDV, nVPDV, nUkStavka, nPopNaTeretProdavca, nVPopNaTeretProdavca, cC1, cC2, cC3, cOpis )
 
 	select pripr
 	skip
-enddo	
+enddo
 
 // zaokruzenje
 //nFZaokr := ROUND(nTotal, nZaokr) - ROUND2(ROUND(nTotal, nZaokr), gFZaok)
 
-if goModul:oDataBase:cSezona >= "2011" 
+if goModul:oDataBase:cSezona >= "2011"
 	nFZaokr := zaokr_5pf( nTotal )
 	if gZ_5pf == "N"
 		nFZaokr := 0
@@ -333,9 +333,9 @@ fill_potpis(cIdTipDok)
 add_drntext("P01", ALLTRIM(STR(gnLMarg)) )
 // zaglavlje na svakoj stranici
 add_drntext("P04", if(gZagl == "1", "D", "N"))
-// prikaz dodatnih podataka 
+// prikaz dodatnih podataka
 add_drntext("P05", if(gDodPar == "1", "D", "N"))
-// dodati redovi po listu 
+// dodati redovi po listu
 add_drntext("P06", ALLTRIM(STR(gERedova)) )
 // gornja margina
 add_drntext("P07", ALLTRIM(STR(gnTMarg)) )
@@ -357,14 +357,14 @@ local cStdPot
 
 cStdPot := "                           Odobrio                     Primio "
 
-if (cIdVd $ "01#00#19") 
+if (cIdVd $ "01#00#19")
 	cPotpis := cStdPot
 else
    	cPom:="G"+cIdVD+"STR2T"
    	cPotpis := &cPom
 endif
 
-// potpis 
+// potpis
 add_drntext("F10", cPotpis)
 
 return
@@ -380,9 +380,9 @@ local nCnt // counter upisa u DRNTEXT
 
 // slobodni tekst se upisuje u DRNTEXT od F20 -- F50
 
-cTxt := STRTRAN(cTxt, "ç" + Chr(10), "")
+cTxt := STRTRAN(cTxt, "ÔøΩ" + Chr(10), "")
 // daj mi matricu sa tekstom line1, line2 itd...
-aLines := TokToNiz(cTxt, Chr(13) + Chr(10)) 
+aLines := TokToNiz(cTxt, Chr(13) + Chr(10))
 
 nFId := 20
 nCnt := 0
@@ -459,7 +459,7 @@ add_drntext("K03", cIdBroj)
 // porbroj
 add_drntext("K05", cPorBroj)
 
-if !EMPTY(cIdBroj) 
+if !EMPTY(cIdBroj)
 	if LEN(ALLTRIM(cIdBroj)) == 12
 		lPdvObveznik := .t.
 	else
@@ -468,7 +468,7 @@ if !EMPTY(cIdBroj)
 else
 	lPdvObveznik := .f.
 endif
-	
+
 // brrjes
 add_drntext("K06", cBrRjes)
 // brupisa
@@ -497,5 +497,3 @@ add_drntext("I14", ALLTRIM(gFText3))
 
 return
 *}
-
-

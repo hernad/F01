@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -13,7 +13,7 @@
 #include "kalk.ch"
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  *
  */
@@ -22,8 +22,8 @@
 /*! \file fmk/kalk/main/2g/app.prg
  *  \brief
  */
- 
- 
+
+
 /*! \fn TKalkModNew()
  *  \brief
  */
@@ -52,14 +52,14 @@ class TKalkMod: public TAppMod
 	*void sRegg();
 	*void initdb();
 	*void srv();
-	
+
 #endif
 
 #ifndef CPP
 #include "class(y).ch"
 CREATE CLASS TKalkMod INHERIT TAppMod
 	EXPORTED:
-	method dummy 
+	method dummy
 	method setGVars
 	method mMenu
 	method mMenuStandard
@@ -111,7 +111,7 @@ CheckROnly(KUMPATH + "\KALK.DBF")
 O_DOKS
 select doks
 TrebaRegistrovati(10)
-gDuzKonto:=LEN(mkonto) 
+gDuzKonto:=LEN(mkonto)
 select doks
 
 // skeniranje prodavnica automatsko...
@@ -147,7 +147,7 @@ private opcexe:={}
 
 AADD(opc,   "1. unos/ispravka dokumenata                ")
 if (ImaPravoPristupa(goModul:oDataBase:cName,"DOK","UNOSDOK"))
-	AADD(opcexe,{|| Knjiz()} )
+	AADD(opcexe,{|| kalk_Knjiz()} )
 else
 	AADD(opcexe, {|| MsgBeep(cZabrana)})
 endif
@@ -179,7 +179,7 @@ AADD(opc,"------------------------------------")
 AADD(opcexe, nil)
 AADD(opc,   "8. sifrarnici")
 AADD(opcexe,{|| Sifre()})
-AADD(opc,   "9. administriranje baze podataka") 
+AADD(opc,   "9. administriranje baze podataka")
 if (ImaPravoPristupa(goModul:oDataBase:cName,"MAIN","DBADMIN"))
 	AADD(opcexe, {|| MAdminKalk()})
 else
@@ -191,7 +191,7 @@ AADD(opcexe, nil)
 // najcesece koristenje opcije
 AADD(opc,   "A. stampa azuriranog dokumenta")
 AADD(opcexe, {|| Stkalk(.t.)})
-AADD(opc,   "P. povrat dokumenta u pripremu") 
+AADD(opc,   "P. povrat dokumenta u pripremu")
 if (ImaPravoPristupa(goModul:oDataBase:cName,"DOK","POVRATDOK"))
 	AADD(opcexe, {|| Povrat()})
 else
@@ -249,7 +249,7 @@ return
 *{
 method setGVars()
 
-local cPPSaMr 
+local cPPSaMr
 local cBazniDir
 local cMrRs
 local cOdradjeno
@@ -540,7 +540,7 @@ IzFmkIni (cSekcija,cVar, IzFMkIni(cSekcija,cVar,'barkod') , SIFPATH)
 //definisano u SC_CLIB-u
 gGlBaza:="KALK.DBF"
 
-public glEkonomat 
+public glEkonomat
 
 glEKonomat:= (IzFmkIni("KALK","VoditiSamoEkonomat","N",EXEPATH)=="D")
 lPoNarudzbi := ( IzFMKINI("KALK","10PoNarudzbi","N",KUMPATH)=="D" )
@@ -600,9 +600,8 @@ gcSLObrazac:=IzFmkIni("KALK","SLObrazac","1",KUMPATH)
 gRobaBlock:={|Ch| RobaBlock(Ch)}
 
 // inicijalizujem ovu varijablu uvijek pri startu
-// ona sluzi za automatsku obradu kalkulacija 
+// ona sluzi za automatsku obradu kalkulacija
 // vindija - varazdin
 public lAutoObr := .f.
 
 return
-

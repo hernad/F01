@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -16,11 +16,11 @@
 /*! \file fmk/fin/db/1g/db.prg
  *  \brief Funkcije za rad sa tabelama
  */
- 
+
 /*! \fn SifkPartnBank()
  *  \brief Dodaje u tabelu SifK stavke PARTN i BANK
  */
- 
+
 function SifkPartnBank()
 *{
 O_SIFK
@@ -42,12 +42,12 @@ return NIL
 /*! \fn OKumul(nArea,cStaza,cIme,nIndexa,cDefault)
  *  \brief Kopira podatke sa mreze radi brzine pregleda dokumenata, sluzi samo za pregled
  *  \param nArea    - podrucje
- *  \param cStaza  
- *  \param cIme 
+ *  \param cStaza
+ *  \param cIme
  *  \param nIndexa
  *  \param cDefault
  */
- 
+
 function OKumul(nArea,cStaza,cIme,nIndexa,cDefault)
 *{
 local cPath,cScreen
@@ -95,7 +95,7 @@ return NIL
 static function _is_vise_dok()
 local lRet := .f.
 local nTRec := RECNO()
-local cBrNal 
+local cBrNal
 local cTmpNal := "XXXXXXXX"
 
 select pripr
@@ -103,23 +103,23 @@ go top
 
 cTmpNal := field->brnal
 
-do while !EOF() 
+do while !EOF()
 
 	cBrNal := field->brnal
-	
-	if  cBrNal == cTmpNal 
-		
-		
+
+	if  cBrNal == cTmpNal
+
+
 		cTmpNal := cBrNal
-		
+
 		skip
 		loop
-	
+
 	else
 		lRet := .t.
 		exit
 	endif
-	
+
 enddo
 
 return lRet
@@ -128,7 +128,7 @@ return lRet
 // ------------------------------------------------------------
 // provjeri duple stavke u pripremi za vise dokumenata
 // ------------------------------------------------------------
-static function prov_duple_stavke() 
+static function prov_duple_stavke()
 local cSeekNal
 local lNalExist:=.f.
 
@@ -137,17 +137,17 @@ go top
 
 // provjeri duple dokumente
 do while !EOF()
-	
+
 	cSeekNal := pripr->(idfirma + idvn + brnal)
-	
+
 	if dupli_nalog(cSeekNal)
 		lNalExist := .t.
 		exit
 	endif
-	
+
 	select pripr
 	skip
-	
+
 enddo
 
 // postoje dokumenti dupli
@@ -158,12 +158,12 @@ if lNalExist
 		return 1
 	else
 		Box(,1,60)
-		
+
 			cKumPripr := "P"
 			@ m_x+1, m_y+2 SAY "Zelite brisati stavke iz kumulativa ili pripreme (K/P)" GET cKumPripr VALID !Empty(cKumPripr) .or. cKumPripr $ "KP" PICT "@!"
 			read
 		BoxC()
-		
+
 		if cKumPripr == "P"
 			// brisi pripremu
 			return prip_brisi_duple()
@@ -188,13 +188,13 @@ go top
 do while !EOF()
 
 	cSeek := pripr->(idfirma + idvn + brnal)
-	
+
 	if dupli_nalog( cSeek )
 		// pobrisi stavku
 		select pripr
 		delete
 	endif
-	
+
 	select pripr
 	skip
 enddo
@@ -213,32 +213,32 @@ go top
 cKontrola := "XXX"
 
 do while !EOF()
-	
+
 	cSeek := pripr->(idfirma + idvn + brnal)
-	
+
 	if cSeek == cKontrola
 		skip
 		loop
 	endif
-	
+
 	if dupli_nalog( cSeek )
-		
+
 		MsgO("Brisem stavke iz kumulativa ... sacekajte trenutak!")
-		
+
 		// brisi nalog
 		select nalog
-		
+
 		if !flock()
 			msg("Datoteka je zauzeta ",3)
 			closeret
 		endif
-	
+
 		set order to tag "1"
 		go top
 		seek cSeek
-		
+
 		if Found()
-			
+
 			do while !eof() .and. nalog->(idfirma+idvn+brnal) == cSeek
       				skip 1
 				nRec:=RecNo()
@@ -247,20 +247,20 @@ do while !EOF()
       				go nRec
     			enddo
     		endif
-		
+
 		// brisi iz suban
 		select suban
 		if !flock()
 			msg("Datoteka je zauzeta ",3)
 			closeret
 		endif
-	
+
 		set order to tag "4"
 		go top
 		seek cSeek
 		if Found()
 			do while !EOF() .and. suban->(idfirma + idvn + brnal) == cSeek
-				
+
 				skip 1
 				nRec:=RecNo()
 				skip -1
@@ -268,21 +268,21 @@ do while !EOF()
 				go nRec
 			enddo
 		endif
-	
-	
+
+
 		// brisi iz sint
 		select sint
 		if !flock()
 			msg("Datoteka je zauzeta ",3)
 			closeret
 		endif
-	
+
 		set order to tag "2"
 		go top
 		seek cSeek
 		if Found()
 			do while !EOF() .and. sint->(idfirma + idvn + brnal) == cSeek
-				
+
 				skip 1
 				nRec:=RecNo()
 				skip -1
@@ -290,20 +290,20 @@ do while !EOF()
 				go nRec
 			enddo
 		endif
-	
+
 		// brisi iz anal
 		select anal
 		if !flock()
 			msg("Datoteka je zauzeta ",3)
 			closeret
 		endif
-	
+
 		set order to tag "2"
 		go top
 		seek cSeek
 		if Found()
 			do while !EOF() .and. anal->(idfirma + idvn + brnal) == cSeek
-				
+
 				skip 1
 				nRec:=RecNo()
 				skip -1
@@ -311,13 +311,13 @@ do while !EOF()
 				go nRec
 			enddo
 		endif
-	
-	
+
+
 		MsgC()
 	endif
-	
+
 	cKontrola := cSeek
-	
+
 	select pripr
 	skip
 enddo
@@ -340,12 +340,12 @@ return .f.
 
 
 
-/*! \fn Azur(lAuto)
- *  \brief Azuriranje knjizenja
- *  \param lAuto - .t. azuriraj automatski, .f. azuriraj sa pitanjem
+/*!  fin_Azur(lAuto)
+ *   Azuriranje knjizenja
+ *   lAuto - .t. azuriraj automatski, .f. azuriraj sa pitanjem
  */
- 
-function Azur(lAuto)
+
+function fin_Azur(lAuto)
 local bErrHan, nC
 local nTArea := SELECT()
 
@@ -378,12 +378,12 @@ O_PNALOG
 
 // provjeri da li se u pripremi nalazi vise dokumenata... razlicitih
 if _is_vise_dok() == .t.
-	
+
 	// provjeri za duple stavke prilikom azuriranja...
-	if prov_duple_stavke() == 1 
+	if prov_duple_stavke() == 1
 		return
 	endif
-	
+
 	// nafiluj sve potrebne tabele
 	stnal( .t. )
 endif
@@ -529,53 +529,53 @@ if round(nSaldo,4)<>0 .and. gRavnot=="D"
 endif
 
 // nalog je uravnotezen, azuriraj ga !
-if round(nSaldo,4)==0  .or. gRavnot=="N" 
+if round(nSaldo,4)==0  .or. gRavnot=="N"
 
    if !( SUBAN->(flock()) .and. ;
    	ANAL->(flock()) .and.  ;
 	SINT->(flock()) .and.  ;
-	NALOG->(flock())  ) 
- 	   
+	NALOG->(flock())  )
+
 	    if gAzurTimeOut == nil
 	    	nTime := 150
 	    else
 	        nTime := gAzurTimeOut
 	    endif
-	   
+
 	    Box(,1, 40)
 
 	    // daj mu vremena...
 	    do while nTime > 0
-	
+
 		-- nTime
 
 		@ m_x + 1, m_y + 2 SAY "timeout: " + ALLTRIM(STR(nTime))
-		
+
 		if ( SUBAN->(flock()) .and. ;
 			ANAL->(flock()) .and.  ;
 			SINT->(flock()) .and.  ;
-			NALOG->(flock())  ) 
+			NALOG->(flock())  )
 			exit
 		endif
-	    
+
 		sleep(1)
 
 	    enddo
-	    
+
 	    BoxC()
 
 	    if nTime = 0 .and. !( SUBAN->(flock()) .and. ;
 			ANAL->(flock()) .and.  ;
 			SINT->(flock()) .and.  ;
-			NALOG->(flock())  ) 
-	
-	    	Beep(4) 
- 	    	BoxC() 
- 	    	Msg("Timeout za azuriranje istekao!#Ne mogu azuriranti nalog...") 
- 	    	closeret 
-	
+			NALOG->(flock())  )
+
+	    	Beep(4)
+ 	    	BoxC()
+ 	    	Msg("Timeout za azuriranje istekao!#Ne mogu azuriranti nalog...")
+ 	    	closeret
+
 	endif
-   endif 
+   endif
 
 
   @ m_x+3,m_y+2 SAY "NALOZI         "
@@ -680,7 +680,7 @@ if round(nSaldo,4)==0  .or. gRavnot=="N"
   enddo
 
 if lLogAzur
-	
+
 	cOpis := cEvIdFirma + "-" + cEvVrBrNal
 
 	EventLog(nUser, goModul:oDataBase:cName, "DOK", "AZUR", ;
@@ -692,7 +692,7 @@ endif
 
 
   // nalog je uravnotezen, moze se izbrisati iz PRIPR
-  
+
   select PRIPR
   seek cNal
   @ m_x+3,m_y+2 SAY "BRISEM PRIPREMU "
@@ -736,7 +736,7 @@ return
  *  \param cIdVn
  *  \param cBrNal
  */
- 
+
 function Dupli(cIdFirma,cIdVn,cBrNal)
 *{
 PushWa()
@@ -770,9 +770,9 @@ cTmp := RIGHT( cNalog, 4 )
 
 // vidi jesu li sve brojevi
 for i := 1 to LEN( cTmp )
-	
+
 	cChar := SUBSTR( cTmp, i, 1 )
-	
+
 	if cChar $ "0123456789"
 		loop
 	else
@@ -806,7 +806,7 @@ if gBrojac=="1"
 	skip -1
 	altd()
 	if ( idfirma + idvn == cIdFirma + cIdVN )
-		
+
 		// napravi validaciju polja ...
 		do while !BOF()
 
@@ -817,7 +817,7 @@ if gBrojac=="1"
 				exit
 			endif
 		enddo
-		
+
 		cBrNal := NovaSifra(brNal)
 	else
 		cBrNal := "00000001"
@@ -910,7 +910,7 @@ return
 function f18_test_data()
 local _a_sif := {}
 local _a_data := {}
-local _a_ctrl := {} 
+local _a_ctrl := {}
 local _chk_sif := .f.
 
 if Pitanje(, "Provjera sifrarnika (D/N) ?", "N") == "D"
@@ -937,7 +937,7 @@ return
 static function f18_fin_data( data, checksum )
 local _n_c_iznos := 0
 local _n_c_stavke := 0
-local _scan 
+local _scan
 
 O_SUBAN
 O_ANAL
@@ -950,12 +950,12 @@ set order to tag "4"
 go top
 
 do while !EOF()
-	
+
 	_firma := field->idfirma
 	_tdok := field->idvn
 	_brdok := field->brnal
 	_dok := _firma + "-" + _tdok + "-" + ALLTRIM( _brdok )
-	
+
 	_rbr_chk := "xx"
 
 	@ m_x + 1, m_y + 2 SAY "dokument: " + _dok
@@ -963,16 +963,16 @@ do while !EOF()
 	do while !EOF() .and. field->idfirma == _firma ;
 		.and. field->idvn == _tdok ;
 		.and. field->brnal == _brdok
-		
+
 		_rbr := field->rbr
-		
+
 		@ m_x + 2, m_y + 2 SAY "redni broj dokumenta: " + PADL( _rbr, 5 )
 
 		if _rbr == _rbr_chk
 			// dodaj u matricu...
 			_scan := ASCAN( data, {|var| var[1] == _dok } )
 			if _scan == 0
-				AADD( data, { _dok } ) 
+				AADD( data, { _dok } )
 			endif
 		endif
 
@@ -994,4 +994,3 @@ if _n_c_stavke > 0
 endif
 
 return
-

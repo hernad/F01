@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -21,7 +21,7 @@ static lDirty := .t.
 // -----------------------------------------------------------------
 // Glavna funkcija za poziv pripreme i knjizenje fakture
 // -----------------------------------------------------------------
-function Knjiz()
+function fakt_Knjiz()
 // da li je ocitan barkod
 private gOcitBarkod:=.f.
 private fID_J:=.f.
@@ -74,7 +74,7 @@ if pripr->(fieldpos("k1"))<>0 .and. gDK1=="D"
 endif
 
 if pripr->(fieldpos("idrelac")) <> 0
-	
+
 	AADD( ImeKol , { "ID relac.", {|| idrelac  }, "IDRELAC"  } )
 
 endif
@@ -98,11 +98,11 @@ cFBrDok := field->brdok
 
 Box(,21,77)
 TekDokument()
-@ m_x+18,m_y+2 SAY " <c-N> Nove Stavke       ³<ENT> Ispravi stavku      ³<c-T> Brisi Stavku "
-@ m_x+19,m_y+2 SAY " <c-A> Ispravka Dokumenta³<c-P> Stampa (TXT)        ³<a-F10> Asistent  "
-@ m_x+20,m_y+2 SAY " <a-A> Azuriranje dok.   ³<c-F9> Brisi pripremu     ³<F5>  Kontrola zbira  "
-@ m_x+21,m_y+2 SAY " <R> Rezerv  <X> Prekid R³<F10>  Ostale opcije      ³<F9> 20,12->10; 27->11"
-ObjDbedit("PNal",21,77,{|| EdPripr()},"","Priprema..."+"ÍÍÍÍ<a-N> narudzb.kupca"+"ÍÍÍÍ<a-U> ugov.o rabatu", , , , ,4)
+@ m_x+18,m_y+2 SAY " <c-N> Nove Stavke       ï¿½<ENT> Ispravi stavku      ï¿½<c-T> Brisi Stavku "
+@ m_x+19,m_y+2 SAY " <c-A> Ispravka Dokumentaï¿½<c-P> Stampa (TXT)        ï¿½<a-F10> Asistent  "
+@ m_x+20,m_y+2 SAY " <a-A> Azuriranje dok.   ï¿½<c-F9> Brisi pripremu     ï¿½<F5>  Kontrola zbira  "
+@ m_x+21,m_y+2 SAY " <R> Rezerv  <X> Prekid Rï¿½<F10>  Ostale opcije      ï¿½<F9> 20,12->10; 27->11"
+ObjDbedit("PNal",21,77,{|| EdPripr()},"","Priprema..."+"ï¿½ï¿½ï¿½ï¿½<a-N> narudzb.kupca"+"ï¿½ï¿½ï¿½ï¿½<a-U> ugov.o rabatu", , , , ,4)
 BoxC()
 
 closeret
@@ -113,7 +113,7 @@ return
 /*! \fn TekDokument()
  *  \brief Tekuci dokument
  */
- 
+
 function TekDokument()
 *{
 local nRec
@@ -144,7 +144,7 @@ return
 /*! \fn Rbr()
  *  \brief Redni broj
  */
- 
+
 function Rbr()
 *{
 local cRet
@@ -168,13 +168,13 @@ static function Part1Stavka()
 local cRet:=""
 
 if alltrim(rbr) == "1"
-  cRet += trim(IdPartner) + ": " 
+  cRet += trim(IdPartner) + ": "
 endif
 
 return cRet
 
 // ------------------------------------------
-// Roba() - prikazi robu 
+// Roba() - prikazi robu
 // ------------------------------------------
 function Roba()
 local cRet := ""
@@ -200,7 +200,7 @@ return padr( cRet, 30)
 /*! \fn JedinaStavka()
  *  \brief U dokumentu postoji samo jedna stavka
  */
- 
+
 function JedinaStavka()
 *{
 nTekRec := RECNO()
@@ -226,7 +226,7 @@ return IIF(nBrStavki==1, .t., .f.)
  *  \brief Priprema ekran i definise tipke (c+N,a+A...)
  *  \todo Ovu funkciju definitivno treba srediti....
  */
- 
+
 function EdPripr()
 *{
 // poziva je ObjDbedit u KnjNal
@@ -234,7 +234,7 @@ local nTr2
 local cPom
 local cENTER:=chr(K_ENTER)+chr(K_ENTER)+chr(K_ENTER)
 local aFakt_dok := {}
-	
+
 if (Ch==K_ENTER  .and. Empty(BrDok) .and. EMPTY(rbr))
 	return DE_CONT
 endif
@@ -244,7 +244,7 @@ TekDokument()
 select pripr
 do case
 	case lFisMark == .t.
-	
+
 		lFisMark := .f.
 
 		if pripr->(reccount()) <> 0
@@ -266,43 +266,43 @@ do case
 		msgc()
 
 		select pripr
-		
+
 		if gFC_faktura $ "D#G#X"
-			
-		    if gFC_faktura $ "D#X" .and. ; 
+
+		    if gFC_faktura $ "D#X" .and. ;
 			Pitanje(,"Stampati fakturu ?", "N") == "D"
-			
+
 			// stampaj dokument odmah nakon fiskalnog racuna
 
 			StampTXT( cFFirma, cFTipDok, cFBrDok )
-		    	
+
 			close all
 
 			o_edit()
 
 			select pripr
-	
+
 		    endif
-		
+
 		    if gFC_faktura $ "G#X" .and. ;
 			Pitanje(,"Stampati graficku fakturu ?", "N") == "D"
-			
+
 			stdokodt( cFFirma, cFTipDok, cFBrDok )
-			
+
 			close all
 
 			o_edit()
 
 			select pripr
-			
+
 		    endif
 
 		    return DE_REFRESH
-		
+
 		endif
-		
+
 		return DE_CONT
-	
+
 	case (Ch==K_CTRL_T .or. (Ch=K_DEL .and. gTBDir=="D"))
      		if BrisiStavku()==1
      			return DE_REFRESH
@@ -319,7 +319,7 @@ do case
     		else
      			Gather()
 			// ako treba, promijeni cijenu u sifrarniku
-			PrCijSif()  
+			PrCijSif()
 			BoxC()
 			lDirty:=.t.
      			return DE_REFRESH
@@ -341,17 +341,17 @@ do case
          	label_bkod()
          	O_edit()
 	case Ch==K_ALT_P
-        	
+
 		if !CijeneOK("Stampanje")
            		return DE_REFRESH
         	endif
-        	
+
 		if EMPTY(NarBrDok())
            		return DE_REFRESH
         	endif
-		
+
 		cPom:=idtipdok
-        	
+
 		if cPom=="13"
 			close all
           		StOLPP()
@@ -359,11 +359,11 @@ do case
           		//StampRtf(PRIVPATH+"fakt.rtf", nil, cPom)
 			StDokOdt( nil, nil, nil )
         	endif
-        	
+
 		close all
-        	
+
 		O_Edit()
-        	
+
 		return DE_REFRESH
 
 	case Ch=K_ALT_A
@@ -376,34 +376,34 @@ do case
 		if !CijeneOK("Azuriranje")
            		return DE_REFRESH
         	endif
-        	
+
 		CLOSE ALL
-        	
+
 		// funkcija azuriranja vraca matricu sa podacima dokumenta
-		aFakt_dok := Azur()
-		
+		aFakt_dok := fakt_Azur()
+
 		lDirty:=.t.
-        	
+
 		O_Edit()
-	
+
 		if gFc_use == "D" .and. cFTipDok $ "10#11"
 			if aFakt_dok <> nil .and. LEN( aFakt_dok ) > 0
-				cFirma := aFakt_dok[ 1, 1 ] 
-				cFTipDok := aFakt_dok[ 1, 2 ] 
-				cFBrDok := aFakt_dok[ 1, 3 ] 
+				cFirma := aFakt_dok[ 1, 1 ]
+				cFTipDok := aFakt_dok[ 1, 2 ]
+				cFBrDok := aFakt_dok[ 1, 3 ]
 			endif
-			
-			lFisMark := .t.			
+
+			lFisMark := .t.
 		endif
-		
+
 		return DE_REFRESH
 
 	case Ch==K_CTRL_F9
-		
+
 		BrisiPripr()
 		lDirty:=.t.
         	return DE_REFRESH
-		
+
 	case Ch==K_F5
         	// kontrola zbira
         	nRec:=RecNo()
@@ -430,7 +430,7 @@ do case
         	BoxC()
         	go nRec
         	return DE_CONT
-		
+
 	case UPPER(Chr(Ch))  $ "RX"
         	go top
         	if idtipdok $ "20#27"
@@ -446,20 +446,20 @@ do case
         	Beep(1)
         	go top
         	return DE_REFRESH
-		
+
 	case UPPER(Chr(Ch))=="R"
         	return DE_REFRESH
-		
+
 	case Ch==K_F7
 		if IsRabati()
 			SrediRabate()
 			return DE_REFRESH
 		endif
 	case Ch==K_F9
-        	Iz20u10() 
+        	Iz20u10()
 		lDirty:=.t.
         	return DE_REFRESH
-		
+
 	case Ch==K_ALT_F10
       		private nEntera:=30
       		for iSekv:=1 to INT(RecCount2()/15)+1
@@ -471,26 +471,26 @@ do case
       		next
 		lDirty:=.t.
       		return DE_REFRESH
-		
+
 	case Ch==K_F10
        		PopupKnjiz()
        		SETLASTKEY(K_CTRL_PGDN)
        		return DE_REFRESH
-	
+
 	case Ch==K_F11
 		// pregled smeca
 		Pripr9View()
-		
+
 		select pripr
 		go top
-		
+
 		return DE_REFRESH
 
 	case Ch=K_ALT_I
        		RekZadMpO()
        		O_Edit()
        		return DE_REFRESH
-		
+
 	case Ch==K_ALT_N
 		if lDirty
 			MsgBeep("Podaci su mjenjani nakon posljednje stampe##"+;
@@ -533,18 +533,18 @@ do case
        		return DE_CONT
 
 	case Ch==K_ALT_E
-		
+
 		if Pitanje(,"Exportovati dokument u xls ?", "D" ) == "D"
-			
+
 			// export fakture u dbf
 			exp_dok2dbf()
-			
-			o_edit()	
+
+			o_edit()
 			select pripr
 			go top
 
 		endif
-		
+
 		return DE_CONT
 
 endcase
@@ -570,7 +570,7 @@ if !(ImaPravoPristupa(goModul:oDataBase:cName,"DOK","BRISANJE" ))
 	MsgBeep(cZabrana)
 	return 0
 endif
-	
+
 if Pitanje(,"Zelite izbrisati ovu stavku ?","D")=="D"
 	if (RecCount2 () == 1) .OR. JedinaStavka ()
         	SELECT DOKS
@@ -581,7 +581,7 @@ if Pitanje(,"Zelite izbrisati ovu stavku ?","D")=="D"
            	endif
            	SELECT PRIPR
         endif
-	
+
 	// uzmi opis dokumenta za logiranje
 	cOpis := "dokument: " + field->idfirma + "-" + field->idtipdok + "-" + field->brdok
 	cStavka := field->rbr
@@ -612,7 +612,7 @@ return 0
 
 
 function ProdjiKrozStavke()
-	
+
 PushWA()
 
 select PRIPR
@@ -651,7 +651,7 @@ nDug:=0
 nPrvi:=0
 
 go top
-do while .not. EOF() 
+do while .not. EOF()
     	// kompletan nalog sumiram
 	nDug += Round( Cijena*Kolicina*PrerCij()*(1-Rabat/100)*(1+Porez/100) , ZAOKRUZENJE)
    	skip
@@ -728,7 +728,7 @@ if lSSIP99
   	else
     		StartPrint(.t.)
   	endif
-	
+
 	if IzFMKIni("STAMPA","Opresa","N",KUMPATH)=="D"
     		gRPL_gusto()
     		nDokumBr:=0
@@ -745,10 +745,10 @@ do while lJos
     		lJos:=.f.
   	endif
   	cPom:=idtipdok
-	
+
 	gPtxtC50 := .f.
   	StampTXT(nil,cPom,nil)
-	
+
   	O_Edit()
 
 enddo
@@ -778,7 +778,7 @@ INDEX ON &cSort1 to "TMPPRIPR" for &cFilt1
 GO TOP
 StartPrint()
 ? "FAKT,",date(),", REKAPITULACIJA ZADUZENJA MALOPRODAJNIH OBJEKATA"
-? 
+?
 IspisFirme(PRIPR->idfirma)
 ?
 do while !EOF()
@@ -807,7 +807,7 @@ enddo
 FF
 EndPrint()
 CLOSE ALL
-return     
+return
 *}
 
 
@@ -816,7 +816,7 @@ return
  *  \brief
  *  \param cStr
  */
- 
+
 function CijeneOK(cStr)
 local fMyFlag := .F., lRetFlag := .T., nTekRec
   SELECT PRIPR
@@ -879,7 +879,7 @@ return nRet
  *  \param cVezOtpr
  *  \param dNajnoviji - datum posljednje radjene otpremnice
  */
- 
+
 function RenumPripr(cVezOtpr,dNajnoviji)
 *{
 //poziva se samo pri generaciji otpremnica u fakturu
@@ -1028,7 +1028,7 @@ endif
 
 Gather()
 
-if lSetujDatum .or. cSetPor=="D"    
+if lSetujDatum .or. cSetPor=="D"
       // obracunaj porez na promet proizvoda na sve stavke!!
       ObracunajPP(cSetPor,dDatDok)
 endif
@@ -1074,7 +1074,7 @@ endif
 
 AADD(aPom, "19 - "+Naziv19ke())
 
-AADD(aPom, "20 - Ponuda/Avansna faktura") 
+AADD(aPom, "20 - Ponuda/Avansna faktura")
 
 AADD(aPom, "21 - Revers")
 
@@ -1086,7 +1086,7 @@ AADD(aPom, "25 - Knjizna obavijest ")
 
 AADD(aPom, "26 - Narudzbenica ")
 
-AADD(aPom, "27 - Ponuda/Avansna faktura gotovina") 
+AADD(aPom, "27 - Ponuda/Avansna faktura gotovina")
 
 h:= {}
 ASIZE(h, LEN(aPom))
@@ -1167,21 +1167,21 @@ if !fnovi
        			d2n2:=aMemo[17]
      		endif
    	endif
-	
+
 	if LEN(aMemo)>=18
 		// destinacija
 		public _DEST := aMemo[18]
 	endif
-	
+
 	if LEN(aMemo)>=19
 		// dokumenti veza
 		public _m_dveza := aMemo[19]
 	endif
 
 else
-	
+
 	cPretvori := "D"
-	
+
 	_serbr:=SPACE(LEN(serbr))
 	public _DEST := ""
 	public _m_dveza := ""
@@ -1190,14 +1190,14 @@ else
      		_ambp:=0
 		_ambk:=0
    	endif
-	
+
 	_cijena:=0
-	
+
 	// ako je ovaj parametar ukljucen ponisti polje roba
 	if gResetRoba == "D"
 		_idRoba:=SPACE(LEN(_idRoba))
 	endif
-	
+
 	_kolicina:=0
 endif
 
@@ -1227,26 +1227,26 @@ if (nRbr==1 .and. VAL(_podbr) < 1)
     	if gNW=="N"
 		read
 	endif
-    	
+
 	nPom:= Menu2 (5, 30, aPom, nPom)
-    	
+
 	ESC_Return 0
-    	
+
 	_IdTipdok:=LEFT(aPom[nPom],2)
 
 	if !(ImaPravoPristupa(goModul:oDataBase:cName,"DOK","UNOSDOK" + ALLTRIM(_IdTipDok)))
 		MsgBeep(cZabrana)
 		return 0
 	endif
-	
+
 	// varijanta rabatnih skala
 	if IsRabati() .and. (_idtipdok $ gcRabDok)
-		
-		if fNovi 
+
+		if fNovi
 			lSkonto := Pitanje(, "Unositi kasu skonto (D/N)?", "N") == "D"
 			GetTRabat(@cTipRab)
 			_tiprabat := PADR(cTipRab, 10)
-	
+
 		else
 			if ( _skonto == 0 )
 				lSkonto := .f.
@@ -1259,28 +1259,28 @@ if (nRbr==1 .and. VAL(_podbr) < 1)
 	endif
 
     	@  m_x+ 2, m_y + 2 SAY PADR(aPom[ASCAN(aPom,{|x|_IdTipdok==LEFT(x,2)})],40)
-   	
+
 	if (_idTipDok=="13" .and. gVarNum=="2" .and. gVar13=="2")
-     		
+
 		@ m_x+1, 57 SAY "Prodavn.konto" GET _idPartner VALID P_Konto(@_idPartner)
      		read
 
      		_idPartner:=LEFT(_idPartner,6)
-     		
+
 		if (EMPTY(ALLTRIM(_txt3a+_txt3b+_txt3c)).or._idpartner!=idpartner)
       			_txt3a:=MEMOLINE(ALLTRIM(KONTO->naz)+" ("+ALLTRIM(_idpartner)+")",30,1)
       			_txt3b:=MEMOLINE(ALLTRIM(KONTO->naz)+" ("+ALLTRIM(_idpartner)+")",30,2)
       			_txt3c:=MEMOLINE(ALLTRIM(KONTO->naz)+" ("+ALLTRIM(_idpartner)+")",30,3)
      		endif
-   	
+
 	elseif (_idtipdok=="13" .and. gVarNum=="1" .and. gVar13=="2")
      		_idPartner:=if(EMPTY(_idPartner),"P1",RJIzKonta(_idPartner+" "))
-     		
+
 		@ m_x+1, 57 SAY "RJ - objekat:" GET _idPartner valid P_RJ(@_idPartner) pict "@!"
      		read
-     		
+
 		_idpartner:=PADR(KontoIzRJ(_idpartner),6)
-     		
+
 		if EMPTY(ALLTRIM(_txt3a+_txt3b+_txt3c)).or._idpartner!=idpartner
       			_txt3a:=MEMOLINE(RJ->id+" - "+ALLTRIM(RJ->naz)+" (ZADU@ENJE)",30,1)
       			_txt3b:=MEMOLINE(RJ->id+" - "+ALLTRIM(RJ->naz)+" (ZADU@ENJE)",30,2)
@@ -1294,10 +1294,10 @@ if (nRbr==1 .and. VAL(_podbr) < 1)
      		if (gMreznoNum=="N")
         		cBroj1:=OdrediNBroj(_idfirma,_idtipdok)   //_brdok
         		if ( _idTipDok $ "12#13" )
-				
+
 				cTmpTip := "12"
 				cTmpTip2 := "22"
-           			
+
 				if _idtipdok == "13"
 					cTmpTip := "13"
 					cTmpTip2 := "23"
@@ -1313,22 +1313,22 @@ if (nRbr==1 .and. VAL(_podbr) < 1)
         		else
            			_BrDok:=cBroj1
         		endif
-			
+
 			select PRIPR
      		else
         		_BrDok := SPACE (LEN (_BrDok))
      		endif
    	endif
-  	
-	do while .t.	
-		
+
+	do while .t.
+
 		@  m_x + 2, m_y + 45 SAY "Datum:" GET _datDok
 
    		@  m_x + 2, m_y + col() + 1 SAY "Broj:" GET _BrDok ;
 			WHEN gMreznoNum=="N" ;
 			VALID !EMPTY(_BrDok) .and. ;
 			(!glDistrib .or. !JeStorno10() .or. PuniDVRiz10())
-   		
+
 		if lSpecifZips
      			_txt3a := PADR(_txt3a, 60)
 		else
@@ -1350,26 +1350,26 @@ if (nRbr==1 .and. VAL(_podbr) < 1)
 				_Txt3a := padr( _idpartner + ".", 30), ;
 				IzSifre(), ;
 				_isp_partn( _idpartner, nPX, nPY + 18 ) }
-     		
+
 		// prodajno mjesto - polje
 		if pripr->(FIELDPOS("IDPM")) <> 0
        			@ m_x + 5, m_y + 2 SAY "P.M.:" GET _idpm ;
 				VALID {|| P_IDPM(@_idpm,_idpartner) }
      		endif
-   	
+
 		// veza dokumenti
 		_m_dveza := PADR( ALLTRIM(_m_dveza), 500 )
 
 		@ m_x + 6, m_y + 2 SAY "Veza:" GET _m_dveza ;
 				PICT "@S25"
-	
+
 		if lUSTipke
    			USTipke()
    		endif
-   	
+
 		// destinacija
 		_dest := PADR( ALLTRIM(_dest), 80 )
-   		
+
 		if ( gDest .and. !glDistrib )
      		      	@ m_x + 7, m_y + 2 SAY "Dest:" GET _dest ;
 		      		PICT "@S25"
@@ -1384,25 +1384,25 @@ if (nRbr==1 .and. VAL(_podbr) < 1)
    		if _idtipdok=="10"
 
      			if gDodPar=="1"
-       				
+
           			@ m_x + 4, m_y + 51 SAY "Otpremnica broj:" ;
 					GET _brotp ;
 					PICT "@S8" ;
 					WHEN W_BrOtp(fnovi)
-      			
+
 				@ m_x + 5, m_y + 51 SAY "          datum:" ;
 					GET _Datotp
-      				
+
 				@ m_x + 6, m_y + 51 SAY "Ugovor/narudzba:" ;
 					GET _brNar
-     			
+
 			endif
 
      			if (gDodPar=="1" .or. gDatVal=="D")
-      				
+
 				if fNovi
-					// ako se koriste rabati 
-					// izvuci broj dana iz tabele 
+					// ako se koriste rabati
+					// izvuci broj dana iz tabele
 					// rabatnih skala
 					if !IsRabati()
 						nRokPl:=gRokPl
@@ -1418,18 +1418,18 @@ if (nRbr==1 .and. VAL(_podbr) < 1)
 				@ m_x + 8, m_y + 51 SAY "Datum placanja :" ;
 					GET _DatPl ;
 					VALID FRokPl("2",fnovi)
-     			
+
 			endif
-			
+
      			if lVrsteP
       				@ m_x + 9, m_y + 2  SAY "Nacin placanja" ;
 					GET _idvrstep ;
 					PICT "@!" ;
 					VALID P_VRSTEP( @_idvrstep, 9, 20 )
      			endif
-   		
+
 		elseif (_idtipdok=="06")
-      			
+
         		@ m_x + 5, m_y + 51 SAY "Po ul.fakt.broj:" ;
 				GET _brotp ;
 				PICT "@S8" ;
@@ -1437,18 +1437,18 @@ if (nRbr==1 .and. VAL(_podbr) < 1)
 
       			@ m_x + 6, m_y + 51 SAY "       i UCD-u :" ;
 				GET _brNar
-   		
+
 		else
-			
+
 			// dodaj i za ostale dokumente
 			if IsPDV()
 				_DatOtp := _datdok
       				@ m_x + 5 ,m_y + 51 SAY " datum isporuke:" ;
 					GET _datotp
 			endif
-		
+
 		endif
-   		
+
 		if (pripr->(FIELDPOS("idrelac")) <> 0 .and. _idtipdok $ "#11#")
      			@ m_x + 9, m_y + 40  SAY "Relacija   :" ;
 				GET _idrelac
@@ -1457,45 +1457,45 @@ if (nRbr==1 .and. VAL(_podbr) < 1)
 		if _idTipDok $ "10#11#19#20#25#26#27"
 		      @ m_x + 10, m_y + 2 SAY "Valuta ?" ;
 		      	GET _dindem ;
-			PICT "@!" 
+			PICT "@!"
 		else
 		      @ m_x + 10, m_y + 1 SAY " "
 		endif
-		
+
 		if _idTipDok $ "10"
-		
+
 			cAvRacun := "N"
 			if _idvrstep == "AV"
 				cAvRacun := "D"
 			endif
-			
+
 			@ m_x + 10, col() + 4 SAY "Avansni racun (D/N)?:" ;
 				GET cAvRacun ;
 				PICT "@!" ;
 				VALID cAvRacun $ "DN"
-		
+
 		endif
-			
-		// ako nije ukljucena opcija ispravke partnera 
+
+		// ako nije ukljucena opcija ispravke partnera
 		// pri unosu dokumenta
 		if ( gIspPart == "N" )
 			READ
    		endif
-		
+
 		if lUSTipke
    			BosTipke()
    		endif
-    		
+
 		if (lDoks2 .and. _idtipdok=="10")
       			EdDoks2()
     		endif
-   		
+
 		if (gIspPart == "N")
 			_txt3a:=trim(_txt3a)
    			_txt3b:=trim(_txt3b)
    			_txt3c:=trim(_txt3c)
    		endif
-		
+
 		ESC_Return 0
 
    		if (gMreznoNum=="D")
@@ -1514,10 +1514,10 @@ if (nRbr==1 .and. VAL(_podbr) < 1)
       			select PRIPR
    		endif
   	enddo
-  	
+
 	ChSveStavke(fNovi)
 else
-	@ m_x + 1, m_y+ 2 SAY gNFirma 
+	@ m_x + 1, m_y+ 2 SAY gNFirma
 	?? "  RJ:", _IdFirma
    	@ m_x+3,m_y+2 SAY PADR(aPom[ASCAN(aPom,{|x|_IdTipdok==LEFT(x,2)})],35)
    	@ m_x+3,m_y+45 SAY "Datum: "
@@ -1527,21 +1527,21 @@ else
    	_txt2:=""
 	// varijanta rabatnih skala
 	if IsRabati() .and. (_idtipdok $ gcRabDok)
-		if fNovi 
+		if fNovi
 			skip -1
 			if ( _skonto == 0 )
 				lSkonto := .f.
-			else 
+			else
 				lSkonto := .t.
 			endif
 			if Empty(cTipRab)
 				if Empty(_tiprabat)
 					GetTRabat(@cTipRab)
 				else
-					cTipRab := _tiprabat	
+					cTipRab := _tiprabat
 				endif
 			endif
-			
+
 			skip 1
 			_tiprabat := PADR(cTipRab, 10)
 		else
@@ -1612,30 +1612,30 @@ RKOR:=0
 lGenStavke:=.f.
 
 if ( _m1=="X" .and.  !fnovi )
-	
+
 	// ako je racun, onda ne moze biti cijena 0 !
-   	
+
 	@ m_x+18 + RKOR2, m_y + 2  SAY "Kolicina "
 	@ row(),col()+1 SAY _kolicina pict pickol
-   	
+
 	if _Cijena=0
      		V_Kolicina()
    	endif
 else
-	
+
 	if (glDistrib .or. lPoNarudzbi)
      		read
      		ESC_return 0
    	endif
-   	
-	cPako:="(PAKET)"  
+
+	cPako:="(PAKET)"
 	// naziv jedinice mjere veceg pakovanja
-   	
+
 	@ m_x+18 + RKOR2, m_y + 2 SAY "Kolicina " ;
 		GET _kolicina ;
 		PICT pickol ;
 		VALID V_Kolicina()
-	
+
 endif
 
 private trabat:="%"
@@ -1644,38 +1644,38 @@ if (gSamokol != "D")
 
 	// samo kolicine
 	if (_idtipdok=="19" .and. IzFMKIni("FAKT","19KaoRacunParticipacije","N",KUMPATH)=="D")
-    		
+
 		_trabat:="I"
     		_rabat:=_kolicina*_cijena*(1-_rabat/100)
-    		
+
 		@ m_x+18+RKOR+RKOR2,25  SAY "Cij." GET _Cijena PICT piccdem WHEN _podbr<>" ." .and. KLevel<="1" VALID _cijena>0
 
     		@ m_x+18+RKOR+RKOR2,col()+2 SAY "Participacija" GET _Rabat PICT "9999.999" when _podbr<>" ."
 
 	else
-		
+
     		@ m_x+18+RKOR+RKOR2, 25  SAY IF( _idtipdok $ "13#23".and.( gVar13=="2" .or. glCij13Mpc), "MPC.s.PDV", "Cijena ("+ALLTRIM(ValDomaca())+")") GET _Cijena ;
 		     PICT piccdem ;
 		     WHEN  _podbr<>" ." .and. KLevel<="1" .and. SKCKalk(.t.) ;
 		     VALID SKCKalk(.f.) .and. c_cijena(_cijena, _idtipdok, fNovi)
 
-		if ( PADR(_dindem, 3) <> PADR(ValDomaca(), 3) ) 
+		if ( PADR(_dindem, 3) <> PADR(ValDomaca(), 3) )
 			@ m_x+18+ RKOR + RKOR2, col() + 2 SAY "Pr"  GET cPretvori ;
 			PICT "@!" ;
 			VALID v_pretvori(@cPretvori, _DinDem, _DatDok, @_Cijena )
 		endif
 
-		     
+
    		if !(_idtipdok $ "12#13").or.(_idtipdok=="12".and.gV12Por=="D")
 			@  m_x+18+RKOR+RKOR2,col()+2  SAY "Rabat" get _Rabat ;
 			     pict PicCDem ;
 			     when _podbr<>" ." .and. !_idtipdok$"15#27"
-			
+
       			@ m_x+18+RKOR+RKOR2,col()+1  GET TRabat ;
 			     when {||  trabat:="%",!_idtipdok$"11#15#27" .and. _podbr<>" ."} ;
 			     valid trabat $ "% AUCI" .and. V_Rabat() ;
 			     pict "@!"
-		
+
 		if !IsPdv()
 			// nista porez kada je PDV rezim
     			@ m_x+18+RKOR+RKOR2,col()+2 SAY "Porez" GET _Porez ;
@@ -1683,9 +1683,9 @@ if (gSamokol != "D")
 			     when {|| if( fNovi .and. _idtipdok=="10" .and. IzFMKIni("FAKT","PPPNuditi","N",KUMPATH)=="D".and.ROBA->tip!="U" , _porez := TARIFA->opp , ), _podbr<>" ." .and. !(roba->tip $ "KV") .and. !_idtipdok$"11#15#27"} ;
 			     valid V_Porez()
 		endif
-		
+
    		endif
-		
+
 		// SKONTO
 		if IsRabati()
 			if (_idtipdok $ "10")
@@ -1718,7 +1718,7 @@ if _IdTipDok $ "13" .or. gSamoKol == "D"
 	lTxtNaKraju:=.f.
 endif
 
-if (_IdTipDok == "12") 
+if (_IdTipDok == "12")
 	if  IsKomision(_IdPartner)
 		lTxtNaKraju := .t.
 	else
@@ -1750,20 +1750,20 @@ if lTxtNaKraju
 endif
 
 if (_podbr==" ." .or.  roba->tip="U" .or. (nrbr==1 .and. val(_podbr)<1))
-	
+
 	// odsjeci na kraju prazne linije
-	_txt2:=OdsjPLK(_txt2)           
+	_txt2:=OdsjPLK(_txt2)
      	if !"Racun formiran na osnovu" $ _txt2
         	_txt2 += CHR(13) + Chr(10) + _VezOtpr
      	endif
-	
+
     	//1
-	_txt := Chr(16) + trim(_txt1) + Chr(17) 
+	_txt := Chr(16) + trim(_txt1) + Chr(17)
 	_txt += Chr(16) + _txt2 + Chr(17)
-	_txt += Chr(16) + trim(_txt3a) + Chr(17) 
+	_txt += Chr(16) + trim(_txt3a) + Chr(17)
 	_txt += Chr(16) + _txt3b + Chr(17)
 	_txt += Chr(16) + trim(_txt3c) + Chr(17)
-	
+
 	// 6 - br otpr
 	_txt += Chr(16)+_BrOtp+Chr(17)
 	// 7 - dat otpr
@@ -1772,18 +1772,18 @@ if (_podbr==" ." .or.  roba->tip="U" .or. (nrbr==1 .and. val(_podbr)<1))
 	_txt += Chr(16)+_BrNar+Chr(17)
 	// 9 - dat nar
 	_txt += Chr(16)+dtoc(_DatPl)+Chr(17)
-	
+
 	// 10
 	cPom:=_VezOtpr
-	_txt += Chr(16)+ cPom + Chr(17) 
-	
+	_txt += Chr(16)+ cPom + Chr(17)
+
 	// 11
  	if lDoks2
 		cPom:= d2k1
 	else
 		cPom:= ""
 	endif
-	_txt += Chr(16)+ cPom + Chr(17) 
+	_txt += Chr(16)+ cPom + Chr(17)
 
 	// 12
  	if lDoks2
@@ -1791,7 +1791,7 @@ if (_podbr==" ." .or.  roba->tip="U" .or. (nrbr==1 .and. val(_podbr)<1))
 	else
 		cPom:= ""
 	endif
-	_txt += Chr(16)+ cPom + Chr(17) 
+	_txt += Chr(16)+ cPom + Chr(17)
 
 	// 13
 	if lDoks2
@@ -1799,7 +1799,7 @@ if (_podbr==" ." .or.  roba->tip="U" .or. (nrbr==1 .and. val(_podbr)<1))
 	else
 		cPom:= ""
 	endif
-	_txt += Chr(16)+ cPom + Chr(17) 
+	_txt += Chr(16)+ cPom + Chr(17)
 
 	// 14
  	if lDoks2
@@ -1807,7 +1807,7 @@ if (_podbr==" ." .or.  roba->tip="U" .or. (nrbr==1 .and. val(_podbr)<1))
 	else
 		cPom:= ""
 	endif
-	_txt += Chr(16)+ cPom + Chr(17) 
+	_txt += Chr(16)+ cPom + Chr(17)
 
 	// 15
  	if lDoks2
@@ -1815,7 +1815,7 @@ if (_podbr==" ." .or.  roba->tip="U" .or. (nrbr==1 .and. val(_podbr)<1))
 	else
 		cPom:= ""
 	endif
-	_txt += Chr(16)+ cPom + Chr(17) 
+	_txt += Chr(16)+ cPom + Chr(17)
 
 	// 16
 	if lDoks2
@@ -1823,7 +1823,7 @@ if (_podbr==" ." .or.  roba->tip="U" .or. (nrbr==1 .and. val(_podbr)<1))
 	else
 		cPom:= ""
 	endif
-	_txt += Chr(16)+ cPom + Chr(17) 
+	_txt += Chr(16)+ cPom + Chr(17)
 
 	// 17
 	if lDoks2
@@ -1831,11 +1831,11 @@ if (_podbr==" ." .or.  roba->tip="U" .or. (nrbr==1 .and. val(_podbr)<1))
 	else
 		cPom:= ""
 	endif
-	_txt += Chr(16)+ cPom + Chr(17) 
+	_txt += Chr(16)+ cPom + Chr(17)
 
 	// 18 - Destinacija
 	cPom := ALLTRIM(_Dest)
-	_txt += Chr(16)+ cPom + Chr(17) 
+	_txt += Chr(16)+ cPom + Chr(17)
 
 	// 19 - vezni dokumenti
 	cPom := ALLTRIM(_m_dveza)
@@ -1887,7 +1887,7 @@ return 1
 
 
 // ------------------------------------------
-// ispisi partnera 
+// ispisi partnera
 // ------------------------------------------
 static function _isp_partn( cPartn, nX, nY )
 local nTArea := SELECT()
@@ -1911,7 +1911,7 @@ return .t.
 
 static function _f_idpm( cIdPm )
 
-cIdPM := UPPER(cIdPM)  
+cIdPM := UPPER(cIdPM)
 
 return .t.
 
@@ -1925,7 +1925,7 @@ local cVal
 private cTmptxt
 
 if !EMPTY( cIdTd ) .and. cIdTD $ "10#11#12#13#15#16#20#21#22#23#25#26#27"
-	
+
 	cTmptxt := "g" + cIdTd + "ftxt"
 	cVal := &cTmptxt
 
@@ -1973,7 +1973,7 @@ if cVar=="0"   // when
        				nRokPl:=_datpl-_datdok
      			endif
    		endif
-  
+
 
       else  // ako je novi, a koristi se rok placanja iz Partn/ROKP
 		// i ne koriste se Rabatne skale - odnosno ili jedno ili drugo
@@ -2028,7 +2028,7 @@ return .t.
  *  \param nBrM
  *  \param cKon
  */
- 
+
 function SljBrDok13(cBrD,nBrM,cKon)
 *{
 local nPom
@@ -2050,7 +2050,7 @@ return cPom2+cPom+"/"+PADL(ALLTRIM(STR(nBrM)),2,"0")
 /*! \fn PrCijSif()
  *  \brief Promjena cijene u sifrarniku
  */
- 
+
 function PrCijSif()
 *{
 NSRNPIdRoba()
@@ -2081,7 +2081,7 @@ return
  *  \param cKonto   - konto
  *  \return cVrati
  */
- 
+
 function RJIzKonta(cKonto)
 *{
 local cVrati:="  ", nArr:=SELECT(), nRec
@@ -2106,7 +2106,7 @@ return cVrati
  *  \param cRJ  - radna jedinica
  *  \return cVrati
  */
- 
+
 function KontoIzRJ(cRJ)
 *{
 local cVrati:=SPACE(7)
@@ -2128,7 +2128,7 @@ return cVrati
  *  \param fNovi
  *  \return _brdok
  */
- 
+
 function NarBrDok(fNovi)
 *{
 local nPrev:=SELECT()
@@ -2182,14 +2182,14 @@ if gMreznoNum == "D"
       		do while nOkr > 0
 
          		nOkr --
-         	
+
 			if DOKS->(FLOCK())
             			exit
          		endif
-	 			
+
 			@ m_x + 1, m_y + 2 SAY "Timeout... " + ALLTRIM(STR( nOkr ))
 			sleep(1)
-      		
+
 		enddo
 
 		BoxC()
@@ -2202,7 +2202,7 @@ if gMreznoNum == "D"
    	endif
 endif
 
-cBroj1 := OdrediNBroj(_idfirma,_idtipdok)   
+cBroj1 := OdrediNBroj(_idfirma,_idtipdok)
 
 if _idtipdok $ "12#13"
 
@@ -2210,12 +2210,12 @@ if _idtipdok $ "12#13"
 		cTmpTip := "12"
 		cTmpTip2 := "22"
 	endif
-	
+
 	if _idtipdok == "13"
 		cTmpTip := "13"
 		cTmpTip2 := "23"
 	endif
-	
+
 	cBroj2 := OdrediNBroj( _idfirma, cTmpTip2 )
 	if VAL( LEFT( cBroj1, gNumDio )) >= VAL( LEFT(cBroj2, gNumDio))
 		_Brdok := cBroj1
@@ -2270,7 +2270,7 @@ return _BrDok
  *  \param cIdTipDok
  *  \param cBrDok
  */
- 
+
 function StampTXT(cIdFirma, cIdTipDok, cBrDok, lJFill)
 *{
 private InPicDEM:=PicDEM  // picture iznosa
@@ -2286,21 +2286,21 @@ if IsPDV()
 		else
 			// poziv iz stame liste dokumenata, pitaj
 			if Pitanje(, "Stampa graficka faktura ? ", "N") == "D"
-					
+
 				Stdok2p_rb(cIdFirma, cIdTipDok, cBrDok)
 			else
 				StdokPdv(cIdFirma, cIdTipDok, cBrDok, lJFill)
 			endif
 		endif
-	
-	else	
+
+	else
 		if cIdFirma == nil
 			StDokPDV()
 		else
 			StDokPDV(cIdFirma, cIdTipDok, cBrDok, lJFill)
 		endif
 	endif
-	
+
 	PicDEM:=InPicDEM
 	PicCDEM:=InPicCDEM
 	return
@@ -2446,7 +2446,7 @@ return
  *  \param cIdTipDok
  *  \param cBrDok
  */
- 
+
 function StampRtf(cImeF,cIdFirma,cIdTipdok,cbrdok)
 *{
 private InPicDEM:=PicDEM  // picture iznosa
@@ -2519,7 +2519,7 @@ endif
  *  \param fSilent
  *  \param bFunc
  */
- 
+
 function IsprUzorTxt(fSilent,bFunc)
 local cListaTxt := ""
 
@@ -2627,7 +2627,7 @@ return
  *  \brief Ako je u polje SERBR unesen podatak KJ/KG iznos se dobija kao KOLICINA*CIJENA*PrerCij()  - varijanta R - Rudnik
  *  \return nVrati
  */
- 
+
 function PrerCij()
 *{
 local cSBr:=ALLTRIM(_field->serbr), nVrati:=1
@@ -2643,7 +2643,7 @@ return nVrati
  *  \brief
  *  \return lVrati
  */
- 
+
 function TestMainIndex()
 *{
 local lVrati:=.t., lUsedFAKT:=.t., lUsedDOKS:=.t., nOblast:=SELECT()
@@ -2710,7 +2710,7 @@ return lVrati
  *  \todo Prebaciti u /RPT
  *  \param cKod
  */
- 
+
 function PRNKod_ON(cKod)
 *{
 local i:=0
@@ -2729,11 +2729,11 @@ return (nil)
 
 
 /*! \fn PRNKod_OFF(cKod)
- *  \brief 
+ *  \brief
  *  \todo Prebaciti u /RPT
  *  \param cKod
  */
- 
+
 function PRNKod_OFF(cKod)
 *{
 local i:=0
@@ -2772,7 +2772,7 @@ return
 /*! \fn NazProdObj()
  *  \brief Naziv prodajnog objekta
  */
- 
+
 function NazProdObj()
 *{
 local cVrati:=""
@@ -2787,17 +2787,17 @@ return cVrati
 /*! \fn EdDoks2()
  *  \brief Editovanje DOKS2.DBF pri unosu fakture
  */
- 
+
 function EdDoks2()
 *{
 
 local cPom:="", nArr:=SELECT(), GetList:={}
 
-cPom := IzFMKINI("FAKT","Doks2Edit","N", KUMPATH) 
+cPom := IzFMKINI("FAKT","Doks2Edit","N", KUMPATH)
 if cPom == "N"
 	return
 endif
- 
+
 cPom := IzFMKINI("FAKT","Doks2opis","dodatnih podataka",KUMPATH)
 
 if Pitanje(,"Zelite li unos/ispravku "+cPom+"? (D/N)","N")=="N"
@@ -2855,7 +2855,7 @@ if !lNoviDok
 endif
 
 if cTipDok $ "11#15#27"
-  
+
   if gMP == "1"
     nRCijena := roba->mpc
   elseif gMP == "3"
@@ -2876,7 +2876,7 @@ elseif cTipDok $ "10#"
 endif
 
 if gPratiC == "D" .and. nRCijena <> nil .and. nCijena <> nRCijena
-	msgbeep("Unesena cijena razlicita od cijene u sifrarniku !" + ; 
+	msgbeep("Unesena cijena razlicita od cijene u sifrarniku !" + ;
 		"#Trenutna: " + ALLTRIM(STR(nCijena,12,2)) + ;
 		", sifrarnik: " + ALLTRIM(STR(nRCijena,12,2)) )
 	if Pitanje(,"Koristiti ipak ovu cijenu ?", "D") == "N"
@@ -2892,17 +2892,17 @@ return lRet
  *  \brief Set Key za Cijenu iz Kalk
  *  \param lSet
  */
- 
+
 function SKCKalk(lSet)
 *{
-// knjizna obavijest obavezno, a mo§e se podesiti i za ostale dokumente
+// knjizna obavijest obavezno, a moï¿½e se podesiti i za ostale dokumente
 if _idtipdok=="25" .or.;
      IzFMKIni("FAKT","TipDok"+_idtipdok+"_OmoguciUzimanjeFCJizKALK","N",KUMPATH)=="D"
     if lSet
       SET KEY K_ALT_K to UCKalk()
-      @ row()+1,27 SAY "ÚÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄ¿"
-      @ row()+1,27 SAY "³ <a-K> uzmi FCJ iz KALK ³"
-      @ row()+1,27 SAY "ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ"
+      @ row()+1,27 SAY "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿"
+      @ row()+1,27 SAY "ï¿½ <a-K> uzmi FCJ iz KALK ï¿½"
+      @ row()+1,27 SAY "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
     else
       SET KEY K_ALT_K TO
       @ row()+1,27 SAY "                          "
@@ -2933,7 +2933,7 @@ return
  *  \brief Vraca naziv za tip dokumenta 19
  *  \return cVrati
  */
- 
+
 function Naziv19ke()
 *{
 local cVrati:=""
@@ -2947,7 +2947,7 @@ return cVrati
  *  \param cToken
  *  \return cVrati
  */
- 
+
 function IzborBanke(cToken)
 *{
 local aOpc
@@ -2987,14 +2987,14 @@ return cVrati
  *  \param cSE   - separator elementa
  *  \return aNiz
  */
- 
+
 function TokToNiz(cTok, cSE)
 *{
 local aNiz
 local nE:=0, i:=0, cE:=""
 
-if cSE==nil 
-	  cSE := "." 
+if cSE==nil
+	  cSE := "."
 endif
 
 aNiz:={}
@@ -3011,7 +3011,7 @@ do while .t.
 	endif
 enddo
 
-  
+
 return aNiz
 *}
 
@@ -3043,7 +3043,7 @@ return cVrati
 
 
 /*! \fn KonZbira(lVidi)
- *  \brief 
+ *  \brief
  *  \param lVidi - ako je .t. ili nil mora da postoji i privatna varijabla nC:=1
  */
 
@@ -3091,7 +3091,7 @@ return
 /*! \fn JeStorno10()
  *  \brief True je distribucija i TipDokumenta=10  i krajnji desni dio broja dokumenta="S"
  */
- 
+
 function JeStorno10()
 *{
 return glDistrib .and. _idtipdok=="10" .and. UPPER(RIGHT(TRIM(_BrDok),1))=="S"
@@ -3101,7 +3101,7 @@ return glDistrib .and. _idtipdok=="10" .and. UPPER(RIGHT(TRIM(_BrDok),1))=="S"
 /*! \fn RabPor10()
  *  \brief
  */
- 
+
 function RabPor10()
 *{
 local nArr:=SELECT()
@@ -3277,7 +3277,7 @@ return
 function ImportTxt()
 *{
 CLOSE ALL
-cKom :="fmk.exe --batch --exe:ImportTxt --db:"+STRTRAN(TRIM(gNFirma), " ", "_") 
+cKom :="fmk.exe --batch --exe:ImportTxt --db:"+STRTRAN(TRIM(gNFirma), " ", "_")
 RUN &cKom
 O_Edit()
 return
@@ -3351,4 +3351,3 @@ else
 endif
 return
 *}
-

@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -12,7 +12,7 @@
 
 #include "kalk.ch"
 
-// pregled kretanja zaliha 
+// pregled kretanja zaliha
 function PreglKret()
 local i
 local cRSezona:=""
@@ -35,7 +35,7 @@ private cK7:="N"
 private cK1:=SPACE(4)
 private cK9:=SPACE(3)
 private cPrikazDob:="N"
-private cKartica 
+private cKartica
 private cNObjekat
 private cLinija
 private PREDOVA2:=62
@@ -78,7 +78,7 @@ CreTblRek1("1")
 O_POBJEKTI
 O_KONCIJ
 O_ROBA
-O_KONTO 
+O_KONTO
 O_TARIFA
 O_K1
 O_OBJEKTI
@@ -125,12 +125,12 @@ fFilovo:=.f.
 do while !eof()
 
 	cG1:=g1
-	select pobjekti    
+	select pobjekti
 	// inicijalizuj polja
 	go top
 	do while !eof()
 		// prodaja grupa
-		replace prodg with 0   
+		replace prodg with 0
 		REPLACE zalg  with 0
 		skip
 	enddo
@@ -140,11 +140,11 @@ do while !eof()
 
 	do while !eof() .and. cG1==field->g1
 
-		select pobjekti   
+		select pobjekti
 		go top
 		do while !eof()
 			// prodaja tarifa,grupa
-			replace prodt with 0  
+			replace prodt with 0
 			REPLACE zalt  with 0
 			skip
 		enddo
@@ -157,20 +157,20 @@ do while !eof()
 			cIdroba:=rekap1->idroba
 			SELECT roba
 			HSEEK cIdRoba
-			
+
 			if !EMPTY(cPlVrsta) .and. field->vrsta <> cPlVrsta
 				select rekap1
 				skip
 				loop
 			endif
-			
+
 			//nadji mpc u nekoj prodavnici
 			nMpc:=NadjiPMpc()
 
 			nK2:=nK1:=0
-			
+
 			SetK1K2(cG1, cIdTarifa, cIdRoba, @nK1, @nK2)
-			
+
 			if (ROUND(nK2,3)==0 .and. ROUND(nK1,2)==0)
 				// stanje nula, skoci na sljedecu robu !!!!!
 				select rekap1
@@ -182,20 +182,20 @@ do while !eof()
 			fFilGr:=.t.
 
 			cRSezona := IzSifK("ROBA", "SEZ", roba->id, .f.)
-			
+
 			if !EMPTY(cRSezona)
 				cSezStr := PADR("sez: " + ALLTRIM(cRSezona), 10)
 			else
 				cSezStr := PADR("", 10)
 			endif
-			
+
 			aStrRoba:=SjeciStr(trim(roba->naz)+" (MPC:"+alltrim(str(nmpc,7,2))+")",27)
 
 			if (prow()> PREDOVA2+gPStranica-3)
 				FF
 				ZagPKret()
 			endif
-			
+
 			++nRBr
 			if (cRekPoRobama=="D")
 				? str(nRBr,4)+"."+cidroba
@@ -219,7 +219,7 @@ do while !eof()
 			// prvi red zalihe
 			nK2:=0
 			// izracunajmo prvo ukupno (kolona "SVI")
-			select pobjekti    
+			select pobjekti
 			go top
 			do while (!eof() .and. pobjekti->id<"99")
 				 select rekap1
@@ -233,16 +233,16 @@ do while !eof()
 				// ispis kolone "SVI"
 				@ prow(),pcol()+1 SAY nk2 pict pickol
 				// kolona "Ucesce" se preskace
-				@ prow(),pcol()+1 SAY SPACE(6)  
+				@ prow(),pcol()+1 SAY SPACE(6)
 			endif
 			if ROBA->k2<>"X"
 				aUGArt[nITar,3,1]+=nk2
 			endif
 			// ispisi kolone za pojedine objekte
-			select pobjekti    
+			select pobjekti
 			go top
 			i:=0
-			
+
 			do while (!eof() .and. id<"99")
 				 SELECT rekap1
 				 HSEEK cG1+cIdTarifa+cIdRoba+pobjekti->idobj
@@ -258,7 +258,7 @@ do while !eof()
 					aUGArt[nITar,4+i,1]+=k2
 				 endif
 				 select pobjekti
-				 if roba->k2<>"X"   
+				 if roba->k2<>"X"
 					//samo u finansijski zbir
 					replace zalt  with zalt+rekap1->k2,;
 						zalu  with zalu+rekap1->k2 ,;
@@ -268,7 +268,7 @@ do while !eof()
 			enddo
 
 			// ovo je objekat 99
-			if roba->k2<>"X"   
+			if roba->k2<>"X"
 				// roba sa oznakom k2=X
 				replace zalt   with zalt+nk2 ,;
 					zalu   with zalu+nk2 ,;
@@ -276,20 +276,20 @@ do while !eof()
 			endif
 
 			// drugi red  prodaja  u mjesecu  k1
-			select pobjekti    
+			select pobjekti
 			nK1:=0
 			if cRekPoRobama=="D"
 				?
-				
+
 				// sezona
 				@ prow(), 5 SAY cSezStr
-				
+
 				if len(aStrRoba)>1
 					@ prow(),nColR SAY aStrRoba[2]
 				endif
-				
+
 				@ prow(),nCol1 SAY ""
-			
+
 			endif
 
 			// ispisi kolone za pojedine objekte
@@ -330,7 +330,7 @@ do while !eof()
 					   endif
 				endif
 				++i
-				
+
 				select pobjekti
 				if roba->k2<>"X"
 					aUGArt[nITar,4+i,2]+=rekap1->k1
@@ -343,26 +343,26 @@ do while !eof()
 			enddo
 
 			// skipuje na polje "99"
-			if roba->k2<>"X" 
-				REPLACE prodt with prodt+nk1 
-				REPLACE	produ with produ+nk1 
+			if roba->k2<>"X"
+				REPLACE prodt with prodt+nk1
+				REPLACE	produ with produ+nk1
 				REPLACE	prodg with prodg+nk1
 			endif
-			
+
 			if (cPrikazDob=="D")
 				? PrikaziDobavljaca(cIdRoba, 6)
 			endif
-			
+
 			if cRekPoRobama=="D"
 				? cLinija
 			endif
 
 			select rekap1
-			seek cG1+cIdTarifa+cIdroba+CHR(255) 
+			seek cG1+cIdTarifa+cIdroba+CHR(255)
 
 		enddo
 
-		if !fFilovo 
+		if !fFilovo
 			loop
 		endif
 
@@ -372,7 +372,7 @@ do while !eof()
 				FF
 				ZagPKret()
 			endif
-		
+
 			//?  cLinija
 			//? "Ukupno tarifa", cIdTarifa
 		endif
@@ -386,14 +386,14 @@ do while !eof()
 
 		select pobjekti
 		// idi na "objekat" 99 (SVI)
-		go bottom 
+		go bottom
 		if cRekPoRobama=="D"
 			// @ prow(),nCol1+1 SAY field->zalt PICT pickol
 		endif
 		aUTar[nITar,3,1]:=zalt
 		if cRekPoRobama=="D"
 			// kolona "Ucesce" se preskace
-			// @ prow(),pcol()+1 SAY SPACE(6)             
+			// @ prow(),pcol()+1 SAY SPACE(6)
 		endif
 		select pobjekti
 		go top
@@ -406,10 +406,10 @@ do while !eof()
 			aUTar[nITar,4+i,1]:=zalt
 			skip
 		enddo
-		
+
 		select pobjekti
 		// idi na "objekat" 99 (SVI)
-		go bottom 
+		go bottom
 		if cRekPoRobama=="D"
 			// @ prow()+1,nCol1+1 SAY field->prodt pict pickol
 		endif
@@ -441,7 +441,7 @@ do while !eof()
 			//?  cLinija
 		endif
 		// kraj ukupno tarifa *********************************
-		
+
 		select rekap1
 
 	enddo
@@ -451,7 +451,7 @@ do while !eof()
 	endif
 
 	if (cRekPoRobama=="D")
-			
+
 		if (prow()> PREDOVA2+gPStranica-2)
 			FF
 			ZagPKret()
@@ -477,14 +477,14 @@ do while !eof()
 
 	select pobjekti
 	// idi na "objekat" 99 (SVI)
-	go bottom 
+	go bottom
 	if cRekPoRobama=="D"
 		@ prow(),nCol1+1 SAY zalg PICT pickol
 		// kolona "Ucesce" se preskace
-		@ prow(),pcol()+1 SAY SPACE(6)             
+		@ prow(),pcol()+1 SAY SPACE(6)
 	endif
 	aUTar[nITar,3,1]:=zalg
-	select pobjekti 
+	select pobjekti
 	go top
 	i:=0
 	do while (!eof() .and. pobjekti->id<"99")
@@ -531,26 +531,26 @@ do while !eof()
 		 strtran(cLinija,"-","=")
 	endif
 
-enddo                        
+enddo
 
-		
+
 if (cRekPoRobama=="D")
 	if (prow()> PREDOVA2+gPStranica-3)
 		FF
 		ZagPKret()
 	endif
 	//donja funkcija ne vrsi ispis zaglavlja
-	RekPoRobama(cLinija, nCol1) 
+	RekPoRobama(cLinija, nCol1)
 
 endif
 
 
 if (cRekPoDobavljacima=="D")
-	RekPoDob(cRekPoRobama, cLinija, nCol1, nUkObj, @aUTar) 
+	RekPoDob(cRekPoRobama, cLinija, nCol1, nUkObj, @aUTar)
 endif
 
 if (cRekPoGrupamaRobe=="D")
-	RekPoGrup(cRekPoGrupama, cRekPoDobavljacima, @aUGArt) 
+	RekPoGrup(cRekPoGrupama, cRekPoDobavljacima, @aUGArt)
 endif
 
 FF
@@ -588,14 +588,14 @@ if (nMpc==0)
 		endif
 		skip
 	enddo
-	go nTRec 
+	go nTRec
 endif
 
 return nMpc
 *}
 
-function SetK1K2(cG1, cIdTarifa, cIdRoba, nK1, nK2)
-*{		
+static function SetK1K2(cG1, cIdTarifa, cIdRoba, nK1, nK2)
+*{
 nK2:=0
 nK1:=0
 select pobjekti
@@ -617,7 +617,7 @@ return
  *  \brief Formula za kljucni dio sifre pri grupisanju roba
  *  \ingroup Planika
  */
- 
+
 static function Izmj_cPrSort()
 *{
 local GetList:={}
@@ -648,11 +648,11 @@ return
  *  \param cVarijanta - "1" - Pregl. kret zalika, "2" - rekapitulacija po grupama dobavljaca, "3" - rekapitulacija po grupama artikala
  *
  */
- 
+
 static function ZagPKret(cVarijanta)
 *{
 if cPapir=="A4L" .or. cPapir=="A3L"
-	P_COND2	
+	P_COND2
 endif
 if cVarijanta==nil
 	cVarijanta:="1"
@@ -682,7 +682,7 @@ if cVarijanta=="2"
   ? REPL("*",71)
   ?
 elseif cVarijanta=="3"
-  
+
 ?
 ?
 ?
@@ -695,7 +695,7 @@ elseif cVarijanta=="3"
 endif
 
 if (cPapir=="A4L" .or. cPapir=="A3L")
-	P_COND2  
+	P_COND2
 else
 	P_COND
 endif
@@ -734,7 +734,7 @@ enddo
 select pobjekti
 go top
 do while !eof()
-	?? " ------" 
+	?? " ------"
 	skip
 enddo
 
@@ -759,8 +759,8 @@ RPar("cS",@qqSezona)
 RPar("cP",@cPrikazDob)
 RPar("Ke",@cKesiraj)
 RPar("fP",@cPapir)
- 
-cKartica:="N" 
+
+cKartica:="N"
 cNObjekat:=space(20)
 
 Box(,19,70)
@@ -829,7 +829,7 @@ return 1
 function SetLinija(cLinija, nUkObj)
 *{
 cLinija:="---- --------- ----------------------------"
-select pobjekti    
+select pobjekti
 // inicijalizuj cLinija
 go top
 do while !eof() .and. field->id<"99"
@@ -837,8 +837,8 @@ do while !eof() .and. field->id<"99"
 	cLinija+=" ------"
 	skip
 enddo
-cLinija+=" ------" 
-cLinija+=" ------"  
+cLinija+=" ------"
+cLinija+=" ------"
 
 return
 *}
@@ -848,9 +848,9 @@ function SetGaZag(cRekPoRobama, cRekPoDobavljacima, cRekPoGrupamaRobe, gaZagFix,
 
 if cRekPoRobama=="D"
 	// 7.red fajla, 4 reda ukupno (7.,8.,9. i 10.) (ovi redovi su zaglavlje ovog izvjestaja i fiksno se prikazuju na ekranu)
-	gaZagFix:={ 7, 4}    
+	gaZagFix:={ 7, 4}
 	// 6.kolona, 38 kolona ukupno, od 7.reda ispisuj
-	gaKolFix:={ 1, 58, 7 }   
+	gaKolFix:={ 1, 58, 7 }
 
 elseif cRekPoDobavljacima=="D"
 	gaZagFix:={15, 4}
@@ -871,7 +871,7 @@ function RekPoRobama(cLinija, nCol1)
 ? "UKUPNO:"
 select pobjekti
 // idi na "objekat" 99 (SVI)
-go bottom 
+go bottom
 @ prow(),nCol1+1 SAY zalu PICT pickol
 // kolona "Ucesce" se preskace
 @ prow(),pcol()+1 SAY SPACE(6)
@@ -884,7 +884,7 @@ enddo
 
 select pobjekti
 // idi na "objekat" 99 (SVI)
-go bottom 
+go bottom
 @ prow()+1,nCol1+1 SAY produ pict pickol
 if !(produ+zalu==0)
 	@ prow(),pcol()+1 SAY produ/(produ+zalu)*100 pict "999.99%"
@@ -907,7 +907,7 @@ return
 *}
 
 
-function RekPoDob(cRekPoRobama, cLinija, nCol1, nUkObj, aUTar) 
+function RekPoDob(cRekPoRobama, cLinija, nCol1, nUkObj, aUTar)
 *{
 
  aPom:={"U",""}
@@ -918,20 +918,20 @@ function RekPoDob(cRekPoRobama, cLinija, nCol1, nUkObj, aUTar)
   nITar:=LEN(aUTar)
   FF
   ZagPKret("2")
-  
+
   cLinija2:=STRTRAN(cLinija,"-","=")
   for i:=1 to LEN(aUTar)
-    	
+
 	if (prow()> PREDOVA2+gPStranica-3)
 		FF
 		ZagPKret("2")
 	endif
 
-	if aUTar[i,1]=="T"                   
+	if aUTar[i,1]=="T"
 	      // tarife
 	      ? cLinija
 	      ? "Ukupno tarifa",aUTar[i,2]
-	    elseif aUTar[i,1]=="G"               
+	    elseif aUTar[i,1]=="G"
 	      // dobavljaci
 	      ? cLinija2
 	      ? "Ukupno grupa",aUTar[i,2]
@@ -940,9 +940,9 @@ function RekPoDob(cRekPoRobama, cLinija, nCol1, nUkObj, aUTar)
 	      ? "UKUPNO:"
 	endif
 	@ prow(),nCol1+1 SAY aUTar[i,3,1] PICT pickol
-	
+
 	// kolona "Ucesce" se preskace
-	@ prow(),pcol()+1 SAY SPACE(6)             
+	@ prow(),pcol()+1 SAY SPACE(6)
 	for j:=1 to nUkObj
 	     @ prow(),pcol()+1 SAY aUTar[i,4+j,1] pict pickol
 	next
@@ -957,13 +957,13 @@ function RekPoDob(cRekPoRobama, cLinija, nCol1, nUkObj, aUTar)
 	     @ prow(),pcol()+1-IF(lIzaProc,1,0) SAY aUTar[i,4+j,2] pict IF(lIzaProc,"999999",pickol)
 	     lIzaProc:=.f.
 	next
-	
+
 	if aUTar[i,1]=="T"
 	      ? cLinija
 	    else
 	      ? cLinija2
 	 endif
-	 
+
 	 if i<nITar .and. aUTar[i,1]=="G"
 	      aUTar[nITar,3,1]+=aUTar[i,3,1]
 	      aUTar[nITar,3,2]+=aUTar[i,3,2]
@@ -977,7 +977,7 @@ function RekPoDob(cRekPoRobama, cLinija, nCol1, nUkObj, aUTar)
 return
 *}
 
-function RekPoGrup(cRekPoGrupama, cRekPoDobavljacima, aUGArt) 
+function RekPoGrup(cRekPoGrupama, cRekPoDobavljacima, aUGArt)
 *{
 
 ASORT( aUGArt , , , { |x,y|  x[2] < y[2] } )
@@ -993,24 +993,24 @@ ZagPKret("3")
 cLinija2:=STRTRAN(cLinija,"-","=")
 
 for i:=1 to LEN(aUGArt)
-  	
+
 	if (prow()> PREDOVA2+gPStranica-3)
 		FF
 		ZagPKret("3")
 	endif
 
-	  
-	if aUGArt[i,1]=="A"   
+
+	if aUGArt[i,1]=="A"
 	      ? cLinija
 	      ? "Grupa",aUGArt[i,2]
 	else
 	      ? cLinija2
 	      ? "UKUPNO:"
 	endif
-	
+
 	@ prow(),nCol1+1 SAY aUGArt[i,3,1] PICT pickol
 	    // kolona "Ucesce" se preskace
-	    @ prow(),pcol()+1 SAY SPACE(6)             
+	    @ prow(),pcol()+1 SAY SPACE(6)
 	    for j:=1 to nUkObj
 	     @ prow(),pcol()+1 SAY aUGArt[i,4+j,1] pict pickol
 	    next
