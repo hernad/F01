@@ -990,43 +990,6 @@ RETURN (.t.)
 
 
 
-/*!  OdsjPLK(cTxt)
- *   Odsjeca prazne linije na kraju stringa
- *   cTxt
- */
-
-function OdsjPLK(cTxt)
-
-local i
-for i:=len(cTxt) to 1 step -1
-  if !(substr(cTxt,i,1) $ Chr(13)+Chr(10)+" �")
-       exit
-  endif
-next
-return left(cTxt,i)
-
-/*
-function ParsMemo(cTxt)
-local aMemo:={}
-local i, cPom, fPoc
-
-fPoc:=.f.
-cPom:=""
-for i:=1 to len(cTxt)
-	if  substr(cTxt,i,1)==Chr(16)
-     		fPoc:=.t.
-   	elseif  substr(cTxt,i,1)==Chr(17)
-     		fPoc:=.f.
-     		AADD(aMemo, cPom)
-     		cPom:=""
-   	elseif fPoc
-      		cPom:=cPom+substr(cTxt,i,1)
-   	endif
-next
-
-return aMemo
-*/
-
 /*!  Prepak(cIdRoba,cPako,nPak,nKom,nKol,lKolUPak)
  *   Preracunavanje paketa i komada ...
  *   cIdRoba  - sifra artikla

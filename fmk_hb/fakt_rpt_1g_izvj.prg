@@ -2109,38 +2109,6 @@ RETURN cVrati
 
 
 
-/*!  BhSort(cInput)
- *
- */
-
-function BhSort(cInput)
-
-IF gKodnaS=="7"
-   cInput:=STRTRAN(cInput,"[","S"+CHR(255))
-   cInput:=STRTRAN(cInput,"\","D"+CHR(255))
-   cInput:=STRTRAN(cInput,"^","C"+CHR(254))
-   cInput:=STRTRAN(cInput,"]","C"+CHR(255))
-   cInput:=STRTRAN(cInput,"@","Z"+CHR(255))
-   cInput:=STRTRAN(cInput,"{","s"+CHR(255))
-   cInput:=STRTRAN(cInput,"|","d"+CHR(255))
-   cInput:=STRTRAN(cInput,"~","c"+CHR(254))
-   cInput:=STRTRAN(cInput,"}","c"+CHR(255))
-   cInput:=STRTRAN(cInput,"`","z"+CHR(255))
- ELSE  // "8"
-   cInput:=STRTRAN(cInput,"�","S"+CHR(255))
-   cInput:=STRTRAN(cInput,"�","D"+CHR(255))
-   cInput:=STRTRAN(cInput,"�","C"+CHR(254))
-   cInput:=STRTRAN(cInput,"�","C"+CHR(255))
-   cInput:=STRTRAN(cInput,"�","Z"+CHR(255))
-   cInput:=STRTRAN(cInput,"�","s"+CHR(255))
-   cInput:=STRTRAN(cInput,"�","d"+CHR(255))
-   cInput:=STRTRAN(cInput,"�","c"+CHR(254))
-   cInput:=STRTRAN(cInput,"�","c"+CHR(255))
-   cInput:=STRTRAN(cInput,"�","z"+CHR(255))
- ENDIF
-RETURN PADR(cInput,100)
-
-
 /*!  TmpFakt()
  *
  */

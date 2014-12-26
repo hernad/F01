@@ -2980,40 +2980,6 @@ endif
 return cVrati
 
 
-/*!  TokToNiz(cTok,cSE)
- *   Token pretvara u niz
- *   cTok  - string tokena
- *   cSE   - separator elementa
- *  \return aNiz
- */
-
-function TokToNiz(cTok, cSE)
-
-local aNiz
-local nE:=0, i:=0, cE:=""
-
-if cSE==nil
-	  cSE := "."
-endif
-
-aNiz:={}
-do while .t.
-	//    AT( #13#10, prvi_red#13#10drugired)
-	nPos := AT(cSe, cTok)
-	if nPos == 0
-		AADD(aNiz, cTok)
-		exit
-	else
-		// nasao sam token
-		AADD(aNiz, LEFT(cTok, nPos - 1))
-		cTok := SUBSTR(cTok, nPos + LEN(cSe))
-	endif
-enddo
-
-
-return aNiz
-
-
 
 // ----------------------------------
 // ----------------------------------

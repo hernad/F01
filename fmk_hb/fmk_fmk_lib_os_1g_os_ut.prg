@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -18,7 +18,7 @@
  *    Extract the full path name from a filename
  *  \return cFilePath
  */
- 
+
 function FilePath( cFile )
 LOCAL nPos, cFilePath
 
@@ -35,12 +35,12 @@ LOCAL nPos, cFileName
 IF (nPos := RAT(SLASH, cFile)) != 0
    cFileName:= SUBSTR(cFile, nPos + 1 )
 ELSE
-   cFileName := cFile 
+   cFileName := cFile
 ENDIF
 return cFileName
 
 function AddBS(cPath)
-if right(cPath,1)<>SLASH     
+if right(cPath,1)<>SLASH
      cPath:=cPath + SLASH
 endif
 
@@ -60,7 +60,7 @@ return .t.
 /*! \ingroup ini
  *  \var *string FmkIni_ExePath_POS_PitanjeUgasiti
  *   "0" - ne pitaj (dobro za racunar koji se ne koristi SAMO kao PC Kasa
- *   "-" - pitaj 
+ *   "-" - pitaj
  */
 
 function UgasitiR()
@@ -97,23 +97,23 @@ return
  *  Promjeni ekstenziju
  *
  * \params cImeF   ime fajla
- * \params cExt    polazna extenzija (obavezno 3 slova) 
+ * \params cExt    polazna extenzija (obavezno 3 slova)
  * \params cExtNew nova extenzija
  * \params fBezAdd ako je .t. onda ce fajlu koji nema cExt dodati cExtNew
- * 
+ *
  * \code
  *
  * ChangeEXT("SUBAN", "DBF", "CDX", .t.)
  * suban     -> suban.CDX
- * 
+ *
  * ChangeEXT("SUBAN", "DBF", "CDX", .f.)
  * SUBAN     -> SUBAN
- * 
+ *
  *
  * ChangeEXT("SUBAN.DBF", "DBF", "CDX", .t.)
  * SUBAN.DBF  -> SUBAN.CDX
  *
- * \endcode 
+ * \endcode
  *
  */
 
@@ -123,8 +123,8 @@ local cTacka
 
 if fBezAdd==NIL
   fBezAdd:=.t.
-endif  
-  
+endif
+
 if EMPTY(cExtNew)
   cTacka:=""
 else
@@ -187,7 +187,7 @@ return fPostoji
   *
   * \code
   *
-  * npr:  cDir ->  c:\tops\prenos\ 
+  * npr:  cDir ->  c:\tops\prenos\
   *
   * brisi sve fajlove u direktoriju
   * starije od 45 dana
@@ -206,7 +206,7 @@ endif
 cDir:=ToUnix(trim(cdir))
 cFile:=fileseek(trim(cDir)+"*.*")
 do while !empty(cFile)
-    if date() - filedate() > nDana  
+    if date() - filedate() > nDana
        filedelete(cdir+cfile)
     endif
     cfile:=fileseek()
@@ -292,5 +292,3 @@ run ( _cmd )
 restore screen from _screen
 
 return
-
-

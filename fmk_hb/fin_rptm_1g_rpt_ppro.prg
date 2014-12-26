@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -98,22 +98,22 @@ nCnt := 0
 
 GO TOP
 DO WHILE !EOF()
-  
+
   IF prow()>60+gPstranica
      FF
      ZagPPR("U")
   ENDIF
-  
+
   IF &aUsl2
     SKIP 1
     LOOP
   ENDIF
-  
+
   IF d_p=="2"
     ? STR(++nCnt, 6), RedIspisa()
     nPot += iznosbhd
   ENDIF
-  
+
   SKIP
 
 ENDDO
@@ -136,22 +136,22 @@ nCnt := 0
 
 GO TOP
 DO WHILE !EOF()
-  
+
   IF prow()>60+gPstranica
      FF
      ZagPPR("I")
   ENDIF
-  
+
   IF &aUsl2
     SKIP 1
     LOOP
   ENDIF
-  
+
   IF d_p == "1"
     ? STR(++nCnt, 6), RedIspisa()
     nDug += iznosbhd
   ENDIF
-  
+
   SKIP
 
 ENDDO
@@ -169,9 +169,9 @@ return
 
 
 /*!  RedIspisa()
- *  
+ *
  */
- 
+
 function RedIspisa()
 LOCAL cVrati:=""
   cVrati := DTOC(datdok)+" "+idpartner+" "
@@ -203,28 +203,3 @@ function ZagPPR(cI)
   ENDIF
   ? m; ? z; ? m
 RETURN
-
-
-
-/*!  StrKZN(cInput,cIz,cU)
- *   Konverzija znakova
- *   cInput  - ulazni tekst
- *   cIz     - izlaz
- *   cU      - ulaz
- */
- 
-function StrKZN(cInput,cIz,cU)
- 
- LOCAL a852:={"�","�","�","�","�","�","�","�","�","�"}
- LOCAL a437:={"[","\","^","]","@","{","|","~","}","`"}
- LOCAL aEng:={"S","D","C","C","Z","s","d","c","c","z"}
- LOCAL i:=0, aIz:={}, aU:={}
- aIz := IF( cIz=="7" , a437 , IF( cIz=="8" , a852 , aEng ) )
- aU  := IF(  cU=="7" , a437 , IF(  cU=="8" , a852 , aEng ) )
- FOR i:=1 TO 10
-   cInput:=STRTRAN(cInput,aIz[i],aU[i])
- NEXT
-RETURN cInput
-
-
-
