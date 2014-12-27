@@ -24,9 +24,7 @@ else
 endif
 
 
-/*!  UzmiMpcSif()
- *   Uzmi maloprodajnu cijenu iz sifrarnika
- */
+/*
 
 function UzmiMpcSif()
 
@@ -55,7 +53,7 @@ else
 endif
 return nCV
 
-
+*/
 
 
 

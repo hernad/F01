@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -15,10 +15,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
- 
+
 
 /*! \file fmk/kalk/param/1g/params.prg
  *   Parametri modula KALK - ispravka
@@ -40,16 +40,16 @@ private opcexe:={}
 
 
 AADD(Opc,"1. osnovni podaci o firmi                                 ")
-AADD(opcexe, {|| SetFirma('D')})
+AADD(opcexe, {|| kalk_set_firmat_parametri('D')})
 
 AADD(Opc,"2. metoda proracuna NC, mogucnosti ispravke dokumenata ")
 AADD(opcexe, {|| SetMetoda('D')})
 
 AADD(Opc,"3. varijante obrade i prikaza pojedinih dokumenata ")
-AADD(opcexe, {|| SetVarijante('D')})
+AADD(opcexe, {|| kalk_set_varijante('D')})
 
 AADD(Opc,"4. nazivi troskova za 10-ku ")
-AADD(opcexe, {|| SetT1('D')})
+AADD(opcexe, {|| kalk_set_varijante_izgleda_dokumenta_1('D')})
 
 AADD(Opc, "5. nazivi troskova za 24-ku")
 AADD(opcexe, {|| SetT24('D')})
@@ -58,7 +58,7 @@ AADD(Opc,"6. nazivi troskova za RN")
 AADD(opcexe, {|| SetTRN('D')})
 
 AADD(Opc,"7. prikaz cijene,%,iznosa")
-AADD(opcexe, {|| SetPict('D')})
+AADD(opcexe, {|| kalk_set_pict('D')})
 
 AADD(Opc,"8. nacin formiranja zavisnih dokumenata")
 AADD(opcexe, {|| SetZavDok('D')})
@@ -70,7 +70,7 @@ AADD(Opc, "A. parametri za komisionu prodaju" )
 AADD(opcexe, {|| SetKomis('D')})
 
 AADD(Opc, "B. parametri - razno")
-AADD(opcexe, {|| SetRazno('D')})
+AADD(opcexe, {|| kalk_set_parametri_razno('D')})
 
 private Izbor:=1
 Menu_SC("pars")
@@ -82,84 +82,84 @@ return
 
 
 
-/*!  SetVarijante()
+/*!  kalk_set_varijante()
  *   Ispravka parametara "varijante obrade i prikaza pojedinih dokumenata"
  */
 
-function SetVarijante()
+function kalk_set_varijante()
 local nX := 1
 private  GetList:={}
 
 Box(,23,76,.f.,"Varijante obrade i prikaza pojedinih dokumenata")
-	
+
 	@ m_x + nX, m_y+2 SAY "14 -Varijanta poreza na RUC u VP 1/2 (1-naprijed,2-nazad)"  get gVarVP  valid gVarVP $ "12"
-  	
+
 	nX += 1
-	
+
 	@ m_x + nX, m_y+2 SAY "14 - Nivelaciju izvrsiti na ukupno stanje/na prodanu kolicinu  1/2 ?" GET gNiv14  valid gNiv14 $ "12"
 
 	nX += 2
-	
+
   	@ m_x + nX, m_y+2 SAY "10 - Varijanta izvjestaja (1/2/3)" GET c10Var  valid c10Var $ "123"
-  	
+
 	nX += 1
-	
+
 	@ m_x + nX,m_y+2 SAY "10 - prikaz ukalkulisanog poreza (D/N)" GET  g10Porez  pict "@!" valid g10Porez $ "DN"
-  	
+
 	nX += 1
-	
+
 	@ m_x + nX,m_y+2 SAY "10 - ** kolicina = (1) kol-kalo ; (2) kol" GET gKalo valid gKalo $ "12"
-  
+
 	nX += 1
-  	
+
 	@ m_x + nX,m_y+2 SAY "10 - automatsko preuzimanje troskova iz sifrarnika robe ? (0/D/N)" GET gRobaTrosk valid gRobaTrosk $ "0DN" PICT "@!"
 
 	nX += 1
-	
-	@ m_x + nX,m_y+2 SAY "   default tip za pojedini trosak:" 
-	
+
+	@ m_x + nX,m_y+2 SAY "   default tip za pojedini trosak:"
+
 	nX += 1
-	
+
 	@ m_x + nX, m_y + 2 SAY "   " + c10T1 GET gRobaTr1Tip valid gRobaTr1Tip $ " %URA" PICT "@!"
-	
+
 	@ m_x + nX, col() + 1 SAY c10T2 GET gRobaTr2Tip valid gRobaTr2Tip $ " %URA" PICT "@!"
-	
+
 	@ m_x + nX, col() + 1 SAY c10T3 GET gRobaTr3Tip valid gRobaTr3Tip $ " %URA" PICT "@!"
-	
+
 	@ m_x + nX, col() + 1 SAY c10T4 GET gRobaTr4Tip valid gRobaTr4Tip $ " %URA" PICT "@!"
-	
+
 	@ m_x + nX, col() + 1 SAY c10T5 GET gRobaTr5Tip valid gRobaTr5Tip $ " %URA" PICT "@!"
-	
+
 	nX += 1
 
 	@ m_x + nX, m_y + 2 SAY "10 - pomoc sa koverzijom valute pri unosu dokumenta (D/N)" GET gDokKVal valid gDokKVal $ "DN" PICT "@!"
-	
+
 	nX += 2
-	
+
   	@ m_x + nX, m_y+2 SAY "Voditi kalo pri ulazu " GET gVodiKalo valid gVodiKalo $ "DN" pict "@!"
 
 	nX += 1
-  
+
   	@ m_x + nX,m_y+2 SAY "Program se koristi iskljucivo za vodjenje magacina po NC  Da-1 / Ne-2 " GET gMagacin valid gMagacin $ "12"
-  
+
   	if IsPDV()
-	
+
 		nX += 1
-  		
+
 		@ m_x + nX,m_y+2 SAY "PDV, evidencija magacina po NC  D/N " GET gPDVMagNab valid gPDVMagNab $ "DN"
-  	
+
 	endif
-  	
+
 	nX += 1
-	
+
   	@ m_x + nX,m_y+2 SAY "Varijanta FAKT13->KALK11 ( 1-mpc iz sifrarnika, 2-mpc iz FAKT13)" GET  gVar13u11  pict "@!" valid gVar13u11 $ "12"
-  
+
   	nX += 2
-	
+
   	@ m_x + nX,m_y+2 SAY "Varijanta KALK 11 bez prikaza NC i storna RUC-a (D/N)" GET  g11bezNC  pict "@!" valid g11bezNC $ "DN"
-  	
+
 	nX += 1
-	
+
 	@ m_x + nX,m_y+2 SAY "Pri ulaznoj kalkulaciji pomoc sa C.sa PDV (D/N)" GET  gMPCPomoc pict "@!" valid gMPCPomoc $ "DN"
 
 	nX += 1
@@ -167,19 +167,19 @@ Box(,23,76,.f.,"Varijante obrade i prikaza pojedinih dokumenata")
 	@ m_x + nX, m_y + 2 SAY "Varijanta popusta na dokumentima, default P-%, C-cijena" GET gRCRP
 
 	nX += 1
-	
+
   	@ m_x + nX,m_y+2 SAY "80 - var.rek.po tarifama ( 1 -samo ukupno / 2 -prod.1,prod.2,ukupno)" GET  g80VRT pict "9" valid g80VRT $ "12"
-  	
+
 	nX += 2
-	
+
 	@ m_x + nX,m_y+2 SAY "Kolicina za nivelaciju iz FAKT-a " GET  gKolicFakt valid gKolicFakt $ "DN"  pict "@!"
-  	
+
 	@ m_x + nX,col()+1 SAY "Auto ravnoteza naloga (FIN):" GET gAutoRavn VALID gAutoRavn $ "DN" PICT "@!"
-	
+
 	nX += 1
 
 	@ m_x + nX,m_y+2 SAY "Automatsko azuriranje cijena u sifrarnik (D/N)" GET gAutoCjen VALID gAutoCjen $ "DN" PICT "@!"
-	
+
 	read
 
 BoxC()
@@ -217,11 +217,11 @@ return nil
 
 
 
-/*!  SetRazno()
+/*!  kalk_set_parametri_razno()
  *   Ispravka parametara "razno"
  */
 
-function SetRazno()
+function kalk_set_parametri_razno()
 private  GetList:={}
 
 Box(,15,75,.f.,"RAZNO")
@@ -241,10 +241,10 @@ Box(,15,75,.f.,"RAZNO")
  @ m_x+13,m_y+2 SAY "Auto obrada dokumenata iz cache tabele (D/N)" GET gCache VALID gCache $ "DN" PICT "@!"
 
 @ m_x+14,m_y+2 SAY "Kontrola odstupanja NC:" GET gNC_ctrl PICT "999.99"
-@ m_x+14, col() SAY "%" 
+@ m_x+14, col() SAY "%"
 
 @ m_x+15,m_y+2 SAY "Indeks kod pretrage artikla:" GET gArtCDX PICT "@15"
-	
+
 read
 BoxC()
 
@@ -325,11 +325,11 @@ return .t.
 
 
 
-/*!  SetFirma()
+/*!  kalk_set_firmat_parametri()
  *   Ispravka parametara "MATICNA FIRMA, BAZNA VALUTA"
  */
 
-function SetFirma()
+function kalk_set_firmat_parametri()
 
 private  GetList:={}
 
@@ -357,11 +357,11 @@ return .f.
 
 
 
-/*!  SetPICT()
+/*!  kalk_set_pict()
  *   Ispravka parametara "PARAMETRI PRIKAZA - PICTURE KODOVI"
  */
 
-function SetPICT()
+function kalk_set_pict()
 
 private  GetList:={}
 
@@ -372,7 +372,7 @@ Box(,10,60,.f.,"PARAMETRI PRIKAZA - PICTURE KODOVI")
  	@ m_x+4,m_y+2 SAY "Prikaz kolicine" GET gPicKol
   	@ m_x+5,m_y+2 SAY "Ispravka NC    " GET gPicNC
   	@ m_x+6,m_y+2 SAY "Decimale za kolicine" GET gDecKol pict "9"
-  	@ m_x+7,m_y+2 SAY REPLICATE("-", 30) 
+  	@ m_x+7,m_y+2 SAY REPLICATE("-", 30)
   	@ m_x+8,m_y+2 SAY "Dodatno prosirenje cijene" GET gFPicCDem
   	@ m_x+9,m_y+2 SAY "Dodatno prosirenje iznosa" GET gFPicDem
   	@ m_x+10,m_y+2 SAY "Dodatno prosirenje kolicine" GET gFPicKol
@@ -507,11 +507,11 @@ return nil
 
 
 
-/*!  SetT1()
+/*!  kalk_set_varijante_izgleda_dokumenta_1()
  *   Ispravka parametara "Troskovi 10-ka"
  */
 
-function SetT1()
+function kalk_set_varijante_izgleda_dokumenta_1()
 
 private  GetList:={}
 
@@ -602,6 +602,3 @@ private  GetList:={}
  endif
 
 return nil
-
-
-
