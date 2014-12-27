@@ -1081,29 +1081,12 @@ endif
 
 return
 
-
-
-
-
-/*!  DinDem(p1,p2,cVar)
- *   Konverzija iznosa domaca<->pomocna valuta
- *   p1 -
- *   p2 -
- *   cVar - naziv polja iznosa koji se pretvara (_IZNOSDEM ili _IZNOSBHD)
- */
-
+/*
 function DinDem(p1,p2,cVar)
 
 local nNaz
 
-// nArr:=SELECT()
-// select tokval
-// seek dtos(_DatDok)
-// if !found() .or. eof()
-//     skip -1
-// endif
 
-// if kurslis=="1"; nNaz:=naz; else;  nNaz:=naz2; endif
 nNaz:=Kurs(_datdok)
 if cVar=="_IZNOSDEM"
     _IZNOSBHD:=_IZNOSDEM*nnaz
@@ -1118,7 +1101,7 @@ endif
 AEVAL(GetList,{|o| o:display()})
 return
 
-
+*/
 
 
 
@@ -1235,4 +1218,3 @@ use
 MsgC()
 closeret2
 return
-

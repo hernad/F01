@@ -472,11 +472,11 @@ return
 
 
 
-/*!  PrModem(fSif)
- *  
+/*!  kalk_prenos_modem(fSif)
+ *
  */
 
-function PrModem(fSif)
+function kalk_prenos_modem(fSif)
 
 local nRec, gModemVeza:="S"
 
@@ -608,4 +608,3 @@ MsgBeep("Datoteka "+cDestMod+"je izgenerisana")
 
 endif
 return nil
-

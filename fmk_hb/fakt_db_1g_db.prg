@@ -1169,7 +1169,7 @@ do while !eof()
 
 enddo
 
-PrModem()
+fakt_prenos_modem()
 
 lAzurOK:=.t.
 

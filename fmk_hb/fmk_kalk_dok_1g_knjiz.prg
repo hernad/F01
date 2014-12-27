@@ -2148,7 +2148,7 @@ if (fFaktD .and. !fstara .and. gFakt!="0 ")
 	FF
 	END PRINT
 
-	PrModem(.t.)
+	kalk_prenos_modem(.t.)
 endif
 
 #ifdef CAX
