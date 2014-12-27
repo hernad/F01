@@ -181,12 +181,12 @@ DO WHILE !EOF()
    //cVN:=VN; cFirma:=Firma1+Firma2
 
    cIdFirma:=IdFirma; cIdVN:=IdVN; cBrNal:=BrNal
-   Zagl11()
+   kalk_zagl_11()
    DO WHILE !eof() .and. eval(b2)
 
          if prow()>61+gPStranica
 	 	FF
-	 	Zagl11()
+	 	kalk_zagl_11()
 	 endif
          P_NRED
          @ prow(),0 SAY RBr
@@ -265,7 +265,7 @@ DO WHILE !EOF()
          SKIP
       ENDDO
 
-      IF prow()>59+gPStranica; FF; Zagl11();  endif
+      IF prow()>59+gPStranica; FF; kalk_zagl_11();  endif
 
       ? M
       ? "Z B I R   N A L O G A:"
@@ -278,7 +278,7 @@ DO WHILE !EOF()
       nUkDugBHD:=nUKPotBHD:=nUkDugDEM:=nUKPotDEM:=0
 
      if gPotpis=="D"
-      IF prow()>58+gPStranica; FF; Zagl11();  endif
+      IF prow()>58+gPStranica; FF; kalk_zagl_11();  endif
       ?
       ?; P_12CPI
       @ prow()+1,55 SAY "Obrada AOP "; ?? replicate("_",20)
@@ -296,11 +296,11 @@ return
 
 
 
-/*!  Zagl11()
+/*!  kalk_zagl_11()
  *   Zaglavlje analitickog naloga
  */
 
-function Zagl11()
+function kalk_zagl_11()
 
 local nArr
 P_COND

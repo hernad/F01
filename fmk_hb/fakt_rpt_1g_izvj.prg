@@ -1126,7 +1126,7 @@ aKol:={ { "SIFRA"        , {|| cIdPartner             }, .f., "C", 6, 0, 1, 1},;
 
   StampaTabele(aKol,{|| FSvaki6()},,gTabela,,;
        ,"Vrijednost isporuke partnerima za period od "+DTOC(ddatod)+" do "+DTOC(ddatdo),;
-                               {|| FFor6()},IF(gOstr=="D",,-1),,,{|| SubTot6()},,)
+                               {|| fakt_ffor6()},IF(gOstr=="D",,-1),,,{|| fakt_subtot6()},,)
 
   FF
   END PRINT
@@ -1136,11 +1136,11 @@ return
 
 
 
-/*!  FFor6()
+/*!  fakt_ffor6()
  *
  */
 
-function FFor6()
+function fakt_ffor6()
 
 LOCAL nIznos:=0
  IF fSMark .and. SkLoNMark("ROBA",SiSiRo())
@@ -1196,11 +1196,11 @@ RETURN
 
 
 
-/*!  SubTot6()
+/*!  fakt_subtot6()
  *
  */
 
-function SubTot6()
+function fakt_subtot6()
 
 LOCAL aVrati:={.f.,""}, cOps:="", cIdOpc:=""
   IF lSubTot6 .or. EOF()

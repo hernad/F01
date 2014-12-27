@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -19,10 +19,10 @@ local nT1:=nT4:=nT5:=nT6:=nT7:=0
 local nTT1:=nTT4:=nTT5:=nTT6:=nTT7:=0
 local n1:=n4:=n5:=n6:=n7:=0
 local nCol1:=0
-local PicCDEM:=REPLICATE("9", VAL(gFPicCDem)) + gPicCDEM 
-local PicProc:=gPicProc      
-local PicDEM:=REPLICATE("9", VAL(gFPicDem)) + gPicDEM 
-local Pickol:=gPicKol  
+local PicCDEM:=REPLICATE("9", VAL(gFPicCDem)) + gPicCDEM
+local PicProc:=gPicProc
+local PicDEM:=REPLICATE("9", VAL(gFPicDem)) + gPicDEM
+local Pickol:=gPicKol
 local i:=0
 private aPorezi
 
@@ -65,8 +65,7 @@ O_KALK
 set order to 6
 
 IF lVoSaTa
-	// kreirajmo pomocnu bazu
-  	CrePom()
+  	kalk_Cre_Pom()
   	SELECT KALK
 ENDIF
 
@@ -89,7 +88,7 @@ if aUsl2<>".t."
 endif
 
 set filter to &cFilt1
-go top   
+go top
 
 EOF CRET
 
@@ -133,26 +132,26 @@ DO WHILE !EOF() .and. IspitajPrekid()
       ? "Kriterij za tarife:",trim(qqTarifa)
       ?
     endif
-    
+
     if VAL(gFPicDem) > 0
     	P_COND2
     else
    	P_COND
     endif
-    
+
     ?
     ? cLine
     ? cText1
     ? cText2
     ? cLine
-  
+
   ENDIF
 
   nT1:=nT4:=nT5:=nT6:=nT7:=nT8:=0
   nTP:=0
   cLastTarifa:=""
-  
-  
+
+
   aPorezi:={}
   DO WHILE !EOF() .AND. cIdFirma==KALK->IdFirma .and. IspitajPrekid()
 	cIdKonto:=IdKonto
@@ -162,17 +161,17 @@ DO WHILE !EOF() .and. IspitajPrekid()
      	select tarifa
      	hseek cIdTarifa
      	select kalk
-     	
+
 	VtPorezi()
 
 	cIdTarifa := Tarifa(pkonto, idroba, @aPorezi, cIdTarifa)
-	
+
 	nMPV:=0
      	nNv:=0
      	nPopust:=0
     	nMPVSaPP:=0
-	 
-     
+
+
      IF lVoSaTa  //ovo nema veze sa ugostiteljstvom
        SELECT POM
        FOR i:=1 TO 3
@@ -183,7 +182,7 @@ DO WHILE !EOF() .and. IspitajPrekid()
 		REPLACE P_PPP WITH aPorezi[POR_PPP]
 		REPLACE P_PPU WITH aPorezi[POR_PPU]
 		REPLACE P_PP WITH aPorezi[POR_PP]
-	   
+
 		IF cPojed=="D" .and. i==2
 			REPLACE DOKUM  WITH KALK->(IDVD+BRDOK)
 			REPLACE DATDOK WITH KALK->DATDOK
@@ -192,16 +191,16 @@ DO WHILE !EOF() .and. IspitajPrekid()
        NEXT
        SELECT KALK
      ENDIF
-     
+
      cPoDok:=IDVD+BRDOK
      cLastTarifa:=cIdTarifa
      nPRUC:=0
      DO WHILE !EOF() .AND. cIdFirma==IdFirma .and. cIdtarifa==IdTarifa .and. IF(cPojed=="D",cPoDok==IDVD+BRDOK,.t.) .and. IspitajPrekid()
 
         select roba
-	hseek kalk->idroba 
+	hseek kalk->idroba
         select KALK
-	
+
         if lVoSaTa
           // vodi samo tarife
 	  if ! (idvd $ "41#42")
@@ -239,9 +238,9 @@ DO WHILE !EOF() .and. IspitajPrekid()
         else
 
 	  // vodi po artiklima
-	  
+
 	  // prikaz dokumenata IP, a ne robe tipa "T"
-          if cTU=="2" .and.  roba->tip $ "UT"  
+          if cTU=="2" .and.  roba->tip $ "UT"
              skip 1
 	     loop
           endif
@@ -250,7 +249,7 @@ DO WHILE !EOF() .and. IspitajPrekid()
 	     loop
           endif
 
-	 
+
           if pu_i=="I"
 	       	nKolicina:=gKolicin2
 	  else
@@ -270,7 +269,7 @@ DO WHILE !EOF() .and. IspitajPrekid()
 	  if fSaberikol .and. !( roba->K2 = 'X')
 	  	nKI+=nKolicina
 	  endif
-	  if !pu_i=="I"	  
+	  if !pu_i=="I"
           	nPopust+=RabatV*nKolicina
 	  endif
 
@@ -280,7 +279,7 @@ DO WHILE !EOF() .and. IspitajPrekid()
      ENDDO
 
      IF !lVoSaTa
-     
+
 	if prow()>61+gPStranica
 		FF
 	endif
@@ -293,22 +292,22 @@ DO WHILE !EOF() .and. IspitajPrekid()
 	// neslaganja sume poreza sa porezom izracunatim na osnovu ukupnih
 	// nMpv i nMpvSaPP jer se pojedinacno mozda koristi ponegdje limit
 	// a ukupno se koristi uvijek ili ne koristi nikako
-	
+
 	@ prow()+1,0      SAY space(6)+cIdTarifa
 	nCol1:=pcol()+4
 	@ prow(),pcol()+4 SAY n1:=nMPV     PICT   PicDEM
-       
+
 	@ prow(),pcol()+1 SAY aPorezi[POR_PPP] PICT   PicProc
        	@ prow(),pcol()+1 SAY PrPPUMP()    PICT   PicProc
   	@ prow(),pcol()+1 SAY aPorezi[POR_PP] PICT PicProc
-       
+
 	@ prow(),pcol()+1 SAY n4:=nPorez   PICT   PicDEM
 	@ prow(),pcol()+1 SAY n5:=nPorez2  PICT   PicDEM
 	@ prow(),pcol()+1 SAY n6:=nPorez3  PICT   PicDEM
 	@ prow(),pcol()+1 SAY n7:=nPorez+nPorez2+nPorez3  PICTURE   PicDEM
 	@ prow(),pcol()+1 SAY nP:=nPopust PICTURE   PicDEM
 	@ prow(),pcol()+1 SAY n8:=nMPVSAPP PICTURE   PicDEM
-	
+
 	nT1+=n1
 	nT4+=n4
 	nT5+=n5
@@ -316,14 +315,14 @@ DO WHILE !EOF() .and. IspitajPrekid()
 	nTP+=nP
 	nT7+=n7
 	nT8+=n8
-     
-     ENDIF
-  ENDDO 
 
-  
+     ENDIF
+  ENDDO
+
+
   IF !lVoSaTa
     // obracun po artiklima
-    
+
     if prow()>60+gPStranica
     	FF
     endif
@@ -346,7 +345,7 @@ DO WHILE !EOF() .and. IspitajPrekid()
       ? cLine
     endif
   ENDIF
-ENDDO 
+ENDDO
 
 set softseek on
 
@@ -407,7 +406,7 @@ ELSE
       SEEK cPom707
       PRIVATE cTarifa:="", lSubTot6:=.f., cSubTot6:=""
       StampaTabele( aKol , {|| .t.} , , 0 , {|| IdiDo1()} , .t. ,;
-                    , {|| FFor6()} , -1 , .f. , .f. , {|| SubTot6()} , , , .f. , )
+                    , {|| kalk_ffor6()} , -1 , .f. , .f. , {|| kalk_sub_tot6()} , , , .f. , )
       SET ORDER TO TAG "1"
     ELSE
       SEEK cPom707
@@ -426,8 +425,8 @@ return
 
 
 // kreiranje i otvaranje pomocne baze POM.DBF
-function CrePom()
-  select 0      
+static function kalk_Cre_Pom()
+  select 0
   // idi na slobodno podrucje
   cPom:=PRIVPATH+"POM"
   IF FILE(cPom+".DBF") .and. ferase(PRIVPATH+"POM.DBF")==-1
@@ -462,7 +461,7 @@ function CrePom()
   ELSE
     INDEX ON ID+TARIFA TAG "1"
   ENDIF
-  SET ORDER TO TAG "1" 
+  SET ORDER TO TAG "1"
   GO TOP
 
 return .t.
@@ -474,7 +473,7 @@ return (POM->id==cPom707)
 
 
 // For uslov za f-ju StampaTabele() koju poziva RekRPor()
-function FFor6()
+function kalk_ffor6()
 IF TARIFA <> cTarifa .and. LEN(cTarifa)>0
 	lSubTot6:=.t.
    	cSubTot6:=cTarifa
@@ -484,7 +483,7 @@ return .t.
 
 
 // Uslov za subtotal za f-ju StampaTabele() koju poziva RekRPor()
-function SubTot6()
+function kalk_sub_tot6()
 LOCAL aVrati:={.f.,""}
 IF lSubTot6 .or. EOF()
 	aVrati := { .t. , "UKUPNO TARIFA "+IF(EOF(),cTarifa,cSubTot6) }
@@ -507,5 +506,3 @@ else
 	nVrati := nOsnPC * ( 1 - ( nPP+nPPP/(1+nPPP)+nDLRUC*(1-nPP)*nMPP/(1+nMPP) ) )
 endif
 return nVrati
-
-

@@ -287,12 +287,12 @@ LOCAL cMjGod:=""
     M:="------ -------------- --- "+"---- ------- " + REPL("-", __par_len) + " ----------------------------"+IF(gVar1=="1".and.lJerry,"-- "+REPL("-",20),"")+" ----------- -------- -------- --------------- ---------------"+IF(gVar1=="1","-"," ---------- ----------")
   ENDIF
   cMjGod:=STR(MONTH(dDatNal),2)+STR(YEAR(dDatNal),4)
-  Zagl11()
+  fin_zagl_11()
 
   nTSDugBHD:=nTSPotBHD:=nTSDugDEM:=nTSPotDEM:=0   // tekuca strana
 
   DO WHILE !EOF()
-    IF prow()<6; Zagl11(); endif    // prow()<6 => nije odstampano zaglavlje
+    IF prow()<6; fin_zagl_11(); endif    // prow()<6 => nije odstampano zaglavlje
     cIdFirma := IDFIRMA
     cIdVN    := IDVN
     cBrNal   := BRNAL
@@ -301,7 +301,7 @@ LOCAL cMjGod:=""
       // zavr�i stranu
       PrenosDNal()
       // stampaj zaglavlje (nova stranica)
-      Zagl11()
+      fin_zagl_11()
     ENDIF
     cMjGod:=STR(MONTH(dDatNal),2)+STR(YEAR(dDatNal),4)
     SELECT SUBAN

@@ -3129,7 +3129,7 @@ else
     	Boxc()
 endif
 
-CrePom( nil, __par_len)  // kreiraj pomocnu bazu
+fin_cre_pom( nil, __par_len)  // kreiraj pomocnu bazu
 
 O_TRFP2
 O_SUBAN

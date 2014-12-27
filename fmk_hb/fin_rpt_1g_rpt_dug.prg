@@ -108,7 +108,7 @@ ELSE
     	Boxc()
 ENDIF
 
-CrePom(, __par_len)  // kreiraj pomocnu bazu
+fin_cre_pom(, __par_len)  // kreiraj pomocnu bazu
 
 gaZagFix:={4,5}
 
