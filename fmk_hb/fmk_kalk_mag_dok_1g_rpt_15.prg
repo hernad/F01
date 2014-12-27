@@ -204,7 +204,7 @@ ENDIF
 ? m
 
 nTot5:=nTot6:=nTot7:=0
-RekTarife()
+kalk_rekap_tarife()
 
 IF g11bezNC=="D"
   ? "RUC MP:";  @ prow(),pcol()+1 SAY nTot5-nTot6 pict picdem

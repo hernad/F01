@@ -1175,7 +1175,7 @@ if gRekTar=="D" .and. (gVarC="X" .or. cidtipdok=="13")
    set relation to idroba into roba
    index on roba->idtarifa  to fakttar2 for &cFilTarifa
    P_COND
-   RekTarife()
+   fakt_rekap_tarife()
    select pripr
    
    // azurirana faktura

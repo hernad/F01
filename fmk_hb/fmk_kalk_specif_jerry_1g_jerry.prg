@@ -122,7 +122,7 @@ if prow()>61+gPStranica; FF; @ prow(),125 SAY "Str:"+str(++nStr,3); endif
 ? m
 
 ?
-Rektarife()
+kalk_rekap_tarife()
 
 ?
 P_10CPI
@@ -497,7 +497,7 @@ endif
 
 nTot1:=nTot2:=nTot2b:=nTot3:=nTot4:=0
 nTot5:=nTot6:=nTot7:=0
-RekTarife()
+kalk_rekap_tarife()
 ? "RUC:";  @ prow(),pcol()+1 SAY nTot6 pict picdem
 ? m
 

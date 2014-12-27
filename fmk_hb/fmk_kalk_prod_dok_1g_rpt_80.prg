@@ -221,7 +221,7 @@ endif
 
 DokNovaStrana(125, @nStr, 8)
 nRec:=recno()
-RekTarife()
+kalk_rekap_tarife()
 
 // potpis na dokumentu
 dok_potpis( 90, "L", nil, nil )

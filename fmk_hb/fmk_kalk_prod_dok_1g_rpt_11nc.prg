@@ -218,7 +218,7 @@ ENDIF
 @ prow(),pcol()+1   SAY  nTot7        picture        PicDEM
 ? m
 
-Rektarife()
+kalk_rekap_tarife()
 
 ? "RUC:";  @ prow(),pcol()+1 SAY nTot6 pict picdem
 ? m

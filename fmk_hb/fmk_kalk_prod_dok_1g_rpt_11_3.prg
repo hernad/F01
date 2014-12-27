@@ -151,7 +151,7 @@ if prow()>61+gPStranica; FF; @ prow(),180 SAY "Str:"+str(++nStr,3); endif
 ? m
 
 gPStranica:=gPStranica+6
-RekTarife()
+kalk_rekap_tarife()
 gPStranica:=gPStranica-6
 
 return

@@ -146,7 +146,7 @@ DokNovaStrana(125, @nStr, 3)
 ? m
 
 ?
-Rektarife()
+kalk_rekap_tarife()
 
 PrnClanoviKomisije()
 return

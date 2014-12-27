@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -15,11 +15,11 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  *
  */
- 
+
 
 /*! \file fmk/kalk/prod/dok/1g/frm_ip.prg
  *   Maska za unos i generisanje dokumenta tipa IP
@@ -97,7 +97,7 @@ do while !eof() .and. cidfirma+cidkonto+cidroba==idFirma+pkonto+idroba
     nMPVI+=mpcsapp*kolicina
     nNVI+=nc*kolicina
 
-  elseif pu_i=="5"  .and. (idvd $ "12#13#22")    
+  elseif pu_i=="5"  .and. (idvd $ "12#13#22")
     // povrat
     nUlaz-=kolicina
     nMPVU-=mpcsapp*kolicina
@@ -197,18 +197,18 @@ select kalk
 hseek cIdFirma + cIdKonto
 do while !eof() .and. cIdFirma + cIdKonto == idfirma + pkonto
 	cIdRoba:=Idroba
-	
+
 	select pript
 	set order to tag "2"
 	hseek cIdFirma+"IP"+cOldBrDok+cIdRoba
-	
-	// ako nadjes dokument u pript prekoci ga u INVENTURI!!!	
+
+	// ako nadjes dokument u pript prekoci ga u INVENTURI!!!
 	if Found()
 		select kalk
 		skip
 		loop
 	endif
-	
+
 	nUlaz:=nIzlaz:=0
 	nMPVU:=nMPVI:=nNVU:=nNVI:=0
 	nRabat:=0
@@ -224,7 +224,7 @@ do while !eof() .and. cIdFirma + cIdKonto == idfirma + pkonto
       			skip
       			loop
   		endif
-		
+
 		if pu_i=="1"
     			nUlaz+=kolicina-GKolicina-GKolicin2
     			nMPVU+=mpcsapp*kolicina
@@ -233,7 +233,7 @@ do while !eof() .and. cIdFirma + cIdKonto == idfirma + pkonto
     			nIzlaz+=kolicina
     			nMPVI+=mpcsapp*kolicina
     			nNVI+=nc*kolicina
-  		elseif pu_i=="5"  .and. (idvd $ "12#13#22")    
+  		elseif pu_i=="5"  .and. (idvd $ "12#13#22")
     			// povrat
     			nUlaz-=kolicina
     			nMPVU-=mpcsapp*kolicina
@@ -361,7 +361,7 @@ private aPorezi:={}
  if lKoristitiBK
  	_idRoba:=Left(_idRoba,10)
  endif
- 
+
  IF !empty(gMetodaNC)
     KNJIZST()
  ENDIF
@@ -403,5 +403,3 @@ if (glZabraniVisakIP)
 	endif
 endif
 return lMoze
-
-

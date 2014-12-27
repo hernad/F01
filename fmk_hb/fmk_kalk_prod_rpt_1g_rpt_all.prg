@@ -27,11 +27,11 @@
 
 
 
-/*!  RekTarife()
+/*!  kalk_rekap_tarife()
  *   Nova funkcija RekTarife - koristi proracun poreza iz roba/tarife.prg
  * prosljedjuje se cidfirma,cidvd,cbrdok
  */
-function RekTarife(lVisak)
+function kalk_rekap_tarife(lVisak)
 if IsPDV()
 	RekTarPDV()
 else

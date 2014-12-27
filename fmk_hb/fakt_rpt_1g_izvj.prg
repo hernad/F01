@@ -12,7 +12,7 @@
 
 #include "fakt01.ch"
 
-
+/*
 function RedniBroj(nRbr)
 
 local nOst
@@ -22,7 +22,7 @@ if nRbr>999
 else
     return str(nRbr,3)
 endif
-
+*/
 
 /*
 

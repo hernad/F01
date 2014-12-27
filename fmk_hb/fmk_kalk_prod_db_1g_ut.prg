@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -15,10 +15,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
- 
+
 
 /*! \file fmk/kalk/prod/db/1g/ut.prg
  *   Razne funkcije
@@ -52,17 +52,17 @@ endif
 if  (_Marza2==0) .and. !lNaprijed
 
 	nMarza2:= _MPC - _VPC - nPrevMP
-	
+
 	if _TMarza2=="%"
 		if round( _VPC,5 ) <>0
 			_Marza2:=100*( _MPC / (_VPC+nPrevMP) - 1)
 		else
 			_Marza2:=0
 		endif
-		
+
 	elseif _TMarza2=="A"
 		_Marza2:=nMarza2
-		
+
 	elseif _TMarza2=="U"
 		_Marza2:=nMarza2*(_Kolicina)
 	endif
@@ -76,7 +76,7 @@ elseif (_MPC==0) .or. lNaprijed
 	elseif _TMarza2 == "U"
 		nMarza2 := _Marza2/(_Kolicina)
 	endif
-	
+
 	_MPC:=round(nMarza2 + _VPC, 2)
 
         _MpcSaPP := round( MpcSaPor( _mpc, aPorezi), 2)
@@ -131,17 +131,17 @@ endif
 
 if  _Marza2==0 .and. empty(fmarza)
 	nMarza2:=_MPC - _VPC - nPrevMP
-	
+
 	if _TMarza2=="%"
 		if round(_vpc,5)<>0
 			_Marza2:=100*( _MPC / (_VPC+nPrevMP) - 1)
 		else
 			_Marza2:=0
 		endif
-		
+
 	elseif _TMarza2=="A"
 		_Marza2:=nMarza2
-		
+
 	elseif _TMarza2=="U"
 		_Marza2:=nMarza2*(_Kolicina)
 	endif
@@ -156,7 +156,7 @@ elseif _MPC==0 .or. !empty(fMarza)
 		nMarza2:=_Marza2 / (_Kolicina)
 	endif
 	_MPC:=round(nMarza2+_VPC, 2)
-	
+
 	if !empty(fMarza)
 	     _MpcSaPP := round( MpcSaPor(_mpc, aPorezi), 2)
 	endif
@@ -290,7 +290,7 @@ return
 
 
 /*!  Marza2R()
- *   Marza pri realizaciji prodavnice 
+ *   Marza pri realizaciji prodavnice
  */
 
 function MarzaMpR()
@@ -323,9 +323,9 @@ elseif (_MPC==0)
   elseif _TMarza2=="U"
      nMarza2:=_Marza2/(_Kolicina)
   endif
-  
+
   _MPC := nMarza2+ _NC + _RabatV
-  
+
 else
  nMarza2:= nMpcSaPop -_NC
 endif
@@ -372,7 +372,7 @@ return
 
 
 /*!  UzmiMPCSif()
- *  
+ *
  */
 
 function UzmiMPCSif()
@@ -407,9 +407,9 @@ local lIsteCijene
 IF lUpit==nil
  	lUpit:=.f.
 ENDIF
- 
+
 private cMpc := ""
-do case 
+do case
   case koncij->naz=="M2"
       cMpc := "mpc2"
   case koncij->naz=="M3"
@@ -431,7 +431,7 @@ endif
 
 
 lIsteCijene := (ROUND(roba->(&cMpc), 4) == ROUND(nCijena, 4))
-	
+
 if lIsteCijene
 	// iste cijene nemam sta mijenjati
 	return .f.
@@ -463,7 +463,7 @@ return lRet
 
 
 /*!  V_KolPro()
- *  
+ *
  */
 
 function V_KolPro()
@@ -493,7 +493,7 @@ return .t.
 
 
 /*!  StanjeProd(cKljuc,ddatdok)
- *  
+ *
  */
 
 function StanjeProd(cKljuc,ddatdok)
@@ -527,5 +527,3 @@ function StanjeProd(cKljuc,ddatdok)
    SKIP 1
  ENDDO
 return (nUlaz-nIzlaz)
-
-

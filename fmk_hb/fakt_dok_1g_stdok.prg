@@ -937,11 +937,7 @@ use
 return
 
 
-
-/*!  RbrUNum(cRBr)
- *
- *   cRBr
- */
+/*
 
 function RbrUNum(cRBr)
 
@@ -950,7 +946,7 @@ if left(cRbr,1)>"9"
 else
    return val(cRbr)
 endif
-
+*/
 
 
 /*!  GetRtmFile(cDefRtm)

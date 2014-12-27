@@ -585,7 +585,7 @@ if cRTarifa=="D" .and. empty(cImeKup) .and. qqTipDok $ "11#13#27"  // racun malo
     cpmp:="9"
   ENDIF
 
-  RekTarife(cPMP)
+  fakt_rekap_tarife(cPMP)
   select fakt; use
 endif
 
@@ -1403,14 +1403,14 @@ return nRet
 
 
 
-/*!  RekTarife(cPMP,cRegion)
+/*!  fakt_rekap_tarife(cPMP,cRegion)
  *   Rekapitulacija po tarifama
  *  \todo Prebaciti u /RPT
  *   cPMP
  *   cRegion
  */
 
-function RekTarife(cPMP,cRegion)
+function fakt_rekap_tarife(cPMP,cRegion)
 
 // prosljedjuje cidfirma,cidvd,cbrdok
 local nArea:=select()

@@ -236,10 +236,10 @@ endif
 ? m
 
 // Visak
-RekTarife(.t.)
+kalk_rekap_tarife(.t.)
 
 // Manjak
-RekTarife(.f.)
+kalk_rekap_tarife(.f.)
 
 if !fZaTops
 	?
