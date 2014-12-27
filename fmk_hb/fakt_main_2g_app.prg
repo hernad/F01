@@ -131,10 +131,10 @@ endif
 AADD(opc,"2. izvjestaji")
 AADD(opcexe,{|| Izvj()})
 AADD(opc,"3. pregled dokumenata")
-AADD(opcexe,{|| MBrDoks()})
+AADD(opcexe,{|| fakt_meni_dokumenti()})
 AADD(opc,"4. generacija dokumenata")
 if (ImaPravoPristupa(goModul:oDataBase:cName,"DOK","GENDOK"))
-	AADD(opcexe,{|| MGenDoks()})
+	AADD(opcexe,{|| fakt_meni_gen_dokumenti()})
 else
 	AADD(opcexe,{|| MsgBeep(cZabrana)})
 endif
@@ -151,7 +151,7 @@ else
 	AADD(opcexe,{|| MsgBeep(cZabrana)})
 endif
 AADD(opc,"7. ostale operacije nad dokumentima")
-AADD(opcexe,{|| MAzurDoks()})
+AADD(opcexe,{|| fakt_meni_ostale_operacije_dokumenti()})
 AADD(opc,"------------------------------------")
 AADD(opcexe,{|| nil})
 AADD(opc,"8. sifrarnici")

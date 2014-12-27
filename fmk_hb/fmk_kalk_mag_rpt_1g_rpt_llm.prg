@@ -1091,7 +1091,7 @@ if fPocStanje
    select pripr
    zap
  else
-   RenumPripr(cBrPst,"16")
+   kalk_renum_priprema(cBrPst,"16")
  endif
 endif
 

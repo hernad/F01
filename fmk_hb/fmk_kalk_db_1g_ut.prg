@@ -426,11 +426,11 @@ return
 
 
 
-/*!  RenumPripr(cDok,cidvd)
+/*!  kalk_renum_priprema(cDok,cidvd)
  *   Prenumerisanje stavki zadanog dokumenta u pripremi
  */
 
-function RenumPripr(cDok,cidvd)
+function kalk_renum_priprema(cDok,cidvd)
 
 select pripr
 set order to 0
@@ -751,72 +751,6 @@ return
 
 
 
-/*!  Preduzece()
- *   Ispis naziva preduzeca/firme
- */
-
-function Preduzece()
-
-P_INI
-P_10CPI
-P_B_ON
-?? space(8), replicate("-",31)
-? space(8),gTS+": "+gNFirma
-? space(8), replicate("-",31)
-B_OFF
-?
-?
-return
-
-
-
-
-/*!  ImaUKumul(cKljuc,cTag)
- *   Ispituje postojanje zadanog kljuca u zadanom indeksu kumulativa KALK
- */
-
-function ImaUKumul(cKljuc,cTag)
-
- local lVrati:=.f.
- local lUsed:=.t.
- local nArr:=SELECT()
-  SELECT (F_KALK)
-  IF !USED()
-    lUsed:=.f.
-    O_KALK
-  ELSE
-    PushWA()
-  ENDIF
-  IF !EMPTY(INDEXKEY(VAL(cTag)+1))
-    SET ORDER TO TAG (cTag)
-    seek cKljuc
-    lVrati:=found()
-  ENDIF
-  IF !lUsed
-    USE
-  ELSE
-    PopWA()
-  ENDIF
-  select (nArr)
-return lVrati
-
-
-
-
-/*  UkupnoKolP(nTotalUlaz, nTotalIzlaz)
- *  Obracun kolicine za prodavnicu
- * \note funkciju staviti unutar petlje koja prolazi kroz kalk
- * \code
- *    nUlazKP:=0
- *    nIzlazKP:=0
- *    do while .t.
- *      SELECT KALK
- *      UkupnoKolP(@nUlazKP,@nIzlazKP)
- *      SKIP
- *    enddo
- *    ? nUlazKP, nIzlazKP
- * \endcode
- */
 
 function UkupnoKolP(nTotalUlaz, nTotalIzlaz)
 

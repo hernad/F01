@@ -43,11 +43,11 @@
  *   Meni opcija za generisanje dokumenata za modul FAKT
  */
 
-/*!  MGenDoks()
+/*!  fakt_meni_gen_dokumenti()
  *   Meni opcija za generisanje dokumenata za modul FAKT
  */
 
-function MGenDoks()
+function fakt_meni_gen_dokumenti()
 
 private Opc:={}
 private opcexe:={}

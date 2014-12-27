@@ -874,13 +874,13 @@ return nRet
 
 
 
-/*!  RenumPripr(cVezOtpr,dNajnoviji)
+/*!  fakt_renum_priprema(cVezOtpr,dNajnoviji)
  *
  *   cVezOtpr
  *   dNajnoviji - datum posljednje radjene otpremnice
  */
 
-function RenumPripr(cVezOtpr,dNajnoviji)
+function fakt_renum_priprema(cVezOtpr,dNajnoviji)
 
 //poziva se samo pri generaciji otpremnica u fakturu
 local dDatDok
@@ -2753,6 +2753,7 @@ return (nil)
 
 // Zagfirma()
 // Ispis zaglavlja na izvjestajima
+
 function ZagFirma()
 ?
 P_12CPI
@@ -2768,23 +2769,8 @@ I_OFF
 return
 
 
-/*!  NazProdObj()
- *   Naziv prodajnog objekta
- */
-
-function NazProdObj()
-
-local cVrati:=""
-
-cVrati:=TRIM(cTxt3a)
-SELECT PRIPR
-return cVrati
-
-
-
-
 /*!  EdDoks2()
- *   Editovanje DOKS2.DBF pri unosu fakture
+ *   Editovanje DOKS2 pri unosu fakture
  */
 
 function EdDoks2()

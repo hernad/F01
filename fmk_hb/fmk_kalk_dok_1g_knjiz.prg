@@ -1526,11 +1526,7 @@ return
 
 
 
-
-/*!  ZagFirma()
- *   Ispisuje zaglavlje firme/preduzeca
- */
-
+/*
 function ZagFirma()
 
 P_12CPI
@@ -1553,7 +1549,7 @@ U_OFF
 ?
 ?
 return
-
+*/
 
 
 

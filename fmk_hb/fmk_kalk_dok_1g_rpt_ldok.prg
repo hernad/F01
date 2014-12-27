@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,10 +14,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/kalk/dok/1g/rpt_ldok.prg,v $
- * $Author: mirsad $ 
+ * $Author: mirsad $
  * $Revision: 1.5 $
  * $Log: rpt_ldok.prg,v $
  * Revision 1.5  2003/07/21 08:35:07  mirsad
@@ -56,7 +56,7 @@ private qqTipDok
 private ddatod,ddatdo
 O_DOKS
 if reccount2()==0
- GenDoks()
+ kalk_gen_dokumenti()
 endif
 close all
 SStDoks()
@@ -209,7 +209,7 @@ do while !eof() .and. IdFirma=cIdFirma
   @ prow(),pcol()+1 SAY str(vpv,12,2)
   @ prow(),pcol()+1 SAY str(rabat,12,2)
   @ prow(),pcol()+1 SAY str(mpv,12,2)
-  
+
   if fieldpos("sifra")<>0
     @ prow(),pcol()+1 SAY padr(iif(empty(sifra),space(2),left(CryptSC(sifra),2)),6)
   endif
@@ -260,11 +260,11 @@ return
 
 
 
-/*!  GenDoks()
+/*!  kalk_gen_dokumenti()
  *   Generisanje tabele DOKS na osnovu tabele KALK
  */
 
-function GenDoks()
+function kalk_gen_dokumenti()
 
 O_KALK
 
@@ -333,4 +333,3 @@ do while !eof()
 enddo
 
 return
-

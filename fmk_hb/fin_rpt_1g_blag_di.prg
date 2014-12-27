@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,7 +14,7 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  *
  */
@@ -25,7 +25,7 @@
 /*!  Blagajna()
  *   Blagajna dnevni izvjestaj
  */
- 
+
 function Blagajna()
 
 local nRbr,nCOpis:=0,cOpis:=""
@@ -233,7 +233,7 @@ do while !eof() .and. idfirma==cIdfirma .and. idkonto==cIdkonto .and. datnal<=dD
      nDugSt+=dugdem
      nPotSt+=potdem
    endif
-   
+
    skip
 enddo
 ? m
@@ -303,144 +303,6 @@ return
 
 
 
-/*!  Slovima(nIzn,cDinDem)
- *   Ispisuje neki iznos nIzn slovima
- *   nIzn    - iznos
- *   cDinDem - domaca/strana valuta
- */
- 
-function Slovima(nIzn,cDinDem)
-
-local nPom; cRez:=""
-fI:=.f.
-
-if nIzn<0
-  nIzn:=-nIzn
-  cRez:="negativno:"
-endif
-
-if (nPom:=int(nIzn/10**9))>=1
-   if nPom==1
-     cRez+="milijarda"
-   else
-     Stotice(nPom,@cRez,.f.,.t.,cDinDEM)
-      if right(cRez,1) $ "eiou"
-        cRez+="milijarde"
-      else
-        cRez+="milijardi"
-     endif
-   endif
-   nIzn:=nIzn-nPom*10**9
-   fi:=.t.
-endif
-if (nPom:=int(nIzn/10**6))>=1
-   if fi; cRez+="i"; endif
-   fi:=.t.
-   if nPom==1
-     cRez+="milion"
-   else
-     Stotice(nPom,@cRez,.f.,.f.,cDINDEM)
-     cRez+="miliona"
-   endif
-   nIzn:=nIzn-nPom*10**6
-   f6:=.t.
-endif
-if (nPom:=int(nIzn/10**3))>=1
-   if fi; cRez+="i"; endif
-   fi:=.t.
-   if nPom==1
-     cRez+="hiljadu"
-   else
-     Stotice(nPom,@cRez,.f.,.t.,cDINDEM)
-     if right(cRez,1) $ "eiou"
-       cRez+="hiljade"
-     else
-       cRez+="hiljada"
-     endif
-   endif
-   nIzn:=nIzn-nPom*10**3
-endif
-if fi .and. nIzn>=1; cRez+="i"; endif
-Stotice(nIzn,@cRez,.t.,.t.,cDINDEM)
-return
-
-
-
-
-/*! \todo Ova funkcija vec postoji i u fakt-u treba je prebaciti u /sclib 
- */
-
-/*!  Stotice(nIzn,cRez,fDecimale,fMnozina,cDinDem)
- *   
- *   nIzn
- *   cRez
- *   fDecimale
- *   fMnozina
- *   cDinDem
- */
- 
-function Stotice(nIzn,cRez,fDecimale,fMnozina,cDinDem)
-
-local fDec,fSto:=.f.
-
-if (nPom:=int(nIzn/100))>=1
-   aSl:={ "stotinu", "dvijestotine", "tristotine", "~etiristotine",;
-          "petstotina","{eststotina","sedamstotina","osamstotina","devetstotina"}
-   cRez+=aSl[nPom]
-   nIzn:=nIzn-nPom*100
-   fSto:=.t.
-endif
-
-fDec:=.f.
-do while .t.
-if int(nIzn)>10 .and. int(nIzn)<20
-   aSl:={ "jedanest", "dvanest", "trinest", "~etrnest",;
-          "petnest","{esnest","sedamnest","osamnest","devetnest"}
-   cRez+=aSl[int(nIzn)-10]
-   nIzn:=nIzn-int(nIzn)
-endif
-if (nPom:=int(nIzn/10))>=1
-   aSl:={ "deset", "dvadeset", "trideset", "~etrdeset",;
-          "pedeset","{ezdeset","sedamdeset","osamdeset","devedeset"}
-   cRez+=aSl[nPom]
-   nIzn:=nIzn-nPom*10
-endif
-if (nPom:=int(nIzn))>=1
-    aSl:={ "jedan", "dva", "tri", "~etiri",;
-           "pet","{est","sedam","osam","devet"}
-   if fmnozina
-        aSl[1]:="jedna"
-        aSl[2]:="dvije"
-   endif
-   cRez+=aSl[nPom]
-   nIzn:=nIzn-nPom
-endif
-
-if !fDecimale; exit; endif
-
-if fdec; cRez+="/100"; exit; endif
-fDec:=.t.
-fMnozina:=.f.
-nizn:=round(nIzn*100,0)
-if nizn>0
- if !empty(cRez)
-  cRez+=" "+cDINDEM+" i "
- endif
-else
- if empty(cRez)
-  cRez:="nula "+ValPomocna()
- else
-  cRez+=" "+cDINDEM
- endif
- exit
-endif
-enddo
-
-
-return cRez
-
-
-
 // stampa blagajne na osnovu azuriranog dokumenta
 function blag_azur()
 
@@ -473,16 +335,16 @@ Box(,4,60)
 	cIdFirma := gFirma
 	cTipDok := SPACE(2)
 	cBrDok := SPACE(8)
-	
+
 	@ m_x+2,m_Y+2 SAY "Dokument:" GET cIdFirma VALID !EMPTY(cIdFirma)
 	@ m_x+2,m_Y+15 SAY "-" GET cTipDok VALID !EMPTY(cTipDok)
 	@ m_x+2,m_Y+20 SAY "-" GET cBrDok VALID !EMPTY(cBrDok)
-	
+
 	read
 
 	// precesljaj dokument radi konta i datuma, pa ponudi
 	dat_kto_blag(@dDatDok, @cIdKonto, cIdFirma, cTipDok, cBrDok)
-	
+
 	@ m_x+3,m_Y+2 SAY "Datum:" GET dDatDok
  	@ m_x+4,m_Y+2 SAY "Konto blagajne:" GET cIdKonto valid P_Konto(@cIdKonto)
  	read
@@ -532,7 +394,7 @@ do while !eof() .and. field->idfirma == cIdFirma .and. field->idvn == cTipDok .a
         			loop
       			else
         			if nPomD<>0 .and. d_p=="2" .or. nPomP<>0 .and. d_p=="1"
-          				// ovo se moze desiti ako su iste 
+          				// ovo se moze desiti ako su iste
 					// temeljnice za naplatu i isplatu
           				exit
         			endif
@@ -559,15 +421,15 @@ do while !eof() .and. field->idfirma == cIdFirma .and. field->idvn == cTipDok .a
     		IF PROW() > 49+gPStranica-nStavki
       			PZagBlag(nDug,nPot,m,cBrDok,pici,cDinDem,dDatDok)
     		ENDIF
-		
+
     		? "    *", str(++nRbr, 3) + ". *"
-    		
+
 		if nPomD<>0
       			?? " " + cBrDok2 + " *" + space(12) + "*"
     		else
       			?? space(12) + "* " + padr(cBrDok2, 11) + "*"
     		endif
-		
+
     		nCOpis:=pcol()+1
     		?? " "+PADR(cOpis,20)
     		nCol1:=pcol()+1

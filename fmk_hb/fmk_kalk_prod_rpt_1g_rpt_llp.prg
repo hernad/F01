@@ -644,7 +644,7 @@ if lPocStanje
    		select pripr
    		zap
  	else
-   		RenumPripr(cBrPSt,"80")
+   		kalk_renum_priprema(cBrPSt,"80")
  	endif
 endif
 

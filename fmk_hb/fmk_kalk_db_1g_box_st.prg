@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,10 +14,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/kalk/db/1g/box_st.prg,v $
- * $Author: mirsad $ 
+ * $Author: mirsad $
  * $Revision: 1.2 $
  * $Log: box_st.prg,v $
  * Revision 1.2  2002/06/18 14:02:38  mirsad
@@ -114,11 +114,7 @@ BoxStanje(aStanje, cIdRoba)      // nUl,nIzl
 return
 
 
-
-
-/*!  BoxStanje(aStanje,cIdRoba)
- *   Prikaz stanja robe
- */
+/*
 
 function BoxStanje(aStanje,cIdroba)
 
@@ -226,3 +222,4 @@ local picdem:="9999999.999", nR, nC, nTSta := 0, nTUl := 0, nTIzl := 0,;
  //PopWa()
 return
 
+*/

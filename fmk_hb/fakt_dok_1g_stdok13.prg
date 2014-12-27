@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,7 +14,7 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
 
@@ -172,7 +172,7 @@
 /*!  StDok13()
  *   Stampa dokumenta tipa 13
  */
- 
+
 function StDok13()
 
 PARAMETERS cIdFirma,cIdTipDok,cBrDok
@@ -476,13 +476,13 @@ CLOSERET
 /*!  NadjiVr()
  *   Nadji vrijednost
  */
- 
+
 function NadjiVr()
 
 local nPor
 
 // Nastimaj (hseek) Sifr.Robe Na Pripr->IdRoba
-NSRNPIdRoba()   
+NSRNPIdRoba()
 aPorezi:={}
 SELECT PRIPR
 PushWa()
@@ -525,34 +525,11 @@ return
 
 
 
-/*!  BrDecimala(cFormat)
- *   
- *   cFormat
- *  \return nVrati
- */
- 
-function BrDecimala(cFormat)
-
-local i:=0,cPom,nVrati:=0
- i:=AT(".",cFormat)
- if i!=0
-   cPom:=ALLTRIM(SUBSTR(cFormat,i+1))
-   FOR i:=1 TO LEN(cPom)
-     if SUBSTR(cPom,i,1)=="9"
-       nVrati+=1
-     else
-       EXIT
-     endif
-   NEXT
- endif
-return nVrati
-
-
 
 /*!  Rob13Naz()
- *   Naziv robe 
+ *   Naziv robe
  */
- 
+
 function Rob13Naz()
 
 if fPBarkod
@@ -566,7 +543,7 @@ endif
 /*!  StDok13s()
  *   Stampa otpremnice - Opresa magacin stampe
  */
- 
+
 function StDok13s()
 
 PARAMETERS cIdFirma,cIdTipDok,cBrDok
@@ -820,7 +797,7 @@ if !lSSIP99
 	gRPL_normal()
   	FF
 else
-	if IzFmkIni("STAMPA", "JednaDostavnica","N",PRIVPATH)=="N" 
+	if IzFmkIni("STAMPA", "JednaDostavnica","N",PRIVPATH)=="N"
   		++nDokumBr
   		if nDokumBr%3==0
     			FF
@@ -842,10 +819,10 @@ CLOSERET
 
 
 /*!  GetRegion()
- *   
+ *
  *  \return cRegion
  */
- 
+
 function GetRegion()
 
 local cRegion:=" "
@@ -870,6 +847,3 @@ local lPom
 lPom:=cIdFirma+cIdTipDok+cBrDok==pripr->IdFirma+pripr->IdTipDok+pripr->brDok
 
 return lPom
-
-
-

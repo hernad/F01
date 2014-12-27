@@ -523,7 +523,7 @@ if reccount2() == 0
       
       select pripr
       
-      RenumPripr( cVezOtpr, dNajnoviji )
+      fakt_renum_priprema( cVezOtpr, dNajnoviji )
 
       select doks
       set order to 1
