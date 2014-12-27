@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -16,7 +16,7 @@
 // -------------------------------------------
 // realizacija vp po partnerima
 // -------------------------------------------
-function RealPartn()
+function kalk_realizacija_partner()
 local nT0:=nT1:=nT2:=nT3:=nT4:=0
 local nCol1:=0
 local nPom
@@ -56,13 +56,13 @@ Box(,8,70)
   @ m_x+4,col()+1 SAY "do" GET dDat2
 
   @ m_x+6,m_y+2 SAY "Partneri:" GET qqPartn pict "@!S40"
-  
+
   if IsVindija()
   	@ m_x+8,m_y+2 SAY "Opcine:" GET cOpcine pict "@!S40"
   endif
-  
+
   read
-  
+
   ESC_BCR
 
   aUslP:=Parsiraj(qqPartn,"Idpartner")
@@ -106,23 +106,23 @@ seek cIdFirma + cIdkonto
 
 nVPV:=nNV:=nVPVBP:=nPRUC:=nPP:=nZarada:=nRabat:=0
 nRuc:=0
-nNivP:=nNivS:=0             
+nNivP:=nNivS:=0
 // nivelacija povecanje, snizenje
 nUlazD:=nUlazND:=0
-nUlazO:=nUlazNO:=0 
+nUlazO:=nUlazNO:=0
 // ostali ulazi
-nUlazPS:=nUlazNPS:=0  
+nUlazPS:=nUlazNPS:=0
 // pocetno stanje
-nIzlazP:=nIzlazNP:=0  
+nIzlazP:=nIzlazNP:=0
 // izlazi prodavnica
-nIzlazO:=nIzlazNO:=0  
+nIzlazO:=nIzlazNO:=0
 // ostali izlazi
 
 DO WHILE !EOF() .and. idfirma==cidfirma .and. cidkonto=mkonto .and. IspitajPrekid()
 
 	nPaNV:=nPaVPV:=nPaPruc:=nPaRuc:=nPaPP:=nPaZarada:=nPaRabat:=0
   	cIdPartner:=idpartner
-  
+
   	//Vindija - ispitaj opcine za partnera
   	if IsVindija() .and. !Empty(cOpcine)
   		select partn
@@ -134,7 +134,7 @@ DO WHILE !EOF() .and. idfirma==cidfirma .and. cidkonto=mkonto .and. IspitajPreki
 		endif
 		select kalk
   	endif
-  
+
   	do WHILE !EOF() .and. idfirma==cidfirma .and. idpartner==cidpartner  .and. cidkonto=mkonto .and. IspitajPrekid()
 
    		select roba
@@ -144,14 +144,14 @@ DO WHILE !EOF() .and. idfirma==cidfirma .and. cidkonto=mkonto .and. IspitajPreki
    		select kalk
 
    		if idvd = "14"
-     			
+
 			if aUslp<>".t." .and. ! &aUslP
         			skip
 				loop
      			endif
 
      			VtPorezi()
-     
+
      			nVPVBP := nVPV / (1 + _PORVT)
      			nPaNV += round( NC*kolicina  , gZaokr)
      			nPaVPV += round( VPC*(Kolicina), gZaokr)
@@ -161,8 +161,8 @@ DO WHILE !EOF() .and. idfirma==cidfirma .and. cidkonto=mkonto .and. IspitajPreki
 			nPom := VPC * (1-RabatV/100) - NC
      			nPaRuc += round(nPom*Kolicina,gZaokr)
 
-     			if nPom > 0   
-				// porez na ruc se obracunava 
+     			if nPom > 0
+				// porez na ruc se obracunava
 				// samo ako je pozit. razlika
       				if gVarVP=="1"
          				nPaPRUC+=round(nPom*Kolicina*tarifa->VPP/100,gZaokr)
@@ -180,11 +180,11 @@ DO WHILE !EOF() .and. idfirma==cidfirma .and. cidkonto=mkonto .and. IspitajPreki
        				nNivS+=vpc*kolicina
      			endif
 
-   		elseif idvd $ "11#12#13"  
+   		elseif idvd $ "11#12#13"
 			//prodavnica
       			nIzlazNP += round(NC*(Kolicina-GKolicina-GKolicin2), gZaokr)
       			nIzlazP += round(VPC*(Kolicina-GKolicina-GKolicin2), gZaokr)
-   		elseif mu_i == "2"  
+   		elseif mu_i == "2"
 			// ostali izlazi
       			nIzlazNO += round(NC*(Kolicina-GKolicina-GKolicin2), gZaokr)
       			nIzlazO += round(VPC*(Kolicina-GKolicina-GKolicin2), gZaokr)
@@ -192,9 +192,9 @@ DO WHILE !EOF() .and. idfirma==cidfirma .and. cidkonto=mkonto .and. IspitajPreki
       			nUlazND += round(NC*(Kolicina-GKolicina-GKolicin2), gZaokr)
       			nUlazD += round(VPC*(Kolicina-GKolicina-GKolicin2), gZaokr)
 
-   		elseif mu_i == "1"  
+   		elseif mu_i == "1"
 			//ostali ulazi
-      			if day(datdok)=1 .and. month(datdok)=1 
+      			if day(datdok)=1 .and. month(datdok)=1
 				// datum 01.01
         			nUlazNPS += round(NC*(Kolicina-GKolicina-GKolicin2), gZaokr)
         			nUlazPS += round(VPC*(Kolicina-GKolicina-GKolicin2), gZaokr)
@@ -208,7 +208,7 @@ DO WHILE !EOF() .and. idfirma==cidfirma .and. cidkonto=mkonto .and. IspitajPreki
   	enddo
 
 	if IsPDV()
-		nPaZarada := nPaVPV - nPaNV 
+		nPaZarada := nPaVPV - nPaNV
 	else
 		nPaZarada := nPaRuc - nPaPRUC
 	endif
@@ -225,18 +225,18 @@ DO WHILE !EOF() .and. idfirma==cidfirma .and. cidkonto=mkonto .and. IspitajPreki
   	select partn
   	hseek cIdPartner
   	select kalk
-  
+
   	? space(2), cIdPartner, PADR(partn->naz, 25)
-  
+
   	nCol1 := pcol()+1
-  
+
   	@ prow(), nCol1    SAY nPaNV   pict gpicdem
   	@ prow(), pcol()+1 SAY nPaRUC  pict gpicdem
-  
+
   	if !IsPDV()
   		@ prow(), pcol()+1 SAY nPaPRuc pict gpicdem
   	endif
-  
+
   	@ prow(), pcol()+1 SAY nPaZarada pict gpicdem
 	@ prow(), pcol()+1 SAY nPaVPV  pict gpicdem
   	@ prow(), pcol()+1 SAY nPaRabat pict gpicdem
@@ -380,8 +380,8 @@ return
 /*!  ZaglRPartn(fTabela)
  *   Zaglavlje izvjestaja "realizacija veleprodaje po partnerima"
  */
- 
-function ZaglRPartn(fTabela)
+
+static function ZaglRPartn(fTabela)
 
 if ftabela=NIL
   ftabela:=.t.
@@ -412,5 +412,3 @@ endif
 endif
 
 return
-
-

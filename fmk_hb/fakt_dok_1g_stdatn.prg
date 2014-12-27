@@ -1544,12 +1544,12 @@ return
 
 
 
-/*!  RealPartn()
+/*!  fakt_realizacija_partner()
  *   Realizacija po partnerima
  *  \todo Prebaciti u /RPT
  */
 
-function RealPartn()
+function fakt_realizacija_partner()
 
 O_DOKS
 O_PARTN
@@ -1747,7 +1747,7 @@ return
 // ZaglRPartn()
 // Zaglavlje izvjestaja realizacije partnera
 // --------------------------------------------------------
-function ZaglRPartn()
+static function ZaglRPartn()
 
 ?
 P_12CPI
@@ -1770,4 +1770,3 @@ P_12CPI
 ? space(gnLMarg); ?? m
 
 return
-

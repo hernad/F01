@@ -57,28 +57,6 @@ return nCV
 
 
 
-/*!  UzmiVPCSif()
- *   Uzmi veleprodajnu cijenu iz sifrarnika
- */
-
-function UzmiVPCSif()
-
-local nCV:=0
-
-if rj->tip=="V1"
-    	nCV := roba->vpc
-elseif rj->tip=="V2"
-    	nCV := roba->vpc2
-else
-	if IzFMKINI("FAKT","ZaIzvjestajeDefaultJeMPC","N",KUMPATH)=="D"
-      		nCV := roba->mpc
-    	else
-      		nCV := roba->vpc
-    	endif
-endif
-return nCV
-
-
 
 
 /*!  Pregled1()
