@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -41,9 +41,9 @@ IF ( cRazdvoji <> "-" )
   	// -------------------------------------
   	lRazdvoji:=.t.
   	aRazdvoji := TOKuNIZ(cRazdvoji, ";", "|")
-  	
+
 	AADD(aRazdvoji,{".t.","","",0})
-  	
+
 	FOR i:=1 TO LEN(aRazdvoji)
     		DO WHILE LEN(aRazdvoji[i])<4
       			DO CASE
@@ -70,43 +70,43 @@ O_KONCIJ
 go top
 
 if gModemVeza == "D"
-	
+
 	OpcF:={}
 
  	select koncij
-	
+
  	do while !EOF()
-    
+
   		if !EMPTY(field->idprodmjes)
-   			
+
 			cTopsKPath := TRIM(gTopsDest) + TRIM(field->idprodmjes) + SLASH
 			cTopsKChkPath := STRTRAN(cTopsKPath, ":\", ":\chk\")
-			
+
 			// brisi fajlove iz prenosa....
 			BrisiSFajlove( cTopsKPath , 7)
 			// brisi fajlove iz chk lokacije...
    			BrisiSFajlove( cTopsKChkPath, 7 )
 
    			aFiles := DIRECTORY(cTopsKPath + "TK*.dbf")
-   			
+
 			ASORT(aFiles,,,{|x,y| DTOS(x[3]) + x[4] > DTOS(y[3]) + y[4] })
-			
-			AEVAL(aFiles, { |elem| AADD( OpcF, PADR(ALLTRIM(koncij->idprodmjes) + SLASH + TRIM(elem[1]), 20) + " " + UChkPostoji(cTopsKPath + TRIM(elem[1]) ) + " " + DTOC(elem[3]) + 	" " + elem[4] ) } , 1, D_MAX_FILES)  
-  		
+
+			AEVAL(aFiles, { |elem| AADD( OpcF, PADR(ALLTRIM(koncij->idprodmjes) + SLASH + TRIM(elem[1]), 20) + " " + UChkPostoji(cTopsKPath + TRIM(elem[1]) ) + " " + DTOC(elem[3]) + 	" " + elem[4] ) } , 1, D_MAX_FILES)
+
 		endif
-  		
+
 		skip
  	enddo
 
 	// R/X + datum + vrijeme
- 	ASORT(OpcF,,,{|x,y| right(x, 19) > right(y, 19) })  
- 	
+ 	ASORT(OpcF,,,{|x,y| right(x, 19) > right(y, 19) })
+
 	h := ARRAY(LEN(OpcF))
- 	
+
 	for i:=1 to len(h)
    		h[i]:=""
  	next
- 	
+
 	if LEN(OpcF)==0
    		MsgBeep("U direktoriju za prenos nema podataka")
    		closeret
@@ -129,25 +129,25 @@ if gModemVeza == "D"
      			exit
    		else
      			cTopsDBF := TRIM(gTopsDEST) + TRIM(left(opcf[Izb3], 15))
-     			
+
 			save screen to cS
-     			
-			Vidifajl(strtran(cTopsDBF, ".DBF", ".TXT"))  
+
+			Vidifajl(strtran(cTopsDBF, ".DBF", ".TXT"))
 			// vidi TK1109.TXT
-     			
+
 			restore screen from cS
-     			
+
 			if Pitanje(,"Zelite li izvrsiti prenos ?","D")=="D"
          			fPrenesi:=.t.
          			Izb3:=0
      			else
-         			// close all 
+         			// close all
 				// vrati se u petlju
          			loop
      			endif
    		endif
   	enddo
-	
+
   	if !fprenesi
         	return .f.
   	endif
@@ -286,7 +286,7 @@ do while !eof()
 			cRBr      := STR(++nRBr,3)
 		endif
   	endif
-	
+
 	IF (cIdVd=="42" .and. l42u11) .or. (cIdVd=="12")
 		// formiraj 11-ku umjesto 42-ke
 		if (topska->kolicina<>0)
@@ -311,7 +311,7 @@ do while !eof()
 			endif
 		endif
 	else
-		if (topska->kolicina<>0)		
+		if (topska->kolicina<>0)
 			SELECT pripr
 			APPEND BLANK
 			replace idfirma  with gfirma          ,;
@@ -335,7 +335,7 @@ do while !eof()
 			endif
 		endif
 	endif
-  	
+
 	// a sada barkod ako ga ima
 	if lReplace
 	    	select roba
@@ -352,7 +352,7 @@ do while !eof()
 			endif
 	    	endif
 	endif
-	
+
 	select pripr
 
 	cSrcOpis := ""
@@ -362,14 +362,14 @@ do while !eof()
 	if pripr->idvd == "12"
 		cSrcOpis := "Reklamacija"
 	endif
-	
+
 	// dodaj stavku i u p_doksrc
 	add_p_doksrc( gFirma, pripr->idvd, pripr->brdok, ;
 		pripr->datdok, "TOPS", topska->idpos, topska->idvd, ;
 		topska->brdok, topska->datpos, pripr->idkonto, "" ,;
 		topska->idpartner, cSrcOpis)
 
-	
+
 	select topska
   	skip
 enddo
@@ -397,12 +397,14 @@ return
 // da li postoji fajl u chk lokaciji, vraca oznaku
 // R - realizovan
 // X - nije obradjen
-function UChkPostoji(cFullFileName)
+
+static function UChkPostoji(cFullFileName)
 if FILE(STRTRAN(cFullFileName,":" + SLASH, ":" + SLASH + "chk" + SLASH))
 	return "R"
 else
    	return "X"
 endif
+
 
 
 
@@ -423,7 +425,7 @@ Box(, 7, 70)
  	@ m_x + 4, m_y + 2 SAY "prepisi istu robu iz tops-a (D/N)?" GET cPrepisi VALID cPrepisi $ "DN" PICT "@!"
  	@ m_x + 5, m_y + 2 SAY "samo sinhroniziraj cijene (D/N)?" GET cSinCjen VALID cSinCjen $ "DN" PICT "@!"
 	@ m_x + 7, m_y + 2 SAY "izvrsiti prenos (D/N)?" GET cPrenos VALID cPrenos $ "DN" PICT "@!"
-	
+
 	read
 BoxC()
 
@@ -450,34 +452,34 @@ nCnt := 0
 do while !EOF()
 
 	cTopsRoba := field->id
-	
+
 	select roba
 	hseek cTopsRoba
 
 	if cSinCjen == "N"
 	  if !Found() .and. roba->id <> cTopsRoba
-		
+
 		append blank
-		replace field->id with troba->id	
-	
+		replace field->id with troba->id
+
 	  elseif Found() .and. roba->id == cTopsRoba .and. ;
 		cPrepisi == "N"
-		
+
 		select troba
 		skip
 		loop
 
 	  endif
 	endif
-	
+
 	// sinhronizacija cijena - samo
 	if cSinCjen == "D"
-	 
+
 	  if FOUND()
 	    replace field->mpc with troba->cijena1
 	    replace field->mpc2 with troba->cijena2
 	  endif
-	 
+
 	else
 
 	  replace field->id with troba->id
@@ -487,7 +489,7 @@ do while !EOF()
 	  replace field->idtarifa with troba->idtarifa
 	  replace field->barkod with troba->barkod
 	  replace field->jmj with troba->jmj
-	
+
 	endif
 
 	++ nCnt
@@ -504,5 +506,3 @@ select troba
 use
 
 return
-
-

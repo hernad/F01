@@ -20,7 +20,7 @@
 // stara varijanta AKALK.ARJ
 // nova varijanta sa zip-om za F18
 // ----------------------------------------------------------
-function PrenosDiskete()
+function kalk_prenos_diskete_meni()
 private Opc:={}
 private opcexe:={}
 

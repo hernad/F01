@@ -163,13 +163,13 @@ else
 endif
 AADD(opc,   "5. moduli - razmjena podataka ")
 if (ImaPravoPristupa(goModul:oDataBase:cName,"RAZDB","MODULIRAZMJENA"))
-	AADD(opcexe, {|| ModRazmjena()})
+	AADD(opcexe, {|| kalk_modem_razmjena()})
 else
 	AADD(opcexe, {|| MsgBeep(cZabrana)})
 endif
 AADD(opc,   "6. udaljene lokacije  - razmjena podataka")
 if (ImaPravoPristupa(goModul:oDataBase:cName,"RAZDB","PRENOSDISKETE"))
-	AADD(opcexe, {|| PrenosDiskete()})
+	AADD(opcexe, {|| kalk_prenos_diskete_meni()})
 else
 	AADD(opcexe, {|| MsgBeep(cZabrana)})
 endif

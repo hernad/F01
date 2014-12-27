@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,7 +14,7 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
 
@@ -46,14 +46,14 @@
 
 
 
-function PrenosDiskete()
+function fakt_prenos_diskete_meni()
 
 private opc:={}
 private opcexe:={}
 private Izbor:=1
 
 AADD(opc,"1. prenos dokumenata   =>        ")
-AADD(opcexe,{|| fakt_prenos_diskete()})
+AADD(opcexe,{|| fakt_prenos_diskete_meni()})
 AADD(opc,"2. prijem dokumenata   <= ")
 AADD(opcexe,{|| fakt_povrat_sa_diskete()})
 AADD(opc,"3. podesavanje prenosa i prijema")
@@ -67,7 +67,7 @@ closeret
 /*!  fakt_prenos_diskete()
  *   Prenos na diskete
  */
- 
+
 function fakt_prenos_diskete()
 
 local nRec
@@ -96,7 +96,7 @@ if Pitanje(,"Nulirati datoteke prenosa prije nastavka ?","D")=="D"
   copy structure extended to (PRIVPATH+"struct")
   use
   create (PRIVPATH+"_roba") from (PRIVPATH+"struct")
-  
+
   O_SIFK
   copy structure extended to (PRIVPATH+"struct")
   use
@@ -127,7 +127,7 @@ if Pitanje(,"Nulirati datoteke prenosa prije nastavka ?","D")=="D"
   zap
 
   close all
-  
+
 endif
 
 O__FAKT
@@ -177,9 +177,9 @@ if Pitanje(,"Prenijeti u datoteku prenosa fakt sa ovim kriterijom ?","D")=="D"
 	endif
 
   	private cFilt1:=""
-  	
+
 	cFilt1 := "IDFIRMA=="+cm2str(cIdFirma)+".and."+aUsl1+".and."+aUsl3
-  	
+
 	if !empty(dDatOd) .or. !empty(dDatDo)
     		cFilt1 += ".and. DatDok>="+cm2str(dDatOd)+".and. DatDok<="+cm2str(dDatDo)
   	endif
@@ -197,14 +197,14 @@ if Pitanje(,"Prenijeti u datoteku prenosa fakt sa ovim kriterijom ?","D")=="D"
   	go top
 
   	MsgO("Prolaz kroz FAKT...")
-  
+
   	StartPrint(.t.)
-  
+
 	? "FAKT - U DATOTECI ZA PRENOS SU SLJEDECI DOKUMENTI - FAKT:"
   	?
   	? "FIRMA� TIP �  BROJ  �  DATUM "
   	? "-----------------------------"
-  
+
   	do while !eof()
     		select FAKT
     		IF cSinSFormula != "99"
@@ -222,11 +222,11 @@ if Pitanje(,"Prenijeti u datoteku prenosa fakt sa ovim kriterijom ?","D")=="D"
 				Gather2()
       			ENDIF
     		ELSE
- 		
+
 			append ncnl
 			Gather2()
     		ENDIF
-    	
+
 
     		select fakt
     		SKIP 1
@@ -237,10 +237,10 @@ if Pitanje(,"Prenijeti u datoteku prenosa fakt sa ovim kriterijom ?","D")=="D"
     		IF cpFirma+cpTipDok+cpBrDok!=idfirma+idtipdok+brdok
      			? "  "+idfirma+" �  "+idtipdok+" �"+brdok+"�"+DTOC(datdok)
     		ENDIF
-    	
+
 		skip
 	enddo
-  	
+
 	EndPrint()
 
 	MsgC()
@@ -340,9 +340,9 @@ return
 
 
 /*!  fakt_povrat_sa_diskete()
- *   Povrat podataka 
+ *   Povrat podataka
  */
- 
+
 function fakt_povrat_sa_diskete()
 
 local nRec, cDiff:=""
@@ -443,21 +443,21 @@ if cDn1=="D"
 		UpisiURF("IZVJESTAJ O PROMJENAMA NA SIFRARNIKU ROBE:",cRFajl,.t.,.t.)
 		UpisiURF("------------------------------------------",cRFajl,.t.,.f.)
 		do while !eof()
-  			
+
 			@ m_x+1,m_y+2 SAY id
 			?? "-",naz
-  			
+
 			select roba
 			scatter()
-  			
+
 			select _roba
   			scatter()
-  			
+
 			select roba
 			hseek _id
-  			
+
 			if !Found()
-    				
+
 				UpisiURF("ROBA: dodajem "+_id+"-"+_naz,cRFajl,.t.,.f.)
     				append blank
     				gather()
@@ -517,7 +517,7 @@ if Pitanje(, "PARTN - dodati nepostojece sifre ?", "D") == "D"
 	cRFajl := PRIVPATH+"FAKT.RF"
 	UpisiURF("IZVJESTAJ O PROMJENAMA NA SIFRARNIKU PARTNERA:",cRFajl,.t.,.t.)
 	UpisiURF("---------------------------------------------",cRFajl,.t.,.f.)
-		
+
   	Box(,1,60)
   		do while !eof()
     		@ m_x+1,m_y+2 SAY id; ?? "-",naz
@@ -551,7 +551,7 @@ closeret
 /*!  fakt_parametri_prenosa_diskete(lIni)
  *   Podesavanje parametara prenosa
  */
- 
+
 function fakt_parametri_prenosa_diskete(lIni)
 
 LOCAL GetList:={}
@@ -629,7 +629,3 @@ LOCAL GetList:={}
   ENDIF
   USE
 return
-
-
-
-

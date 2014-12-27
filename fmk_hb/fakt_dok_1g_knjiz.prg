@@ -3181,7 +3181,7 @@ do while .t.
 	povrat_smece()
 
     case izbor == 7
-       PrenosDiskete()
+       fakt_prenos_diskete()
     case izbor == 8
        O_S_PRIPR
        lJos:=.t.

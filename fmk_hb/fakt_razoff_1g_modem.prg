@@ -173,7 +173,7 @@ BrisiSFajlove(cPath)
 BrisiSFajlove(strtran(cPath,":" + SLASH,":" + SLASH + "CHK" + SLASH))
 
 //  KT0512.DBF = elem[1]
-AEVAL(aFiles,  {|elem| AADD(opcF,PADR(elem[1],15)+iif(UChkPostoji(trim(cPath)+trim(elem[1])),"R","X")+" "+dtos(elem[3]))},1,20)   // samo 20 najnovijih
+AEVAL(aFiles,  {|elem| AADD(opcF,PADR(elem[1],15)+iif( fakt_UChk_Postoji(trim(cPath)+trim(elem[1])),"R","X")+" "+dtos(elem[3]))},1,20)   // samo 20 najnovijih
 ASORT(OPCF,,,{|x,y| right(x,10)>right(y,10)})  // datumi
 
 h:=ARRAY(LEN(OPCF))
@@ -263,19 +263,14 @@ closeret
 
 
 
-
-/*!  UChkPostoji(cFullFileName)
- *   U chk direktoriju postoji fajl
- *   cFullFileName  - puni naziv fajla (path+ime)
- */
-
-function UChkPostoji(cFullFileName)
+static function fakt_UChk_Postoji(cFullFileName)
 
 if File(strtran(cFullFileName,":\",":\chk\"))
-   return .t.
+  return .t.
 else
-   return .f.
+  return .f.
 endif
+
 
 
 
