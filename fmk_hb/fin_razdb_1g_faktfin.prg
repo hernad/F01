@@ -216,7 +216,7 @@ enddo
 select finmat
 if reccount2()>0
 	close all
- 	Kontnal(dDatDo)
+ 	fin_kontiranje_naloga(dDatDo)
 else
  	MsgBeep("Nema dokumenata za prenos ...")
 endif
@@ -296,12 +296,12 @@ return nVrati
 
 
 
-/*!  KontNal(dDatNal)
+/*!  fin_kontiranje_naloga(dDatNal)
  *   Kontiranje naloga
  *   dDatNal  - datum naloga
  */
 
-function KontNal(dDatNal)
+function fin_kontiranje_naloga(dDatNal)
 
 local cidfirma,cidvd,cbrdok, lafin, lafin2
 

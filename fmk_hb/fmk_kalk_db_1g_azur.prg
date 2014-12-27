@@ -419,7 +419,7 @@ if cPametno=="D"
  RekapK()
 
  if (gafin=="D" .or. gamat=="D")
-   	KontNal( .t., lAuto )
+   	kalk_kontiranje_naloga( .t., lAuto )
  endif
 
  P_Fin( lAuto )

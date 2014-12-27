@@ -12,22 +12,10 @@
 
 #include "fakt01.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software
- * ----------------------------------------------------------------
- */
-
-/*! \file fmk/fakt/razoff/1g/modem.prg
- *   Prenos podataka modemom
- */
 
 
-/*!  PrModem(fSif)
- *
- */
 
-function PrModem(fSif)
+function fakt_prenos_modem(fSif)
 
 local nRec
 

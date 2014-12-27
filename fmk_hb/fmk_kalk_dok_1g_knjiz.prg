@@ -59,7 +59,7 @@ do while .t.
      case izbor == 3
          RekapK()
      case izbor == 4
-         KontNal()
+         kalk_kontiranje_naloga()
      case izbor == 5
          kalk_Azur()
      case izbor == 6
@@ -227,7 +227,7 @@ do case
      		close all
        		RekapK()
        		if Pitanje(,"Zelite li izvrsiti kontiranje ?","D")=="D"
-         		Kontnal()
+         		kalk_kontiranje_naloga()
        		endif
      		Oedit()
      		return DE_REFRESH

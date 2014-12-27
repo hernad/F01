@@ -120,7 +120,7 @@ do while !EOF()
 	_br_nal( cChBrNal, cD_brdok, @cNalog )
 
 	// kontiraj
-	KontNal( .t., .t., .f., cNalog )
+	kalk_kontiranje_naloga( .t., .t., .f., cNalog )
 
 	// azuriraj nalog
 	p_fin( .t. )

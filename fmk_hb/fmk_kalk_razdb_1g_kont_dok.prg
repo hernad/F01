@@ -24,7 +24,7 @@ static dDatMax
 // lViseKalk - vise kalkulacija
 // cNalog - broj naloga koji ce se uzeti, ako je EMPTY() ne uzima se !
 // -----------------------------------------------------------------------
-function KontNal(fAuto, lAGen, lViseKalk, cNalog )
+function kalk_kontiranje_naloga(fAuto, lAGen, lViseKalk, cNalog )
 local cIdFirma
 local cIdVd
 local cBrDok
@@ -1560,7 +1560,7 @@ else
 		close all
 	endif
 
-	Kontnal(.f., nil, lViseKalk)
+	kalk_kontiranje_naloga(.f., nil, lViseKalk)
 	
 	// automatska ravnoteza naloga
 	if cAutoRav == "D"
