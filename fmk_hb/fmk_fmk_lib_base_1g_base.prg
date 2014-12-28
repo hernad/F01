@@ -34,7 +34,7 @@ static nCnt:=0
     \note prebaciti u potpunosti na objektni model (ionako se koristi oApp)
  */
 
-/*!  SC_START(oApp, lSezone)
+/*!  f01_start(oApp, lSezone)
  *   Aktiviranje "glavnog" programskog modula"
  */
 
@@ -48,14 +48,14 @@ static nCnt:=0
  */
 
 
-/*!  SC_START(oApp, lSezone)
+/*!  f01_start(oApp, lSezone)
  *   Inicijalizacija sclib sistema
  *
  *  \todo Nakon verzije 1.5 ... kreiranje F_SECUR  treba ukinuti
  *
  */
  
-function SC_START(oApp, lSezone)
+function f01_start(oApp, lSezone)
 
 local cImeDbf
 
@@ -178,11 +178,11 @@ return
 
 
 
-/*!  ISC_START(oApp, lSezone)
+/*!  If01_start(oApp, lSezone)
  *   Aktiviranje "install" programskog modula"
  */
 
-function ISC_START(oApp, lSezone)
+function If01_start(oApp, lSezone)
 
 
 RDDSETDEFAULT(RDDENGINE)

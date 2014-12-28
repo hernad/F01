@@ -205,7 +205,7 @@ if ::lStarted==nil
 	::lStarted:=.f.
 endif
 
-SC_START(::self, .t.)
+f01_start(::self, .t.)
 if !::lStarted
 	PID("START")
 endif

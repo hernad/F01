@@ -288,7 +288,7 @@ return
 *void TDBFin::install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7)
 
 method install()
-ISC_START(goModul,.f.)
+If01_start(goModul,.f.)
 return
 
 

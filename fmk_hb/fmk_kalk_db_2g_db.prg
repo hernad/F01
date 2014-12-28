@@ -260,7 +260,7 @@ return
 
 
 method install(cKorisn,cSifra,p3,p4,p5,p6,p7)
-	ISC_START(goModul,.f.)
+	If01_start(goModul,.f.)
 return
 
 
