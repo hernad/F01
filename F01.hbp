@@ -1,3 +1,8 @@
+-o${hb_name}
+-shared
+
+{F18_GT_QTC}-DF18_GT_QTC
+
 fmk_hb/*.prg
 dummy.prg
 hbct.hbc
@@ -6,3 +11,17 @@ xhb.hbc
 hbblink.hbc
 hbxpp.hbc
 hboslib.hbc
+
+F18_base.hbc
+F18_string.hbc
+F18_sql.hbc
+
+hbmzip.hbc
+hbtip.hbc
+gtqtc.hbc
+{!darwin|linux}sddpg.hbc
+
+{F18_GT_QTC}gtqtc.hbc
+-workdir=.h
+
+
