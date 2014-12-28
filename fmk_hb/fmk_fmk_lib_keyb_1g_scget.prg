@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -12,7 +12,7 @@
 
 
 /****h SC_CLIB/GETSYS ***
-* 
+*
 * AUTHOR
 *   clipper sources
 *
@@ -92,7 +92,7 @@ if ( Empty(getList) )
 	// S87 compat.
 	SetPos( MaxRow()-1, 0 )
 	// NOTE
-	return (.f.)			
+	return (.f.)
 endif
 
 
@@ -124,10 +124,10 @@ do while ( pos <> 0 )
 	// read the GET
 	if ( ValType( get:reader ) == "B" )
 		// use custom reader block
-		Eval( get:reader, get ) 		
+		Eval( get:reader, get )
 	else
-		
-		GetReadSC( get )				
+
+		GetReadSC( get )
 	endif
 
 
@@ -154,16 +154,16 @@ return (Updated)
 *	Standard modal read of a single GET.
 */
 procedure getReadSC(get)
-		
+
 // read the GET if the WHEN condition is satisfied
 if ( GetPreValSC(get) )
 
 		// activate the GET for reading
 		get:SetFocus()
 
-		
+
 		do while ( get:exitState == GE_NOEXIT )
-			
+
 			ol_yield()
 
 			// check for initial typeout (no editable positions)
@@ -216,7 +216,7 @@ endif
 
 do case
 
-	
+
 //
 // Time-out
 //
@@ -241,7 +241,7 @@ case (key == K_ENTER )
 	get:exitState := GE_ENTER
 
 case (key == K_ESC )
-	
+
 	//MsgBeep("pritisnut ESCAPE")
 	if ( Set(_SET_ESCAPE) )
 		get:undo()
@@ -374,15 +374,15 @@ endif
 if (KillReadSC)
 		//MsgBeep("KillreadSC=.t./1")
 		lWhen := .f.
-		get:exitState := GE_ESCAPE		
+		get:exitState := GE_ESCAPE
 		// provokes ReadModal() exit
 
 elseif ( !lWhen )
-		get:exitState := GE_WHEN		
+		get:exitState := GE_WHEN
 		// indicates failure
 
 else
-		get:exitState := GE_NOEXIT		
+		get:exitState := GE_NOEXIT
 		// prepares for editing
 
 endif
@@ -404,7 +404,7 @@ local changed, valid := .t.
 
 
 if ( get:exitState == GE_ESCAPE )
-		return (.t.)					
+		return (.t.)
 		// NOTE
 endif
 
@@ -446,11 +446,11 @@ if ( get:postBlock <> NIL )
 	Updated := saveUpdated
 
 	if (KillReadSC)
-		
+
 		//MsgBeep("KillreadSC=.t./2")
-		
+
 		// provokes ReadModal() exit
-		get:exitState := GE_ESCAPE	
+		get:exitState := GE_ESCAPE
 		valid := .t.
 	end
 
@@ -488,7 +488,7 @@ local saveUpdated
 
 
 	if (KillReadSC)
-		
+
 		//MsgBeep("KillreadSC=.t. / 3")
 		get:exitState := GE_ESCAPE		// provokes ReadModal() exit
 	end
@@ -536,7 +536,7 @@ endif
 
 if (lExitState == GE_WRITE )
 	//MsgBeep("pg_down")
-	return 0					
+	return 0
 endif
 
 
@@ -587,7 +587,7 @@ endcase
 /**
 	*	bounce
 */
-if ( pos == 0 ) 						
+if ( pos == 0 )
 // bumped top
 
 	if ( !ReadExitSC() .and. !BumpBot )
@@ -596,7 +596,7 @@ if ( pos == 0 )
 		lExitState := GE_DOWN
 	endif
 
-elseif ( pos == Len(GetList) + 1 )		
+elseif ( pos == Len(GetList) + 1 )
 // bumped bottom
 
 	if ( !ReadExitSC() .and. lExitState <> GE_ENTER .and. !BumpTop )
@@ -739,24 +739,12 @@ local i
 
 return (name)
 
-
-
 /*
-*
-*	system services
-*
-*/
-
-
-
-/***
-*   __SetFormat()
-*	SET FORMAT service
-*/
 func __SetFormat(b)
 	Format := if ( ValType(b) == "B", b, NIL )
 return (NIL)
 
+*/
 
 /***
 *	__KillReadSC()
@@ -769,9 +757,7 @@ function __KillReadSC()
 return
 
 
-/***
-*	GetActive()
-*/
+/*
 function GetActive(g)
 local oldActive := ActiveGet
 	if ( PCount() > 0 )
@@ -780,11 +766,9 @@ local oldActive := ActiveGet
 return ( oldActive )
 
 
-/***
-*	Updated()
-*/
 function Updated()
 return (Updated)
+*/
 
 
 /***
@@ -794,12 +778,10 @@ function ReadExitSC(lNew)
 return ( Set(_SET_EXIT, lNew) )
 
 
-/***
-*	ReadInsert()
-*/
+/*
 function ReadInsert(lNew)
 return ( Set(_SET_INSERT, lNew) )
-
+*/
 
 
 /*
@@ -863,14 +845,9 @@ local nRow, nCol
 return
 
 
+/*
 
-/***
-*   RangeCheck()
-*
-*	NOTE: unused second param for 5.00 compatibility.
-*/
-
-func RangeCheck(get, junk, lo, hi)
+function RangeCheck(get, junk, lo, hi)
 
 local cMsg, nRow, nCol
 local xValue
@@ -912,11 +889,8 @@ local xValue
 
 return (.f.)
 
-/**
- *
- * Time-Out?
- *
- */
+*/
+
 
 FUNCTION TimedOut()
 RETURN (lTimedOut)
@@ -957,7 +931,7 @@ RETURN (nKey)
  */
 
 FUNCTION GoToGet(nGet)
-   
+
 GetActive():exitState := -nGet
 
 // !!!!NOTE!!!!
@@ -985,7 +959,7 @@ return .t.
 // -----------------------------
 // -----------------------------
 function InkeySc(nSec)
-if (nSec==0) 
+if (nSec==0)
 	do while NEXTKEY()==0
 	 	ol_yield()
 	enddo
@@ -993,4 +967,3 @@ if (nSec==0)
 else
 	return INKEY(nSec)
 endif
-

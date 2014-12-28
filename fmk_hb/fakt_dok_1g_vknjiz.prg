@@ -14,7 +14,7 @@
 
 
 
-function IzSifre(fSilent)
+function fakt_Iz_Sifre_(fSilent)
 local nPos
 local cSif := trim(_txt3a)
 local cPom

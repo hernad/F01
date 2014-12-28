@@ -1348,7 +1348,7 @@ if (nRbr==1 .and. VAL(_podbr) < 1)
 			PICT "@!" ;
 			VALID { || P_Firma( @_idpartner ), ;
 				_Txt3a := padr( _idpartner + ".", 30), ;
-				IzSifre(), ;
+				fakt_Iz_Sifre_(), ;
 				_isp_partn( _idpartner, nPX, nPY + 18 ) }
 
 		// prodajno mjesto - polje

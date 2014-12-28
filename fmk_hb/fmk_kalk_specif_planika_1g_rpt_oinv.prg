@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,10 +14,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/kalk/specif/planika/1g/rpt_oinv.prg,v $
- * $Author: sasavranic $ 
+ * $Author: sasavranic $
  * $Revision: 1.5 $
  * $Log: rpt_oinv.prg,v $
  * Revision 1.5  2003/11/11 14:06:35  sasavranic
@@ -51,7 +51,7 @@
  *   Obrazac inventure za prodavnice
  *  \param
  */
- 
+
 function ObrazInv()
 
 local nRec
@@ -130,7 +130,7 @@ CreTblRek1("2")
 O_POBJEKTI
 O_KONCIJ
 O_ROBA
-O_KONTO 
+O_KONTO
 O_TARIFA
 O_K1
 O_OBJEKTI
@@ -141,7 +141,7 @@ GenRekap1(aUsl1, aUsl2, aUslR, cKartica, "2", nil, nil, nil, nil, cIdKPovrata)
 
 select rekap1
 //g1+idtarifa+idroba+objekat
-set order to 2 
+set order to 2
 aUsl3:=Parsiraj(qqKonto,"Objekat")
 
 PRIVATE cFilt2:=""
@@ -149,7 +149,7 @@ PRIVATE cFilt2:=""
 cFilt2 := aUsl3+".and."+aUslR
 
 // postavi filter samo na zeljeni objekat
-set filter to &cFilt2 
+set filter to &cFilt2
 
 private xxx:=0
 
@@ -227,7 +227,7 @@ do while !eof()
         				// nk0 - pocetno stanje, nk4 - prijem u toku mjeseca
         				loop
      				endif
-    			else  
+    			else
        				// nivelacije
        				if round(nNovaMPC,4)=0
         				loop
@@ -460,11 +460,11 @@ do while !eof()
    		if nInd=0
      			AADD(aTarife,{ cIdTarifa, nTTT10,nTTT11,nTTT20,nTTT21,nTTT30,nTTT31,nTTT40,nTTT41,nTTT50,nTTT51,nTTT60,nTTT61,nTTT70,nTTT71,nTTT80,nTTT81})
    		else
-     			aTarife[nInd,2]+=nTTT10 
+     			aTarife[nInd,2]+=nTTT10
 			aTarife[nInd,3]+=nTTT11
-     			aTarife[nInd,4]+=nTTT20 
+     			aTarife[nInd,4]+=nTTT20
 			aTarife[nInd,5]+=nTTT21
-     			aTarife[nInd,6]+=nTTT30 
+     			aTarife[nInd,6]+=nTTT30
 			aTarife[nInd,7]+=nTTT31
      			aTarife[nInd,8]+=nTTT40
 			aTarife[nInd,9]+=nTTT41
@@ -515,13 +515,13 @@ do while !eof()
     			I_OFF
    		endif
   	enddo // cg1
-  
+
 	IF !fFilovo
      		LOOP
   	ENDIF
 
   	// obrazac nivelacije
-  	if (xxx>=2)  
+  	if (xxx>=2)
     		if prow()>PREDOVA
     			FF
 			ZaglObrPC(cVarPC)
@@ -723,7 +723,7 @@ return
  *   Zaglavlje obrasca inventure za prodavnicu
  *   cKako
  */
- 
+
 function ZaglObrPC(cKako)
 
 local cString:="NALOG ZA PROMJENU CIJENA"
@@ -757,8 +757,8 @@ return
 /*!  ZaglInv()
  *   Zaglavlje inventure
  */
- 
-function ZaglInv()
+
+static function ZaglInv()
 
 P_10CPI
 //; B_ON
@@ -777,5 +777,3 @@ P_COND // ? ne znam hoce li stati na A3
 StZaglavlje("rekinv.txt", KUMPATH)
 
 return
-
-

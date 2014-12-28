@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -59,7 +59,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_Fakt_Ugovori_UNapomenuSamoBrUgovora
-  *  Da li ce se pri generisanju faktura na osnovu ugovora u napomenu dodati iza teksta "VEZA:" samo broj ugovora 
+  *  Da li ce se pri generisanju faktura na osnovu ugovora u napomenu dodati iza teksta "VEZA:" samo broj ugovora
   *  D - da, default vrijednost
   *  N - ne, ispisace se i tekst "UGOVOR:", te datum ugovora
   */
@@ -247,7 +247,7 @@ SELECT PRIPR
 
 select ugov
 if lSamoAktivni .and. aktivan!="D"
-    IF nTekUg>2 
+    IF nTekUg>2
     	--nTekUg
     ENDIF
     loop
@@ -305,9 +305,9 @@ do while !eof() .and. id==cidugov
     hseek ugov->idpartner
     _txt3b := _txt3c:=""
     _txt3a := PADR(ugov->idpartner+".", 30)
-    
-    IzSifre(.t.)
-    
+
+    fakt_Iz_Sifre_(.t.)
+
     select ftxt; hseek ugov->iddodtxt; cDodTxt:=TRIM(naz)
     hseek ugov->idtxt
     private _Txt1:=""
@@ -418,6 +418,3 @@ next
 
 closeret
 return
-
-
-

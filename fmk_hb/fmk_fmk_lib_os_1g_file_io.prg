@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,10 +14,10 @@
 #include "fileio.ch"
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/sclib/os/1g/file_io.prg,v $
- * $Author: ernad $ 
+ * $Author: ernad $
  * $Revision: 1.3 $
  * $Log: file_io.prg,v $
  * Revision 1.3  2002/08/19 10:01:47  ernad
@@ -30,7 +30,7 @@
  *
  *
  */
- 
+
 /***
 *  FilePos( <nHandle> ) --> nPos
 *  Report the current position of the file pointer in a binary file
@@ -42,11 +42,7 @@ local xRet
 xRet:=FSEEK(nHandle, 0, FS_RELATIVE)
 return xRet
 
-/***
-*  FileSize( <nHandle> ) --> nBytes
-*  Return the size of a binary file
-*
-*/
+/*
 function FileSize(nHandle)
 
 local nCurrent, nLength
@@ -61,13 +57,10 @@ nLength := FSEEK(nHandle, 0, FS_END)
 FSEEK(nHandle, nCurrent)
 
 return nLength
+*/
 
 
-#ifdef CLIP
-function ScFEof(nHandle)
-#else
 function FEof(nHandle)
-#endif
 
 local lRet
 
@@ -85,7 +78,7 @@ return lRet
 *  FReadLn( <nHandle>, [<nLines>], [<nLineLength>], [<cDelim>] ) --> cLines
 *  Read one or more lines from a text file
 *
-*  NOTE: Line length includes delimiter, so max line read is 
+*  NOTE: Line length includes delimiter, so max line read is
 *        (nLineLength - LEN( cDelim ))
 *
 *  NOTE: Return value includes delimiters, if delimiter was read
@@ -128,7 +121,7 @@ nChrsToRead := MIN( nLineLength, nFileSize - nCurPos )
 
 cLines  := ''
 nCount  := 1
-DO WHILE (nCount <= nLines) .AND. (nChrsToRead != 0) 
+DO WHILE (nCount <= nLines) .AND. (nChrsToRead != 0)
 cBuffer   := SPACE( nChrsToRead )
 nChrsRead := FREAD( nHandle, @cBuffer, nChrsToRead )
 
@@ -163,6 +156,3 @@ nCount++
 ENDDO
 
 RETURN cLines
-
-
-

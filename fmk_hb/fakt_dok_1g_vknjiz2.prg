@@ -128,9 +128,9 @@ private fNovi:=.f.
    _txt3c:=padr(_txt3c,30)
 
    IF gNovine=="D" .or. IzFMKINI("FAKT","UnosPartneraObaveznoPoSifri","N",KUMPATH)=="D"
-    @  m_x+5,m_y+2  SAY "Partner " GET _idpartner  picture "@!" valid { || P_Firma(@_idpartner,6,11) , _Txt3a:=padr(_idpartner+".",30) , IzSifre() }
+    @  m_x+5,m_y+2  SAY "Partner " GET _idpartner  picture "@!" valid { || P_Firma(@_idpartner,6,11) , _Txt3a:=padr(_idpartner+".",30) , fakt_iz_sifre_() }
    ELSE
-    @  m_x+5,m_y+2  SAY "Partner " GET _Txt3a  picture "@!" valid IzSifre()
+    @  m_x+5,m_y+2  SAY "Partner " GET _Txt3a  picture "@!" valid fakt_iz_sifre_()
     @  m_x+6,m_y+2  SAY "        " GET _Txt3b  picture "@!"
     @  m_x+7,m_y+2  SAY "Mjesto  " GET _Txt3c  picture "@!"
    ENDIF

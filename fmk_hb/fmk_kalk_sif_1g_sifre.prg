@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -12,21 +12,7 @@
 
 #include "kalk01.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
- * ----------------------------------------------------------------
- */
- 
-/*! \file fmk/kalk/sif/1g/sifre.prg
- *   Sifrarnici
- */
-
-/*!  Sifre()
- *   Glavni menij za izbor sifrarnika
- */
- 
-function Sifre()
+function kalk_Sifre_meni()
 
 PRIVATE PicDem
 PicDem:=gPICDem
@@ -70,11 +56,11 @@ return .f.
 
 
 
-/*!  ServFun()
- *   Servisne funkcije 
+/*!  kalk_serv_fun()
+ *   Servisne funkcije
  */
- 
-function ServFun()
+
+function kalk_serv_fun()
 
 Msg("Nije u upotrebi")
 closeret
@@ -86,7 +72,7 @@ return
  *   Obrada funkcija nad sifrarnikom robe
  *   Ch - Pritisnuti taster
  */
- 
+
 function RobaBlock(Ch)
 
 LOCAL cSif:=ROBA->id, cSif2:=""
@@ -118,7 +104,7 @@ elseif Ch==K_F2 .and. gSKSif=="D"
  endif
 
 elseif Ch==K_F8  // cjenovnik
- 
+
  PushWa()
  nRet:=CjenR()
  OSifBaze()
@@ -151,20 +137,12 @@ return DE_CONT
 
 
 
-/*!  FSvaki2()
- *   Ne radi ama bas nista!!!
- */
- 
 function FSvaki2()
 
 return
 
 
-
-/*!  IspisFirme(cIdRj)
- *   Ispis firme na osnovu radne jedinice
- *   cIdRj - radna jedinica
- */
+/*
 function IspisFirme(cIdRj)
 
 local nOArr
@@ -181,13 +159,13 @@ if !EMPTY(cIdrj)
   ?? "  RJ",rj->naz
 endif
 return
-
+*/
 
 
 /*!  OSifBaze()
  *   Otvara sve tabele vezane za sifrarnike
  */
- 
+
 function OSifBaze()
 
 O_SIFK
@@ -254,6 +232,4 @@ next
 
 select (nTArea)
 PostojiSifra(F_OBJEKTI, 1, 10, 60, "Objekti")
-return 
-
-
+return

@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,14 +14,14 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
- 
+
 /*!  GKRacun()
  *   Generisi Konsignacioni Racun
  */
- 
+
 function GKRacun()
 
 O_PRIPR
@@ -222,7 +222,7 @@ RPar("c2",@dOd     )
        _txt3a   := cIdKupac+"."
        _txt3b   := ""
        _txt3c   := ""
-        IzSifre(.T.)  // da nafiluje _txt3a, _txt3b i _txt3c - NAZIV KUPCA
+        fakt_Iz_Sifre_(.T.)  // da nafiluje _txt3a, _txt3b i _txt3c - NAZIV KUPCA
        _txt1    := aPrip[i,5]                            //  - NAZIV ROBE
        _txt2    := TRIM(Ocitaj(F_FTXT,cFTXT,"naz"))      //  - TXT (NAPOMENA)
        _BrOtp   := ""
@@ -245,5 +245,3 @@ RPar("c2",@dOd     )
   NEXT
 
 CLOSERET
-
-

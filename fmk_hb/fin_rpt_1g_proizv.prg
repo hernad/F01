@@ -56,9 +56,8 @@ PRIVATE cDPnaz8 := "", cDPx8 :="", cDPf8 :="D"
 PRIVATE cDPnaz9 := "", cDPx9 :="", cDPf9 :="D"
 PRIVATE cDPnaz10:= "", cDPx10:="", cDPf10:="D"
 
-#IFDEF CAX
+
  close all
-#ENDIF
 
 
 PrIz()

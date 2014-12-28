@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -43,22 +43,22 @@ private aHistory:={}
 RPar("dk",@gDirKalk)
 
 if empty(gDirKalk) .or. cOdradjeno="N"
-	
+
 	gDirKalk:=trim(strtran(goModul:oDataBase:cDirKum,"FAKT","KALK"))+"\"
   	WPar("dk",gDirKalk)
-	
+
 endif
 
-if cOdradjeno == "N"	
-	
+if cOdradjeno == "N"
+
 	private cSection:="1"
 	private cHistory:=" "
 	private aHistory:={}
- 	
+
 	gKomlin:=strtran(Upper(gKomlin),"1\FAKT.RTF",Right(trim(ImeKorisn))+"\FAKT.RTF" )
- 	WPar("95",gKomLin)       
+ 	WPar("95",gKomLin)
 	// prvenstveno za win 95
-	
+
 endif
 
 select 99
@@ -129,7 +129,7 @@ RPar( "c1", @cDir )
 select params
 use
 
-cDir := TRIM(cDir)  
+cDir := TRIM(cDir)
 // direktorij u kome je kalk.dbf
 
 _o_tables()
@@ -140,64 +140,64 @@ set order to tag "1"
 Box(,15,60)
 
 do while .t.
-	
+
 	cIdTipDok := "10"
   	cBrDok := SPACE(8)
-  	
+
 	@ m_x+2,m_y+2 SAY "Broj KALK dokumenta:"
-  
+
   	if gNW=="N"
    		@ m_x+2,col()+1 GET cIdFirma pict "@!"
   	else
    		@ m_x+2,col()+1 SAY cIdFirma pict "@!"
   	endif
-  	
+
 	@ m_x+2,col()+1 SAY "- " GET cIdTipDok
   	@ m_x+2,col()+1 SAY "-" GET cBrDok
-  	
+
 	read
-	
+
 	if LastKey() == K_ESC
 		exit
 	endif
-	
+
 	// vrati tip dokumenta za fakturisanje
 	cTipFakt := _g_fakt_type( cIdTipDok )
-	
+
 	cBrFakt := cBrDok
   	cIdRj := cIdFirma
-  	
+
 	@ m_x+3,m_y+2 SAY "Broj dokumenta u modulu FAKT: "
   	@ m_x+3,col()+1 GET cIdRJ pict "@!"
   	@ m_x+3,col()+2 SAY "-" GET cTipFakt
   	@ m_x+3,col()+2 SAY "-" GET cBrFakt ;
 		WHEN _set_brdok( cIdRj, cTipFakt, @cBrFakt )
-	
+
 	read
-	
+
 	if LastKey() == K_ESC
 		exit
 	endif
-	
+
 	// ako je kalk 10 i fakt 10 onda je to fakt racun...
 	if cTipFakt == "10" .and. cIdTipDok == "10"
 		lToRacun := .t.
 	endif
-	
+
 	// partner kojem se fakturise.....
 	if lToRacun == .t.
 		@ m_x + 4, m_y + 2 SAY "Partner kojem se fakturise:" GET cFaktPartn VALID p_firma(@cFaktPartn)
-		
+
 		read
-		
+
 		if LastKey() == K_ESC
 			exit
 		endif
 	endif
-	
+
   	select FAKT
   	seek cIdRj + cTipFakt + cBrFakt
-  	
+
 	if Found()
      		Beep(4)
      		@ m_x+14,m_y+2 SAY "U FAKT vec postoji ovaj dokument !!"
@@ -205,58 +205,58 @@ do while .t.
      		@ m_x+14,m_y+2 SAY space(37)
      		loop
   	endif
-	
+
 	select KALK
   	seek cIdFirma+cIdTipDok+cBrDok
-  	
+
 	if !Found()
-     		
+
 		Beep(4)
      		@ m_x+14,m_y+2 SAY "Ne postoji ovaj dokument !!"
      		inkey(4)
      		@ m_x+14,m_y+2 SAY space(30)
   		loop
-	
+
 	endif
-	
+
 	// pozicioniraj se na rj
 	select RJ
 	set order to tag "ID"
 	go top
-	seek cIdRj	
-	
+	seek cIdRj
+
      	select KALK
 	lFirst := .t.
 
 	// rok placanja...
 	nRokPl := 0
-	
+
 	dDatPl := kalk->datdok
 	dDatDok := kalk->datdok
-     	
+
 	do while !eof() .and. cIdFirma+cIdTipDok+cBrDok==IdFirma+IdVD+BrDok
 
 		// nastimaj robu....
 		select roba
 		hseek kalk->idroba
-		
+
 		select kalk
 
 		if lFirst == .t.
-		
+
         		select PARTN
-			
+
 			if lToRacun == .t.
-				
+
 				hseek cFaktPartn
-			
+
 				nRokPl := IzSifK("PARTN", "ROKP", cFaktPartn, .f.)
 				if VALTYPE(nRokPl) == "N" .and. nRokPl > 0
 					dDatPl := dDatDok + nRokPl
 				else
 					nRokPl := 0
 				endif
-				
+
 			else
 				hseek KALK->idpartner
 			endif
@@ -264,83 +264,83 @@ do while .t.
 			cTxta := PADR(partn->naz, 30)
         		cTxtb := PADR(partn->naz2, 30)
         		cTxtc := PADR(partn->mjesto, 30)
-        		
+
 			@ m_x+10, m_Y+2 SAY "Partner " GET cTxta
         		@ m_x+11, m_Y+2 SAY "        " GET cTxtb
         		@ m_x+12, m_Y+2 SAY "Mjesto  " GET cTxtc
-        		
+
 			if nRokPl > 0
         			@ m_x+14, m_y + 2 SAY "Rok placanja: " + ;
 					ALLTRIM(STR(nRokPl)) + " dana"
 			endif
-			
+
 			read
-          			
+
 			cTxt := Chr(16) + " " + Chr(17)+;
         	       		Chr(16) + " " + Chr(17)+;
                  		Chr(16) + cTxta + Chr(17)+;
 				Chr(16) + cTxtb + Chr(17)+;
                  		Chr(16) + cTxtc + Chr(17)
-			
+
 			if lToRacun == .t.
-			
+
 				cTxt += Chr(16) + "" + Chr(17) + ;
 					Chr(16) + DTOC(dDatDok) + Chr(17) + ;
 					Chr(16) + "" + Chr(17) + ;
 					Chr(16) + DTOC(dDatPl) + Chr(17)
-           		
+
 			endif
-			
+
 	   		lFirst := .f.
 
           		select PRIPR
           		append blank
-          		
+
 			replace txt with cTxt
 			replace idpartner with kalk->idpartner
-			
+
 			if lToRacun == .t.
 				replace idpartner with cFaktPartn
 			endif
-			
+
        		else
         		select PRIPR
         		APPEND BLANK
        		endif
 
        		private nKolicina := kalk->kolicina
-       			
+
 		if kalk->idvd == "11" .and. cTipFakt = "0"
 			nKolicina:=-nKolicina
        		endif
-       			
+
 		replace idfirma with cIdRj
                 replace rbr with KALK->Rbr
                	replace	idtipdok with cTipFakt
-               	replace	brdok with cBrFakt 
-               	replace	datdok with kalk->datdok 
-               	replace	kolicina with nKolicina 
-               	replace	idroba with kalk->idroba 
+               	replace	brdok with cBrFakt
+               	replace	datdok with kalk->datdok
+               	replace	kolicina with nKolicina
+               	replace	idroba with kalk->idroba
 		replace cijena with kalk->fcj
 		replace	rabat with kalk->rabat
                	replace	dindem with "KM"
        		replace idpartner with kalk->idpartner
-      		 
+
 		if lToRacun == .t.
 			replace cijena with _g_fakt_cijena()
 			replace idpartner with cFaktPartn
 		endif
-		
+
 		select KALK
        		skip
      	enddo
-     	
+
 	@ m_x+8,m_y+2 SAY "Dokument je prenesen !!"
-	
+
      	inkey(4)
-     	
+
 	@ m_x+8,m_y+2 SAY space(30)
-  		
+
 enddo
 
 BoxC()
@@ -374,7 +374,7 @@ static function _g_fakt_cijena()
 local nCijena := kalk->fcj
 
 if rj->tip == "V1"
-	nCijena := roba->vpc	
+	nCijena := roba->vpc
 elseif rj->tip == "V2"
 	nCijena := roba->vpc2
 elseif rj->tip == "M1"
@@ -396,7 +396,7 @@ return nCijena
 static function _set_brdok( cIdRj, cTip, cBroj )
 
 // daj novi broj fakture....
-cBroj := FaNoviBroj( cIdRj , cTip )   
+cBroj := FaNoviBroj( cIdRj , cTip )
 
 return .t.
 
@@ -432,12 +432,12 @@ local cFaktPartn
 
 _o_tables()
 
-select pripr  
-set order to tag "3"     
+select pripr
+set order to tag "3"
 // idfirma+idroba+rbr
 
 cIdFirma   := gFirma
-dOd := DATE() 
+dOd := DATE()
 dDo := DATE()
 dDatPl := DATE()
 cIdPartner := SPACE(LEN(PARTN->id))
@@ -449,7 +449,7 @@ O_PARAMS
 private cSection:="K"
 private cHistory:=" "
 private aHistory:={}
- 
+
 RPar("c1",@cDir)
 RPar("p1",@dOd)
 RPar("p2",@dDo)
@@ -459,25 +459,25 @@ RPar("p5",@cIdTipDok)
 select params
 use
 
-cDir := TRIM(cDir)  
+cDir := TRIM(cDir)
 // direktorij u kome je kalk.dbf
 
 USE (gDirKalk+"KALK") NEW
-SET ORDER TO TAG "7"  
+SET ORDER TO TAG "7"
 // idroba
 
 Box("#KALK->FAKT za partnera", 17, 75)
 
 DO WHILE .T.
-	
+
 	@ m_x+1,m_y+2 SAY "Firma/RJ:"
-    	
+
 	if gNW=="N"
       		@ m_x+1,col()+1 GET cIdFirma pict "@!"
     	else
       		@ m_x+1,col()+1 SAY cIdFirma pict "@!"
     	endif
-    	
+
 	@ m_x+2,m_y+2 SAY "Kalk partner" GET cIdPartner ;
 		VALID P_Firma(@cIdPartner)
     	@ m_x+3,m_y+2 SAY "Vrste KALK dokumenata" GET qqIdVd PICT "@!S30"
@@ -487,24 +487,24 @@ DO WHILE .T.
     	cTipFakt := cIdTipDok
     	cBrFakt  := SPACE(8)
     	cIdRj    := cIdFirma
-    	
+
 	@ m_x+6,m_y+2 SAY "Broj dokumenta u modulu FAKT: "
     	@ m_x+6,col()+1 GET cIdRJ pict "@!"
     	@ m_x+6,col()+2 SAY "-" GET cTipFakt
     	@ m_x+6,col()+2 SAY "-" GET cBrFakt WHEN SljedBrFakt()
-    	
+
 	read
-    	
+
 	if lastkey()==K_ESC
 		exit
 	endif
-    	
+
 	lToRacun := .f.
-	
+
 	if ( cTipFakt == "10" ) .and. ( "10" $ qqIdVd )
 		lToRacun := .t.
 	endif
-	
+
 	if lToRacun == .t.
 		@ m_x + 8, m_y + 2 SAY "Fakturisati partneru" GET cFaktPartn VALID p_firma(@cFaktPartn)
 		read
@@ -512,14 +512,14 @@ DO WHILE .T.
 			exit
 		endif
 	endif
-	
+
 	IF (aUsl1 := Parsiraj(qqIdVd,"IDVD")) == NIL
 		LOOP
 	ENDIF
 
     	select FAKT
 	seek cIdRj + cTipFakt + cBrFakt
-    	
+
 	if Found()
        		Beep(4)
        		@ m_x+14,m_y+2 SAY "U FAKT vec postoji ovaj dokument !!"
@@ -529,19 +529,19 @@ DO WHILE .T.
     	endif
 
     	select KALK
-    	
+
 	cFilter := "idfirma == cIdFirma"
-	cFilter += ".and." 
+	cFilter += ".and."
 	cFilter += "datdok >= dOd"
 	cFilter += ".and."
 	cFilter += "datdok <= dDo"
 	cFilter += ".and."
 	cFilter += "idpartner == cIdPartner"
-    	
+
 	IF !EMPTY(qqIdVd)
 		cFilter += ".and." + aUsl1
 	ENDIF
-    	
+
 	SET FILTER TO &cFilter
     	GO TOP
 
@@ -552,16 +552,16 @@ DO WHILE .T.
       		@ m_x+14,m_y+2 SAY space(30)
       		LOOP
     	ELSE
-     		
+
 		// nasteli partnera
 		select partn
-		
+
 		if lToRacun == .t.
 			hseek cFaktPartn
 		else
 			hseek cIdPartner
 		endif
-		
+
 		nRokPl := 0
 
 		if lToRacun == .t.
@@ -575,28 +575,28 @@ DO WHILE .T.
 		else
 			nRokPl := 0
 		endif
-		
+
 		// imamo filterisan KALK, slijedi generacija FAKT iz KALK
       		select KALK
-      		
+
 		lFirst := .t.
 
       		DO WHILE !EOF()
-        		
+
 			nKalkCijena := IF(cTipFakt $ "00#01", KALK->nc, ;
                        	  IF( cTipFakt $ "11#27", KALK->mpcsapp, KALK->vpc ))
-        		
+
 			nKalkRabat := IF( cTipFakt $ "00#01", 0, KALK->rabatv)
-        		
+
 			private nKolicina := kalk->kolicina
-        		
+
 			if kalk->idvd=="11" .and. cTipFakt="0"
           			nKolicina := -nKolicina
         		endif
 
         		cArtikal := idroba
         		SKIP 1
-        		
+
 			DO WHILE !EOF() .and. cArtikal==idroba
           			n2KalkCijena := IF(cTipFakt$"00#01",KALK->nc,;
                          	IF(cTipFakt$"11#27",KALK->mpcsapp,KALK->vpc))
@@ -611,61 +611,61 @@ DO WHILE .T.
           			nKolicina += (n2Kolicina)
           			SKIP 1
         		ENDDO
-        		
+
 			SKIP -1
 
         		if lFirst
-          			
+
 				nRBr:=1
           			select PARTN
-				
+
 				if lToRacun == .t.
 					hseek cFaktPartn
 				else
 					hseek cIdPartner
 				endif
-				
+
           			_Txt3a:=padr(cIdPartner+".",30)
 				_txt3b:=_txt3c:=""
-				IzSifre(.t.)
-          			
+				fakt_Iz_Sifre_(.t.)
+
 				cTxta:=_txt3a
           			cTxtb:=_txt3b
           			cTxtc:=_txt3c
-          			
+
 				@ m_x+10,m_Y+2 SAY "Partner " GET cTxta
           			@ m_x+11,m_Y+2 SAY "        " GET cTxtb
           			@ m_x+12,m_Y+2 SAY "Mjesto  " GET cTxtc
-          		
+
 				if nRokPl > 0
           				@ m_x+13,m_Y+2 SAY "Rok placanja " + ;
 						ALLTRIM(STR(nRokPl)) + " dana"
 				endif
-			
+
 				read
-          			
+
 				cTxt:=Chr(16)+" " +Chr(17)+;
                 		  Chr(16)+" "+Chr(17)+;
                			  Chr(16)+cTxta+ Chr(17)+;
 				  Chr(16)+cTxtb+Chr(17)+;
                 		  Chr(16)+cTxtc+Chr(17)
-          			
+
 			 	cTxt += Chr(16) + "" + Chr(17)
 			 	cTxt += Chr(16) + DTOC(dDo) + Chr(17)
 			 	cTxt += Chr(16) + "" + Chr(17)
 			 	cTxt += Chr(16) + DTOC(dDatPl) + Chr(17)
-				
-				
+
+
 				lFirst := .f.
-          			
+
 				select PRIPR
           			append blank
           			replace txt with cTxt
-				
+
         		else
-          			
+
 				select PRIPR
-          			
+
 				HSEEK cIdFirma+KALK->idroba
           			IF FOUND() .and. ROUND(nKalkCijena-cijena,5)==0 .and.( cTipFakt="0" .or. ROUND(nKalkRabat-rabat,5)==0 ) .and.( !lPoNarudzbi .or. idnar==cIdNar.and.brojnar==cBrojNar )
             				Scatter()
@@ -679,7 +679,7 @@ DO WHILE .T.
             				APPEND BLANK
          			ENDIF
         		endif
-        		
+
 			replace idfirma with cIdRj
                 	replace	rbr with STR(nRBr,3)
                 	replace idtipdok with cTipFakt
@@ -695,29 +695,29 @@ DO WHILE .T.
                 	replace cijena with nKalkCijena
                 	replace rabat with nKalkRabat
                 	replace dindem with "KM"
-        		
+
 			select KALK
         		SKIP 1
-      		
+
 		ENDDO
 
       		@ m_x+15,m_y+2 SAY "Dokument je prenesen !"
       		INKEY(4)
       		@ m_x+15,m_y+2 SAY space(30)
-      		
+
 		// snimi parametre !!!
       		O_PARAMS
       		private cSection:="K"
 		private cHistory:=" "
 		private aHistory:={}
-      		
+
 		WPar("c1",cDir)
       		WPar("p1",dOd)
       		WPar("p2",dDo)
       		WPar("p3",cIdPartner)
       		WPar("p4",qqIdVd)
       		WPar("p5",cIdTipDok)
-      		
+
 		select params
 		use
       		SELECT KALK
@@ -742,6 +742,3 @@ IF EMPTY(cBrFakt)
     	SELECT (nArr)
 ENDIF
 return .t.
-
-
-

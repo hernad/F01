@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -12,15 +12,15 @@
 
 #include "sc.ch"
 
- 
+
 
 /*!  DokNovaStrana(nColumn, nStr, nSlijediRedovaZajedno)
  *   Prelazak na novu stranicu
  *   nColumn - kolona na kojoj se stampa "Str: XXX"
  *   nStr  - stranica
- *   nSlijediRedovaZajedno - koliko nakon ove funkcije redova zelimo odstampati, nakon preloma se treba zajedno odstmpati "nSlijediRedova"; za vrijednost -1 stampa bez obzira na trenutnu poziciju (koristiti za stampu na prvoj strani) 
+ *   nSlijediRedovaZajedno - koliko nakon ove funkcije redova zelimo odstampati, nakon preloma se treba zajedno odstmpati "nSlijediRedova"; za vrijednost -1 stampa bez obzira na trenutnu poziciju (koristiti za stampu na prvoj strani)
  */
- 
+
 function DokNovaStrana(nColumn, nStr, nSlijediRedovaZajedno)
 
 
@@ -29,11 +29,11 @@ if (nSlijediRedovaZajedno==nil)
 endif
 
 if (nSlijediRedovaZajedno==-1) .or. (PROW()>(62+gPStranica-nSlijediRedovaZajedno))
-	
+
 	if (nSlijediRedovaZajedno<>-1)
 		FF
 	endif
-	
+
 	@ prow(), nColumn SAY "Str:"+str(++nStr,3)
 endif
 
@@ -73,21 +73,13 @@ return
 
 
 
-/*!  FSvaki2()
- *  
- */
- 
-function FSvaki2()
-
-RETURN
 
 
- 
 /*!  IspisFirme(cIdRj)
  *   Ispisuje naziv fime
  *   cIdRj  - Oznaka radne jedinice
  */
- 
+
 function IspisFirme(cIdRj)
 local nOArr:=select()
 
@@ -108,5 +100,3 @@ function IspisNaDan(nEmptySpace)
 
 ?? REPLICATE(" ",nEmptySpace) + " Na dan: " + DToC(DATE())
 return
-
-
