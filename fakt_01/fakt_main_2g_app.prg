@@ -418,7 +418,7 @@ public gAzurTimeOut := 150
 public gFC_type := PADR( "FPRINT", 20 )
 public gFC_device := "P"
 public gFc_use := "N"
-public gFC_path := PADR("c:\fiscal\", 150)
+public gFC_path := PADR("c:" + SLASH + "fiscal" + SLASH, 150)
 public gFC_path2 := PADR("", 150)
 public gFC_name := PADR("OUT.TXT", 150 )
 public gFC_answ := PADR("ANSWER.TXT",40)
@@ -460,7 +460,7 @@ public gMPCjenPDV := "2"
 public gZ_5pf := "N"
 
 // novi dokumenti - otpremnice po prefiksu
-public gPoPrefiksu := "N"
+public gPoPrefiks := "N"
 
 O_PARAMS
 private cSection:="1"

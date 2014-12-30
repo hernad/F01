@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -16,6 +16,7 @@
 // ------------------------------------------------------
 // kreiranje tabela DOKSRC i P_DOKSRC
 // ------------------------------------------------------
+
 function cre_doksrc()
 local aDbf := {}
 local cDokSrcName := "DOKSRC"
@@ -36,7 +37,7 @@ AADD(aDBf,{ "idvd"                , "C" ,   2 ,  0 })
 AADD(aDBf,{ "brdok"               , "C" ,  nBrDokLen ,  0 })
 AADD(aDBf,{ "datdok"              , "D" ,   8 ,  0 })
 AADD(aDBf,{ "src_modul"           , "C" ,  10 ,  0 })
-AADD(aDBf,{ "src_idfirma"         , "C" ,   2 ,  0 })
+AADD(aDBf,{ "src_idfirm"         , "C" ,   2 ,  0 })
 AADD(aDBf,{ "src_idvd"            , "C" ,   2 ,  0 })
 AADD(aDBf,{ "src_brdok"           , "C" ,   8 ,  0 })
 AADD(aDBf,{ "src_datdok"          , "D" ,   8 ,  0 })
@@ -50,16 +51,16 @@ if !FILE(KUMPATH + cDokSrcName + ".DBF")
 	DBCREATE2(KUMPATH + cDokSrcName + ".DBF", aDbf)
 endif
 // indexi....
-CREATE_INDEX("1","idfirma+idvd+brdok+DTOS(datdok)+src_modul+src_idfirma+src_idvd+src_brdok+DTOS(src_datdok)", KUMPATH + cDokSrcName)
-CREATE_INDEX("2","src_modul+src_idfirma+src_idvd+src_brdok+DTOS(src_datdok)", KUMPATH + cDokSrcName)
+CREATE_INDEX("1","idfirma+idvd+brdok+DTOS(datdok)+src_modul+src_idfirm+src_idvd+src_brdok+DTOS(src_datdok)", KUMPATH + cDokSrcName)
+CREATE_INDEX("2","src_modul+src_idfirm+src_idvd+src_brdok+DTOS(src_datdok)", KUMPATH + cDokSrcName)
 
 // kreiraj u PRIVPATH
 if !FILE(PRIVPATH + cPDokSrcName + ".DBF")
 	DBCREATE2(PRIVPATH + cPDokSrcName + ".DBF", aDbf)
 endif
 // indexi....
-CREATE_INDEX("1","idfirma+idvd+brdok+DTOS(datdok)+src_modul+src_idfirma+src_idvd+src_brdok+DTOS(src_datdok)", PRIVPATH + cPDokSrcName)
-CREATE_INDEX("2","src_modul+src_idfirma+src_idvd+src_brdok+DTOS(src_datdok)", PRIVPATH + cPDokSrcName)
+CREATE_INDEX("1","idfirma+idvd+brdok+DTOS(datdok)+src_modul+src_idfirm+src_idvd+src_brdok+DTOS(src_datdok)", PRIVPATH + cPDokSrcName)
+CREATE_INDEX("2","src_modul+src_idfirm+src_idvd+src_brdok+DTOS(src_datdok)", PRIVPATH + cPDokSrcName)
 
 cre_p_update()
 
@@ -105,7 +106,7 @@ replace field->idvd with cTD
 replace field->brdok with cBrDok
 replace field->datdok with dDatDok
 replace field->src_modul with cSrcModName
-replace field->src_idfirma with cSrcFirma
+replace field->src_idfirm with cSrcFirma
 replace field->src_idvd with cSrcTD
 replace field->src_brdok with cSrcBrDok
 replace field->src_datdok with dSrcDatDok
@@ -200,17 +201,17 @@ do while !EOF() .and. field->idfirma == cFirma ;
 		.and. field->idvd == cIdVd ;
 		.and. field->brdok == cBrDok ;
 		.and. IF(dDatDok<>nil, field->datdok == dDatDok, .t.)
-	
-	
+
+
 	Scatter()
-	
+
 	select p_doksrc
 	append blank
 	Gather()
-	
+
 	select doksrc
 	skip
-	
+
 enddo
 
 select (nTArea)
@@ -298,7 +299,7 @@ select p_doksrc
 go top
 
 // provjeri broj zapisa...
-if p_doksrc->(RecCount2()) == 0 
+if p_doksrc->(RecCount2()) == 0
 	select (nTArea)
 	return
 endif
@@ -312,17 +313,17 @@ go top
 MsgO("Azuriram DOKSRC....")
 
 do while !EOF()
-	
+
 	Scatter()
-	
+
 	select doksrc
-	
+
 	append blank
-	
+
 	Gather()
-	
+
 	select p_doksrc
-	
+
 	skip
 enddo
 
@@ -345,7 +346,7 @@ return
 // ----------------------------------------------------
 static function seek_p_dok(cFirma, cIdVd, cBrDok, dDatum)
 local nTArea := SELECT()
-local cSeek 
+local cSeek
 local lReturn := .f.
 
 O_P_DOKSRC
@@ -382,7 +383,7 @@ return lReturn
 // ----------------------------------------------------
 static function seek_p_src(cModul, cFirma, cIdVd, cBrDok, dDatum)
 local nTArea := SELECT()
-local cSeek 
+local cSeek
 local lReturn := .f.
 
 O_P_DOKSRC
@@ -558,6 +559,4 @@ replace p_up_time with TIME()
 c_p_update()
 
 select (nTArea)
-return 
-
-
+return

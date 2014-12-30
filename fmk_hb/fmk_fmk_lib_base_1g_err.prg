@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -18,10 +18,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/sclib/base/1g/err.prg,v $
- * $Author: ernad $ 
+ * $Author: ernad $
  * $Revision: 1.5 $
  * $Log: err.prg,v $
  * Revision 1.5  2003/01/18 14:26:01  ernad
@@ -44,7 +44,7 @@
  *
  *
  */
- 
+
 
 function MyErrorHandler(objErr,lLocalHandler)
 
@@ -55,7 +55,7 @@ local nErr
 
  ? "Greska .......... myerrorhandler"
  sleep(5)
- 
+
  if lLocalHandler
   Break objErr
  endif
@@ -123,12 +123,12 @@ if llocalHandler==NIL
     lLocalHandler:=.f.
 endif
 
- 
+
 if lLocalHandler
   Break objErr
 endif
 
- 
+
 /* test presretanja variable not found
  if (objErr:genCode=EG_NOVAR)
      if trim(objErr:operation) ="KK1"  .or.;
@@ -168,7 +168,7 @@ do case
    CASE objErr:genCode=36
      //Workarea not indexed
      lInstallDB:=.t.
-     
+
    CASE objErr:genCode=EG_ZERODIV
      MsgO(objErr:description+' Dijeljenje sa nulom')
    CASE objErr:genCode=EG_NUMERR
@@ -199,7 +199,7 @@ do case
    CASE objErr:genCode=EG_OPEN
      MsgO(ObjErr:description+' Ne mogu otvoriti fajl '+ObjErr:filename)
      lInstallDB:=.t.
-     
+
   //if file(strtran(objerr:filename,gSezonDir,"")) .and. !file(ObjErr:Filename) // ako se radi sa sezonskim podacima
     //    filecopy(strtran(objerr:filename,gSezonDir,""),ObjErr:fileName)
         // primjer :\sigma\fin\kum1\params.dbf
@@ -295,14 +295,14 @@ do while .t.
   ? "Verzija programa:", gVerzija ," verzija ELIB-a:",elibver()
   ?
   ? "Podsistem klipera:",objErr:SubSystem
-  ? "GenKod:",str(objErr:GenCode,3),"OpSistKod:",str(objErr:OsCode,3)
-  ? "Opis:",objErr:description
-  ? "ImeFajla:",objErr:filename
-  ? "Operacija:",objErr:operation
-  ? "Argumenti:",objErr:args
-  for i:=10 to 2 STEP -1
+  ? "GenKod:",str(objErr:GenCode,3), "OpSistKod:", str(objErr:OsCode,3)
+  ? "Opis:", objErr:description
+  ? "ImeFajla:", objErr:filename
+  ? "Operacija:", objErr:operation
+  ? "Argumenti:", objErr:args
+  for i := 10 to 2 STEP -1
    if !empty(PROCNAME(i))
-    ? "Procedura:",padr(PROCNAME(i),10),"Linija:",ProcLine(i)
+    ? "Procedura:",padr(PROCNAME(i), 50),"Linija:",ProcLine(i)
    endif
   next
   ?
@@ -320,7 +320,7 @@ do while .t.
    ? "Odstampati gornje podatke na stampac D/N ?"
    DO WHILE NEXTKEY()==0; OL_YIELD(); ENDDO
    INKEY()
-   
+
    cStampaj:=upper(chr(lastkey()))
    if cstampaj=="D"
      loop
@@ -370,4 +370,3 @@ function MyErrH(o)
 
 BREAK o
 return
-

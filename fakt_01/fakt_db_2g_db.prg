@@ -13,10 +13,8 @@
 #include "fakt01.ch"
 
 
-/*!  TDBFaktNew()
- *
- */
 function TDBFaktNew()
+
 local oObj
 oObj:=TDBFakt():new()
 oObj:self:=oObj
@@ -37,23 +35,7 @@ return oObj
  */
 
 
-#ifdef CPP
-class TDBFakt: public TDB
-{
-     public:
-     	TObject self;
-	string cName;
-	*void dummy();
-	*void skloniSezonu(string cSezona, bool finverse, bool fda, bool fnulirati, bool fRS);
-	*void install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7);
-	*void setgaDBFs();
-	*void obaza(int i);
-	*void kreiraj(int nArea);
-	*void ostalef();
-}
-#endif
 
-#ifndef CPP
 #include "class(y).ch"
 CREATE CLASS TDBFakt INHERIT TDB
 
@@ -69,7 +51,7 @@ CREATE CLASS TDBFakt INHERIT TDB
 	method konvZn
 
 END CLASS
-#endif
+
 
 
 /*!  *void TDBFakt::dummy()
@@ -112,7 +94,7 @@ if fRS==nil
 endif
 
 if fRS // radna stanica
-	if File(PRIVPATH+cSezona+"\PRIPR.DBF")
+	if File(PRIVPATH+cSezona + SLASH + "PRIPR.DBF")
       		// nema se sta raditi ......., pripr.dbf u sezoni postoji !
       		return
   	endif
@@ -144,7 +126,7 @@ endif
 
 fNul:=.f.
 
-MsgBeep("Sklanjam privatne direktorije!!!")
+MsgBeep("Sklanjam privatne direktorije !")
 
 Skloni(PRIVPATH,"PRIPR.DBF",cSezona,finverse,fda,fnul)
 Skloni(PRIVPATH,"PRIPR.FPT",cSezona,finverse,fda,fnul)
@@ -180,7 +162,7 @@ endif
 
 // kumulativ datoteke
 
-MsgBeep("Sklanjam kumulativne direktorije!!!")
+MsgBeep("Sklanjam kumulativne direktorije !")
 
 Skloni(KUMPATH,"FAKT.FPT",cSezona,fInverse,fDa,fNul)
 
@@ -242,9 +224,6 @@ restore screen from cScr
 return
 
 
-/*!  *void TDBFakt::setgaDBFs()
- *   Setuje matricu gaDBFs
- */
 
 method setgaDBFs()
 
@@ -320,9 +299,9 @@ return
 
 method Kreiraj(nArea)
 
-#ifdef CAX
-	SET EXCLUSIVE ON
-#endif
+
+SET EXCLUSIVE ON
+
 
 CreFMKSvi()
 CreRoba()

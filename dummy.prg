@@ -7,7 +7,7 @@ function wwsjecistr()
 
   //to nesto koristeno za rtf
   RETURN
-  
+
 function dbselectarr( xArea )
  return dbselectArea( xArea )
 
@@ -56,13 +56,13 @@ FUNCTION GETNEXTKALKDOK()
 
 function CM2STR()
 
-function       CMFILTCOUNT()
+function CMFILTCOUNT()
 
 function CMXAUTOOPEN()
 
 function  CMXCLRSCOPE()
 
-function CMXKEYCOUNT()
+//function CMXKEYCOUNT()
 
 function       CMXKEYSINCLUDED()
 
