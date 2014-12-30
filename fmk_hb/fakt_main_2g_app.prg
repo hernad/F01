@@ -228,6 +228,8 @@ local cSekcija
 local cVar
 local cVal
 
+altd()
+
 SetFmkRGVars()
 
 SetFmkSGVars()
