@@ -313,7 +313,7 @@ return
 
 
 function SetNaslov(oApp)
-gNaslov:= oApp:cName+" EXT, "+oApp:cPeriod+" "+D_VERZIJA
+gNaslov:= oApp:cName+" HB, " + oApp:cPeriod + " " + D_VERZIJA
 #ifndef PROBA
 
 	SETCANCEL(.f.)
@@ -325,16 +325,6 @@ gNaslov:= oApp:cName+" EXT, "+oApp:cPeriod+" "+D_VERZIJA
 	endif
 
 	gNaslov+=", Reg: "+SUBSTR(EVar,7,20)
-		#IFDEF  READONLY
-			 gNaslov+="-RO"
-		#ENDIF
-	#else
- 		if gNoReg
-			gNaslov+=" , NO-REG VERSION"
-		else
-			gNaslov+=" , PROBNA VERZIJA"
-		endif
-	#endif
 
 	PUBLIC bGlobalErrorHandler
 	bGlobalErrorHandler:={|objError| GlobalErrorHandler(objError,.f.)}
@@ -1111,71 +1101,10 @@ function IzvrsenIn(p3,fImodul, cModul, fsilent)
 
 local i,nCheck,fid,nHBios,cBuffer,nBytes
 
-PUBLIC EVar:="#Erky#____SIGMA-COM_ZE____#0000"
+PUBLIC EVar:="#Erky#bringout#0000"
 
-if fimodul==NIL; fimodul:=.f.; endif
+if fimodul==NIL; fImodul:=.f.; endif
 if cmodul==NIL; cModul:=gModul; endif
 if fsilent==NIL; fSilent:=.f.; endif
 
-if !fsilent
-clear
-?
-endif
-
-private cSbr:=SUBSTR(EVar,7,20)
-if file(EXEPATH+"serbr.mem")
- restore from (EXEPATH+"serbr.mem") additive
-endif
-
-Evar:=substr(Evar,1,6)+padr(cSbr,20)+substr(Evar,27,5)
-
-if !fsilent
-? "Registrovano na:", cSbr
-?
-endif
-nCheck:=0
-for i:=1 to 20
- nCheck+=ASC(substr(cSbr,i,1))+i
-next
-
-? "Preskacem BIOS funkcije ..."
-
-return .t.
-
-if !fimodul
-
-  fid:=.f.
-  cBuffer:=space(8)
-  nHBios:=fopen(ToUnix(EXEPATH+"\bx.xv"))
-  do while .t.
-    nBytes:=FREAD(nHBios,@cBuffer,8)
-    if cBuffer==Crypt2(Bios(),cModul)
-       fid:=.t.   // ovaj broj postoji
-       exit
-    endif
-    if nBytes<8
-       exit
-    endif
-
-  enddo
-  FCLOSE(nHBios)
-  if !fid
-    if !fsilent
-     Evar:= substr(Evar,1,6)+padr("PROBNA VERZIJA",20)+substr(Evar,27,5)
-     Evar+="0"
-    else
-       return .f. // vrati .f.
-    endif
-  endif
-  ?
-
-endif
-return .t.
-
-
-#ifdef CLIP
-function Arg0()
-
-return "/dev/fmk/pos/1g/e.exe"
-
-#endif
+RETURN .T.

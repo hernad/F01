@@ -109,4 +109,6 @@ FUNCTION connect_to_f01_server()
 
 FUNCTION my_dbUseArea( lNew, xRdd, cDb, cAlias, lExclusive, lReadOnly )
 
-   RETURN dbUseArea( lNew, xRdd, f01_server() + cDb, cAlias, !gInstall , gReadOnly )                                               ;
+
+   cDb := f01_server() + STRTRAN( cDb, "C" + ":", "" )
+   RETURN dbUseArea( lNew, xRdd, cDb, cAlias, !gInstall , gReadOnly )                                               ;

@@ -2,8 +2,8 @@
 	#include "sc.ch"
 #endif
 
-#define D_FI_VERZIJA "02.80"
-#define D_FI_PERIOD '11.94-16.01.12'
+#define D_FI_VERZIJA "03.80"
+#define D_FI_PERIOD '11.94-30.12.2014'
 #ifndef FMK_DEFINED
 	#include "f01.ch"
 #endif
@@ -81,4 +81,3 @@
 #xcommand O_ULIMIT => SELECT (F_ULIMIT); USE (SIFPATH+"ULIMIT"); set order to tag "ID"
 #xcommand O_TIPBL => SELECT (F_TIPBL); USE (SIFPATH+"TIPBL"); set order to tag "1"
 #xcommand O_VRNAL => SELECT (F_VRNAL); USE (SIFPATH+"VRNAL"); set order to tag "1"
-

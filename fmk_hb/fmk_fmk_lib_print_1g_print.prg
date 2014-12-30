@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -20,23 +20,23 @@
 //  * D - ide direktno na stampac
 //  * N - ne ide
 
-static lPrn:="D" 
+static lPrn:="D"
 
-static nZagrada:=0 
+static nZagrada:=0
 
-static cKom:="" 
+static cKom:=""
 
-static nSekundi:=0 
+static nSekundi:=0
 
-static cTekprinter:="" 
+static cTekprinter:=""
 
-static cFName:="OUTF.TXT" 
+static cFName:="OUTF.TXT"
 
 
 // -------------------------------------------------------------------
 // StartPrint(lUlFajl, cF)
 // Pocetna procedura za stampu u OUTF.TXT
-//  * lUFajl - True -> cDirekt="V", False - tekuca postavka varijanta 
+//  * lUFajl - True -> cDirekt="V", False - tekuca postavka varijanta
 //  * cF - ime izlaznog fajla, tekuca vrijednost OUTF.TXT
 //  * FmkIni/ExePath/Printeri_DirektnoOUTFTXT
 // --------------------------------------------------------------
@@ -55,7 +55,7 @@ if cF<>nil
 endif
 
 if (cDocumentName == nil)
-  cDocumentName :=  gModul + '_' + DTOC(DATE()) 
+  cDocumentName :=  gModul + '_' + DTOC(DATE())
 endif
 
 private GetList:={}
@@ -82,11 +82,11 @@ if !(lUFajl)
 	if gPrinter = "G"
 		cDirekt := "G"
 	endif
-	
+
 	if cDirekt = "G"
 		gPrinter := "G"
 	endif
-	
+
 	if gPrinter=="R"
 		PtxtSekvence()
 	endif
@@ -110,7 +110,7 @@ if cDirekt=="D" .and. gPrinter<>"R" .and. gPrinter<>"G" .and. cOutfTxt<>"D"
 		   (val(gPPort)<4 .and. printready(val(gPPort)) )
 
 		  // 8 - copy lpt1
-		  exit           
+		  exit
 
 		else
 			Beep(2)
@@ -134,7 +134,7 @@ else
 		MsgO("Priprema izvjestaja...")
 	endif
 	set console off
-	
+
 	if gKesiraj $ "CD"
 		cPom:=strtran(PRIVPATH,LEFT(PRIVPATH,3), gKesiraj+DRVPATH)
 		DirMak2(cpom)
@@ -162,21 +162,21 @@ set default to
 if cKom="LPT1" .and. gPPort<>"8"
 	set printer to
 
-elseif ckom=="LPT2" .and. gPPort<>"9"
+elseif ckom == "LPT2" .and. gPPort<>"9"
 	Set( 24, "lpt2", .F. )
 else
         // radi se o fajlu
-	if DRVPATH $ cKom  
+	if DRVPATH $ cKom
 		bErr:=ERRORBLOCK({|o| MyErrH(o)})
 		begin sequence
 		set printer to (ckom)
 		recover
 		bErr:=ERRORBLOCK(bErr)
-		cKom:=ToUnix("C"+DRVPATH+"sigma"+SLASH+cFName) 
+		cKom:=ToUnix("C"+DRVPATH+"sigma"+SLASH+cFName)
 		if gnDebug>=5
 			MsgBeep("Radi se o fajlu !##set printer to (cKom)##var cKom=" + AllTrim(cKom))
 		endif
-		
+
 		set printer to (cKom)
 		END SEQUENCE
 		bErr:=ERRORBLOCK(bErr)
@@ -185,7 +185,7 @@ else
 			MsgBeep("set printer to (cKom)##var cKom=" + AllTrim(cKom))
 		endif
 		set printer to (ckom)
-	endif 
+	endif
 
 endif
 
@@ -205,7 +205,7 @@ return .t.
 static function GPPortTransform(cKom)
 
 if gPPort>"4"
-	if gpport=="5"
+	if gPport=="5"
 		cKom:="LPT1"
 	elseif gPPort=="6"
 		cKom:="LPT2"
@@ -232,8 +232,7 @@ endif
 return
 
 
-// ----------------------------------------
-// ----------------------------------------
+
 function EndPrint()
 local cS
 local i
@@ -256,7 +255,7 @@ Tone(440,2)
 Tone(440,2)
 
 * ako nije direktno na printer
-if lPrn<>"D" .or. (gPPort $ "89" .and. lPrn=="D") .or. gPrinter=="R" .or. gPrinter=="G" .or. (cOutftxt=="D" .and. lPrn=="D")  
+if lPrn<>"D" .or. (gPPort $ "89" .and. lPrn=="D") .or. gPrinter=="R" .or. gPrinter=="G" .or. (cOutftxt=="D" .and. lPrn=="D")
 
 if gAppSrv
     return
@@ -322,28 +321,28 @@ else
 	endif
 
 	if gPrinter == "R"
-		
-		if gPDFprint == "X" .and. goModul:oDataBase:cName == "FAKT" 
-			if Pitanje(,"Print u PDF/PTXT (D/N)?", "D") == "D" 
+
+		if gPDFprint == "X" .and. goModul:oDataBase:cName == "FAKT"
+			if Pitanje(,"Print u PDF/PTXT (D/N)?", "D") == "D"
 				PDFView(cKom)
 			else
 				Ptxt(cKom)
 			endif
 		elseif gPDFprint == "D" .and. ;
-			goModul:oDataBase:cName == "FAKT" 
+			goModul:oDataBase:cName == "FAKT"
 			PDFView(cKom)
 		else
 			Ptxt(cKom)
 		endif
 	endif
-	
+
 endif
 restore screen from cS
-endif 
+endif
 // lPrn
 
 // nemoj "brze izvjestaje"
-if nSek2-nSekundi>10  
+if nSek2-nSekundi>10
 	@ 23,75 SAY nSek2-nSekundi pict "9999"
 endif
 
@@ -351,7 +350,7 @@ if gPrinter<>cTekPrinter
 	gPrinter:=cTekPrinter
 	PushWa()
 	O_GPARAMS
-	private cSection:="P" 
+	private cSection:="P"
 	private cHistory:=gPrinter
 	private aHistory:={}
 	RPar_Printer()
@@ -418,7 +417,7 @@ do while .t.
           else
             cKom:=PRIVPATH+cFName
             if gnDebug>=5
-	    	MsgBeep("SPrint2() var cKom=" + AllTrim(cKom))
+	    	MsgBeep( "SPrint2() var cKom=" + AllTrim(cKom))
 	    endif
 	  endif
     endif
@@ -496,18 +495,18 @@ endif
        	MsgBeep("before !copy cPom##var cKom=" + AllTrim(cKom) + "##var cPom=" + AllTrim(cPom))
         MsgBeep("Pocni stampu")
        endif
-       
+
        !copy &cPom
-       
+
        if gnDebug>=5
        	MsgBeep("Zavrsio stampu! Vracam screen!")
        endif
-       
+
        restore screen from cS
-    
+
     endif
   endif
-  
+
   // LPT1, LPT2 ...
   if gOpSist$"W2000WXP"
   	save screen to cS
@@ -521,7 +520,7 @@ endif
 	MsgBeep(Alltrim(cPom))
 	!copy &cPom
   endif
-   
+
   Tone(440,2)
   Tone(440,2)
   Msg( "Stampanje zavrseno. Pritisnite bilo koju tipku za nastavak rada!", ;
@@ -738,11 +737,11 @@ endif
 fSL:=.f.
 
 for i:=1 to len(cStr)
-	
+
 	cNum:=substr(cStr,i,1)
-  
+
 	// slova
-	if asc(cNum)>=33 .and. asc(cNum)<=126        
+	if asc(cNum)>=33 .and. asc(cNum)<=126
 		if fSl  // proslo je bilo slovo
 			cPom:=left(cPom,len(cPom)-1)+cNum+SLASH
 		else
@@ -816,9 +815,9 @@ if nPos==0
  	exit
 endif
  cNum:=left(cStr,nPos-1)
- 
- if left(cNum,1)="'"    
-  /* 
+
+ if left(cNum,1)="'"
+  /*
     oblik '(s<ESC>    => (s
   */
   cPom+=substr(cNum,2)
@@ -828,7 +827,7 @@ endif
   */
   cPom+=chr(val(cNum))
  endif
- 
+
  cStr:=substr(cStr,nPos+1)
 enddo
 cStr:=cPom
@@ -837,7 +836,7 @@ return cPom
 
 // ----------------------------------------
 // izbaci ini seqvencu za printer
-//  * posalji i docname 
+//  * posalji i docname
 // ----------------------------------------
 function GpIni(cDocumentName)
 local lKonvTable:=nil
@@ -857,9 +856,9 @@ endif
 if gPrinter=="R"
   lKonvTable:=.t.
 endif
-konvtable( lKonvTable ) 
+konvtable( lKonvTable )
 
-return 
+return
 
 
 // ----------------------------------------
@@ -1060,7 +1059,7 @@ return ""
 // ----------------------------------------
 // ---------------------------------------
 function CurToExtBase(ccExt)
- 
+
 LOCAL nArr:=SELECT()
   PRIVATE cFilter:=DBFILTER()
   copy structure extended to struct
@@ -1163,7 +1162,7 @@ public gRPL_Normal := "0"
 public gRPL_Gusto  := "3"+CHR(24)
 public gPReset:=""
 public gPFF:=Chr(12)
-  
+
 return
 
 

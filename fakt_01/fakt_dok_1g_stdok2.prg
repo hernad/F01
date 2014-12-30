@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,7 +14,7 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
 
@@ -69,7 +69,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_ExePath_FAKT_PozivDelphiRB
-  *  Komanda za poziv Delphi RB-a za operativni sistem Windows 2000 
+  *  Komanda za poziv Delphi RB-a za operativni sistem Windows 2000
   *  DelphiRB - default vrijednost
   */
 *string FmkIni_ExePath_FAKT_PozivDelphiRB;
@@ -135,7 +135,7 @@
 
 /*! \ingroup ini
   * \var *string FmkIni_KumPath_FAKT_CekanjeNaSljedeciPozivDRB
-  *  Broj sekundi cekanja na provjeru da li je Delphi RB zavrsio posljednji zadani posao 
+  *  Broj sekundi cekanja na provjeru da li je Delphi RB zavrsio posljednji zadani posao
   *  6 - default vrijednost
   */
 *string FmkIni_KumPath_FAKT_CekanjeNaSljedeciPozivDRB;
@@ -232,7 +232,7 @@
  *   cIdTipDok
  *   cBrDok
  */
- 
+
 function StDok2()
 
 parameters cIdFirma,cIdTipDok,cBrDok
@@ -363,7 +363,7 @@ aDbf:={ {"POR","C",10,0},;
 dbcreate2(PRIVPATH+"por",aDbf)
 O_POR   // select 95
 index  on BRISANO TAG "BRISAN"
-index  on POR  TAG "1" 
+index  on POR  TAG "1"
 set order to tag "1"
 select pripr
 
@@ -700,13 +700,13 @@ do while idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==cBrDok .and. !
        			endif
        			select pripr
      		endif
-		
+
        		select tarifa
 		hseek roba->idtarifa
 		select pripr
-		
+
 		aSbr:=Sjecistr(serbr,10)
-    		
+
 		if roba->tip="U"
      			aTxtR:=SjeciStr(aMemo[1],iif(gVarF=="1".and.!idtipdok$"11#27",51,if(IsTvin(),if(idtipdok$"11#27",22,31),40)))   // duzina naziva + serijski broj
      			if fdelphiRB
@@ -716,15 +716,15 @@ do while idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==cBrDok .and. !
        				select pripr
      			endif
     		else
-			
+
 			cK1:=""
      			cK2:=""
-     			
-			if pripr->(fieldpos("k1"))<>0 
+
+			if pripr->(fieldpos("k1"))<>0
      				cK1:=k1
 				cK2:=k2
 			endif
-     			
+
 			aTxtR:=SjeciStr(trim(roba->naz)+iif(!empty(ck1+ck2)," "+ck1+" "+ck2,"")+Katbr()+IspisiPoNar(),if(IsTvin(),if(idtipdok$"11#27",22,31),40))
      			if fdelphiRB
        				select pom
@@ -756,7 +756,7 @@ do while idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==cBrDok .and. !
               		Sifra  with pripr->(StIdROBA(idroba))
       			select pripr
     		else
-			
+
      			? space(gnLMarg)
      			?? Rbr(), PADR(IIF(roba->tip="U","", tarifa->naz), 10), StIdROBA(idroba)
      			nCTxtR:=pcol()+1
@@ -1083,7 +1083,7 @@ if fDelphiRB
   for i:=1 to numtoken(cTxt2, Chr(200) )
 	UzmiIzIni(cIniName,'Varijable','KrajTxt'+alltrim(str(i)), token(KonvZnWin(@cTxt2, gKonvZnWin), Chr(200), i) ,'WRITE')
   next
-  
+
 else
 	cTxt2:=strtran(ctxt2,"�"+Chr(10),"")
 	cTxt2:=strtran(ctxt2,Chr(13)+Chr(10),Chr(13)+Chr(10)+space(gnLMarg))
@@ -1092,7 +1092,7 @@ else
 	?
 endif
 
-if !fDelphiRB 
+if !fDelphiRB
   if cidtipdok$"11#27" .and. !( gRekTar=="D" .and. gVarC="X" )
    select por
    go top
@@ -1117,51 +1117,51 @@ if !fDelphiRB
  endif
 endif
 
-if fDelphiRB .and. cIdTipDok $ "11#27" 
+if fDelphiRB .and. cIdTipDok $ "11#27"
 //.and. !( gRekTar=="D" .and. gVarC="X" )
-   		
+
 	select por
    	go top
-   
-   
+
+
    	i10:=0
    	UzmiIzIni(cIniName,'Varijable','MPPorez'+alltrim(str(i10)), ;
      		"- Od toga porez: ----------","WRITE")
-   	
+
 	i10:=i10+1
-   		
+
 	nUkPorez:=0
 	do while !eof()
- 		
+
    		UzmiIzIni(cIniName,'Varijable','MPPorez'+alltrim(str(i10)), ;
 		 	por+"%   : " + TRANSFORM(iznos, "9999999.999"), "WRITE" )
-     	
+
 
 		i10:=i10+1
 		nUkporez+=iznos
      		skip
 	enddo
- 
+
 
 
    	UzmiIzIni(cIniName,'Varijable','MPPorez'+alltrim(str(i10)), ;
      		"Ukupno :  "+space(6)+ TRANSFORM(nUkPorez, "9999999.999"), "WRITE" )
-   	
+
 	i10:=i10+1
-   
+
    	UzmiIzIni(cIniName,'Varijable','MPPorez'+alltrim(str(i10)), ;
      		"---------------------------", "WRITE")
-     	
+
 	i10:=i10+1
-	
+
    	// do kraja popuni sa prazno
 	do while i10 < 8
    		UzmiIzIni(cIniName,'Varijable','MPPorez'+alltrim(str(i10)), ;
      			"", "WRITE")
-  		
+
 		i10:=i10+1
 	enddo
-	
+
 	select pripr
    	select por
 	use
@@ -1177,9 +1177,9 @@ if gRekTar=="D" .and. (gVarC="X" .or. cidtipdok=="13")
    P_COND
    fakt_rekap_tarife()
    select pripr
-   
+
    // azurirana faktura
-   if pcount()==3  
+   if pcount()==3
     set index to fakt
    else
     set index to pripr
@@ -1245,7 +1245,7 @@ CLOSERET
 
 /*!  Zagl2()
  *   Stampa zaglavlja na fakturi u varijanti 2
- */ 
+ */
 static function Zagl2()
 
 P_COND
@@ -1322,7 +1322,7 @@ return
  *   bZagl
  *   fPrenos
  */
- 
+
 static function NStr0(bZagl,fPrenos)
 
 if fprenos=NIL
@@ -1356,10 +1356,10 @@ endif
 
 
 /*!  StKupac(fDelphiRB)
- *  
+ *
  *   fdelphiRB
  */
- 
+
 static function StKupac(fDelphiRb)
 
 local cMjesto:=padl(Mjesto(cIdFirma)+", "+dtoc(ddatdok),iif(gFPZag=99,gnTMarg3,0)+39)
@@ -1397,7 +1397,7 @@ if fdelphiRb
      UzmiIzIni(cIniName,'Varijable','KANTON',cKanton,'WRITE')
    endif
 else
-	
+
 	IF IzFMKINI("FAKT","KupacDesno","N",KUMPATH)=="D"
    		?? space(5)
 		?? PADR(ALLTRIM(iif(gFPzag<>99 .or. gnTMarg2=1,cMjesto,"")),39)
@@ -1486,7 +1486,7 @@ cStrRN:=""
 if lUgRab
   cStr:="UGOVOR O RABATU br."
 elseif (lTrebovanje .and. !Empty(pripr->idRNal))
-  cStr:="IZLAZ MATERIJALA br. "		
+  cStr:="IZLAZ MATERIJALA br. "
   cStrRN:=TRIM("PO RADNOM NALOGU br. "+pripr->idRNal)
 elseif cIdTipDok == "01"
   if cIdFirma="TE"
@@ -1580,7 +1580,7 @@ return
 /*!  KatBr()
  *   Kataloski broj
  */
- 
+
 function KatBr()
 
 if roba->(fieldpos("KATBR"))<>0
@@ -1596,7 +1596,7 @@ return ""
 /*!  UgRabTXT()
  *   Uzima tekst iz fajla gFUgRab
  */
- 
+
 static function UgRabTXT()
 
 local cPom:=""
@@ -1609,10 +1609,10 @@ return cPom
 
 
 /*!  DiVoRel()
- *   
+ *
  *  \todo nesto vezano za vindiju
  */
- 
+
 function DiVoRel()
 
 LOCAL nArr:=SELECT(), cIdVozila:=idvozila
@@ -1633,7 +1633,7 @@ return
 /*!  IspisiAmbalazu()
  *   Ispisuje ambalazu
  */
- 
+
 function IspisiAmbalazu()
 
 // LOCAL nPak:=0, nKom:=0
@@ -1648,7 +1648,7 @@ return
 /*!  IspisiPoNar()
  *   Ispisi po narudzbi
  */
- 
+
 function IspisiPoNar()
 
 LOCAL cV:=""
@@ -1670,9 +1670,9 @@ return cV
 
 
 /*!  Kolicina()
- *  
+ *
  */
- 
+
 function Kolicina()
 
 return IF(lPovDob,-kolicina,kolicina)
@@ -1714,5 +1714,3 @@ endif
 
 
 return
-
-

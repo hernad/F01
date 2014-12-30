@@ -10,13 +10,11 @@
  */
 
 
-#include "SC.CH"
+#include "sc.ch"
 
-/*!  ArhSigma()
- *   Arhiviranje podataka
- */
 function ArhSigma()
 
+/*
 local cPomD
 local cDbfKontr
 local cPomd2
@@ -26,16 +24,16 @@ if empty(gArhDir)
   // ne koristim arhiviranje
 endif
 
-
 gArhdir:=trim(gArhDir)
 
-cDbfKontr:=ToUnix(gArhDir+SLASH+OtkUredj(cDirRad)+"\_podar_.dbf")
+cDbfKontr:=ToUnix(gArhDir+SLASH+OtkUredj(cDirRad) + SLASH + "_podar_.dbf")
 cPomD:=ToUnix(gArhDir+SLASH+OtkUredj(cDirRad))
 
 if !file(cDbfKontr)
     if !file(cPomD)
        if !DIRMAK2(cPomD)
-          Beep(2); Msg("ne mogu kreirati dir "+cPomD)
+          Beep(2)
+          Msg("ne mogu kreirati dir "+cPomD)
           return
        endif
     endif
@@ -77,6 +75,9 @@ if date()-dDatArh  > 3  // svaka tri dana
 #endif
 
 endif  // date
+
+*/
+
 return
 
 

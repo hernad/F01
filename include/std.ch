@@ -557,7 +557,7 @@
                                                                         ;
       =>  PreUseEvent(<(db)>, !(gInstall), gReadOnly)			;
          ; my_dbUseArea(                                                   ;
-                    <.new.>, <rdd>, f01_server( )+<(db)>, <(a)>,        ;
+                    <.new.>, <rdd>, <(db)>, <(a)>,        ;
                      !(gInstall) , <.ro.>       ;
                   )                                                     ;
                                                                         ;
