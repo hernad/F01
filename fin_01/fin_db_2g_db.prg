@@ -12,7 +12,6 @@
 
 #include "fin01.ch"
 
-
 function TDBFinNew()
 
 local oObj
@@ -41,16 +40,10 @@ CREATE CLASS TDBFin INHERIT TDB
 END CLASS
 
 
-method dummy
+method TdbFin:dummy
 return
 
-
-
-/*!  *void TDBFin::skloniSez(string cSezona, bool finverse, bool fda, bool fnulirati, bool fRS)
- *   formiraj sezonsku bazu podataka
- */
-
-method skloniSezonu(cSezona, finverse, fda, fnulirati, fRS)
+method TdbFin:skloniSezonu(cSezona, finverse, fda, fnulirati, fRS)
 local cScr
 
 save screen to cScr
@@ -70,7 +63,7 @@ if fRS==nil
 endif
 
 if fRS // radna stanica
-  if file(ToUnix(PRIVPATH+cSezona + SLASH + "PRIPR.DBF"))
+  if file(ToUnix( PRIVPATH + cSezona + SLASH + "PRIPR.DBF"))
       // nema se sta raditi ......., pripr.dbf u sezoni postoji !
       return
   endif
@@ -171,12 +164,7 @@ restore screen from cScr
 return
 
 
-/*!  *void TDBFin::setgaDBFs()
- *   Setuje matricu gaDBFs
- */
-*void TDBFin::setgaDBFs()
-
-method setgaDBFs()
+method TDbFin:setgaDBFs()
 PUBLIC gaDBFs:={ ;
 { F_PRIPR  ,  "PRIPR"   , P_PRIVPATH  },;
 { F_FIPRIPR , "PRIPR"   , P_PRIVPATH  },;
@@ -230,10 +218,13 @@ PUBLIC gaDBFs:={ ;
 return
 
 method TDbFin:install()
-If01_start(goModul,.f.)
+
+  If01_start(goModul,.f.)
+
 return
 
 method TDbFin:kreiraj(nArea)
+
 local cImeDbf
 
 SET EXCLUSIVE ON

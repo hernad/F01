@@ -12,24 +12,19 @@
 
 #include "fakt01.ch"
 
-//EXTERNAL RIGHT,LEFT,FIELDPOS
-
-
 function fakt_Main(cKorisn, cSifra, p3,p4,p5,p6,p7)
+
 	MainFakt(cKorisn, cSifra, p3,p4,p5,p6,p7)
+
 return
 
 
 
-
-// ------------------------------------------------------
-// MainFAKT(cKorisn, cSifra, p3, p4, p5, p6, p7)
-// ------------------------------------------------------
 function MainFAKT(cKorisn, cSifra, p3, p4, p5, p6, p7)
 local oFakt
 
-oFakt:=TFaktModNew()
-cModul:="FAKT"
+oFakt := TFaktModNew()
+cModul := "FAKT"
 
 PUBLIC goModul
 

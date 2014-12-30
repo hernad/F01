@@ -11,16 +11,17 @@
 
 
 #include "fin01.ch"
+#include "hbclass.ch"
+
 
 function TFinModNew()
 local oObj
 
-	oObj:=TFinMod():new()
+oObj:=TFinMod():new()
 
 oObj:self:=oObj
 return oObj
 
-#include "hbclass.ch"
 CREATE CLASS TFinMod INHERIT TAppMod
 	var oSqlLog
 	method dummy
@@ -36,27 +37,15 @@ method dummy()
 return
 
 
-*void TFinMod::initdb()
-
 method initdb()
 
-//Logg("kreiram database POS objekt")
 ::oDatabase:=TDBFinNew()
 
 return NIL
 
 
 
-/*!  *void TFinMod::mMenu()
- *   Osnovni meni FIN modula
- *  \todo meni prebaciti na Menu_SC!
- */
-
-*void TFinMod::mMenu()
-
 method mMenu()
-
-//goModul:oDataBase:setSigmaBD(IzFmkIni("Svi","SigmaBD","c:"+SLASH+"sigma",EXEPATH))
 
 ::oSqlLog:=TSqlLogNew()
 
@@ -70,23 +59,6 @@ close all
 
 SETKEY(K_SH_F1,{|| Calc()})
 
-/*
-CheckROnly(KUMPATH + "\SUBAN.DBF")
-
-O_NALOG
-select NALOG
-TrebaRegistrovati(20)
-use
-
-// ? ne znam zasto ovo
-OKumul(F_SUBAN,KUMPATH,"SUBAN",5,"D")
-OKumul(F_ANAL,KUMPATH,"ANAL", 2,"D")
-OKumul(F_SINT,KUMPATH,"SINT", 2,"D")
-OKumul(F_NALOG,KUMPATH,"NALOG", 2,"D")
-
-auto_kzb()
-
-*/
 close all
 
 @ 1,2 SAY padc(gTS+": "+gNFirma,50,"*")
@@ -100,14 +72,7 @@ return nil
 
 
 
-/*!  *void TFinMod::mStandardMenu()
- *   Osnovni meni FIN modula
- *  \todo meni prebaciti na Menu_SC!
- */
-
-*void TFinMod::mMenuStandard()
-
-method mMenuStandard()
+method TFinMod:mMenuStandard()
 
 private Izbor:=1
 private opc:={}

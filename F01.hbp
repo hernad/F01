@@ -1,5 +1,6 @@
 -o${hb_name}
--shared
+-hbdyn
+-workdir=.h
 
 {F18_GT_QTC}-DF18_GT_QTC
 
@@ -26,6 +27,8 @@ gtqtc.hbc
 hbnetio.hbc
 
 {F18_GT_QTC}gtqtc.hbc
--workdir=.h
 
 
+${hb_name}.hbx
+$hb_pkg_dynlib.hbm
+$hb_pkg_install.hbm

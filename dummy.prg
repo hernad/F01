@@ -8,7 +8,11 @@
 
 STATIC s_lConnected := NIL
 
+/*
+function __mvpublic( cVar )
 
+  RETURN __FP_DIM( cVar )
+*/
 
 function initfw()
 
