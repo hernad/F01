@@ -105,3 +105,8 @@ FUNCTION connect_to_f01_server()
   ENDIF
 
   RETURN .T.
+
+
+FUNCTION my_dbUseArea( lNew, xRdd, cDb, cAlias, lExclusive, lReadOnly )
+
+   RETURN dbUseArea( lNew, xRdd, f01_server() + cDb, cAlias, !gInstall , gReadOnly )                                               ;
