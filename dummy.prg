@@ -6,6 +6,9 @@
 #define DBDIR     "/data"
 #define DBFILE    "_tst_"
 
+STATIC s_lConnected := NIL
+
+
 
 function initfw()
 
@@ -80,4 +83,25 @@ function hb_symbol_unused()
 
 function f01_server()
 
-return 'net:' + DBSERVER + ':' + DBPORT + ':' + DBPASSWORD 
+  connect_to_f01_server()
+  return 'net:' + DBSERVER + ':' +   hb_ntos( DBPORT ) + ':' + DBPASSWD + ':'
+
+
+FUNCTION connect_to_f01_server()
+
+  //SET EXCLUSIVE OFF
+  //rddSetDefault( "DBFCDX" )
+
+  IF s_lConnected != NIL
+    RETURN .T.
+  ENDIF
+
+  s_lConnected := netio_Connect( DBSERVER, DBPORT,, DBPASSWD )
+
+  IF !s_lConnected
+    ? "Cannot connect to NETIO server !!!"
+    WAIT "Press any key to exit..."
+    QUIT
+  ENDIF
+
+  RETURN .T.

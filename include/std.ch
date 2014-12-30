@@ -229,8 +229,8 @@
                         [PICTURE <pic>]                                 ;
                         [COLOR <color>]                                 ;
                                                                         ;
-      => if gAppSrv; 
-       ;  QQOut(<xpr>); 
+      => if gAppSrv;
+       ;  QQOut(<xpr>);
        ; else;
        ;  DevPos( <row>, <col> )                                         ;
        ;  DevOutPict( <xpr>, <pic> [, <color>] ) ;
@@ -240,8 +240,8 @@
 #command @ <row>, <col> SAY <xpr>                                       ;
                         [COLOR <color>]                                 ;
                                                                         ;
-      => if gAppSrv; 
-       ;   QQout(<xpr>); 
+      => if gAppSrv;
+       ;   QQout(<xpr>);
        ; else;
        ;  DevPos( <row>, <col> )                                         ;
        ;  DevOut( <xpr> [, <color>] );
@@ -555,10 +555,10 @@
              [<ro: READONLY>]                                           ;
              [INDEX <(index1)> [, <(indexn)>]]                          ;
                                                                         ;
-      =>  PreUseEvent(<(db)>,!(gInstall),gReadOnly)			;
-         ; dbUseArea(                                                   ;
+      =>  PreUseEvent(<(db)>, !(gInstall), gReadOnly)			;
+         ; my_dbUseArea(                                                   ;
                     <.new.>, <rdd>, f01_server( )+<(db)>, <(a)>,        ;
-                     !(gInstall) , gReadOnly       ;
+                     !(gInstall) , <.ro.>       ;
                   )                                                     ;
                                                                         ;
       [; dbSetIndex( <(index1)> )]                                      ;
@@ -1001,7 +1001,7 @@
 #command SET SCOPE TO                                                   ;
     =>  cmxClrScope(0)                                                  ;
         ; cmxClrScope(1)
-        
+
 #command SET SCOPE TO <xValue>                                          ;
     =>  cmxSetScope(0, <xValue>)                                        ;
         ; cmxSetScope(1, <xValue>)

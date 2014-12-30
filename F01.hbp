@@ -23,6 +23,7 @@ hbmzip.hbc
 hbtip.hbc
 gtqtc.hbc
 {!darwin|linux}sddpg.hbc
+hbnetio.hbc
 
 {F18_GT_QTC}gtqtc.hbc
 -workdir=.h
