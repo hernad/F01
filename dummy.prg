@@ -38,7 +38,7 @@ FUNCTION BOOTCOLD()
 
 //FUNCTION CM2STR()
 
-//function fc_hcp_cli( cFPath, cFName, aKupac, cError )
+//function fc_hcp_client( cFPath, cFName, aKupac, cError )
 
 FUNCTION mnu_narudzbenica()
   return mnu_narudzba()
@@ -48,17 +48,6 @@ FUNCTION rloptlevel()
 
 // konvertovati na pic_vrijednost PIC_VRIJEDOST()
 
-
-FUNCTION SETTBLPARTN()
-  ALERT( "RENAME SETTBLPARTN() ... PARTNER")
-
-FUNCTION FC_HCP_CLIENT
-
-  Alert( "hcp client rename" )
-
-FUNCTION GETNEXTKALKDOK()
-
-   ALERT( "RENAME DOK TO GetNextKalkDoc" )
 
 
 function cm2Str( xVal )

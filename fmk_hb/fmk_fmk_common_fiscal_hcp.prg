@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -34,7 +34,7 @@ static MAX_PERC := 99.99
 static MIN_PERC := -99.99
 
 
-// fiskalne funkcije HCP fiskalizacije 
+// fiskalne funkcije HCP fiskalizacije
 
 
 // struktura matrice aData
@@ -57,7 +57,7 @@ static MIN_PERC := -99.99
 // aData[16] - roba jmj
 
 // struktura matrice aKupac
-// 
+//
 // aKupac[1] - idbroj kupca
 // aKupac[2] - naziv
 // aKupac[3] - adresa
@@ -71,7 +71,7 @@ static MIN_PERC := -99.99
 function fc_hcp_rn( cFPath, cFName, aData, aKupac, lStorno, cError, nTotal )
 local cXML
 local i
-local cBr_zahtjeva 
+local cBr_zahtjeva
 local cVr_placanja
 local nVr_placanja
 local cRek_rn
@@ -100,13 +100,13 @@ endif
 
 // ako je storno posalji pred komandu
 if lStorno = .t.
-	
+
 	// daj mi storno komandu
 	cRek_rn := ALLTRIM( aData[1, 8] )
 	cCmd := _on_storno( cRek_rn )
 	// posalji storno komandu
-	nErr_no := fc_hcp_cmd( cFPath, cFName, cCmd, cError, _tr_cmd )	
-	
+	nErr_no := fc_hcp_cmd( cFPath, cFName, cCmd, cError, _tr_cmd )
+
 	if nErr_no > 0
 		return nErr_no
 	endif
@@ -122,7 +122,7 @@ endif
 
 // programiraj klijenta prije nego izdas racun
 if lKupac = .t.
-	nErr_no := fc_hcp_cli( cFPath, cFName, aKupac, cError )
+	nErr_no := fc_hcp_client( cFPath, cFName, aKupac, cError )
 endif
 
 if nErr_no > 0
@@ -130,14 +130,14 @@ if nErr_no > 0
 endif
 
 if lKupac = .t.
-	
+
 	// setuj triger za izdavanje racuna sa partnerom
 	// ....
 	cIBK := aKupac[1, 1]
 	cCmd := _on_partn( cIBK )
-	
-	nErr_no := fc_hcp_cmd( cFPath, cFName, cCmd, cError, _tr_cmd )	
-	
+
+	nErr_no := fc_hcp_cmd( cFPath, cFName, cCmd, cError, _tr_cmd )
+
 	if nErr_no > 0
 		return nErr_no
 	endif
@@ -145,9 +145,9 @@ if lKupac = .t.
 endif
 
 // posalji komandu za ciscenje footer-a
-cCmd := _off_footer()	
-nErr_no := fc_hcp_cmd( cFPath, cFName, cCmd, cError, _tr_foo )	
-	
+cCmd := _off_footer()
+nErr_no := fc_hcp_cmd( cFPath, cFName, cCmd, cError, _tr_foo )
+
 if nErr_no > 0
 	return nErr_no
 endif
@@ -178,9 +178,9 @@ open_xml( cXml )
 xml_head()
 
 xml_subnode("RECEIPT")
-  
+
 nVr_placanja := 0
-    
+
     for i:=1 to LEN( aData )
 
 	nRoba_plu := aData[i, 9]
@@ -206,7 +206,7 @@ nVr_placanja := 0
 		// barkod artikla
 		cTmp := 'BCR="' + ALLTRIM(cRoba_bk) + '"'
 	endif
-	
+
 	// poreska stopa
 	cTmp += _razmak1 + 'VAT="' + cStopa + '"'
 	// jedinica mjere
@@ -217,9 +217,9 @@ nVr_placanja := 0
 	cTmp += _razmak1 + 'DSC="' + strkznutf8(cRoba_naz,"8") + '"'
 	// cijena artikla
 	cTmp += _razmak1 + 'PRC="' + ALLTRIM( STR( nCijena, 12, 2 )) + '"'
-	//  kolicina artikla 
+	//  kolicina artikla
 	cTmp += _razmak1 + 'AMN="' + ALLTRIM( STR( nKolicina, 12, 2)) + '"'
-	
+
 	if nRabat > 0
 
 		// vrijednost popusta
@@ -227,11 +227,11 @@ nVr_placanja := 0
 			+ '"'
 		// vrijednost popusta
 		cTmp += _razmak1 + 'DISCOUNT="' + "true" + '"'
-	
+
 	endif
 
 	xml_snode( "DATA", cTmp )
-	
+
     next
 
 
@@ -241,10 +241,10 @@ nVr_placanja := 0
     //   "CEK"
     //   "VIRMAN"
     //   "KARTICA"
-    // 
+    //
     // iznos = 0, ako je 0 onda sve ide tom vrstom placanja
 
-   
+
     cVr_placanja := _g_v_plac( VAL( aData[1, 13] ) )
     nVr_placanja := ABS( nTotal )
 
@@ -257,7 +257,7 @@ nVr_placanja := 0
     cTmp := 'PAY="' + cVr_placanja + '"'
     cTmp += _razmak1 + 'AMN="' + ALLTRIM( STR(nVr_placanja,12,2)) + '"'
 
-    xml_snode( "DATA", cTmp )	
+    xml_snode( "DATA", cTmp )
 
 xml_subnode("RECEIPT", .t.)
 
@@ -267,15 +267,15 @@ close_xml()
 c_cmdok( cFPath )
 
 if cError == "D"
-	
+
 	// provjeri greske...
 	// nErr_no := ...
-	
+
 	if _read_ok( cFPath, cFName ) = .f.
-		
+
 		// procitaj poruku greske
-		nErr_no := hcp_r_error( cFPath, cFName, gFc_tout, _tr_rcp ) 
-		
+		nErr_no := hcp_r_error( cFPath, cFName, gFc_tout, _tr_rcp )
+
 	endif
 endif
 
@@ -286,7 +286,7 @@ return nErr_no
 // brise fajlove iz ulaznog direktorija
 // ----------------------------------------------
 function hcp_d_tmp()
-local cTmp 
+local cTmp
 
 msgo("brisem tmp fajlove...")
 
@@ -308,7 +308,7 @@ return
 // -------------------------------------------------------------------
 function fc_hcp_footer( cFPath, cFName, aFooter, cError )
 local cXML
-local cBr_zahtjeva 
+local cBr_zahtjeva
 local nErr_no := 0
 
 cBr_zahtjeva := "0"
@@ -326,7 +326,7 @@ xml_head()
 xml_subnode("FOOTER")
 
 for i:=1 to LEN( aFooter )
-	
+
 
 	cTmp := 'TEXT="' + aFooter[i, 1] + '"'
 	cTmp += ' '
@@ -347,7 +347,7 @@ if cError == "D"
 	// provjeri greske...
 	// nErr_no := ...
 	if _read_ok( cFPath, cFName ) = .f.
-		
+
 		// procitaj poruku greske
 		nErr_no := hcp_r_error( cFPath, cFName, gFc_tout, _tr_foo )
 
@@ -359,12 +359,11 @@ return nErr_no
 
 
 
-// -------------------------------------------------------------------
-// hcp programiranje klijenti
-// -------------------------------------------------------------------
-function fc_hcp_cli( cFPath, cFName, aKupac, cError )
+
+function fc_hcp_client( cFPath, cFName, aKupac, cError )
+
 local cXML
-local cBr_zahtjeva 
+local cBr_zahtjeva
 local nErr_no := 0
 
 cBr_zahtjeva := "0"
@@ -382,7 +381,7 @@ xml_head()
 xml_subnode("CLIENTS")
 
 for i:=1 to LEN( aKupac )
-	
+
 
 	cTmp := 'IBK="' + aKupac[i, 1] + '"'
 	cTmp += _razmak1 + 'NAME="' + ;
@@ -391,7 +390,7 @@ for i:=1 to LEN( aKupac )
 		ALLTRIM( strkznutf8( aKupac[i, 3], "8") ) + '"'
 	cTmp += _razmak1 + 'TOWN="' + ;
 		ALLTRIM( strkznutf8( aKupac[i, 5], "8" )) + '"'
-	
+
 	xml_snode( "DATA", cTmp )
 
 next
@@ -407,7 +406,7 @@ if cError == "D"
 	// provjeri greske...
 	// nErr_no := ...
 	if _read_ok( cFPath, cFName ) = .f.
-		
+
 		// procitaj poruku greske
 		nErr_no := hcp_r_error( cFPath, cFName, gFc_tout, _tr_cli )
 
@@ -434,7 +433,7 @@ return
 // -------------------------------------------------------------------
 function fc_hcp_plu( cFPath, cFName, aData, cError )
 local cXML
-local cBr_zahtjeva 
+local cBr_zahtjeva
 local nErr_no := 0
 local i
 
@@ -453,7 +452,7 @@ xml_head()
 xml_subnode("PLU")
 
 for i:=1 to LEN( aData )
-	
+
 	nRoba_plu := aData[i, 9]
 	// cRoba_id := aData[i, 3]
 	cRoba_naz := PADR( aData[i, 4], 32 )
@@ -470,7 +469,7 @@ for i:=1 to LEN( aData )
 	cTmp += _razmak1 + 'DSC="' + ALLTRIM( strkznutf8(cRoba_naz,"8") ) + '"'
 	cTmp += _razmak1 + 'PRC="' + ALLTRIM(STR(nCijena, 12, 2)) + '"'
 	cTmp += _razmak1 + 'LGR="' + ALLTRIM(STR(nLager, 12, 2)) + '"'
-	
+
 	xml_snode( "DATA", cTmp )
 
 next
@@ -486,9 +485,9 @@ if cError == "D"
 	// provjeri greske...
 	// nErr_no := ..
 	if _read_ok( cFPath, cFName ) = .f.
-		
+
 		// procitaj poruku greske
-		nErr_no := hcp_r_error( cFPath, cFName, gFc_tout, _tr_plu ) 
+		nErr_no := hcp_r_error( cFPath, cFName, gFc_tout, _tr_plu )
 
 	endif
 endif
@@ -503,7 +502,7 @@ return nErr_no
 function fc_hcp_txt( cFPath, cFName, cBrDok, cError )
 local cCmd := ""
 local cXML
-local cBr_zahtjeva 
+local cBr_zahtjeva
 local nErr_no := 0
 
 cCmd := 'TXT="Racun: ' + ALLTRIM( cBrDok ) + '"'
@@ -523,10 +522,10 @@ xml_head()
 xml_subnode("USER_TEXT")
 
 if !EMPTY( cCmd )
-	
+
 	cData := "DATA"
 	cTmp := cCmd
-	
+
 	xml_snode( cData, cTmp )
 
 endif
@@ -542,9 +541,9 @@ if cError == "D"
 	// provjeri greske...
 	// nErr_no := ...
 	if _read_ok( cFPath, cFName ) = .f.
-		
+
 		// procitaj poruku greske
-		nErr_no := hcp_r_error( cFPath, cFName, gFc_tout, _tr_txt ) 
+		nErr_no := hcp_r_error( cFPath, cFName, gFc_tout, _tr_txt )
 
 	endif
 
@@ -559,7 +558,7 @@ return nErr_no
 // -------------------------------------------------------------------
 function fc_hcp_cmd( cFPath, cFName, cCmd, cError, cTriger )
 local cXML
-local cBr_zahtjeva 
+local cBr_zahtjeva
 local nErr_no := 0
 
 cBr_zahtjeva := "0"
@@ -577,10 +576,10 @@ xml_head()
 xml_subnode("COMMAND")
 
 if !EMPTY( cCmd )
-	
+
 	cData := "DATA"
 	cTmp := cCmd
-	
+
 	xml_snode( cData, cTmp )
 
 endif
@@ -596,9 +595,9 @@ if cError == "D"
 	// provjeri greske...
 	// nErr_no := ...
 	if _read_ok( cFPath, cFName ) = .f.
-		
+
 		// procitaj poruku greske
-		nErr_no := hcp_r_error( cFPath, cFName, gFc_tout, cTriger ) 
+		nErr_no := hcp_r_error( cFPath, cFName, gFc_tout, cTriger )
 
 	endif
 
@@ -611,7 +610,7 @@ return nErr_no
 // ukljuci storno racuna
 // -------------------------------------------------
 static function _on_storno( cBrRn )
-local cCmd 
+local cCmd
 
 cCmd := 'CMD="REFUND_ON"'
 cCmd += _razmak1 + 'NUM="' + ALLTRIM(cBrRn) + '"'
@@ -623,7 +622,7 @@ return cCmd
 // iskljuci storno racuna
 // -------------------------------------------------
 static function _off_storno()
-local cCmd 
+local cCmd
 
 cCmd := 'CMD="REFUND_OFF"'
 
@@ -633,7 +632,7 @@ return cCmd
 // iskljuci zadnji footer
 // -------------------------------------------------
 static function _off_footer()
-local cCmd 
+local cCmd
 
 cCmd := 'CMD="FOOTER_OFF"'
 
@@ -644,7 +643,7 @@ return cCmd
 // ukljuci racun za klijenta
 // -------------------------------------------------
 static function _on_partn( cIBK )
-local cCmd 
+local cCmd
 
 cCmd := 'CMD="SET_CLIENT"'
 cCmd += _razmak1 + 'NUM="' + ALLTRIM( cIBK )+ '"'
@@ -659,13 +658,13 @@ return cCmd
 static function _g_v_plac( nID )
 local cRet := "-"
 
-do case 
+do case
 	case nId = 0
 		// gotovina
 		cRet := "0"
 	case nId = 1
 		// kartica
-		cRet := "1"		
+		cRet := "1"
 	case nId = 2
 		// cek
 		cRet := "2"
@@ -675,7 +674,7 @@ do case
 
 endcase
 
-return cRet 
+return cRet
 
 
 // ------------------------------------------
@@ -688,7 +687,7 @@ do case
 		cF_jmj := "0"
 	case UPPER(ALLTRIM(cJmj)) = "LIT"
 		cF_jmj := "1"
-	// case 
+	// case
 	// ....
 
 endcase
@@ -703,7 +702,7 @@ static function _g_tar( cIdTar )
 cF_tar := "1"
 do case
 	case UPPER(ALLTRIM(cIdTar)) == "PDV17"
-		
+
 		// PDV je tarifna skupina "1"
 		// u pdv rezimu
 		if gFc_pdv == "D"
@@ -712,9 +711,9 @@ do case
 			// u ne-pdv rezimu je "0"
 			cF_tar := "0"
 		endif
-	
+
 	case UPPER(ALLTRIM(cIdTar)) == "PDV0"
-		
+
 		if gFc_pdv == "D"
 			// INO ili oslobodjen je tarifna skupina "3"
 			cF_tar := "3"
@@ -723,7 +722,7 @@ do case
 			cF_tar := "0"
 		endif
 
-	// case 
+	// case
 	// ....
 
 endcase
@@ -752,18 +751,18 @@ do case
 		cRN := PADL( ALLTRIM( cBrRn ), 8, "0" )
 		cRet := STRTRAN( cF_name, "$rn", cRN )
 		cRet := UPPER( cRet )
-	
+
 	case "TR$" $ cF_name
 		// odredjuje PLU ili CLI ili RCP na osnovu trigera
 		cRet := STRTRAN( cF_name, "TR$", cTriger )
 		cRet := UPPER( cRet )
-		
+
 		// ako su klijenti onda daj puni naziv
-		if ".XML" $ cTriger 
+		if ".XML" $ cTriger
 			cRet := cTriger
 		endif
 
-	otherwise 
+	otherwise
 		// ono sta je navedeno u parametrima
 		cRet := cF_name
 
@@ -844,7 +843,7 @@ local cD_from := ""
 local cD_to := ""
 
 Box(,1,50)
-	@ m_x+1, m_y+2 SAY "Datum od:" GET dD_from 
+	@ m_x+1, m_y+2 SAY "Datum od:" GET dD_from
 	@ m_x+1, col()+1 SAY "do:" GET dD_to
 	read
 BoxC()
@@ -999,7 +998,7 @@ cTmp := cFPath + _answ_dir + SLASH + STRTRAN( cFName, "XML", "OK" )
 Box(,1,50)
 
 do while nTime > 0
-	
+
 	-- nTime
 
 	if FILE( cTmp )
@@ -1029,7 +1028,7 @@ return lOk
 // create cmd.ok file
 // ----------------------------------
 function c_cmdok( cFPath )
-local cTmp 
+local cTmp
 
 cTmp := ALLTRIM(cFPath) + _inp_dir + SLASH + _cmdok
 
@@ -1045,7 +1044,7 @@ return
 // delete cmd.ok file
 // ----------------------------------
 function d_cmdok( cFPath )
-local cTmp 
+local cTmp
 
 cTmp := ALLTRIM(cFPath) + _inp_dir + SLASH + _cmdok
 
@@ -1077,7 +1076,7 @@ return
 
 // ------------------------------------------------
 // citanje fajla bill_state.xml
-// 
+//
 // nTimeOut - time out fiskalne operacije
 // ------------------------------------------------
 function hcp_r_bst( cFPath, cFName, nTimeOut, lStorno )
@@ -1089,9 +1088,9 @@ local nStart
 local cErr
 local aBillState
 local aBillData
-local nTime 
+local nTime
 local cLine
-local cScanWhat 
+local cScanWhat
 local cMessage
 
 if lStorno == nil
@@ -1106,7 +1105,7 @@ cF_name := cFPath + _answ_dir + SLASH + cFName
 Box(,1,50)
 
 do while nTime > 0
-	
+
 	-- nTime
 
 	if FILE( cF_name )
@@ -1134,7 +1133,7 @@ nStart := 0
 
 // prodji kroz svaku liniju i procitaj zapise
 for i:=1 to nBrLin
-	
+
 	aBillState := SljedLin( cF_name, nStart )
       	nStart := aBillState[ 2 ]
 
@@ -1160,11 +1159,11 @@ for i:=1 to nBrLin
 	endif
 
 	nScan := ASCAN( aBillData, { |xvar| cScanWhat $ xvar } )
-	
+
 	if nScan > 0
-		
+
 		aReceipt := TokToNiz( aBillData[ nScan], "=" )
-		
+
 		nFisc_no := VAL( aReceipt[2] )
 
 		cMessage := "Formiran "
@@ -1174,7 +1173,7 @@ for i:=1 to nBrLin
 		cMessage += "fiskalni racun: "
 
 		msgbeep( cMessage + ALLTRIM( STR( nFisc_no) ) )
-		
+
 		exit
 
 	endif
@@ -1192,7 +1191,7 @@ return nFisc_no
 
 // ------------------------------------------------
 // citanje gresaka za HCP driver
-// 
+//
 // nTimeOut - time out fiskalne operacije
 // nFisc_no - broj fiskalnog isjecka
 // ------------------------------------------------
@@ -1205,7 +1204,7 @@ local nStart
 local cErr
 local aErr_read
 local aErr_data
-local nTime 
+local nTime
 local cErrCode := ""
 local cErrDesc := ""
 
@@ -1214,13 +1213,13 @@ nTime := nTimeOut
 // primjer: c:\hcp\from_fp\RAC001.ERR
 cF_name := cFPath + _answ_dir + SLASH + STRTRAN( cFName, "XML", "ERR" )
 
-// ova opcija podrazumjeva da je ukljuèena opcija 
+// ova opcija podrazumjeva da je ukljuï¿½ena opcija
 // prikaza greske tipa ER,OK...
 
 Box(,1,50)
 
 do while nTime > 0
-	
+
 	-- nTime
 
 	if FILE( cF_name )
@@ -1250,7 +1249,7 @@ cFisc_txt := ""
 
 // prodji kroz svaku liniju i procitaj zapise
 for i:=1 to nBrLin
-	
+
 	aErr_read := SljedLin( cF_name, nStart )
       	nStart := aErr_read[ 2 ]
 
@@ -1376,25 +1375,25 @@ local nFix := 0
 
 for i:=1 to LEN( aData )
 
-	nCijena := aData[ i, 5 ]	
+	nCijena := aData[ i, 5 ]
 	nPluCijena := aData[i, 10 ]
-	nKolicina := aData[ i, 6 ]	
+	nKolicina := aData[ i, 6 ]
 	cNaziv := aData[i, 4]
 
 	if ( !_chk_qtty( nKolicina ) .or. !_chk_price( nCijena ) ) ;
 		.or. !_chk_price( nPluCijena )
-		
+
 		if gFc_chk > "1"
-			
+
 			// popravi kolicine, cijene
 			_fix_qtty( @nKolicina, @nCijena, @nPluCijena, @cNaziv )
-			
+
 			// promjeni u matrici podatke takodjer
 			aData[i, 5] := nCijena
 			aData[i, 10] := nPluCijena
 			aData[i, 6] := nKolicina
 			aData[i, 4] := cNaziv
-		
+
 		endif
 
 		++ nFix
@@ -1408,12 +1407,10 @@ if nFix > 0 .and. gFc_chk > "1"
 	msgbeep("Pojedini artikli na racunu su prepakovani na 100 kom !")
 
 elseif nFix > 0 .and. gFc_chk == "1"
-	
+
 	nRet := -99
 	msgbeep("Pojedinim artiklima je kolicina/cijena van dozvoljenog ranga#Prekidam operaciju !!!!")
 
 endif
 
 return nRet
-
-

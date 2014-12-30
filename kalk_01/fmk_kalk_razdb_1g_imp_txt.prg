@@ -253,7 +253,7 @@ endif
 private aDbf:={}
 private aRules:={}
 // setuj polja temp tabele u matricu aDbf
-SetTblPartn(@aDbf)
+set_tbl_partner(@aDbf)
 // setuj pravila upisa podataka u temp tabelu
 SetRulePartn(@aRules)
 
@@ -377,11 +377,11 @@ AADD(aDbf,{"dtype", "C", 3, 0})
 return
 
 
-/*!  SetTblPartner(aDbf)
+/*  set_tbl_partner(aDbf)
  *   Set polja tabele partner
  *   aDbf - matrica sa def.polja
  */
-static function SetTblPartner(aDbf)
+static function set_tbl_partner(aDbf)
 
 
 AADD(aDbf,{"idpartner", "C", 6, 0})
@@ -2085,4 +2085,3 @@ endif
 
 
 return
-

@@ -1144,7 +1144,7 @@ O_DOKS
 O_KALK
 O_PRIPR
 
-cNxt80 := GetNextKalkDok(gFirma, "80")
+cNxt80 := GetNextKalkDoc(gFirma, "80")
 
 // obradi dokument u pripremu -> konvertuj u 80
 select pript
