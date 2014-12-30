@@ -15,11 +15,6 @@ function mkdir()
 
 alert( "mkdir" )
 
-function PostojiSifra( nDbf, nNtx, nVisina, nSirina, cNaslov, cID, dx, dy, ;
-                      bBlok, aPoredak, bPodvuci, aZabrane, fInvert, aZabIsp )
-
-  Alert( "todo zamjeni sa postojisifra  fmk_hb/fmk_fmk_lib_sif_1g_sif_brow.prg" )
-
 
 FUNCTION ARG0()
 
@@ -61,8 +56,6 @@ function CMFILTCOUNT()
 function CMXAUTOOPEN()
 
 function  CMXCLRSCOPE()
-
-//function CMXKEYCOUNT()
 
 function       CMXKEYSINCLUDED()
 

@@ -10,5 +10,3 @@ if [ "$1" == log_errors ] ; then
 else
   hbmk2 F01.hbp
 fi
-
-

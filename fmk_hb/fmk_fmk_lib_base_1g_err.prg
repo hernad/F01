@@ -302,7 +302,7 @@ do while .t.
   ? "Argumenti:", objErr:args
   for i := 10 to 2 STEP -1
    if !empty(PROCNAME(i))
-    ? "Procedura:",padr(PROCNAME(i), 50),"Linija:",ProcLine(i)
+    ? "Procedura:",padr(PROCNAME(i), 30),"Linija:",ProcLine(i)
    endif
   next
   ?

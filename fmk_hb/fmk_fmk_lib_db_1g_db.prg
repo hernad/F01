@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -16,11 +16,11 @@ static aBoxStack:={}
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  *
  */
- 
+
 *static integer
 static nPos:=0
 *;
@@ -36,7 +36,7 @@ static nPreuseLevel:=0
 
 /*!  Scatter(cZn)
   *  vrijednosti field varijabli tekuceg sloga prebacuje u public varijable
-  * 
+  *
   *  cZn - Default = "_"; odredjuje prefixs varijabli koje ce generisati
   *
   * \code
@@ -48,7 +48,7 @@ static nPreuseLevel:=0
   * \endcode
   *
   */
-  
+
 function Scatter(cZn)
 
 local i,aStruct
@@ -418,7 +418,7 @@ return fret
 /*!  reccount2()
  * \note CAX - Advantage db server verzija
  */
- 
+
 function reccount2()
 
 local nC:=0,nRec, nPrevOrd
@@ -445,18 +445,18 @@ return reccount()-nC
  */
 function reccount2()
 
-local nC:=0,nRec, nPrevOrd
+local nC:=0, nRec, nPrevOrd
 
 if ORDNUMBER("BRISAN")<>0
   nPrevOrd:=indexord()
   set order to tag "BRISAN"
   set scope to "1"  // postavi scope na brisane
 
-#ifdef CLIP
+
   nC:=ordkeycount()
-#else  
-  nC:=cmxKeyCount()
-#endif
+//#else
+//  nC:=cmxKeyCount()
+//#endif
 
   set scope to
   dbsetorder(nPrevOrd)
@@ -479,11 +479,20 @@ return nil
 
 function zapp()
 
-if gReadonly; return; endif
+if gReadonly
+  return
+endif
 
 PushWa()
 
-if cmxShared()
+
+BEGIN SEQUENCE WITH {| err| nErr( err ) }
+
+  __dbzap()
+
+RECOVER USING oError
+
+
        do while .t.
        if flock()
           set order to 0 // neophodno, posto je index po kriteriju deleted() !!
@@ -500,15 +509,15 @@ if cmxShared()
 
        exit
        enddo
-else
-   __dbzap()
-endif
+
+
+ENDSEQUENCE
 
 PopWa()
 return nil
 
 
-function nerr(oe)
+function nErr(oe)
 
 break oe
 
@@ -518,7 +527,7 @@ break oe
  *   ef = .t.   gledaj eof();  ef == .f. gledaj found()
  *  \return  .t. ako ne postoje podaci
  */
- 
+
 function EofFndRet(ef, close)
 
 local fRet:=.f., cStr:="Ne postoje trazeni podaci.."
@@ -613,7 +622,7 @@ cImeCDX:=ToUnix(cImeCDX)
                   )                                                     ;
 
 // podaci na cdu
-if (gReadonly .or. gKesiraj=="X")  
+if (gReadonly .or. gKesiraj=="X")
     cPom:=STRTRAN(PRIVPATH,LEFT(PRIVPATH,3),"C:"+SLASH)
 
     // dir na c
@@ -638,7 +647,7 @@ return
 function JelReadOnly()
 IF !( "U" $ TYPE("gGlBaza") )
 	IF !EMPTY(gGlBaza)
-		#ifdef CLIP      
+		#ifdef CLIP
       			gReadOnly := ( FILEATTR(ToUnix(goModul:oDatabase:cDirKum+SLASH+gGlBaza))==1 )
 		#else
       			gReadOnly := ( FILEATTR(ToUnix(cDirRad+SLASH+gGlBaza))==1 )
@@ -649,7 +658,7 @@ return nil
 
 
 function CheckROnly( cFileName )
-if FILEATTR(cFileName) == 1 
+if FILEATTR(cFileName) == 1
 	gReadOnly := .t.
 	@ 1, 55 SAY "READ ONLY" COLOR "W/R"
 else
@@ -714,7 +723,7 @@ IF !lSilent .and. Pitanje(,"Jeste li sigurni da zelite zastititi trenutno podruc
 ELSE
 	IF SETFATTR(cDirRad + SLASH + gGlBaza, 1) == 0
 		gReadOnly:=.t.
-	ENDIF	
+	ENDIF
 ENDIF
 
 if lSilent
@@ -786,7 +795,7 @@ return
 
 /*!  SkratiAZaD(aStruct)
  *   skrati matricu za polje D
- 
+
  *  \code
  *  SkratiAZaD(@aStruct)
  *  \endcode
@@ -806,7 +815,7 @@ ASIZE(aStruct,nLen)
 
 return nil
 
- 
+
 /*!  Append2()
  *  Dodavanje novog zapisa u (nArr) -
  * \note koristi se kod dodavanja zapisa u bazu nakon Izdvajanja zapisa funkcijom Izdvoji()
@@ -828,7 +837,7 @@ return nil
  *   lFull True - puno ime cPath + cDbfName; False - samo cDbfName; default=False
  *
  */
- 
+
 function DbfName(nArea, lFull)
 local nPos
 local cPrefix
@@ -850,7 +859,7 @@ if nPos<1
  endif
  return cPrefix + gaSDbfs[nPos,2]
 else
- if lFull 
+ if lFull
  	cPrefix:=DbfPath(gaDbfs[nPos,3])
  endif
  return cPrefix+gaDbfs[nPos,2]
@@ -878,7 +887,7 @@ do case
 	CASE nPath==P_SECPATH
 		return goModul:oDatabase:cSigmaBD+SLASH+"SECURITY"+SLASH
 end case
-return 
+return
 
 function DbfArea(cImeDBF, nVarijanta)
 local nPos
@@ -899,14 +908,14 @@ if nPos<1
    goModul:quit()
  endif
  nArray:=2
- if nVarijanta==0 
+ if nVarijanta==0
   return gaSDBFS[nPos,1]
  else
   return nPos
- endif 
+ endif
 else
  nArray:=1
- if nVarijanta==0  
+ if nVarijanta==0
    return gaDBFS[nPos,1]
  else
    return nPos
@@ -932,7 +941,7 @@ return nPos
 
 function Sel_Bazu(cBaza)
 local nPos
- 
+
  nPos:=nDBFPos(cBaza)
  IF nPos>0
    SELECT (gaDBFs[nPos,1])
@@ -1013,10 +1022,10 @@ return nil
 
 
 /*!  SmReplace(cField, xValue, lReplAlways)
- *   Smart Replace - vrsi replace. Ako je lReplAlways .T. uvijek vrsi, .F. samo ako je vrijdnost polja razlicita 
+ *   Smart Replace - vrsi replace. Ako je lReplAlways .T. uvijek vrsi, .F. samo ako je vrijdnost polja razlicita
  *  \note vrsi se i REPLSQL, kada je gSql=="D"
  */
- 
+
 function SmReplace(cField, xValue, lReplAlways)
 
 private cPom
@@ -1054,7 +1063,7 @@ local cImeGwu
 local nArea
 local cOnlyName
 
-if (goModul:oDatabase<>nil) 
+if (goModul:oDatabase<>nil)
 	if (goModul:oDatabase:lAdmin)
 		return 0
 	endif
@@ -1078,7 +1087,7 @@ cImeDbf:=LOWER(cImeDbf)
 cImeDbf:=STRTRAN(cImeDbf, ".korisn","korisn")
 cImeGw:=ChangeEXT(cImeDbf, DBFEXT, "gwu")
 
-if gReadOnly 
+if gReadOnly
 	nPreuseLevel:=0
 	return cImeDbf
 endif
@@ -1090,7 +1099,7 @@ if (GW_STATUS="-" .and. FILE(cImeGwu))
 	FERASE(cImeCdx)
 	goModul:oDatabase:kreiraj(nArea)
 	FERASE(cImeGwu)
-		
+
 endif
 
 nPreuseLevel:=0
@@ -1123,7 +1132,7 @@ for i:=1 to 250
 		PreUseEvent(cDbfName, .f.)
 	endif
 	MsgC()
-		
+
 next
 CLOSE ALL
 return
@@ -1148,10 +1157,10 @@ local i
 
 aWa:=StackPop(aWaStack)
 if aWa[1]<>nil
-   
+
    // select
    SELECT(aWa[1])
-   
+
    // order
    if used()
 	   if !empty(aWa[2])
@@ -1170,9 +1179,9 @@ if aWa[1]<>nil
      endif
      //   DBCLEARFILTER( )
    endif
-   
+
    go aWa[4]
-   
+
 endif  // wa[1]<>NIL
 return NIL
 
@@ -1182,7 +1191,7 @@ return NIL
 // modificiranje polja, ubacivanje predznaka itd...
 //
 // params:
-//   - cField = "SIFRADOB" 
+//   - cField = "SIFRADOB"
 //   - cIndex - indeks na tabeli "1" ili "ID" itd...
 //   - cInsChar - karakter koji se insertuje
 //   - nLen - duzina sifra na koju se primjenjuje konverzija
@@ -1192,9 +1201,9 @@ return NIL
 //   - nSufPref - sufiks (1) ili prefiks (2)
 //   - funkcija vraca konvertovani broj zapisa
 //   - lSilent - tihi mod rada .t. ili .f.
-//   
+//
 //   Napomena:
-//   tabela na kojoj radimo konverziju moraju biti prije pokretanja 
+//   tabela na kojoj radimo konverziju moraju biti prije pokretanja
 //   funkcije otvoreni
 // ---------------------------------------------------------
 function mod_f_val( cField, cIndex, cInsChar, nLen, nSufPref, lSilent )
@@ -1220,11 +1229,11 @@ set order to tag cIndex
 go top
 
 do while !EOF()
-	
+
 	// trazena vrijednost iz polja
 	cVal := ALLTRIM( field->&cField )
 	nFld_len := LEN( field->&cField )
- 
+
  	if !EMPTY( cVal ) .and. LEN( cVal ) < nLen
 
 		if nSufPref == 1
@@ -1237,14 +1246,11 @@ do while !EOF()
 
 		// ubaci novu sifru sa nulama
 		replace field->&cField with PADR( cNew_val, nFld_len )
-		++ nCount 
+		++ nCount
 	endif
-	
+
 	skip
 
 enddo
 
 return nCount
-
-
-

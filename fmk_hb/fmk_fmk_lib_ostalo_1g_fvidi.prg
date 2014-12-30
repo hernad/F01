@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -111,9 +111,9 @@ do while .t.
   endif
   lNevazna:=.f.
   lSkrol:=.f.
-  
+
   KeyboardEvent(@nZnak)
-  
+
   do CASE
     CASE nZnak==32         // svicuj zamrzavanje kolone
        if nUKol<80
@@ -122,7 +122,7 @@ do while .t.
     CASE nZnak==K_ESC
        exit
     CASE nZnak==K_CTRL_J  // pomjeri marker
-       
+
        nPom1:=nFRed
        nPom2:=nFRed2
        nPom3:=nURed
@@ -143,7 +143,7 @@ do while .t.
          nFRed  := nPom1
          nFRed2 := nPom2
        endif
-       
+
     CASE upper(chr(nZnak))=='F' .or. nZnak==K_F3  // trazi tekst
        if nZnak==K_F3 .or.;
           VarEdit({ ;
@@ -207,7 +207,7 @@ do while .t.
              endif
            endif
          enddo
-         if IF(cMarkF=="1",nFRed==0,nFRed2==0)  // vrati se na staru poziciju
+         if IIF(cMarkF=="1",nFRed==0,nFRed2==0)  // vrati se na staru poziciju
            nOf1l:=aStaro[1]; nRed:=aStaro[2]
            lSkrol:=.f.
            Msg("Tekst nije nadjen!",4)
@@ -234,8 +234,8 @@ do while .t.
            SET FILTER TO
            SET FILTER to &cPomFilt
            GO TOP
-           MsgO("Kopiram '"+ALIAS(SELECT())+".DBF' u '"+cDisk+":\_"+ALIAS(SELECT())+".DBF"+"' !")
-            CurToExtBase(cDisk+":\_"+ALIAS(SELECT())+".DBF")
+           MsgO("Kopiram '"+ALIAS(SELECT())+".DBF' u '"+cDisk+":" + SLASH + "_" + ALIAS(SELECT())+".DBF"+"' !")
+            CurToExtBase(cDisk+":" + SLASH + "_" + ALIAS(SELECT())+".DBF")
            MsgC()
            SET FILTER TO
            PopWA()
@@ -244,9 +244,9 @@ do while .t.
        endif
 
        // odradi tekucu
-       ccPom:=cDisk+":\_"+ALIAS(SELECT())
+       ccPom:=cDisk+":" + SLASH + "_" + ALIAS(SELECT())
        PushWA(); GO TOP
-       MsgO("Kopiram '"+ALIAS(SELECT())+".DBF' u '"+cDisk+":\_"+ALIAS(SELECT())+".DBF"+"' !")
+       MsgO("Kopiram '"+ALIAS(SELECT()) + ".DBF' u '" + cDisk + ":" + SLASH + "_" + ALIAS(SELECT())+".DBF"+"' !")
         CurToExtBase(cDisk+":\_"+ALIAS(SELECT())+".DBF")
        MsgC()
        SET FILTER TO
@@ -257,7 +257,7 @@ do while .t.
        MsgBeep("Kopiranje zavrseno!")
        endif  // LASTKEY()!=K_ESC
 
-    CASE nZnak==K_CTRL_O  
+    CASE nZnak==K_CTRL_O
        // ucitaj fajl
        nPom:=RAT(SLASH,cImeF)
        do while .t.
@@ -350,7 +350,7 @@ do while .t.
          endif
        enddo
     case gPrinter="R" .and. (nZnak=K_CTRL_P .or. nZnak==K_ALT_P)
-       
+
        if gPDFPrint == "X" .and. goModul:oDataBase:cName=="FAKT"
        	if Pitanje(,"Print u PDF/PTXT", "D") == "D"
 		PDFView(cImeF)
@@ -365,9 +365,9 @@ do while .t.
 
     case nZnak==K_ALT_S
     	SendFile(cImeF)
-	
+
     case nZnak==K_CTRL_P
-       
+
        if nFRed>0 .and. nFRed2>0   // oba markera
          if VarEdit({{"1-sve, 2-dio izmedju markera, 3-sve ispod mark.1, 4-sve ispod mark.2)","cVStamp","cVStamp$'1234'","@!",}},10,1,14,78,;
                                "IZBOR OBLASTI ZA STAMPANJE",gShemaVF)
@@ -502,35 +502,54 @@ return
 
 function SljedLin(cFajl,nPocetak)
 
+
 local cPom,nPom
-cPom:=FILESTR(cFajl,400,nPocetak)
-nPom:=AT(NRED,cPom)
-if nPom==0; nPom:=LEN(cPom)+1; endif
-return {LEFT(cPom,nPom-1),nPocetak+nPom+1}    // {cLinija,nPocetakSljedece}
+
+altd()
+cPom := FILESTR(cFajl, 400, nPocetak)
+
+nPom := AT (NRED, cPom)
+
+if nPom==0
+  nPom:=LEN(cPom)+1
+endif
+
+return {LEFT(cPom,nPom-1), nPocetak+nPom+1}    // {cLinija,nPocetakSljedece}
 
 
 function PrethLin(cFajl,nKraj)
- 
- local nKor:=400,cPom,nPom
+
+ local nKor:=400,cPom, nPom
  if nKraj-nKor-2<0; nKor:=nKraj-2; endif
+
  cPom:=FILESTR(cFajl,nKor,nKraj-nKor-2)
  nPom:=RAT( NRED ,cPom)
-return IF( nPom==0, { cPom, 0}, { SUBSTR(cPom,nPom+2), nKraj-nKor+nPom-1} )
-                               // {cLinija,nNjenPocetak}
+
+return IIF( nPom==0, { cPom, 0}, { SUBSTR(cPom,nPom+2), nKraj-nKor+nPom-1} )
+
 
 return
 
 
 function BrLinFajla(cImeF)
- 
+
  local nOfset:=0,nSlobMem:=0,cPom:="",nVrati:=0
- if FILESTR(cImeF,2,VelFajla(cImeF)-2)!= NRED ; nVrati:=1; endif
+
+ if FILESTR(cImeF, 2, VelFajla(cImeF) - 2) != NRED
+   nVrati:=1
+ endif
+
  do while LEN(cPom)>=nSlobMem
-  nSlobMem:=MEMORY(1)*1024-100
-  cPom:=FILESTR(cImeF,nSlobMem,nOfset)
-  nOfset=nOfset+nSlobMem-1
-  nVrati=nVrati+NUMAT( NRED ,cPom)
+
+  //nSlobMem:=MEMORY(1)*1024-100
+  nSlobMem := 1024
+
+  cPom := FILESTR(cImeF, nSlobMem, nOfset)
+  nOfset := nOfset +nSlobMem-1
+  nVrati := nVrati + NUMAT( NRED ,cPom)
+
  enddo
+
 return nVrati
 
 
@@ -556,7 +575,7 @@ return lVrati
 
 
 function DioFajlaUNiz(cImeF,nPocRed,nUkRedova,nUkRedUF)
-  
+
   local aVrati:={},nTekRed:=0,nOfset:=0,aPom:={}
   if nUkRedUF==nil; nUkRedUF:=BrLinFajla(cImeF); endif
   for nTekRed:=1 to nUkRedUF
@@ -612,7 +631,7 @@ DirMak2(cLokacija)
 
 Box(,3,60)
 @ m_x+1, m_y+2 SAY "Lokacija: FmkIni_KumPath/[FMK]/SendLokacija "+cLokacija
-@ m_x+3, m_y+2 SAY "Ime dokumenta je " GET cSendIme 
+@ m_x+3, m_y+2 SAY "Ime dokumenta je " GET cSendIme
 @ m_x+3, COL()+2 SAY ".txt"
 READ
 BoxC()
@@ -627,4 +646,3 @@ cKom:="start "+cLokacija
 RUN &cKom
 
 return 1
-

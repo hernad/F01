@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -16,7 +16,7 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
 
@@ -54,15 +54,15 @@ static nCnt:=0
  *  \todo Nakon verzije 1.5 ... kreiranje F_SECUR  treba ukinuti
  *
  */
- 
+
 function f01_start(oApp, lSezone)
 
 local cImeDbf
 
 public gAppSrv
 
-if !oApp:lStarted	
-	
+if !oApp:lStarted
+
 	RDDSETDEFAULT(RDDENGINE)
 	oApp:initdb()
 endif
@@ -86,7 +86,7 @@ SET DELETED ON
 
 #define D_VERZIJA "CDX"
 
-if mpar37("/INSTALL",oApp)
+if mpar37("/INSTALL", oApp)
 	oApp:oDatabase:lAdmin:=.t.
 	CreGParam()
 endif
@@ -103,7 +103,7 @@ endif
 
 oApp:oDatabase:setgaDbfs()
 
-if mpar37("/INSTALL",oApp)
+if mpar37("/INSTALL", oApp)
 	oApp:oDatabase:install()
 endif
 
@@ -121,7 +121,7 @@ if lSezone
 	endif
   	oApp:oDatabase:radiUSezonskomPodrucju(mpar37("/XN",oApp))
 	if !mpar37("/XN",oApp)
-	  ArhSigma() 
+	  ArhSigma()
 	endif
 	gProcPrenos:="D"
 
@@ -135,10 +135,10 @@ else
 		Eval(&cKom)
 	endif
 
-endif 
+endif
 
 // epoha je u stvari 1999, 2000 itd
-SET EPOCH TO 1960  
+SET EPOCH TO 1960
 IniPrinter()
 JelReadOnly()
 
@@ -150,7 +150,7 @@ gReadOnly:=(IzFmkIni("FMK","ReadOnly","N")=="D")
 
 SET EXCLUSIVE OFF
 
-//Setuj globalne varijable varijable modula 
+//Setuj globalne varijable varijable modula
 oApp:setGVars()
 
 // nakon verzije 1.5 ovo cemo ukinuti
@@ -194,13 +194,13 @@ CreKorisn()
 
 SetDirs(oApp)
 CreSystemDB()
-    
+
 IniGparams(.f.)
 IniGparam2(.f.)
 
 oApp:oDatabase:loadSezonaRadimUSezona()
 oApp:oDatabase:radiUSezonskomPodrucju()
-  
+
 oApp:setGVars()
 @ 10,20 SAY ""
 if Pitanje(,"Izvrsiti instalaciju fajlova (D/N) ?","N")=="D"
@@ -216,7 +216,7 @@ gMeniSif:=.f.
 gValIz:="280 "
 gValU:="000 "
 gKurs:="1"
-  
+
 private cSection:="1"
 private cHistory:=" "
 private aHistory:={}
@@ -269,7 +269,7 @@ return
 
 /*!  IBatchRun(oApp)
  *   Batch funkcije za kreiranje baze podataka
- *  \todo Sve batch funkcije prebaciti u appsrv kompomentu 
+ *  \todo Sve batch funkcije prebaciti u appsrv kompomentu
  */
 
 function IBatchRun(oApp)
@@ -323,7 +323,7 @@ gNaslov:= oApp:cName+" EXT, "+oApp:cPeriod+" "+D_VERZIJA
 	if !gInstall
 	 IzvrsenIn(oApp:cP3)
 	endif
-	
+
 	gNaslov+=", Reg: "+SUBSTR(EVar,7,20)
 		#IFDEF  READONLY
 			 gNaslov+="-RO"
@@ -340,7 +340,7 @@ gNaslov:= oApp:cName+" EXT, "+oApp:cPeriod+" "+D_VERZIJA
 	bGlobalErrorHandler:={|objError| GlobalErrorHandler(objError,.f.)}
 	ErrorBlock(bGlobalErrorHandler)
 #else
- 	
+
 	PUBLIC EVar:="#Erky#12345678901234567890#0000"
  	gNaslov+=" , Reg: "+SUBSTR(EVar,7,20)
 
@@ -379,7 +379,7 @@ SET SOFTSEEK ON
 // naslovna strana
 
 if gAppSrv
-	? gNaslov, oApp:cVerzija  
+	? gNaslov, oApp:cVerzija
 	Prijava(oApp, .f. )
 	return
 endif
@@ -393,7 +393,7 @@ ToggleIns()
 
 if !oApp:lStarted
 	if (oApp:cKorisn<>nil .and. oApp:cSifra<>nil)
-	 if oApp:cP3<>nil 
+	 if oApp:cP3<>nil
 	   Prijava(oApp,.f.)  // bez prijavnog Box-a
 	 else
 	   Prijava(oApp)
@@ -445,11 +445,12 @@ endif
 return
 
 
+/*
+  ulazni parametri aplikacije
+*/
 
 function mpar37(x, oApp)
 
-
-// proslijedjeni su parametri
 lp3:=oApp:cP3
 lp4:=oApp:cP4
 lp5:=oApp:cP5
@@ -469,12 +470,15 @@ local nCnt:=0
 if oApp:cP3<>nil
 	++nCnt
 endif
+
 if oApp:cP4<>nil
 	++nCnt
 endif
+
 if oApp:cP5<>nil
 	++nCnt
 endif
+
 if oApp:cP6<>nil
 	++nCnt
 endif
@@ -493,18 +497,22 @@ cPars:=""
 if oApp:cP3<>NIL
 	cPars+="'"+oApp:cP3+"'"
 endif
+
 if oApp:cP4<>NIL
 	if !empty(cPars); cPars+=", ";endif
 	cPars+="'"+oApp:cP4+"'"
 endif
+
 if oApp:cP5<>NIL
 	if !empty(cPars); cPars+=", ";endif
 	cPars+="'"+oApp:cP5+"'"
 endif
+
 if oApp:cP6<>NIL
 	if !empty(cPars); cPars+=", ";endif
 	cPars+="'"+oApp:cP6+"'"
 endif
+
 if oApp:cP7<>NIL
 	if !empty(cPars); cPars+=", ";endif
 	cPars+="'"+oApp:cP7+"'"
@@ -527,29 +535,29 @@ return cPars
  * ....
  * //u Quit proceduri (na kraju):
  * PID("STOP")
- * 
+ *
  * \endcode
  *
  *
  * Primjer FMK.INI
  * \code
- * 
- * Ime PID-a koji ce kreirati se cita iz EXEPATH/FMK.INI 
+ *
+ * Ime PID-a koji ce kreirati se cita iz EXEPATH/FMK.INI
  * [PID]
  * <IME_MODULA>_<IME_KORISNIKA> = IME_PID_FAJLA
  * Default vrijednost je <BROJMODULA>
  *
  *
- * Tako je za modul TOPS, za korisnika sistem 
+ * Tako je za modul TOPS, za korisnika sistem
  * [PID]
  * TOPS_SYSTEM=8
- * 
+ *
  * Ako imamo vise poziva TOPS-a iz istog EXE direktorija moramo u fmk ini za
  * svakog korisnika definisati ime PID-fajla:
  * [PID]
- * ;korisnik SYSTEM 
+ * ;korisnik SYSTEM
  * TOPS_SYSTEM=8_KASA
- * ;za sve instal module isti je PID sto znaci da ga moze pokrenuti 
+ * ;za sve instal module isti je PID sto znaci da ga moze pokrenuti
  * ;samo jedan korisnik istovremeno
  * I_TOPS_SYSTEM=I_8
  * ;korisnik NELA
@@ -573,7 +581,7 @@ local lKoristitiPid
 #endif
 
 cPidDefault := IIF (goModul:cName =="TOPS", "D", "N")
-lKoristitiPid := IzFmkIni("FMK","KoristiSePID", cPidDefault , EXEPATH)=="N" 
+lKoristitiPid := IzFmkIni("FMK","KoristiSePID", cPidDefault , EXEPATH)=="N"
 
 if ((cStart=="START") .and. (goModul:lStarted) .or. lKoristitiPid )
 	// glavni aplikacijski objekat je vec startovan
@@ -651,7 +659,7 @@ return
  *  \todo Prijava je primjer klasicne kobasica funkcije ! Razbiti je.
  *  \todo prijavu na osnovu scshell.ini izdvojiti kao posebnu funkciju
  */
- 
+
 function Prijava(oApp, lScreen)
 
 
@@ -668,7 +676,7 @@ if lScreen==nil
 	lScreen:=.t.
 endif
 
-if FILE(EXEPATH+'scshell.ini')
+if FILE(EXEPATH + 'scshell.ini')
         ScShellIni()
 endif
 
@@ -676,14 +684,14 @@ if goModul:oDatabase:lAdmin
 	CreKorisn()
 endif
 
-O_KORISN   
+O_KORISN
 do while .t.
 	if oApp:cKorisn<>nil .and. oApp:cSifra<>nil
 		 oApp:cKorisn:=ALLTRIM(upper(oApp:cKorisn))
 		 oApp:cSifra:=CryptSC(upper(PADR(oApp:cSifra,6)) )
 		 LOCATE FOR oApp:cSifra==korisn->sif
 		 // Postoji korisnik, sifra
-		 if FOUND()                 
+		 if FOUND()
 		    exit
 		 endif
 	endif
@@ -714,11 +722,11 @@ do while .t.
 		KLevel:="0"
 		exit
 	endif
-	
+
 	oApp:cSifra:=m_sif
 	LOCATE FOR oApp:cSifra==korisn->sif
 	// Postoji korisnik, sifra
-	if FOUND() 
+	if FOUND()
 		exit
 	endif
 
@@ -728,14 +736,14 @@ LOCATE FOR oApp:cSifra==korisn->sif
 CONTINUE
 
 if FOUND()
-	
+
 	// postoji vise od jedne sifre
 	if (oApp:cKorisn==NIL)
 		oApp:cKorisn:=space(10)
 	else
 		oApp:cKorisn:=padr(oApp:cKorisn,10)
 	endif
-	
+
 	LOCATE FOR oApp:cSifra==korisn->sif .and. korisn->ime==oApp:cKorisn
 	if !FOUND()
 		do while .t. // oznaka preduzeca
@@ -744,7 +752,7 @@ if FOUND()
 			READ
 			BoxC()
 			if LASTKEY()==K_ESC
-				CLEAR 
+				CLEAR
 				oApp:quit()
 			endif
 			LOCATE FOR oApp:cSifra==korisn->sif .and. korisn->ime==oApp:cKorisn
@@ -752,8 +760,8 @@ if FOUND()
 				exit
 			endif
 		enddo
-	endif 
-else  
+	endif
+else
 	// samo jedna sifra
 	LOCATE FOR oApp:cSifra==korisn->sif
 	oApp:cKorisn:=korisn->ime
@@ -797,9 +805,6 @@ else
 	ImeKorisn:=korisn->ime
 	SifraKorisn:=korisn->sif
 
-#ifdef CLIP
-	? "setujem dirkum, dirsif, dirpriv (oApp:oDatabase:setDirPriv ..)"
-#endif
 	oApp:oDatabase:setDirKum(korisn->dirRad)
 	oApp:oDatabase:setDirSif(korisn->dirSif)
 	oApp:oDatabase:setDirPriv(korisn->dirPriv)
@@ -820,7 +825,7 @@ System := (Trim(ImeKorisn)=="SYSTEM")
 USE
 
 // silent
-SetDirs(oApp, .f.) 
+SetDirs(oApp, .f.)
 
 CLOSERET
 return nil
@@ -847,9 +852,9 @@ if goModul:oDatabase:lAdmin
 	CreKorisn()
 endif
 
-O_KORISN 
+O_KORISN
 // napravi u korisn ovog korisnika
-if !EMPTY(cPPSaMr) 
+if !EMPTY(cPPSaMr)
 	LOCATE FOR field->ime==padr(oApp:cKorisn,6)
 	if !FOUND()
 		LOCATE FOR korisn->ime==PADR(LEFT(oApp:cKorisn,LEN(oApp:cKorisn)-1)+'1',6)
@@ -911,7 +916,7 @@ SET CURSOR ON
 m_sif:=upper(GETSECRET( m_sif ))
 
 if (LASTKEY()==K_ESC)
-	CLEAR 
+	CLEAR
 	oApp:quit()
 endif
 SET CURSOR OFF
@@ -956,8 +961,8 @@ static function ApndKorisn(cKorisn, cDirPriv, cDirSif, cDirKum)
 APPEND BLANK
 REPLACE ime WITH cKorisn
 REPLACE sif WITH CRYPT(PADR(cKorisn,6))
-REPLACE dat WITH DATE() 
-REPLACE time WITH TIME() 
+REPLACE dat WITH DATE()
+REPLACE time WITH TIME()
 REPLACE prov WITH 0
 REPLACE level WITH "0"
 REPLACE nk WITH .F.
@@ -999,7 +1004,7 @@ if lScreen
 	READ
 	ESC_BCR
 	BoxC()
-	
+
 	if !gReadOnly
 		Gather()
 	endif
@@ -1174,4 +1179,3 @@ function Arg0()
 return "/dev/fmk/pos/1g/e.exe"
 
 #endif
-

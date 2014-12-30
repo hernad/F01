@@ -25,7 +25,7 @@ static _LOG_PROMJENE := .f.
 static __A_SIFV__:= { {NIL,NIL,NIL}, {NIL,NIL,NIL}, {NIL,NIL,NIL}, {NIL,NIL,NIL}}
 #endif
 
-function PostojiSif( nDbf, nNtx, nVisina, nSirina, cNaslov, cID, dx, dy, ;
+function PostojiSifra( nDbf, nNtx, nVisina, nSirina, cNaslov, cID, dx, dy, ;
                       bBlok, aPoredak, bPodvuci, aZabrane, fInvert, aZabIsp )
 
 local cRet, cIdBK
@@ -785,8 +785,7 @@ endcase
 return
 
 
-// ------------------------------------------
-// ------------------------------------------
+
 function EditSifItem(Ch, nOrder, aZabIsp)
 local i
 local j
@@ -1363,10 +1362,11 @@ endif
            endif
 
            copy structure extended to struct
-           nP2:=AT("\SIF",SIFPATH)         // c:\sigma\sif
-           cPath:=left(SIFPATH,nP2) +"SIF0\"
-           cDBF:=ALIAS()+".DBF"
-           // c:\sigma\sif1\trfp.dbf -> c:\sigma\sif0\trfp.dbf
+           nP2:=AT(SLASH + "SIF", SIFPATH)         // c:/sigma/sif
+           cPath:=left(SIFPATH,nP2) +"SIF0" + SLASH
+           cDBF:=ALIAS() + ".DBF"
+           // c:/sigma/sif1/trfp.dbf -> c:/sigma/sif0/trfp.dbf
+           
            DirMak2(cPath)
            if file(cPath+cDBF)
                MsgBeep("Tabela "+cPath+cDBF+" vec postoji !")
@@ -1377,11 +1377,7 @@ endif
 
            select (F_TMP)
 
-#ifdef CAX
-           create (cPath+cDBF) from struct  alias TMP
-#else
            create (cPath+cDBF) from struct  VIA RDDENGINE alias TMP
-#endif
 
 
            USE
@@ -1405,12 +1401,12 @@ endif
            // sifrarnik <- sif0
 
            nDBF:=select()
-           nP2:=AT("\SIF",SIFPATH)         // c:\sigma\sif
-           cPath:=left(SIFPATH,nP2) +"SIF0\"
+           nP2:=AT( SLASH + "SIF",SIFPATH)         // c:/sigma/sif
+           cPath:=left(SIFPATH, nP2) + "SIF0" + SLASH
            cDBF:=ALIAS()+".DBF"   // TROBA.DBF
-           // c:\sigma\sif1\trfp.dbf -> c:\sigma\sif0\trfp.dbf
+           // c:/sigma/sif1/trfp.dbf -> c:/sigma/sif0/trfp.dbf
            if !file(cPath+cDBF)
-               MsgBeep("U clipboardu tabela "+cPath+cDBF+" ne postoji !")
+               MsgBeep( "U clipboardu tabela "+cPath+cDBF+" ne postoji !")
                loop
            else
                // za svaki slucaj izbrisi CDX !! radi moguce korupcije
@@ -2620,8 +2616,6 @@ endif
 return xRet
 
 
-//---------------------------------
-//---------------------------------
 function P_Sifk(cId, dx, dy)
 local i
 private imekol,kol
@@ -2651,7 +2645,8 @@ ImeKol:={ { padr("Id",15), {|| id}, "id"  }           ,;
 
 FOR i:=1 TO LEN(ImeKol); AADD(Kol,i); NEXT
 Private gTBDir:="N"
-return PostojiSif(F_SIFK,1,10,65,"sifk - Karakteristike",@cId,dx,dy)
+
+return PostojiSifra(F_SIFK,1,10,65,"sifk - Karakteristike",@cId,dx,dy)
 
 
 /*!

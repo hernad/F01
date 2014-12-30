@@ -1,3 +1,4 @@
+-n
 -inc
 #-ufmk_lib/base/1g/std.ch
 -uinclude/std.ch
@@ -16,4 +17,3 @@
 -ifmk_common/rabat/1g
 -ifmk_lib/base/1g
 -ifmk_lib/pdf
-
