@@ -1,3 +1,12 @@
+/* net:127.0.0.1:2941:topsecret:data/_tst_ */
+
+#define DBSERVER  "127.0.0.1"
+#define DBPORT    2941
+#define DBPASSWD  "f01"
+#define DBDIR     "/data"
+#define DBFILE    "_tst_"
+
+
 function initfw()
 
   //to nesto rtf koristili
@@ -61,12 +70,14 @@ function       CMXKEYSINCLUDED()
 
 function CMXSETSCOPE()
 
-function CMXSHARED()
-
-
 function PEEKBYTE()
 
 function  SETPXLAT()
 
 
 function hb_symbol_unused()
+
+
+function f01_server()
+
+return 'net:' + DBSERVER + ':' + DBPORT + ':' + DBPASSWORD 

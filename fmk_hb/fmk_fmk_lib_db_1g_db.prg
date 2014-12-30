@@ -413,58 +413,26 @@ return fret
 
 
 
-#ifdef CAX
 
-/*!  reccount2()
- * \note CAX - Advantage db server verzija
- */
-
-function reccount2()
-
-local nC:=0,nRec, nPrevOrd
-
-if ORDNUMBER("BRISAN")<>0
-  nRec:=recno()
-  nPrevOrd:=indexord()
-  set deleted off
-  set order to tag "BRISAN"
-  set scope to "1"  // postavi scope na brisane
-  nC:=AX_KeyCount()
-  set deleted on
-  set scope to
-  dbsetorder(nPrevOrd)
-  go nRec
-endif
-return reccount()-nC
-
-
-#else
-
-/*!  reccount2()
- * \note COMIX - CDX verzija
- */
 function reccount2()
 
 local nC:=0, nRec, nPrevOrd
 
-if ORDNUMBER("BRISAN")<>0
+altd()
+
+if ORDNUMBER("BRISAN") <> 0
+
   nPrevOrd:=indexord()
   set order to tag "BRISAN"
   set scope to "1"  // postavi scope na brisane
 
-
-  nC:=ordkeycount()
-//#else
-//  nC:=cmxKeyCount()
-//#endif
+  nC := ordkeycount()
 
   set scope to
   dbsetorder(nPrevOrd)
 endif
-return reccount()-nC
 
-
-#endif
+return reccount() - nC
 
 
 function seek2(cArg)

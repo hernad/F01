@@ -39,7 +39,7 @@ return NIL
 
 
 
-/*!  OKumul(nArea,cStaza,cIme,nIndexa,cDefault)
+/*  OKumul(nArea,cStaza,cIme,nIndexa,cDefault)
  *   Kopira podatke sa mreze radi brzine pregleda dokumenata, sluzi samo za pregled
  *   nArea    - podrucje
  *   cStaza
@@ -58,7 +58,7 @@ endif
 
 select (nArea)
 if gKesiraj $ "CD"
-  cPath:=strtran(cStaza,LEFT(cStaza,3),gKesiraj+":\")
+  cPath:=strtran(cStaza,LEFT(cStaza,3), gKesiraj+":" + SLASH )
 
   DirMak2(cPath)  // napravi odredisni direktorij
 
@@ -152,7 +152,7 @@ enddo
 
 // postoje dokumenti dupli
 if lNalExist
-	MsgBeep("U pripremi su se pojavili dupli nalozi !!!")
+	MsgBeep("U pripremi su se pojavili dupli nalozi !")
 	if Pitanje(,"Pobrisati duple naloge (D/N)?", "D")=="N"
 		MsgBeep("Dupli nalozi ostavljeni u tabeli pripreme!#Prekidam operaciju azuriranja!")
 		return 1
@@ -340,7 +340,7 @@ return .f.
 
 
 
-/*!  fin_Azur(lAuto)
+/*  fin_Azur(lAuto)
  *   Azuriranje knjizenja
  *   lAuto - .t. azuriraj automatski, .f. azuriraj sa pitanjem
  */
@@ -404,6 +404,9 @@ O_PNALOG
 
 fAzur:=.t.
 select PSUBAN
+
+altd()
+
 if reccount2()==0
   fAzur:=.f.
 endif
@@ -419,7 +422,7 @@ endif
 
 if !fAzur
   Beep(3)
-  Msg("Niste izvrsili stampanje naloga ...",10)
+  Msg("Niste izvršili štampanje naloga ...",10)
   closeret
 endif
 

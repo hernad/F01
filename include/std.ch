@@ -361,9 +361,6 @@
 
 
 
-***
-*  READ
-*
 
 #command READ SAVE                                                      ;
        => ReadModSC(GetList)
@@ -532,11 +529,6 @@
 #command RUN := <xpr>           => ( run := <xpr> )
 
 
-
-****
-*  DB SETs
-*
-
 #command SET EXCLUSIVE <x:ON,OFF,&>     =>  Set( _SET_EXCLUSIVE, <(x)> )
 #command SET EXCLUSIVE (<x>)            =>  Set( _SET_EXCLUSIVE, <x> )
 
@@ -564,8 +556,8 @@
              [INDEX <(index1)> [, <(indexn)>]]                          ;
                                                                         ;
       =>  PreUseEvent(<(db)>,!(gInstall),gReadOnly)			;
-         ; dbUseArea(                                                    ;
-                    <.new.>, <rdd>, <(db)>, <(a)>,                      ;
+         ; dbUseArea(                                                   ;
+                    <.new.>, <rdd>, f01_server( )+<(db)>, <(a)>,        ;
                      !(gInstall) , gReadOnly       ;
                   )                                                     ;
                                                                         ;

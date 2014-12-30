@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,7 +14,7 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
 
@@ -70,10 +70,10 @@
 
 
 /*!  StNarKup()
- *   Stampa narudzbenice 
+ *   Stampa narudzbenice
  *  \todo Prebaciti u /RPT
  */
- 
+
 function StNarKup()
 
 
@@ -150,7 +150,7 @@ else
     	dNarudzbe:=datdok
     	nLin:=BrLinFajla(PRIVPATH+TRIM(gFNar))
     	nPocetak:=0
-	nPreskociRedova:=0
+    	nPreskociRedova:=0
     	for i:=1 to nLin
       		aPom:=SljedLin(PRIVPATH+TRIM(gFNar),nPocetak)
       		nPocetak:=aPom[2]
@@ -231,8 +231,8 @@ else
 					if cPom=="#Y5#"
 						lSjeciStr:=.t.
 					endif
-						
-            				IF !EMPTY(aPom[1]) 
+
+            				IF !EMPTY(aPom[1])
               					if !lSjeciStr
 							PrnKod_ON(aPom[1])
 						endif
@@ -241,15 +241,15 @@ else
               					cPom:=&(aPom[2])
             				ELSE
               					cPom:=&(aPom[2])
-              					
+
 						if !lSjeciStr
 							?? cPom
             					else
 							aRez:=SjeciStr(cPom, 80)
 							?? aRez[1]
 							for i:=2 to LEN(aRez)
-								? aRez[i] 
-							next	
+								? aRez[i]
+							next
 						endif
 					ENDIF
 					IF !EMPTY(aPom[1])
@@ -277,7 +277,7 @@ return
 
 
 /*!  fakt_uzmi_var(cVar)
- *   Uzima varijable 
+ *   Uzima varijable
  *   cVar
  *  \return cVrati
  */
@@ -352,7 +352,3 @@ DO CASE
        cVrati := { "K", "gPI_OFF()" }
  ENDCASE
 return cVrati
-
-
-
-

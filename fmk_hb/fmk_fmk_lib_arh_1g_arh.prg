@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -13,7 +13,7 @@
 #include "SC.CH"
 
 /*!  ArhSigma()
- *   Arhiviranje podataka 
+ *   Arhiviranje podataka
  */
 function ArhSigma()
 
@@ -46,7 +46,7 @@ if !file(cDbfKontr)
     DBCREATE2(cDbfKontr,aDbf,RDDENGINE)
     select 120
     use (cDbfKontr) via RDDENGINE
-    
+
     append blank
     return
 endif
@@ -54,7 +54,7 @@ endif
 
 select 120
 use (cDbfKontr) via RDDENGINE
-go top  
+go top
 dDatArh:=datum
 use
 
@@ -114,13 +114,13 @@ return  cDir
  *
  * \code
  *
- * Dirmak2("C:\sigma\fakt\11") 
+ * Dirmak2("C:\sigma\fakt\11")
  *
  * - rekurzivno odradjuje, sto znaci ako imamo dir c:\sigma
  * - formira fakt, pa onda poddirektorij 11
  * \encdode
  */
- 
+
 function Dirmak2(cDir)
 
 local nPos, npom
@@ -223,7 +223,6 @@ if nPos<>0
 endif
 
 
-
 function Otkljucaj(cIme)
 
 local nPos
@@ -263,7 +262,7 @@ if IzFmkIni("Svi","Arh7zip","N", EXEPATH)=="D"
 	l7zip := .t.
 endif
 
-if cDest == NIL 
+if cDest == NIL
 	// zadaj destinaciju
 	Box(,1,50)
  	@ m_x+1,m_y+2 SAY "Arhivirati na disk A/B/C/D/E/F/G ?" get cabc pict "@!" valid cabc $ "ABCDEFG"
@@ -298,17 +297,17 @@ else
 	set printer to (cFileName)
 	set printer off
 	set printer on
-	
+
 	for i:=1 to len(aFiles)
   		? aFiles[i] + " "
 	next
-	
+
 	set printer to
 	set printer off
 	set printer on
-	
+
 	run &cKom
-	
+
 	restore screen from cScr
 	return
 endif
@@ -348,7 +347,6 @@ endif
 inkey(5)
 restore screen from cscr
 
-//#endif
 closeret
 
 return
@@ -360,7 +358,7 @@ function UnZipuj(cImeArh,cLokacija,cDest)
 
 *
 * unzipuj
-* cDest = A:\
+* cDest = A:/
 
 local cabc:="A",n123:=1, fRet:=.t.
 
@@ -376,7 +374,7 @@ if cDest==NIL
  	read
 	ESC_BCR
 	BoxC()
-	cDest:=cAbc+":\"
+	cDest:=cAbc+ ":" + SLASH
 endif
 
 if cImeArh==NIL
@@ -434,7 +432,7 @@ RETURN { VAL(LEFT(cPom,10)) , VAL(RIGHT(cPom,10)) }
 
 
 function NapraviCRC(cFajl,n1,n2)
- 
+
  LOCAL nH:=0
   IF cFajl==NIL; cFajl:="CRC.CRC"; ENDIF
   IF FILE( cFajl )
@@ -691,6 +689,3 @@ for i:=1 to len(afiles)
 next
 Asize(aFiles,0)
 return .t.
-
-
-
