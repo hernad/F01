@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,15 +14,15 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
- 
+
 /*!  nToLongC(nN)
  *   Pretvara broj u LONG (C-ovski prikaz long integera)
  *
  */
- 
+
 function nToLongC(nN)
 
 local cStr:="",i
@@ -51,20 +51,11 @@ next
 return nRez
 
 
-function Bios()
-
-
-local cStr:="",i
-for i:=1 to 8
-  //cStr+=peekchar("F000",65524+i)
-  cStr+=chr(peekbyte("F000",65524+i))
-next
-return cStr
 
 
 
 function BosTipke()
-  
+
   SETKEY( ASC('{') , {|| __KEYBOARD('[') }  )
   SETKEY( ASC('|') , {|| __KEYBOARD('\') }  )
   SETKEY( ASC('`') , {|| __KEYBOARD('@') }  )
@@ -173,29 +164,29 @@ cPom=cPom+ "# FmkSecurity:"+FmkSecVer()
 cPom=cPom+ "#       sclib:"+ScLibVer()
 
 cPom=cPom+"##"
-if (BLIMGRSTS(BliMachineMode) = BliModeReal) 
-	cPom=cPom+"Running in real mode#" 
-	cacheloc = BLIMGRSTS(BliCacheLoc) 
-	do case 
-		case cacheloc = BliCacheNone 
-			cPom=cPom+"No cache available" 
-		case cacheloc = BliCacheXMS 
-			cPom=cPom+"Cache is in XMS" 
-		case cacheloc = BliCacheEMS 
-			cPom=cPom+"Cache is in EMS" 
-	endcase 
-else 
+if (BLIMGRSTS(BliMachineMode) = BliModeReal)
+	cPom=cPom+"Running in real mode#"
+	cacheloc = BLIMGRSTS(BliCacheLoc)
+	do case
+		case cacheloc = BliCacheNone
+			cPom=cPom+"No cache available"
+		case cacheloc = BliCacheXMS
+			cPom=cPom+"Cache is in XMS"
+		case cacheloc = BliCacheEMS
+			cPom=cPom+"Cache is in EMS"
+	endcase
+else
 	cPom=cPom+"Running in protected mode#"
-	hosttype = BLIMGRSTS(BliHostMode) 
-	cPom=cPom+"DOS extender host is :#" 
-	do case 
-	case hosttype = BliHostDPMI 
-		cPom=cPom+"DPMI" 
-	case hosttype = BliHostVCPI 
-		cPom=cPom+"VCPI" 
-	case hosttype = BliHostXMS 
-		cPom=cPom+"XMS" 
-	endcase 
+	hosttype = BLIMGRSTS(BliHostMode)
+	cPom=cPom+"DOS extender host is :#"
+	do case
+	case hosttype = BliHostDPMI
+		cPom=cPom+"DPMI"
+	case hosttype = BliHostVCPI
+		cPom=cPom+"VCPI"
+	case hosttype = BliHostXMS
+		cPom=cPom+"XMS"
+	endcase
 endif
 
 MsgBeep(cPom)
@@ -296,5 +287,3 @@ else
 endif
 
 return 1
-
-

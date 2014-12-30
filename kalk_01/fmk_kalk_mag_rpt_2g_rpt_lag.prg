@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,7 +14,7 @@
 #include "hbclass.ch"
 
 CLASS TKaLagM
-	
+
 	VAR nStr
 	VAR nStrLen
 	VAR cLinija
@@ -22,7 +22,7 @@ CLASS TKaLagM
 	VAR self
 	VAR dDatOd
 	VAR dDatDo
-	
+
 	VAR cIdKonto
 	VAR cUslTarifa
 	VAR cUslIdVd
@@ -39,7 +39,7 @@ CLASS TKaLagM
 	VAR nNvI
 	VAR nRabat
 	VAR nRbr
-	
+
 	VAR nTUlazK
 	VAR nTIzlazK
 	VAR nTVpvU
@@ -47,34 +47,34 @@ CLASS TKaLagM
 	VAR nTNvU
 	VAR nTNvI
 	VAR nTRabat
-	
+
 	VAR cSort
-	
+
 	// varijante izvjestaja
-	
+
 	// "N", "P"
-	VAR cNabIliProd 
+	VAR cNabIliProd
 	VAR cPrikKolNula
 
         METHOD New()
-	
+
         METHOD creTmpTbl()
 	METHOD addTmpRec()
 
 	// prodji kroz bazu podataka
 	METHOD openDb()
 	METHOD closeDb()
-	
+
 	METHOD setFiltDb()
 	METHOD setFiltDbTmp()
-	
+
 	METHOD skipRec()
 	METHOD calcRec()
-	
+
 	METHOD calcRec()
 	METHOD sortTmpTbl()
 	METHOD getVars()
-	
+
 	METHOD setLinija()
 	METHOD printHeader()
 	METHOD printDetail()
@@ -119,7 +119,7 @@ do while (!EOF() .and. oRpt:cIdKonto==field->mKonto)
 	if (oRpt:skipRec()==1)
 		loop
 	endif
-		
+
 	oRpt:nUlazK:=0
 	oRpt:nIzlazK:=0
 	oRpt:nVpvU:=0
@@ -127,7 +127,7 @@ do while (!EOF() .and. oRpt:cIdKonto==field->mKonto)
 	oRpt:nNvU:=0
 	oRpt:nNvI:=0
 	oRpt:nRabat:=0
-	
+
 	cIdRoba:=field->idRoba
 	cIdTarifa:=field->idTarifa
 	do while (!EOF() .and. cIdRoba==field->idRoba .and. cIdTarifa==field->idTarifa)
@@ -152,7 +152,7 @@ GO TOP
 oRpt:nStr:=0
 oRpt:setLinija()
 oRpt:printHeader()
-altd()
+
 nRec:=0
 do while !EOF()
 	ShowKorner(nRec,1)
@@ -241,7 +241,7 @@ endif
 REPLACE idPartner WITH kalk->idPartner
 REPLACE ulazK WITH field->ulazK+::nUlazK
 REPLACE izlazK WITH field->izlazK+::nIzlazK
-	
+
 if (::cNabIliProd=="P")
 	REPLACE ulazF WITH field->ulazF+::nVpvU
 	REPLACE izlazF WITH field->izlazF+::nVpvI
@@ -272,7 +272,7 @@ if (field->mu_i=="1")
 		::nVpvI-=ROUND( field->vpc*field->kolicina , gZaokr)
 		::nNvI-=ROUND( field->nc*field->kolicina , gZaokr)
 	endif
-	
+
 elseif (field->mu_i=="5")
 	nKolicina:=field->kolicina
 	::nIzlazK+=nKolicina
@@ -280,7 +280,7 @@ elseif (field->mu_i=="5")
 	::nRabat+=ROUND(field->rabatv/100*field->vpc*field->kolicina, gZaokr)
 	::nNvI+=field->nc*field->kolicina
 
-elseif (field->mu_i=="3")    
+elseif (field->mu_i=="3")
 	// nivelacija
 	::nVpvU+=ROUND(field->vpc*field->kolicina, gZaokr)
 
@@ -337,10 +337,10 @@ cKto:=::cIdKonto
 @ m_x+9, m_y+2 SAY "- vrste dok.  :" GET ::cUslIdVd    PICT "@!S40"
 
 @ m_x+11, m_y+2 SAY "Sortirati:"
-@ m_x+12, m_y+2 SAY "- po partneru (P)" 
-@ m_x+13, m_y+2 SAY "- po tarifi   (T)" 
-@ m_x+14, m_y+2 SAY "- po id roba  (R)" 
-@ m_x+15, m_y+2 SAY "- po jed.mj.  (J)" 
+@ m_x+12, m_y+2 SAY "- po partneru (P)"
+@ m_x+13, m_y+2 SAY "- po tarifi   (T)"
+@ m_x+14, m_y+2 SAY "- po id roba  (R)"
+@ m_x+15, m_y+2 SAY "- po jed.mj.  (J)"
 @ m_x+16, m_y+2 SAY "- po naz roba (N)" GET ::cSort VALID ::cSort $ "KPTMRNJ" PICT "@!"
 
 @ m_x+18, m_y+2 SAY "(N)abavna / (P)rodajna vrijednost " GET ::cNabIliProd PICT "@!" VALID ::cNabIliProd $ "NP"
@@ -447,7 +447,7 @@ endif
 SET FILTER TO &cFilter
 GO TOP
 
-altd()
+
 return 1
 
 
@@ -499,7 +499,7 @@ do case
 	case (::cSort=="J")
 		SET ORDER TO TAG "jmj"
 end case
-	
+
 return
 
 METHOD TKaLagM:setFiltDbTmp()
@@ -536,7 +536,7 @@ local cHeader
 ?
 P_COND
 @ PROW(), 100 SAY "Str."+STR(::nStr,3)
-? "Preduzece: ", gNFirma, 
+? "Preduzece: ", gNFirma,
 ?
 PushWa()
 
@@ -544,7 +544,7 @@ SELECT konto
 SEEK ::cIdKonto
 ? "Magacinski konto:", ::cIdKonto, konto->naz
 PopWa()
-? 
+?
 ? ::cLinija
 
 cHeader:=""
@@ -557,7 +557,7 @@ if (::cNabIliProd=="P")
 	cHeader+=PADC("Vpv Ul.", LEN(gPicKol))+" "
 	cHeader+=PADC("Vpv Izl.", LEN(gPicKol))+" "
 	cHeader+=PADC("VPV", LEN(gPicKol))
-else	
+else
 	cHeader+=PADC("Nv Ul.", LEN(gPicKol))+" "
 	cHeader+=PADC("Nv Izl.", LEN(gPicKol))+" "
 	cHeader+=PADC("Nab.vr", LEN(gPicKol))
@@ -575,7 +575,7 @@ return
 
 METHOD TKaLagM:printDetail()
 
-if (::cPrikKolNula=="N") 
+if (::cPrikKolNula=="N")
 	if (ROUND(field->ulazK-field->izlazK,4)==0)
 		return
 	endif
@@ -593,13 +593,13 @@ endif
 @ PROW(), PCOL()+1 SAY field->ulazF PICT gPicDem
 @ PROW(), PCOL()+1 SAY field->izlazF PICT gPicDem
 @ PROW(), PCOL()+1 SAY field->ulazF-field->izlazF PICT gPicDem
-	
+
 return
 
 
 METHOD TKaLagM:calcTotal()
 
-if (::cPrikKolNula=="N") 
+if (::cPrikKolNula=="N")
 	if (ROUND(field->ulazK-field->izlazK,4)==0)
 		return
 	endif
@@ -612,7 +612,7 @@ endif
 if (::cNabIliProd=="P")
 	::nTVpvU+=field->ulazF
 	::nTVpvI+=field->izlazF
-else	
+else
 	::nTNvU+=field->ulazF
 	::nTNvI+=field->izlazF
 endif
@@ -670,7 +670,7 @@ select rpt_tmp
 go top
 
 do while !EOF()
-	
+
 	select r_export
 	append blank
 	replace field->idroba with rpt_tmp->idroba
@@ -685,7 +685,7 @@ do while !EOF()
 	replace field->i_izlaz with rpt_tmp->izlazf
 	replace field->i_stanje with ( field->i_ulaz - field->i_izlaz )
 	replace field->rabat with rpt_tmp->rabatf
-	
+
 	nK_ulaz += field->ulaz
 	nK_izlaz += field->izlaz
 	nI_ulaz += field->i_ulaz
@@ -734,5 +734,3 @@ AADD(aTbl, { "i_stanje",  "N", 16, 4})
 AADD(aTbl, { "rabat",  "N", 16, 4})
 
 return aTbl
-
-

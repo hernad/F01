@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -16,8 +16,8 @@
 /*! \file fmk/fin/razdb/1g/ldfin.prg
  *   Prenos podataka LD->FIN
  */
- 
-/*!  LdFin() 
+
+/*!  LdFin()
  *   Prenos podataka LD->FIN
  */
 
@@ -39,14 +39,14 @@ RPar("lk", @_ldpath)
 RPar("sh", @cShema)
 
 Box("#KONTIRANJE OBRACUNA PLATE", 10, 75)
-	
+
 	@ m_x+2, m_y+2 SAY "GODINA:" GET _godina PICT "9999"
 	@ m_x+3, m_y+2 SAY "MJESEC:" GET _mjesec PICT "99"
 	@ m_x+5, m_y+2 SAY "Shema kontiranja:" GET cShema PICT "@!"
 	@ m_x+6, m_y+2 SAY "Datum knjizenja :" GET dDatum
-	
+
 	@ m_x+8, m_y+2 SAY "LD kumulativ:" GET _ldpath VALID !EMPTY(_ldpath)
-	
+
 	READ
 BoxC()
 
@@ -96,14 +96,14 @@ nRBr:=0
 nIznos:=0
 
 do while !eof()
-	
+
 	private cPom:=trfp3->id
-	
+
 	if "#RN#"$cPom
-		
+
 		select rnal
 		go top
-		
+
 		do while !eof()
 			cPom:=trfp3->id
 			cBrDok:=rnal->id
@@ -127,27 +127,25 @@ do while !eof()
 			skip 1
 		enddo
 		select trfp3
-	
+
 	elseif "#AH#" $ cPom
 
 		cPom := STRTRAN(cPom, "#AH#", "")
-		
-		altd()
-		
+
 		cIznos := &cPom
-		
+
 		select trfp3
-		
+
 	else
-		
+
 		nIznos := &cPom
 		cBrDok := ""
-		
+
 		if round(nIznos,2)<>0
-			
+
 			select pripr
 			append blank
-			
+
 			replace idvn     with trfp3->idvn
 			replace	idfirma  with gFirma
 			replace	brnal    with cBrNal
@@ -191,12 +189,11 @@ set order to tag &cTag
 go top
 seek str(_godina,4) + str(_mjesec,2) + cId
 
-altd()
 
 do while !EOF() .and. godina == STR(_godina, 4) .and. ;
 		mjesec == STR(_mjesec, 2) .and. ;
 		ALLTRIM(id) == cId
-	
+
 	cTmp := field->idpartner
 	cIzdanje := field->izdanje
 
@@ -208,30 +205,30 @@ do while !EOF() .and. godina == STR(_godina, 4) .and. ;
 		ALLTRIM(id) == cId .and. ;
 		IF(cTag=="2" .or. cTag == "4", idpartner == cTmp, .t.) .and. ;
 		IF(cTag=="3" .or. cTag == "4", izdanje == cIzdanje, .t.)
-		
+
 		if !EMPTY(cOpis) .and. AT(cOpis, cIzdanje) == 0
 			skip
 			loop
 		endif
-		
+
 		nIzn1 += iznos1
 		nIzn2 += iznos2
-		
-		skip 
+
+		skip
 	enddo
 
 	cBrDok := ""
-	
+
 	if cTag == "3" .or. cTag == "1" .or. cTag == "4"
 		cTmp := ""
 	endif
-	
+
 	// dodaj u pripremu
 	if ROUND(nIzn1, 2) <> 0
-		
+
 		select pripr
 		append blank
-			
+
 		replace idvn with trfp3->idvn
 		replace	idfirma with gFirma
 		replace	brnal with cBrNal
@@ -242,13 +239,13 @@ do while !EOF() .and. godina == STR(_godina, 4) .and. ;
 		replace	iznosbhd with nIzn1
 		replace idpartner with cTmp
 		replace	brdok with cBrDok
-		
+
 		cNalOpis := TRIM(trfp3->naz) + " za " + STR(_mjesec,2) + "/" + STR(_godina, 4)
-	
+
 		replace opis with cNalOpis
-	
+
 	endif
-	
+
 	select rekld
 enddo
 
@@ -259,11 +256,11 @@ return
 
 
 /*!  RLD(cId, nIz12)
- *  
+ *
  *   cId
  *   nIz12
  */
- 
+
 function RLD(cId, nIz12)
 
 local npom1:=0, npom2:=0, nVrati
@@ -317,7 +314,7 @@ return
 
 
 /*!  RLDP(cId, cBrDok, nIz12)
- *  
+ *
  *   cId
  *   cBrDok
  *   nIz12
@@ -339,7 +336,7 @@ return 0
 
 
 /*!  RekapLDP(cId, nGodina, nMjesec, nIzn1, nIzn2, cBrDok)
- *  
+ *
  *   cId
  *   nGodina
  *   nMjesec
@@ -374,4 +371,3 @@ enddo
 
 select (nArr)
 return
-

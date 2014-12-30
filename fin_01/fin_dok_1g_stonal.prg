@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -12,7 +12,7 @@
 
 #include "fin01.ch"
 
- 
+
 function MnuStampaAzurNaloga()
 local izb:=1
 private opc[2]
@@ -39,7 +39,7 @@ return
 /*!  StOAnal()
  *   Stampanje proknjizenog analitickog naloga
  */
- 
+
 function StOANal()
 
 private fK1:=fk2:=fk3:=fk4:=cDatVal:="N",gnLOst:=0,gPotpis:="N"
@@ -114,7 +114,7 @@ return
  *   Stampa sintetickog naloga
  *   fKum  - if fkum = .t. - stampa naloga iz anal.dbf, if fkum = .f. - stampa naloga iz panal.dbf
  */
- 
+
 function StOSNal(fkum)
 
 if fkum==NIL
@@ -129,11 +129,7 @@ M:="---- -------- ------- --------------------------------------------- --------
 if fkum  // stampa starog naloga - naloga iz kumulativa - datoteka anal
 
  select (F_ANAL)
-#ifdef CAX
- altd()
- use
- select (F_PANAL); use
-#endif
+
  use ANAL alias PANAL
  set order to tag "2"
  O_KONTO
@@ -276,7 +272,7 @@ return
 /*!  Zagl12()
  *   Zaglavlje sintetickog naloga
  */
- 
+
 function Zagl12()
 local nArr
 
@@ -306,4 +302,3 @@ P_NRED; ?? "    *        *                                                      
 P_NRED; ?? "*BR *        *                                                     * DUGUJE  "+ValDomaca()+"    * POTRAZUJE  "+ValDomaca()+" *"+IF(gVar1=="1",""," DUG. "+ValPomocna()+"  * POT. "+ValPomocna()+" *")
 P_NRED; ?? m
 return
-

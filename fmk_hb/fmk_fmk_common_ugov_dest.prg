@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,7 +14,7 @@
 
 
 // ----------------------------------
-// pregled destinacije 
+// pregled destinacije
 // ----------------------------------
 function P_Destin(cId, cPartId, dx,dy)
 local GetList:={}
@@ -28,36 +28,9 @@ SELECT DEST
 SET ORDER TO TAG "1"
 HSEEK cIdTek+cId
 
-/*
-IF FOUND()
-   IF Pitanje(,"Izvrsiti ispravku destinacije "+cId+" ? (D/N)","N")=="D"
-     EdDestBlok(K_F2,cId)
-     CLEAR TYPEAHEAD
-     SET TYPEAHEAD TO 0
-     SET TYPEAHEAD TO 1024
-     KEYBOARD CHR(K_UP)+CHR(K_DOWN)
-     INKEY(0.5)
-     READ
-   ENDIF
-   SELECT (nArr)
-   RETURN .t.
-ELSE 
-   // nova destinacija
-   GO BOTTOM; SKIP 1
-   EdDestBlok(K_CTRL_N,cId)
-   INKEY(0.5)
-   CLEAR TYPEAHEAD
-   SET TYPEAHEAD TO 0
-   SET TYPEAHEAD TO 1024
-   SELECT (nArr)
-   KEYBOARD CHR(K_UP)+CHR(K_DOWN)
-   INKEY(0.5)
-   READ
-   RETURN .t.
-ENDIF
+Alert ("SET SCOPE TO cIdTek ?!")
+altd()
 
-*/
-SET SCOPE TO cIdTek
 ImeKol:={ ;
           { "OZNAKA"  , {|| OZNAKA },  "OZNAKA"  },;
           { "NAZIV"   , {|| NAZ    },  "NAZ"     },;
@@ -76,7 +49,7 @@ PostojiSifra(F_DEST,"1",10,70,"Destinacije za:"+cIdTek+"-"+Ocitaj(F_PARTN,cIdTek
 
 private gTBDir:="D"
 cId:=cLastOznaka
-set scope to
+
 select (nArr)
 return .t.
 
@@ -138,4 +111,3 @@ do case
 
 endcase
 return nRet
-

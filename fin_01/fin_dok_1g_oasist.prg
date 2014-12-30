@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -71,11 +71,11 @@ go top
 seek "XX"
 
 do while !EOF() .and. field->idfirma == "XX"
-	
+
 	if field->rbr == "000"
 		delete
 	endif
-	
+
 	skip
 enddo
 
@@ -89,7 +89,7 @@ return .t.
 /*!  KonsultOS()
  *   Sredjivanje otvorenih stavki pri knjizenju, poziv na polju strane valute<a+O>
  */
- 
+
 function KonsultOS()
 local fgenerisano
 local nNaz:=1
@@ -115,7 +115,7 @@ cIdFirma:=gFirma
 cIdPartner:=_idpartner
 
 if gOAsDuPartn == "D" .and. (nZbir <> 0)
-	if fNovi	
+	if fNovi
 		nIznos:=_iznosbhd + nZbir
 	else
 		nIznos:=nZbir
@@ -229,7 +229,7 @@ DO WHILE !EOF() .and. idfirma==cidfirma .AND. cIdKonto==IdKonto .and. cIdPartner
            aFaktura[1]:=DATDOK
            aFaktura[2]:=DATVAL
          ENDIF
-	 
+
          if afaktura[3]<DatDok  // datum zadnje promjene
             aFaktura[3]:=DatDok
          endif
@@ -247,16 +247,16 @@ DO WHILE !EOF() .and. idfirma==cidfirma .AND. cIdKonto==IdKonto .and. cIdPartner
           replace datval with aFaktura[2]
           replace datzpr with aFaktura[3]
           replace brdok with cbrdok
-          
+
 	  if (cDugPot == "2")
 	  	replace d_p with "1"
 	  else
 	  	replace d_p with "2"
 		replace iznosbhd with -iznosbhd
 	  endif
-	  
+
 	  select suban
-	  
+
        endif
 enddo // partner
 
@@ -292,7 +292,6 @@ select ostav
 
 nNaz:=Kurs(_datdok)
 
-altd()
 fM3:=.f.
 go top
 do while !eof()
@@ -360,7 +359,7 @@ IF fm3 .and. Pitanje("","Izgenerisati stavke u nalogu za knjizenje ?","D")=="D" 
       nRbr++
       wd_p      :=_D_p
       wIznosBhd := ostav->uplaceno
-      altd()
+
       if ostav->uplaceno<>ostav->iznosbhd
         wOpis:=trim(cOpis)+", DIO"
       endif
@@ -411,7 +410,7 @@ RETURN (NIL)
 /*!  EdKonsROS()
  *   Ispravka broja veze u SUBAN
  */
- 
+
 function EdKonsROS()
 
 local oBrDok:=""
@@ -429,7 +428,7 @@ do case
           read
         BoxC()
         if lastkey()<>K_ESC
-           altd()
+
            select suban; PushWa(); set order to 3
            seek _idfirma+_idkonto+_idpartner+obrdok
            do while !eof() .and. _idfirma+_idkonto+_idpartner+obrdok==idfirma+idkonto+idpartner+brdok
@@ -473,12 +472,11 @@ do case
 
      nRet:=DE_REFRESH
   case Ch=K_F10
-        
+
 	select ostav
 	go top
 
         if Pitanje(,"Asistent zatvara stavke ?","D")=="D"
-             altd()
 	     nPIznos:=nIznos  // iznos uplate npr
              go top
              DO WHILE !EOF()
@@ -518,6 +516,3 @@ do case
      nRet:=DE_REFRESH
 endcase
 return nRet
-
-
-

@@ -61,21 +61,29 @@ FUNCTION GETNEXTKALKDOK()
    ALERT( "RENAME DOK TO GetNextKalkDoc" )
 
 
-function CM2STR()
+function cm2Str( xVal )
 
-function CMFILTCOUNT()
+  cType = VALTYPE( xVal )
+  cVal := hb_ValToStr( xVal )
 
-function CMXAUTOOPEN()
+  IF cType == 'C'
+     cVal := "'" + cVal + "'"
+  ENDIF
 
-function  CMXCLRSCOPE()
+  IF cType == 'D'
+     cVal := "STOD('" + DTOS( xVal ) + "')"
+  ENDIF
 
-function       CMXKEYSINCLUDED()
+  RETURN cVal
 
-function CMXSETSCOPE()
 
-function PEEKBYTE()
+function cmxAutoOpen ( lAuto )
 
-function  SETPXLAT()
+  return  Set( _SET_AUTOPEN, lAuto )
+
+
+function  SETPXLAT( xVal )
+ return xVal
 
 
 function hb_symbol_unused()

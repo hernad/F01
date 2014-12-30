@@ -448,7 +448,6 @@ function V_IznosDEM(p1,p2,cVar,oGet)
 
 if lAutoPomUDom .and. oGet:changed
 
-	altd()
 
 	_iznosdem:=oGet:unTransform()
    	DinDem(p1,p2,cVar)
@@ -1053,7 +1052,7 @@ P_NRED
 ?? M
 if gNW=="D"
  P_NRED
- ?? IF(lDnevnik,"R.BR. *   BROJ       *DAN*","")+"*R. * KONTO *" + PADC("PART", __par_len) + "*"+IF(gVar1=="1".and.lJerry,"       NAZIV PARTNERA         *                    ","    NAZIV PARTNERA ILI      ")+"*   D  O  K  U  M  E  N  T    *         IZNOS U  "+ValDomaca()+"         *"+IF(gVar1=="1","","    IZNOS U "+ValPomocna()+"    *")
+ ?? IF(lDnevnik,"R.BR. *   BROJ       *DAN*","") + "*R. * KONTO *" + PADC("PART", __par_len) + "*"+IF(gVar1=="1".and.lJerry,"       NAZIV PARTNERA         *                    ","    NAZIV PARTNERA ILI      ")+"*   D  O  K  U  M  E  N  T    *         IZNOS U  "+ValDomaca()+"         *"+IF(gVar1=="1","","    IZNOS U "+ValPomocna()+"    *")
  P_NRED
 
  ?? IF(lDnevnik,"U DNE-*  NALOGA      *   *","")+"             " + PADC("NER", __par_len) + " "+IF(gVar1=="1".and.lJerry,"            ILI                      O P I S       ","                            ")+" ----------------------------- ------------------------------- "+IF(gVar1=="1","","---------------------")
@@ -1507,11 +1506,6 @@ RETURN
 
 function TekRec2()
 
-/*
- nSlog++
- @ m_x+1, m_y+2 SAY PADC(ALLTRIM(STR(nSlog)) + "/" + ALLTRIM(STR(nUkupno)),20)
- @ m_x+2, m_y+2 SAY "Obuhvaceno: "+STR(cmxKeysIncluded())
-*/
 
 RETURN (NIL)
 
@@ -1669,7 +1663,6 @@ set order to
 go top
 do while !eof()
    if nRbr1<>0 .and. val(pripr->Rbr)<=nRbr1
-      altd()
       if opis=">prenos iz p.n.<"   .and. idkonto=cPomKTO
        if nRbr2=0
          replace brnal with cBrnal5

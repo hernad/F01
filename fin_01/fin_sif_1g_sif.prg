@@ -325,7 +325,7 @@ endif
 endif
 
 PopWa()
-altd()
+
 
 endif // iz fmk.ini
 
@@ -948,7 +948,7 @@ PushWa()
 use (cSifK) new   alias _SIFK
 use (cSifV) new   alias _SIFV
 
-altd()
+
 select _SIFK
 if reccount2()==0  // nisu upisane karakteristike, ovo se radi samo jednom
 select sifk; set order to tag "ID";  seek padr(cSifrarnik,8)

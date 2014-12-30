@@ -998,29 +998,6 @@
       => ordCondSet(,,,, <{eval}>, <every>,,,,,,,,,, <.lNoOpt.>)        ;
          ; ordListRebuild()
 
-#command SET SCOPE TO                                                   ;
-    =>  cmxClrScope(0)                                                  ;
-        ; cmxClrScope(1)
-
-#command SET SCOPE TO <xValue>                                          ;
-    =>  cmxSetScope(0, <xValue>)                                        ;
-        ; cmxSetScope(1, <xValue>)
-
-#command SET SCOPE TO <xVal1>, <xVal2>                                  ;
-    =>  cmxSetScope(0, <xVal1>)                                         ;
-        ; cmxSetScope(1, <xVal2>)
-
-#xcommand SET SCOPETOP TO                                               ;
-    =>  cmxClrScope(0)
-
-#xcommand SET SCOPETOP TO <xValue>                                      ;
-    =>  cmxSetScope(0, <xValue>)
-
-#xcommand SET SCOPEBOTTOM TO                                            ;
-    =>  cmxClrScope(1)
-
-#xcommand SET SCOPEBOTTOM TO <xValue>                                   ;
-    =>  cmxSetScope(1, <xValue>)
 
 #xcommand SET DESCENDING ON                                             ;
     =>  cmxDescend(,, .t.)

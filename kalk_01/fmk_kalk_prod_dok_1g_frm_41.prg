@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -25,7 +25,7 @@ private aPorezi:={}
 IF fNovi
   _DatFaktP:=_datdok
 ENDIF
-altd()
+
 if _idvd=="41"
 
    @  m_x+6,  m_y+2 SAY "KUPAC:" get _IdPartner pict "@!" valid empty(_IdPartner) .or. P_Firma(@_IdPartner,5,30)
@@ -75,7 +75,7 @@ endif
 
 
 select TARIFA
-hseek _IdTarifa 
+hseek _IdTarifa
 select koncij
 
 seek trim(_idkonto)
@@ -110,7 +110,6 @@ if fNovi
  _TMarza2:="A"
 endif
 
-altd()
 
 if IsPdv()
    if (gCijene=="2" .and. (_MpcSAPP==0 .or. fNovi) )
@@ -140,8 +139,8 @@ nKolS:=0;nKolZN:=0;nc1:=nc2:=0;dDatNab:=ctod("")
 lGenStavke:=.f.
 
 // ako je X onda su stavke vec izgenerisane
-if _TBankTr<>"X"  
-if !empty(gMetodaNC) 
+if _TBankTr<>"X"
+if !empty(gMetodaNC)
    nc1:=nc2:=0
    MsgO("Racunam stanje u prodavnici")
     KalkNabP(_idfirma,_idroba,_idkonto,@nKolS,@nKolZN,@nc1,@nc2,@_RokTr)
@@ -189,13 +188,13 @@ endif
 
 @ m_x+20,m_y+50 GET _MPCSaPP  picture PicDEM ;
      VALID V_MpcSaPP_( _IdVd, .f., @aPorezi, .t.)
-	     
+
 read
 ESC_RETURN K_ESC
 
 // izlaz iz prodavnice
 _PKonto:=_Idkonto
-_PU_I:="5"     
+_PU_I:="5"
 nStrana:=2
 
 FillIzgStavke(pIzgSt)
@@ -212,5 +211,3 @@ if cRCRP=="P"
 	ShowGets()
 endif
 return .t.
-
-

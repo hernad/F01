@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -24,7 +24,7 @@ static __k_kup
 // ----------------------------------------
 function _imp_elba_txt( cTxt )
 local nItems
-local cImpView 
+local cImpView
 
 if cTxt == nil
 	cTxt := ""
@@ -48,7 +48,7 @@ O_NALOG
 // delimiter je TAB
 __delimit := CHR(9)
 
-// kupac konto 
+// kupac konto
 __k_kup := r_get_konto( "KUP_KONTO" )
 
 
@@ -110,19 +110,19 @@ Box(, 9, 65)
 	@ m_x + nX, m_y + 2 SAY "Lokacija i naziv fajla za import:"
 
 	nX += 1
-	
+
 	@ m_x + nX, m_y + 2 GET cFile PICT "@S60" VALID _file_valid( cFile )
 
 	nX += 2
-	
+
 	@ m_x + nX, m_y + 2 SAY "Pregled importa (D/N)?" GET cImpView VALID cImpView $ "DN" PICT "@!"
-	
+
 	nX += 2
-	
+
 	@ m_x + nX, m_y + 2 SAY "Importovati podatke (D/N)?" GET cImpOk VALID cImpOk $ "DN" PICT "@!"
 
 	read
-	
+
 BoxC()
 
 if LastKey() == K_ESC .or. cImpOk == "N"
@@ -197,7 +197,7 @@ for i:=1 to nFLines
 
 	// pomocna matrica...
 	aTemp := sljedlin( cTxt, nLStart )
-	
+
 	// pocetak sljedece pretrage...
 	nLStart := aTemp[2]
 
@@ -211,30 +211,30 @@ for i:=1 to nFLines
 	aItem := TokToNiz( cTemp, __delimit )
 
 	aFinItem := {}
-	
+
 	// izvuci u FIN pripr matricu aFinItem podatke za nalog
 	if _g_elba_item( aItem, aHeader, @aFinItem, cTemp, nItems ) == .t.
-			
+
 		// sada ubaci elba item u pripr
 		_i_elba_item( aFinItem, cImpView )
-			
+
 		++ nItems
-		
+
 		@ m_x + 3, m_y + 2 SAY PADR("", 60) COLOR "BG+/B"
 		@ m_x + 3, m_y + 2 SAY "stavka " + ALLTRIM(STR( nItems )) COLOR "BG+/B"
-		
+
 	else
-		
+
 		// ovo su parametri izvoda...
 		aHeader := aItem
-		
+
 		__nalbr := PADL( aHeader[1], 8 , "0" )
 
 		@ m_x + 4, m_y + 2 SAY "Izvod broj: " + PADL(aHeader[1], 8, "0")
-		
+
 	endif
-	
-	
+
+
 next
 
 // sada uzmi pravi broj naloga i broj veze
@@ -279,14 +279,13 @@ aFin := {}
 // aFin[11] = opis
 // aFin[12] = naziv firme iz TXT fajla
 
-altd()
 
 if aItem[1] $ "+-"
 
 
 	// standardna transakcija....
 	if nItemLen == 12
-		
+
 		// {1} - tip transakcije (+/-)
 		// {2} - datum i vrijeme "27.11.2006 15:15:02"
 		// {3} - broj transakcije
@@ -312,10 +311,10 @@ if aItem[1] $ "+-"
 			VAL( aItem[12] ), ;
 			_g_opis( aItem[10] ), ;
 			ALLTRIM( aItem[9] ) })
-	
-	
+
+
 	//elseif nItemLen == 11
-	
+
 	//	AADD(aFin, { cFirma, ;
 	//		cIdVn, ;
 	//		__nalbr, ;
@@ -327,9 +326,9 @@ if aItem[1] $ "+-"
 	//		aItem[10], ;
 	//		VAL( aItem[11] ), ;
 	//		_g_opis( aItem[9] ) })
-	
-		
-	
+
+
+
 	// naknada - transakcija
 	elseif nItemLen == 9
 
@@ -345,7 +344,7 @@ if aItem[1] $ "+-"
 		// {7} - opis stavke (obracun naknade za juli)
 		// {8} - valuta (KM)
 		// {9} - iznos (5)
-		
+
 
 		AADD(aFin, { cFirma, ;
 			cIdVn, ;
@@ -359,16 +358,16 @@ if aItem[1] $ "+-"
 			VAL( aItem[9] ), ;
 			_g_opis( aItem[7] ), ;
 			ALLTRIM(aItem[3]) + " - " + ALLTRIM(aItem[4]) })
-	
+
 	else
-		
+
 		msgbeep("nepoznata transakcija#broj elemenata = " + ;
 			ALLTRIM(STR(LEN(aItem))) + " ???#" + ;
 			"linija broj: " + ALLTRIM(STR(nLineNo)) )
 		msgbeep( cLine )
-		
+
 		return .f.
-		
+
 	endif
 
 else
@@ -411,7 +410,7 @@ cKtoProt := PADR( r_get_konto("PROT_KONTO"), 7)
 
 // firma
 cFirma := aFinItem[ nCurr, 1 ]
-// vrsta naloga 
+// vrsta naloga
 cIdVn := aFinItem[ nCurr, 2 ]
 // brnal
 cBrNal := aFinItem[ nCurr, 3 ]
@@ -432,7 +431,7 @@ nIznos := aFinItem[ nCurr, 10 ]
 // opis
 cOpis := PADR(aFinItem[ nCurr, 11 ], 40)
 // opis partnera
-cPartOpis := aFinItem[ nCurr, 12 ] 
+cPartOpis := aFinItem[ nCurr, 12 ]
 
 // vrati iz RULES partnera prema kontu - ako postoji !!
 // i postavi to kao partnera za ovu stavku
@@ -451,13 +450,13 @@ if cImpView == "D"
 
 	@ m_x + 6, m_y + 2 SAY SPACE(70)
 	@ m_x + 6, m_y + 2 SAY PADR(cPartOpis, 45) + " -> partner fmk:" GET cPartner
-	
+
 	@ m_x + 7, m_y + 2 SAY "datum knjizenja:" GET dDatDok
 	@ m_x + 7, col() + 2 SAY "broj veze:" GET cBrVeze
 	@ m_x + 8, m_y + 2 SAY "opis knjizenja:" GET cOpis
 	@ m_x + 9, m_y + 2 SAY REPLICATE("=", 60)
-	
-	
+
+
 	@ m_x + 11, m_y + 2 SAY PADR("rbr.stavke:", 20) GET cRbr
 	@ m_x + 12, m_y + 2 SAY "dug/pot:" GET cDP
 	@ m_x + 12, col() + 2 SAY "konto:" GET cKonto
@@ -506,7 +505,7 @@ cRbr := STR(__rbr, 4)
 
 
 if cImpView == "D"
-	
+
 	@ m_x + 13, m_y + 2 SAY REPLICATE("-", 60)
 	@ m_x + 14, m_y + 2 SAY PADR("rbr.protustavke:", 20) GET cRbr
 	@ m_x + 15, m_y + 2 SAY "dug/pot:" GET cDP
@@ -549,7 +548,7 @@ return
 // vraca datum iz elba txt datumskog polja
 // ---------------------------------------------
 static function _g_elba_date( cDate )
-local dDate 
+local dDate
 dDate := CTOD( LEFT( cDate, 10 ) )
 return dDate
 
@@ -598,11 +597,11 @@ local cKtoKup := __k_kup
 if "NR" $ cOpis
 	cKonto := r_get_konto( "UPL_KONTO", "NR" )
 	return cKonto
-	
+
 elseif "PRK" $ cOpis
 	cKonto := r_get_konto( "UPL_KONTO", "PRK" )
 	return cKonto
-	
+
 endif
 
 // ako je uplata na nas racun onda je to KUPAC 2120
@@ -616,14 +615,14 @@ cOpis := KonvZnWin( cOpis )
 if ALLTRIM(cTrans) == "-"
 
 	do case
-		
+
 		case "PROVIZIJA" $ UPPER(cOpis)
 			cKonto := r_get_konto( "UPL_KONTO", "PROVIZIJA" )
-		
+
 		case "PDV" $ cOpis
 			cKonto := r_get_konto( "UPL_KONTO", "PDV")
-		
-		otherwise 
+
+		otherwise
 			cKonto := r_get_konto( "UPL_KONTO")
 	endcase
 
@@ -651,16 +650,16 @@ if nSeek <> 0
 
 	// nasao sam ga u matrici
 	return aPartArr[ nSeek, 2 ]
-	
+
 endif
 
 if ALLTRIM( cTrType ) == "+"
-	
+
 	// trazi partnera za uplate na zr
 	_g_part_upl( cTxt )
 
 elseif ALLTRIM( cTrType ) == "-"
-	
+
 	// trazi partnera za isplate sa zr
 	_g_part_isp( cTxt, cTrRN )
 endif
@@ -680,14 +679,14 @@ local nSeek
 
 // uzmi banku i opis ako postoji "/"
 if LEFT(cTxt, 1) == "/"
-	
+
 	cDesc := ALLTRIM( SUBSTR( cTxt, 18, LEN(cTxt) ) )
 	cBank := ALLTRIM( SUBSTR( cTxt, 2, 16 ) )
 
 else
 
 	cDesc := ALLTRIM( cTxt )
-	
+
 endif
 
 cDesc := KonvZnWin( cDesc )
@@ -702,21 +701,21 @@ endif
 
 // ako nema nista... ???
 if EMPTY(cPartnId)
-	
+
 	Msgbeep("Nepostojeci partner !!!#Opis: " + PADR(cTxt, 50) + ;
 		"")
 	cPartnId := PADR(cDesc, 3) + ".."
-	
+
 	// otvori sifranik..
 	p_firma(@cPartnId)
-	
+
 	// setuj partneru transakcijski racun
 	_set_part_bank( cPartnId, cBank )
 
 endif
 
 
-nSeek := ASCAN(aPartArr, {|xVal| xVal[2] == cPartnId }) 
+nSeek := ASCAN(aPartArr, {|xVal| xVal[2] == cPartnId })
 
 if nSeek == 0
 	AADD(aPartArr, { cTxt, cPartnId })
@@ -735,7 +734,7 @@ local nTArea := SELECT()
 local cDesc := ""
 local cBank := ""
 local cPartnId := "?????"
-local nSeek 
+local nSeek
 
 // uzmi banku i opis ako postoji "/"
 if LEFT(cTxt, 1) == "/"
@@ -752,24 +751,24 @@ cPartnId := _src_p_bank( cTrRN )
 
 // ako nema nista, pokusaj po nazivu....
 if EMPTY(cPartnId)
-	
+
 	//cPartnId := _src_p_desc( cDesc )
-	
+
 	Msgbeep("Nepostojeci partner !!!#Opis: " + PADR(cTxt, 50) + ;
 		"#" + "trans.rn: " + cTrRN )
-	
+
 	cPartnId := PADR(cDesc, 3) + ".."
-	
+
 	// otvori sifranik..
 	p_firma(@cPartnId)
-	
+
 	// setuj partneru transakcijski racun
 	_set_part_bank( cPartnId, cTrRN )
-	
+
 endif
 
 
-nSeek := ASCAN(aPartArr, {|xVal| xVal[2] == cPartnId }) 
+nSeek := ASCAN(aPartArr, {|xVal| xVal[2] == cPartnId })
 
 if nSeek == 0
 	AADD(aPartArr, { cTxt, cPartnId })
@@ -840,7 +839,7 @@ endif
 aTemp := TokToNiz( cDesc, " ")
 
 if LEN(aTemp) > 1
-	
+
 	cTemp := ALLTRIM( aTemp[1] )
 
 	if LEN( cTemp ) < 4
@@ -848,7 +847,7 @@ if LEN(aTemp) > 1
 	endif
 
 else
-	
+
 	cTemp := ALLTRIM(aTemp[1])
 
 endif
@@ -883,17 +882,17 @@ set order to tag "NAZ"
 
 go top
 
-seek PADR("PARTN", 8) + PADR("BANK", 4) 
+seek PADR("PARTN", 8) + PADR("BANK", 4)
 
 do while !EOF() .and. field->id == PADR("PARTN", 8) ;
 		.and. field->oznaka == PADR("BANK", 4)
 
-	
+
 	// ako trazena banka postoji vec u bankama...
 	if ( cBank $ field->naz )
-	
+
 	  cPartner := PADR( ALLTRIM( sifv->idsif ), 6)
-	
+
 	  // sada pogledaj da li taj partner postoji uopste
 	  select partn
  	  go top
@@ -902,14 +901,14 @@ do while !EOF() .and. field->id == PADR("PARTN", 8) ;
 	  if FOUND() .and. field->id == cPartner
 		exit
 	  endif
-	
+
 	endif
-	
+
 	cPartner := ""
-	
+
 	// idi dalje i vidi ima li koga...
 	select sifv
-	
+
 	skip
 
 enddo
@@ -940,13 +939,9 @@ return PADR( cRet, 40 )
 static function _g_br_veze( cTrans, dDatum, cOpis )
 local cRet := ""
 
-do case 
+do case
 	case "PDV" $ cOpis
 		cRet := "pdv " + PADL( ALLTRIM( STR( MONTH(dDatum) - 1 ) ), 2, "0")
 endcase
 
 return cRet
-
-
-
-

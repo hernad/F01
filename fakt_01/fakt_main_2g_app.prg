@@ -192,7 +192,7 @@ return
 
 
 method sRegg()
-sreg("FAKT.EXE","FAKT")
+
 return
 
 
@@ -228,7 +228,6 @@ local cSekcija
 local cVar
 local cVal
 
-altd()
 
 SetFmkRGVars()
 

@@ -405,8 +405,6 @@ O_PNALOG
 fAzur:=.t.
 select PSUBAN
 
-altd()
-
 if reccount2()==0
   fAzur:=.f.
 endif
@@ -800,14 +798,14 @@ return lRet
 // ---------------------------------------------
 function NextNal( cIdFirma, cIdVN )
 local nArr
-nArr:=SELECT()
+nArr := SELECT()
 
 if gBrojac=="1"
+
 	select NALOG
 	set order to 1
 	seek cIdFirma+cIdVN+chr(254)
 	skip -1
-	altd()
 	if ( idfirma + idvn == cIdFirma + cIdVN )
 
 		// napravi validaciju polja ...

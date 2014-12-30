@@ -195,12 +195,8 @@ Menu_SC("gfin",.t.,lPodBugom)
 return
 
 
-
-
-*void TFinMod::sRegg()
-
 method sRegg()
-sreg("FIN.EXE","FIN")
+
 return
 
 

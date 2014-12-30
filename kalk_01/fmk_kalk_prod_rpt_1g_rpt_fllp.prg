@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -65,12 +65,9 @@ endif
 O_KALKREP
 
 cFilt1:="Idfirma="+cm2str(cidfirma)+".and. Pkonto="+cm2str(cIdkonto)+".and. DatDok<="+cm2str(dDatDo)
-//cFilt1:="Pkonto="+cm2str(cIdkonto)
-//set order to tag "D"
-//set scopebottom to dDatDo
+
 if !empty(dDatOd)
- //set order to tag "D"
- //set scopetop to  dDatOd
+
  cFilt1+=".and. DatDok>="+cm2str(dDatOd)
 endif
 if aUsl2<>".t."
@@ -95,7 +92,7 @@ select KALK
 EOF CRET
 
 nLen:=1
- 
+
 aRFLLP:={}
 AADD(aRFLLP, {6, "Redni", " broj"})
 AADD(aRFLLP, {8, "", " Datum"})
@@ -148,8 +145,8 @@ private nRbr:=0
 #DEFINE CMNEOF  !eof()
 #XCOMMAND CMSKIP => skip
 
-CMINIT
-showkorner(ncmslogova,1,16)
+
+showkorner(nCmslogova,1,16)
 showkorner(0,100)
 
 //kolicine ulaz/izlaz
@@ -172,7 +169,7 @@ do while CMNEOF  .and. cidfirma+dtos(ddatdok)+cbroj==idFirma+dtos(datdok)+idvd+"
   select roba; hseek KALK->idroba; select KALK
 
   showkorner(1,100)
-  if cTU=="2" .and.  roba->tip $ "UT"  
+  if cTU=="2" .and.  roba->tip $ "UT"
      // prikaz dokumenata IP, a ne robe tipa "T"
      CMSKIP
      loop
@@ -205,7 +202,7 @@ do while CMNEOF  .and. cidfirma+dtos(ddatdok)+cbroj==idFirma+dtos(datdok)+idvd+"
      nNVI+=nc*kolicina
      nPopust+=rabatv
     endif
-  elseif pu_i=="3"    
+  elseif pu_i=="3"
     // nivelacija
     nMPVBU+=mpc*kolicina
     nMPVU+=mpcsapp*kolicina
@@ -222,7 +219,7 @@ do while CMNEOF  .and. cidfirma+dtos(ddatdok)+cbroj==idFirma+dtos(datdok)+idvd+"
   endif
   CMSKIP
 
-enddo  
+enddo
 
 if round(nNVU-nNVI,4)==0 .and. round(nMPVU-nMPVI,4)==0
   loop
@@ -308,11 +305,10 @@ endif
 ? "Prodavnica:", cIdKonto, "-", konto->naz
 
 select KALK
- 
+
 ? cLine
 ? cText1
 ? cText2
 ? cLine
 
 return
-

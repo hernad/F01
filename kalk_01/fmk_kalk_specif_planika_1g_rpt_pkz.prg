@@ -792,7 +792,6 @@ Box(,19,70)
   endif
   aUsl1:=Parsiraj(qqKonto,"PKonto")
   aUsl2:=Parsiraj(qqKonto,"MKonto")
-  altd()
   aUslR:=Parsiraj(qqRoba,"IdRoba")
   aUslSez:=Parsiraj(qqSezona, "IdRoba")
   if aUsl1<>nil .and. aUslR<>nil
@@ -1041,4 +1040,3 @@ for i:=1 to LEN(aUGArt)
 next
 
 return
-

@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -80,7 +80,7 @@ return
 /*!  SpecIOS()
  *   Specifikacija otvorenih stavki
  */
- 
+
 procedure SpecIOS()
 local dDatDo := DATE()
 
@@ -102,7 +102,7 @@ else
   @ m_x+3,m_y+2 SAY "Firma: " GET cIdFirma valid {|| P_Firma(@cIdFirma),cidfirma:=left(cidfirma,2),.t.}
 endif
 @ m_x+4,m_y+2 SAY "Konto: " GET cIdKonto valid P_Konto(@cIdKonto)
-@ m_x+5,m_y+2 SAY "Datum do kojeg se generise  :" GET dDatDo 
+@ m_x+5,m_y+2 SAY "Datum do kojeg se generise  :" GET dDatDo
 @ m_x+6,m_y+2 SAY "Prikaz partnera sa saldom 0 :" GET cPrik0 valid cPrik0 $ "DN" pict "@!"
 READ; ESC_BCR
 BoxC()
@@ -134,14 +134,14 @@ DO WHILE !eof() .AND. cIdFirma==IdFirma .and. cIdKonto==IdKonto
 
    cIdPartner:=IdPartner
    DO WHILE  !eof() .AND. cIdFirma=IdFirma .and. cIdKonto=IdKonto .AND. cIdPartner==IdPartner
-      
+
       // ako je datum veci od datuma do kojeg generisem
       // preskoci
       if field->datdok > dDatDo
       	skip
 	loop
       endif
-      
+
       IF OtvSt=" "
          IF D_P="1"
             nDugBHD+=IznosBHD
@@ -248,10 +248,10 @@ return
 
 
 
-/*!  ZagSpecIOS() 
+/*!  ZagSpecIOS()
  *   Zaglavlje specifikacije otvorenih stavki
  */
- 
+
 function ZagSpecIOS()
 
 P_COND
@@ -286,7 +286,7 @@ RETURN
 function IOSS()
 local lExpDbf := .f.
 local cExpDbf := "N"
-local cLaunch 
+local cLaunch
 local aExpFields
 local dDatDo := DATE()
 
@@ -297,7 +297,7 @@ memvar->DATUM:=date()
 cDinDem:="1"
 
 Box("IOSS", 7, 60, .f.)
-	
+
 	@ m_x+1,m_y+8 SAY "I O S"
 	@ m_x+2,m_y+2 SAY "UKUCAJTE DATUM IOS-a:"  GET memvar->DATUM
 	IF gVar1=="0"
@@ -339,18 +339,18 @@ SELECT IOS
 go top
 
 DO WHILE !eof()
-	
+
 	cIdFirma:=IdFirma
    	cIdKonto:=IdKonto
    	cIdPartner:=IdPartner
    	nIznosBHD:=IznosBHD
    	nIznosDEM:=IznosDEM
-   	
+
 	// ispisi ios, exportuj ako treba
 	ZagIOSS( cDinDem, dDatDo, lExpDbf )
-   	
+
 	SKIP
-	
+
 ENDDO
 
 FF
@@ -369,7 +369,7 @@ return 1
 /*!  IOSPrekid()
  *   Ukoliko dodje do prekida u IOSS nastavlja dalje
  */
- 
+
 function IOSPrekid()
 local dDatDo := DATE()
 memvar->DATUM=DATE()
@@ -435,7 +435,7 @@ return
 /*!  IOSPojed()
  *   Pojedinacni IOS
  */
- 
+
 function IOSPojed()
 
 local dDatDo := DATE()
@@ -645,7 +645,7 @@ SELECT SUBAN
 
 if cKaoKartica=="D"
 	set order to 1
-     	altd()
+
      //"IdFirma+IdKonto+IdPartner+dtos(DatDok)+BrNal+RBr"
 else
 	set order to 3
@@ -663,7 +663,7 @@ if cKaoKartica=="D"
 endif
 
 DO WHILE !eof() .AND. cIdFirma=IdFirma .AND. cIdKonto=IdKonto .AND. cIdPartner==IdPartner
-     
+
 	cBrDok:=brdok
      	dDatdok:=datdok
      	cOpis:=ALLTRIM(opis)
@@ -673,29 +673,29 @@ DO WHILE !eof() .AND. cIdFirma=IdFirma .AND. cIdKonto=IdKonto .AND. cIdPartner==
      	nDDEM:=0
      	nPDEM:=0
      	cOtvSt:=otvst
-     
+
      	DO WHILE !eof() .AND. cIdFirma=IdFirma .AND. cIdKonto=IdKonto .AND. cIdPartner==IdPartner .and. (cKaoKartica=="D" .or. brdok==cBrdok)
-         
+
 	 	if field->datdok > dDatDo
 			skip
 			loop
 		endif
-		
+
 		IF OtvSt = " "
-            
+
 	    		if cKaoKartica=="D"
-               
+
 				if prow()>61+gPStranica
 	       	    			FF
-	       			endif      
-               
+	       			endif
+
 	       			@ prow()+1,8 SAY ++nRbr PICTURE '999'
                			@ prow(),pcol()+1  SAY BrDok
                			nCOpis:=pcol()+1
                			@ prow(),nCOpis    SAY PADR(Opis,20)
                			@ prow(),pcol()+1  SAY DatDok
                			@ prow(),pcol()+1  SAY DatVal
-               
+
 	       			if cDinDem=="1"
                     			@ prow(),ncol1    SAY iif(D_P="1",iznosbhd,0)  PICTURE picBHD
                     			@ prow(),pcol()+1 SAY iif(D_P="2",iznosbhd,0)  PICTURE picBHD
@@ -709,9 +709,9 @@ DO WHILE !eof() .AND. cIdFirma=IdFirma .AND. cIdKonto=IdKonto .AND. cIdPartner==
 	       					datdok, datval, iif(d_p=="1", iznosbhd, 0), ;
 						iif(d_p=="2", iznosbhd, 0) )
 	      			endif
-	       
+
             		endif
-            
+
 	    		IF D_P = "1"
                			nDBHD+=IznosBHD
 				nDDEM+=IznosDEM
@@ -719,33 +719,33 @@ DO WHILE !eof() .AND. cIdFirma=IdFirma .AND. cIdKonto=IdKonto .AND. cIdPartner==
                			nPBHD+=IznosBHD
 				nPDEM+=IznosDEM
             		ENDIF
-            
+
 	    		cOtvSt := " "
-        
+
 		else  // zatvorene stavke
-            
+
 	    		IF D_P="1"
                			nDugBHDZ+=IznosBHD; nDugDEMZ+=IznosDEM
             		ELSE
                			nPotBHDZ+=IznosBHD; nPotDEMZ+=IznosDEM
             		ENDIF
-        
+
 		endif
-	
+
         	skip
-     
+
      	enddo
-     
+
      	if cOtvSt == " "
-      
+
       		if cKaoKartica=="N"
-       
+
 			if prow()>61+gPStranica
 				FF
 			endif
-			
+
 			// MS 29.11.01
-        
+
 			@ prow()+1,8 SAY ++nRbr PICTURE '999'
 
         		@ prow(),pcol()+1  SAY cBrDok
@@ -753,13 +753,13 @@ DO WHILE !eof() .AND. cIdFirma=IdFirma .AND. cIdKonto=IdKonto .AND. cIdPartner==
         		@ prow(),nCOpis    SAY PADR(cOpis,20)
         		@ prow(),pcol()+1  SAY dDatDok
         		@ prow(),pcol()+1  SAY dDatVal
-      
+
       		endif
-      
+
       		if cDinDem == "1"
-		
+
           		if cPrelomljeno=="D"
-              			
+
 				if nDBHD-nPBHD>0
                 			nDBHD:=nDBHD-nPBHD
                 			nPBHD:=0
@@ -767,21 +767,21 @@ DO WHILE !eof() .AND. cIdFirma=IdFirma .AND. cIdKonto=IdKonto .AND. cIdPartner==
                 			nPBHD:=nPBHD-nDBHD
                 			nDBHD:=0
               			endif
-				
+
           		endif
-          
+
 	  		if cKaoKartica=="N"
-           
+
 	   			@ prow(),ncol1 SAY nDBHD PICTURE picBHD
            			@ prow(),pcol()+1 SAY nPBhD PICTURE picBHD
-          	
+
 				if lExpDbf == .t.
 	       				fill_exp_tbl( cIdPar, cNazPar, cBrDok, cOpis, dDatdok, dDatval, nDBHD,nPBHD )
 	  			endif
-	            
+
 	 		endif
-	
-	  	
+
+
       		else
           		if cPrelomljeno=="D"
               			if nDDEM-nPDEM>0
@@ -792,34 +792,34 @@ DO WHILE !eof() .AND. cIdFirma=IdFirma .AND. cIdKonto=IdKonto .AND. cIdPartner==
                 			nDDEM:=0
               			endif
           		endif
-          		
+
 			if cKaoKartica=="N"
-           			
+
 				@ prow(),ncol1    SAY nDDEM PICTURE picBHD
            			@ prow(),pcol()+1 SAY nPDEM PICTURE picBHD
-          		
-	  
+
+
 	  			if lExpDbf == .t.
 	       				fill_exp_tbl( cIdPar, cNazPar, cBrdok, cOpis, dDatdok, dDatval, nDDEM,nPDEM )
 	  			endif
-	  
+
 	  		endif
       		endif
-     
+
       		nDugBHD+=nDBHD; nPotBHD+=nPBHD
       		nDugDem+=nDDem; nPotDem+=nPDem
-     
+
      	endif
-     
+
      	OstatakOpisa(cOpis,nCOpis)
-   
+
 ENDDO
 
 if prow()>61+gPStranica; FF; endif
-   
+
 @ prow()+1,0 SAY M
 @ prow()+1,8 SAY "UKUPNO:"
-   
+
 if cDinDEM=="1"
      @ prow(),ncol1    SAY nDugBHD PICTURE picBHD
      @ prow(),pcol()+1 SAY nPotBHD PICTURE picBHD
@@ -902,7 +902,7 @@ if prow()>58+gPStranica; FF; endif
 if prow()>52+gPStranica; FF; endif
 ?
 ?
-@ prow(),0 SAY "Prema clanu 28. stav 4. Zakona o racunovodstvu i reviziji u FBiH (Sl.novine FBiH, broj 83/09)" 
+@ prow(),0 SAY "Prema clanu 28. stav 4. Zakona o racunovodstvu i reviziji u FBiH (Sl.novine FBiH, broj 83/09)"
 @ prow()+1,0 SAY "na ovu nasu konfirmaciju ste duzni odgovoriti u roku od osam dana. Ukoliko u tom roku ne primimo"
 @ prow()+1,0 SAY "potvrdu ili osporavanje iskazanog stanja, smatracemo da je usaglasavanje zavrseno i da je stanje isto."
 ?
@@ -933,7 +933,7 @@ RETURN
  *   bUslov
  *   nSir
  */
- 
+
 function OstatakOpisa(cO,nCO,bUslov,nSir)
 
 IF nSir==NIL; nSir:=20; ENDIF
@@ -945,6 +945,3 @@ IF nSir==NIL; nSir:=20; ENDIF
     ENDIF
   ENDDO
 RETURN
-
-
-

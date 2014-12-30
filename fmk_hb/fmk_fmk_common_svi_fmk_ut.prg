@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -16,17 +16,17 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
- 
+
 /*!  UBrojDok(nBroj,nNumDio,cOstatak)
  *  Pretvara Broj podbroj u string format "Broj dokumenta"
  * \code
  * UBrojDok ( 123,  5, "/99" )   =>   00123/99
  * \encode
  */
- 
+
 function UBrojDok(nBroj,nNumdio,cOstatak)
 
 return padl( alltrim(str(nBroj)), nNumDio, "0")+cOstatak
@@ -44,30 +44,30 @@ bKeyOld1:=SETKEY(K_ALT_K,{|| Konv()})
 bKeyOld2:=SETKEY(K_ALT_V,{|| DefKonv()})
 
 Box(,3,60)
-	
+
 	set cursor on
-	
+
 	do while .t.
-  		
+
 		@ m_x,m_y+42 SAY "<a-K> kursiranje"
   		@ m_x+4,m_y+30 SAY "<a-V> programiranje kursiranja"
   		@ m_x+1,m_y+2 SAY "KALKULATOR: unesite izraz, npr: '(1+33)*1.2' :"
   		@ m_x+2,m_y+2 GET cIzraz
-  		
+
 		read
-  		
+
 		// ako je ukucan "," zamjeni sa tackom "."
 		cIzraz:=STRTRAN(cIzraz, ",",".")
-		
+
 		@ m_x+3,m_y+2 SAY space(20)
   		if type(cIzraz)<>"N"
-    			
+
 			if upper(left(cIzraz,1))<>"K"
      				@ m_x+3,m_y+2 SAY "ERR"
     			else
      				@ m_x+3,m_y+2 SAY kbroj(substr(cizraz,2))
     			endif
-			
+
     			//cIzraz:=space(40)
   		else
     			@ m_x+3,m_y+2 SAY &cIzraz pict "99999999.9999"
@@ -77,15 +77,15 @@ Box(,3,60)
   		if lastkey()==27
 			exit
 		endif
-  		
+
 		//if upper(left(cIzraz,1)==="K"; exit; endif
-  		
+
 		DO WHILE NEXTKEY()==0
 			OL_YIELD()
 		ENDDO
-  		
+
 		INKEY()
-  		
+
 		// inkey(0)
 	enddo
 BoxC()
@@ -132,19 +132,19 @@ private cIzraz
 
 // samo ako je varijabla numericka....
 if type( cVar ) == "N"
-	
+
 	//cIzraz := ALLTRIM( STR( nIzraz ) )
-	
+
 	nIzraz := ROUND(nIzraz * omjerval( ValDomaca(), ValPomocna(), DATE() ), 5)
 	// konvertuj ali bez ENTER-a
 	//konv( .f. )
-	
+
 	//nIzraz := VAL( cIzraz )
-	
+
 	&cVar := nIzraz
-	
+
 endif
-   	
+
 return
 
 
@@ -233,7 +233,7 @@ local nK2:=0
 if lEnter == nil
  	lEnter := .t.
 endif
-  
+
 IF !FILE(SIFPATH+"VALUTE.DBF")
 	RETURN
 ENDIF
@@ -341,7 +341,7 @@ SELECT(F_SIFV)
 if !USED()
 	O_SIFV
 endif
- 
+
 P_Adres()
 USE
 
@@ -507,189 +507,6 @@ endif
 RETURN DE_CONT
 
 
-function Sreg(cImeF,cBatch,fPassword,fEXE)
-local cPath
-
-clear
-
-
-if fEXE=NIL
-  fEXE:=.f.
-endif
-
-if cBatch==NIL
-  cBatch:=""
-endif
-
-if cImeF==NIL
- cImeF:=SPACE(12)
- @ 1,1 SAY "ImeFajla" GET cImeF
- read
-endif
-
-if fPassword==NIL
-  fPassword:=.t.
-endif
-
-if fEXE
-  cPath:=""
-else  
-  cPath:=EXEPATH
-endif
-cBatch:=""
-
-nH:=fopen(cPath+cImef,2)
-if FERROR()<>0
-  ? "Greska pri otvaranju fajla ",cImef
-  inkey(0)
-  return
-endif
-
-gModul:=space(8) // ime modula
-@ 3,1 SAY PADC(" SINSTALL ver 2.92 - SIGMA-COM, 04.2002 ",60,"*")
-
-cSbr:=SPACE(20)
-if file(cPath+"serbr.mem")
- restore from (cPath+"serbr.mem") additive
-endif
-
-if !(cBatch<>NIL .and. upper(cBatch)=="/B")
- if cBatch<>"/B"
-   gModul:=padr(UPPER(cBatch),8)
- endif
- cIspr:=" "
- set date german
- @ 15,1 SAY "Datum: " ; ?? date()
- @ 16,1 SAY "Modul:" GET gmodul PICT "@!"
- @ 17,1 SAY "Dat2 : " ; ?? bios()
- read
- cStr1:=padr(DTOS(date()),8)
- //cStr12:=padr(DTOS(date()+15),8)
- cStr2:=padr(gModul,8)
- cStr3:=padr(bios(),8)
- cLozinka:=""
- cLozinka2:=""
- for i:=1 to 8
-    if i<4
-       nPom:=(asc(substr(cStr1,i,1))+50+asc(substr(cStr2,i,1)))/2
-       //nPom2:=(asc(substr(cStr12,i,1))+50+asc(substr(gmodul2,i,1)))/2
-    else
-       nPom:=(asc(substr(cStr1,i,1))+40+asc(substr(cStr3,i,1)))/2
-       //nPom2:=(asc(substr(cStr12,i,1))+40+asc(substr(cStr3,i,1)))/2
-    endif
-    //nPom:=nPom+4
-    if nPom<33 .or. nPom>122
-         nPom:=65+i
-    endif
-    //if nPom2<33 .or. nPom2>122
-    //     nPom2:=65+i
-    //endif
-    cLozinka+=chr(nPom)
-    //clozinka2+=chr(nPom2)
- next
- cLozul:=""
- for i:=1 to 8
-  cLozUl+=alltrim(str(asc(substr(clozinka,i,1))))
- next
-
- if fPassword
-	cLozloz:=space(len(cLozul))
-	 do while .t.
-	  cDa:="D"
-	  @ 18,1  SAY "Unesi lozinku :" GET cLozloz
-	  @ 18,50 SAY "Da ?" GET cDa
-	  read
-	  if lastkey()==K_ESC; return; endif
-	  if clozloz==cLozUl .or. ALLTRIM(cLozloz)="HADZIJA"; exit; endif
-	 enddo
- endif
-
-
- @ 20,1 SAY "Registrovani korisnik:" GET cSbr
- @ ROW(),COL()+2 SAY "Ispravno => <ENTER>:" GET cIspr
-
- read
- save to (cPath+"serbr.mem") all like cSbr
-endif
-
-nCheck:=0
-for i:=1 to 20
- nCheck+=ASC(substr(cSbr,i,1))+i
-next
-
-
-cBuffer=SPACE(1024)
-
-
-nBytes:=1024
-do while nBytes==1024
-  nBytes=FREAD(nH,@cBuffer,1024)
-  nAt:=at("#Erky",cBuffer)
-  if nAt<>0
-    fseek(nH,-nBytes+nAt+5,1)
-    fwrite(nH,cSbr,20)
-    fwrite(nH,Chr(0)+nToLongC(nCheck))
-    ?
-    ?
-    ?
-    ?
-    ?
-    ? "Faza 1 instalacije "+cImef+" je uspjesno izvrsena ...."
-    ?
-  endif
-enddo
-
-#define FA_NORMAL    0
-#define FA_READONLY  1 
-#define FA_HIDDEN    2
-#define FA_SYSTEM    4       
-#define FA_ARCHIVE  32
-
-
-cBuffer:=space(8)
-fId:=.f.
-
-nZapisano:=0
-
-if !file(cPath+"bx.xv")
-  nHBios:=fcreate(cPath+"bx.xv")
-else
-  nHBios:=fopen(cPath+"bx.xv",2)
-  if nHbios<1
-    ? "Greska pri otvaranju bxxv"
-    inkey(0)
-  endif
-
-  do while .t.
-    nBytes:=FREAD(nHBios,@cBuffer,8)
-    if cBuffer==Crypt2(Bios())
-       fid:=.t.   // ovaj broj postoji
-       exit
-    endif
-    if nBytes<8
-       exit
-    endif
-
-  enddo
-endif
-
-if !fid
- cls
- cDN:="D"
- @ 2,0 SAY "Ova konfiguracija nije identificirana. Dodati identifikaciju ?"  GET cDN pict "@!" valid cdn $ "DN"
- read
- if cdn=="D"
-  nZapisano:=fwrite(nHBios,Crypt2(Bios()),8)
- endif
-endif
-?
-?
-fclose(nHbios)
-
-? "Kraj....", nZapisano 
-DO WHILE NEXTKEY()==0; OL_YIELD(); ENDDO
-INKEY(3)
-
 
 
 /****f FMK_UT/DiskSezona ***
@@ -708,8 +525,8 @@ INKEY(3)
   eventualno brisanje sezone
 
 *PRIMJER
-  Funkcija se poziva iz menija 
-  
+  Funkcija se poziva iz menija
+
 ****/
 
 PROCEDURE DiskSezona ()

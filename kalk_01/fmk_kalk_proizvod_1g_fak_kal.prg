@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,7 +14,7 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
 
@@ -96,9 +96,9 @@ endif
 do while .t.
 
   nRBr:=0
-  
+
   if lTest == .f.
-  
+
   @ m_x+1,m_y+2   SAY "Broj kalkulacije 96 -" GET cBrKalk pict "@!"
   @ m_x+1,col()+2 SAY "Datum:" GET dDatKalk
   @ m_x+3,m_y+2   SAY "Konto razduzuje:" GET cIdKonto2 pict "@!" valid P_Konto(@cIdKonto2)
@@ -114,12 +114,12 @@ do while .t.
   @ m_x+7,m_Y+2 SAY "Dokumenti tipa iz fakt:" GET cidtipdok
   @ m_x+8,m_y+2 SAY "period od" GET dDAtFOd
   @ m_x+8,col()+2 SAY "do" GET dDAtFDo
-  
+
   @ m_x+10,m_y+2 SAY "Uslov za robu:" GET cRobaUsl PICT "@S40"
   @ m_x+11,m_y+2 SAY "Navedeni uslov [U]kljuciti / [I]skljuciti" GET cRobaIncl VALID cRobaIncl$"UI" PICT "@!"
-  
+
   read
-  
+
   if lastkey()==K_ESC
   	exit
   endif
@@ -134,19 +134,19 @@ do while .t.
 
   select xfakt
   seek cFaktFirma
-  
+
   IF !ProvjeriSif("!eof() .and. '"+cFaktFirma+"'==IdFirma","IDROBA",F_ROBA,"idtipdok $ '"+cIdTipdok+"' .and. dDatFOd<=datdok .and. dDatFDo>=datdok", lTest )
-    
+
     	MsgBeep("U ovom dokumentu nalaze se sifre koje ne postoje u tekucem sifrarniku!#Prenos nije izvrsen!")
 	loop
-    
+
   ENDIF
-  
+
   aNotIncl := {}
-  
+
   do while !eof() .and. cFaktFirma==IdFirma
 
-    if idtipdok $ cIdTipdok .and. dDatFOd<=datdok .and. dDatFDo>=datdok 
+    if idtipdok $ cIdTipdok .and. dDatFOd<=datdok .and. dDatFDo>=datdok
     	// pripada odabranom intervalu
 
        cFBrDok := xfakt->brdok
@@ -157,37 +157,37 @@ do while .t.
        seek PADR( cFBrDok, 10 ) + "96"
 
        if FOUND() .and. ALLTRIM(doks->brfaktp) == ALLTRIM(cFBrDok) .and. doks->idvd == "96"
-       		
+
 		cTmp := xfakt->idfirma + "-" + (cFBrDok)
 		dTmpDate := xfakt->datdok
-		
+
 		select partn
 		hseek xfakt->idpartner
-		
+
 		cTmpPartn := ALLTRIM( partn->naz )
-		
+
 		select doks
-		
+
 		nScan := ASCAN(aNotIncl, {|xVar| xVar[1] == cTmp })
-		
+
 		if nScan == 0
 			AADD(aNotIncl, { cTmp, dTmpDate, cTmpPartn, doks->idvd + "-" + doks->brdok })
 		endif
-		
+
 		select xfakt
 		skip
 		loop
-		
+
        endif
-       
+
        select ROBA
        hseek xfakt->idroba
-       
+
        // provjeri prije svega uslov za robu...
        if !EMPTY( cRobaUsl )
-       
+
 		cTmp := Parsiraj( cRobaUsl, "idroba" )
-       
+
        		if &cTmp
 			if cRobaIncl == "I"
 				select xfakt
@@ -201,37 +201,37 @@ do while .t.
        				loop
 			endif
 		endif
-       
+
        endif
-       
-       if roba->tip = "P"  
-       	  
+
+       if roba->tip = "P"
+
 	  // radi se o proizvodu
 
           select sast
           hseek  xfakt->idroba
-          
+
 	  do while !eof() .and. id==xFakt->idroba // setaj kroz sast
-            
+
 	    if !EMPTY( cSirovina )
 	    	if cSirovina <> sast->id2
 			skip
 			loop
 		endif
 	    endif
-	    
+
 	    select roba
 	    hseek sast->id2
-            
+
 	    select pripr
 	    locate for idroba==sast->id2
-            
+
 	    if found()
 
               replace kolicina with kolicina + xfakt->kolicina*sast->kolicina
-            
+
 	    else
-              
+
 	      select pripr
               append blank
               replace idfirma with cIdFirma,;
@@ -252,16 +252,16 @@ do while .t.
                        vpc with xfakt->cijena,;
                        rabatv with xfakt->rabat,;
                        mpc with xfakt->porez
-            
-	 
+
+
 	    endif
-            
+
 	    if !EMPTY( cSirovina )
-	
-		   altd()
+
+
 		   select r_export
 		   append blank
-			   
+
 		   replace field->idsast with cSirovina
 		   replace field->idroba with xfakt->idroba
 		   replace field->r_naz with ""
@@ -273,12 +273,12 @@ do while .t.
 		   replace field->kol_sast with ;
 			   	xfakt->kolicina * sast->kolicina
 
-	
+
 	    endif
 
 	    select sast
             skip
-          
+
 	  enddo
 
        endif // roba->tip == "P"
@@ -286,7 +286,7 @@ do while .t.
     select xfakt
     skip
   enddo
-  
+
   if lTest == .f.
 
     if LEN(aNotIncl) > 0
@@ -294,11 +294,11 @@ do while .t.
     endif
 
     @ m_x+10,m_y+2 SAY "Dokumenti su preneseni !!"
-  
+
     if gBrojac=="D"
    	cbrkalk:=UBrojDok(val(left(cbrkalk,5))+1,5,right(cBrKalk,3))
     endif
-  
+
     inkey(4)
     @ m_x+8,m_y+2 SAY space(30)
 
@@ -329,7 +329,7 @@ START PRINT CRET
 
 ?
 ? "---- ----------- ----------- -------- --------------------------------------"
-? "rbr  br.dok      br.dok       datum   partner" 
+? "rbr  br.dok      br.dok       datum   partner"
 ? "     u fakt      u kalk"
 ? "---- ----------- ----------- -------- --------------------------------------"
 
@@ -375,7 +375,7 @@ local cSifPath
 
 if lTest == .t.
 	close all
-	
+
 	cSifPath := PADR( SIFPATH , 14 )
 	// "c:\sigma\sif1\"
 
@@ -444,51 +444,51 @@ endif
 do while .t.
 
 	nRBr:=0
-  
+
   	@ m_x+1,m_y+2   SAY "Broj kalkulacije 96 -" GET cBrKalk pict "@!"
   	@ m_x+1,col()+2 SAY "Datum:" GET dDatKalk
   	@ m_x+3,m_y+2   SAY "Konto razduzuje:" GET cIdKonto2 pict "@!" valid P_Konto(@cIdKonto2)
-  
+
   	if gNW<>"X"
     		@ m_x+3,col()+2 SAY "Razduzuje:" GET cIdZaduz2  pict "@!"      valid empty(cidzaduz2) .or. P_Firma(@cIdZaduz2)
   	endif
-  
+
   	@ m_x+4,m_y+2   SAY "Konto zaduzuje :" GET cIdKonto  pict "@!" valid P_Konto(@cIdKonto)
 
   	cFaktFirma:=cIdFirma
-  	
+
 	@ m_x+6,m_y+2 SAY "RJ u FAKT: " GET  cFaktFirma
   	@ m_x+7,m_Y+2 SAY "Dokument tipa u fakt:" GET cIdTipDok
-  	
+
   	@ m_x+8,m_Y+2 SAY "Broj dokumenta u fakt:" GET cFaBrDok
 
-	
+
 	read
-  
+
   	if lastkey()==K_ESC
   		exit
 	endif
 
   	select xfakt
   	seek cFaktFirma
-  	
+
 	if !ProvjeriSif("!eof() .and. '"+cFaktFirma+"'==IdFirma","IDROBA",F_ROBA,"idtipdok = '"+cIdTipdok+"' .and. brdok = '" + cFaBrDok + "'" )
-	
+
     		MsgBeep("U ovom dokumentu nalaze se sifre koje ne postoje u tekucem sifrarniku!#Prenos nije izvrsen!")
     		loop
   	endif
-  
+
   	do while !eof() .and. cFaktFirma==IdFirma
 
-    		if idtipdok = cIdTipdok .and. cFaBrDok = brdok 
+    		if idtipdok = cIdTipdok .and. cFaBrDok = brdok
 
        			select ROBA
 			hseek xfakt->idroba
-       			if roba->tip="P"  
+       			if roba->tip="P"
 				// radi se o proizvodu
 				select sast
           			hseek  xfakt->idroba
-          			do while !eof() .and. id==xFakt->idroba 
+          			do while !eof() .and. id==xFakt->idroba
 					// setaj kroz sast
             				select roba
 					hseek sast->id2
@@ -501,7 +501,7 @@ do while .t.
               					append blank
               					replace idfirma with cIdFirma,;
                       				rbr     with str(++nRbr,3),;
-                       				idvd with "96",;   
+                       				idvd with "96",;
                        				brdok with cBrKalk,;
                        				datdok with dDatKalk,;
                        				idtarifa with ROBA->idtarifa,;
@@ -519,28 +519,28 @@ do while .t.
                        				rabatv with xfakt->rabat,;
                        				mpc with xfakt->porez
             				endif
-            				
+
 					select sast
             				skip
           			enddo
 
-       			endif 
-    		endif 
-    		
+       			endif
+    		endif
+
 		select xfakt
     		skip
   	enddo
 
   	@ m_x+10,m_y+2 SAY "Dokumenti su preneseni !!"
-  	
+
 	if gBrojac=="D"
    		cBrKalk:=UBrojDok(val(left(cBrKalk,5)) +1, 5, right(cBrKalk,3))
   	endif
-  
+
 	cFaBrDok := UBrojDok(val(left(cFaBrDok, 5)) + 1, 5, right(cFaBrDok,3))
-  
+
 	inkey(4)
-  	
+
 	@ m_x+8,m_y+2 SAY space(30)
 
 enddo
@@ -684,9 +684,3 @@ enddo
 Boxc()
 closeret
 return
-
-
-
-
-
-

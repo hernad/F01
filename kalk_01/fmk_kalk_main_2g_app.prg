@@ -211,10 +211,8 @@ Menu_SC("gkas", .t. , lPodBugom)
 return
 
 
-*void TKalkMod::sRegg()
-
 method sRegg()
-sreg("KALK.EXE","KALK")
+
 return
 
 

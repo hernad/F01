@@ -143,7 +143,6 @@ IF !EMPTY(dDatDo)
   cFilt1+=".and. IF( EMPTY(datval) , datdok<="+cm2str(dDatDo)+" , datval<="+cm2str(dDatDo)+" )"
 ENDIF
 
-altd()
 
 GO TOP
 
@@ -1780,7 +1779,7 @@ LOCAL a1:={}, a2:={}, GetList:={}
    READ
  BoxC()
 
- altd()
+
  WPar("ip",cIdPov)
  WPar("bk",cBrKomp)
  select params
@@ -1869,7 +1868,7 @@ LOCAL a1:={}, a2:={}, GetList:={}
 
       ELSE
         ?
-	altd()
+
         DO WHILE .t.
           nPom:=AT("#", cLin)
 	  nPom2:=AT("#%", cLin)

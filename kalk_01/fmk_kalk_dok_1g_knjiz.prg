@@ -109,7 +109,6 @@ private aHistory:={}
 select 99
 use
 
-altd()
 
 OEdit()
 

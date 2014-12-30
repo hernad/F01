@@ -13,20 +13,12 @@
 #include "kalk01.ch"
 
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software
- * ----------------------------------------------------------------
- */
-
-
 /*! \file fmk/kalk/prod/db/1g/ut.prg
  *   Razne funkcije
  */
 function MarzaMP(cIdVd, lNaprijed, aPorezi)
 local nPrevMP
 
-altd()
 
 // za svaki slucaj setujemo ovo ako slucajno u dokumentu nije ispranvo
 if (IsPDVMagNab() .or. IsMagSNab()) .and. cIdVD $ "11#12#13"

@@ -224,8 +224,8 @@
                         [PICTURE <pic>]                                 ;
                         [COLOR <color>]                                 ;
                                                                         ;
-      => if gAppSrv; 
-       ;  QQOut(<xpr>); 
+      => if gAppSrv;
+       ;  QQOut(<xpr>);
        ; else;
        ;  DevPos( <row>, <col> )                                         ;
        ;  DevOutPict( <xpr>, <pic> [, <color>] ) ;
@@ -235,8 +235,8 @@
 #command @ <row>, <col> SAY <xpr>                                       ;
                         [COLOR <color>]                                 ;
                                                                         ;
-      => if gAppSrv; 
-       ;   QQout(<xpr>); 
+      => if gAppSrv;
+       ;   QQout(<xpr>);
        ; else;
        ;  DevPos( <row>, <col> )                                         ;
        ;  DevOut( <xpr> [, <color>] );
@@ -724,7 +724,7 @@
 
 
 #else
-	
+
 #command @ <row>, <col> GET <var>                                       ;
                         [PICTURE <pic>]                                 ;
                         [VALID <valid>]                                 ;
@@ -1433,30 +1433,6 @@
             [<lNoOpt: NOOPTIMIZE>]                                      ;
       => ordCondSet(,,,, <{eval}>, <every>,,,,,,,,,, <.lNoOpt.>)        ;
          ; ordListRebuild()
-
-#command SET SCOPE TO                                                   ;
-    =>  cmxClrScope(0)                                                  ;
-        ; cmxClrScope(1)
-        
-#command SET SCOPE TO <xValue>                                          ;
-    =>  cmxSetScope(0, <xValue>)                                        ;
-        ; cmxSetScope(1, <xValue>)
-
-#command SET SCOPE TO <xVal1>, <xVal2>                                  ;
-    =>  cmxSetScope(0, <xVal1>)                                         ;
-        ; cmxSetScope(1, <xVal2>)
-
-#xcommand SET SCOPETOP TO                                               ;
-    =>  cmxClrScope(0)
-
-#xcommand SET SCOPETOP TO <xValue>                                      ;
-    =>  cmxSetScope(0, <xValue>)
-
-#xcommand SET SCOPEBOTTOM TO                                            ;
-    =>  cmxClrScope(1)
-
-#xcommand SET SCOPEBOTTOM TO <xValue>                                   ;
-    =>  cmxSetScope(1, <xValue>)
 
 #xcommand SET DESCENDING ON                                             ;
     =>  cmxDescend(,, .t.)

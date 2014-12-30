@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -78,7 +78,7 @@ return
 
 
 // ----------------------------------------------
-// vraca matricu napunjenu sa odabranim stavkama 
+// vraca matricu napunjenu sa odabranim stavkama
 // iz aStdArr
 //
 // params:
@@ -99,18 +99,18 @@ if ( lChange == nil )
 endif
 
 if EMPTY( xField )
-	// ako je prazno polje napuni matricu 
+	// ako je prazno polje napuni matricu
 	// inicijalnim vrijednostima
 	AADD(aValArr, { 0 , "-" })
 else
 	// iz polja uzmi vrijednosti
 	// te uzmi opise iz aStdVals
-	
+
 	xField := ALLTRIM(xField)
-	
+
 	// napuni pomocnu matricu iz hash polja
 	aTmp := toktoniz(xField, "#")
-	
+
 	// napuni matricu aRet sa konkretnim opisima iz
 	// aStdArr na osnovu matrice iz polja...
 	aValArr := ga_stdarr(aTmp, aStdArr)
@@ -120,14 +120,14 @@ endif
 aOrigVal := ACLONE( aValArr )
 
 do while nSelection == -99
-	
+
 	// snimi poziciju koordinata
 	nSvX := m_x
 	nSvY := m_y
-	
+
 	// otvori meni sa vrijednostima
 	nSelection := m_val_arr(@aValArr, aStdArr)
-	
+
 	// vrati poziciju koordinata
 	m_x := nSvX
 	m_y := nSvY
@@ -149,7 +149,6 @@ return aValArr
 static function arr_changed(aArrOrig, aArr)
 local i
 
-altd()
 
 // uporedi velicine matrica
 if LEN(aArrOrig) <> LEN(aArr)
@@ -172,7 +171,7 @@ return .f.
 
 // ----------------------------------------------------
 // vraca matricu napunjenu vrijednostima iz aStdVals
-// 
+//
 // params:
 // aFHashArr - matrica dobivena iz hash polja
 //             "1#2#6#" = [1] [2] [6] ...
@@ -186,10 +185,10 @@ local nFndVal
 local i
 
 for i:=1 to LEN(aFHashArr)
-	
+
 	nFndVal := VAL( aFHashArr[i] )
 	nPom := ASCAN(aStdArr, {|xVal| xVal[1] == nFndVal })
-	
+
 	if nPom <> 0
 		AADD(aRet, { aStdArr[nPom, 1], aStdArr[nPom, 2] })
 	endif
@@ -218,7 +217,7 @@ private opc := {}
 private opcexe := {}
 
 for i:=1 to LEN(aValArr)
-	
+
 	if aValArr[i, 1] == 0
 		// ako je stavka 0, onda treba dodavati stavke...
 		cPom := PADC("c+N, nova stavka...", 30)
@@ -227,7 +226,7 @@ for i:=1 to LEN(aValArr)
 		cPom += " - "
 		cPom += PADR(aValArr[i, 2], 30)
 	endif
-	
+
 	AADD(opc, cPom)
 	AADD(opcexe, {|| val_key(@nAReturn, @aValArr, aStdArr, izbor), izbor := 0 })
 
@@ -270,13 +269,13 @@ endcase
 return
 
 
-// --------------------------------------------------- 
+// ---------------------------------------------------
 // Dodavanje stavke u matricu
 // params:
 // aValArr - matrica sa hash vrijednostima
 // aStdArr - matrica sa mogucim dozvoljenim vrijednost
 // nIzbor - tekuci odabir menija
-// --------------------------------------------------- 
+// ---------------------------------------------------
 static function add_val_item(aValArr, aStdArr, nIzbor)
 local nSelection := -99
 local nFndVal
@@ -295,12 +294,12 @@ m_x := nSvX
 m_y := nSvY
 
 if nSelection <> 0
-	
+
 	if ( LEN(aValArr) == 1 ) .and. ( aValArr[1, 1] == 0 )
 		// reset matrice
 		aValArr := {}
 	endif
-	
+
 	// pretrazi da li vrijednost vec postoji u matrici
 	nFndVal := ASCAN(aValArr, {|xVal| xVal[1] == nSelection })
 
@@ -315,13 +314,13 @@ endif
 return
 
 
-// --------------------------------------------------- 
+// ---------------------------------------------------
 // Brisanje stavke iz matrice
 // params:
 // aValArr - matrica hash vrijednosti
 // nIzbor - tekuci izbor menija
 // lSilent - tihi rezim rada, ne postavljaj pitanja
-// --------------------------------------------------- 
+// ---------------------------------------------------
 static function del_val_item(aValArr, nIzbor, lSilent)
 local aTmp := {}
 local i
@@ -331,21 +330,21 @@ if ( lSilent == nil )
 endif
 
 if !lSilent .and. pitanje(,"Izbrisati stavku (D/N) ?", "D") == "D"
-	
+
 	// brisi stavku iz matrice
 	ADEL( aValArr, nIzbor )
-	
+
 	// pobrisani zapisi su NIL
 	// brisi nil zapise...
-	
+
 	for i:=1 to LEN(aValArr)
 		// kopiraj u aTmp sve sto nije NIL
 		if aValArr[i] <> nil
 			AADD(aTmp, { aValArr[i, 1], aValArr[i, 2] })
 		endif
-		
+
 	next
-	
+
 	// restore iz aTmp
 	aValArr := aTmp
 endif
@@ -372,12 +371,12 @@ private opc := {}
 private opcexe := {}
 
 for i:=1 to LEN(aStdArr)
-	
+
 	// prvo numeric vrijednost
 	cPom := ALLTRIM(STR(aStdArr[i, 1]))
 	cPom += " - "
 	cPom += PADR(aStdArr[i, 2], 30)
-	
+
 	AADD(opc, cPom)
 	AADD(opcexe, {|| std_key(@nAReturn, izbor), izbor := 0 })
 
@@ -400,8 +399,5 @@ return nReturn
 // obrada dogadjaja tipke na meniju m_std_arr()
 // ----------------------------------------------
 static function std_key(nAReturn, nIzbor)
-nAReturn := nIzbor		
+nAReturn := nIzbor
 return
-
-
-

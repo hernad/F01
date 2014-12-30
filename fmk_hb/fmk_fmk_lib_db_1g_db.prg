@@ -412,24 +412,25 @@ go nRec
 return fret
 
 
-
-
 function reccount2()
 
 local nC:=0, nRec, nPrevOrd
 
-altd()
-
 if ORDNUMBER("BRISAN") <> 0
 
+  nRec := RECNO()
   nPrevOrd:=indexord()
   set order to tag "BRISAN"
-  set scope to "1"  // postavi scope na brisane
 
-  nC := ordkeycount()
+  SEEK "1"
+  do while deleted()
+     nC ++
+     skip
+  enddo
 
-  set scope to
-  dbsetorder(nPrevOrd)
+  dbsetorder( nPrevOrd )
+  GO nRec
+
 endif
 
 return reccount() - nC

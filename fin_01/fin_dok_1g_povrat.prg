@@ -145,7 +145,7 @@ if cBrNal="."
     MsgO("Prolaz kroz SINTETIKU...")
     select sint
     if !flock(); msg("Datoteka je zauzeta ",3); closeret; endif
-    altd()
+
 
 
     private cFilt:="IdFirma=="+cm2str(cIdFirma)
@@ -422,7 +422,6 @@ dDatDok:=date()
 cRascl:="D"
 private lRJRascl:=.f.
 
-altd()
 
 do while .t.
 	@ m_x+1,m_y+6 SAY "PREKNJIZENJE SUBANALITICKIH KONTA"
@@ -563,7 +562,7 @@ do whileSC !eof()
  	nKp:=0
  	nKd2:=0
  	nKp2:=0
-	altd()
+
  	do whileSC !eof() .and.  cSin==LEFT(idkonto, 3)
      		cIdKonto:=IdKonto
      		cIdPartner:=IdPartner
@@ -648,4 +647,3 @@ do whileSC !eof()
 enddo // eof
 closeret
 return
-

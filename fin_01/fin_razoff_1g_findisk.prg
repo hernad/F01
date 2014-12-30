@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -16,7 +16,7 @@
 /*!  FinDisk()
  *   Menij prenosa fin<->fin (diskete, modem)
  */
- 
+
 function FinDisk()
 private Izbor:=1
 private opc:={}
@@ -33,9 +33,9 @@ return .f.
 
 
 /*!  fin_prenos_diskete()
- *   Prenos dokumenata 
+ *   Prenos dokumenata
  */
- 
+
 function fin_prenos_diskete()
 local nRec
 PRIVATE cLokPren    := "A:\"
@@ -82,7 +82,7 @@ if Pitanje(,"Nulirati datoteke prenosa prije nastavka ?","D")=="D"
 
   close all
 
-  O_PSUBAN  
+  O_PSUBAN
   // otvara se bez indeksa
   O__KONTO
   O__PARTN
@@ -164,7 +164,6 @@ if Pitanje(,"Prenijeti u datoteku prenosa suban.naloge sa ovim kriterijem ?","N"
     SET FILTER TO &cFilt1
   ENDIF
 
-  altd()
   go top
 
   MsgO("Prolaz kroz SUBAN...")
@@ -220,7 +219,6 @@ select PSUBAN
 go top
 // uzmi samo konta koja su se pojavila u dokumentima !!!!
 
-altd()
 
 do while !eof()
 
@@ -284,7 +282,7 @@ return
 /*!  fin_povrat_sa_diskete()
  *   Povrat dokumenata
  */
- 
+
 function fin_povrat_sa_diskete()
 
 local nRec
@@ -420,7 +418,7 @@ return
  *   Podesavanje prenosa i prijema dokumenata
  *   lIni
  */
- 
+
 function fin_parametri_prenosa_diskete(lIni)
 
 LOCAL GetList:={}
@@ -492,7 +490,3 @@ LOCAL GetList:={}
   ENDIF
   USE
 RETURN
-
-
-
-

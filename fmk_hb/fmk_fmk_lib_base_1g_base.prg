@@ -1099,7 +1099,7 @@ return
 
 function IzvrsenIn(p3,fImodul, cModul, fsilent)
 
-local i,nCheck,fid,nHBios,cBuffer,nBytes
+local i,nCheck,fid, cBuffer,nBytes
 
 PUBLIC EVar:="#Erky#bringout#0000"
 

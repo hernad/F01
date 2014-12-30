@@ -292,7 +292,6 @@ function TekRec()
 
 nSlog++
  @ m_x+1, m_y+2 SAY PADC(ALLTRIM(STR(nSlog))+"/"+ALLTRIM(STR(nUkupno)),20)
- @ m_x+2, m_y+2 SAY "Obuhvaceno: "+STR(cmxKeysIncluded())
 return (nil)
 
 

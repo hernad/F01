@@ -236,7 +236,6 @@ return
 method TDbFin:kreiraj(nArea)
 local cImeDbf
 
-altd()
 SET EXCLUSIVE ON
 
 if (nArea==nil)
@@ -958,22 +957,20 @@ return
 
 
 
-/*!  *void TDBFin::obaza(int i)
+/*  TDBFin::obaza(int i)
  *   otvara odgovarajucu tabelu
  *
  *  S obzirom da se koristi prvenstveno za instalacijske funkcije
  *  otvara tabele u exclusive rezimu
  */
 
-*void TDBFin::obaza(int i)
 
-method obaza (i)
+method TDbFin:obaza (i)
 local lIdIDalje
 local cDbfName
 
 lIdiDalje:=.f.
 
-// altd()
 
 if i==F_PRIPR .or. i==F_BBKLAS .or. i==F_IOS  .or.i==F_PNALOG .or. i==F_PSUBAN .or. i==F_PANAL  .or. i==F_PSINT
 	lIdiDalje:=.t.

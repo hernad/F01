@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -13,10 +13,10 @@
 #include "fin01.ch"
 
 // --------------------------------
-// kontrola zbira naloga 
+// kontrola zbira naloga
 // bDat = datumski uslov
 // lSilent - ne prikazuj box
-// vraca lRet - .t. ako je sve ok, 
+// vraca lRet - .t. ako je sve ok,
 //              .f. ako nije
 // --------------------------------
 function KontrZb(bDat, lSilent)
@@ -66,7 +66,7 @@ select F_ANAL
 use anal
 set order to
 select F_SINT
-use sint 
+use sint
 set order to
 
 if !lSilent
@@ -85,14 +85,14 @@ if !lSilent
     			@ m_x+j,m_y+i SAY "�"
   		NEXT
 	NEXT
-	
+
 	picBHD:=FormPicL("9 "+gPicBHD,16)
 	picDEM:=FormPicL("9 "+gPicDEM,16)
 endif
 
 select NALOG
 go top
-	
+
 nDug:=nPot:=nDu2:=nPo2:=0
 DO WHILE !EOF() .and. INKEY()!=27
 	if (bDat)
@@ -199,7 +199,7 @@ DO WHILE !EOF() .and. INKEY()!=27
 			loop
 		endif
 	endif
-		
+
 	if D_P=="1"
 		nDug+=Iznosbhd
 		nDu2+=Iznosdem
@@ -226,7 +226,6 @@ if !lSilent
 	BoxC()
 endif
 
-altd()
 
 // provjeri da li su podaci tacni !
 if (ROUND(nSaldo, 2) > 0) .or. ( ROUND(nSubD + nNalD + nAnalD + nSintD, 2) <> ROUND(nSubP + nNalP + nAnalP + nSintP, 2) )
@@ -283,10 +282,3 @@ endif
 
 select (nTArea)
 return
-
-
-
-
-
-
-
