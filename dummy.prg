@@ -1,6 +1,7 @@
 /* net:127.0.0.1:2941:topsecret:data/_tst_ */
 
-#define DBSERVER  "127.0.0.1"
+//#define DBSERVER  "f01-srv"
+#define DBSERVER  "192.168.45.149"
 #define DBPORT    2941
 #define DBPASSWD  "f01"
 #define DBDIR     "/data"
