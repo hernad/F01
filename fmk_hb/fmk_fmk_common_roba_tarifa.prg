@@ -12,14 +12,7 @@
 
 #include "sc.ch"
 
-/*
-* ----------------------------------------------------------------
-*                                     Copyright Sigma-com software 
-* ----------------------------------------------------------------
-*/
-
-
-/*!  P_Tarifa(cId,dx,dy)
+/*  P_Tarifa(cId,dx,dy)
  *   Otvara sifrarnik tarifa
  *   cId
  *   dx

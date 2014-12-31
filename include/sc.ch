@@ -22,6 +22,14 @@
 #include "set.ch"
 #include "getexit.ch"
 
+#command APPEND NCNL    =>  appblank2(.f.,.f.)
+
+#command REPLSQL <f1> WITH <v1> [, <fN> WITH <vN> ]    ;
+=> sql_repl(<"f1">,<v1>) [; sql_repl(<"fN">,<vN>) ];
+
+#command REPLSQL TYPE <cTip> <f1> WITH <v1> [, <fN> WITH <vN> ]    ;
+=> sql_repl(<"f1">,<v1>,0,<cTip>) [; sql_repl(<"fN">,<vN>,0,<cTip>) ];
+
 
 #command DEL2                                                            ;
       => (nArr)->(DbDelete2())                                            ;

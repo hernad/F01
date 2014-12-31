@@ -12,16 +12,6 @@
 
 #include "fin01.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software
- * ----------------------------------------------------------------
- */
-
-/*!  Ostav()
- *   Menij otvorenih stavki
- */
-
 function Ostav()
 
 private izbor:=1

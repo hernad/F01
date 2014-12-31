@@ -8,12 +8,6 @@
 
 STATIC s_lConnected := NIL
 
-/*
-function __mvpublic( cVar )
-
-  RETURN __FP_DIM( cVar )
-*/
-
 function initfw()
 
   //to nesto rtf koristili
@@ -24,8 +18,6 @@ function wwsjecistr()
   //to nesto koristeno za rtf
   RETURN
 
-function dbselectarr( xArea )
- return dbselectArea( xArea )
 
 function mkdir()
 
@@ -34,15 +26,6 @@ alert( "mkdir" )
 
 FUNCTION ARG0()
 
-FUNCTION BLILIBLOD()
-
-FUNCTION  BLIMEMMAX()
-
-FUNCTION BOOTCOLD()
-
-//FUNCTION CM2STR()
-
-//function fc_hcp_client( cFPath, cFName, aKupac, cError )
 
 FUNCTION mnu_narudzbenica()
   return mnu_narudzba()
@@ -113,3 +96,20 @@ FUNCTION my_dbUseArea( lNew, xRdd, cDb, cAlias, lExclusive, lReadOnly )
 
    cDb := f01_server() + STRTRAN( cDb, "C" + ":", "" )
    RETURN dbUseArea( lNew, xRdd, cDb, cAlias, !gInstall , gReadOnly )                                               ;
+
+
+FUNCTION testMain()
+
+   ? "hello world"
+   inkey(0)
+   RETURN .T.
+
+FUNCTION run_ext_command( cCommand )
+
+ RUN cCommand
+
+
+FUNCTION OL_YIELD()
+
+  RETURN .T.
+  

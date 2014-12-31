@@ -2,6 +2,7 @@
 #include "set.ch"
 #endif
 
+
 #command DO WHILE <exp>         =>  while <exp>
 
 #command END <x>                => end
@@ -11,6 +12,7 @@
 #command ENDIF    <*x*>         => endif
 #command ENDCASE  <*x*>         => endcase
 #command ENDFOR [ <*x*> ]       => next
+
 
 #command NEXT <v> [TO <x>] [STEP <s>]                                   ;
       => next
@@ -28,7 +30,7 @@
 #command COPY [STRUCTURE] [EXTENDED] [TO <(file)>]                      ;
       => __dbCopyXStruct( <(file)> )
 
-
+/*
 #command AP52 [FROM <(file)>]                                         ;
          [FIELDS <fields,...>]                                          ;
          [FOR <for>]                                                    ;
@@ -45,10 +47,7 @@
                 )
 
 
-***
-*  Compatibility
-*
-
+*/
 #command SET ECHO <*x*>         =>
 #command SET HEADING <*x*>      =>
 #command SET MENU <*x*>         =>
@@ -59,11 +58,6 @@
 #command SET PROCEDURE TO       =>
 #command SET PROCEDURE TO <f>   =>  _ProcReq_( <(f)> )
 
-
-
-***
-*  System SETs
-*
 
 #command SET EXACT <x:ON,OFF,&>         => Set( _SET_EXACT, <(x)> )
 #command SET EXACT (<x>)                => Set( _SET_EXACT, <x> )
@@ -81,11 +75,6 @@
 #command SET DEFAULT TO                 => Set( _SET_DEFAULT, "" )
 
 
-
-***
-*  Date format SETs
-*
-
 #command SET CENTURY <x:ON,OFF,&>       => __SetCentury( <(x)> )
 #command SET CENTURY (<x>)              => __SetCentury( <x> )
 #command SET EPOCH TO <year>            => Set( _SET_EPOCH, <year> )
@@ -102,11 +91,6 @@
 #command SET DATE [TO] JAPANESE         => _DFSET( "yyyy/mm/dd", "yy/mm/dd" )
 #command SET DATE [TO] USA              => _DFSET( "mm-dd-yyyy", "mm-dd-yy" )
 
-
-
-***
-*  Terminal I/O SETs
-*
 
 #command SET ALTERNATE <x:ON,OFF,&>     => Set( _SET_ALTERNATE, <(x)> )
 #command SET ALTERNATE (<x>)            => Set( _SET_ALTERNATE, <x> )
@@ -144,10 +128,6 @@
       => SetCursor( if(Upper(<(x)>) == "ON", iif(Readinsert(),2,1), 0) )
 
 
-***
-*  "Console" / printer output
-*
-
 #command ?  [ <list,...> ]      => QOut( <list> )
 #command ?? [ <list,...> ]      => QQOut( <list> )
 
@@ -165,10 +145,6 @@
        ; text QOut, __TextRestore
 
 
-
-***
-*  Clear screen
-*
 
 #command CLS                                                            ;
       => Scroll()                                                       ;
@@ -191,10 +167,6 @@
        ; SetPos( <top>, <left> )
 
 
-
-***
-*  @..BOX
-*
 
 #command @ <top>, <left>, <bottom>, <right> BOX <string>                ;
                                             [COLOR <color>]             ;
@@ -221,10 +193,6 @@
 
 
 
-***
-*  @..SAY
-*
-
 #command @ <row>, <col> SAY <xpr>                                       ;
                         [PICTURE <pic>]                                 ;
                         [COLOR <color>]                                 ;
@@ -248,9 +216,6 @@
        ; end
 
 
-***
-*  GET SETs
-*
 
 #command SET BELL <x:ON,OFF,&>          => Set( _SET_BELL, <(x)> )
 #command SET BELL (<x>)                 => Set( _SET_BELL, <x> )
@@ -298,10 +263,6 @@
 
 
 
-***
-*  @..GET
-*
-
 #command @ <row>, <col> GET <var>                                       ;
                         [PICTURE <pic>]                                 ;
                         [VALID <valid>]                                 ;
@@ -330,11 +291,6 @@
 
 
 
-***
-*   fancy GETs...
-*
-
-// @..GET..RANGE (preprocessed to @..GET..VALID)
 
 #command @ <row>, <col> GET <var>                                       ;
                         [<clauses,...>]                                 ;
@@ -522,8 +478,8 @@
 #command CANCEL                 => __Quit()
 #command QUIT                   => __Quit()
 
-#command RUN <*cmd*>            => swpruncmd(#<cmd>,0,"","")
-#command RUN ( <c> )            => swpruncmd( <c>  ,0,"","")
+#command RUN <*cmd*>            => run_ext_command(#<cmd>,0,"","")
+#command RUN ( <c> )            => run_ext_command( <c>  ,0,"","")
 #command ! <*cmd*>              => RUN <cmd>
 #command RUN = <xpr>            => ( run := <xpr> )
 #command RUN := <xpr>           => ( run := <xpr> )
@@ -633,7 +589,7 @@
 #command APPEND BLANKS           => appblank2()
 
 #command APPEND BLANK    =>  appblank2()
-#command APPEND NCNL    =>  appblank2(.f.,.f.)
+
 
 
 
@@ -661,11 +617,6 @@
          ;end;
 
 
-#command REPLSQL <f1> WITH <v1> [, <fN> WITH <vN> ]    ;
-      => sql_repl(<"f1">,<v1>) [; sql_repl(<"fN">,<vN>) ];
-
-#command REPLSQL TYPE <cTip> <f1> WITH <v1> [, <fN> WITH <vN> ]    ;
-      => sql_repl(<"f1">,<v1>,0,<cTip>) [; sql_repl(<"fN">,<vN>,0,<cTip>) ];
 
 #command DELETE  =>    delete2()
 
@@ -1038,7 +989,7 @@
       [; cmxSetRelation( <(aliasn)>, <{keyn}>, <"keyn"> )]
 
 
-#command REQUEST <vars,...>             => EXTERNAL <vars>
+//#command REQUEST <vars,...>             => EXTERNAL <vars>
 
 
 #command SET ORDER TO TAG <(cOrder)>                                                 ;

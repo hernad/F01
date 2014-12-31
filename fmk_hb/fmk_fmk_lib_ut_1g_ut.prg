@@ -155,7 +155,6 @@ next
 
 cPom=cPom+"##Glavni modul:"+gVerzija
 cPom=cPom+ "#       sclib:"+ElibVer()
-cPom+="##"+str(BliMemAvl())
 
 cPom=cPom+"##     FmkSvi:"+FmkSviVer()
 cPom=cPom+ "#     FmkRoba:"+FmkRobaVer()
@@ -164,30 +163,8 @@ cPom=cPom+ "# FmkSecurity:"+FmkSecVer()
 cPom=cPom+ "#       sclib:"+ScLibVer()
 
 cPom=cPom+"##"
-if (BLIMGRSTS(BliMachineMode) = BliModeReal)
-	cPom=cPom+"Running in real mode#"
-	cacheloc = BLIMGRSTS(BliCacheLoc)
-	do case
-		case cacheloc = BliCacheNone
-			cPom=cPom+"No cache available"
-		case cacheloc = BliCacheXMS
-			cPom=cPom+"Cache is in XMS"
-		case cacheloc = BliCacheEMS
-			cPom=cPom+"Cache is in EMS"
-	endcase
-else
-	cPom=cPom+"Running in protected mode#"
-	hosttype = BLIMGRSTS(BliHostMode)
-	cPom=cPom+"DOS extender host is :#"
-	do case
-	case hosttype = BliHostDPMI
-		cPom=cPom+"DPMI"
-	case hosttype = BliHostVCPI
-		cPom=cPom+"VCPI"
-	case hosttype = BliHostXMS
-		cPom=cPom+"XMS"
-	endcase
-endif
+
+
 
 MsgBeep(cPom)
 return

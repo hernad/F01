@@ -216,15 +216,6 @@ return NIL
 
 function ShowMem()
 
-Box(,3,50)
-           @ m_x+1,m_y+2 SAY "(0) :"
-	   ?? memory()
-           @ m_x+2,m_y+2 SAY "avl :"
-	   ?? blimemavl()
-           @ m_x+3,m_y+2 SAY "max :"
-	   ?? blimemmax()
-           inkey(0)
-BoxC()
 
 RETURN
 

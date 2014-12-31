@@ -948,8 +948,8 @@
 #command CANCEL                 => __Quit()
 #command QUIT                   => __Quit()
 
-#command RUN <*cmd*>            => swpruncmd(#<cmd>,0,"","")
-#command RUN ( <c> )            => swpruncmd( <c>  ,0,"","")
+#command RUN <*cmd*>            => run_ext_command(#<cmd>,0,"","")
+#command RUN ( <c> )            => run_ext_command( <c>  ,0,"","")
 #command ! <*cmd*>              => RUN <cmd>
 #command RUN = <xpr>            => ( run := <xpr> )
 #command RUN := <xpr>           => ( run := <xpr> )
@@ -1473,7 +1473,7 @@
       [; cmxSetRelation( <(aliasn)>, <{keyn}>, <"keyn"> )]
 
 
-#command REQUEST <vars,...>             => EXTERNAL <vars>
+//#command REQUEST <vars,...>             => EXTERNAL <vars>
 
 
 #command SET ORDER TO TAG <(cOrder)>                                                 ;

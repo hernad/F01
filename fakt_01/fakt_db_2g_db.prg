@@ -460,11 +460,6 @@ if (nArea==-1 .or. nArea==(F__FAKT))
 	CREATE_INDEX("1","IdFirma+idtipdok+brdok+rbr+podbr",PRIVPATH+"_FAKT")
 endif
 
-#ifndef C50
-	dbt2fpt(KUMPATH+'FAKT')
-	dbt2fpt(PRIVPATH+'PRIPR')
-	dbt2fpt(PRIVPATH+'_FAKT')
-#endif
 
 if (nArea==-1 .or. nArea==(F_DOKS))
 	//DOKS.DBF

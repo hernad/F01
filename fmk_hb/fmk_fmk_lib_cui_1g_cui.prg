@@ -1474,12 +1474,10 @@ endif
 
 inkey(5)
 ?
-if !swpruncmd(cKom,0,"","")
+if !run_ext_command(cKom,0,"","")
   fret:=.f.
 endif
-if swperrlev()<>0
- fRet:=.f.
-endif
+
 inkey(10)
 
 restore screen from cScr

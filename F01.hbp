@@ -4,31 +4,33 @@
 
 {F18_GT_QTC}-DF18_GT_QTC
 
+init_f01.prg
 fin_01/*.prg
-kalk_01/*.prg
-fakt_01/*.prg
+#kalk_01/*.prg
+#fakt_01/*.prg
 fmk_hb/*.prg
 dummy.prg
+dummy_fin.prg
+
 hbct.hbc
 xhb.hbc
-
-hbblink.hbc
 hbxpp.hbc
-hboslib.hbc
 
 F18_base.hbc
-F18_string.hbc
-F18_sql.hbc
-
-hbmzip.hbc
-hbtip.hbc
-gtqtc.hbc
-{!darwin|linux}sddpg.hbc
 hbnetio.hbc
 
-{F18_GT_QTC}gtqtc.hbc
-
+{allwin}-env:_HB_DYNSUFF=_dll
+-request=__HBEXTERN__XHB__
 
 ${hb_name}.hbx
 $hb_pkg_dynlib.hbm
 $hb_pkg_install.hbm
+
+{darwin}-L./darwin
+{!LX_64&linux}-L./linux_32
+{LX_64&linux}-L./linux_64
+{win}-L./win32
+{LX_64&linux}-lz
+
+-lmy_hbuddall
+-ldebugiraj_dll

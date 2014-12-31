@@ -1,8 +1,6 @@
 -n
 -inc
-#-ufmk_lib/base/1g/std.ch
--uinclude/std.ch
-#-p
+#-uinclude/std.ch
 
 -ifmk_lib
 -iinclude

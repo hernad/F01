@@ -264,13 +264,13 @@ do while .t.
    do case
      case izbor==1
        cls
-       swpruncmd("",0,"","")
+       run_ext_command("",0,"","")
      case izbor==2
-       swpruncmd("q c:\autoexec.bat",0,"","")
+       run_ext_command("q c:\autoexec.bat",0,"","")
      case izbor==3
-       swpruncmd("q c:\config.sys",0,"","")
+       run_ext_command("q c:\config.sys",0,"","")
      case izbor==4
-       swpruncmd("ncd",0,"","")
+       run_ext_command("ncd",0,"","")
    endcase
    restore screen from cscr
 enddo

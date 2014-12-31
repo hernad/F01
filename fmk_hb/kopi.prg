@@ -10,76 +10,9 @@
  */
 
 
-#include "SC.CH"
-
-/*  DBT2FPT(cImeDBF)
- *  Konvertuje memo polja iz DBT u FTP format (Clipper NTX -> FOX CDX)
- *
- * \note Obavezno proslijediti c:\sigma\ROBA - BEZ EXTENZIJE
- *
- */
-
-function DBT2FPT(cImeDBF)
-
-
-cImeDbf:=strtran(ToUnix(cImeDBF),"."+DBFEXT,"")
-close all
-
-#ifdef CAX
-  ? "Konverziju vrsiti sa CDX verzijama"
-  return
-#endif
-
-if file(cimedbf+".DBT") .and. Pitanje(,"Izvrsiti konverziju "+cImeDBF," ")=="D"
-   if file(cimedbf+".FPT")
-     MsgBeep("Ne smije postojati"+cImeDBF+".FPT ????#Prekidam operaciju !")
-     return
-   endif
-   use (cImeDBF) via "DBFNTX" NEW
-   MsgO("Konvertujem "+cImeDBF+" iz DBT u FPT")
-     Beep(1)
-     copy structure extended to struct
-     USEX STRUCT NEW
-     dbappend()
-     replace field_name with "BRISANO" , field_type with "C", ;
-        field_len with 1, field_dec with 0
-     use
-
-     close all
-     COPY FILE (cImeDBF+".DBF") TO (PRIVPATH+"TEMP.DBF")
-     COPY FILE (cImeDBF+".DBT") TO (PRIVPATH+"TEMP.DBT")
-     ferase(cImeDBF+".DBT")
-     ferase(cImeDBF+".DBF")
-     ferase(cImeDBF+".CDX")
-     ferase(cImeDBF+".FPT")
-     create (cImeDBF) from struct  VIA RDDENGINE
-     close all
-     usexv (PRIVPATH+"TEMP") VIA "DBFNTX"   NEW
-     set order to 0
-     usexv (cImeDBF)  VIA  RDDENGINE NEW alias novi
-     set order to 0
-     select temp
-     go top
-     do while !eof()
-       scatter()
-       select novi
-       append blank
-       gather()
-       select temp
-       skip
-     enddo
-
-   MsgC()
-endif
-
-close all
-
-return
-
-
+#include "sc.ch"
 
 function kopi(fProm)
-
 
 if fBrisiDBF
      nPos:=at(".",cDbf)

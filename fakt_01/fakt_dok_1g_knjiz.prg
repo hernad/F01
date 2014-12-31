@@ -188,9 +188,9 @@ do case
   	aMemo:=ParsMemo(txt)
   	cRet += aMemo[1]
    otherwise
-	DbSelectArr(F_ROBA)
+	dbselectArea(F_ROBA)
    	seek PRIPR->IdRoba
- 	DbSelectArr(F_PRIPR)
+ 	dbselectArea(F_PRIPR)
  	cRet += LEFT(ROBA->naz,40)
 endcase
 

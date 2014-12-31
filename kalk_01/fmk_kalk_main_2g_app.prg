@@ -11,22 +11,7 @@
 
 
 #include "kalk01.ch"
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software
- * ----------------------------------------------------------------
- *
- */
 
-
-/*! \file fmk/kalk/main/2g/app.prg
- *
- */
-
-
-/*!  TKalkModNew()
- *
- */
 
 function TKalkModNew()
 local oObj
@@ -37,25 +22,7 @@ oObj:self:=oObj
 return oObj
 
 
-#ifdef CPP
-/*! \class TKalkMod
- *   KALK aplikacijski modul
- */
 
-class TKalkMod: public TAppMod
-{
-	public:
-	*void dummy();
-	*void setGVars();
-	*void mMenu();
-	*void mMenuStandard();
-	*void sRegg();
-	*void initdb();
-	*void srv();
-
-#endif
-
-#ifndef CPP
 #include "class(y).ch"
 CREATE CLASS TKalkMod INHERIT TAppMod
 	EXPORTED:
@@ -66,37 +33,21 @@ CREATE CLASS TKalkMod INHERIT TAppMod
 	method sRegg
 	method initdb
 	method srv
-END CLASS
-#endif
+ENDCLASS
 
-
-/*!  TKalkMod::dummy()
- *   dummy
- */
-
-*void TKalkMod::dummy()
-
-method dummy()
+method TKalkMod:dummy()
 return
 
 
 
-*void TKalkMod::initdb()
-
-method initdb()
+method TKalkMod:initdb()
 
 ::oDatabase:=TDBKalkNew()
 
 return nil
 
 
-
-/*!  *void TKalkMod::mMenu()
- *   Osnovni meni KALK modula
- */
-*void TKalkMod::mMenu()
-
-method mMenu()
+method TKalkMod:mMenu()
 
 private Izbor
 
@@ -105,8 +56,6 @@ say_fmk_ver()
 SETKEY(K_SH_F1,{|| Calc()})
 Izbor:=1
 
-// provjeri da li je read only
-CheckROnly(KUMPATH + "\KALK.DBF")
 
 O_DOKS
 select doks
@@ -119,9 +68,6 @@ pl_scan_automatic()
 
 use
 
-#ifdef PROBA
-	//KEYBOARD "213"
-#endif
 
 gRobaBlock:={|Ch| RobaBlock(Ch)}
 //KalksInit()
@@ -133,17 +79,11 @@ gRobaBlock:={|Ch| RobaBlock(Ch)}
 return nil
 
 
-
-*void TKalkMod::mMenuStandard()
-
-method mMenuStandard
+method TKalkMod:mMenuStandard
 
 private opc:={}
 private opcexe:={}
 
-#ifdef PROBA
-//	KEYBOARD "2253"
-#endif
 
 AADD(opc,   "1. unos/ispravka dokumenata                ")
 if (ImaPravoPristupa(goModul:oDataBase:cName,"DOK","UNOSDOK"))
@@ -151,7 +91,7 @@ if (ImaPravoPristupa(goModul:oDataBase:cName,"DOK","UNOSDOK"))
 else
 	AADD(opcexe, {|| MsgBeep(cZabrana)})
 endif
-AADD(opc,   "2. izvjestaji")
+AADD(opc,   "2. izvještaji")
 AADD(opcexe, {|| MIzvjestaji()})
 AADD(opc,   "3. pregled dokumenata")
 AADD(opcexe, {|| kalk_meni_dokumenti()})
@@ -211,15 +151,12 @@ Menu_SC("gkas", .t. , lPodBugom)
 return
 
 
-method sRegg()
+method TKalkMod:sRegg()
 
 return
 
+method TKalkMod:srv()
 
-
-*void TKalkMod::srv()
-
-method srv()
 ? "Pokrecem KALK aplikacijski server"
 if (MPar37("/KONVERT", goModul))
 	if LEFT(self:cP5,3)=="/S="
@@ -240,12 +177,7 @@ return
 
 
 
-/*!  *void TKalkMod::setGVars()
- *   opste funkcije KALK modula
- */
-*void TKalkMod::setGVars()
-
-method setGVars()
+method TKalkMod:setGVars()
 
 local cPPSaMr
 local cBazniDir

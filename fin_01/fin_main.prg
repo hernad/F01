@@ -11,7 +11,6 @@
 
 #include "fin01.ch"
 
-
 function MainFin(cKorisn, cSifra, p3, p4, p5, p6, p7)
 
 local oPos
