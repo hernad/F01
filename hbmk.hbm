@@ -1,11 +1,10 @@
 -n
 -inc
-#-uinclude/std.ch
+-uinclude/std.ch
 
 -ifmk_lib
 -iinclude
 
-#-ufmk_lib/std_cdx.ch
 -ifmk_lib/base/1g/
 -i.
 -ifmk_lib
