@@ -68,15 +68,12 @@ Box(, 10, 70)
 	@ m_x + nX, m_y + 2 SAY "Podesenja importa ********"
 
 	nX += 2
-
 	@ m_x + nX, m_y + 2 SAY "Stampati dokumente pri auto obradi (D/N)" GET gAImpPrint VALID gAImpPrint $ "DN" PICT "@!"
 
 	nX += 1
-
 	@ m_x + nX, m_y + 2 SAY "Automatska ravnoteza naloga na konto: " GET gAImpRKonto
 
 	nX += 1
-
 	@ m_x + nX, m_y + 2 SAY "Provjera broj naloga (minus karaktera):" GET gAImpRight PICT "9"
 
 
@@ -103,7 +100,7 @@ endif
 return
 
 
-/*!  ImpTxtDok()
+/*  ImpTxtDok()
  *   Import dokumenta
  */
 function ImpTxtDok()
@@ -146,8 +143,9 @@ private lNegative := .f.
 SetTblDok(@aDbf)
 // setuj pravila upisa podataka u temp tabelu
 SetRuleDok(@aRules)
+
 // prebaci iz txt => temp tbl
-Txt2TTbl(aDbf, aRules, cImpFile)
+txt_to_temp_import_tabela(aDbf, aRules, cImpFile)
 
 if !CheckDok()
 	MsgBeep("Prekidamo operaciju !!!#Nepostojece sifre!!!")
@@ -202,6 +200,7 @@ cRet := "R*.R??"
 do case
 	case cVPMP == "M"
 		cRet := "M*.M??"
+
 	case cVPMP == "V"
 		cRet := "R*.R??"
 endcase
@@ -258,7 +257,7 @@ set_tbl_partner(@aDbf)
 SetRulePartn(@aRules)
 
 // prebaci iz txt => temp tbl
-Txt2TTbl(aDbf, aRules, cImpFile)
+txt_to_temp_import_tabela(aDbf, aRules, cImpFile)
 
 if CheckPartn() > 0
 	if Pitanje(,"Izvrsiti import partnera (D/N)?", "D") == "N"
@@ -320,7 +319,7 @@ SetTblRoba(@aDbf)
 SetRuleRoba(@aRules)
 
 // prebaci iz txt => temp tbl
-Txt2TTbl(aDbf, aRules, cImpFile)
+txt_to_temp_import_tabela(aDbf, aRules, cImpFile)
 
 if CheckRoba() > 0
 	if Pitanje(,"Importovati nove cijene u sifrarnika robe (D/N)?", "D") == "N"
@@ -427,6 +426,13 @@ return
  */
 static function SetRuleDok(aRule)
 
+/*
+
+10 10 16452281 05.01.2015 118169 001 KM  2 001 2050  +000007200.00000 +000000001.38000 +0000000.00000 +0001689.12000 +0000000.00000 21.03.2015 +000007200.00000 010
+10 10 16452281 05.01.2015 118169 001 KM  2 002 2086  +000002160.00000 +000000000.85000 +0000000.00000 +0000312.12000 +0000000.00000 21.03.2015 +000002160.00000 010
+
+*/
+
 // idfirma
 AADD(aRule, {"SUBSTR(cVar, 1, 2)"})
 // idtipdok
@@ -456,11 +462,15 @@ AADD(aRule, {"VAL(SUBSTR(cVar, 88, 14))"})
 // porez
 AADD(aRule, {"VAL(SUBSTR(cVar, 103, 14))"})
 // procenat rabata
+
 AADD(aRule, {"VAL(SUBSTR(cVar, 118, 14))"})
 // datum valute
+
 AADD(aRule, {"CTOD(SUBSTR(cVar, 133, 10))"})
 // obracunska kolicina
+
 AADD(aRule, {"VAL(SUBSTR(cVar, 144, 16))"})
+
 // poslovna jedinica "kod"
 AADD(aRule, {"SUBSTR(cVar, 161, 3)"})
 
@@ -537,23 +547,24 @@ return
  */
 static function GetExpPath(cPath)
 
-cPath:=IzFmkIni("KALK", "ImportPath", "c:\liste\", PRIVPATH)
+cPath:=IzFmkIni("KALK", "ImportPath", "c:" + SLASH + "liste" + SLASH, PRIVPATH)
 if Empty(cPath) .or. cPath == nil
-	cPath := "c:\liste\"
+	cPath := "c:" + SLASH + "liste" + SLASH
 endif
 return
 
 
 
 
-/*!  Txt2TTbl(aDbf, aRules, cTxtFile)
+/*!  txt_to_temp_import_tabela(aDbf, aRules, cTxtFile)
  *   Kreiranje temp tabele, te prenos zapisa iz text fajla "cTextFile" u tabelu putem aRules pravila
  *   aDbf - struktura tabele
  *   aRules - pravila upisivanja jednog zapisa u tabelu, princip uzimanja zapisa iz linije text fajla
  *   cTxtFile - txt fajl za import
  */
  */
-static function Txt2TTbl(aDbf, aRules, cTxtFile)
+
+static function txt_to_temp_import_tabela(aDbf, aRules, cTxtFile)
 
 // prvo kreiraj tabelu temp
 close all

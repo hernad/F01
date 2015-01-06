@@ -19,7 +19,7 @@ static __mkonto
 static __trosk
 
 // ----------------------------------------------
-// Menij opcije import txt
+// Meni opcije import txt
 // ----------------------------------------------
 function MnuImpCSV()
 private izbor:=1
@@ -61,11 +61,9 @@ Box(, 10, 70)
 	@ m_x + nX, m_y + 2 SAY "Podesenja importa ********"
 
 	nX += 2
-
 	@ m_x + nX, m_y + 2 SAY "Stampati dokumente pri auto obradi (D/N)" GET gAImpPrint VALID gAImpPrint $ "DN" PICT "@!"
 
 	nX += 1
-
 	@ m_x + nX, m_y + 2 SAY "Automatska ravnoteza naloga na konto: " GET gAImpRKonto
 	read
 BoxC()
@@ -158,7 +156,7 @@ endif
 
 // provjeri da li je fajl za import prazan
 if CheckFile(cImpFile)==0
-	MsgBeep("Odabrani fajl je prazan!#!!! Prekidam operaciju !!!")
+	MsgBeep("Odabrani fajl je prazan!#Prekidam operaciju !")
 	return
 endif
 
@@ -217,8 +215,8 @@ SetTblDok(@aDbf)
 // prebaci iz txt => temp tbl
 Txt2TTbl(aDbf, cImpFile)
 
-if !CheckDok()
-	MsgBeep("Prekidamo operaciju !!!#Nepostojece sifre!!!")
+if !check_sifre_u_dokumentu()
+	MsgBeep("Prekidamo operaciju !#Nepostojece sifre !")
 	return
 endif
 
@@ -227,7 +225,7 @@ if CheckBrFakt( @aFaktEx ) == 0
 	return
 endif
 
-if TTbl2Kalk() == 0
+if temp_import_tabele_u_kalk() == 0
 	MsgBeep("Operacija prekinuta!")
 	return
 endif
@@ -305,10 +303,13 @@ return
 // Vraca podesenje putanje do exportovanih fajlova
 // -----------------------------------------------------
 static function GetExpPath(cPath)
-cPath:=IzFmkIni("KALK", "ImportPath", "c:\liste\", PRIVPATH)
+
+cPath := IzFmkIni("KALK", "ImportPath", "c:" + SLASH + "liste" + SLASH, PRIVPATH)
+
 if Empty(cPath) .or. cPath == nil
-	cPath := "c:\liste\"
+	cPath := "c:" + SLASH + "liste" + SLASH
 endif
+
 return
 
 
@@ -389,6 +390,7 @@ return
 // importuj podatke ostalo
 // -------------------------------------------
 static function importost()
+
 local nTarea := SELECT()
 local cPartId
 local cRefId
@@ -603,6 +605,7 @@ if File(cTmpTbl + ".DBF") .and. FErase(cTmpTbl + ".DBF") == -1
 	MsgBeep("Ne mogu izbrisati TEMP.DBF!")
     	ShowFError()
 endif
+
 if File(cTmpTbl + ".CDX") .and. FErase(cTmpTbl + ".CDX") == -1
 	MsgBeep("Ne mogu izbrisati TEMP.CDX!")
     	ShowFError()
@@ -654,10 +657,8 @@ aFakt := aPomFakt
 
 return 1
 
-// ---------------------------------------------------------------
-// Provjera da li postoje sve sifre u sifrarnicima za dokumente
-// ---------------------------------------------------------------
-static function CheckDok()
+
+static function check_sifre_u_dokumentu()
 local aPomArt
 
 aPomArt  := TempArtExist()
@@ -716,6 +717,7 @@ return cRet
 // vraca matricu sa parovima faktura -> pojavljuje se u azur.kalk
 // ---------------------------------------------------------------
 static function FaktExist()
+
 O_DOKS
 
 select temp
@@ -754,12 +756,13 @@ return aRet
 // ---------------------------------------------------------------
 // kopira podatke iz pomocne tabele u tabelu KALK->PRIPT
 // ---------------------------------------------------------------
-static function TTbl2Kalk()
+static function temp_import_tabele_u_kalk()
 
 local cBrojKalk
 local cTipDok
 local cIdKonto
 local cIdKonto2
+LOCAL cSufix := NIL
 
 O_PRIPR
 O_KALK
@@ -776,7 +779,10 @@ nUvecaj:=1
 // osnovni podaci ove kalkulacije
 cFakt := ALLTRIM(temp->brdok)
 cTDok := GetKTipDok( ALLTRIM(temp->idtipdok) )
-cBrojKalk := SljBrKalk( cTDok, gFirma )
+
+altd()
+
+cBrojKalk := SljBrKalk( cTDok, gFirma, cSufix )
 
 do while !EOF()
 
@@ -822,8 +828,7 @@ do while !EOF()
 	// posto je cijena u eur-u konvertuj u KM
 	// prema tekucem kursu
 
-	nCijena := ROUND(temp->cijena * ;
-		omjerval( ValDomaca(), ValPomocna(), DATE() ), 5)
+	nCijena := ROUND(temp->cijena * omjerval( ValDomaca(), ValPomocna(), DATE() ), 5)
 
 	replace fcj with nCijena
 	replace nc with nCijena
@@ -855,6 +860,7 @@ return 1
 // Obrada jednog dokumenta
 // ---------------------------------------------
 static function ObradiDokument( lAsPokreni, lStampaj )
+
 local lTrosk := .f.
 
 // 1. pokreni asistenta
@@ -874,7 +880,7 @@ endif
 if lAsPokreni
 	// pozovi asistenta
 	KUnos(.t.)
-      	if __trosk == .t.
+    if __trosk == .t.
 		// otvori tabele
 		OEdit()
 		// fSilent = .t.
