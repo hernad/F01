@@ -1798,7 +1798,7 @@ return NIL
 /*!
  * USifk
  * Postavlja vrijednost u tabel SIFK
- *\note Pretpostavke: Otvorene tabele SIFK, SIFV
+ *biljeska: Pretpostavke: Otvorene tabele SIFK, SIFV
  *
  * cDBF ime DBF-a
  * cOznaka oznaka xxxx

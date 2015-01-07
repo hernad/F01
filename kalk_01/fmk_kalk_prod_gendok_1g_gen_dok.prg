@@ -770,7 +770,7 @@ return
 
 /*!  Gen41S()
  *   Generisanje stavki u 42-ki na osnovu storna 41-ica
- *  \todo Prebaciti u specif za KALKT (Opresa)
+ *  todo: Prebaciti u specif za KALKT (Opresa)
  */
 
 function Gen41S()

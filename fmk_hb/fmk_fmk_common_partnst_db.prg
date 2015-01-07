@@ -106,7 +106,7 @@ return
 /*!  GetTopsKumPathFromKoncij(cTId)
  *   Vraca KUMPATH TOPS-a iz tabele koncij
  *   cTId - idpm TOPS
- *  \todo razraditi procedure ako nema podesenog PATH-a
+ *  todo: razraditi procedure ako nema podesenog PATH-a
  */
 function GetTopsKumPathFromKoncij()
 

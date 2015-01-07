@@ -611,7 +611,7 @@ return
 /*!  PrStr2R(cIdTipDok)
  *   Vraca tekst potpisa RTF
  *   cIdTipDok
- *  \return cVrati
+ *  return: cVrati
  */
 
 function PrStr2R(cIdTipDok)

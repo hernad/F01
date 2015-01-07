@@ -249,7 +249,7 @@ return cAction
 /*!  Msg(Text,Sec, xPos)
 *    Ispisuje tekst i ceka <Sec> sekundi
 *    xPos je pozicija ukoliko se ne zeli centrirati poruka
-*   \note Maksimalna duzina jednog reda je 72 slova
+*   biljeska: Maksimalna duzina jednog reda je 72 slova
 */
 
 function Msg(text, sec, xPos)
@@ -675,7 +675,7 @@ return nItemNo + nCtrlKeyVal
 
 /*!  AChoice3(x1,y1,x2,y2,Items,f1,cFunc,nItemNo)
  *   AChoice za broj stavki > 16
- *  \todo Ugasiti stari Achoice ??, ne trebaju nam dva
+ *  todo: Ugasiti stari Achoice ??, ne trebaju nam dva
  */
 
 function AChoice3(x1,y1,x2,y2,Items,f1,cFunc,nItemNo)
@@ -1363,9 +1363,9 @@ return
 
 /*!  SecurR(cLevel, cStavka)
  *
- * \return A - moze sve, administrator, C - citaj, P - pisi, B - brisi, N - nedostupno, T - tekuca aktivnost - nije specijalno definisano
+ * return: A - moze sve, administrator, C - citaj, P - pisi, B - brisi, N - nedostupno, T - tekuca aktivnost - nije specijalno definisano
  *
- * \note return vrijednost moze biti i kombinacija  CP - citaj i pisi, ali ne brisi
+ * biljeska: return vrijednost moze biti i kombinacija  CP - citaj i pisi, ali ne brisi
  */
 
 function SecurR(cLevel,cStavka)

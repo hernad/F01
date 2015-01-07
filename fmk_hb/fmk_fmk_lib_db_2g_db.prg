@@ -525,7 +525,7 @@ return nPom
 
 /*!  TDB::mInstall()
  *   meni install database funkcija
- *  \note bivsa funkcija Sistem
+ *  biljeska: bivsa funkcija Sistem
  */
  
 *void TDB::mInstall()
@@ -712,16 +712,16 @@ return
 
 *string KParams_se;
 /* ingroup params
- *  \var KParams_se
+ *  var: KParams_se
  *   Oznaka sezone za podatke u KUMPATH-u, tekucoj lokaciji podataka
- *  \note Ako stoji 2002, znaci da se u ovom direktoriju nalaze podaci iz 2002 godine
+ *  biljeska: Ako stoji 2002, znaci da se u ovom direktoriju nalaze podaci iz 2002 godine
  */
 
 *string KParams_rp;
 /* ingroup params
- *  \var KParams_rp
+ *  var: KParams_rp
  *   Oznaka sezone sa kojom se trenutno radi
- *  \note Ako stoji 2001, znaci da se trenutno radi sa podacima iz 2001 godine
+ *  biljeska: Ako stoji 2001, znaci da se trenutno radi sa podacima iz 2001 godine
  */
 
 
@@ -820,7 +820,7 @@ return
 
 /*!  *void TDB::radiUSezonskomPodrucju()
  *   Na osnovu ::cRadimUSezona odredi database: Sezonsko ili Radno podrucje
- *  \note centralno pitanje je "Prosli put ste radili u sezonskom podrucju ... Nastaviti ?"
+ *  biljeska: centralno pitanje je "Prosli put ste radili u sezonskom podrucju ... Nastaviti ?"
  */
 
 *void TDB::radiUSezonskomPodrucju(bool lForceRadno)

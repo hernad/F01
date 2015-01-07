@@ -31,7 +31,7 @@ static nCnt:=0
 
 /* file sc1g/base/base.prg
      Inicijalizacija systema, bazne funkcije
-    \note prebaciti u potpunosti na objektni model (ionako se koristi oApp)
+    biljeska: prebaciti u potpunosti na objektni model (ionako se koristi oApp)
  */
 
 /*!  f01_start(oApp, lSezone)
@@ -43,7 +43,7 @@ static nCnt:=0
 
 /* var *string FmkIni_ExePath_FMK_ReadOnly
  *   D-baza ce se otvoriti u readonly rezimu, N-tekuca vrijednost
- *  \note postavlja vrijednost globalne var. gReadOnly
+ *  biljeska: postavlja vrijednost globalne var. gReadOnly
  *  \sa SC_START,gReadOnly
  */
 
@@ -51,7 +51,7 @@ static nCnt:=0
 /*!  f01_start(oApp, lSezone)
  *   Inicijalizacija sclib sistema
  *
- *  \todo Nakon verzije 1.5 ... kreiranje F_SECUR  treba ukinuti
+ *  todo: Nakon verzije 1.5 ... kreiranje F_SECUR  treba ukinuti
  *
  */
 
@@ -269,7 +269,7 @@ return
 
 /*!  IBatchRun(oApp)
  *   Batch funkcije za kreiranje baze podataka
- *  \todo Sve batch funkcije prebaciti u appsrv kompomentu
+ *  todo: Sve batch funkcije prebaciti u appsrv kompomentu
  */
 
 function IBatchRun(oApp)
@@ -513,7 +513,7 @@ return cPars
 
 /*!  PID(cStart)
  *   funkcije za kreiranje/brisanje PID fajla
- *  \note PID (Program Idefntifcation)
+ *  biljeska: PID (Program Idefntifcation)
  *
  *   cStart - "START" - na ulasku u aplikaciju napravi PID; "STOP"  - izbrisi pid fajl
  *
@@ -646,8 +646,8 @@ return
 
 /*!  Prijava(oApp,lScreen)
  *   Prijava korisnika pri ulasku u aplikaciju
- *  \todo Prijava je primjer klasicne kobasica funkcije ! Razbiti je.
- *  \todo prijavu na osnovu scshell.ini izdvojiti kao posebnu funkciju
+ *  todo: Prijava je primjer klasicne kobasica funkcije ! Razbiti je.
+ *  todo: prijavu na osnovu scshell.ini izdvojiti kao posebnu funkciju
  */
 
 function Prijava(oApp, lScreen)

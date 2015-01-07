@@ -4596,7 +4596,7 @@ return
 
 /*!  PopValIzSifPartn()
  *   Popunjavanje datuma valute na osnovu DatDok+Partn/RokPl
- *  \note Preduslov je da je podeseno polje ROKP u sif.partnera (preko SifK)
+ *  biljeska: Preduslov je da je podeseno polje ROKP u sif.partnera (preko SifK)
  */
 function PopValIzSifPartn()
 

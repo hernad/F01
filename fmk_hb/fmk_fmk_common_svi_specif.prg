@@ -270,14 +270,14 @@ static lTehnoprom
 *string IzFmkIni_KumPath_FMK_Planika;
 
 /* ingroup Planika
- *  \var *string IzFmkIni_KumPath_FMK_Planika
+ *  var: *string IzFmkIni_KumPath_FMK_Planika
  *   N - standardni korisnik
  *   D - korisnik za koga su implementirane specificne nadogradnje  "Planika"
  */
  
 /* ingroup Planika
  *   IsPlanika()
- *  \return True - Ako je ini parametar Planika podesen na "D", u suprotnom False 
+ *  return: True - Ako je ini parametar Planika podesen na "D", u suprotnom False 
  *  \sa IzFmkIni_KumPath_FMK_Planika
  */
 function IsPlanika()
@@ -292,7 +292,7 @@ lPlanika:=lValue
 
 /* ingroup Planika
  *   IsPlNS()
- *  \return True - Ako je ini parametar PlNS podesen na "D", u suprotnom False 
+ *  return: True - Ako je ini parametar PlNS podesen na "D", u suprotnom False 
  *  \sa IzFmkIni_KumPath_FMK_PlNS
  */
 function IsPlNS()

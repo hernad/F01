@@ -74,7 +74,7 @@ return cRet
  *   cIdRoba
  *   nRazmak - razmak prije ispisa dobavljaca
  *   lNeIspisujDob - ako je .t. ne ispisuje "Dobavljac:"
- *  \return cVrati - string "dobavljac: xxxxxxx"
+ *  return: cVrati - string "dobavljac: xxxxxxx"
  */
 
 function PrikaziDobavljaca(cIdRoba, nRazmak, lNeIspisujDob)

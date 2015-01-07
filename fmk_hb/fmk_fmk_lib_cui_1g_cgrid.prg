@@ -29,8 +29,8 @@
  *  yw - sirina
  *  bUserF - kodni blok, user funkcija
  *  cMessTop - poruka na vrhu
- * \return NIL
- * \note grid - eng -> mreza
+ * return: NIL
+ * biljeska: grid - eng -> mreza
  *
  * Funkcija ObjDbedit koristi se za prikaz tabelarnih podataka. Koristi je sifarski sistem, tablela pripreme itd ...
 */

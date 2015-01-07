@@ -230,7 +230,7 @@ return
 
 /*!  VRoba_lv(fNovi, aPorezi)
  *   Setuje tarifu i poreze na osnovu sifrarnika robe i tarifa
- *  \note koristi lokalne varijable
+ *  biljeska: koristi lokalne varijable
  */
 
 function VRoba_lv(fNovi, aPorezi)
@@ -284,7 +284,7 @@ return .t.
  *   When blok za unos MPC
  *   fRealizacija -
  *   fMarza -
- *  \note koriste se lokalne varijable
+ *  biljeska: koriste se lokalne varijable
  */
 
 function WMpc_lv(fRealizacija, fMarza, aPorezi)
@@ -321,7 +321,7 @@ return .t.
  *   Valid blok za unos MPC
  *   fRealizacija -
  *   fMarza -
- *  \note koriste se lokalne varijable
+ *  biljeska: koriste se lokalne varijable
  */
 
 function VMpc_lv(fRealizacija, fMarza, aPorezi)
@@ -372,7 +372,7 @@ return .t.
  *   Valid blok za unos MpcSaPP
  *   fRealizacija -
  *   fMarza -
- *  \note koriste se lokalne varijable
+ *  biljeska: koriste se lokalne varijable
  */
 
 function VMpcSaPP_lv(fRealizacija, fMarza, aPorezi, lShowGets)

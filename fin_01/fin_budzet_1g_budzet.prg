@@ -1465,7 +1465,7 @@ RETURN
 
 /*!  Razmak(nBrRed)
  *   Daje nBrRed praznih redova
- *  \todo Treba prebaciti u /sclib
+ *  todo: Treba prebaciti u /sclib
  *   nBrRed  - broj redova
  */
 

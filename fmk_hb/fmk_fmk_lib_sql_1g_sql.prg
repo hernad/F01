@@ -171,7 +171,7 @@ return
 /*!  sql_azur(fLock)
  *  
  *   fLock - True - zakljucaj record u koji upisujes; False - vec je zakljucan, default value
- *  \return True - uspjesno, False - neuspjesno
+ *  return: True - uspjesno, False - neuspjesno
  */
  
 function sql_azur(fLock)
@@ -325,7 +325,7 @@ return Num2Oid(nPom+1) // novi OID
 
 
 /*!  Oid2Num(cOID)
- *  \todo izbaciti ovu funkciju - nepotrebna
+ *  todo: izbaciti ovu funkciju - nepotrebna
  */
 function Oid2Num(cOID)
 
@@ -334,7 +334,7 @@ return cOID
 
 
 /*!  Num2Oid(cOID)
- *  \todo izbaciti ovu funkciju - nepotrebna
+ *  todo: izbaciti ovu funkciju - nepotrebna
  */
 function Num2Oid(nOid)
 

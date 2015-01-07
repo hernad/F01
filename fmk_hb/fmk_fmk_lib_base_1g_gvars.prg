@@ -265,7 +265,7 @@ return nil
  *   lSamoKesiraj - ucitaj samo gKesiraj
  *  Prvo ucitava "p?" koji je D ako zelimo ucitavati globalne parametre iz PRIVDIR
  *  Nakon toga ucitava iz GPARAMS ( gPTKonv, ... gKesiraj )
- *  \todo Ocigledno da je ovo funkcija za eliminaciju ...
+ *  todo: Ocigledno da je ovo funkcija za eliminaciju ...
  */
 
 function IniGParam2(lSamoKesiraj)

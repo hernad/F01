@@ -14,7 +14,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_Fakt_Ugovori_Dokumenata_Izgenerisati
+  * var: *string FmkIni_ExePath_Fakt_Ugovori_Dokumenata_Izgenerisati
   *  Broj ugovora koji se obrade pri jednom pozivu opcije generisanja faktura na osnovu ugovora
   *  1 - default vrijednost
   */
@@ -22,7 +22,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_Fakt_Ugovori_N1
+  * var: *string FmkIni_ExePath_Fakt_Ugovori_N1
   *  Koristi li se za generaciju faktura po ugovorima parametar N1 ?
   *  D - da, default vrijednost
   *  N - ne
@@ -31,7 +31,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_Fakt_Ugovori_N2
+  * var: *string FmkIni_ExePath_Fakt_Ugovori_N2
   *  Koristi li se za generaciju faktura po ugovorima parametar N2 ?
   *  D - da, default vrijednost
   *  N - ne
@@ -40,7 +40,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_Fakt_Ugovori_N3
+  * var: *string FmkIni_ExePath_Fakt_Ugovori_N3
   *  Koristi li se za generaciju faktura po ugovorima parametar N3 ?
   *  D - da, default vrijednost
   *  N - ne
@@ -49,7 +49,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_FAKT_Ugovori_SumirajIstuSifru
+  * var: *string FmkIni_ExePath_FAKT_Ugovori_SumirajIstuSifru
   *  Da li ce se pri generisanju fakture na osnovu ugovora sabirati kolicine stavki iz ugovora koje sadrze isti artikal u jednu stavku na dokumentu
   *  D - da, default vrijednost
   *  N - ne
@@ -58,7 +58,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_Fakt_Ugovori_UNapomenuSamoBrUgovora
+  * var: *string FmkIni_ExePath_Fakt_Ugovori_UNapomenuSamoBrUgovora
   *  Da li ce se pri generisanju faktura na osnovu ugovora u napomenu dodati iza teksta "VEZA:" samo broj ugovora
   *  D - da, default vrijednost
   *  N - ne, ispisace se i tekst "UGOVOR:", te datum ugovora

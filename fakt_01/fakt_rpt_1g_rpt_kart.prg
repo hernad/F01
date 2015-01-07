@@ -20,7 +20,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_SifPath_FAKT_OstraniciKarticu
+  * var: *string FmkIni_SifPath_FAKT_OstraniciKarticu
   *  Da li se ostranicava kartica artikla?
   *  N - ne, default vrijednost
   *  D - da
@@ -29,7 +29,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_FAKT_Sintet
+  * var: *string FmkIni_ExePath_FAKT_Sintet
   *  Da li se koriste sinteticke (skracene) sifre robe?
   *  N - ne, default vrijednost
   *  D - da

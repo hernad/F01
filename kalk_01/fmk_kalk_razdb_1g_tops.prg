@@ -291,7 +291,7 @@ return
  *   idfirma - id firme
  *   tipdokumenta - tip dokumenta
  *   brojdokumenta - broj dokumenta
- *  \return .t. ako dok postoji, .f. ako ne postoji!!!
+ *  return: .t. ako dok postoji, .f. ako ne postoji!!!
  */
 
 function CheckKALKDokument(idfirma, tipdokumenta, brojdokumenta)

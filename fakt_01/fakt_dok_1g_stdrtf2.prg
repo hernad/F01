@@ -24,7 +24,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_RTF_PartnerFS
+  * var: *string FmkIni_KumPath_RTF_PartnerFS
   *  Velicina fonta za ispis partnera u rtf-fakturi
   *  28 - default vrijednost
   * \param
@@ -33,7 +33,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_RTF_PartnerSB
+  * var: *string FmkIni_KumPath_RTF_PartnerSB
   *  Format necega?! Nisam mogao testirati jer nemam instaliran MS Word!
   *  90 - default vrijednost
   */
@@ -41,7 +41,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_IzgledRTF_PotpisUzTabelu
+  * var: *string FmkIni_KumPath_IzgledRTF_PotpisUzTabelu
   *  Odredjuje da li ce se potpis na kraju fakture ispisati odmah ispod tabele ili striktno na kraju lista
   *  N - potpis striktno na kraju lista, default vrijednost
   *  D - potpis odmah ispod tabele

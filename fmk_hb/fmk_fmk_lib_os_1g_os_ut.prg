@@ -16,7 +16,7 @@
 
 /*!  FilePath(cFile)
  *    Extract the full path name from a filename
- *  \return cFilePath
+ *  return: cFilePath
  */
 
 function FilePath( cFile )
@@ -58,7 +58,7 @@ return .t.
 *string FmkIni_ExePath_POS_PitanjeUgasiti;
 
 /* ingroup ini
- *  \var *string FmkIni_ExePath_POS_PitanjeUgasiti
+ *  var: *string FmkIni_ExePath_POS_PitanjeUgasiti
  *   "0" - ne pitaj (dobro za racunar koji se ne koristi SAMO kao PC Kasa
  *   "-" - pitaj
  */

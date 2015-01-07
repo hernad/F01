@@ -56,7 +56,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_RTF_PartnerFS
+  * var: *string FmkIni_KumPath_RTF_PartnerFS
   *  Velicina fonta za ispis partnera u rtf-fakturi
   *  28 - default vrijednost
   */
@@ -64,7 +64,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_RTF_PartnerSB
+  * var: *string FmkIni_KumPath_RTF_PartnerSB
   *  Format necega?! Nisam mogao testirati jer nemam instaliran MS Word!
   *  90 - default vrijednost
   */
@@ -72,7 +72,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_FAKT_RegBrPorBr
+  * var: *string FmkIni_KumPath_FAKT_RegBrPorBr
   *  Da li se ispisuju registarski i poreski broj na fakturi
   *  D - da, default vrijednost
   *  N - ne

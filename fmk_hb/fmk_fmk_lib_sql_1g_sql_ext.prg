@@ -13,7 +13,7 @@
 
 /* file sclib/sql/1g/sql_ext.prg
  *   Komande direktno upucene externoj SQL bazi
- *  \note Koristeno za CROBA, sada je neaktivno
+ *  biljeska: Koristeno za CROBA, sada je neaktivno
  */
 
 /*

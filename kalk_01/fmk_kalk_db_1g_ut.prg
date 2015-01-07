@@ -66,7 +66,7 @@ return
 
 /*!  MsgNCRazd()
  *
- *  \todo ukinuti?
+ *  todo: ukinuti?
  */
 
 function MsgNCRazd()
@@ -461,7 +461,7 @@ return
 
 /*!  IspitajPrekid()
  *   Ispituje da li je pritisnuta tipka ESC. Koristi se u do while uslovu
- *  \return Ako je pritisnut ESC vraca .f., u suprotnom .t.
+ *  return: Ako je pritisnut ESC vraca .f., u suprotnom .t.
  */
 
 function IspitajPrekid()
@@ -532,7 +532,7 @@ return nc2
 
 /*!  KalkTrUvoz()
  *   Proracun carine i ostalih troskova koji se javljaju pri uvozu
- *  \todo samo otvorena f-ja
+ *  todo: samo otvorena f-ja
  */
 
 function KalkTrUvoz()

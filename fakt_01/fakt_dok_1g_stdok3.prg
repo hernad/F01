@@ -25,7 +25,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_FAKT_StampaViseDokumenata
+  * var: *string FmkIni_ExePath_FAKT_StampaViseDokumenata
   *  Da li se moze stampati vise od jednog dokumenta u pripremi ?
   *  N - ne, default vrijednost
   *  D - da
@@ -34,7 +34,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_FAKT_KupacDesno
+  * var: *string FmkIni_KumPath_FAKT_KupacDesno
   *  Da li se podaci o kupcu ispisuju uz desnu marginu dokumenta ?
   *  N - ne, default vrijednost
   *  D - da
@@ -43,7 +43,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_FAKT_I19jeOtpremnica
+  * var: *string FmkIni_KumPath_FAKT_I19jeOtpremnica
   *  Da li se i dokument tipa 19 tretira kao otpremnica ?
   *  N - ne, default vrijednost
   *  D - da
@@ -52,7 +52,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_POREZI_PPUgostKaoPPU
+  * var: *string FmkIni_ExePath_POREZI_PPUgostKaoPPU
   *  Odredjuje nacin obracuna poreza u maloprodaji (u ugostiteljstvu)
   *  M - racuna PRUC iskljucivo koristeci propisani donji limit RUC-a, default vrijednost
   *  R - racuna PRUC na osnovu stvarne RUC ili na osnovu pr.d.lim.RUC-a ako je stvarni RUC manji od propisanog limita

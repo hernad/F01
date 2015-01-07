@@ -97,7 +97,7 @@ return
  *   cModul modul
  *   cKomponenta komponenta unutar modula
  *   cFunkcija konkretna funkcija
- *  \return .t. or .f.
+ *  return: .t. or .f.
  */
 
 function Logirati(cModul, cKomponenta, cFunkcija)

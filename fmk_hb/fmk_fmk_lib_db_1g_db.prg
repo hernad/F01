@@ -186,7 +186,7 @@ return nil
 
 /*!  Gather2(cZn)
 *    Gather ne versi rlock-unlock
-*   \note Gather2 pretpostavlja zakljucan zapis !!
+*   biljeska: Gather2 pretpostavlja zakljucan zapis !!
 */
 
 function Gather2(cZn)
@@ -494,7 +494,7 @@ break oe
 /*!  EofFndRet(ef, close)
  *   Daje poruku da ne postoje podaci
  *   ef = .t.   gledaj eof();  ef == .f. gledaj found()
- *  \return  .t. ako ne postoje podaci
+ *  return:  .t. ako ne postoje podaci
  */
 
 function EofFndRet(ef, close)
@@ -531,9 +531,9 @@ return fRet
  * treba da zna, tj koje obicni korisniku
  * nece biti dokumentovane
  *
- * \note Default cSif=SIGMAXXX
+ * biljeska: Default cSif=SIGMAXXX
  *
- * \return .t. kada je lozinka ispravna
+ * return: .t. kada je lozinka ispravna
 */
 
 function SigmaSif(cSif)
@@ -787,7 +787,7 @@ return nil
 
 /*!  Append2()
  *  Dodavanje novog zapisa u (nArr) -
- * \note koristi se kod dodavanja zapisa u bazu nakon Izdvajanja zapisa funkcijom Izdvoji()
+ * biljeska: koristi se kod dodavanja zapisa u bazu nakon Izdvajanja zapisa funkcijom Izdvoji()
  */
 
 function Append2()
@@ -992,7 +992,7 @@ return nil
 
 /*!  SmReplace(cField, xValue, lReplAlways)
  *   Smart Replace - vrsi replace. Ako je lReplAlways .T. uvijek vrsi, .F. samo ako je vrijdnost polja razlicita
- *  \note vrsi se i REPLSQL, kada je gSql=="D"
+ *  biljeska: vrsi se i REPLSQL, kada je gSql=="D"
  */
 
 function SmReplace(cField, xValue, lReplAlways)
@@ -1077,7 +1077,7 @@ return cImeDbf
 
 /*!  ScanDb()
  *   Prodji kroz sve tabele i pokreni PreuseEvent
- *  \note sve tabele koje je gateway azurirao bice indeksirane
+ *  biljeska: sve tabele koje je gateway azurirao bice indeksirane
  */
 function ScanDb()
 local i

@@ -41,7 +41,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_PrivPath_Fakt295_Stavki
+  * var: *string FmkIni_PrivPath_Fakt295_Stavki
   *  Broj stavki koje mogu stati na jednu stranicu u varijanti fakture za A5 papir
   *  6 - default vrijednost
   */
@@ -49,7 +49,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_PrivPath_Fakt295_KorekcijaFooter
+  * var: *string FmkIni_PrivPath_Fakt295_KorekcijaFooter
   *  Korekcija footer-a po vertikali (broj redova)
   *  0 - default vrijednost
   */
@@ -57,7 +57,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_PrivPath_Fakt295_F1
+  * var: *string FmkIni_PrivPath_Fakt295_F1
   *  1.red footer-a u varijanti fakture za format papira A5
   *   - nije definisano, default vrijednost
   */
@@ -65,7 +65,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_PrivPath_Fakt295_F2
+  * var: *string FmkIni_PrivPath_Fakt295_F2
   *  2.red footer-a u varijanti fakture za format papira A5
   *   - nije definisano, default vrijednost
   */
@@ -73,7 +73,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_PrivPath_Fakt295_F3
+  * var: *string FmkIni_PrivPath_Fakt295_F3
   *  3.red footer-a u varijanti fakture za format papira A5
   *   - nije definisano, default vrijednost
   */
@@ -81,7 +81,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_PrivPath_Fakt295_F4
+  * var: *string FmkIni_PrivPath_Fakt295_F4
   *  4.red footer-a u varijanti fakture za format papira A5
   *   - nije definisano, default vrijednost
   */
@@ -89,7 +89,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_PrivPath_Fakt295_F5
+  * var: *string FmkIni_PrivPath_Fakt295_F5
   *  5.red footer-a u varijanti fakture za format papira A5
   *   - nije definisano, default vrijednost
   */
@@ -97,7 +97,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_PrivPath_Fakt295_SirFTXT
+  * var: *string FmkIni_PrivPath_Fakt295_SirFTXT
   *  Broj kolona sirine za ispis teksta na kraju fakture za varijantu fakture za format papira A5
   *  80 - default vrijednost
   */
@@ -105,7 +105,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_PrivPath_Fakt295_GMarg
+  * var: *string FmkIni_PrivPath_Fakt295_GMarg
   *  Broj redova gornje margine za varijantu fakture za format papira A5
   *  3 - default vrijednost
   */
@@ -113,7 +113,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_PrivPath_Fakt295_Meridijan
+  * var: *string FmkIni_PrivPath_Fakt295_Meridijan
   *  Da li se koristi varijanta fakture za format papira A5 radjena za Meridijan?
   *  N - ne, default vrijednost
   *  D - da
@@ -122,7 +122,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_PrivPath_Fakt295_L1
+  * var: *string FmkIni_PrivPath_Fakt295_L1
   *  Sablon za ispis podataka u 1.redu zaglavlja fakture varijanta za A5 papir radjena za Meridijan
   *   - nije definisano, default vrijednost
   */
@@ -130,7 +130,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_PrivPath_Fakt295_L2
+  * var: *string FmkIni_PrivPath_Fakt295_L2
   *  Sablon za ispis podataka u 2.redu zaglavlja fakture varijanta za A5 papir radjena za Meridijan
   *   - nije definisano, default vrijednost
   */
@@ -138,7 +138,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_PrivPath_Fakt295_L3
+  * var: *string FmkIni_PrivPath_Fakt295_L3
   *  Sablon za ispis podataka u 3.redu zaglavlja fakture varijanta za A5 papir radjena za Meridijan
   *   - nije definisano, default vrijednost
   */
@@ -146,7 +146,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_PrivPath_Fakt295_L4
+  * var: *string FmkIni_PrivPath_Fakt295_L4
   *  Sablon za ispis podataka u 4.redu zaglavlja fakture varijanta za A5 papir radjena za Meridijan
   *   - nije definisano, default vrijednost
   */
@@ -154,7 +154,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_PrivPath_Fakt295_L5
+  * var: *string FmkIni_PrivPath_Fakt295_L5
   *  Sablon za ispis podataka u 5.redu zaglavlja fakture varijanta za A5 papir radjena za Meridijan
   *   - nije definisano, default vrijednost
   */

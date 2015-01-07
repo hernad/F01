@@ -479,7 +479,7 @@ return
  *   nCijena
  *   nCijenaBp
  *   nKolicina - kolicina pari
- *  \note  Pripadnost tarifi odredjena je sadrzajem polja tbl_tarifa_naz
+ *  biljeska:  Pripadnost tarifi odredjena je sadrzajem polja tbl_tarifa_naz
  *  \sa tbl_tarifa_naz
  *
  */

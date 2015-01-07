@@ -224,7 +224,7 @@ return IIF(nBrStavki==1, .t., .f.)
 /*!  EdPripr
  *   Sprema pripremu za unos/ispravku dokumenta
  *   Priprema ekran i definise tipke (c+N,a+A...)
- *  \todo Ovu funkciju definitivno treba srediti....
+ *  todo: Ovu funkciju definitivno treba srediti....
  */
 
 function EdPripr()
@@ -2079,7 +2079,7 @@ return
 /*!  RJIzKonta(cKonto)
  *   Vraca radnu jedinicu iz sif->konto na osnovu zadatog konta
  *   cKonto   - konto
- *  \return cVrati
+ *  return: cVrati
  */
 
 function RJIzKonta(cKonto)
@@ -2104,7 +2104,7 @@ return cVrati
 /*!  KontoIzRJ(cRJ)
  *   Vraca konto na osnovu radne jedinice
  *   cRJ  - radna jedinica
- *  \return cVrati
+ *  return: cVrati
  */
 
 function KontoIzRJ(cRJ)
@@ -2126,7 +2126,7 @@ return cVrati
  *   Postavlja u pripremi broj dokumenta - puni pripremu
  *   NarBrDok(fNovi)->cBroj  - Generise naredni broj dokumenta
  *   fNovi
- *  \return _brdok
+ *  return: _brdok
  */
 
 function NarBrDok(fNovi)
@@ -2265,7 +2265,7 @@ return _BrDok
 
 /*!  StampTXT(cIdFirma,cIdTipDok,cBrDok)
  *   Stampa dokumenta
- *  \todo Ovo bi trebalo prebaciti u /RPT
+ *  todo: Ovo bi trebalo prebaciti u /RPT
  *   cIdFirma
  *   cIdTipDok
  *   cBrDok
@@ -2440,7 +2440,7 @@ return
 
 /*!  StampRtf(cImeF,cIdFirma,cIdTipDok,cBrDok)
  *   Stampa u rtf formatu
- *  \todo Ovo bi trebalo prebaciti u /RPT
+ *  todo: Ovo bi trebalo prebaciti u /RPT
  *   cImeF
  *   cIdFirma
  *   cIdTipDok
@@ -2625,7 +2625,7 @@ return
 /*!  PrerCij()
  *   Prerada cijene
  *   Ako je u polje SERBR unesen podatak KJ/KG iznos se dobija kao KOLICINA*CIJENA*PrerCij()  - varijanta R - Rudnik
- *  \return nVrati
+ *  return: nVrati
  */
 
 function PrerCij()
@@ -2641,7 +2641,7 @@ return nVrati
 
 /*!  TestMainIndex()
  *
- *  \return lVrati
+ *  return: lVrati
  */
 
 function TestMainIndex()
@@ -2729,7 +2729,7 @@ return (nil)
 
 /*!  PRNKod_OFF(cKod)
  *
- *  \todo Prebaciti u /RPT
+ *  todo: Prebaciti u /RPT
  *   cKod
  */
 
@@ -2901,7 +2901,7 @@ return .t.
 
 /*!  StUgRabKup()
  *   Stampa dokumenta ugovor o rabatu
- *  \todo Treba prebaciti u /RPT
+ *  todo: Treba prebaciti u /RPT
  */
 
 function StUgRabKup()
@@ -2916,7 +2916,7 @@ return
 
 /*!  Naziv19ke()
  *   Vraca naziv za tip dokumenta 19
- *  \return cVrati
+ *  return: cVrati
  */
 
 function Naziv19ke()
@@ -2930,7 +2930,7 @@ return cVrati
 /*!  IzborBanke(cToken)
  *   Izbor banke
  *   cToken
- *  \return cVrati
+ *  return: cVrati
  */
 
 function IzborBanke(cToken)

@@ -667,7 +667,7 @@ return
 
 /*!  *void TDBFakt::ostalef()
  *   Ostalef funkcije (bivsi install modul)
- *  \note  sifra: SIGMAXXX
+ *  biljeska:  sifra: SIGMAXXX
 */
 
 

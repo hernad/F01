@@ -113,7 +113,7 @@
  * \ingroup Planika
  * \result formira se Tabela REKAP2.DBF
  *
- * \note proslijediti aUsl1 - konto1, aUsl2 - konto2, aUslR - uslov za robu; REKAP2.DBF , OBJEKTI.DBF, K1.DBF - ostaju otvoreni
+ * biljeska: proslijediti aUsl1 - konto1, aUsl2 - konto2, aUslR - uslov za robu; REKAP2.DBF , OBJEKTI.DBF, K1.DBF - ostaju otvoreni
  *
  * \sa ObrtPoMjF
  *

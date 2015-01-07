@@ -110,7 +110,7 @@ return  cDir
 /*!  DirMak2(cDir)
  *   rekurzivno pravi direktorij
  *    - cDir - direktorij
- *  \return - .t. - uspjesno
+ *  return: - .t. - uspjesno
  *
  *
  * \code
@@ -190,13 +190,13 @@ return NIL
 /*!  Zakljucaj(cIme)
 *  Zakljucava fajlove u direktoriju
 *
-* \return - .t. ako je uspio zakljucatio fajlove
+* return: - .t. ako je uspio zakljucatio fajlove
 *
 * Otvara sve fajlove u matrici (time zakljucava za ostale korisnike)
 *
-* \note koristi private varijablu aFilesK (matrica fajlova)
+* biljeska: koristi private varijablu aFilesK (matrica fajlova)
 *
-* \todo ugasiti, funkcija je poglupa
+* todo: ugasiti, funkcija je poglupa
 */
 
 
@@ -647,8 +647,8 @@ return fret
 
 /*!  OFSveuDir(cPath, aFiles)
  *  Otvori Fajlove Sve u Direktoriju
- * \note proslijedi aFiles
- * \return - ako su svi otvoreni - okupirani, vrati .t.
+ * biljeska: proslijedi aFiles
+ * return: - ako su svi otvoreni - okupirani, vrati .t.
  */
 
 function OFSveuDir(cPath,aFiles)

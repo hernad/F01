@@ -24,7 +24,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_FAKT_StampaViseDokumenata
+  * var: *string FmkIni_ExePath_FAKT_StampaViseDokumenata
   *  Da li se moze stampati vise od jednog dokumenta u pripremi ?
   *  N - ne, default vrijednost
   *  D - da
@@ -33,7 +33,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_SifPath_SifRoba_PBarkod
+  * var: *string FmkIni_SifPath_SifRoba_PBarkod
   *  Da li se mogu ispisivati bar-kodovi u dokumentima ?
   *  0 - ne, default vrijednost
   *  1 - da, na upit "Zelite li ispis bar-kodova?" ponudjen je odgovor "N"
@@ -43,7 +43,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_FAKT_RegBrPorBr
+  * var: *string FmkIni_KumPath_FAKT_RegBrPorBr
   *  Ispisuju li se poreski i registarski broj partnera?
   *  D - da, default vrijednost
   *  N - ne

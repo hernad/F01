@@ -31,7 +31,7 @@
 /*!  PuniDVRIz10()
  *   Popuni Ditributer-Vozilo-Relacija iz 10-ke
  *   Specificno za vindiju
- *  \todo Prebaciti na lokaciju dokumenata za vindiju
+ *  todo: Prebaciti na lokaciju dokumenata za vindiju
  */
  
 function PuniDVRIz10()

@@ -24,7 +24,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_FAKT_KrozDelphi
+  * var: *string FmkIni_ExePath_FAKT_KrozDelphi
   *  Da li se dokumenti stampaju kroz Delphi RB ?
   *  N - ne, default vrijednost
   *  D - da
@@ -33,7 +33,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_SifPath_SifRoba_PBarkod
+  * var: *string FmkIni_SifPath_SifRoba_PBarkod
   *  Da li se mogu ispisivati bar-kodovi u dokumentima ?
   *  0 - ne, default vrijednost
   *  1 - da, na upit "Zelite li ispis bar-kodova?" ponudjen je odgovor "N"
@@ -43,7 +43,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_FAKT_NazRTM
+  * var: *string FmkIni_ExePath_FAKT_NazRTM
   *  Naziv RTM fajla koji se koristi za stampu dokumenta kroz Delphi RB
   *  fakt1 - default vrijednost
   */
@@ -51,7 +51,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_FAKT_NazRTMFax
+  * var: *string FmkIni_ExePath_FAKT_NazRTMFax
   *  Naziv RTM fajla koji se koristi za stampu dokumenta za slanje faksom
   *  fax1 - default vrijednost
   */
@@ -59,7 +59,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_FAKT_StampaWin2000
+  * var: *string FmkIni_ExePath_FAKT_StampaWin2000
   *  Da li je operativni sistem Windows 2000 ?
   *  N - ne, default vrijednost
   *  D - da
@@ -68,7 +68,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_FAKT_PozivDelphiRB
+  * var: *string FmkIni_ExePath_FAKT_PozivDelphiRB
   *  Komanda za poziv Delphi RB-a za operativni sistem Windows 2000
   *  DelphiRB - default vrijednost
   */
@@ -76,7 +76,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_FAKT_10Duplo
+  * var: *string FmkIni_ExePath_FAKT_10Duplo
   *  Da li se koristi dupli prored fakture ako faktura ima do 10 stavki?
   *  N - ne, default vrijednost
   *  D - da
@@ -85,7 +85,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_FAKT_StampaViseDokumenata
+  * var: *string FmkIni_ExePath_FAKT_StampaViseDokumenata
   *  Da li se moze stampati vise od jednog dokumenta u pripremi ?
   *  N - ne, default vrijednost
   *  D - da
@@ -94,7 +94,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_Zaglavlje_Linija1
+  * var: *string FmkIni_KumPath_Zaglavlje_Linija1
   *  1.red zaglavlja dokumenta pri stampanju kroz Delphi RB
   *  gNFirma - default vrijednost
   */
@@ -102,7 +102,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_Zaglavlje_Linija2
+  * var: *string FmkIni_KumPath_Zaglavlje_Linija2
   *  2.red zaglavlja dokumenta pri stampanju kroz Delphi RB
   *  - - nije definisano, default vrijednost
   */
@@ -110,7 +110,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_Zaglavlje_Linija3
+  * var: *string FmkIni_KumPath_Zaglavlje_Linija3
   *  3.red zaglavlja dokumenta pri stampanju kroz Delphi RB
   *  - - nije definisano, default vrijednost
   */
@@ -118,7 +118,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_Zaglavlje_Linija4
+  * var: *string FmkIni_KumPath_Zaglavlje_Linija4
   *  4.red zaglavlja dokumenta pri stampanju kroz Delphi RB
   *  - - nije definisano, default vrijednost
   */
@@ -126,7 +126,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_Zaglavlje_Linija5
+  * var: *string FmkIni_KumPath_Zaglavlje_Linija5
   *  5.red zaglavlja dokumenta pri stampanju kroz Delphi RB
   *  - - nije definisano, default vrijednost
   */
@@ -134,7 +134,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_FAKT_CekanjeNaSljedeciPozivDRB
+  * var: *string FmkIni_KumPath_FAKT_CekanjeNaSljedeciPozivDRB
   *  Broj sekundi cekanja na provjeru da li je Delphi RB zavrsio posljednji zadani posao
   *  6 - default vrijednost
   */
@@ -142,7 +142,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_POREZI_PPUgostKaoPPU
+  * var: *string FmkIni_ExePath_POREZI_PPUgostKaoPPU
   *  Odredjuje nacin obracuna poreza u maloprodaji (u ugostiteljstvu)
   *  M - racuna PRUC iskljucivo koristeci propisani donji limit RUC-a, default vrijednost
   *  R - racuna PRUC na osnovu stvarne RUC ili na osnovu pr.d.lim.RUC-a ako je stvarni RUC manji od propisanog limita
@@ -154,7 +154,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_SifPath_SifRoba_PDRazmak
+  * var: *string FmkIni_SifPath_SifRoba_PDRazmak
   *  Ako se stampaju bar-kodovi u dokumentu, da li se pravi razmak izmedju stavki u dokumentu ?
   *  N - ne, default vrijednost
   *  D - da
@@ -163,7 +163,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_PrivPath_UpitFax_Slati
+  * var: *string FmkIni_PrivPath_UpitFax_Slati
   *  Ako se stampa preko Delphi RB-a, da li se pravi dokument za slanje faksom ?
   *  N - ne, default vrijednost
   *  D - da
@@ -172,7 +172,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_DELPHIRB_Aktivan
+  * var: *string FmkIni_ExePath_DELPHIRB_Aktivan
   *  Indikator aktivnosti Delphi RB-a
   *  1 - aktivan
   *  0 - nije aktivan
@@ -181,7 +181,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_SifPath_FAKT_Opcine
+  * var: *string FmkIni_SifPath_FAKT_Opcine
   *  Koristi li se sifrarnik opcina i sifra opcine u sifrarniku partnera?
   *  N - ne, default vrijednost
   *  D - da
@@ -190,7 +190,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_FAKT_KupacDesno
+  * var: *string FmkIni_KumPath_FAKT_KupacDesno
   *  Da li se podaci o kupcu ispisuju uz desnu marginu dokumenta ?
   *  N - ne, default vrijednost
   *  D - da
@@ -199,7 +199,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_FAKT_I19jeOtpremnica
+  * var: *string FmkIni_KumPath_FAKT_I19jeOtpremnica
   *  Da li se i dokument tipa 19 tretira kao otpremnica ?
   *  N - ne, default vrijednost
   *  D - da
@@ -208,7 +208,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_FAKT_PrikaziNaruciocaAkoJeRazlicitOdKupca
+  * var: *string FmkIni_KumPath_FAKT_PrikaziNaruciocaAkoJeRazlicitOdKupca
   *  Ako je narucilac razlicit od kupca, da li se stampa narucilac?
   *  D - da, default vrijednost
   *  N - ne
@@ -217,7 +217,7 @@
 
 
 /* ingroup ini
- *  \var *string FmkIni_ExePath_FAKT_DelphiRB
+ *  var: *string FmkIni_ExePath_FAKT_DelphiRB
  *   Da li ce se fakture stampati kroz DelphiRB ?
  *   D  - Prilikom poziva stampe dokumenti se stampaju kroz DelphiRB
  *   N  - Obicna stampa dokumenata
@@ -1203,10 +1203,7 @@ else
   SELECT (F_POM)
   USE
   UzmiIzIni(EXEPATH+"FMK.INI",'DELPHIRB','Aktivan',"1",'WRITE')
-#ifdef PROBA
-  private cKomLin:="start /m t:\sigma\DelphiRB "+cRTM+" "+PRIVPATH+"  pom  1"
-  private cKomLiF:="start /m t:\sigma\DelphiRB "+cRTMF+" "+PRIVPATH+"  pom  1"
-#else
+
   if IzFmkIni('FAKT','StampaWin2000','N',EXEPATH)=='D'
     private cKomLin:=cPoziv+" "+ALLTRIM(cRTM)+" "+PRIVPATH+"  pom  1"
     private cKomLinF:=cPoziv+" "+ALLTRIM(cRTMF)+" "+PRIVPATH+"  pom  1"
@@ -1214,7 +1211,7 @@ else
     private cKomLin:="start " + cSwitch + " DelphiRB "+ALLTRIM(cRTM)+" "+PRIVPATH+"  pom  1"
     private cKomLinF:="start " + cSwitch + " DelphiRB "+ALLTRIM(cRTMF)+" "+PRIVPATH+"  pom  1"
   endif
-#endif
+
   BEEP(1)
   IF lSSIP99
     cKomLin += " /P"
@@ -1610,7 +1607,7 @@ return cPom
 
 /*!  DiVoRel()
  *
- *  \todo nesto vezano za vindiju
+ *  todo: nesto vezano za vindiju
  */
 
 function DiVoRel()

@@ -27,7 +27,7 @@ STATIC s_cFileContent := NIL
  * treci el. predstavlja broj reda pocevsi od kojeg se uzima za prikaz
  * fiksirana kolona)
  *
- * \todo Razbiti ogromni CASE na pojedinacne funkcije
+ * todo: Razbiti ogromni CASE na pojedinacne funkcije
  */
 
 function VidiFajl(cImeF, aLinFiks, aKolFiks)

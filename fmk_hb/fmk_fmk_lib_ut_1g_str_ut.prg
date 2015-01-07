@@ -652,7 +652,7 @@ return
  *   fdecimale
  *   fMnozina
  *   cDinDem
- *  \return cRez
+ *  return: cRez
  */
 
 static function Stotice(nIzn, cRez, fDecimale, fMnozina, cDinDem)
@@ -748,7 +748,7 @@ return cRez
  	            aColl[2] = "podatak2"
 		    CreateHashString(aColl) => "podatak1#podatak2"
  *   aColl - matrica sa podacima
- *  \return cHStr - hash string
+ *  return: cHStr - hash string
  */
 function CreateHashString(aColl)
 
@@ -771,7 +771,7 @@ return cHStr
 
 /*!  ReadHashString(cHashString)
  *   Iscitava hash string u matricu
- *  \return aColl - matrica popunjena podacima iz stringa
+ *  return: aColl - matrica popunjena podacima iz stringa
  */
 function ReadHashString(cHashString)
 

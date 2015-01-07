@@ -27,7 +27,7 @@
  *   Ako nisu zadani, uzima se da je cValIz="P", a cValU="D"
  *   Ako je zadano samo neko cValIz<>"P", cValU ce biti "P"
  *
- *  \return f-ja vraca protuvrijednost jedinice valute cValIz u valuti cValU
+ *  return: f-ja vraca protuvrijednost jedinice valute cValIz u valuti cValU
  */
 function Kurs(dDat, cValIz, cValU)
 local nNaz

@@ -70,7 +70,7 @@
 /* var tbl_fakt_serBr
  *   predvidjeno za evidenciju serijskog broja artikla
  *
- * \note koliko mi je poznato NIKO ovu mogucnost ne koristi
+ * biljeska: koliko mi je poznato NIKO ovu mogucnost ne koristi
  *
  *  Za dokument inventure cemo ga koristiti na SPECIFICAN nacin:
  *  "serBr"    -> pohranicemo vijednost Knjizne kolicine
@@ -86,7 +86,7 @@
  *  Vrijednost knjizne kolicine nije nesto po cemu trebamo ptretrazivati pa
  *  stoga nema nikakve potrebe za otvaranjem novog polja
  *
- * \todo takodje se koristi kod reklamacije za ... ali ne znam za sta
+ * todo: takodje se koristi kod reklamacije za ... ali ne znam za sta
  * \sa tbl_fakt
  */
 
@@ -343,7 +343,7 @@ return
 
 /*!  TFrmInv::setColuns()
  *   Postavi vrijednost aImeKol, aKol matrica
- *  \note takodje se na kraju postavljaju priv var: ImeKol:=aImeKol, Kol:=aKol
+ *  biljeska: takodje se na kraju postavljaju priv var: ImeKol:=aImeKol, Kol:=aKol
  */
 
 

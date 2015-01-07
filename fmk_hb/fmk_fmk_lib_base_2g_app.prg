@@ -284,7 +284,7 @@ return
  *   izlazak iz aplikacijskog modula
  *   lVratiSeURP - default vrijednost .t.; kada je .t. vrati se u radno podrucje; .f. ne mjenjaj radno podrucje
  *
- *  \todo proceduru izlaska revidirati, izbaciti Rad.sys iz upotrebe, kao i korisn.dbf
+ *  todo: proceduru izlaska revidirati, izbaciti Rad.sys iz upotrebe, kao i korisn.dbf
  */
  
 *void TAppMod::quit(bool lVratiSeURP)
@@ -708,7 +708,7 @@ return
 
 /*!  TAppMod::limitKLicenca(nLevel)
  *   Prikazuje poruku o ogranicenosti korisnicke licence
- *  \return  True ako je nLevel> oApp:nKLicenca return .t.
+ *  return:  True ako je nLevel> oApp:nKLicenca return .t.
  */
 
 *void TAppMod::limitKLicenca(nLevel)

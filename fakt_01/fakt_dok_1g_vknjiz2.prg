@@ -759,7 +759,7 @@ RETURN
  *   cRegion
  *   cIdRoba
  *   aPorezi
- *  \note preradjena funkcija jer Fakt nema cIdKonto
+ *  biljeska: preradjena funkcija jer Fakt nema cIdKonto
  */
 
 function TarifaR(cRegion, cIdRoba, aPorezi)

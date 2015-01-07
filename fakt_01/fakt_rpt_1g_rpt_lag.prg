@@ -20,7 +20,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_IZVJESTAJI_BezUlaza
+  * var: *string FmkIni_KumPath_IZVJESTAJI_BezUlaza
   *  Da li se na izvjestajima lager-liste i stanja robe prikazuju samo izlazi?
   *  N - ne, default vrijednost
   *  D - da
@@ -29,7 +29,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_Svi_SaberiKol
+  * var: *string FmkIni_ExePath_Svi_SaberiKol
   *  Da li se na izvjestajima prikazuje zbir kolicina svih artikala
   *  N - ne, default vrijednost
   *  D - da
@@ -38,7 +38,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_FAKT_Sintet
+  * var: *string FmkIni_ExePath_FAKT_Sintet
   *  Da li se koriste sinteticke (skracene) sifre robe?
   *  N - ne, default vrijednost
   *  D - da

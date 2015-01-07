@@ -519,14 +519,14 @@ return
 
 /*!  BrowseSezone
  *   Prikazuje listu sezonskih podrucja (koja imaju sadrzaj)
- *  \return selektovanu sezonu (npr "0502") , ili "" ako nismo nista odabrali
+ *  return: selektovanu sezonu (npr "0502") , ili "" ako nismo nista odabrali
  *
  *  Sezonsko podrucje je puno kada
  *  1. postoji direktorij KumPath + <SezPodr>
  *  2. postoji fajl pos.dbf u sezonskom podrucju i RECCOUNT()>0
  *
  *
- *  \todo Implementirati funkciju !
+ *  todo: Implementirati funkciju !
  */
  
 function BrowseSezone()

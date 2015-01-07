@@ -18,7 +18,7 @@
  *   Vraca ID rabata ukoliko postoji, u suprotnom izvali prozor za odabir iz sif.
  *   cid - ??
  *   dx - ??
- *  \return dy - ??
+ *  return: dy - ??
  */
 function P_Rabat(cId, dx, dy)
 

@@ -27,7 +27,7 @@
  * 
  * \ingroup db_kalk
  *
- * \note privatna tabela korisnika
+ * biljeska: privatna tabela korisnika
  *
  * \code
  *

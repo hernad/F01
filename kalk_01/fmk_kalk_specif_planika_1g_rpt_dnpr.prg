@@ -17,7 +17,7 @@ static cLinija
 
 /*!  DnevProm()
  *   Izvjestaj dnevnog prometa
- *  \todo Ovaj izvjestaj nije dobro uradjen - formira se matrica, koja ce puci na velikom broju artikala
+ *  todo: Ovaj izvjestaj nije dobro uradjen - formira se matrica, koja ce puci na velikom broju artikala
  */
 function DnevProm()
 local i

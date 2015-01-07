@@ -21,7 +21,7 @@
 *string tbl_roba_k2;
 
 /* ingroup Planika
- *  \var tbl_roba_k2
+ *  var: tbl_roba_k2
  *   Polje koje odredjuje da li ce se artikal uzeti u obzir pri sumiranju kolicina (u slucaju planike "kolicina"="pari")
  *   "X" - ne sumiraj
  *   "ostale vrijednosti" - uvrsti u suma pari
@@ -65,7 +65,7 @@
  *  aUsl2
  *  aUslR
  *
- * \note prije poziva funkcije pripremiti privatne varijable aUsl1 - konto1, aUsl2 - konto2, aUslR - uslov za robu; po zavrsetku funkcije REKAP1.DBF , OBJEKTI.DBF, K1.DBF - ostaju otvoreni
+ * biljeska: prije poziva funkcije pripremiti privatne varijable aUsl1 - konto1, aUsl2 - konto2, aUslR - uslov za robu; po zavrsetku funkcije REKAP1.DBF , OBJEKTI.DBF, K1.DBF - ostaju otvoreni
  *
  *  \sa PreglKret, ObrazInv 
  */

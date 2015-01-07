@@ -33,7 +33,7 @@ return
 
 /*!  IntegTekGod()
  *   Vraca tekucu godinu, ako je tek.datum veci od 10.01.TG onda je godina = TG, ako je tek.datum <= 10.01.TG onda je godina (TG - 1)
- *  \return string cYear
+ *  return: string cYear
  */
 function IntegTekGod()
 

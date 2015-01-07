@@ -56,7 +56,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_FAKT_NaslovPartnTelefon
+  * var: *string FmkIni_ExePath_FAKT_NaslovPartnTelefon
   *  Da li se uz naziv kupca upisuje i telefon?
   *  D - da, default vrijednost
   *  N - ne

@@ -525,58 +525,58 @@ return
 
 *string Params_s7;
 /* ingroup params
- *  \var Params_s7
+ *  var: Params_s7
  *   Grad tj.mjesto u kojem je firma
  *   Zenica - u Zenici
- *  \note gMjStr
+ *  biljeska: gMjStr
  */
 
 
 *string Params_fi;
 /* ingroup params
- *  \var Params_fi
+ *  var: Params_fi
  *   Sifra firme/default radne jedinice
  *   10 - sifra firme ili default radne jedinice je 10
- *  \note gFirma
+ *  biljeska: gFirma
  */
 
 
 *string Params_ts;
 /* ingroup params
- *  \var Params_ts
+ *  var: Params_ts
  *   Tip poslovnog subjekta
  *   Preduzece - znaci da se radi o preduzecu
- *  \note gTS
+ *  biljeska: gTS
  */
 
 
 *string Params_fn;
 /* ingroup params
- *  \var Params_fn
+ *  var: Params_fn
  *   Naziv firme
  *   SIGMA-COM - naziv firme je SIGMA-COM
- *  \note gNFirma
+ *  biljeska: gNFirma
  */
 
 
 *string Params_Bv;
 /* ingroup params
- *  \var Params_Bv
+ *  var: Params_Bv
  *   Bazna valuta
  *   D - domaca
  *   P - pomocna
- *  \note gBaznaV
+ *  biljeska: gBaznaV
  */
 
 
 *string Params_mV;
 /* ingroup params
- *  \var Params_mV
+ *  var: Params_mV
  *   Koristiti modemsku vezu?
  *   S - da, server
  *   K - da, korisnik
  *   N - ne koristiti modemsku vezu
- *  \note gModemVeza
+ *  biljeska: gModemVeza
  */
 
 
@@ -621,28 +621,28 @@ return
 
 *string Params_p0;
 /* ingroup params
- *  \var Params_p0
+ *  var: Params_p0
  *   Format prikaza cijena
  *   99999.999 - 5 mjesta za cijeli i 3 za decimalni dio broja
- *  \note PicCDem
+ *  biljeska: PicCDem
  */
 
 
 *string Params_p1;
 /* ingroup params
- *  \var Params_p1
+ *  var: Params_p1
  *   Format prikaza iznosa
  *   99999.999 - 5 mjesta za cijeli i 3 za decimalni dio broja
- *  \note PicDem
+ *  biljeska: PicDem
  */
 
 
 *string Params_p2;
 /* ingroup params
- *  \var Params_p2
+ *  var: Params_p2
  *   Format prikaza kolicina
  *   99999.999 - 5 mjesta za cijeli i 3 za decimalni dio broja
- *  \note PicKol
+ *  biljeska: PicKol
  */
 
 
@@ -696,89 +696,89 @@ return
 
 *string Params_dp;
 /* ingroup params
- *  \var Params_dp
+ *  var: Params_dp
  *   Omoguciti unos datuma placanja, broja otpremnice i broja narudzbe?
  *   1 - da
  *   2 - ne
- *  \note gDodPar
+ *  biljeska: gDodPar
  */
 
 
 *string Params_dv;
 /* ingroup params
- *  \var Params_dv
+ *  var: Params_dv
  *   Omoguciti unos datuma placanja u svim varijantama izgleda fakture 9?
  *   D - da
  *   N - ne
- *  \note gDatVal
+ *  biljeska: gDatVal
  */
 
 
 *string Params_pd;
 /* ingroup params
- *  \var Params_pd
+ *  var: Params_pd
  *   Generisati ulazni dokument (01) pri azuriranju izlaza (13-ke)?
  *   D - da
  *   N - ne
- *  \note gProtu13
+ *  biljeska: gProtu13
  */
 
 
 *string Params_mn;
 /* ingroup params
- *  \var Params_mn
+ *  var: Params_mn
  *   Ukljuciti mreznu numeraciju dokumenata?
  *   D - da
  *   N - ne
- *  \note gMreznoNum
+ *  biljeska: gMreznoNum
  */
 
 
 *string Params_dc;
 /* ingroup params
- *  \var Params_dc
+ *  var: Params_dc
  *   Maloprodajna cijena koja se koristi u 13-ki
  *     - uvijek pri stampi pita za cijenu koja se zeli prikazati
  *   1 - MPC
  *   2 - MPC2
  *   6 - MPC6
- *  \note g13dcij
+ *  biljeska: g13dcij
  */
 
 
 *string Params_vo;
 /* ingroup params
- *  \var Params_vo
+ *  var: Params_vo
  *   Varijanta dokumenta 13
  *   1 - default varijanta
  *   2 - varijanta radjena za Niagaru i Lagunu
- *  \note gVar13
+ *  biljeska: gVar13
  */
 
 
 *string Params_vn;
 /* ingroup params
- *  \var Params_vn
+ *  var: Params_vn
  *   Varijanta numeracije dokumenta 13 za varijantu 2 dokumenta 13
  *   1 - Laguna: unosi se RJ koja se zaduzuje a na osnovu tog podatka se iz sifrarnika RJ uzme konto i upise u polje IDPARTNER
  *   2 - Niagara: unosi se konto prodavnice koja se zaduzuje, a brojac je u formi KKNN/MM gdje je KK oznaka prodavnice a odredjuje se kao zadnji dio konta pocevsi od 4.mjesta (13201->01,1329->09), NN je redni broj sa nulom ispred ako je manji od 10 (01,02,...,10,11,...), a MM je mjesec u kojem se pravi dokument (01,02,...,12)
- *  \note gVarNum
+ *  biljeska: gVarNum
  */
 
 
 *string Params_pk;
 /* ingroup params
- *  \var Params_pk
+ *  var: Params_pk
  *   Da li se prati trenutno stanje artikla pri unosu dokumenta?
  *   D - da
  *   N - ne
- *  \note gPratiK
+ *  biljeska: gPratiK
  */
 
 
 *string Params_50;
 /* ingroup params
- *  \var Params_50
+ *  var: Params_50
  *   Varijante koristenja cijene
  *     - samo VPC
  *   1 - VPC ili VPC2
@@ -786,13 +786,13 @@ return
  *   3 - NC
  *   4 - uporedo se prikazuje MPC
  *   X - samo MPC
- *  \note gVarC
+ *  biljeska: gVarC
  */
 
 
 *string Params_mp;
 /* ingroup params
- *  \var Params_mp
+ *  var: Params_mp
  *   Koja se cijena nudi u fakturi maloprodaje (11-ki) ?
  *   1 - MPC
  *   2 - VPC+porezi (diskontna cijena)
@@ -801,46 +801,46 @@ return
  *   5 - MPC4
  *   6 - MPC5
  *   7 - MPC6
- *  \note gMP
+ *  biljeska: gMP
  */
 
 
 *string Params_nd;
 /* ingroup params
- *  \var Params_nd
+ *  var: Params_nd
  *   Numericki dio broja dokumenta za automatiku odredjivanja narednog broja dokumenta
  *   5 - prvih 5 znakova
- *  \note gNumDio
+ *  biljeska: gNumDio
  */
 
 
 *string Params_PR;
 /* ingroup params
- *  \var Params_PR
+ *  var: Params_PR
  *   Upozorenje na promjenu radne jedinice ?
  *   D - da, da se ne bi slucajnom greskom upisala pogresna radna jedinica
  *   N - ne upozoravaj
- *  \note gDetPromRj
+ *  biljeska: gDetPromRj
  */
 
 
 *string Params_vp;
 /* ingroup params
- *  \var Params_vp
+ *  var: Params_vp
  *   U otpremnici (12-ki) omoguciti unos poreza ?
  *   D - da
  *   N - ne
- *  \note gV12Por
+ *  biljeska: gV12Por
  */
 
 
 *string Params_vu;
 /* ingroup params
- *  \var Params_vu
+ *  var: Params_vu
  *   Varijanta fakturisanja na osnovu ugovora
  *   1 - ugovori se sortiraju po siframa, tekuce postavke
  *   2 - ugovori se sortiraju po nazivima izuzev kod pregleda sifrarnika kroz meni sifrarnika (tada je sortiranje po siframa)
- *  \note gVFU
+ *  biljeska: gVFU
  */
 
 
@@ -931,28 +931,28 @@ return
 
 *string Params_c1;
 /* ingroup params
- *  \var Params_c1
+ *  var: Params_c1
  *   Prikaz cijena u podstavkama ili u glavnim stavkama ?
  *   1 - u podstavkama
  *   2 - u glavnim stavkama
- *  \note cIzvj
+ *  biljeska: cIzvj
  */
 
 
 *string Params_tf;
 /* ingroup params
- *  \var Params_tf
+ *  var: Params_tf
  *   Varijanta izgleda fakture
  *   1 -
  *   2 -
  *   3 -
- *  \note gTipF
+ *  biljeska: gTipF
  */
 
 
 *string Params_vf;
 /* ingroup params
- *  \var Params_vf
+ *  var: Params_vf
  *   Podvarijanta izgleda fakture
  *   1 -
  *   2 -
@@ -961,236 +961,236 @@ return
  *   9 -
  *   A -
  *   B -
- *  \note gVarF
+ *  biljeska: gVarF
  */
 
 
 *string Params_kr;
 /* ingroup params
- *  \var Params_kr
+ *  var: Params_kr
  *   Broj redova za vertikalno pomjeranje znakova krizanja i broja dokumenta u podvarijanti 9 izgleda fakture na A4 papiru
  *   0 - ne pomjeraj nista
- *  \note gKriz
+ *  biljeska: gKriz
  */
 
 
 *string Params_55;
 /* ingroup params
- *  \var Params_55
+ *  var: Params_55
  *   Broj redova za vertikalno pomjeranje znakova krizanja i broja dokumenta u podvarijanti 9 izgleda fakture na A5 papiru
  *   0 - ne pomjeraj nista
- *  \note gKrizA5
+ *  biljeska: gKrizA5
  */
 
 
 *string Params_vr;
 /* ingroup params
- *  \var Params_vr
+ *  var: Params_vr
  *   Podvarijanta izgleda RTF fakture za varijantu 2 izgleda fakture
  *     - (prazno), default varijanta
  *   1 - za Minex
  *   2 - za Likom
  *   3 - za Zenelu
- *  \note gVarRF
+ *  biljeska: gVarRF
  */
 
 
 *string Params_er;
 /* ingroup params
- *  \var Params_er
+ *  var: Params_er
  *   Broj dodatnih redova dokumenta po listu
  *  \param
- *  \note gERedova
+ *  biljeska: gERedova
  */
 
 
 *string Params_pr;
 /* ingroup params
- *  \var Params_pr
+ *  var: Params_pr
  *   Lijeva margina za stampanje dokumenata (broj kolona)
  *   4 - odvoji slijeva 4 kolone
- *  \note gnLMarg
+ *  biljeska: gnLMarg
  */
 
 
 *string Params_56;
 /* ingroup params
- *  \var Params_56
+ *  var: Params_56
  *   Lijeva margina za stampanje dokumenata u varijanti 2 podvarijanta 9 za A5 papir (broj kolona)
  *   4 - odvoji slijeva 4 kolone
- *  \note gnLMargA5
+ *  biljeska: gnLMargA5
  */
 
 
 *string Params_pt;
 /* ingroup params
- *  \var Params_pt
+ *  var: Params_pt
  *   Gornja margina pri stampanju dokumenata (broj redova). Koristi se samo ako nije definisan fajl zaglavlja
  *   9 - odmakni 9 redova od pocetka lista
- *  \note gnTMarg
+ *  biljeska: gnTMarg
  */
 
 
 *string Params_a5;
 /* ingroup params
- *  \var Params_a5
+ *  var: Params_a5
  *   Moze li se koristiti obrazac A5 u podvarijanti 9 ?
  *   D - uz upit da, ponudjeni odgovor na upit je uvijek "D"
  *   N - uz upit da, ali ponudjeni odgovor na upit je uvijek "N"
  *   0 - ne, nema ni upita
- *  \note gFormatA5
+ *  biljeska: gFormatA5
  */
 
 
 *string Params_fp;
 /* ingroup params
- *  \var Params_fp
+ *  var: Params_fp
  *   Horizontalno pomjeranje zaglavlja u podvarijanti 9 za A4 papir (broj kolona)
  *   2 - pomjeriti dvije kolone udesno
- *  \note gFPzag
+ *  biljeska: gFPzag
  */
 
 
 *string Params_51;
 /* ingroup params
- *  \var Params_51
+ *  var: Params_51
  *   Horizontalno pomjeranje zaglavlja u podvarijanti 9 za A5 papir (broj kolona)
  *   2 - pomjeriti dvije kolone udesno
- *  \note gFPzagA5
+ *  biljeska: gFPzagA5
  */
 
 
 *string Params_52;
 /* ingroup params
- *  \var Params_52
+ *  var: Params_52
  *   Vertikalno pomjeranje stavki u podvarijanti 9 za A5 papir (broj redova)
  *   2 - pomjeriti dva reda prema dolje
- *  \note gnTMarg2A5
+ *  biljeska: gnTMarg2A5
  */
 
 
 *string Params_53;
 /* ingroup params
- *  \var Params_53
+ *  var: Params_53
  *   Vertikalno pomjeranje totala u podvarijanti 9 za A5 papir (broj redova)
  *   2 - pomjeriti dva reda prema dolje
- *  \note gnTMarg3A5
+ *  biljeska: gnTMarg3A5
  */
 
 
 *string Params_54;
 /* ingroup params
- *  \var Params_54
+ *  var: Params_54
  *   Vertikalno pomjeranje donjeg dijela fakture u podvarijanti 9 za A5 papir (broj redova)
  *   2 - pomjeriti dva reda prema dolje
- *  \note gnTMarg4A5
+ *  biljeska: gnTMarg4A5
  */
 
 
 *string Params_d1;
 /* ingroup params
- *  \var Params_d1
+ *  var: Params_d1
  *   Vertikalno pomjeranje stavki u podvarijanti 9 za A4 papir (broj redova)
  *   2 - pomjeriti dva reda prema dolje
- *  \note gnTMarg2
+ *  biljeska: gnTMarg2
  */
 
 
 *string Params_d2;
 /* ingroup params
- *  \var Params_d2
+ *  var: Params_d2
  *   Vertikalno pomjeranje totala u podvarijanti 9 za A4 papir (broj redova)
  *   2 - pomjeriti dva reda prema dolje
- *  \note gnTMarg3
+ *  biljeska: gnTMarg3
  */
 
 
 *string Params_d3;
 /* ingroup params
- *  \var Params_d3
+ *  var: Params_d3
  *   Vertikalno pomjeranje donjeg dijela fakture u podvarijanti 9 za A4 papir (broj redova)
  *   2 - pomjeriti dva reda prema dolje
- *  \note gnTMarg4
+ *  biljeska: gnTMarg4
  */
 
 
 *string Params_cr;
 /* ingroup params
- *  \var Params_cr
+ *  var: Params_cr
  *   Znak kojim se precrtava dio teksta na obrascu fakture (podvarijanta 9)
  *   X - precrtavati znakom X
- *  \note gZnPrec
+ *  biljeska: gZnPrec
  */
 
 
 *string Params_ot;
 /* ingroup params
- *  \var Params_ot
+ *  var: Params_ot
  *   Broj redova za odvajanje tabele od broja dokumenta
  *   3 - odvojiti 3 reda
- *  \note gOdvT2
+ *  biljeska: gOdvT2
  */
 
 
 *integer Params_tb;
 /* ingroup params
- *  \var Params_tb
+ *  var: Params_tb
  *   Nacin crtanja tabele koji se koristi pri stampanju sifrarnika i u pojedinim izvjestajima i dokumentima
  *   0 - koristi se samo znak "-" (minus) za iscrtavanje horizontalnih linija, a vertikale se ne iscrtavaju
  *   1 - sve se crta jednostrukom linijom
  *   2 - okvir tabele se crta dvostrukom linijom, a ostalo jednostrukom
- *  \note gTabela
+ *  biljeska: gTabela
  *  \sa StampaTabele()
  */
 
 
 *string Params_za;
 /* ingroup params
- *  \var Params_za
+ *  var: Params_za
  *   Da li se zaglavlje dokumenta ispisuje na svakoj stranici?
  *   D - da
  *   N - ne
- *  \note gZagl
+ *  biljeska: gZagl
  */
 
 
 *string Params_zb;
 /* ingroup params
- *  \var Params_zb
+ *  var: Params_zb
  *   Crni tj."masni" ispis dokumenta ?
  *   1 - da
  *   2 - ne
- *  \note gbold
+ *  biljeska: gbold
  */
 
 
 *string Params_RT;
 /* ingroup params
- *  \var Params_RT
+ *  var: Params_RT
  *   Prikaz rekapitulacije po tarifama u dokumentu 13-ki ?
  *   D - da
  *   N - ne
- *  \note gRekTar
+ *  biljeska: gRekTar
  */
 
 
 *string Params_HL;
 /* ingroup params
- *  \var Params_HL
+ *  var: Params_HL
  *   Ispis horizontalnih linija izmedju stavki dokumenta?
  *   D - da
  *   N - ne
- *  \note gHLinija
+ *  biljeska: gHLinija
  */
 
 
 *string Params_rp;
 /* ingroup params
- *  \var Params_rp
+ *  var: Params_rp
  *   Prikaz rabata u % (procentu) ?
  *   D - da
  *   N - ne
- *  \note gRabProc
+ *  biljeska: gRabProc
  */
 
 
@@ -1438,352 +1438,352 @@ return
 
 *string Params_r3;
 /* ingroup params
- *  \var Params_r3
+ *  var: Params_r3
  *   Naziv dokumenta tipa 06
  *   "ZADUZ.KONS.SKLAD.br." - default vrijednost
- *  \note g06Str
+ *  biljeska: g06Str
  */
 
 
 *string Params_r4;
 /* ingroup params
- *  \var Params_r4
+ *  var: Params_r4
  *   Tekst koji se ispisuje na kraju dokumenta tipa 06 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
- *  \note g06Str2T
+ *  biljeska: g06Str2T
  */
 
 
 *string Params_r5;
 /* ingroup params
- *  \var Params_r5
+ *  var: Params_r5
  *   Tekst koji se ispisuje na kraju dokumenta tipa 06 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
- *  \note g06Str2R
+ *  biljeska: g06Str2R
  */
 
 
 *string Params_s1;
 /* ingroup params
- *  \var Params_s1
+ *  var: Params_s1
  *   Naziv dokumenta tipa 10
  *   "RACUN/OTPREMNICA br." - default vrijednost
- *  \note g10Str
+ *  biljeska: g10Str
  */
 
 
 *string Params_s4;
 /* ingroup params
- *  \var Params_s4
+ *  var: Params_s4
  *   Tekst koji se ispisuje na kraju dokumenta tipa 10 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
- *  \note g10Str2T
+ *  biljeska: g10Str2T
  */
 
 
 *string Params_r1;
 /* ingroup params
- *  \var Params_r1
+ *  var: Params_r1
  *   Tekst koji se ispisuje na kraju dokumenta tipa 10 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
- *  \note g10Str2R
+ *  biljeska: g10Str2R
  */
 
 
 *string Params_s2;
 /* ingroup params
- *  \var Params_s2
+ *  var: Params_s2
  *   Naziv dokumenta tipa 11
  *   "RACUN MP br." - default vrijednost
- *  \note g11Str
+ *  biljeska: g11Str
  */
 
 
 *string Params_s5;
 /* ingroup params
- *  \var Params_s5
+ *  var: Params_s5
  *   Tekst koji se ispisuje na kraju dokumenta tipa 11 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
- *  \note g11Str2T
+ *  biljeska: g11Str2T
  */
 
 
 *string Params_x1;
 /* ingroup params
- *  \var Params_x1
+ *  var: Params_x1
  *   Tekst koji se ispisuje na kraju dokumenta tipa 11 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
- *  \note g11Str2R
+ *  biljeska: g11Str2R
  */
 
 
 *string Params_x3;
 /* ingroup params
- *  \var Params_x3
+ *  var: Params_x3
  *   Naziv dokumenta tipa 12
  *   "OTPREMNICA br." - default vrijednost
- *  \note g12Str
+ *  biljeska: g12Str
  */
 
 
 *string Params_x4;
 /* ingroup params
- *  \var Params_x4
+ *  var: Params_x4
  *   Tekst koji se ispisuje na kraju dokumenta tipa 12 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
- *  \note g12Str2T
+ *  biljeska: g12Str2T
  */
 
 
 *string Params_x5;
 /* ingroup params
- *  \var Params_x5
+ *  var: Params_x5
  *   Tekst koji se ispisuje na kraju dokumenta tipa 12 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
- *  \note g12Str2R
+ *  biljeska: g12Str2R
  */
 
 
 *string Params_x6;
 /* ingroup params
- *  \var Params_x6
+ *  var: Params_x6
  *   Naziv dokumenta tipa 13
  *   "OTPREMNICA U MP br." - default vrijednost
- *  \note g13Str
+ *  biljeska: g13Str
  */
 
 
 *string Params_x7;
 /* ingroup params
- *  \var Params_x7
+ *  var: Params_x7
  *   Tekst koji se ispisuje na kraju dokumenta tipa 13 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
- *  \note g13Str2T
+ *  biljeska: g13Str2T
  */
 
 
 *string Params_x8;
 /* ingroup params
- *  \var Params_x8
+ *  var: Params_x8
  *   Tekst koji se ispisuje na kraju dokumenta tipa 13 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
- *  \note g13Str2R
+ *  biljeska: g13Str2R
  */
 
 
 *string Params_xl;
 /* ingroup params
- *  \var Params_xl
+ *  var: Params_xl
  *   Naziv dokumenta tipa 15
  *   "RACUN br." - default vrijednost
- *  \note g15Str
+ *  biljeska: g15Str
  */
 
 
 *string Params_xm;
 /* ingroup params
- *  \var Params_xm
+ *  var: Params_xm
  *   Tekst koji se ispisuje na kraju dokumenta tipa 15 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
- *  \note g15Str2T
+ *  biljeska: g15Str2T
  */
 
 
 *string Params_xn;
 /* ingroup params
- *  \var Params_xn
+ *  var: Params_xn
  *   Tekst koji se ispisuje na kraju dokumenta tipa 15 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
- *  \note g15Str2R
+ *  biljeska: g15Str2R
  */
 
 
 *string Params_s9;
 /* ingroup params
- *  \var Params_s9
+ *  var: Params_s9
  *   Naziv dokumenta tipa 16
  *   "KONSIGNAC.RACUN br." - default vrijednost
- *  \note g16Str
+ *  biljeska: g16Str
  */
 
 
 *string Params_s8;
 /* ingroup params
- *  \var Params_s8
+ *  var: Params_s8
  *   Tekst koji se ispisuje na kraju dokumenta tipa 16 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
- *  \note g16Str2T
+ *  biljeska: g16Str2T
  */
 
 
 *string Params_r2;
 /* ingroup params
- *  \var Params_r2
+ *  var: Params_r2
  *   Tekst koji se ispisuje na kraju dokumenta tipa 16 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
- *  \note g16Str2R
+ *  biljeska: g16Str2R
  */
 
 
 *string Params_s3;
 /* ingroup params
- *  \var Params_s3
+ *  var: Params_s3
  *   Naziv dokumenta tipa 20
  *   "PREDRACUN br." - default vrijednost
- *  \note g20Str
+ *  biljeska: g20Str
  */
 
 
 *string Params_s6;
 /* ingroup params
- *  \var Params_s6
+ *  var: Params_s6
  *   Tekst koji se ispisuje na kraju dokumenta tipa 20 (za potpise)
  *   "                                                               Direktor" - default vrijednost
- *  \note g20Str2T
+ *  biljeska: g20Str2T
  */
 
 
 *string Params_x2;
 /* ingroup params
- *  \var Params_x2
+ *  var: Params_x2
  *   Tekst koji se ispisuje na kraju dokumenta tipa 20 u varijanti RTF fakture (za potpise)
  *   "\tab \tab \tab Direktor:" - default vrijednost
- *  \note g20Str2R
+ *  biljeska: g20Str2R
  */
 
 
 *string Params_x9;
 /* ingroup params
- *  \var Params_x9
+ *  var: Params_x9
  *   Naziv dokumenta tipa 21
  *   "REVERS br." - default vrijednost
- *  \note g21Str
+ *  biljeska: g21Str
  */
 
 
 *string Params_xa;
 /* ingroup params
- *  \var Params_xa
+ *  var: Params_xa
  *   Tekst koji se ispisuje na kraju dokumenta tipa 21 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
- *  \note g21Str2T
+ *  biljeska: g21Str2T
  */
 
 
 *string Params_xb;
 /* ingroup params
- *  \var Params_xb
+ *  var: Params_xb
  *   Tekst koji se ispisuje na kraju dokumenta tipa 21 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
- *  \note g21Str2R
+ *  biljeska: g21Str2R
  */
 
 
 *string Params_xc;
 /* ingroup params
- *  \var Params_xc
+ *  var: Params_xc
  *   Naziv dokumenta tipa 22
  *   "ZAKLJ.OTPREMNICA br." - default vrijednost
- *  \note g22Str
+ *  biljeska: g22Str
  */
 
 
 *string Params_xd;
 /* ingroup params
- *  \var Params_xd
+ *  var: Params_xd
  *   Tekst koji se ispisuje na kraju dokumenta tipa 22 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
- *  \note g22Str2T
+ *  biljeska: g22Str2T
  */
 
 
 *string Params_xe;
 /* ingroup params
- *  \var Params_xe
+ *  var: Params_xe
  *   Tekst koji se ispisuje na kraju dokumenta tipa 22 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
- *  \note g22Str2R
+ *  biljeska: g22Str2R
  */
 
 
 *string Params_xf;
 /* ingroup params
- *  \var Params_xf
+ *  var: Params_xf
  *   Naziv dokumenta tipa 25
  *   "KNJIZNA OBAVIJEST br." - default vrijednost
- *  \note g25Str
+ *  biljeska: g25Str
  */
 
 
 *string Params_xg;
 /* ingroup params
- *  \var Params_xg
+ *  var: Params_xg
  *   Tekst koji se ispisuje na kraju dokumenta tipa 25 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
- *  \note g25Str2T
+ *  biljeska: g25Str2T
  */
 
 
 *string Params_xh;
 /* ingroup params
- *  \var Params_xh
+ *  var: Params_xh
  *   Tekst koji se ispisuje na kraju dokumenta tipa 25 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
- *  \note g25Str2R
+ *  biljeska: g25Str2R
  */
 
 
 *string Params_xi;
 /* ingroup params
- *  \var Params_xi
+ *  var: Params_xi
  *   Naziv dokumenta tipa 26
  *   "NARUDZBA SA IZJAVOM br." - default vrijednost
- *  \note g26Str
+ *  biljeska: g26Str
  */
 
 
 *string Params_xj;
 /* ingroup params
- *  \var Params_xj
+ *  var: Params_xj
  *   Tekst koji se ispisuje na kraju dokumenta tipa 26 (za potpise)
  *   "                                      Potpis:" - default vrijednost
- *  \note g26Str2T
+ *  biljeska: g26Str2T
  */
 
 
 *string Params_xk;
 /* ingroup params
- *  \var Params_xk
+ *  var: Params_xk
  *   Tekst koji se ispisuje na kraju dokumenta tipa 26 u varijanti RTF fakture (za potpise)
  *   "\tab \tab Potpis:" - default vrijednost
- *  \note g26Str2R
+ *  biljeska: g26Str2R
  */
 
 
 *string Params_xo;
 /* ingroup params
- *  \var Params_xo
+ *  var: Params_xo
  *   Naziv dokumenta tipa 27
  *   "PREDRACUN MP br." - default vrijednost
- *  \note g27Str
+ *  biljeska: g27Str
  */
 
 
 *string Params_xp;
 /* ingroup params
- *  \var Params_xp
+ *  var: Params_xp
  *   Tekst koji se ispisuje na kraju dokumenta tipa 27 (za potpise)
  *   "                                                               Direktor" - default vrijednost
- *  \note g27Str2T
+ *  biljeska: g27Str2T
  */
 
 
 *string Params_xr;
 /* ingroup params
- *  \var Params_xr
+ *  var: Params_xr
  *   Tekst koji se ispisuje na kraju dokumenta tipa 27 u varijanti RTF fakture (za potpise)
  *   "\tab \tab \tab Direktor:" - default vrijednost
- *  \note g27Str2R
+ *  biljeska: g27Str2R
  */
 
 
@@ -2143,7 +2143,7 @@ return .t.
 
 
 /* ingroup ini
-  * \var *string ProizvjIni_ExePath_Varijable_Firma
+  * var: *string ProizvjIni_ExePath_Varijable_Firma
   *  Naziv firme
   *  -- - nije definisano, default vrijednost
   */
@@ -2151,7 +2151,7 @@ return .t.
 
 
 /* ingroup ini
-  * \var *string ProizvjIni_ExePath_Varijable_Adres
+  * var: *string ProizvjIni_ExePath_Varijable_Adres
   *  Adresa firme
   *  -- - nije definisano, default vrijednost
   */
@@ -2159,7 +2159,7 @@ return .t.
 
 
 /* ingroup ini
-  * \var *string ProizvjIni_ExePath_Varijable_Tel
+  * var: *string ProizvjIni_ExePath_Varijable_Tel
   *  Broj telefona firme
   *  -- - nije definisano, default vrijednost
   */
@@ -2167,7 +2167,7 @@ return .t.
 
 
 /* ingroup ini
-  * \var *string ProizvjIni_ExePath_Varijable_Fax
+  * var: *string ProizvjIni_ExePath_Varijable_Fax
   *  Broj faksa firme
   *  -- - nije definisano, default vrijednost
   */
@@ -2175,7 +2175,7 @@ return .t.
 
 
 /* ingroup ini
-  * \var *string ProizvjIni_ExePath_Varijable_RegBroj
+  * var: *string ProizvjIni_ExePath_Varijable_RegBroj
   *  Registarski broj firme
   *  -- - nije definisano, default vrijednost
   */
@@ -2183,7 +2183,7 @@ return .t.
 
 
 /* ingroup ini
-  * \var *string ProizvjIni_ExePath_Varijable_PorBroj
+  * var: *string ProizvjIni_ExePath_Varijable_PorBroj
   *  Poreski broj firme
   *  -- - nije definisano, default vrijednost
   */
@@ -2191,7 +2191,7 @@ return .t.
 
 
 /* ingroup ini
-  * \var *string ProizvjIni_ExePath_Varijable_ZRacun1
+  * var: *string ProizvjIni_ExePath_Varijable_ZRacun1
   *  Broj ziro racuna 1
   *  -- - nije definisano, default vrijednost
   */
@@ -2199,7 +2199,7 @@ return .t.
 
 
 /* ingroup ini
-  * \var *string ProizvjIni_ExePath_Varijable_ZRacun2
+  * var: *string ProizvjIni_ExePath_Varijable_ZRacun2
   *  Broj ziro racuna 2
   *  -- - nije definisano, default vrijednost
   */
@@ -2207,7 +2207,7 @@ return .t.
 
 
 /* ingroup ini
-  * \var *string ProizvjIni_ExePath_Varijable_ZRacun3
+  * var: *string ProizvjIni_ExePath_Varijable_ZRacun3
   *  Broj ziro racuna 3
   *  -- - nije definisano, default vrijednost
   */
@@ -2215,7 +2215,7 @@ return .t.
 
 
 /* ingroup ini
-  * \var *string ProizvjIni_ExePath_Varijable_ZRacun4
+  * var: *string ProizvjIni_ExePath_Varijable_ZRacun4
   *  Broj ziro racuna 4
   *  -- - nije definisano, default vrijednost
   */
@@ -2223,7 +2223,7 @@ return .t.
 
 
 /* ingroup ini
-  * \var *string ProizvjIni_ExePath_Varijable_ZRacun5
+  * var: *string ProizvjIni_ExePath_Varijable_ZRacun5
   *  Broj ziro racuna 5
   *  -- - nije definisano, default vrijednost
   */
@@ -2231,7 +2231,7 @@ return .t.
 
 
 /* ingroup ini
-  * \var *string ProizvjIni_ExePath_Varijable_LokSlika
+  * var: *string ProizvjIni_ExePath_Varijable_LokSlika
   *  Lokacija slike u koja sadrzi znak (logo) firme
   *  -- - nije definisano, default vrijednost
   */
@@ -2323,58 +2323,58 @@ return
 
 *string Params_s7;
 /* ingroup params
- *  \var Params_s7
+ *  var: Params_s7
  *   Grad tj.mjesto u kojem je firma
  *   Zenica - u Zenici
- *  \note gMjStr
+ *  biljeska: gMjStr
  */
 
 
 *string Params_fi;
 /* ingroup params
- *  \var Params_fi
+ *  var: Params_fi
  *   Sifra firme/default radne jedinice
  *   10 - sifra firme ili default radne jedinice je 10
- *  \note gFirma
+ *  biljeska: gFirma
  */
 
 
 *string Params_ts;
 /* ingroup params
- *  \var Params_ts
+ *  var: Params_ts
  *   Tip poslovnog subjekta
  *   Preduzece - znaci da se radi o preduzecu
- *  \note gTS
+ *  biljeska: gTS
  */
 
 
 *string Params_fn;
 /* ingroup params
- *  \var Params_fn
+ *  var: Params_fn
  *   Naziv firme
  *   SIGMA-COM - naziv firme je SIGMA-COM
- *  \note gNFirma
+ *  biljeska: gNFirma
  */
 
 
 *string Params_Bv;
 /* ingroup params
- *  \var Params_Bv
+ *  var: Params_Bv
  *   Bazna valuta
  *   D - domaca
  *   P - pomocna
- *  \note gBaznaV
+ *  biljeska: gBaznaV
  */
 
 
 *string Params_mV;
 /* ingroup params
- *  \var Params_mV
+ *  var: Params_mV
  *   Koristiti modemsku vezu?
  *   S - da, server
  *   K - da, korisnik
  *   N - ne koristiti modemsku vezu
- *  \note gModemVeza
+ *  biljeska: gModemVeza
  */
 
 

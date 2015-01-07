@@ -749,7 +749,7 @@ return
 
 /*!  *void TDbKalk::ostalef()
  *   Ostalef funkcije (bivsi install modul)
- *  \note  sifra: SIGMAXXX
+ *  biljeska:  sifra: SIGMAXXX
 */
 
 *void TDbKalk::ostalef()

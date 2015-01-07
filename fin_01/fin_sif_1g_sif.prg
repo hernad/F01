@@ -73,7 +73,7 @@ return
 
 /*!
  * \ingroup ini
- * \var FmkIni_ExePath_FIN_PartnerNaziv2
+ * var: FmkIni_ExePath_FIN_PartnerNaziv2
  *  Prikaz polja Naz2 u PARTN tabeli
  *  D - prikaz polja Naz2 u tabeli partnera
  *  N - ne prikaz, default vrijednost
@@ -83,7 +83,7 @@ return
 
 /*!
  * \ingroup ini
- * \var FmkIni_ExePath_SifPartn_DZIROR
+ * var: FmkIni_ExePath_SifPartn_DZIROR
  *  Prikaz polja DZIROR - devizni ziro racun
  *  D - prikaz polja
  *  N - ne prikaz, default vrijednost
@@ -94,7 +94,7 @@ return
 
 /*!
  * \ingroup ini
- * \var FmkIni_ExePath_SifPartn_Fax
+ * var: FmkIni_ExePath_SifPartn_Fax
  *  Prikaz polja Fax
  *  D - prikaz Ziro racun
  *  N - ne prikaz, default vrijednost

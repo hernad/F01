@@ -877,7 +877,7 @@ return FReadLn(nHandle, nLines, nLineLength, cDelim)
 
 /*!  FileTop(nHandle)
  *   Position the file pointer to the first byte in a binary file and return the new file position (i.e., 0).
- *  \return nPos
+ *  return: nPos
  *
  */
 
@@ -889,7 +889,7 @@ return FSEEK(nHandle, 0)
 /*!  FileBottom(nHandle)
  *  Position the file pointer to the last byte in a binary file and return the new file position
  *  nHandle - handle fajla
- * \return nPos - lokacija
+ * return: nPos - lokacija
  */
 
 function FileBottom(nHandle)

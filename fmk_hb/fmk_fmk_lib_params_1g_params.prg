@@ -97,7 +97,7 @@ if found()
 endif
 
 if clTip=="C" .and. gKonvertPath=="D" .and. ( ":\" $ xArg ) 
-    // konvertuj lokacije npr C:\SIGMA -> I:\VAR\DATA1\SIGMA
+    // konvertuj lokacije npr C:\SIGMA -> I:var:\DATA1\SIGMA
     KonvertPath(@xArg)
 endif
 
@@ -119,9 +119,9 @@ RETURN NIL
 *PRIMJER
  [KonvertPath]
  kNum=3
- k1=C:\SIGMA\FAKT\1 C:\var\data1\SIGMA\FAKT\1
- k2=C:\SIGMA C:\var\data1\SIGMA
- k3=C:\SIGMA\FAKT\K I:\var\data1\SIGMA\K
+ k1=C:\SIGMA\FAKT\1 C:var:\data1\SIGMA\FAKT\1
+ k2=C:\SIGMA C:var:\data1\SIGMA
+ k3=C:\SIGMA\FAKT\K I:var:\data1\SIGMA\K
 
 *BILJESKE
 

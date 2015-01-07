@@ -1031,7 +1031,7 @@ return
 
 /*!  *void TDBFin::konvZn()
  *   Koverzija znakova
- *  \note sifra: KZ
+ *  biljeska: sifra: KZ
  */
 
 *void TDBFin::konvZn()

@@ -20,7 +20,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_ExePath_FAKT_NarudzbaSaCijenama
+  * var: *string FmkIni_ExePath_FAKT_NarudzbaSaCijenama
   *  Odredjuje da li ce se na narudzbenici prikazivati cijene
   *  N - bez cijena, default vrijednost
   *  D - prikazi i cijene
@@ -29,7 +29,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_NARUDZBENICA_DobAdresa
+  * var: *string FmkIni_KumPath_NARUDZBENICA_DobAdresa
   *  Odredjuje adresu dobavljaca
   *  _ - default vrijednost
   */
@@ -37,7 +37,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_NARUDZBENICA_DobTelefon
+  * var: *string FmkIni_KumPath_NARUDZBENICA_DobTelefon
   *  Odredjuje telefon dobavljaca
   *  _ - default vrijednost
   */
@@ -45,7 +45,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_NARUDZBENICA_DobDomZR
+  * var: *string FmkIni_KumPath_NARUDZBENICA_DobDomZR
   *  Odredjuje ziro racun dobavljaca
   *  _ - default vrijednost
   */
@@ -53,7 +53,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_NARUDZBENICA_DobRegBr
+  * var: *string FmkIni_KumPath_NARUDZBENICA_DobRegBr
   *  Odredjuje registarski broj dobavljaca
   *  _ - default vrijednost
   */
@@ -61,7 +61,7 @@
 
 
 /* ingroup ini
-  * \var *string FmkIni_KumPath_NARUDZBENICA_DobPorBr
+  * var: *string FmkIni_KumPath_NARUDZBENICA_DobPorBr
   *  Odredjuje poreski broj dobavljaca
   *  _ - default vrijednost
   */
@@ -71,7 +71,7 @@
 
 /*!  StNarKup()
  *   Stampa narudzbenice
- *  \todo Prebaciti u /RPT
+ *  todo: Prebaciti u /RPT
  */
 
 function StNarKup()
@@ -279,7 +279,7 @@ return
 /*!  fakt_uzmi_var(cVar)
  *   Uzima varijable
  *   cVar
- *  \return cVrati
+ *  return: cVrati
  */
 
 function fakt_uzmi_var(cVar)

@@ -729,7 +729,7 @@ return lRet
  *   cDef - default tj.ponudjeni tekst
  *   cTekst - opis podatka koji se unosi
  *   Edit proizvoljnog teksta u varijablu ckonto1,ckonto2 ili ckonto3 ukoliko je izabrana varijabla duzine 0 tj.nije joj vec dodijeljena vrijednost
- *  \return 0
+ *  return: 0
  */
 
 function Konto(nBroj, cDef, cTekst)
@@ -800,7 +800,7 @@ return 0
  *   cDef - default tj.ponudjeni tekst
  *   cTekst - opis podatka koji se unosi
  *   Edit proizvoljnog teksta u varijablu cRj1 ili cRj2 ukoliko je izabrana varijabla duzine 0 tj.nije joj vec dodijeljena vrijednost
- *  \return 0
+ *  return: 0
  */
 
 function RJ(nBroj,cDef,cTekst)
@@ -898,7 +898,7 @@ return 0
  *   lFaktura - .t. i ako je npr.nBroj==1 filuju se i varijable cBrFakt1 i dDatFakt1 koje cuvaju broj i datum fakture, .f. - ne edituju se ove varijable sto je i default vrijednost
  *   dp - duzina sifre partnera, ako se ne navede default vrijednost=6
  *   Edit sifre partnera u varijablu cPartner1...ili...cPartner5 ukoliko je izabrana varijabla duzine 0 tj.nije joj vec dodijeljena vrijednost
- *  \return 0
+ *  return: 0
  */
 
 function Partner(nBroj,cDef,cTekst,lFaktura,dp)

@@ -1405,7 +1405,7 @@ return nRet
 
 /*!  fakt_rekap_tarife(cPMP,cRegion)
  *   Rekapitulacija po tarifama
- *  \todo Prebaciti u /RPT
+ *  todo: Prebaciti u /RPT
  *   cPMP
  *   cRegion
  */
@@ -1546,7 +1546,7 @@ return
 
 /*!  fakt_realizacija_partner()
  *   Realizacija po partnerima
- *  \todo Prebaciti u /RPT
+ *  todo: Prebaciti u /RPT
  */
 
 function fakt_realizacija_partner()
