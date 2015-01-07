@@ -245,15 +245,17 @@ return cReturn
 
 
 
-// ------------------------------------------------
-// ------------------------------------------------
+
 function SljBrKalk(cTipKalk, cIdFirma, cSufiks)
 
 local cBrKalk:=space(8)
+
 if cSufiks==nil
 	cSufiks:=SPACE(3)
 endif
+
 if gBrojac=="D"
+
 	if glBrojacPoKontima
 		select doks
 		set order to tag "1S"
@@ -282,6 +284,7 @@ if gBrojac=="D"
 		cBrKalk:=UBrojDok(val(left(cBrKalk,5)) + 1, ;
 			5, right(cBrKalk,3) )
 	endif
+
 endif
 return cBrKalk
 
@@ -291,7 +294,9 @@ return cBrKalk
 // --------------------------------------------------------
 // uvecava broj kalkulacije sa stepenom uvecanja nUvecaj
 // --------------------------------------------------------
+
 function GetNextKalkDoc(cIdFirma, cIdTipDok, nUvecaj)
+
 local xx
 local i
 local lIdiDalje
@@ -307,10 +312,12 @@ select doks
 set order to tag "1"
 
 seek cIdFirma + cIdTipDok + "XXX"
+
 // vrati se na zadnji zapis
 skip -1
 
 do while .t.
+
 	for i := 2 to LEN(ALLTRIM(field->brDok))
 		if !IsNumeric(SubStr(ALLTRIM(field->brDok),i,1))
 			lIdiDalje := .f.
@@ -339,7 +346,7 @@ return cResult
 
 
 
-/*!  MMarza2()
+/*  MMarza2()
  *   Daje iznos maloprodajne marze
  */
 
@@ -356,8 +363,7 @@ return nMarza2
 
 
 
-
-/*!  KnjizSt()
+/*  KnjizSt()
  *   Proracun knjiznog stanja za zadanu robu i prodavnicu
  */
 

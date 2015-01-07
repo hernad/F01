@@ -48,6 +48,7 @@
 
 
 */
+
 #command SET ECHO <*x*>         =>
 #command SET HEADING <*x*>      =>
 #command SET MENU <*x*>         =>
@@ -1020,10 +1021,4 @@
       => ordDestroy( <(cOrdName1)>, <(cOrdBag1)> )                      ;
       [; ordDestroy( <(cOrdNameN)>, <(cOrdBagN)> ) ]
 
-#define ROUND(x,y)  rOund(rOund(x,8),y)
-#define round(x,y)  rOund(rOund(x,8),y)
-#define Round(x,y)  rOund(rOund(x,8),y)
-#define RounD(x,y)  rOund(rOund(x,8),y)
-#define ROunD(x,y)  rOund(rOund(x,8),y)
-#define ROUnD(x,y)  rOund(rOund(x,8),y)
-#define rounD(x,y)  rOund(rOund(x,8),y)
+

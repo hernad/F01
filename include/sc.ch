@@ -81,3 +81,12 @@
 #define AL_SILVER 3
 #define AL_GOLD 4
 #define AL_PLATINIUM 5
+
+
+#define ROUND(x,y)  rOund(rOund(x,8),y)
+#define round(x,y)  rOund(rOund(x,8),y)
+#define Round(x,y)  rOund(rOund(x,8),y)
+#define RounD(x,y)  rOund(rOund(x,8),y)
+#define ROunD(x,y)  rOund(rOund(x,8),y)
+#define ROUnD(x,y)  rOund(rOund(x,8),y)
+#define rounD(x,y)  rOund(rOund(x,8),y)

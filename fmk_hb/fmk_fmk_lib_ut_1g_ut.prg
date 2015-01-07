@@ -111,6 +111,7 @@ SETKEY( ASC('}') , {|| __KEYBOARD('�') }  )
   SETKEY( ASC('@') , {|| __KEYBOARD('�') }  )
 RETURN
 
+/*
 function Sleep(nSleep)
 
 local nStart, nCh
@@ -135,7 +136,7 @@ do while .t.
 enddo
 
 return
-
+*/
 
 function ScLibVer()
 return DBUILD

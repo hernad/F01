@@ -33,4 +33,4 @@ $hb_pkg_install.hbm
 {LX_64&linux}-lz
 
 -lmy_hbuddall
--ldebugiraj_dll
+{allwin}-ldebugiraj_dll

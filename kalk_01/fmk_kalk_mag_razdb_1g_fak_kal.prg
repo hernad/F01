@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -13,22 +13,24 @@
 #include "kalk01.ch"
 
 function FaKaMag()
+
 private Opc:={}
 private opcexe:={}
 private Izbor:=1
 
 AADD(Opc,"1. fakt->kalk (10->14) racun veleprodaje               ")
-AADD(opcexe,{|| Prenos() })
+AADD(opcexe,{|| fakt_10_kalk_14() })
+
 AADD(Opc,"2. fakt->kalk (12->96) otpremnica")
 AADD(opcexe,{||  PrenosOt()  })
 AADD(Opc,"3. fakt->kalk (19->96) izlazi po ostalim osnovama")
-AADD(opcexe,{||  PrenosOt("19") })         
+AADD(opcexe,{||  PrenosOt("19") })
 AADD(Opc,"4. fakt->kalk (01->10) ulaz od dobavljaca")
-AADD(opcexe,{||  PrenosOt("01_10") })          
+AADD(opcexe,{||  PrenosOt("01_10") })
 AADD(Opc,"5. fakt->kalk (0x->16) doprema u magacin")
-AADD(opcexe,{||  PrenosOt("0x") })          
+AADD(opcexe,{||  PrenosOt("0x") })
 AADD(Opc,"6. fakt->kalk, prenos otpremnica za period")
-AADD(opcexe,{||  PrenOtPeriod() })          
+AADD(opcexe,{||  PrenOtPeriod() })
 
 
 Menu_SC("fkma")
@@ -41,6 +43,7 @@ return
 // otvori tabele prenosa
 // --------------------------------------
 static function _o_pr_tbls()
+
 O_KONCIJ
 O_PARAMS
 O_PRIPR
@@ -99,7 +102,7 @@ Box(, 15, 70 )
 DO WHILE .t.
 
     _r_br := 0
-  
+
     @ m_x + 1, m_y + 2 SAY "Broj kalkulacije " + _tip_kalk + " -" GET _br_kalk_dok PICT "@!"
     @ m_x + 1, col() + 2 SAY "Datum:" GET _dat_kalk
     @ m_x + 3, m_y + 2 SAY "Konto zaduzuje :" GET _id_kt PICT "@!" VALID EMPTY( _id_kt ) .OR. P_Konto( @_id_kt )
@@ -110,16 +113,16 @@ DO WHILE .t.
     endif
 
     _fakt_id_firma := _id_firma
- 
+
     // postavi uslove za period...
     @ m_x + 6, m_y + 2 SAY "FAKT: id firma:" GET _fakt_id_firma
     @ m_x + 7, m_y + 2 SAY "Vrste dokumenata:" GET _tip_dok_fakt PICT "@S30"
-    @ m_x + 8, m_y + 2 SAY "Dokumenti u periodu od" GET _d_fakt_od 
+    @ m_x + 8, m_y + 2 SAY "Dokumenti u periodu od" GET _d_fakt_od
     @ m_x + 8, col() + 1 SAY "do" GET _d_fakt_do
 
     // uslov za sifre artikla
     @ m_x + 10, m_y + 2 SAY "Uslov po artiklima:" GET _artikli PICT "@S30"
-    
+
     READ
 
     IF LastKey() == K_ESC
@@ -127,8 +130,8 @@ DO WHILE .t.
     ENDIF
 
     // snimi parametre
-    SELECT params 
-    WPar("k1",_id_kt)	
+    SELECT params
+    WPar("k1",_id_kt)
     WPar("k2",_id_kt_2)
     WPar("d1",_d_fakt_od)
     WPar("d2",_d_fakt_do)
@@ -139,7 +142,7 @@ DO WHILE .t.
     SELECT xfakt
     SET ORDER TO TAG "1"
     SEEK _fakt_id_firma
-  
+
     DO WHILE !EOF() .AND. field->idfirma == _fakt_id_firma
 
         // provjeri po vrsti dokumenta
@@ -149,7 +152,7 @@ DO WHILE .t.
         ENDIF
 
         // provjeri po datumskom uslovu
-        IF field->datdok < _d_fakt_od .OR. field->datdok > _d_fakt_do  
+        IF field->datdok < _d_fakt_od .OR. field->datdok > _d_fakt_do
             SKIP
             LOOP
         ENDIF
@@ -158,25 +161,25 @@ DO WHILE .t.
         IF !EMPTY( _artikli )
 
             _usl_roba := Parsiraj( _artikli, "idroba" )
-                   
+
             IF !( &_usl_roba )
                 SKIP
                 LOOP
             ENDIF
-          
+
         ENDIF
 
         SELECT KONCIJ
         SEEK TRIM( _id_kt )
 
         SELECT xfakt
-     
+
         // provjeri sifru u sifrarniku...
         IF !ProvjeriSif("!eof() .and. '" + xfakt->idfirma + xfakt->idtipdok + xfakt->brdok + "'==IdFirma+IdTipDok+BrDok","IDROBA",F_ROBA)
             MsgBeep("U ovom dokumentu nalaze se sifre koje ne postoje u tekucem sifrarniku!#Prenos nije izvrsen!")
             LOOP
         ENDIF
-     
+
         SELECT ROBA
         hseek xfakt->idroba
 
@@ -197,16 +200,16 @@ DO WHILE .t.
         SELECT pripr
         GO BOTTOM
         // provjeri da li već postoji artikal prenesen, pa ga saberi sa prethodnim
-        LOCATE FOR idroba == xfakt->idroba        
+        LOCATE FOR idroba == xfakt->idroba
 
         IF FOUND()
 
             // saberi ga sa prethodnim u pripremi
-            REPLACE kolicina with kolicina + xfakt->kolicina        
-        
+            REPLACE kolicina with kolicina + xfakt->kolicina
+
         ELSE
-            
-            // nema artikla, dodaj novi...        
+
+            // nema artikla, dodaj novi...
             APPEND BLANK
 
             REPLACE idfirma with _id_firma,;
@@ -237,19 +240,19 @@ DO WHILE .t.
 
         SELECT xfakt
         SKIP
-    
+
     ENDDO
-    
+
     if _r_br > 0
 
     	@ m_x + 14, m_y + 2 SAY "Dokument je generisan !!"
-     
+
     	inkey(4)
-	
+
     	@ m_x + 14, m_y + 2 SAY SPACE(30)
-	
+
 	EXIT
-    
+
     endif
 
 ENDDO
@@ -261,11 +264,11 @@ close all
 return
 
 
-/*!  Prenos()
+/*!  fakt_10_kalk_14()
  *   Prenos FAKT 10 -> KALK 14 (veleprodajni racun)
  */
- 
-function Prenos()
+
+function fakt_10_kalk_14()
 
 local nRabat:=0
 local cIdFirma:=gFirma
@@ -298,14 +301,18 @@ cIdKonto:=padr("1200",7)
 cIdKonto2:=padr("1310",7)
 cIdZaduz2:=space(6)
 
+altd()
+
 if glBrojacPoKontima
-	Box("#FAKT->KALK",3,70)
+
+  Box("#FAKT->KALK",3,70)
 		@ m_x+2, m_y+2 SAY "Konto razduzuje" GET cIdKonto2 pict "@!" valid P_Konto(@cIdKonto2)
 		read
 	BoxC()
-	cSufiks:=SufBrKalk(cIdKonto2)
-	cBrKalk:=SljBrKalk("14", cIdFirma, cSufiks)
-	//cBrKalk:=GetNextKalkDoc(cIdFirma, "14")
+
+	cSufiks := SufBrKalk(cIdKonto2)
+	cBrKalk := SljBrKalk("14", cIdFirma, cSufiks)
+
 else
 	//******* izbaceno koristenje stare funkcije !!!
 	//cBrKalk:=SljBrKalk("14",cIdFirma)
@@ -520,21 +527,21 @@ endif
 cIdZaduz2:=space(6)
 
 if glBrojacPoKontima
-	
+
 	Box("#FAKT->KALK",3,70)
 		@ m_x+2, m_y+2 SAY "Konto zaduzuje" GET cIdKonto  pict "@!" valid P_Konto(@cIdKonto)
 		read
 	BoxC()
-	
+
 	cSufiks:=SufBrKalk(cIdKonto)
 	cBrKalk:=SljBrKalk(cTipKalk, cIdFirma, cSufiks)
 	//cBrKalk:=GetNextKalkDoc(cIdFirma, cTipKalk)
-	
+
 else
-	
+
 	//cBrKalk:=SljBrKalk(cTipKalk,cIdFirma)
 	cBrKalk:=GetNextKalkDoc(cIdFirma, cTipKalk)
-	
+
 endif
 
 Box(,15,60)
@@ -542,7 +549,7 @@ Box(,15,60)
 do while .t.
 
   nRBr:=0
-  
+
   @ m_x+1,m_y+2   SAY "Broj kalkulacije "+cTipKalk+" -" GET cBrKalk pict "@!"
   @ m_x+1,col()+2 SAY "Datum:" GET dDatKalk
   @ m_x+3,m_y+2   SAY "Konto zaduzuje :" GET cIdKonto  pict "@!" when !glBrojacPoKontima valid P_Konto(@cIdKonto)
@@ -552,7 +559,7 @@ do while .t.
   endif
 
   cFaktFirma := cIdFirma
-  
+
   @ m_x+6,m_y+2 SAY SPACE(60)
   @ m_x+6,m_y+2 SAY "Broj dokumenta u FAKT: " GET cFaktFirma
   @ m_x+6,col()+1 SAY "-" GET cIdTipDok VALID cIdTipDok $ "00#01#10#12#19#16"
@@ -565,16 +572,16 @@ do while .t.
   else
   	cFaktDob := cBrDok
   endif
- 
+
   read
-  
+
   if lastkey()==K_ESC
     exit
   endif
 
   select xfakt
   seek cFaktFirma+cIdTipDok+cBrDok
-  
+
   if !found()
      Beep(4)
      @ m_x+14,m_y+2 SAY "Ne postoji ovaj dokument !!"
@@ -590,20 +597,20 @@ do while .t.
      else
 	cTxt:=""
      endif
-     
+
      // uzmi i partnera za prebaciti
      cIdPartner := field->idpartner
-     
+
      private cBeze:=" "
 
      if cTipKalk $ "10"
-       
+
        cIdPartner:=space(6)
        @ m_x+14,m_y+2 SAY "Sifra partnera:"  GET cIdpartner pict "@!" valid P_Firma(@cIdPartner)
        @ m_x+15,m_y+2 SAY "<ENTER> - prenos" GET cBeze
-       
+
        read
-     
+
      endif
 
      select PRIPR
@@ -615,9 +622,9 @@ do while .t.
       @ m_x+8,m_y+2 SAY space(30)
       loop
      endif
-     
+
      go bottom
-     
+
      if brdok == cBrKalk
      	nRbr:=val(Rbr)
      endif
@@ -626,12 +633,12 @@ do while .t.
      SEEK TRIM(cIdKonto)
 
      select xfakt
-     
+
      IF !ProvjeriSif("!eof() .and. '"+cFaktFirma+cIdTipDok+cBrDok+"'==IdFirma+IdTipDok+BrDok","IDROBA",F_ROBA)
        MsgBeep("U ovom dokumentu nalaze se sifre koje ne postoje u tekucem sifrarniku!#Prenos nije izvrsen!")
        LOOP
      ENDIF
-     
+
      do while !eof() .and. cFaktFirma+cIdTipDok+cBrDok==IdFirma+IdTipDok+BrDok
        select ROBA; hseek xfakt->idroba
 
@@ -677,17 +684,17 @@ do while .t.
        select xfakt
        skip
      enddo
-     
+
      @ m_x+8,m_y+2 SAY "Dokument je prenesen !!"
-     
+
      if gBrojac=="D"
         cBrKalk:=UBrojDok(val(left(cbrkalk,5))+1,5,right(cBrKalk,3))
      endif
-     
+
      inkey(4)
-     
+
      @ m_x+8,m_y+2 SAY space(30)
-  
+
   endif
 
 enddo
@@ -723,5 +730,3 @@ else
 endif
 
 return lResult
-
-
