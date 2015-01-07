@@ -537,19 +537,22 @@ if !gAppSrv
 endif
 
 // ako nije zadan parametar uzmi osnovnu modifikaciju
+
 if cCHSName==NIL .or. EMPTY(cChsName)
 	cCHSFile:=(EXEPATH + gModul + ".CHS")
 else
 	cCHSFile:=(EXEPATH + cCHSName + ".CHS")
 endif
 
+altd()
+
 ? "Modifikacija struktura " + cCHSFile
 ? "Pricekajte koji trenutak ..."
 
-cEXT:=SLASH+"*."+INDEXEXT
+cEXT:=SLASH + "*." + INDEXEXT
 
 ? "Modifikacija u privatnom direktoriju ..."
-Modstru(TRIM(cCHSFile),trim(goModul:oDataBase:cDirPriv))
+Modstru(TRIM(cCHSFile), trim(goModul:oDataBase:cDirPriv))
 
 ? "Modifikacija u direktoriju sifrarnika ..."
 Modstru(TRIM(cCHSFile),trim(goModul:oDataBase:cDirSif))
@@ -650,8 +653,10 @@ parameters cImeF,cPath, fString
 ? SPACE(40),"bring.out, 10.99, ver 02.33 CDX"
 ? SPACE(40),"-------------------------------"
 ?
-set deleted on  // ne kopiraj izbrisane zapise !!!
+set deleted on  // ne kopiraj izbrisane zapise
 close all
+
+altd()
 
 cmxAutoOpen(.f.)  // ne otvaraj CDX-ove
 
@@ -663,7 +668,7 @@ if pcount()==0
   	quit
 endif
 
-if fstring=nil
+if fstring == nil
 	fString=.f.
 endif
 
@@ -672,13 +677,16 @@ if cPath==nil
 endif
 
 if !fString
-	if RIGHT(cPath,1)<>SLASH
+
+  if RIGHT(cPath,1)<>SLASH
    		cPath:=cPath+SLASH
  	endif
+
  	nH:=FOPEN(ToUnix(cImeF))
  	if nH==-1
    		nH:=FOPEN(".."+SLASH+cImeF)
  	endif
+
 else
 	if right(cImeF,4)<>"."+DBFEXT
      		cImeF:=cImeF+"."+DBFEXT
@@ -696,20 +704,22 @@ private fRenameDBF:=.f.
 fprom:=.f.
 nProlaza:=0
 
+altd()
+
 do while fString .or. !FEOF(nH)
 	++nLinija
 	if fString
     	if nProlaza=0
        		cLin:="*"+cImeF
        		nProlaza++
-    	elseif nprolaza=1
+    	elseif nProlaza=1
        		cLin:=cKomanda
        		nProlaza++
     	else
        		exit
     	endif
 else
-	cLin:=FReadLN(nH,1,200)
+	cLin:=FReadLN( nH, 1, 200)
     	cLin:=left(cLin,len(cLin)-2)
 endif
 

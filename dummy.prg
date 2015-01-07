@@ -1,6 +1,9 @@
 /* net:127.0.0.1:2941:topsecret:data/_tst_ */
 
 //#define DBSERVER  "f01-srv"
+
+#include "f01.ch"
+
 #define DBSERVER  "192.168.45.149"
 #define DBPORT    2941
 #define DBPASSWD  "f01"
@@ -25,7 +28,9 @@ function mkdir()
 alert( "mkdir" )
 
 
-FUNCTION ARG0()
+FUNCTION tekuci_direktorij()
+ RETURN "." + SLASH
+
 
 
 FUNCTION mnu_narudzbenica()

@@ -1,6 +1,6 @@
 
 
-#xcommand O_KORISN    => select (F_KORISN);  use (ToUnix("." + SLASH + "korisn")); set order to tag "IME"
+#xcommand O_KORISN    => select (F_KORISN);  use (ToUnix("." + SLASH + "KORISN")); set order to tag "IME"
 #xcommand O_PARAMS    => select (F_PARAMS);  use (ToUnix(PRIVPATH+"params")) ; set order to tag  "ID"
 #xcommand O_GPARAMS   => altd(); select (F_GPARAMS); use (ToUnix( SLASH + "gparams")) ;   set order to tag  "ID"
 #xcommand O_GPARAMSP  => select (F_GPARAMSP); use (ToUnix(PRIVPATH+"gparams")) ; set order to tag  "ID"

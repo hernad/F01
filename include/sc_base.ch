@@ -1,5 +1,5 @@
 
-#define EXEPATH   FilePath(Arg0())
+#define EXEPATH   tekuci_direktorij()
 
 #define SIFPATH   trim(cDirSif)+SLASH
 #define PRIVPATH  trim(cDirPriv)+SLASH

@@ -316,14 +316,12 @@ return
 
 
 function SetNaslov(oApp)
+
 gNaslov:= oApp:cName+" HB, " + oApp:cPeriod + " " + D_VERZIJA
-#ifndef PROBA
 
 	SETCANCEL(.f.)
 
-	#ifndef TRIAL
-
-	if !gInstall
+	if !is_install()
 	 IzvrsenIn(oApp:cP3)
 	endif
 
@@ -332,12 +330,7 @@ gNaslov:= oApp:cName+" HB, " + oApp:cPeriod + " " + D_VERZIJA
 	PUBLIC bGlobalErrorHandler
 	bGlobalErrorHandler:={|objError| GlobalErrorHandler(objError,.f.)}
 	ErrorBlock(bGlobalErrorHandler)
-#else
 
-	PUBLIC EVar:="#Erky#12345678901234567890#0000"
- 	gNaslov+=" , Reg: "+SUBSTR(EVar,7,20)
-
-#endif
 return
 
 
@@ -707,13 +700,15 @@ do while .t.
 		PrijRunInstall(m_sif, @cKom)
 	endif
 
-	m_sif:=CryptSC(upper(m_sif))
 	if (m_ime=="SIGMAX" .or. m_sif=="SIGMAX")
-		Imekorisn:="SYSTEM"
-		SifraKorisn:=m_sif
-		KLevel:="0"
-		exit
+	  Imekorisn:="SYSTEM"
+	  SifraKorisn:=m_sif
+	  KLevel:="0"
+	  exit
 	endif
+
+	m_sif:=CryptSC(upper(m_sif))
+
 
 	oApp:cSifra:=m_sif
 	LOCATE FOR oApp:cSifra==korisn->sif
@@ -768,9 +763,6 @@ endif
 
 if !oApp:lStarted
 	if lScreen
-		//korisn->nk napustiti
-		//PozdravMsg(gNaslov, gVerzija, korisn->nk)
-		//lGreska:=.f.
 		PozdravMsg(gNaslov, gVerzija, .f.)
 	endif
 endif
@@ -781,7 +773,7 @@ else
 	Normal:="W/N,N/W,,,N/W"
 endif
 
-if (ImeKorisn=="SYSTEM")
+if ( oApp:cKorisn =="SYSTEM")
 
 	oApp:oDatabase:setDirKum(".")
 	oApp:oDatabase:setDirSif(".")
@@ -797,7 +789,7 @@ else
 	SifraKorisn:=korisn->sif
 
   altd()
-
+	
 	oApp:oDatabase:setDirKum( ToUnix( korisn->dirRad ) )
 	oApp:oDatabase:setDirSif( ToUnix( korisn->dirSif ) )
 	oApp:oDatabase:setDirPriv( ToUnix( korisn->dirPriv) )
@@ -812,7 +804,6 @@ else
 	endif
 
 endif
-// eliminisati System globalnu varijablu
 
 System := (Trim(ImeKorisn)=="SYSTEM")
 USE
@@ -900,6 +891,8 @@ static function GetSifra(oApp, m_ime, m_sif)
 m_ime:=Space(10)
 m_sif:=Space(6)
 
+altd()
+
 Box("pas",3,30,.F.)
 
 SET CURSOR ON
@@ -984,7 +977,7 @@ O_KORISN
 LOCATE FOR alltrim(ImeKorisn)==alltrim(korisn->ime) .and. SifraKorisn=korisn->sif
 Scatter()
 
-if lScreen
+if is_install() .OR. lScreen
 	Box("radD",5,65,.f.,"Lokacije podataka")
 	SET CURSOR ON
 	@ m_x+1,m_y+2 SAY "Podesiti direktorije  "  GET cDN PICTURE "@!" valid cDN$"DN"

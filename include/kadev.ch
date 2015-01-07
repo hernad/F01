@@ -56,7 +56,7 @@
 #define APRISUTNOST  16
 #define ABROJ_LEG    17
 #define ABROJ        17
-#define EXE_PATH   FilePath(Arg0())
+#define EXE_PATH   tekuci_direktorij()
 
 #command DEL2                                                            ;
       => (nArr)->(DbDelete())                                            ;
@@ -84,5 +84,3 @@
 #xcommand O_GLOBUSL  => select(F_GLOBUSL);  USE (KUMPATH+"globusl") ; set order to tag "1"
 #xcommand O_OBRAZDEF => select(F_OBRAZDEF); USE (KUMPATH+"obrazdef"); set order to tag "1"
 #xcommand O_USLOVI   => select(F_USLOVI);   USE (KUMPATH+"uslovi")  ; set order to tag "1"
-
-

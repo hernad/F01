@@ -12,52 +12,30 @@
 
 #include "f01.ch"
 #include "fileio.ch"
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software
- * ----------------------------------------------------------------
- * $Source: c:/cvsroot/cl/sigma/sclib/os/1g/file_io.prg,v $
- * $Author: ernad $
- * $Revision: 1.3 $
- * $Log: file_io.prg,v $
- * Revision 1.3  2002/08/19 10:01:47  ernad
- *
- *
- * podesenja za CLIP
- *
- * Revision 1.2  2002/06/21 02:28:36  ernad
- * interni sql parser - init, testiranje pos-sql
- *
- *
- */
 
-/***
-*  FilePos( <nHandle> ) --> nPos
-*  Report the current position of the file pointer in a binary file
-*
-*/
+
+static function FileSize(nHandle)
+
+	local nCurrent, nLength
+
+	// Get file position
+	nCurrent := FilePos(nHandle)
+
+	// Get file length
+	nLength := FSEEK(nHandle, 0, FS_END)
+
+	// Reset file position
+	FSEEK(nHandle, nCurrent)
+
+	return nLength
+
 function FilePos(nHandle)
+
 local xRet
 
-xRet:=FSEEK(nHandle, 0, FS_RELATIVE)
+xRet := FSEEK(nHandle, 0, FS_RELATIVE)
 return xRet
 
-/*
-function FileSize(nHandle)
-
-local nCurrent, nLength
-
-// Get file position
-nCurrent := FilePos(nHandle)
-
-// Get file length
-nLength := FSEEK(nHandle, 0, FS_END)
-
-// Reset file position
-FSEEK(nHandle, nCurrent)
-
-return nLength
-*/
 
 
 function FEof(nHandle)

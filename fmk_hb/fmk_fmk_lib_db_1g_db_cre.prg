@@ -21,8 +21,12 @@ if nArea==nil
 endif
 
 if (nArea==-1 .or. nArea==F_KORISN)
-	 cImeDBF:=ToUnix("." + SLASH + "korisn.dbf")
-	 //? "File ",cImeDBF,"ima li ga ?", File(cImeDBF)
+
+	 cImeDBF:=ToUnix("." + SLASH + "KORISN.dbf")
+
+	 altd()
+
+
 	 IF !FILE(cImeDBF)
 	  aDbf:={}
 	  AADD(aDbf,{"ime","C",10,0})
@@ -52,7 +56,7 @@ if (nArea==-1 .or. nArea==F_KORISN)
 		  DirPriv with             '*'
 	   USE
 	 ENDIF
-	 //? "Create_Index KORISN/IME"
+
 
 	 CREATE_INDEX("IME","ime", ToUnix("." + SLASH + "korisn.dbf"),.t.)
 endif

@@ -229,13 +229,16 @@ cFileName := STRTRAN( cFileName, "C:" + BACKSLASH, "" )
 cFileName := STRTRAN( cFileName, "C:" + SLASH, "" )
 #ifdef __PLATFORM__UNIX
 
-	cFileName := STRTRAN( cFileName, BACKSLASH, SLASH )
-	IF LEFT( cFileName, 8 ) == "/GPARAMS"
-	  cFileName := STRTRAN( cFileName, "/GPARAMS", DATA_ROOT + SLASH + "GPARAMS" )
-	ENDIF
+  IF is_install()
 
-	IF LEFT( cFileName, 6) == "SIGMA/"
-   	cFileName := STRTRAN( cFileName, "SIGMA/", DATA_ROOT + SLASH + "BRINGOUT" + SLASH )
+	  cFileName := STRTRAN( cFileName, BACKSLASH, SLASH )
+	  IF LEFT( cFileName, 8 ) == "/GPARAMS"
+	    cFileName := STRTRAN( cFileName, "/GPARAMS", DATA_ROOT + SLASH + "GPARAMS" )
+	  ENDIF
+
+	  IF LEFT( cFileName, 6) == "SIGMA/"
+   	   cFileName := STRTRAN( cFileName, "SIGMA/", DATA_ROOT + SLASH + "BRINGOUT" + SLASH )
+    ENDIF
   ENDIF
 
 #endif
