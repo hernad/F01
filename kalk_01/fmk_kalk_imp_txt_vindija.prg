@@ -104,6 +104,7 @@ return
  *   Import dokumenta
  */
 function ImpTxtDok()
+
 local cCtrl_art := "N"
 private cExpPath
 private cImpFile
@@ -129,7 +130,7 @@ endif
 
 // provjeri da li je fajl za import prazan
 if CheckFile(cImpFile)==0
-	MsgBeep("Odabrani fajl je prazan!#!!! Prekidam operaciju !!!")
+	MsgBeep("Odabrani fajl je prazan!#! Prekidam operaciju !")
 	return
 endif
 
@@ -587,7 +588,7 @@ nStart:=0
 for i:=1 to nBrLin
 
 	aFMat:=SljedLin(cTxtFile, nStart)
-      	nStart:=aFMat[2]
+  nStart:=aFMat[2]
 	// uzmi u cText liniju fajla
 	cVar:=aFMat[1]
 
@@ -608,7 +609,7 @@ next
 
 select temp
 
-// pro�i kroz temp i napuni da li je dtype pozitivno ili negativno
+// prođi kroz temp i napuni da li je dtype pozitivno ili negativno
 // ali samo ako je u pitanju racun tabela... !
 if temp->(fieldpos("idtipdok")) <> 0
 	go top
@@ -736,7 +737,7 @@ return 1
 
 
 
-/*!  CheckDok()
+/*  CheckDok()
  *   Provjera da li postoje sve sifre u sifrarnicima za dokumente
  */
 static function CheckDok()
@@ -780,8 +781,8 @@ return .t.
 
 
 
-/*!  CheckPartn()
- *  \Provjerava i daje listu nepostojecih partnera pri importu liste partnera
+/*  CheckPartn()
+ *  Provjerava i daje listu nepostojecih partnera pri importu liste partnera
  */
 static function CheckPartn()
 
@@ -814,6 +815,7 @@ return LEN(aPomPart)
 // --------------------------------------------------------------------------
 // Provjerava i daje listu promjena na robi
 // --------------------------------------------------------------------------
+
 static function CheckRoba()
 
 aPomRoba := SDobExist( .t. )
@@ -913,6 +915,7 @@ return aRet
  *   Provjera da li postoje sifre partnera u sifraniku FMK
  */
 static function ParExist(lPartNaz)
+
 O_PARTN
 select temp
 go top
@@ -947,6 +950,7 @@ return aRet
  *   cFaktTD - fakt tip dokumenta
  */
 static function GetKTipDok(cFaktTD, cPm)
+
 cRet:=""
 
 if (cFaktTD == "" .or. cFaktTD == nil)
@@ -1043,11 +1047,12 @@ return cRet
 
 
 
-/*!  FaktExist()
+/*  FaktExist()
  *   vraca matricu sa parovima faktura -> pojavljuje se u azur.kalk
  *   nRight - npr. bez zadnjih nRight brojeva
  */
 static function FaktExist( nRight )
+
 local cBrFakt
 local cTDok
 
@@ -1096,10 +1101,7 @@ do while !EOF()
 	endif
 
 	if FOUND()
-		AADD(aRet, {cBrOriginal, ;
-			doks->idfirma + "-" + ;
-			doks->idvd + "-" + ;
-			ALLTRIM(doks->brdok)})
+		AADD(aRet, {cBrOriginal, doks->idfirma + "-" + doks->idvd + "-" + ALLTRIM(doks->brdok)})
 
 	endif
 
@@ -1121,6 +1123,7 @@ return aRet
  *         tabele
  */
 static function TTbl2Kalk(aFExist, lFSkip, lNegative, cCtrl_art )
+
 local cBrojKalk
 local cTipDok
 local cIdKonto
@@ -1223,6 +1226,8 @@ do while !EOF()
 	if cTDok <> cPTDok
 		nUvecaj := 0
 	endif
+
+  altd()
 
 	if cFakt <> cPFakt
 		++ nUvecaj
