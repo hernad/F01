@@ -20,7 +20,7 @@
  */
 
 
-/*! \file fmk/kalk/adm/mnu_adm.prg
+/* file fmk/kalk/adm/mnu_adm.prg
  *   Meniji administrativnih opcija
  */
 

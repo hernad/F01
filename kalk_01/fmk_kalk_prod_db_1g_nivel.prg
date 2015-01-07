@@ -20,7 +20,7 @@
  */
  
 
-/*! \file fmk/kalk/prod/db/1g/nivel.prg
+/* file fmk/kalk/prod/db/1g/nivel.prg
  *   Automatsko generisanje dokumenta nivelacije pri azuriranju 11 ili 81
  */
 

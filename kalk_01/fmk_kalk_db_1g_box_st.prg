@@ -26,7 +26,7 @@
  *
  */
 
-/*! \file fmk/kalk/db/1g/box_st.prg
+/* file fmk/kalk/db/1g/box_st.prg
  *   Racunanje i prikaz stanja robe
  */
 

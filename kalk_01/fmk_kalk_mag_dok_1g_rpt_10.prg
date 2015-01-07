@@ -19,7 +19,7 @@
  */
  
 
-/*! \file fmk/kalk/mag/dok/1g/rpt_10.prg
+/* file fmk/kalk/mag/dok/1g/rpt_10.prg
  *   Stampa dokumenta tipa 10
  */
 

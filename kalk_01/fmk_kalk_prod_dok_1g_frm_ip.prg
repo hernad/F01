@@ -21,7 +21,7 @@
  */
 
 
-/*! \file fmk/kalk/prod/dok/1g/frm_ip.prg
+/* file fmk/kalk/prod/dok/1g/frm_ip.prg
  *   Maska za unos i generisanje dokumenta tipa IP
  */
 

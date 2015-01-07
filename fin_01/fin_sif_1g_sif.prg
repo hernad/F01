@@ -20,7 +20,7 @@
  */
 
 
-/*! \file fmk/fin/sif/1g/sif.prg
+/* file fmk/fin/sif/1g/sif.prg
  *   Sifrarnici
  */
 

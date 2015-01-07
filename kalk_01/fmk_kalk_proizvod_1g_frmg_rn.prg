@@ -28,7 +28,7 @@
  */
  
 
-/*! \file fmk/kalk/proizvod/1g/frmg_rn.prg
+/* file fmk/kalk/proizvod/1g/frmg_rn.prg
  *   Ispravka broja veze - radni nalozi
  */
 

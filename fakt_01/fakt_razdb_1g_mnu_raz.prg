@@ -20,7 +20,7 @@
  */
  
 
-/*! \file fmk/fakt/razdb/1g/mnu_raz.prg
+/* file fmk/fakt/razdb/1g/mnu_raz.prg
  *   Centralni meni opcija za prenos podataka FAKT<->ostali moduli
  */
 

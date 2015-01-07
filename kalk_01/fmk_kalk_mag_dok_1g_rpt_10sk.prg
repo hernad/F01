@@ -29,7 +29,7 @@
  
 
 
-/*! \file fmk/kalk/mag/dok/1g/rpt_10sk.prg
+/* file fmk/kalk/mag/dok/1g/rpt_10sk.prg
  *   Stampa kalkulacije 10 - samo kolicine
  */
 

@@ -39,7 +39,7 @@
  */
 
 
-/*! \file fmk/fin/budzet/1g/budzet.prg
+/* file fmk/fin/budzet/1g/budzet.prg
  *   Budzet
  */
 

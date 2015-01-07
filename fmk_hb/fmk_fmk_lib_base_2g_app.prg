@@ -18,7 +18,7 @@
  * ----------------------------------------------------------------
  */
  
-/*! \file sclib/base/2g/app.prg
+/* file sclib/base/2g/app.prg
  *   Bazni aplikacijski objekat - TAppMod
  */
 
@@ -37,7 +37,7 @@ return oObj
 
 #ifdef CPP
 
-/*! \class TAppMod
+/* class TAppMod
  *   Bazni Aplikacijski objekt
  */
 

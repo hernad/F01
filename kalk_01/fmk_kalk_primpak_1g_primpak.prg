@@ -28,7 +28,7 @@
  */
  
 
-/*! \file fmk/kalk/primpak/1g/primpak.prg
+/* file fmk/kalk/primpak/1g/primpak.prg
  *   Operacija svodjenja artikala na primarno pakovanje
  */
 

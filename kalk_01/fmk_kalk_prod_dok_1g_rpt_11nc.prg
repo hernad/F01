@@ -37,7 +37,7 @@
  */
  
 
-/*! \file fmk/kalk/prod/dok/1g/rpt_11nc.prg
+/* file fmk/kalk/prod/dok/1g/rpt_11nc.prg
  *   Stampa kalkulacije 11 / magacin po nabavnim cjenama
  */
 

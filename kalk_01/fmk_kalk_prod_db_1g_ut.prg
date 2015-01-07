@@ -13,7 +13,7 @@
 #include "kalk01.ch"
 
 
-/*! \file fmk/kalk/prod/db/1g/ut.prg
+/* file fmk/kalk/prod/db/1g/ut.prg
  *   Razne funkcije
  */
 function MarzaMP(cIdVd, lNaprijed, aPorezi)

@@ -14,7 +14,7 @@
 
 
 
-/*! \file fmk/kalk/vt/1g/ut.prg
+/* file fmk/kalk/vt/1g/ut.prg
  *   Visokotarifni artikli
  */
 

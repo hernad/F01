@@ -54,7 +54,7 @@
  */
 
 
-/*! \file fmk/kalk/prod/dok/1g/rpt_41.prg
+/* file fmk/kalk/prod/dok/1g/rpt_41.prg
  *   Stampa dokumenta tipa 41
  */
 

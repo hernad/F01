@@ -13,7 +13,7 @@
 #include "kalk01.ch"
 
 
-/*! \file fmk/kalk/mag/dok/1g/frm_94.prg
+/* file fmk/kalk/mag/dok/1g/frm_94.prg
  *   Maska za unos dokumenta tipa 94
  */
 

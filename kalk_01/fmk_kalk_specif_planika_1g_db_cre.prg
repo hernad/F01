@@ -22,7 +22,7 @@
 
 *tbl tbl_kalk_ppprod;
 
-/*! \var tbl_kalk_ppprod
+/* var tbl_kalk_ppprod
  *   Pregled prometa prodavnice (ppprod)
  * 
  * \ingroup db_kalk

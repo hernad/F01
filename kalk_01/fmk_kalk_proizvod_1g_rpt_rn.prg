@@ -28,7 +28,7 @@
  */
  
 
-/*! \file fmk/kalk/proizvod/1g/rpt_rn.prg
+/* file fmk/kalk/proizvod/1g/rpt_rn.prg
  *   Stampa kalkulacije RN
  */
 

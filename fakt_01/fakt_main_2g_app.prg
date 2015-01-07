@@ -23,7 +23,7 @@ return oObj
 
 
 #ifdef CPP
-/*! \class TFaktMod
+/* class TFaktMod
  *   FAKT aplikacijski modul
  */
 

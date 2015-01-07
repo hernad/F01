@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,7 +14,7 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
 
@@ -59,7 +59,7 @@ if (nArea==-1 .or. nArea==F_KORISN)
 	   USE
 	 ENDIF
 	 //? "Create_Index KORISN/IME"
-	 
+
 	 CREATE_INDEX("IME","ime",ToUnix(".\korisn.dbf"),.t.)
 endif
 
@@ -123,7 +123,7 @@ if (nArea==-1 .or. nArea==F_PARAMS)
 		DBCREATE2(PRIVPATH+"params.dbf",aDbf)
 	endif
 	CREATE_INDEX("ID","fsec+fh+fvar+rbr",PRIVPATH+"params.dbf",.t.)
-	
+
 endif
 
 
@@ -234,7 +234,7 @@ AADD(aDbf, {"Tip","C",1,0} ) // tip varijable
 AADD(aDbf, {"Fv","C",15,0}  ) // sadrzaj
 
 if (nArea==-1 .or. nArea==F_GPARAMS)
-	cImeDBf:=ToUnix("\GPARAMS.DBF")
+	cImeDBf:=ToUnix( SLASH + "GPARAMS.DBF")
 	if !file(cImeDbf)
 		DBCREATE2(cImeDbf,aDbf)
 	endif
@@ -302,4 +302,3 @@ AADD(aDbf,{"_COMMIT_", "C", 1, 0})
 AADD(aDbf,{"_USER_", "N", 3, 0})
 
 return
-

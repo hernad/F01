@@ -39,7 +39,7 @@
  */
  
 
-/*! \file fmk/kalk/prod/dok/1g/frm_12.prg
+/* file fmk/kalk/prod/dok/1g/frm_12.prg
  *   Maska za unos dokumenta tipa 12
  */
 

@@ -71,7 +71,7 @@ return oObj
 
 #ifdef CPP
 
-/*! \class TSqlLog
+/* class TSqlLog
  *   FIN aplikacijski modul
  */
 

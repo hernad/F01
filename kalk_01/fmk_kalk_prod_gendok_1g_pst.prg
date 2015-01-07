@@ -36,7 +36,7 @@
  */
  
 
-/*! \file fmk/kalk/prod/gendok/1g/pst.prg
+/* file fmk/kalk/prod/gendok/1g/pst.prg
  *   Generisanje dokumenta pocetnog stanja prodavnice
  */
 

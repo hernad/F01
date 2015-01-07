@@ -20,7 +20,7 @@
  */
  
 
-/*! \file fmk/kalk/mag/rpt/1g/frm_kart.prg
+/* file fmk/kalk/mag/rpt/1g/frm_kart.prg
  *   Analiza kartica u magacinu
  */
 

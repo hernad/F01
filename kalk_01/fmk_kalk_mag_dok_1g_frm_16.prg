@@ -20,7 +20,7 @@
  */
  
 
-/*! \file fmk/kalk/mag/dok/1g/frm_16.prg
+/* file fmk/kalk/mag/dok/1g/frm_16.prg
  *   Maska za unos dokumenta tipa 16
  */
 

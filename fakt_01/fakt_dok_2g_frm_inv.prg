@@ -67,7 +67,7 @@
  */
 
 *string tbl_fakt_serBr
-/*! \var tbl_fakt_serBr
+/* var tbl_fakt_serBr
  *   predvidjeno za evidenciju serijskog broja artikla
  *
  * \note koliko mi je poznato NIKO ovu mogucnost ne koristi

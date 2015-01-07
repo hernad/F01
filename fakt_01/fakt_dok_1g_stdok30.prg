@@ -29,7 +29,7 @@
  *
  */
 
-/*! \file fmk/fakt/dok/1g/stdok30.prg
+/* file fmk/fakt/dok/1g/stdok30.prg
  *   Stampa faktura u varijanti 3 0
  */
  

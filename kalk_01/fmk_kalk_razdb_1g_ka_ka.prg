@@ -27,7 +27,7 @@
  */
  
 
-/*! \file fmk/kalk/razdb/1g/ka_ka.prg
+/* file fmk/kalk/razdb/1g/ka_ka.prg
  *   Preuzimanje kalkulacije iz druge firme
  */
 

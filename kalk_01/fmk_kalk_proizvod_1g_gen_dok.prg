@@ -19,7 +19,7 @@
  */
  
 
-/*! \file fmk/kalk/proizvod/1g/gen_dok.prg
+/* file fmk/kalk/proizvod/1g/gen_dok.prg
  *  
  */
 

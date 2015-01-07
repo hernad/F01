@@ -27,7 +27,7 @@
  */
  
 
-/*! \file fmk/kalk/proizvod/1g/frm_rn.prg
+/* file fmk/kalk/proizvod/1g/frm_rn.prg
  *   Maska za unos dokumenta tipa RN
  */
 

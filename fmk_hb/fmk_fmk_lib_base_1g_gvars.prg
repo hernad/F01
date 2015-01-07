@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -13,10 +13,10 @@
 #include "sc.ch"
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
- 
+
 
 /****v SC_BASE/gVeryBusyInterval ***
 
@@ -24,17 +24,17 @@
  Ernad Husremovic ernad@sigma-com.net
 
 *IME
- gVeryBusyInterval 
+ gVeryBusyInterval
 
 *OPIS
  gVeryBusyInterval:=IzFmkINI('Gateway','VeryBusyInterval','70', EXEPATH )
- 
+
  Broj sekundi nakon kojih ce se provjeravati da li je gateway
  zauzet.
  Preporuceno:
  70 - na kasama
  20 - u knjigovodstvu
- 
+
 ****/
 
 /****v SC_BASE/gKonvertPath ***
@@ -49,7 +49,7 @@
  IzFmkINI('FMK','KonvertPath','N', EXEPATH )
  D - konvertovati vrijednost varijabli koje predstavljaju lokacije
      podataka
- 
+
 ****/
 
 function SetScGVars()
@@ -97,7 +97,7 @@ PUBLIC h[20]
 PUBLIC lInstal:=.f.
 
 //  .t. - korisnik je SYSTEM
-PUBLIC System   
+PUBLIC System
 PUBLIC aRel:={}
 
 PUBLIC cDirRad
@@ -108,7 +108,7 @@ PUBLIC gNaslov
 public gSezonDir:=""
 public gRadnoPodr:="RADP"
 
-public ImeKorisn:="" 
+public ImeKorisn:=""
 public SifraKorisn:=""
 public KLevel:="9"
 
@@ -122,7 +122,7 @@ public gKodnaS:="8"
 public gWord97:="N"
 public g50f:=" "
 
-if !goModul:lStarted 
+if !goModul:lStarted
 	public cDirPriv:=""
 	public cDirRad:=""
 	public cDirSif:=""
@@ -204,7 +204,7 @@ endif
 if fSve
 public gSezonDir:=""
 public gRadnoPodr:="RADP"
-public ImeKorisn:="" 
+public ImeKorisn:=""
 public SifraKorisn:=""
 public KLevel:="9"
 
@@ -267,7 +267,7 @@ return nil
  *  Nakon toga ucitava iz GPARAMS ( gPTKonv, ... gKesiraj )
  *  \todo Ocigledno da je ovo funkcija za eliminaciju ...
  */
- 
+
 function IniGParam2(lSamoKesiraj)
 
 
@@ -351,7 +351,7 @@ endif
 InigEpson()
 public gMeniSif:=.f., gValIz:="280 ", gValU:="000 ", gKurs:="1"
 
-if file(ToUnix("\GPARAMS.DBF"))
+if file(ToUnix( SLASH + "GPARAMS.DBF"))
 
 O_GPARAMS
 O_PARAMS
@@ -377,16 +377,16 @@ if cPom=="xx"
     WPar_Printer()
 endif
 
-// HP STAMPACI  
+// HP STAMPACI
 private cSection:="P",cHistory:="H"; aHistory:={}
 cPom:="xx"
 RPAR("01",@cPom)
 if cPom=="xx"
-    InigHP()	 
+    InigHP()
     WPar_Printer()
 endif
 
-/// ZA POS, stampac tipa 0 !!!!  
+/// ZA POS, stampac tipa 0 !!!!
 private cSection:="P",cHistory:="0"; aHistory:={}
 gPINI:="xx"
 RPAR("01",@gPINI)
@@ -436,4 +436,3 @@ ELSE
 ENDIF
 
 return
-

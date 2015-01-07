@@ -34,7 +34,7 @@
  
 
 
-/*! \file fmk/kalk/mag/db/1g/nivel.prg
+/* file fmk/kalk/mag/db/1g/nivel.prg
  *   Generisanje dokumenta nivelacije cijena u magacinu
  */
 

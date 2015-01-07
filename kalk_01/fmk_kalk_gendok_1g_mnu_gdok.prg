@@ -15,7 +15,7 @@
 
 
 
-/*! \file fmk/kalk/gendok/1g/mnu_gdok.prg
+/* file fmk/kalk/gendok/1g/mnu_gdok.prg
  *   Meni opcija za generisanje dokumenata za modul KALK
  */
 

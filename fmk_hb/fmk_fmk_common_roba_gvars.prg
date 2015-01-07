@@ -20,7 +20,7 @@
 
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_ExePath_ROBA_BezIstihNaziva
   *  Da li ce se zabraniti unos istog naziva robe pod razlicitom sifrom?
   *  N - ne, default vrijednost

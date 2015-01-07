@@ -48,12 +48,12 @@
  */
 
 
-/*! \file fmk/fakt/dok/1g/stdrtf21.prg
+/* file fmk/fakt/dok/1g/stdrtf21.prg
  *   Ko zna koja varijanta stampe u RTF formatu
  */
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_KumPath_RTF_PartnerFS
   *  Velicina fonta za ispis partnera u rtf-fakturi
   *  28 - default vrijednost
@@ -61,7 +61,7 @@
 *string FmkIni_KumPath_RTF_PartnerFS;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_KumPath_RTF_PartnerSB
   *  Format necega?! Nisam mogao testirati jer nemam instaliran MS Word!
   *  90 - default vrijednost

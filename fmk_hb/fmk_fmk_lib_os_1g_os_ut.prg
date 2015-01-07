@@ -57,7 +57,7 @@ return .t.
 
 *string FmkIni_ExePath_POS_PitanjeUgasiti;
 
-/*! \ingroup ini
+/* ingroup ini
  *  \var *string FmkIni_ExePath_POS_PitanjeUgasiti
  *   "0" - ne pitaj (dobro za racunar koji se ne koristi SAMO kao PC Kasa
  *   "-" - pitaj
@@ -93,7 +93,7 @@ return
 
 
 
-/*! \file ChangeEXT(cImeF,cExt, cExtNew, fBezAdd)
+/* file ChangeEXT(cImeF,cExt, cExtNew, fBezAdd)
  *  Promjeni ekstenziju
  *
  * \params cImeF   ime fajla

@@ -19,12 +19,12 @@
  */
  
 
-/*! \file fmk/fakt/dok/1g/stdok3.prg
+/* file fmk/fakt/dok/1g/stdok3.prg
  *   Stampa faktura u varijanti 3
  */
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_ExePath_FAKT_StampaViseDokumenata
   *  Da li se moze stampati vise od jednog dokumenta u pripremi ?
   *  N - ne, default vrijednost
@@ -33,7 +33,7 @@
 *string FmkIni_ExePath_FAKT_StampaViseDokumenata;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_KumPath_FAKT_KupacDesno
   *  Da li se podaci o kupcu ispisuju uz desnu marginu dokumenta ?
   *  N - ne, default vrijednost
@@ -42,7 +42,7 @@
 *string FmkIni_KumPath_FAKT_KupacDesno;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_KumPath_FAKT_I19jeOtpremnica
   *  Da li se i dokument tipa 19 tretira kao otpremnica ?
   *  N - ne, default vrijednost
@@ -51,7 +51,7 @@
 *string FmkIni_KumPath_FAKT_I19jeOtpremnica;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_ExePath_POREZI_PPUgostKaoPPU
   *  Odredjuje nacin obracuna poreza u maloprodaji (u ugostiteljstvu)
   *  M - racuna PRUC iskljucivo koristeci propisani donji limit RUC-a, default vrijednost

@@ -24,12 +24,12 @@
 static nCnt:=0
 #endif
 
-/*! \defgroup params
+/* defgroup params
  *  @{
  *  @}
  */
 
-/*! \file sc1g/base/base.prg
+/* file sc1g/base/base.prg
      Inicijalizacija systema, bazne funkcije
     \note prebaciti u potpunosti na objektni model (ionako se koristi oApp)
  */
@@ -41,7 +41,7 @@ static nCnt:=0
 
 *string FmkIni_ExePath_FMK_ReadOnly;
 
-/*! \var *string FmkIni_ExePath_FMK_ReadOnly
+/* var *string FmkIni_ExePath_FMK_ReadOnly
  *   D-baza ce se otvoriti u readonly rezimu, N-tekuca vrijednost
  *  \note postavlja vrijednost globalne var. gReadOnly
  *  \sa SC_START,gReadOnly

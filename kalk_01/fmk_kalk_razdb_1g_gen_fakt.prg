@@ -43,7 +43,7 @@
  */
 
 
-/*! \file fmk/kalk/razdb/1g/gen_fakt.prg
+/* file fmk/kalk/razdb/1g/gen_fakt.prg
  *   Generacija FAKT dokumenta na osnovu kalkulacije (dokumenta u KALK)
  */
 

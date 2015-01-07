@@ -18,12 +18,12 @@
  * ----------------------------------------------------------------
  */
 
-/*! \file fmk/fakt/dok/1g/stdok29.prg
+/* file fmk/fakt/dok/1g/stdok29.prg
  *   Stampa faktura u varijanti 2 9
  */
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_ExePath_FAKT_StampaViseDokumenata
   *  Da li se moze stampati vise od jednog dokumenta u pripremi ?
   *  N - ne, default vrijednost
@@ -32,7 +32,7 @@
 *string FmkIni_ExePath_FAKT_StampaViseDokumenata;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_SifPath_SifRoba_PBarkod
   *  Da li se mogu ispisivati bar-kodovi u dokumentima ?
   *  0 - ne, default vrijednost
@@ -42,7 +42,7 @@
 *string FmkIni_SifPath_SifRoba_PBarkod;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_KumPath_FAKT_RegBrPorBr
   *  Ispisuju li se poreski i registarski broj partnera?
   *  D - da, default vrijednost

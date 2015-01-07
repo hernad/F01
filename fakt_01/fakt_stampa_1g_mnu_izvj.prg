@@ -19,7 +19,7 @@
  */
 
 
-/*! \file fmk/fakt/stampa/1g/mnu_izvj.prg
+/* file fmk/fakt/stampa/1g/mnu_izvj.prg
  *   Izvjestaji vezani za opresu stampa
  */
 

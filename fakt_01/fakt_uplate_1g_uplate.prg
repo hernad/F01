@@ -18,7 +18,7 @@
  * ----------------------------------------------------------------
  */
 
-/*! \file fmk/fakt/uplate/1g/uplate.prg
+/* file fmk/fakt/uplate/1g/uplate.prg
  *   Uplate
  */
 

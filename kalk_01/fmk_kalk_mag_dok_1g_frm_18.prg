@@ -41,7 +41,7 @@
  */
 
 
-/*! \file fmk/kalk/mag/dok/1g/frm_18.prg
+/* file fmk/kalk/mag/dok/1g/frm_18.prg
  *   Maska za unos dokumenta tipa 18
  */
 

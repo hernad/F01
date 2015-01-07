@@ -29,7 +29,7 @@
  *
  */
 
-/*! \file fmk/fakt/dok/1g/stdok2a.prg
+/* file fmk/fakt/dok/1g/stdok2a.prg
  *   Stampa faktura u varijanti 2 a
  */
  

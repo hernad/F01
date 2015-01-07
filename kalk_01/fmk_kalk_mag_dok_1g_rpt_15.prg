@@ -22,7 +22,7 @@
  */
  
 
-/*! \file fmk/kalk/mag/dok/1g/rpt_15.prg
+/* file fmk/kalk/mag/dok/1g/rpt_15.prg
  *   Stampa dokumenta tipa 15
  */
 

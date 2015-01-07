@@ -126,7 +126,7 @@ endif
 return
 
 
-/*! \CnvrtStr2Hex(cStr, lSpace)
+/* CnvrtStr2Hex(cStr, lSpace)
  *   Konvertuje string u hex u formatu: str="2500" reslt: 32 35 30 30
  *   cStr - string koji zelimo konvertovati
  *   lSpace - pravi razmak izmedju karaktera

@@ -15,7 +15,7 @@
 #include "error.ch"
 #include "setcurs.ch"
 
-/*! \file cgrid.prg
+/* file cgrid.prg
  *
  *   Funkcije za prikaz i obradu tabelarnih podataka
  */
@@ -37,7 +37,7 @@
 
 * array ImeKol;
 
-/*! \var ImeKol
+/* var ImeKol
   Privatna Varijabla koja se inicijalizira prije "ulaska" u ObjDBedit
   - [ 1] Zalavlje kolone 
   - [ 2] kodni blok za prikaz kolone {|| id}
@@ -54,7 +54,7 @@
 
 * string gTBDir;
 
-/*! \var gTBDir
+/* var gTBDir
   Rezim direktnog TBrowse-a
   - [D] Rad u rezimu direktnog TBrowse-a
   - [N] "standardni" TBrowse

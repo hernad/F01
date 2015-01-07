@@ -13,7 +13,7 @@
 #include "fin01.ch"
 
 
-/*! \file fmk/fin/razdb/1g/ldfin.prg
+/* file fmk/fin/razdb/1g/ldfin.prg
  *   Prenos podataka LD->FIN
  */
 

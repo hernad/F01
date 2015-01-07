@@ -27,7 +27,7 @@
  */
 
 
-/*! \file fmk/kalk/specif/opresa/tar/1g/mnu_tar.prg
+/* file fmk/kalk/specif/opresa/tar/1g/mnu_tar.prg
  *   Menij izvjestaja
  */
 

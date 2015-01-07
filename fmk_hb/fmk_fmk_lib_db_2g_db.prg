@@ -18,7 +18,7 @@
  * ----------------------------------------------------------------
  */
  
-/*! \file sc2g/db/db.prg
+/* file sc2g/db/db.prg
  *   Bazni Database objekat
  *
  * Bazni Database objekat 
@@ -88,7 +88,7 @@ return oObj
 
 #ifdef CPP
 
-/*! \class TDB
+/* class TDB
  *   Bazni Database objekat
  */
 
@@ -191,7 +191,7 @@ END CLASS
 #endif
 #endif
 
-/*! \var TDB:lAdmin
+/* var TDB:lAdmin
  *   True - admin rezim, False - normalni pristup podacima 
  */
 
@@ -437,7 +437,7 @@ endif
 
 // setuj i globalnu varijablu dok ne eliminisemo sve pozive na tu varijablu
 
-/*! \todo Eliminsati ovu nepotrebnu dvojnost cDirRad, cDirKum -> sve prebaciti na cDirKum !
+/* todo Eliminsati ovu nepotrebnu dvojnost cDirRad, cDirKum -> sve prebaciti na cDirKum !
  */
 
 #ifndef CLIP
@@ -711,14 +711,14 @@ return
 
 
 *string KParams_se;
-/*! \ingroup params
+/* ingroup params
  *  \var KParams_se
  *   Oznaka sezone za podatke u KUMPATH-u, tekucoj lokaciji podataka
  *  \note Ako stoji 2002, znaci da se u ovom direktoriju nalaze podaci iz 2002 godine
  */
 
 *string KParams_rp;
-/*! \ingroup params
+/* ingroup params
  *  \var KParams_rp
  *   Oznaka sezone sa kojom se trenutno radi
  *  \note Ako stoji 2001, znaci da se trenutno radi sa podacima iz 2001 godine

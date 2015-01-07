@@ -26,7 +26,7 @@
  */
 
 
-/*! \file fmk/kalk/specif/opresa/tar/1g/izvj.prg
+/* file fmk/kalk/specif/opresa/tar/1g/izvj.prg
  *   Izvjestaji
  */
 

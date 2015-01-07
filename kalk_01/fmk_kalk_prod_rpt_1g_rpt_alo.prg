@@ -20,7 +20,7 @@
  */
  
 
-/*! \file fmk/kalk/prod/rpt/1g/rpt_all.prg
+/* file fmk/kalk/prod/rpt/1g/rpt_all.prg
  *   Ove funkcije koristi vise izvjestaja (primjer RekTarife)
  */
 

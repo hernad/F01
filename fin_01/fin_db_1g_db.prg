@@ -13,7 +13,7 @@
 #include "fin01.ch"
 
 
-/*! \file fmk/fin/db/1g/db.prg
+/* file fmk/fin/db/1g/db.prg
  *   Funkcije za rad sa tabelama
  */
 

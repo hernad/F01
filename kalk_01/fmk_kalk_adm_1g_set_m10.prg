@@ -28,7 +28,7 @@
  *
  */
 
-/*! \file fmk/kalk/adm/1g/set_m10.prg
+/* file fmk/kalk/adm/1g/set_m10.prg
  *   Setovanje marze u dokumentu tipa 10 koji se nalazi u pripremi
  */
 

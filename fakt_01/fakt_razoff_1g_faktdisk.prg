@@ -18,7 +18,7 @@
  * ----------------------------------------------------------------
  */
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_ExePath_Svi_Sifk
   *  Da li se koriste sifrarnici SIFK i SIFV?
   *  N - ne, default vrijednost
@@ -27,7 +27,7 @@
 *string FmkIni_ExePath_Svi_Sifk;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_PrivPath_FAKT_OsvjeziBarKod
   *  Da li se pri prenosu dokumenata iz FAKT u FAKT (diskete) trebaju osvjezavati i barkodovi u sifrarniku robe?
   *  N - ne, default vrijednost
@@ -36,7 +36,7 @@
 *string FmkIni_PrivPath_FAKT_OsvjeziBarKod;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_KumPath_FAKT_PriFAKTuFAKTPrenosuOsvjeziNaziveRobe
   *  Da li se pri prenosu dokumenata iz FAKT u FAKT (diskete) trebaju osvjezavati i nazivi roba u sifrarniku robe?
   *  N - ne, default vrijednost

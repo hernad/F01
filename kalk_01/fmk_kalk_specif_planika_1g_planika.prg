@@ -56,7 +56,7 @@
  *
  */
 
-/*! \defgroup Planika Specificne nadogradnje za korisnika Planika
+/* defgroup Planika Specificne nadogradnje za korisnika Planika
  *  @{
  *  @}
  */

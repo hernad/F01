@@ -28,7 +28,7 @@
  */
  
 
-/*! \file fmk/kalk/mag/dok/1g/rpt_10nc.prg
+/* file fmk/kalk/mag/dok/1g/rpt_10nc.prg
  *   Stampa kalkulacije 10 za vodjenje magacina po nabavnim cijenama
  */
 

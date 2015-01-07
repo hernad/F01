@@ -13,7 +13,7 @@
 #include "kalk01.ch"
 
 
-/*! \file fmk/kalk/mag/db/1g/ut.prg
+/* file fmk/kalk/mag/db/1g/ut.prg
  *   Razne funkcije vezane za magacin
  */
 

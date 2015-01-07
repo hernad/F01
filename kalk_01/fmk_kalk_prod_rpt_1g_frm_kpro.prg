@@ -27,7 +27,7 @@
  */
  
 
-/*! \file fmk/kalk/prod/rpt/1g/frm_kpro.prg
+/* file fmk/kalk/prod/rpt/1g/frm_kpro.prg
  *   Kartica prodavnice koja se poziva iz pripreme dokumenta
  */
 

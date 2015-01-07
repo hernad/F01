@@ -30,7 +30,7 @@
  */
 
 
-/*! \file fmk/fin/rpt/1g/proizv.prg
+/* file fmk/fin/rpt/1g/proizv.prg
  *   Proizvoljni izvjestaji
  */
 

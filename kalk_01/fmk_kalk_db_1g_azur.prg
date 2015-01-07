@@ -13,7 +13,7 @@
 #include "kalk01.ch"
 
 
-/*! \file fmk/kalk/db/1g/azur.prg
+/* file fmk/kalk/db/1g/azur.prg
  *   Azuriranje kalkulacija i povrat kalkulacija u pripremu
  */
 

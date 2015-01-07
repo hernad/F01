@@ -14,7 +14,7 @@
 
 
 
-/*! \file fmk/kalk/db/1g/ut.prg
+/* file fmk/kalk/db/1g/ut.prg
  *   KALK utilities
  */
 

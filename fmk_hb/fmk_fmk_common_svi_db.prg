@@ -12,7 +12,7 @@
 
 #include "sc.ch"
 
-/*! \todo koristi li se ova tabela TOKVAL, ako ne ukloniti je
+/* todo koristi li se ova tabela TOKVAL, ako ne ukloniti je
  */
  
 function OFmkSvi()

@@ -55,7 +55,7 @@
  */
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_ExePath_FAKT_NaslovPartnTelefon
   *  Da li se uz naziv kupca upisuje i telefon?
   *  D - da, default vrijednost
@@ -86,7 +86,7 @@ return oObj
 
 
 #ifdef CPP
-/*! \class TFrmInvIt
+/* class TFrmInvIt
  *   Inventura Forma Item Inventura - definise stavku inventure
  *
  */

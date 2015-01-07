@@ -30,7 +30,7 @@
  */
 
 
-/*! \file fmk/specif/rudnik/mnu_izvj.prg
+/* file fmk/specif/rudnik/mnu_izvj.prg
  *   Izvjestaji rudnik
  */
  

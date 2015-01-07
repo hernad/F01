@@ -27,7 +27,7 @@
  */
 
 
-/*! \file fmk/kalk/gendok/1g/storno.prg
+/* file fmk/kalk/gendok/1g/storno.prg
  *   Generisanje storna dokumenta
  */
 

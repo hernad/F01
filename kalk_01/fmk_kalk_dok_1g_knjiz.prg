@@ -13,7 +13,7 @@
 #include "kalk01.ch"
 
 
-/*! \file fmk/kalk/dok/1g/knjiz.prg
+/* file fmk/kalk/dok/1g/knjiz.prg
  *   Unos i ispravka dokumenata
  */
 

@@ -23,14 +23,14 @@ oObj:lAdmin:=.f.
 return oObj
 
 
-/*! \file fmk/fakt/db/2g/db.prg
+/* file fmk/fakt/db/2g/db.prg
  *   FAKT Database
  *
  * TDBFakt Database objekat
  */
 
 
-/*! \class TDBFakt
+/* class TDBFakt
  *   Database objekat
  */
 

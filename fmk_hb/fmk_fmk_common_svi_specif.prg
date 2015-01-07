@@ -19,69 +19,69 @@
  *
  */
 
-/*! \defgroup Planika Specificne nadogradnje za korisnika Planika
+/* defgroup Planika Specificne nadogradnje za korisnika Planika
  *  @{
  *  @}
  */
 
-/*! \defgroup Vindija  Specificne nadogradnje za korisnika Vindija
+/* defgroup Vindija  Specificne nadogradnje za korisnika Vindija
  *  @{
  *  @}
  */
  
-/*! \defgroup Tvin Specificne nadogradnje za korisnika Tvin
+/* defgroup Tvin Specificne nadogradnje za korisnika Tvin
  *  @{
  *  @}
  */
 
- /*! \defgroup Niagara Specificne nadogradnje za korisnika Niagara
+ /* defgroup Niagara Specificne nadogradnje za korisnika Niagara
  *  @{
  *  @}
  */
 
-/*! \defgroup Tigra  Specificne nadogradnje za korisnika Tigra
- *  @{
- *  @}
- */
-
- 
-/*! \defgroup Merkomerc  Specificne nadogradnje za korisnika Merkomerc
+/* defgroup Tigra  Specificne nadogradnje za korisnika Tigra
  *  @{
  *  @}
  */
 
  
-/*! \defgroup RamaGlas  Specificne nadogradnje za korisnika RamaGlas
+/* defgroup Merkomerc  Specificne nadogradnje za korisnika Merkomerc
  *  @{
  *  @}
  */
 
  
-/*! \defgroup LdFin  Specificnost - kontiranje obracuna LD
+/* defgroup RamaGlas  Specificne nadogradnje za korisnika RamaGlas
  *  @{
  *  @}
  */
 
  
-/*! \defgroup Rudnik  Specificne nadogradnje za korisnika Rudnik
+/* defgroup LdFin  Specificnost - kontiranje obracuna LD
+ *  @{
+ *  @}
+ */
+
+ 
+/* defgroup Rudnik  Specificne nadogradnje za korisnika Rudnik
  *  @{
  *  @}
  */
 
   
-/*! \defgroup SigmaCom Specificne nadogradnje za korisnika SigmaCom
+/* defgroup SigmaCom Specificne nadogradnje za korisnika SigmaCom
  *  @{
  *  @}
  */
 
   
-/*! \defgroup Jerry  Specificne nadogradnje za korisnika Jerry Trade
+/* defgroup Jerry  Specificne nadogradnje za korisnika Jerry Trade
  *  @{
  *  @}
  */
 
 
-/*! \var lTvin
+/* var lTvin
  *  \ingroup Tvin
  *  \sa IsTvin
  */
@@ -89,7 +89,7 @@
 static lTvin
 *;
 
-/*! \var lNiagara
+/* var lNiagara
  *  \ingroup Niagara
  *  \sa IsNiagara
  */
@@ -97,7 +97,7 @@ static lTvin
 static lNiagara
 *;
 
-/*! \var lPlanika
+/* var lPlanika
  *  \ingroup Planika
  *  \sa IsPlanika
  */
@@ -105,7 +105,7 @@ static lNiagara
 static lPlanika
 *;
 
-/*! \var lPlNS
+/* var lPlNS
  *  \ingroup Planika Novi Sad
  *  \sa IsPlNS
  */
@@ -113,7 +113,7 @@ static lPlanika
 static lPlNS
 *;
 
-/*! \var lTigra
+/* var lTigra
  *  \ingroup Tigra
  *  \sa IsTigra
  */
@@ -122,7 +122,7 @@ static lTigra
 *;
 
 
-/*! \var lSigmaCom
+/* var lSigmaCom
  *  \ingroup SigmaCom
  *  \sa IsSigmaCom
  */
@@ -131,7 +131,7 @@ static lSigmaCom
 *;
 
 
-/*! \var lRobaGroup
+/* var lRobaGroup
  *  \ingroup RobaGroup
  *  \sa IsRobaGroup
  */
@@ -140,7 +140,7 @@ static lRobaGroup
 *;
 
 
-/*! \var lJerry
+/* var lJerry
  *  \ingroup Jerry
  *  \sa IsJerry
  */
@@ -149,7 +149,7 @@ static lJerry
 *;
 
 
-/*! \var lVindija
+/* var lVindija
  *  \ingroup Vindija
  *  \sa IsVindija
  */
@@ -157,7 +157,7 @@ static lJerry
 static lVindija
 *;
 
-/*! \var lRudnik
+/* var lRudnik
  *  \ingroup Rudnik
  *  \sa IsRudnik
  */
@@ -165,7 +165,7 @@ static lVindija
 static lRudnik
 *;
 
-/*! \var lZips
+/* var lZips
  *  \ingroup Zips
  *  \sa IsZips
  */
@@ -173,7 +173,7 @@ static lRudnik
 static lZips
 *;
 
-/*! \var lTrgom
+/* var lTrgom
  *  \ingroup Trgomarket
  *  \sa IsTrgom
  */
@@ -181,7 +181,7 @@ static lZips
 static lTrgom
 *;
 
-/*! \var lKonsig
+/* var lKonsig
  *  \ingroup Konsignacija
  *  \sa IsKonsig
  */
@@ -189,7 +189,7 @@ static lTrgom
 static lKonsig
 *;
 
-/*! \var lStampa
+/* var lStampa
  *  \ingroup Opresa magacin stampe
  *  \sa IsStampa
  */
@@ -197,7 +197,7 @@ static lKonsig
 static lStampa
 *;
 
-/*! \var lUgovori
+/* var lUgovori
  *  \ingroup Ugovori
  *  \sa IsUgovori
  */
@@ -206,7 +206,7 @@ static lUgovori
 *;
 
 
-/*! \var lRamaGlas
+/* var lRamaGlas
  *  \ingroup Specificnosti za Rama glas
  *  \sa IsRamaGlas
  */
@@ -215,7 +215,7 @@ static lRamaGlas
 *;
 
 
-/*! \var lLdFin
+/* var lLdFin
  *  \ingroup Specificnosti za ld->fin
  *  \sa IsLdFin
  */
@@ -223,7 +223,7 @@ static lRamaGlas
 static lLdFin
 *;
 
-/*! \var lMupZeDo
+/* var lMupZeDo
  *  \ingroup Specificnosti za mup ze-do
  *  \sa IsMupZeDo
  */
@@ -231,7 +231,7 @@ static lLdFin
 static lMupZeDo
 *;
 
-/*! \var lFakultet
+/* var lFakultet
  *  \ingroup Specificnosti za fakultet
  *  \sa IsFakultet
  */
@@ -240,7 +240,7 @@ static lFakultet
 *;
 
 
-/*! \var lDomZdr
+/* var lDomZdr
  *  \ingroup Specificnosti za Dom zdravlja
  *  \sa IsDomZdr
  */
@@ -249,7 +249,7 @@ static lDomZdr
 *;
 
 
-/*! \var lRabati
+/* var lRabati
  *  \ingroup Koristenje rabatnih skala
  *  \sa IsRabati
  */
@@ -258,7 +258,7 @@ static lRabati
 *;
 
 
-/*! \var lTehnoprom
+/* var lTehnoprom
  *  \ingroup Specificnosti za tehnoprom
  *  \sa IsTehnoprom
  */
@@ -269,13 +269,13 @@ static lTehnoprom
 
 *string IzFmkIni_KumPath_FMK_Planika;
 
-/*! \ingroup Planika
+/* ingroup Planika
  *  \var *string IzFmkIni_KumPath_FMK_Planika
  *   N - standardni korisnik
  *   D - korisnik za koga su implementirane specificne nadogradnje  "Planika"
  */
  
-/*! \ingroup Planika
+/* ingroup Planika
  *   IsPlanika()
  *  \return True - Ako je ini parametar Planika podesen na "D", u suprotnom False 
  *  \sa IzFmkIni_KumPath_FMK_Planika
@@ -290,7 +290,7 @@ function SetPlanika(lValue)
 lPlanika:=lValue
 
 
-/*! \ingroup Planika
+/* ingroup Planika
  *   IsPlNS()
  *  \return True - Ako je ini parametar PlNS podesen na "D", u suprotnom False 
  *  \sa IzFmkIni_KumPath_FMK_PlNS

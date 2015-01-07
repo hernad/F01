@@ -19,12 +19,12 @@
  */
 
 
-/*! \file fmk/fakt/sif/1g/sifre.prg
+/* file fmk/fakt/sif/1g/sifre.prg
  *   Sifrarnici
  */
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_SifPath_FAKT_VrstePlacanja
   *  Da li se koristi sifrarnik vrsta placanja i evidentiranje vrste placanja na fakturama?
   *  N - ne, default vrijednost
@@ -33,7 +33,7 @@
 *string FmkIni_SifPath_FAKT_VrstePlacanja;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_SifPath_Partn_Naziv2
   *  Da li se koristi i dodatno polje NAZIV2 za naziv firme u sifrarniku partnera
   *  N - ne, default vrijednost
@@ -42,7 +42,7 @@
 *string FmkIni_SifPath_Partn_Naziv2;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_ExePath_FIN_VidiUgovor
   *  Omoguciti opciju za pregled ugovora za partnera u sifrarniku partnera koja se dobije tipkom F5 ?
   *  N - ne, default vrijednost
@@ -51,7 +51,7 @@
 *string FmkIni_ExePath_FIN_VidiUgovor;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_ExePath_Svi_SifAuto
   *  Koriste li se automatski dodjeljivane sifre robe?
   *  N - ne, default vrijednost
@@ -60,7 +60,7 @@
 *string FmkIni_ExePath_Svi_SifAuto;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_SifPath_Svi_SifAuto
   *  Onemoguciti korisnicko mijenjanje sifara robe?
   *  N - ne, default vrijednost
@@ -69,7 +69,7 @@
 *string FmkIni_SifPath_Svi_SifAuto;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_SifPath_SifRoba_ID
   *  Prikazivati kolonu sifre robe u sifrarniku robe ako se sifra automatski dodjeljuje?
   *  D - da, default vrijednost
@@ -78,7 +78,7 @@
 *string FmkIni_SifPath_SifRoba_ID;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_SifPath_SifRoba_VPC2
   *  Prikazati kolonu VPC2 u sifrarniku robe?
   *  D - da, default vrijednost
@@ -87,7 +87,7 @@
 *string FmkIni_SifPath_SifRoba_VPC2;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_SifPath_SifRoba_MPCXY
   *  Da li se prikazuju MPC2, MPC3, ..., MPC10 (naravno ako uopste postoje ova polja u bazi) u sifrarniku robe?
   *  D - da, default vrijednost
@@ -96,7 +96,7 @@
 *string FmkIni_SifPath_SifRoba_MPCXY;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_SifPath_SifRoba_SortTag
   *  Ime tag-a (indeksa) koji se koristi za sortiranje sifrarnika robe
   *  ID  - po sifri robe, default vrijednost
@@ -105,7 +105,7 @@
 *string FmkIni_SifPath_SifRoba_SortTag;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_SifPath_SifRoba_PitanjeOpis
   *  Da li ce se pojavljivati pitanje za unos opisa robe pri editovanju podataka u sifrarniku robe?
   *  N - ne, default vrijednost
@@ -114,7 +114,7 @@
 *string FmkIni_SifPath_SifRoba_PitanjeOpis;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_KumPath_BoxStanje_ZaglavljeStanjex
   *  Opis podatka koji se ispisuje kao dodatni parametar u okviru stanja robe (opcija "S" u sifrarniku robe) u x-tom dodatnom redu
   *   - prazno, tj. nije definisano, default vrijednost
@@ -122,7 +122,7 @@
 *string FmkIni_KumPath_BoxStanje_ZaglavljeStanjex;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_KumPath_BoxStanje_FormulaStanjex
   *  Formula za odredjivanje podatka koji se ispisuje kao dodatni parametar u okviru stanja robe (opcija "S" u sifrarniku robe) u x-tom dodatnom redu
   *   - prazno, tj. nije definisano, default vrijednost
@@ -130,7 +130,7 @@
 *string FmkIni_KumPath_BoxStanje_FormulaStanjex;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_SifPath_SIFROBA_PrikID
   *  Koja sifra robe se prikazuje u dokumentima?
   *  ID   - IDROBA, default vrijednost
@@ -139,7 +139,7 @@
 *string FmkIni_SifPath_SIFROBA_PrikID;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_SifPath_FAKT_Opcine
   *  Koristi li se sifrarnik opcina i polje za sifru opcine u sifrarniku partnera
   *  N - ne, default vrijednost
@@ -149,7 +149,7 @@
 
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_SifPath_SifRoba_ID_J
   *  Koriste li se sifre robe ID_J?
   *  N - ne, default vrijednost
@@ -158,7 +158,7 @@
 *string FmkIni_SifPath_SifRoba_ID_J;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string FmkIni_ExePath_Svi_Sifk
   *  Da li se koriste sifrarnici SIFK i SIFV?
   *  N - ne, default vrijednost

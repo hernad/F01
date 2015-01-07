@@ -19,7 +19,7 @@
  */
  
 
-/*! \file fmk/fakt/ostalo/1g/ostalo.prg
+/* file fmk/fakt/ostalo/1g/ostalo.prg
  */
 
 

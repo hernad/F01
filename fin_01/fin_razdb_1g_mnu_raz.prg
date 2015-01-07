@@ -12,7 +12,7 @@
 
 #include "fin01.ch"
 
-/*! \file fmk/fin/razdb/1g/mnu_raz.prg
+/* file fmk/fin/razdb/1g/mnu_raz.prg
  *   Menij razmjene podataka
  */
  

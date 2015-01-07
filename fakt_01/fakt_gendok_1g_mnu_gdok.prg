@@ -39,7 +39,7 @@
  */
  
 
-/*! \file fmk/fakt/gendok/1g/mnu_gdok.prg
+/* file fmk/fakt/gendok/1g/mnu_gdok.prg
  *   Meni opcija za generisanje dokumenata za modul FAKT
  */
 

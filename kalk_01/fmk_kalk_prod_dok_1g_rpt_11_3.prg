@@ -34,7 +34,7 @@
  */
  
 
-/*! \file fmk/kalk/prod/dok/1g/rpt_11_3.prg
+/* file fmk/kalk/prod/dok/1g/rpt_11_3.prg
  *   Stampa kalkulacije 11, varijanta "3" - papir formata A3
  */
 

@@ -19,7 +19,7 @@
  */
 
 
-/*! \file fmk/kalk/ut/1g/ut.prg
+/* file fmk/kalk/ut/1g/ut.prg
  *   Globalne funkcije modula Kalk
  */
 

@@ -20,7 +20,7 @@
  
 *string tbl_roba_k2;
 
-/*! \ingroup Planika
+/* ingroup Planika
  *  \var tbl_roba_k2
  *   Polje koje odredjuje da li ce se artikal uzeti u obzir pri sumiranju kolicina (u slucaju planike "kolicina"="pari")
  *   "X" - ne sumiraj
@@ -31,7 +31,7 @@
  
 *tbl tbl_kalk_rekap1;
 
-/*! \var tbl_kalk_rekap1
+/* var tbl_kalk_rekap1
  *   Pomocna tabela formira je GenRekap1
  *
  * \code
@@ -56,7 +56,7 @@
  * \sa CreTblPlanika
  */
 
-/*! \ingroup Planika
+/* ingroup Planika
  *  GenRekap1(cKartica, cVarijanta, cKesiraj, fSMark)
  *  cKartica  - "D" - ocitaj cijene sa kartica
  *  cVarijanta - "1" - pregled kretanja zaliha; "2" - iskazi

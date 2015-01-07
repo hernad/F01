@@ -19,7 +19,7 @@
  *
  */
  
-/*! \file fmk/fakt/dok/1g/stdokm.prg
+/* file fmk/fakt/dok/1g/stdokm.prg
  *   
  */
 

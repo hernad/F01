@@ -27,7 +27,7 @@
  *
  */
 
-/*! \file fmk/kalk/adm/1g/rob_id.prg
+/* file fmk/kalk/adm/1g/rob_id.prg
  *  
  */
 

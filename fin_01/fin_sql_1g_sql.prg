@@ -26,7 +26,7 @@
  */
 
 
-/*! \file fmk/fin/sql/1g/sql.prg
+/* file fmk/fin/sql/1g/sql.prg
  *   SQL operacije
  */
 

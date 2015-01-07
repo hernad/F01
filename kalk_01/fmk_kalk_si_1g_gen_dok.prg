@@ -20,7 +20,7 @@
  */
 
 
-/*! \file fmk/kalk/si/1g/gen_dok.prg
+/* file fmk/kalk/si/1g/gen_dok.prg
  *   Generacija dokumenata sitnog inventara
  */
 

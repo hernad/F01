@@ -20,7 +20,7 @@
  */
  
 
-/*! \file fmk/kalk/prod/rpt/1g/rpt_ip.prg
+/* file fmk/kalk/prod/rpt/1g/rpt_ip.prg
  *   Stampa dokumenta tipa IP
  */
 

@@ -28,7 +28,7 @@
  */
  
 
-/*! \file fmk/kalk/proizvod/1g/rpt_pr.prg
+/* file fmk/kalk/proizvod/1g/rpt_pr.prg
  *   Stampa kalkulacije PR
  */
 

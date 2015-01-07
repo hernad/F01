@@ -19,7 +19,7 @@
  *
  */
 
-/*! \file fmk/fakt/razdb/1g/topsfakt.prg
+/* file fmk/fakt/razdb/1g/topsfakt.prg
  *   Tops 2 Fakt
  */
 

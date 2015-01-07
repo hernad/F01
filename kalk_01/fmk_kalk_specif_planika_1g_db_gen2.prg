@@ -14,7 +14,7 @@
 
 *tbl tbl_kalk_rekap2;
 
-/*! \var tbl_kalk_rekap2
+/* var tbl_kalk_rekap2
  *  \ingroup Planika
  *   Pomocna tabela, formira je GenRekap2
  *
@@ -59,7 +59,7 @@
 
 *tbl tbl_kalk_reka22;
 
-/*! \var tbl_kalk_reka22
+/* var tbl_kalk_reka22
  *  \ingroup Planika
  *   Pomocna tabela, formira je GenRekap2
  *

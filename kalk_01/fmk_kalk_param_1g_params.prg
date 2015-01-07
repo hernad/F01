@@ -20,7 +20,7 @@
  */
 
 
-/*! \file fmk/kalk/param/1g/params.prg
+/* file fmk/kalk/param/1g/params.prg
  *   Parametri modula KALK - ispravka
  */
 

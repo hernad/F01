@@ -20,7 +20,7 @@
  */
 
 
-/*! \file fmk/kalk/razdb/1g/fak_kal.prg
+/* file fmk/kalk/razdb/1g/fak_kal.prg
  *   Prenos dokumenata iz modula FAKT u KALK
  */
 

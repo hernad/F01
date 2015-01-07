@@ -27,7 +27,7 @@
  */
  
 
-/*! \file fmk/kalk/mag/dok/1g/rpt_18.prg
+/* file fmk/kalk/mag/dok/1g/rpt_18.prg
  *   Stampa dokumenta tipa 18
  */
 

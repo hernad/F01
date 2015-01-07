@@ -26,7 +26,7 @@
  */
 
 
-/*! \file fmk/fin/razoff/1g/mnu_off.prg
+/* file fmk/fin/razoff/1g/mnu_off.prg
  *   Menij prenosa podataka
  */
  

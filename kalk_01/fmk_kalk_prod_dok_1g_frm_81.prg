@@ -24,7 +24,7 @@ static aPorezi:={}
  */
  
 
-/*! \file fmk/kalk/prod/dok/1g/frm_81.prg
+/* file fmk/kalk/prod/dok/1g/frm_81.prg
  *   Maska za unos dokumenata tipa 81
  */
 

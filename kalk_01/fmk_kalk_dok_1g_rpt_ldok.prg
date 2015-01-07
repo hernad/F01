@@ -36,7 +36,7 @@
  */
 
 
-/*! \file fmk/kalk/dok/1g/rpt_ldok.prg
+/* file fmk/kalk/dok/1g/rpt_ldok.prg
  *   Stampa liste dokumenata
  */
 

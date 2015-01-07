@@ -19,7 +19,7 @@
  */
 
 
-/*! \file fmk/kalk/rpt/1g/mnu_rpt.prg
+/* file fmk/kalk/rpt/1g/mnu_rpt.prg
  *   Izvjestaji
  */
 

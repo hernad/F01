@@ -20,7 +20,7 @@
  */
 
 
-/*! \file fmk/kalk/prod/gendok/1g/gen_dok.prg
+/* file fmk/kalk/prod/gendok/1g/gen_dok.prg
  *   Generisanje prodavnickih dokumenata
  */
 

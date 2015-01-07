@@ -25,7 +25,7 @@
  *
  */
  
-/*! \file fmk/fin/gendok/1g/mnu_gdok.prg
+/* file fmk/fin/gendok/1g/mnu_gdok.prg
  *   Generacija dokumenata - menij
  */
 

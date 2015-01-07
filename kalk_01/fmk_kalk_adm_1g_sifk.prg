@@ -13,7 +13,7 @@
 #include "kalk01.ch"
 
 
-/*! \file fmk/kalk/adm/1g/sifk.prg
+/* file fmk/kalk/adm/1g/sifk.prg
  *   Popunjavanje SIFK-karakteristika na osnovu azuriranih dokumenata
  */
 

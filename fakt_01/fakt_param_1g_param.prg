@@ -524,7 +524,7 @@ return
 
 
 *string Params_s7;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_s7
  *   Grad tj.mjesto u kojem je firma
  *   Zenica - u Zenici
@@ -533,7 +533,7 @@ return
 
 
 *string Params_fi;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_fi
  *   Sifra firme/default radne jedinice
  *   10 - sifra firme ili default radne jedinice je 10
@@ -542,7 +542,7 @@ return
 
 
 *string Params_ts;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_ts
  *   Tip poslovnog subjekta
  *   Preduzece - znaci da se radi o preduzecu
@@ -551,7 +551,7 @@ return
 
 
 *string Params_fn;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_fn
  *   Naziv firme
  *   SIGMA-COM - naziv firme je SIGMA-COM
@@ -560,7 +560,7 @@ return
 
 
 *string Params_Bv;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_Bv
  *   Bazna valuta
  *   D - domaca
@@ -570,7 +570,7 @@ return
 
 
 *string Params_mV;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_mV
  *   Koristiti modemsku vezu?
  *   S - da, server
@@ -620,7 +620,7 @@ return
 
 
 *string Params_p0;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_p0
  *   Format prikaza cijena
  *   99999.999 - 5 mjesta za cijeli i 3 za decimalni dio broja
@@ -629,7 +629,7 @@ return
 
 
 *string Params_p1;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_p1
  *   Format prikaza iznosa
  *   99999.999 - 5 mjesta za cijeli i 3 za decimalni dio broja
@@ -638,7 +638,7 @@ return
 
 
 *string Params_p2;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_p2
  *   Format prikaza kolicina
  *   99999.999 - 5 mjesta za cijeli i 3 za decimalni dio broja
@@ -695,7 +695,7 @@ return
 
 
 *string Params_dp;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_dp
  *   Omoguciti unos datuma placanja, broja otpremnice i broja narudzbe?
  *   1 - da
@@ -705,7 +705,7 @@ return
 
 
 *string Params_dv;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_dv
  *   Omoguciti unos datuma placanja u svim varijantama izgleda fakture 9?
  *   D - da
@@ -715,7 +715,7 @@ return
 
 
 *string Params_pd;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_pd
  *   Generisati ulazni dokument (01) pri azuriranju izlaza (13-ke)?
  *   D - da
@@ -725,7 +725,7 @@ return
 
 
 *string Params_mn;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_mn
  *   Ukljuciti mreznu numeraciju dokumenata?
  *   D - da
@@ -735,7 +735,7 @@ return
 
 
 *string Params_dc;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_dc
  *   Maloprodajna cijena koja se koristi u 13-ki
  *     - uvijek pri stampi pita za cijenu koja se zeli prikazati
@@ -747,7 +747,7 @@ return
 
 
 *string Params_vo;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_vo
  *   Varijanta dokumenta 13
  *   1 - default varijanta
@@ -757,7 +757,7 @@ return
 
 
 *string Params_vn;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_vn
  *   Varijanta numeracije dokumenta 13 za varijantu 2 dokumenta 13
  *   1 - Laguna: unosi se RJ koja se zaduzuje a na osnovu tog podatka se iz sifrarnika RJ uzme konto i upise u polje IDPARTNER
@@ -767,7 +767,7 @@ return
 
 
 *string Params_pk;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_pk
  *   Da li se prati trenutno stanje artikla pri unosu dokumenta?
  *   D - da
@@ -777,7 +777,7 @@ return
 
 
 *string Params_50;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_50
  *   Varijante koristenja cijene
  *     - samo VPC
@@ -791,7 +791,7 @@ return
 
 
 *string Params_mp;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_mp
  *   Koja se cijena nudi u fakturi maloprodaje (11-ki) ?
  *   1 - MPC
@@ -806,7 +806,7 @@ return
 
 
 *string Params_nd;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_nd
  *   Numericki dio broja dokumenta za automatiku odredjivanja narednog broja dokumenta
  *   5 - prvih 5 znakova
@@ -815,7 +815,7 @@ return
 
 
 *string Params_PR;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_PR
  *   Upozorenje na promjenu radne jedinice ?
  *   D - da, da se ne bi slucajnom greskom upisala pogresna radna jedinica
@@ -825,7 +825,7 @@ return
 
 
 *string Params_vp;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_vp
  *   U otpremnici (12-ki) omoguciti unos poreza ?
  *   D - da
@@ -835,7 +835,7 @@ return
 
 
 *string Params_vu;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_vu
  *   Varijanta fakturisanja na osnovu ugovora
  *   1 - ugovori se sortiraju po siframa, tekuce postavke
@@ -930,7 +930,7 @@ return
 
 
 *string Params_c1;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_c1
  *   Prikaz cijena u podstavkama ili u glavnim stavkama ?
  *   1 - u podstavkama
@@ -940,7 +940,7 @@ return
 
 
 *string Params_tf;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_tf
  *   Varijanta izgleda fakture
  *   1 -
@@ -951,7 +951,7 @@ return
 
 
 *string Params_vf;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_vf
  *   Podvarijanta izgleda fakture
  *   1 -
@@ -966,7 +966,7 @@ return
 
 
 *string Params_kr;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_kr
  *   Broj redova za vertikalno pomjeranje znakova krizanja i broja dokumenta u podvarijanti 9 izgleda fakture na A4 papiru
  *   0 - ne pomjeraj nista
@@ -975,7 +975,7 @@ return
 
 
 *string Params_55;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_55
  *   Broj redova za vertikalno pomjeranje znakova krizanja i broja dokumenta u podvarijanti 9 izgleda fakture na A5 papiru
  *   0 - ne pomjeraj nista
@@ -984,7 +984,7 @@ return
 
 
 *string Params_vr;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_vr
  *   Podvarijanta izgleda RTF fakture za varijantu 2 izgleda fakture
  *     - (prazno), default varijanta
@@ -996,7 +996,7 @@ return
 
 
 *string Params_er;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_er
  *   Broj dodatnih redova dokumenta po listu
  *  \param
@@ -1005,7 +1005,7 @@ return
 
 
 *string Params_pr;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_pr
  *   Lijeva margina za stampanje dokumenata (broj kolona)
  *   4 - odvoji slijeva 4 kolone
@@ -1014,7 +1014,7 @@ return
 
 
 *string Params_56;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_56
  *   Lijeva margina za stampanje dokumenata u varijanti 2 podvarijanta 9 za A5 papir (broj kolona)
  *   4 - odvoji slijeva 4 kolone
@@ -1023,7 +1023,7 @@ return
 
 
 *string Params_pt;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_pt
  *   Gornja margina pri stampanju dokumenata (broj redova). Koristi se samo ako nije definisan fajl zaglavlja
  *   9 - odmakni 9 redova od pocetka lista
@@ -1032,7 +1032,7 @@ return
 
 
 *string Params_a5;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_a5
  *   Moze li se koristiti obrazac A5 u podvarijanti 9 ?
  *   D - uz upit da, ponudjeni odgovor na upit je uvijek "D"
@@ -1043,7 +1043,7 @@ return
 
 
 *string Params_fp;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_fp
  *   Horizontalno pomjeranje zaglavlja u podvarijanti 9 za A4 papir (broj kolona)
  *   2 - pomjeriti dvije kolone udesno
@@ -1052,7 +1052,7 @@ return
 
 
 *string Params_51;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_51
  *   Horizontalno pomjeranje zaglavlja u podvarijanti 9 za A5 papir (broj kolona)
  *   2 - pomjeriti dvije kolone udesno
@@ -1061,7 +1061,7 @@ return
 
 
 *string Params_52;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_52
  *   Vertikalno pomjeranje stavki u podvarijanti 9 za A5 papir (broj redova)
  *   2 - pomjeriti dva reda prema dolje
@@ -1070,7 +1070,7 @@ return
 
 
 *string Params_53;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_53
  *   Vertikalno pomjeranje totala u podvarijanti 9 za A5 papir (broj redova)
  *   2 - pomjeriti dva reda prema dolje
@@ -1079,7 +1079,7 @@ return
 
 
 *string Params_54;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_54
  *   Vertikalno pomjeranje donjeg dijela fakture u podvarijanti 9 za A5 papir (broj redova)
  *   2 - pomjeriti dva reda prema dolje
@@ -1088,7 +1088,7 @@ return
 
 
 *string Params_d1;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_d1
  *   Vertikalno pomjeranje stavki u podvarijanti 9 za A4 papir (broj redova)
  *   2 - pomjeriti dva reda prema dolje
@@ -1097,7 +1097,7 @@ return
 
 
 *string Params_d2;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_d2
  *   Vertikalno pomjeranje totala u podvarijanti 9 za A4 papir (broj redova)
  *   2 - pomjeriti dva reda prema dolje
@@ -1106,7 +1106,7 @@ return
 
 
 *string Params_d3;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_d3
  *   Vertikalno pomjeranje donjeg dijela fakture u podvarijanti 9 za A4 papir (broj redova)
  *   2 - pomjeriti dva reda prema dolje
@@ -1115,7 +1115,7 @@ return
 
 
 *string Params_cr;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_cr
  *   Znak kojim se precrtava dio teksta na obrascu fakture (podvarijanta 9)
  *   X - precrtavati znakom X
@@ -1124,7 +1124,7 @@ return
 
 
 *string Params_ot;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_ot
  *   Broj redova za odvajanje tabele od broja dokumenta
  *   3 - odvojiti 3 reda
@@ -1133,7 +1133,7 @@ return
 
 
 *integer Params_tb;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_tb
  *   Nacin crtanja tabele koji se koristi pri stampanju sifrarnika i u pojedinim izvjestajima i dokumentima
  *   0 - koristi se samo znak "-" (minus) za iscrtavanje horizontalnih linija, a vertikale se ne iscrtavaju
@@ -1145,7 +1145,7 @@ return
 
 
 *string Params_za;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_za
  *   Da li se zaglavlje dokumenta ispisuje na svakoj stranici?
  *   D - da
@@ -1155,7 +1155,7 @@ return
 
 
 *string Params_zb;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_zb
  *   Crni tj."masni" ispis dokumenta ?
  *   1 - da
@@ -1165,7 +1165,7 @@ return
 
 
 *string Params_RT;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_RT
  *   Prikaz rekapitulacije po tarifama u dokumentu 13-ki ?
  *   D - da
@@ -1175,7 +1175,7 @@ return
 
 
 *string Params_HL;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_HL
  *   Ispis horizontalnih linija izmedju stavki dokumenta?
  *   D - da
@@ -1185,7 +1185,7 @@ return
 
 
 *string Params_rp;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_rp
  *   Prikaz rabata u % (procentu) ?
  *   D - da
@@ -1437,7 +1437,7 @@ return
 
 
 *string Params_r3;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_r3
  *   Naziv dokumenta tipa 06
  *   "ZADUZ.KONS.SKLAD.br." - default vrijednost
@@ -1446,7 +1446,7 @@ return
 
 
 *string Params_r4;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_r4
  *   Tekst koji se ispisuje na kraju dokumenta tipa 06 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
@@ -1455,7 +1455,7 @@ return
 
 
 *string Params_r5;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_r5
  *   Tekst koji se ispisuje na kraju dokumenta tipa 06 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
@@ -1464,7 +1464,7 @@ return
 
 
 *string Params_s1;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_s1
  *   Naziv dokumenta tipa 10
  *   "RACUN/OTPREMNICA br." - default vrijednost
@@ -1473,7 +1473,7 @@ return
 
 
 *string Params_s4;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_s4
  *   Tekst koji se ispisuje na kraju dokumenta tipa 10 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
@@ -1482,7 +1482,7 @@ return
 
 
 *string Params_r1;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_r1
  *   Tekst koji se ispisuje na kraju dokumenta tipa 10 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
@@ -1491,7 +1491,7 @@ return
 
 
 *string Params_s2;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_s2
  *   Naziv dokumenta tipa 11
  *   "RACUN MP br." - default vrijednost
@@ -1500,7 +1500,7 @@ return
 
 
 *string Params_s5;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_s5
  *   Tekst koji se ispisuje na kraju dokumenta tipa 11 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
@@ -1509,7 +1509,7 @@ return
 
 
 *string Params_x1;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_x1
  *   Tekst koji se ispisuje na kraju dokumenta tipa 11 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
@@ -1518,7 +1518,7 @@ return
 
 
 *string Params_x3;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_x3
  *   Naziv dokumenta tipa 12
  *   "OTPREMNICA br." - default vrijednost
@@ -1527,7 +1527,7 @@ return
 
 
 *string Params_x4;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_x4
  *   Tekst koji se ispisuje na kraju dokumenta tipa 12 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
@@ -1536,7 +1536,7 @@ return
 
 
 *string Params_x5;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_x5
  *   Tekst koji se ispisuje na kraju dokumenta tipa 12 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
@@ -1545,7 +1545,7 @@ return
 
 
 *string Params_x6;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_x6
  *   Naziv dokumenta tipa 13
  *   "OTPREMNICA U MP br." - default vrijednost
@@ -1554,7 +1554,7 @@ return
 
 
 *string Params_x7;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_x7
  *   Tekst koji se ispisuje na kraju dokumenta tipa 13 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
@@ -1563,7 +1563,7 @@ return
 
 
 *string Params_x8;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_x8
  *   Tekst koji se ispisuje na kraju dokumenta tipa 13 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
@@ -1572,7 +1572,7 @@ return
 
 
 *string Params_xl;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_xl
  *   Naziv dokumenta tipa 15
  *   "RACUN br." - default vrijednost
@@ -1581,7 +1581,7 @@ return
 
 
 *string Params_xm;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_xm
  *   Tekst koji se ispisuje na kraju dokumenta tipa 15 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
@@ -1590,7 +1590,7 @@ return
 
 
 *string Params_xn;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_xn
  *   Tekst koji se ispisuje na kraju dokumenta tipa 15 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
@@ -1599,7 +1599,7 @@ return
 
 
 *string Params_s9;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_s9
  *   Naziv dokumenta tipa 16
  *   "KONSIGNAC.RACUN br." - default vrijednost
@@ -1608,7 +1608,7 @@ return
 
 
 *string Params_s8;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_s8
  *   Tekst koji se ispisuje na kraju dokumenta tipa 16 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
@@ -1617,7 +1617,7 @@ return
 
 
 *string Params_r2;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_r2
  *   Tekst koji se ispisuje na kraju dokumenta tipa 16 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
@@ -1626,7 +1626,7 @@ return
 
 
 *string Params_s3;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_s3
  *   Naziv dokumenta tipa 20
  *   "PREDRACUN br." - default vrijednost
@@ -1635,7 +1635,7 @@ return
 
 
 *string Params_s6;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_s6
  *   Tekst koji se ispisuje na kraju dokumenta tipa 20 (za potpise)
  *   "                                                               Direktor" - default vrijednost
@@ -1644,7 +1644,7 @@ return
 
 
 *string Params_x2;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_x2
  *   Tekst koji se ispisuje na kraju dokumenta tipa 20 u varijanti RTF fakture (za potpise)
  *   "\tab \tab \tab Direktor:" - default vrijednost
@@ -1653,7 +1653,7 @@ return
 
 
 *string Params_x9;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_x9
  *   Naziv dokumenta tipa 21
  *   "REVERS br." - default vrijednost
@@ -1662,7 +1662,7 @@ return
 
 
 *string Params_xa;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_xa
  *   Tekst koji se ispisuje na kraju dokumenta tipa 21 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
@@ -1671,7 +1671,7 @@ return
 
 
 *string Params_xb;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_xb
  *   Tekst koji se ispisuje na kraju dokumenta tipa 21 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
@@ -1680,7 +1680,7 @@ return
 
 
 *string Params_xc;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_xc
  *   Naziv dokumenta tipa 22
  *   "ZAKLJ.OTPREMNICA br." - default vrijednost
@@ -1689,7 +1689,7 @@ return
 
 
 *string Params_xd;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_xd
  *   Tekst koji se ispisuje na kraju dokumenta tipa 22 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
@@ -1698,7 +1698,7 @@ return
 
 
 *string Params_xe;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_xe
  *   Tekst koji se ispisuje na kraju dokumenta tipa 22 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
@@ -1707,7 +1707,7 @@ return
 
 
 *string Params_xf;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_xf
  *   Naziv dokumenta tipa 25
  *   "KNJIZNA OBAVIJEST br." - default vrijednost
@@ -1716,7 +1716,7 @@ return
 
 
 *string Params_xg;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_xg
  *   Tekst koji se ispisuje na kraju dokumenta tipa 25 (za potpise)
  *   "              Predao                  Odobrio                  Preuzeo" - default vrijednost
@@ -1725,7 +1725,7 @@ return
 
 
 *string Params_xh;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_xh
  *   Tekst koji se ispisuje na kraju dokumenta tipa 25 u varijanti RTF fakture (za potpise)
  *   "\tab Predao\tab Odobrio\tab Preuzeo" - default vrijednost
@@ -1734,7 +1734,7 @@ return
 
 
 *string Params_xi;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_xi
  *   Naziv dokumenta tipa 26
  *   "NARUDZBA SA IZJAVOM br." - default vrijednost
@@ -1743,7 +1743,7 @@ return
 
 
 *string Params_xj;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_xj
  *   Tekst koji se ispisuje na kraju dokumenta tipa 26 (za potpise)
  *   "                                      Potpis:" - default vrijednost
@@ -1752,7 +1752,7 @@ return
 
 
 *string Params_xk;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_xk
  *   Tekst koji se ispisuje na kraju dokumenta tipa 26 u varijanti RTF fakture (za potpise)
  *   "\tab \tab Potpis:" - default vrijednost
@@ -1761,7 +1761,7 @@ return
 
 
 *string Params_xo;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_xo
  *   Naziv dokumenta tipa 27
  *   "PREDRACUN MP br." - default vrijednost
@@ -1770,7 +1770,7 @@ return
 
 
 *string Params_xp;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_xp
  *   Tekst koji se ispisuje na kraju dokumenta tipa 27 (za potpise)
  *   "                                                               Direktor" - default vrijednost
@@ -1779,7 +1779,7 @@ return
 
 
 *string Params_xr;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_xr
  *   Tekst koji se ispisuje na kraju dokumenta tipa 27 u varijanti RTF fakture (za potpise)
  *   "\tab \tab \tab Direktor:" - default vrijednost
@@ -2142,7 +2142,7 @@ return .t.
 
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string ProizvjIni_ExePath_Varijable_Firma
   *  Naziv firme
   *  -- - nije definisano, default vrijednost
@@ -2150,7 +2150,7 @@ return .t.
 *string ProizvjIni_ExePath_Varijable_Firma;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string ProizvjIni_ExePath_Varijable_Adres
   *  Adresa firme
   *  -- - nije definisano, default vrijednost
@@ -2158,7 +2158,7 @@ return .t.
 *string ProizvjIni_ExePath_Varijable_Adres;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string ProizvjIni_ExePath_Varijable_Tel
   *  Broj telefona firme
   *  -- - nije definisano, default vrijednost
@@ -2166,7 +2166,7 @@ return .t.
 *string ProizvjIni_ExePath_Varijable_Tel;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string ProizvjIni_ExePath_Varijable_Fax
   *  Broj faksa firme
   *  -- - nije definisano, default vrijednost
@@ -2174,7 +2174,7 @@ return .t.
 *string ProizvjIni_ExePath_Varijable_Fax;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string ProizvjIni_ExePath_Varijable_RegBroj
   *  Registarski broj firme
   *  -- - nije definisano, default vrijednost
@@ -2182,7 +2182,7 @@ return .t.
 *string ProizvjIni_ExePath_Varijable_RegBroj;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string ProizvjIni_ExePath_Varijable_PorBroj
   *  Poreski broj firme
   *  -- - nije definisano, default vrijednost
@@ -2190,7 +2190,7 @@ return .t.
 *string ProizvjIni_ExePath_Varijable_PorBroj;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string ProizvjIni_ExePath_Varijable_ZRacun1
   *  Broj ziro racuna 1
   *  -- - nije definisano, default vrijednost
@@ -2198,7 +2198,7 @@ return .t.
 *string ProizvjIni_ExePath_Varijable_ZRacun1;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string ProizvjIni_ExePath_Varijable_ZRacun2
   *  Broj ziro racuna 2
   *  -- - nije definisano, default vrijednost
@@ -2206,7 +2206,7 @@ return .t.
 *string ProizvjIni_ExePath_Varijable_ZRacun2;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string ProizvjIni_ExePath_Varijable_ZRacun3
   *  Broj ziro racuna 3
   *  -- - nije definisano, default vrijednost
@@ -2214,7 +2214,7 @@ return .t.
 *string ProizvjIni_ExePath_Varijable_ZRacun3;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string ProizvjIni_ExePath_Varijable_ZRacun4
   *  Broj ziro racuna 4
   *  -- - nije definisano, default vrijednost
@@ -2222,7 +2222,7 @@ return .t.
 *string ProizvjIni_ExePath_Varijable_ZRacun4;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string ProizvjIni_ExePath_Varijable_ZRacun5
   *  Broj ziro racuna 5
   *  -- - nije definisano, default vrijednost
@@ -2230,7 +2230,7 @@ return .t.
 *string ProizvjIni_ExePath_Varijable_ZRacun5;
 
 
-/*! \ingroup ini
+/* ingroup ini
   * \var *string ProizvjIni_ExePath_Varijable_LokSlika
   *  Lokacija slike u koja sadrzi znak (logo) firme
   *  -- - nije definisano, default vrijednost
@@ -2322,7 +2322,7 @@ return
 
 
 *string Params_s7;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_s7
  *   Grad tj.mjesto u kojem je firma
  *   Zenica - u Zenici
@@ -2331,7 +2331,7 @@ return
 
 
 *string Params_fi;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_fi
  *   Sifra firme/default radne jedinice
  *   10 - sifra firme ili default radne jedinice je 10
@@ -2340,7 +2340,7 @@ return
 
 
 *string Params_ts;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_ts
  *   Tip poslovnog subjekta
  *   Preduzece - znaci da se radi o preduzecu
@@ -2349,7 +2349,7 @@ return
 
 
 *string Params_fn;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_fn
  *   Naziv firme
  *   SIGMA-COM - naziv firme je SIGMA-COM
@@ -2358,7 +2358,7 @@ return
 
 
 *string Params_Bv;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_Bv
  *   Bazna valuta
  *   D - domaca
@@ -2368,7 +2368,7 @@ return
 
 
 *string Params_mV;
-/*! \ingroup params
+/* ingroup params
  *  \var Params_mV
  *   Koristiti modemsku vezu?
  *   S - da, server

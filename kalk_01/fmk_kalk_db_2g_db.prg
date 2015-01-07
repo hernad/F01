@@ -28,14 +28,14 @@ oObj:lAdmin:=.f.
 return oObj
 
 
-/*! \file fmk/kalk/db/2g/db.prg
+/* file fmk/kalk/db/2g/db.prg
  *   KALK Database
  *
  * TDbKalk Database objekat 
  */
 
 
-/*! \class TDbKalk
+/* class TDbKalk
  *   Database objekat
  */
 

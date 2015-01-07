@@ -28,7 +28,7 @@
  */
  
 
-/*! \file fmk/kalk/main/1g/app_srv.prg
+/* file fmk/kalk/main/1g/app_srv.prg
  *  
  */
 

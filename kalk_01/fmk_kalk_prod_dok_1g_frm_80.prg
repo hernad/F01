@@ -21,7 +21,7 @@
  
 
 
-/*! \file fmk/kalk/prod/dok/1g/frm_80.prg
+/* file fmk/kalk/prod/dok/1g/frm_80.prg
  *   Maska za unos dokumenta tipa 80
  */
 

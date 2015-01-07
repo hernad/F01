@@ -28,7 +28,7 @@
  */
  
 
-/*! \file fmk/kalk/mag/dok/1g/rpt_82.prg
+/* file fmk/kalk/mag/dok/1g/rpt_82.prg
  *   Stampa kalkulacije 82 - izlaz iz magacina diskont
  */
 

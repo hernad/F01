@@ -27,7 +27,7 @@
  *
  */
 
-/*! \file fmk/kalk/adm/1g/gen_9999.prg
+/* file fmk/kalk/adm/1g/gen_9999.prg
  *   Generisanje zbirne baze dokumenata u specijalnoj sezoni 9999
  */
 

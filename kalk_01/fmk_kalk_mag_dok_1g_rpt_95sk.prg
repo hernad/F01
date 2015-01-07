@@ -20,7 +20,7 @@
  */
  
 
-/*! \file fmk/kalk/mag/dok/1g/rpt_95sk.prg
+/* file fmk/kalk/mag/dok/1g/rpt_95sk.prg
  *   Stampa kalkulacije tipa 95, varijanta samo kolicine (bez cijena)
  */
 

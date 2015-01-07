@@ -20,7 +20,7 @@
  */
  
 
-/*! \file fmk/kalk/mag/konsig/1g/fak_kal.prg
+/* file fmk/kalk/mag/konsig/1g/fak_kal.prg
  *   Prenos dokumenata FAKT->KALK za konsignaciju
  */
 

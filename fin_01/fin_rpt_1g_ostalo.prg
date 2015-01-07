@@ -30,7 +30,7 @@
  */
 
 
-/*! \file fmk/fin/rpt/1g/ostalo.prg
+/* file fmk/fin/rpt/1g/ostalo.prg
  *   Ostali izvjestaji
  */
 

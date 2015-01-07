@@ -13,7 +13,7 @@
 #include "kalk01.ch"
 
 
-/*! \file fmk/kalk/specif/vindija/1g/vindija.prg
+/* file fmk/kalk/specif/vindija/1g/vindija.prg
  *   Specificnosti za Vindiju
  */
 

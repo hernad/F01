@@ -13,7 +13,7 @@
 #include "fakt01.ch"
 
 
-/*! \file fmk/fakt/specif/vindija/1g/mnu_sif.prg
+/* file fmk/fakt/specif/vindija/1g/mnu_sif.prg
  *   Menij sifrarnika za vindiju
  */
 

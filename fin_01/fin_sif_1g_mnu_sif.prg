@@ -29,7 +29,7 @@
  */
 
 
-/*! \file fmk/fin/sif/1g/mnu_sif.prg
+/* file fmk/fin/sif/1g/mnu_sif.prg
  *   Menij sifrarnika
  */
 

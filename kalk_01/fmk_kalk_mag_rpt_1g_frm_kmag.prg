@@ -27,12 +27,12 @@
  */
  
 
-/*! \file fmk/kalk/mag/rpt/1g/frm_kmag.prg
+/* file fmk/kalk/mag/rpt/1g/frm_kmag.prg
  *   Kartica artikla u magacinu koja se moze dobiti iz tabele pripreme
  */
 
 
-/*! \fn
+/* fn
  *   Kartica artikla u magacinu koja se moze dobiti iz tabele pripreme
  */
 

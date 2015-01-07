@@ -22,14 +22,14 @@
  
 *string tbl_tarifa_naz;
 
-/*! \var tbl_tarifa_naz
+/* var tbl_tarifa_naz
  *   Polje naziva u sifrarniku tarifa treba da nosi u nazivu "(N.T.)" za nize tarife, da bi izvjestaj Pregled prometa prodavnica znao da definise nize (djecija obuca) i vise tarife (ostala obuca)
  *  \ingroup Planika
  */
  
 *string IzFmkIni_KumPath_Prodavnice_KontoNeke;
 
-/*! \var IzFmkIni_KumPath_KontoNekeProdavnice_NazivKonta
+/* var IzFmkIni_KumPath_KontoNekeProdavnice_NazivKonta
  *  \ingroup ini
  *   Definise naziv prodavnice koji ce se pojaviti u izvjestaju pregled prometa
  *  \code

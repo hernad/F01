@@ -27,7 +27,7 @@
  */
 
 
-/*! \file fmk/fin/specif/jerry/1g/rpt_bil.prg
+/* file fmk/fin/specif/jerry/1g/rpt_bil.prg
  *   Bilans stanja, bilans uspjeha
  */
 

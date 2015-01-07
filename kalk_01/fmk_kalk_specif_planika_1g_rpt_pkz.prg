@@ -642,7 +642,7 @@ return
 
 
 
-/*! \ingroup Planika
+/* ingroup Planika
  *   ZagPKret(cVarijanta)
  *   Zaglavlje izvjestaja pregled kretanja
  *   cVarijanta - "1" - Pregl. kret zalika, "2" - rekapitulacija po grupama dobavljaca, "3" - rekapitulacija po grupama artikala
