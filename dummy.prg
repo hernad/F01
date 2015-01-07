@@ -34,9 +34,6 @@ FUNCTION mnu_narudzbenica()
 FUNCTION rloptlevel()
   RETURN 0
 
-// konvertovati na pic_vrijednost PIC_VRIJEDOST()
-
-
 
 function cm2Str( xVal )
 
@@ -68,14 +65,18 @@ function hb_symbol_unused()
 
 function f01_server()
 
+  IF is_install()
+      // lokalno pristupiti
+      RETURN ""
+  ENDIF
+
   connect_to_f01_server()
-  return 'net:' + DBSERVER + ':' +   hb_ntos( DBPORT ) + ':' + DBPASSWD + ':'
+
+  RETURN 'net:' + DBSERVER + ':' +   hb_ntos( DBPORT ) + ':' + DBPASSWD + ':'
 
 
 FUNCTION connect_to_f01_server()
 
-  //SET EXCLUSIVE OFF
-  //rddSetDefault( "DBFCDX" )
 
   IF s_lConnected != NIL
     RETURN .T.
@@ -94,7 +95,7 @@ FUNCTION connect_to_f01_server()
 
 FUNCTION my_dbUseArea( lNew, xRdd, cDb, cAlias, lShared, lReadOnly )
 
-   cDb := f01_server() + STRTRAN( cDb, "C" + ":", "" )
+   cDb := f01_server() + cDb
    RETURN dbUseArea( lNew, xRdd, cDb, cAlias, lShared , lReadOnly )                                               ;
 
 

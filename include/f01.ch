@@ -8,7 +8,7 @@
 #define DRIVE_ROOT_PATH "C:" + SLASH
 
 #ifdef __PLATFORM__UNIX
-  #define DATA_ROOT "/opt/f01/data"
+  #define DATA_ROOT "/F01/DATA"
 #else
   #define DATA_ROOT DRIVE_ROOT_PATH+"SIGMA"
 #endif

@@ -74,9 +74,9 @@ PROCEDURE Main()
    WAIT
 
 
-   DO while .T. 
-     ? " 'ex' za izlazak" 
-     WAIT 
+   DO while .T.
+     ? " 'ex' za izlazak"
+     WAIT
 
      IF LastKey() == ASC( 'e' )
        ? "Ostalo jos 'x' za izlazak"
@@ -89,10 +89,10 @@ PROCEDURE Main()
          netio_ServerStop( pSockSrv, .T. )
          QUIT
        ELSE
-         ? "pressed key:", LastKey() 
-       ENDIF 
+         ? "pressed key:", LastKey()
+       ENDIF
     ELSE
-        ? "pressed key:" , LastKey() 
+        ? "pressed key:" , LastKey()
     ENDIF
 
    ENDDO
@@ -169,6 +169,4 @@ RETURN .T.
 
 function f01_gvars_init()
 
-public gInstall := .F.
 public gReadOnly := .f.
-

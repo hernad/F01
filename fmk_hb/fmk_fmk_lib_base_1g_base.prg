@@ -88,6 +88,8 @@ SET DELETED ON
 
 if mpar37("/INSTALL", oApp)
 	oApp:oDatabase:lAdmin:=.t.
+	is_install( .T. )
+
 	CreGParam()
 endif
 
@@ -106,6 +108,7 @@ endif
 oApp:oDatabase:setgaDbfs()
 
 if mpar37("/INSTALL", oApp)
+  is_install( .T. )
 	oApp:oDatabase:install()
 endif
 
@@ -604,12 +607,10 @@ elseif gModul="TNAM"
 endif
 
 cPom:=gModul
-if type("gInstall")="L"
-   if gInstall
+
+if is_install()
       cDefault:="I_"+cDefault
       cPom:="I_"+cPom
-   else
-   endif
 endif
 
 cPom:=cPom+"_"+UPPER(alltrim(ImeKorisn))

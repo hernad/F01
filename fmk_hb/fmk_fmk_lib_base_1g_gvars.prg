@@ -70,7 +70,7 @@ public GW_STATUS:="-"
 public GW_HANDLE:=0
 public gReadOnly:=.f.
 public gProcPrenos:="N"
-public gInstall:=.f.
+
 public gfKolor:="D"
 public gPrinter:="1"
 public gPtxtSw := nil

@@ -495,10 +495,10 @@
              [<ro: READONLY>]                                           ;
              [INDEX <(index1)> [, <(indexn)>]]                          ;
                                                                         ;
-      =>  PreUseEvent(<(db)>, !(gInstall), gReadOnly)			;
+      =>  PreUseEvent(<(db)>, !is_install(), gReadOnly)			;
          ; my_dbUseArea(                                                   ;
                     <.new.>, <rdd>, <(db)>, <(a)>,        ;
-                     !(gInstall) , <.ro.>       ;
+                     !is_install() , <.ro.>       ;
                   )                                                     ;
                                                                         ;
       [; dbSetIndex( <(index1)> )]                                      ;
