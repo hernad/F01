@@ -91,6 +91,8 @@ if mpar37("/INSTALL", oApp)
 	CreGParam()
 endif
 
+altd()
+
 IniGparams()
 
 // inicijalizacija, prijava

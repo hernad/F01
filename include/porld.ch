@@ -6,7 +6,7 @@
 #define D_POR_PERIOD '06.96-29.01.2009'
 
 #ifndef FMK_DEFINED
-	#include "f01.ch"
+	#include "o_f01.ch"
 #endif
 
 #define _LR_  13

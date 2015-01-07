@@ -430,7 +430,7 @@ for nDbfff:=1 to 250
       seek "1"
      endif
     endif
-    if nOrder=0 .or. found()   //.or. (alias() $ "GPARAMS")
+    if nOrder=0 .or. found()
       BEEP(1)
       ordsetfocus(0)
       @ m_x+1,m_y+36 SAY reccount() pict "999999"
@@ -524,7 +524,7 @@ return
 
 
 
-/*!  AppModS(cCHSName)
+/*  AppModS(cCHSName)
  *   Modifikacija struktura APPSRV rezim rada
  *   cCHSName - ime chs fajla (npr. FIN)
  */
@@ -568,7 +568,7 @@ return
 
 
 
-/*!  RunModS(fDa)
+/*  RunModS(fDa)
  *   fDa - True -> Batch obrada (neinteraktivno)
  */
 
@@ -639,7 +639,7 @@ endif
 
 
 
-/*!  ModStru(cImeF, cPath, fString)
+/*  ModStru(cImeF, cPath, fString)
  *   procedura modifikacija struktura
  */
 function ModStru
@@ -875,7 +875,7 @@ return FReadLn(nHandle, nLines, nLineLength, cDelim)
 
 
 
-/*!  FileTop(nHandle)
+/*  FileTop(nHandle)
  *   Position the file pointer to the first byte in a binary file and return the new file position (i.e., 0).
  *  return: nPos
  *
@@ -886,7 +886,7 @@ function FileTop(nHandle)
 return FSEEK(nHandle, 0)
 
 
-/*!  FileBottom(nHandle)
+/*  FileBottom(nHandle)
  *  Position the file pointer to the last byte in a binary file and return the new file position
  *  nHandle - handle fajla
  * return: nPos - lokacija
@@ -968,13 +968,12 @@ endif
 return
 
 
-/*!  ImdDBFCDX(cIme)
+/*  ImdDBFCDX(cIme)
  *   Mjenja DBF u indeksnu extenziju
- *
- * \code
+
  *  suban     -> suban.CDX
  *  suban.DBF -> suban.CDX
- * \endcode
+
  */
 
 function ImeDBFCDX(cIme)

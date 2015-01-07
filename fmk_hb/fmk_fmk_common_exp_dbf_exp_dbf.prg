@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -16,7 +16,7 @@ static cij_decimala:=3
 static izn_decimala:=2
 static kol_decimala:=3
 static lZaokruziti := .t.
-static cLauncher1 := 'start "C:\Program Files\OpenOffice.org 2.0\program\scalc.exe"'
+static cLauncher1 := NIL
 // zamjeniti tarabu sa brojem
 static cLauncher2 := ""
 static cLauncher := "officexp"
@@ -59,8 +59,8 @@ MsgBeep("Tabela " + PRIVPATH + "R_EXPORT.DBF je formirana##" +;
 	"Nakon importa uradite Save as, i odaberite format fajla XLS ! ##" +;
 	"Tako dobijeni xls fajl mozete mijenjati #"+;
 	"prema svojim potrebama ...")
-	
-if Pitanje(, "Odmah pokrenuti spreadsheet aplikaciju ?", "D") == "D"	
+
+if Pitanje(, "Odmah pokrenuti spreadsheet aplikaciju ?", "D") == "D"
 	run &cKom
 endif
 
@@ -72,19 +72,22 @@ function set_launcher(cLauncher)
 
 local cPom
 
+cLauncher1 := 'start "C:"' + SLASH + "Program Files" + SLASH + "OpenOffice.org 2.0" + SLASH +  "program" + SLASH + "scalc.exe"
+
+
 cPom = UPPER(ALLTRIM(cLauncher))
 
 
 if (cPom == "OO") .or.  (cPom == "OOO") .or.  (cPom == "OPENOFFICE")
 	cLauncher := cLauncher1
 	return .f.
-	
+
 elseif (LEFT(cPom,6) == "OFFICE" )
         // OFFICEXP, OFFICE97, OFFICE2003
 	cLauncher := msoff_start(SUBSTR(cPom, 7))
 	return .f.
-elseif (LEFT(cPom,5) == "EXCEL") 
-        // EXCELXP, EXCEL97 
+elseif (LEFT(cPom,5) == "EXCEL")
+        // EXCELXP, EXCEL97
 	cLauncher := msoff_start(SUBSTR(cPom, 6))
 	return .f.
 endif
@@ -139,11 +142,11 @@ cLauncher := PADR(cLauncher, 70)
 
 Box(, 10, 70)
 	@ m_x+1, m_y+2 SAY "Parametri exporta:" COLOR "I"
-	
+
 	@ m_x+2, m_y+2  SAY "Konverzija slova (0-8) " GET cKonverzija PICT "9"
-  	
+
   	@ m_x+3, m_y+2 SAY "Pokreni oo/office97/officexp/office2003 ?" GET cLauncher PICT "@S26" VALID set_launcher(@cLauncher)
-  
+
   	read
 BoxC()
 
@@ -160,5 +163,3 @@ use
 
 select (nTArea)
 return cLauncher
-
-

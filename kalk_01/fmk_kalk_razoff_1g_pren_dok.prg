@@ -463,7 +463,7 @@ static function kalk_parametri_prenosa_diskete(lIni)
   private cSection:="3",cHistory:=" "; aHistory:={}
 
   IF !lIni
-    private cLokPren    := "A:\"
+    private cLokPren    := USB_ROOT_PATH
     private cFZaPredaju := "AKALK"
     private cFZaPrijem  := "AKALK"
     private cUslovVDok  := ""

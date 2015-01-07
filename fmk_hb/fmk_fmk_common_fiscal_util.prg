@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -52,7 +52,7 @@ function gen_all_plu( lSilent )
 local nPLU := 0
 local lReset := .f.
 local nP_PLU := 0
-local nCnt 
+local nCnt
 
 if lSilent == nil
 	lSilent := .f.
@@ -95,16 +95,16 @@ go top
 
 Box(,1,50)
 do while !EOF()
-	
+
 	if lReset == .f.
-		// preskoci ako vec postoji PLU i 
+		// preskoci ako vec postoji PLU i
 		// neces RESET
 		if field->fisc_plu <> 0
 			skip
 			loop
 		endif
 	endif
-	
+
 	++ nCnt
 	++ nP_PLU
 
@@ -112,7 +112,7 @@ do while !EOF()
 
 	@ m_x + 1, m_y + 2 SAY PADR( "idroba: " + field->id + ;
 		" -> PLU: " + ALLTRIM( STR( nP_PLU ) ), 30 )
-	
+
 	skip
 
 enddo
@@ -217,7 +217,7 @@ else
 		RPar( "a" + ALLTRIM(STR(nDevice)), @nGenPlu )
 	endif
 	// uvecaj za 1
-	++ nGenPlu 
+	++ nGenPlu
 endif
 
 if lReset = .t. .and. !lSilent
@@ -291,7 +291,7 @@ CREATE_INDEX("1","str(id)",PRIVPATH+"FDEVICE.DBF",.t.)
 O_FDEVICE
 
 if fdevice->(RECCOUNT()) = 0
-	
+
 	// append u tabelu FPRINT uredjaja
 	select fdevice
 
@@ -301,7 +301,7 @@ if fdevice->(RECCOUNT()) = 0
 	replace field->oznaka with "FP-550"
 	replace field->iosa with "1234567890123456"
 	replace field->vrsta with "P"
-	replace field->path with "c:\fiscal\"
+	replace field->path with "c:" + SLASH + "fiscal" + SLASH
 	replace field->output with "out.txt"
 	replace field->answer with "answer.txt"
 	replace field->serial with "010730"
@@ -321,7 +321,7 @@ if fdevice->(RECCOUNT()) = 0
 	replace field->dokumenti with "10#11#"
 	replace field->aktivan with "N"
 
-	
+
 endif
 
 return
@@ -350,7 +350,7 @@ select fdevice
 nStat := fdevice->(RECCOUNT())
 
 if nStat = 0
-	
+
 	// nema uredjaja, izadji...
 	nDevice := 0
 	return nDevice
@@ -358,7 +358,7 @@ if nStat = 0
 elseif nStat = 1
 
 	go top
-	
+
 	nDevice := field->id
 
 	if field->aktivan == "D"
@@ -373,16 +373,16 @@ elseif nStat = 1
 	endif
 
 else
-	
+
 	// sacuvaj ove varijable
 	nX := m_x
 	nY := m_y
 
 	// odaberi listu, ima vise uredjaja
 	aFD_list := _afd_list( cTipDok )
-	
+
 	nSelect := _fd_list( aFD_list )
-	
+
 	if nSelect >= 0
 		// izaberi uredjaj iz liste
 		nDevice := aFD_list[ nSelect, 2 ]
@@ -442,13 +442,13 @@ select fdevice
 go top
 
 do while !EOF()
-		
+
 	if field->aktivan == "N"
 		skip
 		loop
 	endif
 
-	if !EMPTY( cTipDok ) 
+	if !EMPTY( cTipDok )
 		if cTipDok $ field->dokumenti
 			// ovo je ok...
 			// idi dalje
@@ -460,7 +460,7 @@ do while !EOF()
 
 	// dodaj u fdevice matricu
 	AADD( aDevice, { ++nCnt, field->id, ALLTRIM(field->opis) } )
-	
+
 	skip
 
 enddo
@@ -488,12 +488,12 @@ seek str( nDevice, 3 )
 if FOUND()
 
 	nReturn := field->id
-	
+
 	// pronasao uredjaj, koristim njegove parametre
-	
+
 	// set global params...
 	gFc_type := ALLTRIM( field->tip )
-	gFc_device := field->vrsta 
+	gFc_device := field->vrsta
 	gFC_Path := field->path
 	gFC_Path2 := field->path2
 	gFC_answ := field->answer
@@ -517,7 +517,3 @@ endif
 
 select (nTArea)
 return nReturn
-
-
-
-

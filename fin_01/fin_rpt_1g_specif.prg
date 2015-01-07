@@ -4436,7 +4436,7 @@ FOR i:=2 TO LEN(aGod)
     cKrit:=STUFF(cKrit,3,7,aGod[i,2])    // mozda je stari konto
     IF SELECT("PG"+aGod[i,1])==0
       select 0
-      use (KUMPATH+(aGod[i,1])+"\SUBAN.DBF") ALIAS ("PG"+aGod[i,1])
+      use (KUMPATH+(aGod[i,1])+ SLASH + "SUBAN.DBF") ALIAS ("PG"+aGod[i,1])
       set order to tag "3"
     ELSE
       SELECT ("PG"+aGod[i,1])

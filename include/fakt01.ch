@@ -11,7 +11,7 @@
 #define D_FA_VERZIJA "03.81"
 #define D_FA_PERIOD  "11.94-11.09.12"
 #ifndef FMK_DEFINED
-	#include "f01.ch"
+	#include "o_f01.ch"
 #endif
 
 #define I_ID 1

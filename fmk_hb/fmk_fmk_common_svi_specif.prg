@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,7 +14,7 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  *
  */
@@ -28,7 +28,7 @@
  *  @{
  *  @}
  */
- 
+
 /* defgroup Tvin Specificne nadogradnje za korisnika Tvin
  *  @{
  *  @}
@@ -44,242 +44,89 @@
  *  @}
  */
 
- 
+
 /* defgroup Merkomerc  Specificne nadogradnje za korisnika Merkomerc
  *  @{
  *  @}
  */
 
- 
+
 /* defgroup RamaGlas  Specificne nadogradnje za korisnika RamaGlas
  *  @{
  *  @}
  */
 
- 
+
 /* defgroup LdFin  Specificnost - kontiranje obracuna LD
  *  @{
  *  @}
  */
 
- 
+
 /* defgroup Rudnik  Specificne nadogradnje za korisnika Rudnik
  *  @{
  *  @}
  */
 
-  
+
 /* defgroup SigmaCom Specificne nadogradnje za korisnika SigmaCom
  *  @{
  *  @}
  */
 
-  
+
 /* defgroup Jerry  Specificne nadogradnje za korisnika Jerry Trade
  *  @{
  *  @}
  */
 
 
-/* var lTvin
- *  \ingroup Tvin
- *  \sa IsTvin
- */
-*bool
 static lTvin
-*;
 
-/* var lNiagara
- *  \ingroup Niagara
- *  \sa IsNiagara
- */
-*bool
 static lNiagara
-*;
 
-/* var lPlanika
- *  \ingroup Planika
- *  \sa IsPlanika
- */
-*bool
 static lPlanika
-*;
 
-/* var lPlNS
- *  \ingroup Planika Novi Sad
- *  \sa IsPlNS
- */
-*bool
+
 static lPlNS
-*;
 
-/* var lTigra
- *  \ingroup Tigra
- *  \sa IsTigra
- */
-*bool
 static lTigra
-*;
 
-
-/* var lSigmaCom
- *  \ingroup SigmaCom
- *  \sa IsSigmaCom
- */
-*bool 
 static lSigmaCom
-*;
 
-
-/* var lRobaGroup
- *  \ingroup RobaGroup
- *  \sa IsRobaGroup
- */
-*bool 
 static lRobaGroup
-*;
 
-
-/* var lJerry
- *  \ingroup Jerry
- *  \sa IsJerry
- */
-*bool 
 static lJerry
-*;
 
-
-/* var lVindija
- *  \ingroup Vindija
- *  \sa IsVindija
- */
-*bool
 static lVindija
-*;
 
-/* var lRudnik
- *  \ingroup Rudnik
- *  \sa IsRudnik
- */
-*bool
 static lRudnik
-*;
 
-/* var lZips
- *  \ingroup Zips
- *  \sa IsZips
- */
-*bool
 static lZips
-*;
 
-/* var lTrgom
- *  \ingroup Trgomarket
- *  \sa IsTrgom
- */
-*bool
 static lTrgom
-*;
 
-/* var lKonsig
- *  \ingroup Konsignacija
- *  \sa IsKonsig
- */
-*bool
 static lKonsig
-*;
 
-/* var lStampa
- *  \ingroup Opresa magacin stampe
- *  \sa IsStampa
- */
-*bool
+
 static lStampa
-*;
 
-/* var lUgovori
- *  \ingroup Ugovori
- *  \sa IsUgovori
- */
-*bool
 static lUgovori
-*;
 
-
-/* var lRamaGlas
- *  \ingroup Specificnosti za Rama glas
- *  \sa IsRamaGlas
- */
-*bool
 static lRamaGlas
-*;
 
-
-/* var lLdFin
- *  \ingroup Specificnosti za ld->fin
- *  \sa IsLdFin
- */
-*bool
 static lLdFin
-*;
 
-/* var lMupZeDo
- *  \ingroup Specificnosti za mup ze-do
- *  \sa IsMupZeDo
- */
-*bool
 static lMupZeDo
-*;
 
-/* var lFakultet
- *  \ingroup Specificnosti za fakultet
- *  \sa IsFakultet
- */
-*bool
 static lFakultet
-*;
 
-
-/* var lDomZdr
- *  \ingroup Specificnosti za Dom zdravlja
- *  \sa IsDomZdr
- */
-*bool
 static lDomZdr
-*;
 
-
-/* var lRabati
- *  \ingroup Koristenje rabatnih skala
- *  \sa IsRabati
- */
-*bool
 static lRabati
-*;
 
-
-/* var lTehnoprom
- *  \ingroup Specificnosti za tehnoprom
- *  \sa IsTehnoprom
- */
-*bool
 static lTehnoprom
-*;
 
-
-*string IzFmkIni_KumPath_FMK_Planika;
-
-/* ingroup Planika
- *  var: *string IzFmkIni_KumPath_FMK_Planika
- *   N - standardni korisnik
- *   D - korisnik za koga su implementirane specificne nadogradnje  "Planika"
- */
- 
-/* ingroup Planika
- *   IsPlanika()
- *  return: True - Ako je ini parametar Planika podesen na "D", u suprotnom False 
- *  \sa IzFmkIni_KumPath_FMK_Planika
- */
 function IsPlanika()
 
 return lPlanika
@@ -292,7 +139,7 @@ lPlanika:=lValue
 
 /* ingroup Planika
  *   IsPlNS()
- *  return: True - Ako je ini parametar PlNS podesen na "D", u suprotnom False 
+ *  return: True - Ako je ini parametar PlNS podesen na "D", u suprotnom False
  *  \sa IzFmkIni_KumPath_FMK_PlNS
  */
 function IsPlNS()
@@ -500,7 +347,7 @@ lTehnoprom:=lValue
 /*  SetSpecifVars()
  *   Setuje globalne varijable za specificne korisnike
  */
- 
+
 function SetSpecifVars()
 
 if IzFmkIni("FMK","Tvin","N",KUMPATH)=="D"
@@ -628,4 +475,3 @@ endif
 
 
 return
-

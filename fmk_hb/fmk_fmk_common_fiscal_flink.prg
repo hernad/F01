@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -90,7 +90,7 @@ local i
 if !EMPTY( ALLTRIM( gFc_path2 ) )
 	cTmp := cFPath + ALLTRIM( gFc_path2 ) + SLASH + cFName
 else
-	cTmp := cFPath + "printe~1\" + cFName 
+	cTmp := cFPath + "printe~1" + SLASH + cFName
 endif
 
 aDir := DIRECTORY( cTmp )
@@ -120,7 +120,7 @@ for i := 1 to LEN( aDir )
 	cE_th := SUBSTR( ALLTRIM( aDir[ i, 4 ] ), 1, 2 )
 	cE_tm := SUBSTR( ALLTRIM( aDir[ i, 4 ] ), 4, 2 )
 	cE_ts := SUBSTR( ALLTRIM( aDir[ i, 4 ] ), 7, 2 )
-	
+
 	// patern pretrage
 	cE_patt := ALLTRIM( cE_name ) + cE_date + cE_th + cE_tm
 
@@ -140,7 +140,7 @@ return nErr
 // --------------------------------------------------------
 static function _f_err_delete( cFPath, cFName )
 local cTmp
-cTmp := cFPath + "printe~1\" + cFName 
+cTmp := cFPath + "printe~1" + SLASH + cFName
 
 FERASE(cTmp)
 
@@ -151,7 +151,7 @@ return
 // brise fajlove iz ulaznog direktorija
 // ----------------------------------------------
 static function fl_d_tmp()
-local cTmp 
+local cTmp
 
 msgo("brisem tmp fajlove...")
 
@@ -209,14 +209,14 @@ local i
 cLogic := "1"
 
 for i := 1 to LEN( aData )
-	
+
 	cTmp := "U"
 	cTmp += cLogSep
 	cTmp += cLogic
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 6) 
+	cTmp += REPLICATE("_", 6)
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 1) 
+	cTmp += REPLICATE("_", 1)
 	cTmp += cLogSep
 	cTmp += REPLICATE("_", 2)
 	cTmp += cSep
@@ -253,7 +253,7 @@ return aArr
 
 
 // ----------------------------------------
-// vraca popunjenu matricu za ispis raèuna
+// vraca popunjenu matricu za ispis raï¿½una
 // ----------------------------------------
 static function __pos_rn( aData, lStorno )
 local aArr := {}
@@ -273,7 +273,7 @@ local cRnBroj
 //         cijena, 5
 //         kolicina, 6
 //         porstopa, 7
-//         rek_rn, 8 
+//         rek_rn, 8
 //         plu, 9
 //         vrsta_placanja, 10
 //         total 11 }
@@ -289,16 +289,16 @@ cRnBroj := ALLTRIM( aData[1,1] )
 cLogic := "1"
 
 if lStorno == .t.
-	
+
 	cRek_rn := ALLTRIM( aData[ 1, 8 ] )
-	
+
 	cTmp := "K"
 	cTmp += cLogSep
 	cTmp += cLogic
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 6) 
+	cTmp += REPLICATE("_", 6)
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 1) 
+	cTmp += REPLICATE("_", 1)
 	cTmp += cLogSep
 	cTmp += REPLICATE("_", 2)
 	cTmp += cSep
@@ -316,9 +316,9 @@ for i := 1 to LEN( aData )
 	cTmp += cLogSep
 	cTmp += cLogic
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 6) 
+	cTmp += REPLICATE("_", 6)
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 1) 
+	cTmp += REPLICATE("_", 1)
 	cTmp += cLogSep
 	cTmp += REPLICATE("_", 2)
 	cTmp += cSep
@@ -344,13 +344,13 @@ for i := 1 to LEN( aData )
 	else
 		cTmp += "1"
 	endif
-	
+
 	cTmp += cSep
 
 	// -0 ???
 	cTmp += "-0"
 	cTmp += cSep
-	
+
 	// kod PLU
 	cTmp += ALLTRIM( aData[i, 3] )
 	cTmp += cSep
@@ -364,9 +364,9 @@ cTmp := "Q"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
@@ -386,9 +386,9 @@ if aData[ 1, 10 ] <> "0"
 	cTmp += cLogSep
 	cTmp += cLogic
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 6) 
+	cTmp += REPLICATE("_", 6)
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 1) 
+	cTmp += REPLICATE("_", 1)
 	cTmp += cLogSep
 	cTmp += REPLICATE("_", 2)
 	cTmp += cSep
@@ -406,9 +406,9 @@ cTmp := "T"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
@@ -511,12 +511,12 @@ local cRpt := "Z"
 Box(, 6, 60)
 
 	@ m_x + 1, m_y + 2 SAY "Dnevni izvjestaji..."
-	@ m_x + 3, m_y + 2 SAY "Z - dnevni izvjestaj" 
-	@ m_x + 4, m_y + 2 SAY "X - presjek stanja" 
+	@ m_x + 3, m_y + 2 SAY "Z - dnevni izvjestaj"
+	@ m_x + 4, m_y + 2 SAY "X - presjek stanja"
 	@ m_x + 6, m_y + 2 SAY "         ------------>" GET cRpt ;
 		VALID cRpt $ "ZX" PICT "@!"
-	
-	
+
+
 	read
 BoxC()
 
@@ -569,17 +569,17 @@ cTmp := "I"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
 cTmp += cZnak
-cTmp += cSep 
+cTmp += cSep
 cTmp += ALLTRIM(STR( ABS( nIznos ) ))
 cTmp += cSep
-	
+
 AADD( aArr, { cTmp } )
 
 return aArr
@@ -603,13 +603,13 @@ cTmp := cTip
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
-	
+
 AADD( aArr, { cTmp } )
 
 return aArr
@@ -631,16 +631,13 @@ cTmp := "N"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
-	
+
 AADD( aArr, { cTmp } )
 
 return aArr
-
-
-

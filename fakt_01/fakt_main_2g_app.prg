@@ -96,7 +96,7 @@ private lPodBugom
 SETKEY(K_SH_F1,{|| Calc()})
 Izbor:=1
 
-CheckROnly(KUMPATH + "\FAKT.DBF")
+//CheckROnly(KUMPATH + SLASH + "FAKT.DBF")
 
 // setuj parametre pri pokretanju modula
 s_params()

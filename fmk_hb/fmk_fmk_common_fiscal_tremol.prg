@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -17,7 +17,7 @@ static _inp_dir := ""
 static _answ_dir := ""
 static _nema_out := -20
 
-// fiskalne funkcije TREMOL fiskalizacije 
+// fiskalne funkcije TREMOL fiskalizacije
 
 
 // struktura matrice aData
@@ -40,7 +40,7 @@ static _nema_out := -20
 // aData[16] - roba jmj
 
 // struktura matrice aKupac
-// 
+//
 // aKupac[1] - idbroj kupca
 // aKupac[2] - naziv
 // aKupac[3] - adresa
@@ -55,7 +55,7 @@ function fc_trm_rn( cFPath, cFName, aData, aKupac, lStorno, cError, ;
 	cContinue )
 local cXML
 local i
-local cBr_zahtjeva 
+local cBr_zahtjeva
 local cVr_placanja
 local nVr_placanja
 local cRek_rn
@@ -69,7 +69,7 @@ local lKupac := .f.
 local nErr_no := 0
 local cOperacija := ""
 local cCmd := ""
-local cC_id 
+local cC_id
 local cC_name
 local cC_addr
 local cC_city
@@ -145,7 +145,7 @@ endif
 xml_subnode( cOF_txt + cOFR_txt + cOFC_txt )
 
 nVr_placanja := 0
-  
+
     for i:=1 to LEN( aData )
 
 	nRoba_plu := aData[i, 9]
@@ -162,7 +162,7 @@ nVr_placanja := 0
 
 	// naziv artikla
 	cTmp += _razmak1 + 'Description="' + strkznutf8(cRoba_naz,"8") + '"'
-	//  kolicina artikla 
+	//  kolicina artikla
 	cTmp += _razmak1 + 'Quantity="' + ALLTRIM( STR( nKolicina, 12, 3)) + '"'
 	// cijena artikla
 	cTmp += _razmak1 + 'Price="' + ALLTRIM( STR( nCijena, 12, 2 )) + '"'
@@ -172,17 +172,17 @@ nVr_placanja := 0
 	cTmp += _razmak1 + 'Department="' + cDep + '"'
 	// jedinica mjere
 	cTmp += _razmak1 + 'UnitName="' + cRoba_jmj + '"'
-	
+
 	if nRabat > 0
 
 		// vrijednost popusta
 		cTmp += _razmak1 + 'Discount="' + ALLTRIM(STR(nRabat,12,2)) ;
 			+ '%"'
-	
+
 	endif
 
 	xml_snode( "Item", cTmp )
-	
+
     next
 
     // vrste placanja, oznaka:
@@ -191,7 +191,7 @@ nVr_placanja := 0
     //   "CEK"
     //   "VIRMAN"
     //   "KARTICA"
-    // 
+    //
     // iznos = 0, ako je 0 onda sve ide tom vrstom placanja
 
     cVr_placanja := _g_v_plac( VAL( aData[1, 13] ) )
@@ -202,14 +202,14 @@ nVr_placanja := 0
     	cTmp := 'Type="' + cVr_placanja + '"'
     	cTmp += _razmak1 + 'Amount="' + ALLTRIM( STR(nVr_placanja,12,2)) + '"'
 
-    	xml_snode( "Payment", cTmp )	
+    	xml_snode( "Payment", cTmp )
 
     endif
 
     // dodatna linija, broj veznog racuna
     cTmp := 'Message="Vez.rn: ' + ALLTRIM( cBr_zahtjeva ) + '"'
 
-    xml_snode( "AdditionalLine", cTmp )	
+    xml_snode( "AdditionalLine", cTmp )
 
 xml_subnode( "TremolFpServer", .t. )
 
@@ -246,9 +246,9 @@ _file := STRTRAN( xml_file, ".tmp", _ext )
 
 // provjeri da li postoji fajl koji treba da napravim ?
 if FILE( _file )
-	
+
 	Box(, 1, 70 )
-	
+
 	do while .t.
 
 		-- _time
@@ -304,7 +304,7 @@ return .f.
 // brise fajlove iz ulaznog direktorija
 // ----------------------------------------------
 function trm_d_tmp()
-local cTmp 
+local cTmp
 
 msgo("brisem tmp fajlove...")
 
@@ -327,7 +327,7 @@ return
 // -------------------------------------------------------------------
 function trm_polog( cFPath, cFName, cError, nValue )
 local cXML
-local cBr_zahtjeva 
+local cBr_zahtjeva
 local nErr_no := 0
 local cCmd := ""
 
@@ -395,7 +395,7 @@ return nErr_no
 // -------------------------------------------------------------------
 function fc_trm_rplu( cFPath, cFName, cError )
 local cXML
-local cBr_zahtjeva 
+local cBr_zahtjeva
 local nErr_no := 0
 local cCmd := ""
 
@@ -449,9 +449,9 @@ if cError == "D"
 	// provjeri greske...
 	// nErr_no := ...
 	if _read_out( cFPath, cFName )
-		
+
 		// procitaj poruku greske
-		nErr_no := trm_r_error( cFPath, cFName, gFc_tout ) 
+		nErr_no := trm_r_error( cFPath, cFName, gFc_tout )
 
 	endif
 
@@ -466,7 +466,7 @@ return nErr_no
 // -------------------------------------------------------------------
 function fc_trm_cmd( cFPath, cFName, cCmd, cError )
 local cXML
-local cBr_zahtjeva 
+local cBr_zahtjeva
 local nErr_no := 0
 
 cBr_zahtjeva := "0"
@@ -503,9 +503,9 @@ if cError == "D"
 	// provjeri greske...
 	// nErr_no := ...
 	if _read_out( cFPath, cFName )
-		
+
 		// procitaj poruku greske
-		nErr_no := trm_r_error( cFPath, cFName, gFc_tout ) 
+		nErr_no := trm_r_error( cFPath, cFName, gFc_tout )
 
 	else
 		nErr_no := _nema_out
@@ -522,11 +522,11 @@ return nErr_no
 static function _g_v_plac( nID )
 local cRet := "-"
 
-do case 
+do case
 	case nId = 0
 		cRet := "Gotovina"
 	case nId = 1
-		cRet := "Cek"		
+		cRet := "Cek"
 	case nId = 2
 		cRet := "Kartica"
 	case nId = 3
@@ -534,7 +534,7 @@ do case
 
 endcase
 
-return cRet 
+return cRet
 
 
 // ------------------------------------------
@@ -552,7 +552,7 @@ do case
 	case UPPER(ALLTRIM(cJmj)) = "KG"
 		cF_jmj := "kg"
 
-	// case 
+	// case
 	// ....
 
 endcase
@@ -571,11 +571,11 @@ do case
 	case UPPER(ALLTRIM(cIdTar)) == "PDV17"
 		// PDV je tarifna skupina "2"
 		cF_tar := "2"
-	
+
 	case UPPER(ALLTRIM(cIdTar)) == "PDV0"
-		// nePDV 
+		// nePDV
 		cF_tar := "1"
-	// case 
+	// case
 	// ....
 
 endcase
@@ -600,8 +600,8 @@ do case
 		cRN := STRTRAN( cRN, "/", "" )
 		cRet := STRTRAN( cF_name, "$rn", cRN )
 		cRet := UPPER( cRet )
-	
-	otherwise 
+
+	otherwise
 		// ono sta je navedeno u parametrima
 		cRet := cF_name
 
@@ -650,15 +650,15 @@ nErr := fc_trm_cmd( cFPath, cFName, cCmd, cError )
 
 // ako se koristi opcija automatskog pologa
 if gFc_pauto > 0 .and. nErr >= 0
-	
+
 	msgo("Automatski unos pologa u uredjaj... sacekajte.")
-	
+
 	// daj mi malo prostora
 	sleep(10)
-	
+
 	// pozovi opciju pologa
 	nErr := trm_polog( cFPath, cFName, cError, gFc_pauto)
-	
+
 	msgc()
 
 endif
@@ -807,9 +807,9 @@ cTmp := cFPath + STRTRAN( ALLTRIM( cFName ), "xml", "out" )
 Box(,1,50)
 
 do while nTime > 0
-	
+
 	-- nTime
-	
+
 	// provjeri kada bude trecina vremena...
 	if nTime = ( gFc_tout * 0.7 ) .and. nRCnt = 0
 		if Pitanje(,"Restartovati server", "D") == "D"
@@ -817,7 +817,7 @@ do while nTime > 0
 			trm_restart()
 			// restartuj vrijeme
 			nTime := gFc_tout
-			++ nRCnt 
+			++ nRCnt
 		endif
 	endif
 
@@ -845,7 +845,7 @@ return lOut
 
 // ------------------------------------------------
 // citanje gresaka za TREMOL driver
-// 
+//
 // nTimeOut - time out fiskalne operacije
 // nFisc_no - broj fiskalnog isjecka
 //
@@ -859,7 +859,7 @@ local x
 local nBrLin
 local nStart
 local cErr
-local aLinija 
+local aLinija
 local aErr := {}
 local aErr2
 local aErr_read
@@ -868,10 +868,10 @@ local aF_err := {}
 local cErrCode := ""
 local cErrDesc := ""
 
-// primjer: c:\fiscal\00001.out
+// primjer: c:/fiscal/00001.out
 cF_name := cFPath + STRTRAN( ALLTRIM( cFName ), "xml", "out" )
 
-// ova opcija podrazumjeva da je ukljuèena opcija 
+// ova opcija podrazumjeva da je ukljuï¿½ena opcija
 // prikaza greske tipa OUT fajlovi...
 
 nFisc_no := 0
@@ -881,7 +881,7 @@ nStart := 0
 cFisc_txt := ""
 
 // prodji kroz svaku liniju i procitaj zapise
-// 1 liniju preskoci zato sto ona sadrzi 
+// 1 liniju preskoci zato sto ona sadrzi
 // <?xml version="1.0"...>
 for i:=1 to nBrLin
 
@@ -912,11 +912,11 @@ for i:=1 to nBrLin
 	aLinija := TokToNiz( cErr, SPACE(1) )
 
 	// dobit cemo
-	// 
+	//
 	// aLinija[1] = "ErrorCode=0"
 	// aLinija[2] = "ErrorOPOS=OPOS_SUCCESS"
 	// ...
-	
+
 	// dodaj u generalnu matricu aErr
 	for m := 1 to LEN( aLinija )
 		AADD( aErr, aLinija[m] )
@@ -936,77 +936,77 @@ if nScan > 0
 
 	// nema greske, komanda je uspjela !
 	// ako je rijec o racunu uzmi broj fiskalnog racuna
-        	
+
 	nScan := ASCAN( aErr, {|xVal| "ReceiptNumber" $ xVal } )
-	
+
 	if nScan <> 0
-		
+
 		// ReceiptNumber=241412
 		aTmp2 := {}
 		aTmp2 := TokToNiz( aErr[ nScan ], "=" )
-		
+
 		// ovo ce biti broj racuna
 		cTmp := ALLTRIM( aTmp2[2] )
-		
+
 		if !EMPTY( cTmp )
 			nFisc_no := VAL( cTmp )
 		endif
 
 	endif
-	
+
 	// pobrisi fajl, izdaji
 	FERASE( cF_name )
 	return nErr
-	
+
 endif
 
 // imamo gresku !!! ispisi je
 cTmp := ""
 
 nScan := ASCAN( aErr, {|xVal| "ErrorCode" $ xVal } )
-	
+
 if nScan <> 0
-		
+
 	// ErrorCode=241412
 	aTmp2 := {}
 	aTmp2 := TokToNiz( aErr[ nScan ], "=" )
-		
+
 	cTmp += "ErrorCode: " + ALLTRIM( aTmp2[2] )
-		
+
 	// ovo je ujedino i error kod
 	nErr := VAL( aTmp2[2] )
 
 endif
-	
+
 nScan := ASCAN( aErr, {|xVal| "ErrorOPOS" $ xVal } )
 if nScan <> 0
-		
+
 	// ErrorOPOS=xxxxxxx
 	aTmp2 := {}
 	aTmp2 := TokToNiz( aErr[ nScan ], "=" )
-	
+
 	cTmp += " ErrorOPOS: " + ALLTRIM( aTmp2[2] )
 
 endif
-	
+
 nScan := ASCAN( aErr, {|xVal| "ErrorFP" $ xVal } )
 if nScan <> 0
-		
+
 	// ErrorFP=xxxxxxx
 	aTmp2 := {}
 	aTmp2 := TokToNiz( aErr[ nScan ], "=" )
-	
+
 	cTmp += " ErrorFP: " + ALLTRIM( aTmp2[2] )
 
 endif
 
 nScan := ASCAN( aErr, {|xVal| "ErrorDescription" $ xVal } )
 if nScan <> 0
-		
+
 	// ErrorDescription=xxxxxxx
 	aTmp2 := {}
 	aTmp2 := TokToNiz( aErr[ nScan ], "=" )
-	
+
 	cTmp += " Description: " + ALLTRIM( aTmp2[2] )
 
 endif
@@ -1028,7 +1028,3 @@ return nErr
 // ----------------------------------------------
 function trm_check( aData )
 return hcp_check( @aData )
-
-
-
-

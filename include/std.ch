@@ -30,24 +30,7 @@
 #command COPY [STRUCTURE] [EXTENDED] [TO <(file)>]                      ;
       => __dbCopyXStruct( <(file)> )
 
-/*
-#command AP52 [FROM <(file)>]                                         ;
-         [FIELDS <fields,...>]                                          ;
-         [FOR <for>]                                                    ;
-         [WHILE <while>]                                                ;
-         [NEXT <next>]                                                  ;
-         [RECORD <rec>]                                                 ;
-         [<rest:REST>]                                                  ;
-         [VIA <rdd>]                                                    ;
-         [ALL]                                                          ;
-                                                                        ;
-      => __dbApp(                                                       ;
-                  <(file)>, { <(fields)> },                             ;
-                  <{for}>, <{while}>, <next>, <rec>, <.rest.>, <rdd>    ;
-                )
 
-
-*/
 
 #command SET ECHO <*x*>         =>
 #command SET HEADING <*x*>      =>
@@ -1020,5 +1003,3 @@
                   [, <(cOrdNameN)> [ IN <(cOrdBagN)> ] ]                ;
       => ordDestroy( <(cOrdName1)>, <(cOrdBag1)> )                      ;
       [; ordDestroy( <(cOrdNameN)>, <(cOrdBagN)> ) ]
-
-

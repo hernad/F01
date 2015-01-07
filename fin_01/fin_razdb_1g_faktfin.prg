@@ -25,9 +25,8 @@ gDzokerF1:=""
 
 cOdradjeno:="D"
 if file(EXEPATH+'scshell.ini')
-        //cBrojLok:=R_IniRead ( 'TekucaLokacija','Broj',  "",EXEPATH+'scshell.INI' )
-        cOdradjeno:=R_IniRead ( 'ShemePromjena',alltrim(strtran(strtran(cDirPriv,"\","_"),":","_")),  "N" ,EXEPATH+'scshell.INI' )
-        R_IniWrite ( 'ShemePromjena',alltrim(strtran(strtran(cDirPriv,"\","_"),":","_")),  "D" ,EXEPATH+'scshell.INI' )
+        cOdradjeno:=R_IniRead ( 'ShemePromjena',alltrim(strtran(strtran(cDirPriv,SLASH,"_"),":","_")),  "N" ,EXEPATH+'scshell.INI' )
+        R_IniWrite ( 'ShemePromjena',alltrim(strtran(strtran(cDirPriv, SLASH ,"_"),":","_")),  "D" ,EXEPATH+'scshell.INI' )
 endif
 
 Rpar("a1",@gFaktKum)
@@ -37,12 +36,12 @@ Rpar("a3",@gKalkKum)
 gDzokerF1 := TRIM(gDzokerF1)
 
 if empty(gFaktKum) .or. cOdradjeno="N"
-  gFaktKum:=trim(strtran(cDirRad,"FIN","FAKT"))+"\"
+  gFaktKum:=trim(strtran(cDirRad,"FIN","FAKT"))+ SLASH
   Wpar("a1",@gFaktKum)
 endif
 
 if empty(gKalkKum) .or. cOdradjeno="N"
-  gKalkKum:=trim(strtran(cDirRad,"FIN","KALK"))+"\"
+  gKalkKum:=trim(strtran(cDirRad,"FIN","KALK"))+ SLASH
   Wpar("a3",@gKalkKum)
 endif
 
@@ -521,7 +520,6 @@ return if(nPom>0,aKonta[nPom],"")
 
 /*  PrStopa(nProc)
  *    Preracunata stopa
- *  \nProc - Broj
  */
 
 function PrStopa(nProc)

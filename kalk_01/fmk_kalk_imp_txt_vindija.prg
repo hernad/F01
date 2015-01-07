@@ -1959,7 +1959,7 @@ return 0
 /*  ChkTD14(cVezniDok)
  *   Provjeri vezne dokumente za tip dokumenta 14
  *   cVezniDok - dokument iz pripreme
- *  \result vraca 1 ako je sve ok, ili 2 ako vezni dokument ne odgovara
+ *  vraca 1 ako je sve ok, ili 2 ako vezni dokument ne odgovara
  */
 static function ChkTD14(cVezniDok)
 

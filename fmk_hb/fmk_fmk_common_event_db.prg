@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -24,10 +24,10 @@ close all
 if VALTYPE(goModul:oDatabase:cSigmaBD) <> "C"
 	MsgBeep("Nije podesen parametar ## EXEPATH / fmk.ini #" +;
 	        "[Svi]#"+;
-		"SigmaBD=c:\sigma")
-	goModul:oDatabase:cSigmaBD = "c:\sigma"
+		"SigmaBD=c:" + SLASH + "sigma")
+	goModul:oDatabase:cSigmaBD = "c:" + SLASH + "sigma"
 endif
-		
+
 cPath:=goModul:oDataBase:cSigmaBD+SLASH+"security"+SLASH
 
 if !DirExists(cPath)
@@ -44,7 +44,7 @@ endif
 
 // EVENTS.DBF
 aDbf:={}
-AADD(aDbf,{"ID","N",4,0})  
+AADD(aDbf,{"ID","N",4,0})
 AADD(aDbf,{"OBJEKAT","C",10,0})
 AADD(aDbf,{"KOMPONENTA","C",15,0})
 AADD(aDbf,{"FUNKCIJA","C",30,0})
@@ -71,8 +71,8 @@ endif
 
 // EVENTLOG.DBF
 aDbf:={}
-AADD(aDbf,{"ID","N",15,0})  
-AADD(aDbf,{"USER","N",3,0})  
+AADD(aDbf,{"ID","N",15,0})
+AADD(aDbf,{"USER","N",3,0})
 AADD(aDbf,{"DATUM","D",8,0})
 AADD(aDbf,{"VRIJEME","C",5,0})
 AADD(aDbf,{"OBJEKAT","C",10,0})
@@ -128,7 +128,7 @@ ImeKol:={{PadR("Id",4),{|| id},"id",{|| IncID(@wId),.f.},{||.t.},,"999"},;
          {PadR("Security2",10),{|| security2},"security2",{||.t.},{|| P_Groups(@wSecurity2)}},;
          {PadR("Security3",10),{|| security3},"security3",{||.t.},{|| P_Groups(@wSecurity3)}},;
          {PadR("Opis",40),{|| opis},"opis"}}
-	
+
 Kol:={1,2,3,4,5,6,7,8,9,10,11}
 
 return PostojiSifra(F_EVENTS,1,10,60,"Events - dogadjaji koji se logiraju",@cId,dx,dy)
@@ -190,10 +190,10 @@ dDatumDo:=Date()
 cDN:="N"
 
 Box(,5,60)
-	@ m_x+1,m_y+2 SAY "Modul (prazno-svi):" GET cModul 
-	@ m_x+2,m_y+2 SAY "Period od:" GET dDatumOd 
-	@ m_x+3,m_y+2 SAY "Period do:" GET dDatumDo 
-	@ m_x+4,m_y+2 SAY "Pobrisati (D/N)?" GET cDN VALID cDN$"DN" PICT "@!" 
+	@ m_x+1,m_y+2 SAY "Modul (prazno-svi):" GET cModul
+	@ m_x+2,m_y+2 SAY "Period od:" GET dDatumOd
+	@ m_x+3,m_y+2 SAY "Period do:" GET dDatumDo
+	@ m_x+4,m_y+2 SAY "Pobrisati (D/N)?" GET cDN VALID cDN$"DN" PICT "@!"
 	read
 BoxC()
 
@@ -216,7 +216,7 @@ lAuto:=.f.
 if (dDatOd==nil .and. dDatDo==nil .and. cModul==nil)
 	// period za koji cu obrisati sve logove (odnosi se na broj mjeseci unazad)
 	// TODO ovu varijablu treba da procita iz FMK.INI/EXEPATH
-	cPeriod:=3	
+	cPeriod:=3
 	lAuto:=.t.
 endif
 
@@ -368,4 +368,3 @@ replace field->opis with cOpis
 
 select (nTArea)
 return
-

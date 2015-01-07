@@ -71,7 +71,7 @@ closeret
 function fakt_prenos_diskete()
 
 local nRec
-PRIVATE cLokPren    := "A:\"
+PRIVATE cLokPren    := USB_ROOT_PATH
 PRIVATE cFZaPredaju := "FAKT"
 PRIVATE cFZaPrijem  := "FAKT"
 PRIVATE cUslovTDok  := "1;"
@@ -346,7 +346,7 @@ return
 function fakt_povrat_sa_diskete()
 
 local nRec, cDiff:=""
-PRIVATE cLokPren    := "A:\"
+PRIVATE cLokPren    := USB_ROOT_PATH
 PRIVATE cFZaPredaju := "FAKT"
 PRIVATE cFZaPrijem  := "FAKT"
 PRIVATE cUslovTDok  := "1;"
@@ -560,7 +560,7 @@ LOCAL GetList:={}
   private cSection:="3",cHistory:=" "; aHistory:={}
 
   IF !lIni
-    private cLokPren    := "A:\"
+    private cLokPren    := USB_ROOT_PATH
     private cFZaPredaju := "FAKT"
     private cFZaPrijem  := "FAKT"
     private cUslovTDok  := "1;"

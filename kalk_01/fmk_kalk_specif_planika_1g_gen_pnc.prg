@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,10 +14,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/kalk/specif/planika/1g/gen_pnc.prg,v $
- * $Author: sasavranic $ 
+ * $Author: sasavranic $
  * $Revision: 1.3 $
  * $Log: gen_pnc.prg,v $
  * Revision 1.3  2003/11/22 15:26:45  sasavranic
@@ -65,13 +65,13 @@ do while !eof()
 		skip
 		loop
 	endif
-	
+
 	// prodji kroz sve artikle
 	@ m_x+1, m_y+2 SAY "Prodavnica: " + cPKonto
 	SELECT roba
 	GO TOP
 	do while !eof()
-	
+
 		cIdRoba := roba->id
 		if IsRobaInProdavnica(cPKonto, cIdRoba)
 			@ m_x+2, m_y+2 SAY "Roba " + cIdRoba
@@ -83,11 +83,11 @@ do while !eof()
 		else
 			@ m_x+2, m_y+2 SAY "!Roba " + cIdRoba
 		endif
-		
+
 		select roba
 		skip
 	enddo
-			
+
 	select koncij
 	skip
 enddo
@@ -127,7 +127,7 @@ local nSredNc
 local dDatNab
 local dRokTr
 
-private _DatDok 
+private _DatDok
 
 SELECT (F_PRIPR)
 if !used()
@@ -144,7 +144,7 @@ return nSredNc
 /*
  * *******************************
  */
- 
+
 function SetProdNc(cPKonto, cIdRoba, cIdVd, cBrDok, dDatDok, nNc )
 
 local nArr
@@ -212,17 +212,17 @@ for i = 1 to 7
 
 
 	SELECT (F_KALK)
-	use  (KUMPATH+cGodina+"\kalk") 
+	use  (KUMPATH+cGodina + SLASH + "kalk") 
 	set order to tag "1"
 
-	
+
 	@ m_x+1, m_y+2 SAY iif(cGodina=="", "2003", cGodina)
-	
+
 	SEEK gFirma + "10"
 	do while !eof() .and. (IdVd == "10")
 
 		@ m_x+2, m_y+2 SAY kalk->IdRoba
-		
+
 		SELECT ROBA
 		cIdPartner = kalk->IdPartner
 		SEEK kalk->IdRoba
@@ -243,4 +243,3 @@ next
 
 BoxC()
 return
-

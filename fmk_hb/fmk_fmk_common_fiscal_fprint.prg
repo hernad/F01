@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -115,25 +115,25 @@ endif
 
 for i:=1 to LEN( aData )
 
-	nCijena := aData[ i, 5 ]	
+	nCijena := aData[ i, 5 ]
 	nPluCijena := aData[i, 10]
-	nKolicina := aData[ i, 6 ]	
+	nKolicina := aData[ i, 6 ]
 	cNaziv := aData[i, 4]
 
 	if ( !_chk_qtty( nKolicina ) .or. !_chk_price( nCijena ) ) ;
 		.or. !_chk_price( nPluCijena )
-		
+
 		if gFc_chk > "1"
-			
+
 			// popravi kolicine, cijene
 			_fix_qtty( @nKolicina, @nCijena, @nPluCijena, @cNaziv )
-			
+
 			// promjeni u matrici podatke takodjer
 			aData[i, 5] := nCijena
 			aData[i, 10] := nPluCijena
 			aData[i, 6] := nKolicina
 			aData[i, 4] := cNaziv
-		
+
 		endif
 
 		++ nFix
@@ -147,11 +147,11 @@ if nFix > 0 .and. gFc_chk > "1"
 	msgbeep("Pojedini artikli na racunu su prepakovani na 100 kom !")
 
 elseif nFix > 0 .and. gFc_chk == "1"
-	
+
 	nRet := -99
 	msgbeep("Pojedinim artiklima je kolicina/cijena van dozvoljenog ranga#Prekidam operaciju !!!!")
 
-	if lStorno 
+	if lStorno
 		// ako je rijec o storno dokumentu, prikazi poruku
 		// ali ipak nastavi dalje...
 		nRet := 0
@@ -174,7 +174,7 @@ if nQtty > MAX_QT .or. nQtty < MIN_QT
 endif
 
 // provjeri i decimale
-if ABS(nQtty) - ABS( VAL( STR( nQtty, 12, 3 ) ) ) <> 0 
+if ABS(nQtty) - ABS( VAL( STR( nQtty, 12, 3 ) ) ) <> 0
 	lRet := .f.
 	return .f.
 endif
@@ -275,11 +275,11 @@ local cType := "F"
 
 
 Box(,10,60)
-	
-	@ m_x + 1, m_y + 2 SAY "Za datum od:" GET dD_from 
+
+	@ m_x + 1, m_y + 2 SAY "Za datum od:" GET dD_from
 	@ m_x + 1, col() + 1 SAY "vrijeme od (hh:mm):" GET cTH_from
 	@ m_x + 1, col() SAY ":" GET cTM_from
-	
+
 	@ m_x + 2, m_y + 2 SAY "         do:" GET dD_to
 	@ m_x + 2, col() + 1 SAY "vrijeme do (hh:mm):" GET cTH_to
 	@ m_x + 2, col() SAY ":" GET cTM_to
@@ -383,8 +383,8 @@ if nDevice == nil
 	nDevice := 0
 endif
 
-if !lSilent 
-	
+if !lSilent
+
 	if !SIGMASIF("RESET")
 		return
 	endif
@@ -452,13 +452,13 @@ local nErr := 0
 private GetList:={}
 
 Box(,4, 65)
-	
-	@ m_x+1, m_y+2 SAY "**** manuelno zadavanje komandi ****" 
-	
+
+	@ m_x+1, m_y+2 SAY "**** manuelno zadavanje komandi ****"
+
 	@ m_x+2, m_y+2 SAY "   broj komande:" GET nCmd PICT "999" ;
 		VALID nCmd > 0
 	@ m_x+3, m_y+2 SAY "        komanda:" GET cCond PICT "@S40"
-	
+
 	@ m_x+4, m_y+2 SAY "provjera greske:" GET cErr PICT "@!" ;
 		VALID cErr $ "DN"
 	read
@@ -480,7 +480,7 @@ aManCmd := _fp_man_cmd( nCmd, cCond )
 _a_to_file( cFPath, cFName, aStruct, aManCmd )
 
 if cErr == "D"
-	
+
 	// provjeri gresku
 	nErr := fp_r_error( cFPath, cFName, gFC_tout, 0 )
 
@@ -585,7 +585,7 @@ nErr := fp_r_error( cFPath, cFName, gFC_tout, 0 )
 if nErr <> 0
 
 	msgbeep("Postoji greska !!!")
-	
+
 	return
 
 endif
@@ -621,7 +621,7 @@ if gFC_acd == "D"
 			return
 		endif
 	endif
-	
+
 	msgc()
 
 	// setuj brojac PLU na 0 u parametrima !
@@ -634,15 +634,15 @@ endif
 
 // ako se koristi opcija automatskog pologa u ure�aj
 if gFc_pauto <> 0
-	
+
 	msgo("Automatski unos pologa u uredjaj... sacekajte.")
-	
+
 	// daj malo prostora
 	sleep(10)
-	
+
 	// odmah pozovi i automatski polog
 	fp_polog( cFPath, cFName, gFc_pauto )
-	
+
 	msgc()
 endif
 
@@ -662,7 +662,7 @@ local dD_to := DATE()
 private GetList:={}
 
 Box(,1,50)
-	@ m_x + 1, m_y + 2 SAY "Za period od" GET dD_from 
+	@ m_x + 1, m_y + 2 SAY "Za period od" GET dD_from
 	@ m_x + 1, col() + 1 SAY "do" GET dD_to
 	read
 BoxC()
@@ -734,29 +734,29 @@ local cOption := "2"
 cLogic := "1"
 
 for i := 1 to LEN( aData )
-	
+
 	cTmp := "107"
 	cTmp += cLogSep
 	cTmp += cLogic
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 6) 
+	cTmp += REPLICATE("_", 6)
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 1) 
+	cTmp += REPLICATE("_", 1)
 	cTmp += cLogSep
 	cTmp += REPLICATE("_", 2)
 	cTmp += cSep
-	
+
 	cTmp += cOption
 	cTmp += cSep
 
 	// poreska grupa artikala 1 - 5
 	cTmp += _g_tar( aData[i, 5] )
 	cTmp += cSep
-	
+
 	// kod PLU
 	cTmp += ALLTRIM( aData[i, 1] )
 	cTmp += cSep
-	
+
 	// cjena 0-99999.99
 	cTmp += ALLTRIM(STR( aData[i, 3], 12, 2 ))
 	cTmp += cSep
@@ -818,7 +818,7 @@ cVr_placanja := ALLTRIM( aData[1, 13] )
 nTotal := aData[1, 14]
 
 // ocekuje se matrica formata
-// aData { brrn, rbr, idroba, nazroba, cijena, kolicina, porstopa, 
+// aData { brrn, rbr, idroba, nazroba, cijena, kolicina, porstopa,
 //         rek_rn, plu, plu_cijena, popust, barkod, vrsta plac, total racuna }
 
 // prvo dodaj artikle za prodaju...
@@ -836,9 +836,9 @@ cTmp := "48"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
@@ -850,7 +850,7 @@ cTmp += cOp_pwd
 cTmp += cSep
 
 if lStorno == .t.
-	
+
 	cRek_rn := ALLTRIM( aData[ 1, 8 ] )
 	cTmp += cSep
 	cTmp += cRek_rn
@@ -870,17 +870,17 @@ for i := 1 to LEN( aData )
 	cTmp += cLogSep
 	cTmp += cLogic
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 6) 
+	cTmp += REPLICATE("_", 6)
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 1) 
+	cTmp += REPLICATE("_", 1)
 	cTmp += cLogSep
 	cTmp += REPLICATE("_", 2)
 	cTmp += cSep
-	
+
 	// kod PLU
 	cTmp += ALLTRIM( STR( aData[i, 9] ) )
 	cTmp += cSep
-	
+
 	// kolicina 0-99999.999
 	cTmp += ALLTRIM(STR( aData[i, 6], 12, 3 ))
 	cTmp += cSep
@@ -893,7 +893,7 @@ for i := 1 to LEN( aData )
 
 	// dodaj u matricu prodaju...
 	AADD( aArr, { cTmp } )
-	
+
 next
 
 // 3. subtotal
@@ -902,9 +902,9 @@ cTmp := "51"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
@@ -917,9 +917,9 @@ cTmp := "53"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
@@ -929,8 +929,8 @@ cTmp += cSep
 // 2 - chek
 // 3 - virman
 
-if cVr_placanja <> "0" .and. !lStorno 
- 	
+if cVr_placanja <> "0" .and. !lStorno
+
 	// imamo drugu vrstu placanja...
 	cTmp += cVr_placanja
 	cTmp += cSep
@@ -946,17 +946,17 @@ endif
 
 AADD( aArr, { cTmp } )
 
-// radi zaokruzenja kod virmanskog placanja 
+// radi zaokruzenja kod virmanskog placanja
 // salje se jos jedna linija 53 ali prazna
-if cVr_placanja <> "0" .and. !lStorno 
-	
+if cVr_placanja <> "0" .and. !lStorno
+
 	cTmp := "53"
 	cTmp += cLogSep
 	cTmp += cLogic
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 6) 
-	cTmp += cLogSep	
-	cTmp += REPLICATE("_", 1) 
+	cTmp += REPLICATE("_", 6)
+	cTmp += cLogSep
+	cTmp += REPLICATE("_", 1)
 	cTmp += cLogSep
 	cTmp += REPLICATE("_", 2)
 	cTmp += cSep
@@ -978,13 +978,13 @@ if LEN( aKupac ) > 0
 	cTmp += cLogSep
 	cTmp += cLogic
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 6) 
+	cTmp += REPLICATE("_", 6)
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 1) 
+	cTmp += REPLICATE("_", 1)
 	cTmp += cLogSep
 	cTmp += REPLICATE("_", 2)
 	cTmp += cSep
-	
+
 	// 1. id broj
 	cTmp += ALLTRIM( aKupac[ 1, 1 ] )
 	cTmp += cSep
@@ -996,7 +996,7 @@ if LEN( aKupac ) > 0
 	// 3. adresa
 	cTmp += ALLTRIM( PADR( aKupac[ 1, 3 ], 36 ) )
 	cTmp += cSep
-	
+
 	// 4. ptt, mjesto
 	cTmp += ALLTRIM( aKupac[ 1, 4 ] ) + " " + ;
 		ALLTRIM( aKupac[ 1, 5 ] )
@@ -1014,9 +1014,9 @@ cTmp := "106"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
@@ -1030,9 +1030,9 @@ cTmp := "56"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
@@ -1062,9 +1062,9 @@ cTmp := ALLTRIM(STR(nCmd))
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
@@ -1097,9 +1097,9 @@ cTmp := "38"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
@@ -1112,9 +1112,9 @@ cTmp := "42"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
@@ -1129,9 +1129,9 @@ cTmp := "39"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
@@ -1177,9 +1177,9 @@ cTmp := "107"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
@@ -1211,9 +1211,9 @@ cTmp := "56"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
@@ -1262,9 +1262,9 @@ cTmp := "79"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
@@ -1274,7 +1274,7 @@ cTmp += cD_to
 cTmp += cSep
 cTmp += cSep
 cTmp += cSep
-	
+
 AADD( aArr, { cTmp } )
 
 return aArr
@@ -1304,15 +1304,15 @@ cTmp := "111"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
 cTmp += cType
 cTmp += cSep
-	
+
 AADD( aArr, { cTmp } )
 
 return aArr
@@ -1345,9 +1345,9 @@ cTmp := "69"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
@@ -1355,7 +1355,7 @@ cTmp += cType
 cTmp += cSep
 cTmp += cOper
 cTmp += cSep
-	
+
 AADD( aArr, { cTmp } )
 
 return aArr
@@ -1386,9 +1386,9 @@ cTmp := "109"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
@@ -1400,7 +1400,7 @@ cTmp += cEnd
 cTmp += cSep
 cTmp += cParam
 cTmp += cSep
-	
+
 AADD( aArr, { cTmp } )
 
 return aArr
@@ -1426,15 +1426,15 @@ cTmp := "70"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
 cTmp += cZnak + ALLTRIM(STR( nIznos ))
 cTmp += cSep
-	
+
 AADD( aArr, { cTmp } )
 
 return aArr
@@ -1456,13 +1456,13 @@ cTmp := "301"
 cTmp += cLogSep
 cTmp += cLogic
 cTmp += cLogSep
-cTmp += REPLICATE("_", 6) 
+cTmp += REPLICATE("_", 6)
 cTmp += cLogSep
-cTmp += REPLICATE("_", 1) 
+cTmp += REPLICATE("_", 1)
 cTmp += cLogSep
 cTmp += REPLICATE("_", 2)
 cTmp += cSep
-	
+
 AADD( aArr, { cTmp } )
 
 return aArr
@@ -1474,7 +1474,7 @@ return aArr
 static function _a_fp_articles( aArr, aData, lStorno )
 local i
 local cTmp := ""
-// opcija dodavanja artikla u printer <1|2> 
+// opcija dodavanja artikla u printer <1|2>
 // 1 - dodaj samo jednom
 // 2 - mozemo dodavati vise puta
 local cOp_add := "2"
@@ -1485,7 +1485,7 @@ local cLogSep := ","
 local cSep := ";"
 
 // ocekuje se matrica formata
-// aData { brrn, rbr, idroba, nazroba, cijena, kolicina, porstopa, 
+// aData { brrn, rbr, idroba, nazroba, cijena, kolicina, porstopa,
 //         rek_rn, plu, plu_cijena, popust }
 
 cLogic := "1"
@@ -1495,63 +1495,63 @@ cLogic := "1"
 //endif
 
 for i:=1 to LEN( aData )
-	
+
 	// 1. dodavanje artikla u printer
-	
+
 	cTmp := "107"
 	cTmp += cLogSep
 	cTmp += cLogic
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 6) 
+	cTmp += REPLICATE("_", 6)
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 1) 
+	cTmp += REPLICATE("_", 1)
 	cTmp += cLogSep
 	cTmp += REPLICATE("_", 2)
 	cTmp += cSep
-	
+
 	// opcija dodavanja "2"
 	cTmp += cOp_add
 	cTmp += cSep
-	
+
 	// poreska stopa
 	cTmp += _g_tar( aData[ i, 7 ] )
 	cTmp += cSep
-	
-	// plu kod 
+
+	// plu kod
 	cTmp += ALLTRIM( STR( aData[ i, 9 ]) )
 	cTmp += cSep
 
 	// plu cijena
 	cTmp += ALLTRIM(STR( aData[ i, 10 ], 12, 2 ))
 	cTmp += cSep
-	
+
 	// plu naziv
-	cTmp += ALLTRIM( PADR( aData[ i, 4 ], gFC_alen ) ) 
+	cTmp += ALLTRIM( PADR( aData[ i, 4 ], gFC_alen ) )
 	cTmp += cSep
 
 	AADD( aArr, { cTmp } )
-	
+
 	// 2. dodavanje stavke promjena cijene - ako postoji
-	
+
 	cTmp := "107"
 	cTmp += cLogSep
 	cTmp += cLogic
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 6) 
+	cTmp += REPLICATE("_", 6)
 	cTmp += cLogSep
-	cTmp += REPLICATE("_", 1) 
+	cTmp += REPLICATE("_", 1)
 	cTmp += cLogSep
 	cTmp += REPLICATE("_", 2)
 	cTmp += cSep
-	
+
 	// opcija dodavanja "4"
 	cTmp += cOp_ch
 	cTmp += cSep
-	
-	// plu kod 
+
+	// plu kod
 	cTmp += ALLTRIM( STR( aData[ i, 9 ]) )
 	cTmp += cSep
-	
+
 	// plu cijena
 	cTmp += ALLTRIM(STR( aData[ i, 10 ], 12, 2 ))
 	cTmp += cSep
@@ -1577,7 +1577,7 @@ do case
 		cRN := PADL( ALLTRIM( cBrRn ), 8, "0" )
 		cRet := STRTRAN( cF_name, "$rn", cRN )
 		cRet := UPPER( cRet )
-	otherwise 
+	otherwise
 		// ono sta je navedeno u parametrima
 		cRet := cF_name
 
@@ -1628,7 +1628,7 @@ return
 // vraca broj
 // 0 - sve ok
 // -9 - ne postoji answer fajl
-// 
+//
 // nTimeOut - time out fiskalne operacije
 // nFisc_no - broj fiskalnog isjecka
 // ------------------------------------------------
@@ -1641,7 +1641,7 @@ local nStart
 local cErr
 local aErr_read
 local aErr_data
-local nTime 
+local nTime
 local cSerial := ALLTRIM(gFc_serial)
 
 if lStorno == NIL
@@ -1650,7 +1650,7 @@ endif
 
 nTime := nTimeOut
 
-// primjer: c:\fprint\answer\answer.txt
+// primjer: c:/fprint/answer/answer.txt
 cF_name := cPath + "ANSWER" + SLASH + ALLTRIM(gFc_answ)
 
 // ako se koristi isti answer kao i input fajl
@@ -1658,13 +1658,13 @@ if EMPTY( ALLTRIM( gFc_answ ) )
 	cF_name := cPath + "ANSWER" + SLASH + ALLTRIM(cFile)
 endif
 
-// ova opcija podrazumjeva da je uklju�ena opcija 
+// ova opcija podrazumjeva da je uklju�ena opcija
 // prikaza greske tipa ER,OK...
 
 Box(,1,50)
 
 do while nTime > 0
-	
+
 	-- nTime
 
 	if FILE( cF_name )
@@ -1695,7 +1695,7 @@ cFisc_txt := ""
 
 // prodji kroz svaku liniju i procitaj zapise
 for i:=1 to nBrLin
-	
+
 	aErr_read := SljedLin( cF_name, nStart )
       	nStart := aErr_read[ 2 ]
 
@@ -1707,7 +1707,7 @@ for i:=1 to nBrLin
 		// preskoci
 		loop
 	endif
-	
+
 	// ovu liniju zapamti, sadrzi fiskalni racun broj
 	// komanda 56, zatvaranje racuna
 	if "56,1," + cSerial $ cErr
@@ -1720,7 +1720,7 @@ for i:=1 to nBrLin
 		nRet := 1
 		return nRet
 	endif
-	
+
 next
 
 // ako je sve ok, uzmi broj fiskalnog isjecka
@@ -1759,7 +1759,7 @@ return nFiscNO
 // --------------------------------------------
 function _fisc_eml_test()
 // uzmi podatke za email iz ini-ja
-local cEmail := IzFmkIni("Ruby", "FiscEmail", "c:\scruby\eFisc.rb")
+local cEmail := IzFmkIni("Ruby", "FiscEmail", "C:" + SLASH + "scruby" + SLASH + "eFisc.rb")
 local cMessage
 local nFisc_rn := 156
 local cFakt_dok := "11-01252"
@@ -1773,11 +1773,9 @@ endif
 
 cMessage := '"Racun: ' +  ALLTRIM(STR(nFisc_rn)) + ;
 	', ' + cFakt_dok + ', ' + StrKzn( cKupac, "8", "W" ) + ;
-	', iznos: ' + ALLTRIM(STR(nTotal,12,2)) + ' KM"' 
+	', iznos: ' + ALLTRIM(STR(nTotal,12,2)) + ' KM"'
 
 email_send("F", nil, nil, cMessage, nil, cEml_file )
 
 
 return
-
-

@@ -51,6 +51,7 @@ return 1
 // Vraca podesenje putanje do exportovanih fajlova
 // -----------------------------------------------------
 static function _gExpPath( cPath )
+
 cPath:=IzFmkIni("FMK", "ImportPath", "c:" + SLASH + "import" + SLASH, PRIVPATH)
 if Empty(cPath) .or. cPath == nil
 	cPath := "c:" + SLASH + "import" + SLASH

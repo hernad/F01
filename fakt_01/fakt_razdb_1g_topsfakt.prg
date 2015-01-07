@@ -12,17 +12,6 @@
 
 #include "fakt01.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software
- * ----------------------------------------------------------------
- *
- */
-
-/* file fmk/fakt/razdb/1g/topsfakt.prg
- *   Tops 2 Fakt
- */
-
 
 
 /*  TopsFakt()
@@ -31,7 +20,7 @@
 
 function TopsFakt()
 
-local cLokacija:=PADR("A:\",40)
+local cLokacija:=PADR("C:" + SLASH,40)
 local cTopsFakt
 local nRBr
 local cIdRj:=gFirma

@@ -1,4 +1,5 @@
 #!/bin/bash
+
 export QT_PLUGIN_PATH=c:/Platform/QT_Platform/plugins
 
 HB_DBG_PATH=.

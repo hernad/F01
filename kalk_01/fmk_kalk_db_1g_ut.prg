@@ -798,7 +798,7 @@ return
 
 
 /*  UkupnoKolM(nTotalUlaz, nTotalIzlaz)
- *  \sa UkupnoKolP
+ *  UkupnoKolP
  */
 
 function UkupnoKolM(nTotalUlaz, nTotalIzlaz)

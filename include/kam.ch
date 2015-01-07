@@ -6,7 +6,7 @@
 #define D_KAM_PERIOD '06.96-12.12.06'
 
 #ifndef FMK_DEFINED
-	#include "f01.ch"
+	#include "o_f01.ch"
 #endif
 
 #xcommand O_PRIPR  =>   SELECT (F_KAMPRIPR) ; usex (PRIVPATH+"pripr") ; set order to 1

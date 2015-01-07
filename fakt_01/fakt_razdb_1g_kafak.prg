@@ -32,8 +32,8 @@ cOdradjeno:="D"
 
 if file(EXEPATH+'scshell.ini')
         //cBrojLok:=R_IniRead ( 'TekucaLokacija','Broj',  "",EXEPATH+'scshell.INI' )
-        cOdradjeno:=R_IniRead ( 'ShemePromjena',alltrim(strtran(strtran(goModul:oDataBase:cDirPriv,"\","_"),":","_")),  "N" ,EXEPATH+'scshell.INI' )
-        R_IniWrite ( 'ShemePromjena',alltrim(strtran(strtran(goModul:oDataBase:cDirPriv,"\","_"),":","_")),  "D" ,EXEPATH+'scshell.INI' )
+        cOdradjeno:=R_IniRead ( 'ShemePromjena',alltrim(strtran(strtran(goModul:oDataBase:cDirPriv, SLASH ,"_"),":","_")),  "N" ,EXEPATH+'scshell.INI' )
+        R_IniWrite ( 'ShemePromjena',alltrim(strtran(strtran(goModul:oDataBase:cDirPriv, SLASH ,"_"),":","_")),  "D" ,EXEPATH+'scshell.INI' )
 endif
 
 private cSection:="T"
@@ -44,7 +44,7 @@ RPar("dk",@gDirKalk)
 
 if empty(gDirKalk) .or. cOdradjeno="N"
 
-	gDirKalk:=trim(strtran(goModul:oDataBase:cDirKum,"FAKT","KALK"))+"\"
+	gDirKalk:=trim(strtran(goModul:oDataBase:cDirKum,"FAKT","KALK"))+ SLASH
   	WPar("dk",gDirKalk)
 
 endif
@@ -55,7 +55,7 @@ if cOdradjeno == "N"
 	private cHistory:=" "
 	private aHistory:={}
 
-	gKomlin:=strtran(Upper(gKomlin),"1\FAKT.RTF",Right(trim(ImeKorisn))+"\FAKT.RTF" )
+	gKomlin:=strtran(Upper(gKomlin),"1\FAKT.RTF",Right(trim(ImeKorisn))+ SLASH + "FAKT.RTF" )
  	WPar("95",gKomLin)
 	// prvenstveno za win 95
 

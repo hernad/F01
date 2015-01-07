@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -24,7 +24,7 @@ static PIC_CIJENA := ""
 // stampa dokumenta u odt formatu
 // ------------------------------------------------
 function stdokodt( cIdf, cIdVd, cBrDok )
-local cPath := "c:\"
+local cPath := "c:" + SLASH
 local cFilter := "f*.odt"
 local cTemplate := ""
 
@@ -156,7 +156,7 @@ xml_node("kfax", ALLTRIM(get_dtxt_opis("K14")) )
 nTxtR := VAL( get_dtxt_opis("P02") )
 
 for i := 20 to ( 20 + nTxtR )
-	
+
 	cTmp := "F" + ALLTRIM( STR(i) )
 	cTmpTxt := ALLTRIM( get_dtxt_opis(cTmp) )
 
@@ -177,9 +177,9 @@ select rn
 go top
 
 do while !EOF()
-	
+
 	xml_subnode( "item", .f. )
-	
+
 	xml_node( "rbr", ALLTRIM( field->rbr ) )
 	xml_node( "pbr", ALLTRIM( field->podbr ) )
 	xml_node( "id", strkznutf8(ALLTRIM( field->idroba ),"8","U") )
@@ -212,7 +212,7 @@ do while !EOF()
 	xml_node( "opis", strkznutf8( ALLTRIM( field->opis ), "8", "U" ) )
 
 	xml_subnode( "item", .t. )
-	
+
 	skip
 
 enddo
@@ -227,7 +227,7 @@ return
 // printaj odt dokument
 // ----------------------------------------------
 static function _odt_print( cPath, cTemplate, lDirectPrint )
-local cJodPath 
+local cJodPath
 local cOOPath
 local cOOParams := ""
 local cJavaStart := ALLTRIM( gJavaStart )
@@ -242,7 +242,7 @@ cJodPath := ALLTRIM(gJODRep)
 cOOPath := '"' + ALLTRIM(gOOPath) + ALLTRIM(gOOWriter) + '"'
 
 cCmdLine := cJavaStart + " " + cJodPath + " " + cPath + cTemplate + ;
-	" c:\data.xml c:\out.odt" 
+	" C:" + SLASH + "data.xml c:" + SLASH + "out.odt"
 
 save screen to cScreen
 run &cCmdLine
@@ -256,5 +256,3 @@ cCmdLine := "start " + cOOPath + " " + cOOParams + " c:\out.odt"
 run &cCmdLine
 
 return
-
-

@@ -555,13 +555,13 @@ IF Pitanje ("bss","Zelite li izbrisati staru sezonu?","N")=="D"
   pDirRad  := cDirRad
   pDirSif  := cDirSif
   IF Empty (gSezonDir)
-    pDirPriv := pDirPriv+"\"+AllTrim (cSezBris)
-    pDirRad  := pDirRad+"\"+AllTrim (cSezBris)
-    pDirSif  := pDirSif+"\"+AllTrim (cSezBris)
+    pDirPriv := pDirPriv+ SLASH + AllTrim (cSezBris)
+    pDirRad  := pDirRad+ SLASH + AllTrim (cSezBris)
+    pDirSif  := pDirSif+ SLASH + AllTrim (cSezBris)
   Else
-    pDirPriv := strtran (pDirPriv, gSezonDir, "\"+AllTrim (cSezBris))
-    pDirRad  := strtran (pDirRad, gSezonDir, "\"+AllTrim (cSezBris))
-    pDirSif  := strtran (pDirSif, gSezonDir, "\"+AllTrim (cSezBris))
+    pDirPriv := strtran (pDirPriv, gSezonDir, SLASH + AllTrim (cSezBris))
+    pDirRad  := strtran (pDirRad, gSezonDir, SLASH + AllTrim (cSezBris))
+    pDirSif  := strtran (pDirSif, gSezonDir, SLASH + AllTrim (cSezBris))
   EndIF
   BrisiIzDir (pDirPriv)
   BrisiIzDir (pDirRad)

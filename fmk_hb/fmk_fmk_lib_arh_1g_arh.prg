@@ -572,7 +572,7 @@ local aFiles
 local cPom
 
 cCDX:="D"
-cIme:=padr("A:\"+gmodul,30)
+cIme:=padr(USB_ROOT_PATH+gmodul,30)
 Box(,5,60)
   @ m_x+1,m_y+2 SAY "Ime arhive           :" GET cIme
   @ m_x+3,m_y+2 SAY "Pohraniti CDX fajlove:" GET cCDX pict "@!" valid cCDX $ "DN"

@@ -6,7 +6,7 @@
 #define D_VIRM_PERIOD '06.96-17.07.10'
 
 #ifndef FMK_DEFINED
-	#include "f01.ch"
+	#include "o_f01.ch"
 #endif
 
 #define I_ID 1
@@ -69,8 +69,7 @@
 #xcommand FO_VALUTE  => select (FF_VALUTE); use  (SIFPATH+"VALUTE")  ;  set order to tag "ID"
 #xcommand FO_PKONTO  => select (FF_PKONTO); use  (SIFPATH+"pkonto")  ;  set order to tag "ID"
 
-#xcommand O_KALK    => select (31);  use  (gDirKalk+"\KALK")
-#xcommand O_TARIFA  => select (32);  use  (cDirSif+"\TARIFA"); set order to tag "ID"
+#xcommand O_KALK    => select (31);  use  (gDirKalk+ SLASH + "KALK")
+#xcommand O_TARIFA  => select (32);  use  (cDirSif+ SLASH + "TARIFA"); set order to tag "ID"
 #xcommand O_REKLD   => select (31);  use  (gDirld+"REKLD") ;  set order to tag "1"
-#xcommand O_KRED    => select (32);  use  (cDirSif+"\KRED"); set order to tag "ID"
-
+#xcommand O_KRED    => select (32);  use  (cDirSif+ SLASH + "KRED"); set order to tag "ID"

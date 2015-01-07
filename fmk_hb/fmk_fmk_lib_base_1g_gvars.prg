@@ -171,13 +171,13 @@ public gPDFViewer := SPACE(150)
 public gDefPrinter := SPACE(150)
 
 // windows parametri
-public gOOPath := PADR("c:\Program Files\OpenOffice.org 3\program\", 200)
+public gOOPath := PADR( DRIVE_ROOT_PATH + "Program Files" + SLASH + "OpenOffice.org 3" + SLASH + "program" + SLASH, 200)
 public gOOWriter := PADR("swriter.exe", 100)
 public gOOSpread := PADR("scalc.exe", 100)
 public gJavaPath := SPACE(200)
 public gJavaStart := PADR("java -Xmx128m -jar",200)
-public gJODRep := PADR("c:\bout\java\jodrep.jar", 200)
-public gJODTemplate := PADR("c:\", 200)
+public gJODRep := PADR( DRIVE_ROOT_PATH + "bout" + SLASH + "java" + SLASH + "jodrep.jar", 200)
+public gJODTemplate := PADR( DRIVE_ROOT_PATH , 200)
 
 return
 
@@ -188,7 +188,7 @@ return
 function SetScGVar2()
 
 gSql:=IzFmkIni("Svi", "SQLLog", "N", KUMPATH)
-gSqlLogBase:=IzFmkIni("SQL","SQLLogBase","c:\sigma",EXEPATH)
+gSqlLogBase:=IzFmkIni("SQL","SQLLogBase", DRIVE_ROOT_PATH + "sigma",EXEPATH)
 
 
 

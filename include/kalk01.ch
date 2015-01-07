@@ -5,7 +5,7 @@
 #define D_KA_VERZIJA "03.64"
 #define D_KA_PERIOD  "11.94-26.05.14"
 #ifndef FMK_DEFINED
-	#include "f01.ch"
+	#include "o_f01.ch"
 #endif
 
 #define GSCTEMP "c:"+SLASH+"sctemp"+SLASH
@@ -51,8 +51,3 @@
 
 #xcommand O_PRIPT => select (F_PRIPT); usex (PRIVPATH+"pript")
 #xcommand O_CACHE => select (F_CACHE); usex (PRIVPATH+"cache")
-
-
-
-
-

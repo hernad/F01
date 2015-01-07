@@ -102,9 +102,9 @@ if fsif
 else
   cDestMod:=right(dtos(pripr->datdok),4)  // 1998 1105  - 11 mjesec, 05 dan
 endif
-cDestMod:="PRENOS\"+gmodemveza+"F"+cDestMod  // PRENOS\SF1205
+cDestMod:="PRENOS" + SLASH + gmodemveza + "F" + cDestMod  // PRENOS/SF1205
 
-dirmak2(KUMPATH+"PRENOS") // napravi direktorij prenos !!!
+dirmak2(KUMPATH+"PRENOS") // napravi direktorij prenos !
 
 usex (PRIVPATH+"_FAKT.DBF") new alias nFAKT
 fIzadji:=.f.
@@ -160,7 +160,7 @@ if gmodemveza=="N"
   return .f.
 endif
 
-cPath:=KUMPATH+"PRENOS\"
+cPath:=KUMPATH+"PRENOS" + SLASH
 
 // modemska veza ide u odabir dokumenta
 OPCF:={}
@@ -255,7 +255,7 @@ enddo
 if gModemVeza $ "KS" .and. fprenesi
   select _fakt; use
   dirmak2(strtran(KUMPATH+"PRENOS" + SLASH,":" + SLASH,":" + SLASH + "chk" + SLASH ))
-  filecopy(cPrenosDBF,strtran(trim(cPrenosDbf),":\",":\chk\"))
+  filecopy(cPrenosDBF,strtran(trim(cPrenosDbf),":" + SLASH,":" + SLASH + "chk" + SLASH ))
 
 endif
 
@@ -265,7 +265,7 @@ closeret
 
 static function fakt_UChk_Postoji(cFullFileName)
 
-if File(strtran(cFullFileName,":\",":\chk\"))
+if File(strtran(cFullFileName,":" + SLASH,":" + SLASH + "chk" + SLASH))
   return .t.
 else
   return .f.

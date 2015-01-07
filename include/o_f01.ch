@@ -1,6 +1,6 @@
 #include "fmk_g.ch"
 
- 
+
 #xcommand O_ROBA   => select(F_ROBA);  use  (SIFPATH+"ROBA")  ; set order to tag "ID"
 #xcommand O_TARIFA   => select(F_TARIFA);  use  (SIFPATH+"TARIFA")  ; set order to tag "ID"
 #xcommand O_KONTO   => select(F_KONTO);  use  (SIFPATH+"KONTO") ; set order to tag "ID"

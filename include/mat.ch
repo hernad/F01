@@ -6,11 +6,11 @@
 #define D_MAT_PERIOD '11.94-24.02.11'
 
 #ifndef FMK_DEFINED
-	#include "f01.ch"
+	#include "o_f01.ch"
 #endif
 
 #xcommand O_PRIPR    =>  select(F_PRIPR   ); usex (PRIVPATH+"PRIPR") ; set order to tag "1"
-#xcommand O_PRIPRRP  =>  select (F_PRIPRRP); usex (strtran(cDirPriv,gSezonDir,"\")+"PRIPR") alias priprrp; set order to 1
+#xcommand O_PRIPRRP  =>  select (F_PRIPRRP); usex (strtran(cDirPriv,gSezonDir, SLASH )+"PRIPR") alias priprrp; set order to 1
 
 #xcommand O_SUBAN    =>  select(F_SUBAN); use (KUMPATH+"SUBAN"); set order to tag "1"
 #xcommand O_SUBANX   =>  select(F_SUBAN);usex (KUMPATH+"SUBAN"); set order to tag "1"
@@ -37,5 +37,3 @@
 #xcommand O_TARIFA   => select (F_TARIFA); use (SIFPATH+"TARIFA"); set order to tag "ID"
 #xcommand O_KARKON   => select (F_KARKON); use (SIFPATH+"KARKON"); set order to tag "ID"
 #xcommand O_VALUTE   => select (F_VALUTE); use (SIFPATH+"VALUTE"); set order to tag "ID"
-
-

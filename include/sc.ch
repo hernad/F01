@@ -3,6 +3,9 @@
 
 //#DEFINE SLASH Chr(92)
 #DEFINE SLASH hb_osPathSeparator()
+#DEFINE USB_ROOT_PATH "F:" + SLASH
+#define DRIVE_ROOT_PATH "C:" + SLASH
+
 #DEFINE DBUILD "HB1"
 
 #DEFINE INDEXEXTENS "CDX"
@@ -10,7 +13,8 @@
 #DEFINE DBFEXT "DBF"
 #DEFINE MEMOEXT "FPT"
 #DEFINE RDDENGINE "DBFCDX"
-#DEFINE DRVPATH ":"+SLASH
+#DEFINE DRVPATH ":" + SLASH
+
 #define NRED hb_eol()
 
 #define P_NRED QOUT()
@@ -38,7 +42,7 @@
 #define DE_ADD  5
 #define DE_DEL  6
 
-#define DBFBASEPATH "C:\SIGMA"
+#define DBFBASEPATH DRIVE_ROOT_PATH + "SIGMA"
 
 #define P_KUMPATH  1
 #define P_SIFPATH  2
@@ -69,11 +73,12 @@
 
 
 #ifndef FMK_DEFINED
-	#include "f01.ch"
+	#include "o_f01.ch"
 #endif
 
 #include "sc_db.ch"
-#include "cm52.ch"
+
+// #include "cm52.ch"
 
 //korisnicke licence
 #define AL_INET 1

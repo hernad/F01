@@ -34,3 +34,5 @@ $hb_pkg_install.hbm
 
 -lmy_hbuddall
 {allwin}-ldebugiraj_dll
+
+F01_exe.hbm

@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,10 +14,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
- 
+
 /* file sclib/base/2g/app.prg
  *   Bazni aplikacijski objekat - TAppMod
  */
@@ -35,55 +35,10 @@ oObj:self:=oObj
 return oObj
 
 
-#ifdef CPP
 
-/* class TAppMod
- *   Bazni Aplikacijski objekt
- */
-
-class TAppMod
-{
-       public:
-	string cName;
-	string oParent;
-	TDB oDatabase;
-	TDesktop oDesktop;
-	string cVerzija;
-	
-	//korisnicka licenca
-	string nKLicenca;
-	string cPeriod;
-	string cKorisn;
-	string cSifra;
-	string cP3;
-	string cP4;
-	string cP5;
-	string cP6;
-	string cP7;
-	string cSqlLogBase;
-	bool lSqlDirektno;
-	bool lStarted;
-	bool lTerminate;
-	TObject self;
-	*bool hasParent();
-	*TObject setParent(TObject oParent);
-	*TObject getParent();
-	*string setName(string cName);
-	*void run();
-	*void quit(bool lVratiseURP);
-	*void gProc();
-	*void init(TObject oParent,string cModul,string cVerzija,string cPeriod,string cKorisn,string cSifra,string p3,string p4,string p5,string p6,string p7);
-	*void gParams();
-	*void setTGVars();
-	*void limitKLicenca(int nLevel);
-}
-#endif
-
-#ifndef CPP
-#ifndef CLIP
 #include "class(y).ch"
 
-CREATE CLASS TAppMod 
+CREATE CLASS TAppMod
 	EXPORTED:
 	VAR cName
 	VAR oParent
@@ -115,20 +70,11 @@ CREATE CLASS TAppMod
 	method gParams
 	method setTGVars
 	method limitKLicenca
-	
+
 END CLASS
 
-#endif
-#endif
 
-/*  *void TAppMod::init(TObject oParent,string cModul,string cVerzija,string cPeriod,string cKorisn,string cSifra,string p3,string p4,string p5,string p6,string p7)
- *   Incijalizacija AppMod objekta
- */
-
-*void TAppMod::init(TObject oParent,string cModul,string cVerzija,string cPeriod,string cKorisn,string cSifra,string p3,string p4,string p5,string p6,string p7)
-
-
-method init(oParent, cModul, cVerzija, cPeriod, cKorisn, cSifra, p3,p4,p5,p6,p7)
+method TAppMod:init(oParent, cModul, cVerzija, cPeriod, cKorisn, cSifra, p3,p4,p5,p6,p7)
 
 ::cName:=cModul
 ::oParent:=oParent
@@ -150,7 +96,7 @@ return
 /*  *bool TAppMod::hasParent()
  *   ima li objekat "roditelja"
  */
- 
+
 *bool TAppMod::hasParent()
 
 method hasParent()
@@ -213,7 +159,7 @@ endif
 ::lStarted:=.t.
 
 if ::lTerminate
-	::quit()	
+	::quit()
 	return
 endif
 ::MMenu()
@@ -235,34 +181,34 @@ do case
 
 	case (Ch==K_SH_F1  .or. Ch==K_CTRL_F1)
 		Calc()
-		
+
 	case (Ch==K_SH_F2 .or. Ch==K_CTRL_F2)
 		PPrint()
-		
+
 	case Ch==K_SH_F10
 		::gParams()
-		
+
 	case Ch==K_SH_F5
 		::oDatabase:vratiSez()
-		
+
 	case Ch==K_ALT_F6
 		ProcPrenos()
-		
+
 	case Ch==K_SH_F6
 		::oDatabase:logAgain()
-		
+
 	case Ch==K_SH_F7
 		KorLoz()
-			
+
 	case Ch==K_SH_F8
 		TechInfo()
-		
+
 	case Ch==K_SH_F9
 		Adresar()
-		
+
 	case Ch==K_CTRL_F10
 		SetROnly()
-		
+
 	case Ch==K_ALT_F11
 		ShowMem()
 
@@ -286,7 +232,7 @@ return
  *
  *  todo: proceduru izlaska revidirati, izbaciti Rad.sys iz upotrebe, kao i korisn.dbf
  */
- 
+
 *void TAppMod::quit(bool lVratiSeURP)
 
 method quit(lVratiseURP)
@@ -309,7 +255,7 @@ SETCOLOR(StaraBoja)
 if lVratiseURP // zatvori korisnika
 	if !empty(goModul:oDataBase:cSezonDir)
 		// prebaci se u radno podrucje, ali nemoj to zapisati
-		URadPodr(.f.)  
+		URadPodr(.f.)
 	endif
 endif
 
@@ -411,22 +357,22 @@ Box(, 20, 70)
  	@ m_x+13,m_y+2 SAY "Prenijeti podatke na lokalni disk (NDCX):" GET gKesiraj    valid gKesiraj $ "NDCX" pict "@!"
  	@ m_x+14,m_y+2 SAY "Omoguciti kolor-prikaz? (D/N)" GET gFKolor valid gFKolor$"DN" pict "@!"
  	@ m_x+15,col()+2 SAY "SQL log ? (D/N)" GET gSql pict "@!"
- 
+
 	@ m_x+16,m_y+2 SAY "PDV rezim rada? (D/N)" GET gPDV pict "@!" VALID gPDV$"DN"
 
  	@ m_x+17, m_y+2 SAY "Lokalizacija 0/hr/ba/en/sr " GET gLokal ;
 		VALID gLokal $ "0 #hr#ba#sr#en" ;
- 	
+
  	@ m_x+18, m_y+2 SAY "PDF stampa (N/D/X)?" GET gPDFPrint VALID {|| gPDFPrint $ "DNX" .and. if(gPDFPrint $ "XD", pdf_box(), .t. ) } PICT "@!"
-	
+
 	@ m_x+18, col()+2 SAY "windows parametri" GET cWinParams ;
 		VALID {|| cWinParams $ "DN".and. ;
 		if( cWinParams == "D", win_box(), .t. ) } PICT "@!"
 
 	@ m_x+20,m_y+2 SAY "Ispravka FMK.INI (D/S/P/K/M/N)" GET cFMKINI valid cFMKINI $ "DNSPKM" pict "@!"
  	@ m_x+20,m_y+36 SAY "M - FMKMREZ"
-		
- 	
+
+
 	READ
 BoxC()
 
@@ -514,36 +460,36 @@ if Pitanje(,"Podesiti windows parametre (D/N) ?", "D" ) == "N"
 endif
 
 Box(, 20, 75 )
-	
+
 	@ m_x + nX, m_y + 2 SAY "Podesavanje windows parametara *******"
-	
+
 	nX += 2
-	
+
 	@ m_x + nX, m_y + 2 SAY "OO lokacija:" GET gOOPath PICT "@S56"
-	
+
  	nX += 1
-	
+
 	@ m_x + nX, m_y + 2 SAY "OO Writer pokretac:" GET gOOWriter PICT "@S30"
-	
+
 	nX += 1
-	
+
 	@ m_x + nX, m_y + 2 SAY "OO Spread pokretac:" GET gOOSpread PICT "@S30"
-	
+
 	nX += 2
 
 	@ m_x + nX, m_y + 2 SAY "Java bin path:" GET gJavaPath PICT "@S56"
-	
+
 	nX += 1
 
 	@ m_x + nX, m_y + 2 SAY "Java starna komanda:" GET gJavaStart ;
 		PICT "@S56"
 
 	nX += 1
-	
+
 	@ m_x + nX, m_y + 2 SAY "JODReports lokacija:" GET gJODRep PICT "@S30"
 
 	nX += 1
-	
+
 	@ m_x + nX, m_y + 2 SAY "Lokacija template fajlova:" GET gJODTemplate PICT "@S30"
 
 	read
@@ -559,7 +505,7 @@ if LastKey() <> K_ESC
 	Wpar( "jS", gJavaStart )
 	Wpar( "jR", gJODRep )
 	Wpar( "jT", gJODTemplate )
-	
+
 endif
 
 return .t.
@@ -578,21 +524,21 @@ if Pitanje(,"Podesiti parametre PDF stampe (D/N) ?", "D" ) == "N"
 endif
 
 Box(, 10, 75 )
-	
+
 	@ m_x + nX, m_y + 2 SAY "Podesavanje parametara PDF stampe *******"
-	
+
 	nX += 2
-	
+
 	@ m_x + nX, m_y + 2 SAY "PDF preglednik:" GET gPDFViewer VALID _g_pdf_viewer(@gPDFViewer) PICT "@S56"
-	
+
  	nX += 1
-	
+
 	@ m_x + nX, m_y + 2 SAY "Printanje PDF-a bez poziva preglednika (D/N)?" GET gPDFPAuto VALID gPDFPAuto $ "DN" PICT "@!"
-	
+
 	nX += 2
-	
+
 	@ m_x + nX, m_y + 2 SAY "Default printer:" GET gDefPrinter PICT "@S55"
-	
+
 
 	read
 BoxC()
@@ -606,7 +552,7 @@ if LastKey() <> K_ESC
 	Wpar( "pV", gPDFViewer )
 	Wpar( "dP", gDefPrinter )
 	Wpar( "pA", gPDFPAuto )
-	
+
 endif
 
 return .t.
@@ -663,9 +609,9 @@ if nScan > 0
 	cViewer := cViewPath + cPom
 	cViewer += SLASH + "reader" + SLASH
 	cViewer += cViewName
-	
+
 	cViewer := PADR( cViewer, 150 )
-	
+
 endif
 
 if !EMPTY(cViewer) .and. !FILE( cViewer )
@@ -675,7 +621,7 @@ endif
 return .t.
 
 
-/*  TAppMod::setTGVars() 
+/*  TAppMod::setTGVars()
  *   Setuje globalne varijable, te setuje incijalne vrijednosti objekata koji pripadaju glavnom app objektu
  */
 
@@ -702,7 +648,7 @@ if (::oDesktop!=nil)
 endif
 
 ::oDesktop:=TDesktopNew()
-	
+
 return
 
 
@@ -724,4 +670,3 @@ if (nLevel>::nKLicenca)
 	return .t.
 endif
 return .f.
-

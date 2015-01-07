@@ -6,7 +6,7 @@
 #define D_OS_PERIOD '08.96-20.09.07'
 
 #ifndef FMK_DEFINED
-	#include "f01.ch"
+	#include "o_f01.ch"
 #endif
 
 #xcommand O_OS   => select (F_OS); use (KUMPATH+"OS"); set order to tag "1"

@@ -5,7 +5,7 @@
 #define D_FI_VERZIJA "03.80"
 #define D_FI_PERIOD '11.94-30.12.2014'
 #ifndef FMK_DEFINED
-	#include "f01.ch"
+	#include "o_f01.ch"
 #endif
 
 

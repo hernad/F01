@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -12,20 +12,7 @@
 
 #include "kalk01.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
- * ----------------------------------------------------------------
- * $Source: c:/cvsroot/cl/sigma/fmk/kalk/razdb/1g/ka_ka.prg,v $
- * $Author: mirsad $ 
- * $Revision: 1.2 $
- * $Log: ka_ka.prg,v $
- * Revision 1.2  2002/06/24 09:19:02  mirsad
- * dokumentovanje
- *
- *
- */
- 
+
 
 /* file fmk/kalk/razdb/1g/ka_ka.prg
  *   Preuzimanje kalkulacije iz druge firme
@@ -43,9 +30,9 @@ function IzKalk2f()
                    "PutanjaKumulativaDrugeFirmeKaoIzvoraKalkulacija" ,;
                    cDir                                              ,;
                    KUMPATH )
- IF RIGHT(cDir,1)!="\"; cDir+="\"; ENDIF
+ IF RIGHT(cDir,1) != SLASH; cDir+= SLASH; ENDIF
  cDir:=UPPER(cDir)
- cF:=RIGHT(cDir,3); cF:=LEFT(cF,2); cF:=IF(cF="M",RIGHT(cF,1),cF)
+ cF:=RIGHT(cDir,3); cF:=LEFT(cF,2); cF := IIF(cF="M",RIGHT(cF,1),cF)
 
  cFirma:="  "
 
@@ -188,5 +175,3 @@ function IzKalk2f()
 
 CLOSERET
 return
-
-

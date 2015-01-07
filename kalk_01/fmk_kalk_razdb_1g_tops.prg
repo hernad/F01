@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -154,7 +154,7 @@ if gTops<>"0 " .and. Pitanje(,"Izgenerisati datoteku KATOPS","N")=="D"
               usex ( strtran(cTopsDbf,"KATOPS",cDestMod+chr(64+i)) ) new alias otops
             endif
             // OD A-C
-	    
+
             if ( ntops->brdok == otops->brdok )
                 fIzadji:=.t.
             endif
@@ -205,7 +205,7 @@ return
 
 function SifKalkTops()
 
-private cDirZip:="C:\SIGMA\PREN\"
+private cDirZip:= DRIVE_ROOT_PATH + "SIGMA" + SLASH + "PREN" + SLASH
 
 O_PARAMS
 
@@ -216,7 +216,7 @@ private aHistory:={}
 Params1()
  
 cDirZip:=Padr(cDirZip,30)
- 
+
 Box(,5,70)
 	@ m_x+1,m_y+2 SAY "Destinacija arhive sifrarnika:"
    	@ m_x+2,m_y+2 GET  cDirZip
@@ -224,7 +224,7 @@ Box(,5,70)
 BoxC()
 
 cDirzip:=trim(cDirZip)
- 
+
 if Params2()
 	WPar("Dz",cDirZip)
 endif
@@ -234,7 +234,7 @@ use
 
 save screen to cScr
 cls
- 
+
 select (F_ROBA)
 use
 
@@ -247,7 +247,7 @@ run &cKomLin
 
 cKomlin:="pause"
 run &cKomLin
- 
+
 restore screen from cScr
 
 return
@@ -279,7 +279,7 @@ BoxC()
 if CheckKALKDokument(cIDFirma, cIDTipDokumenta, cBrojDokumenta)
 	if (gTops <> "0 " .and. Pitanje(,"Izgenerisati datoteku prenosa?","N")=="D")
 		GenTopsAzur(cIDFirma, cIDTipDokumenta, cBrojDokumenta)
-	endif	
+	endif
 endif
 
 return
@@ -300,7 +300,7 @@ O_DOKS
 
 select doks
 hseek idfirma+tipdokumenta+brojdokumenta
-if !Found()  
+if !Found()
 	MsgBeep("Dokument " + TRIM(idfirma) + "-" + TRIM(tipdokumenta) + "-" + TRIM(brojdokumenta) + " ne postoji !!!")
 	return .f.
 else
@@ -348,7 +348,7 @@ lBkEmpty := .f. // upozori ako je empty barkod
 nIznos:=0
 
 Box(,4,50)
-@ m_x+1,m_y+2 SAY "Generisem " + TRIM(idtipdokumenta) + "-" + TRIM(brojdokumenta) + " ..." 
+@ m_x+1,m_y+2 SAY "Generisem " + TRIM(idtipdokumenta) + "-" + TRIM(brojdokumenta) + " ..."
 
 do while !eof() .and. (field->idfirma==idfirma) .and. (field->idvd=idtipdokumenta) .and. (field->brdok==brojdokumenta)
 	select roba
@@ -357,13 +357,13 @@ do while !eof() .and. (field->idfirma==idfirma) .and. (field->idvd=idtipdokument
 	seek trim(kalk->pkonto)
     	select katops
     	append blank
-    	
+
 	if ASCAN(aIdPos,{|x| x==koncij->idprodmjes}) == 0
        		AADD(aIdPos,koncij->idprodmjes)
     	endif
-    	
+
 	dDatDok:=kalk->datdok
-    	
+
 	replace idfirma with gFirma
 	replace idvd with kalk->idvd
 	replace idpos with koncij->idprodmjes
@@ -383,7 +383,7 @@ do while !eof() .and. (field->idfirma==idfirma) .and. (field->idvd=idtipdokument
         	replace K1 with roba->k1
 		replace K2 with roba->K2
     	endif
-    	
+
 	if roba->(fieldpos("K7"))<>0
         	replace K7 with roba->k7
 		replace K8 with roba->K8
@@ -423,9 +423,9 @@ do while !eof() .and. (field->idfirma==idfirma) .and. (field->idvd=idtipdokument
 	nIznos += katops->mpc * katops->kolicina
 
     	++nRbr
-    	
+
 	@ m_x+3,m_y+2 SAY "Broj stavki: " + TRIM(STR(nRbr))
- 
+
 	select kalk
     	skip
 enddo
@@ -452,13 +452,13 @@ use
 if (gModemVeza=="D")
 	for i0:=1 to len(aIdPos)  // prodji kroz sve IdPos - baci
         	// datoteku o svim kasama
-       		cDestMod:=RIGHT(DToS(dDatDok),4) 
+       		cDestMod:=RIGHT(DToS(dDatDok),4)
 		// 1998 1105  - 11 mjesec, 05 dan
        		cDestMod:=TRIM(aIdPos[i0]) + "\KT" + cDestMod
        		// cDestMod ==  "1\KT1117"
        		usex (cTopsDBF) new alias ntops
        		fIzadji:=.f.
-       		// donja for-next pelja otvara baze 
+       		// donja for-next pelja otvara baze
 		// i ako postoje, gleda da li je
        		// u njih pohranjen isti dokument
        		for i:=1 to 41
@@ -473,7 +473,7 @@ if (gModemVeza=="D")
             		if ntops->brdok==otops->brdok
               			fIzadji:=.t.
             		endif
-            	
+
 			use
           		recover
             		fizadji:=.t.
@@ -484,16 +484,16 @@ if (gModemVeza=="D")
              			exit
           		endif
        		next
-       		
+
 		if i>21
         		cDestMod:=cDestMod+"U"+CHR(64+i%21)+"."
        		else
          		cDestMod:=cDestMod+CHR(64+i)+"."
        		endif
-       	
+
 		select ntops
        		use
-       		
+
 		cDestMod:=StrTran(cTopsDbf,"KATOPS.",cDestMod)
        		FileCopy(cTopsDBF,cDestMod)
        		cDestMod:=StrTran(cDestMod,".DBF",".TXT")
@@ -560,7 +560,7 @@ if roba->(fieldpos("N1"))<>0
 	AADD(aDBF,{"N1","N",12,2})
 	AADD(aDBF, {"N2","N",12,2})
 endif
-  	
+
 if roba->(fieldpos("BARKOD"))<>0
 	AADD(aDBF, {"BARKOD","C",13,0})
 endif
@@ -572,4 +572,3 @@ usex (cTopsDBF)   NEW   alias katops
 MsgC()
 
 return
-  

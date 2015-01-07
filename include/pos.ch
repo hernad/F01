@@ -14,7 +14,7 @@
 #endif
 
 #ifndef FMK_DEFINED
-	#include "f01.ch"
+	#include "o_f01.ch"
 #endif
 
 // definicija korisnickih nivoa

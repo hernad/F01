@@ -12,12 +12,6 @@
 
 #include "sc.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software
- * ----------------------------------------------------------------
- */
-
 function CreKorisn(nArea)
 
 local cImeDBF
@@ -27,7 +21,7 @@ if nArea==nil
 endif
 
 if (nArea==-1 .or. nArea==F_KORISN)
-	 cImeDBF:=ToUnix(".\korisn.dbf")
+	 cImeDBF:=ToUnix("." + SLASH + "korisn.dbf")
 	 //? "File ",cImeDBF,"ima li ga ?", File(cImeDBF)
 	 IF !FILE(cImeDBF)
 	  aDbf:={}
@@ -60,7 +54,7 @@ if (nArea==-1 .or. nArea==F_KORISN)
 	 ENDIF
 	 //? "Create_Index KORISN/IME"
 
-	 CREATE_INDEX("IME","ime",ToUnix(".\korisn.dbf"),.t.)
+	 CREATE_INDEX("IME","ime", ToUnix("." + SLASH + "korisn.dbf"),.t.)
 endif
 
 return
@@ -127,26 +121,19 @@ if (nArea==-1 .or. nArea==F_PARAMS)
 endif
 
 
-#ifndef CLIP
-//......... izbaciti ... ovoga odavno nema
-//KonvParams(PRIVPATH+"gparams.dbf")
-//KonvParams(PRIVPATH+"params.dbf")
-//KonvParams(".\mparams.dbf")
-//KonvParams(KUMPATH+"kparams.dbf")
-#endif
 
 if (nArea==-1 .or. nArea==F_GPARAMS)
 	if !file(ToUnix(PRIVPATH+"gparams.dbf"))
 	 DBCREATE2(PRIVPATH+"gparams.dbf",aDbf)
 	endif
-	CREATE_INDEX("ID","fsec+fh+fvar+rbr",PRIVPATH+"gparams.dbf",.t.)
+	CREATE_INDEX("ID","fsec+fh+fvar+rbr",PRIVPATH + "gparams.dbf", .t.)
 endif
 
 if (nArea==-1 .or. nArea==F_MPARAMS)
-	if !file(ToUnix(".\mparams.dbf"))
-	 DBCREATE2(TRUENAME(".\mparams.dbf"),aDbf)
+	if !file(ToUnix("." + SLASH + "mparams.dbf"))
+	 DBCREATE2(TRUENAME( "." + SLASH + "mparams.dbf"),aDbf)
 	endif
-	CREATE_INDEX("ID","fsec+fh+fvar+rbr",".\mparams",.t.)
+	CREATE_INDEX("ID","fsec+fh+fvar+rbr",  "." + SLASH + "mparams", .t.)
 endif
 
 if (nArea==-1 .or. nArea==F_KPARAMS)

@@ -38,7 +38,7 @@ return .f.
 
 function fin_prenos_diskete()
 local nRec
-PRIVATE cLokPren    := "A:\"
+PRIVATE cLokPren    := USB_ROOT_PATH
 PRIVATE cFZaPredaju := "AFIN"
 PRIVATE cFZaPrijem  := "AFIN"
 PRIVATE cUslovVDok  := "1;"
@@ -286,7 +286,7 @@ return
 function fin_povrat_sa_diskete()
 
 local nRec
-PRIVATE cLokPren    := "A:\"
+PRIVATE cLokPren    := USB_ROOT_PATH
 PRIVATE cFZaPredaju := "AFIN"
 PRIVATE cFZaPrijem  := "AFIN"
 PRIVATE cUslovVDok  := "1;"
@@ -427,7 +427,7 @@ LOCAL GetList:={}
   private cSection:="3",cHistory:=" "; aHistory:={}
 
   IF !lIni
-    private cLokPren    := "A:\"
+    private cLokPren    := USB_ROOT_PATH
     private cFZaPredaju := "AFIN"
     private cFZaPrijem  := "AFIN"
     private cUslovVDok  := ""

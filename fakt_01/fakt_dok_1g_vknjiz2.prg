@@ -649,7 +649,7 @@ LOCAL nArr:=SELECT(), aUlazi:={}, GetList:={}, cIdPartner:=_idpartner
   private cSection:="T",cHistory:=" "; aHistory:={}
   RPar("dk",@gDirKalk)
   if empty(gDirKalk)
-    gDirKalk:=trim(strtran(goModul:oDataBase:cDirKum,"FAKT","KALK"))+"\"
+    gDirKalk:=trim(strtran(goModul:oDataBase:cDirKum,"FAKT","KALK"))+ SLASH
     WPar("dk",gDirKalk)
   endif
   select 99; use
@@ -663,7 +663,7 @@ LOCAL nArr:=SELECT(), aUlazi:={}, GetList:={}, cIdPartner:=_idpartner
   IF cSezona=="RADP"
     cPKalk:=gDirKalk+"KALK"
   ELSE
-    cPKalk:=gDirKalk+cSezona+"\KALK"
+    cPKalk:=gDirKalk+cSezona+ SLASH + "KALK"
   ENDIF
   IF FILE(cPKalk+".DBF")
     USE (cPKalk)

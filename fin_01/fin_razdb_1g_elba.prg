@@ -92,7 +92,7 @@ private aHistory:={}
 
 O_PARAMS
 
-cFile := PADR("c:\temp\elba.txt", 100)
+cFile := PADR("c:" + SLASH + "temp" + SLASH + "elba.txt", 100)
 
 RPar("i1", @cFile)
 //RPar("i2", @cFile)

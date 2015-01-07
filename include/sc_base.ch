@@ -1,7 +1,10 @@
+
 #define EXEPATH   FilePath(Arg0())
+
 #define SIFPATH   trim(cDirSif)+SLASH
 #define PRIVPATH  trim(cDirPriv)+SLASH
 #define KUMPATH   trim(cDirRad)+SLASH
+
 #define CURDIR    "."+SLASH
 
 #command ESC_EXIT  => if lastkey()=K_ESC;
@@ -164,7 +167,7 @@
                                   ;return <x>            ;
                                   ;endif
 
-				
+
 #command START PRINT CRET     =>  if !StartPrint()       ;
                                   ;close all             ;
                                   ;return                ;
