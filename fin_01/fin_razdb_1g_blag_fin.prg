@@ -14,7 +14,7 @@
 
 #define F_T_PROMVP		245
 
-/*!  GetBlPrParams(dDatOd, dDatDo, dDatDok, cTipNal, cShema)
+/*  GetBlPrParams(dDatOd, dDatDo, dDatDok, cTipNal, cShema)
  *   Setuj parametre prenosa
  *   dDatOd - datum prenosa od
  *   dDatDo - datum prenosa do
@@ -48,7 +48,7 @@ return
 
 
 
-/*!  PrenBl2Fin()
+/*  PrenBl2Fin()
  *   Centralna funkcija za prenos PROMVP u FIN
  */
 function PrenBl2Fin()
@@ -136,7 +136,7 @@ return
 
 
 
-/*!  Azur2Pripr(cBrojNal, dDatNal)
+/*  Azur2Pripr(cBrojNal, dDatNal)
  *   Azuriranje stavke u pripremu
  *   cBrojNal - broj naloga
  *   dDatNal - datum naloga
@@ -166,7 +166,7 @@ return
 
 
 
-/*!  BlDan(cField)
+/*  BlDan(cField)
  *   Vraca ukupan iznos pologa (cField) za datumski period
  *   cField - polje, npr "POLOG01"
  */
@@ -200,7 +200,7 @@ return 1
 
 
 
-/*!  GetBlIznos(cField)
+/*  GetBlIznos(cField)
  *   Vraca iznos pologa za datumski period
  *   cField - polje, npr "POLOG01"
  */
@@ -233,7 +233,7 @@ return nIzn
 
 
 
-/*!  OpenKtDB()
+/*  OpenKtDB()
  *   Otvaranje neophodnih tabela 
  */
 static function OpenKtDB()
@@ -253,7 +253,7 @@ return
 
 
 
-/*!  SetBlagKPath(cBlagKPath)
+/*  SetBlagKPath(cBlagKPath)
  *   Setuje path do tabela KUMPATH-a blagajne
  *   cBlagKPath - putanja
  */

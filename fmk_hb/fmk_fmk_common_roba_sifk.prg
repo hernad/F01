@@ -27,7 +27,7 @@
  */
  
 
-/*!  SifkFill(cSifk,cSifv,cSifrarnik,cIDSif)
+/*  SifkFill(cSifk,cSifv,cSifrarnik,cIDSif)
   *   SifkFill Napuni pomocne tabele (radi prenosa) sifk, sifv
   *  cSIFK ime sifk tabele (npr PRIVPATH+"_SIFK")
   *  cSifV ime sifv tabele

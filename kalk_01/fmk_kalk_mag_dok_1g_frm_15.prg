@@ -22,7 +22,7 @@
  */
 
 
-/*!  Get1_15()
+/*  Get1_15()
  *   Prva strana maske za unos dokumenta tipa 15
  */
 

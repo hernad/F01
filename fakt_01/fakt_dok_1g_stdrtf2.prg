@@ -50,7 +50,7 @@
 
 
 
-/*!  StdRtf2()
+/*  StdRtf2()
  *   
  *   cImeF
  *   cIdFirma
@@ -592,7 +592,7 @@ closeret
 
 
 
-/*!  BosNum(cNPom)
+/*  BosNum(cNPom)
  *   npr. 123,222.00 -> 123.222,00
  *   cNPom
  */

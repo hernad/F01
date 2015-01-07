@@ -33,7 +33,7 @@
  */
 
 
-/*!  StKalk14()
+/*  StKalk14()
  *   Stampa kalkulacije 14
  */
 
@@ -318,7 +318,7 @@ return
 
 
 
-/*!  StKalk14_3()
+/*  StKalk14_3()
  *   Stampa kalkulacije 14 - varijanta za A3 papir
  */
  
@@ -451,7 +451,7 @@ return
 
 
 
-/*!  Blok14_3()
+/*  Blok14_3()
  *   Koristi je StampaTabele() u StKalk14_3()
  */
 function Blok14_3()

@@ -17,7 +17,7 @@
  *   Funkcije za rad sa tabelama
  */
 
-/*!  SifkPartnBank()
+/*  SifkPartnBank()
  *   Dodaje u tabelu SifK stavke PARTN i BANK
  */
 
@@ -731,7 +731,7 @@ return
 
 
 
-/*!  Dupli(cIdFirma,cIdVn,cBrNal)
+/*  Dupli(cIdFirma,cIdVn,cBrNal)
  *   Provjera duplog naloga
  *   cIdFirma
  *   cIdVn

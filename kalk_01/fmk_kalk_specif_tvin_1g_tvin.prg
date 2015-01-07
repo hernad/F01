@@ -12,7 +12,7 @@
 
 #include "kalk01.ch"
 
-/*!  IspisPoNar(lPartner,lString,lMVar)
+/*  IspisPoNar(lPartner,lString,lMVar)
  *   Prikaz narucioca ako je razlicit od kupca
  *   lPartner
  *   lString
@@ -39,7 +39,7 @@ RETURN cV
 
 
 
-/*!  KalkNab3m(cIdfirma,cIdRoba,cIdKonto,aNabavke)
+/*  KalkNab3m(cIdfirma,cIdRoba,cIdKonto,aNabavke)
  *   Nabavke po narudzbi i naruciocu
  *   cIdFirma
  *   cIdRoba
@@ -110,7 +110,7 @@ RETURN
 
 
 
-/*!  KDNarNCm(aNabavke)
+/*  KDNarNCm(aNabavke)
  *  
  *   aNabavke
  */
@@ -166,7 +166,7 @@ return
 
 
 
-/*!  KalkNab3p(cIdFirma,cIdRoba,cIdKonto,aNabavke)
+/*  KalkNab3p(cIdFirma,cIdRoba,cIdKonto,aNabavke)
  *   Nabavke po narudzbi i naruciocu
  *   cIdFirma
  *   cIdroba
@@ -238,7 +238,7 @@ RETURN
 
 
 
-/*!  KDNarNCp(aNabavke)
+/*  KDNarNCp(aNabavke)
  *  
  *   aNabavke
  */
@@ -294,7 +294,7 @@ return
 
 
 
-/*!  GenStPoNarudzbi(lGenStavke)
+/*  GenStPoNarudzbi(lGenStavke)
  *   Generacija stavki po narudzbi
  *   lGenStavke
  */
@@ -348,7 +348,7 @@ RETURN 1
 // za ekonomate (glEkonomat==.t.) a ne u Tvin-u
 // --------------------------------------------------------------------------
 
-/*!  KalkNab2(cIdFirma,cIdRoba,cIdKonto,aNabavke)
+/*  KalkNab2(cIdFirma,cIdRoba,cIdKonto,aNabavke)
  *  
  *   cIdFirma
  *   cIdRoba
@@ -416,7 +416,7 @@ RETURN
 
 
 
-/*!  KreDetNC(aNabavke)
+/*  KreDetNC(aNabavke)
  *   
  *   aNabavke
  */

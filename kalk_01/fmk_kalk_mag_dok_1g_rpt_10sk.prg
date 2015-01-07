@@ -34,7 +34,7 @@
  */
 
 
-/*!  StKalk10_sk()
+/*  StKalk10_sk()
  *   Stampa kalkulacije 10 - samo kolicine
  */
 

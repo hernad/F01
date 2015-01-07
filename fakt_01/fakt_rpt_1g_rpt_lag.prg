@@ -47,7 +47,7 @@
 
 
 
-/*!  Lager()
+/*  Lager()
  *   Izvjestaj lager lista
  */
  
@@ -752,7 +752,7 @@ return
 
 
 
-/*!  ZaglLager()
+/*  ZaglLager()
  *   Zaglavlje lager liste
  */
  

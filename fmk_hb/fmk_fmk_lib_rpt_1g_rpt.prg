@@ -332,7 +332,7 @@ FCLOSE(nH)
 RETURN
 
 
-/*!  SetRptLineAndText(aLineArgs, nVariant)
+/*  SetRptLineAndText(aLineArgs, nVariant)
  *   vraca liniju po definisanoj matrici
  *   aLineArgs - matrica argumenata
  *   nVariant - varijanta, 0 - linija, 1 - prvi red izvjestaja, 2 - drugi red izvjestaja

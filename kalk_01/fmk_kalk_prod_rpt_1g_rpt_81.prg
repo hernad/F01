@@ -13,7 +13,7 @@
 #include "kalk01.ch"
 
 
-/*!  StKalk81(fzatops)
+/*  StKalk81(fzatops)
  *   Stampa kalkulacije 81 - direktno zaduzenje prodavnice
  *   fzatops -
  */
@@ -283,7 +283,7 @@ return
 
 
 
-/*!  StKalk81_2()
+/*  StKalk81_2()
  *   Stampa kalkulacije 81 - direktno zaduzenje prodavnice
  */
 

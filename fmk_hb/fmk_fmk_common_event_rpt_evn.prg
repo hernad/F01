@@ -12,7 +12,7 @@
 
 #include "sc.ch"
 
-/*!  KarticaLog()
+/*  KarticaLog()
  *   Stampa pregleda dogadjaja
  */
  
@@ -283,7 +283,7 @@ return
 
 
 
-/*!  ZaglKartEvent(cLinija)
+/*  ZaglKartEvent(cLinija)
  *   Zaglavlje kartice dogadjaja
  *   cLinija linija za zaglavlje
  */
@@ -357,7 +357,7 @@ return
 
 
 
-/*!  UkIzvjEvents(nN1,nN2,nCnt1,nCnt2)
+/*  UkIzvjEvents(nN1,nN2,nCnt1,nCnt2)
  *   Dodaje ukupno na kraju izvjestaja
  *   nN1 - ukupno polje eventlog->n1
  *   nN2 - ukupno polje eventlog->n2

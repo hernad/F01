@@ -36,7 +36,7 @@
 #define  MEMOEXT  ".MEM"
 
 
-/*!  Izlaz(Zaglavlje,ImeDat,bFor,fIndex,lBezUpita)
+/*  Izlaz(Zaglavlje,ImeDat,bFor,fIndex,lBezUpita)
  *
  *\code
  *
@@ -478,7 +478,7 @@ local lVrati:=.f., i:=0
 return lVrati
 
 
-/*!  StampaTabele(aKol, bZaRed, nOdvoji, nCrtice, bUslov, lA4papir, cNaslov, bFor, nStr, lOstr, lLinija, bSubTot, nSlogova, cTabBr, lCTab, bZagl)
+/*  StampaTabele(aKol, bZaRed, nOdvoji, nCrtice, bUslov, lA4papir, cNaslov, bFor, nStr, lOstr, lLinija, bSubTot, nSlogova, cTabBr, lCTab, bZagl)
  *
  *    Stampa tabele
  * 

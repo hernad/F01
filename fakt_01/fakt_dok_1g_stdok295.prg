@@ -161,7 +161,7 @@
 *string FmkIni_PrivPath_Fakt295_L5;
 
  
-/*!  StDok295()
+/*  StDok295()
  *   Stampa fakture u varijanti 2 9 5
  *   cIdFirma
  *   cIdTipDok
@@ -573,7 +573,7 @@ CLOSERET
 
 
 
-/*!  Zagl295()
+/*  Zagl295()
  *   Stampa zaglavlja za varijantu fakture 2 9 5
  */
  
@@ -640,7 +640,7 @@ RETURN .t.
 
 
 
-/*!  Krizaj2()
+/*  Krizaj2()
  *  
  */
 function Krizaj2()

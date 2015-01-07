@@ -34,7 +34,7 @@
  */
 
 
-/*!  MnuSifrarnik()
+/*  MnuSifrarnik()
  *   Menij sifrarnika
  */
 
@@ -69,7 +69,7 @@ Menu_SC("sif")
 return
 
 
-/*!  MnuSpecSif()
+/*  MnuSpecSif()
  *   Specificni sifrarnika
  */
 function MnuSpecSif()
@@ -148,7 +148,7 @@ Menu_SC("sopc")
 return
 
 
-/*!  MnuBudzSif()
+/*  MnuBudzSif()
  *   Menij budzetskog poslovanja
  */
 function MnuBudzSif()
@@ -183,7 +183,7 @@ Menu_SC("sbdz")
 return
 
 
-/*!  OSifBudzet()
+/*  OSifBudzet()
  *   Otvara potrebne tabele za budzetsko poslovanje
  */
 function OSifBudzet()

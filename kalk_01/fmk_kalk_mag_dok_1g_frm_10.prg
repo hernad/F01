@@ -24,7 +24,7 @@
 //  - nRbr
 
 
-/*!  Get1_10()
+/*  Get1_10()
  *   Prvi ekran maske za unos dokumenta tipa 10
  */
 
@@ -150,7 +150,7 @@ return lastkey()
 
 
 
-/*!  Get2_10()
+/*  Get2_10()
  *   Drugi ekran maske za unos dokumenta tipa 10
  */
 
@@ -236,7 +236,7 @@ return lastkey()
 
 
 
-/*!  Get1_10s()
+/*  Get1_10s()
  *  
  */
 
@@ -347,7 +347,7 @@ return lastkey()
 
 
 
-/*!  V_kol10()
+/*  V_kol10()
  *   Validacija unosa kolicine
  */
 

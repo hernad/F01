@@ -49,7 +49,7 @@ return
 
 
 
-/*!  Iz12u97()
+/*  Iz12u97()
  *   Od 11 ili 12 napravi 96 ili 97
  */
  
@@ -133,7 +133,7 @@ return
 
 
 
-/*!  InvManj()
+/*  InvManj()
  *   Generise dok.95 za manjak i visak ili 95 za manjak, a 16 u smecu za visak
  */
  
@@ -257,7 +257,7 @@ return
 
 
 
-/*!  MNivPoProc()
+/*  MNivPoProc()
  *   Nivelacija u magacinu po procentima
  */
 
@@ -393,7 +393,7 @@ return
 
 
 
-/*!  KorekPC()
+/*  KorekPC()
  *   Korekcija prodajne cijene - pravljenje nivelacije za magacin
  */
  
@@ -566,7 +566,7 @@ return
 
 
 
-/*!  Otprema()
+/*  Otprema()
  *   Kada je izvrsena otprema pravi se ulaz u drugi magacin
  */
 // ??????????? Kakva je razlika Otprema i Iz96u16 ???????????
@@ -660,7 +660,7 @@ return
 
 
 
-/*!  Iz96u16()
+/*  Iz96u16()
  *  
  */
  
@@ -730,7 +730,7 @@ return
 
 
 
-/*!  Iz16u14()
+/*  Iz16u14()
  *   Od 16 napravi 14
  */
  

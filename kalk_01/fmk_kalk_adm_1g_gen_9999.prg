@@ -31,7 +31,7 @@
  *   Generisanje zbirne baze dokumenata u specijalnoj sezoni 9999
  */
 
-/*!  Gen9999()
+/*  Gen9999()
  *   Generisanje zbirne baze dokumenata u specijalnoj sezoni 9999
  */
  

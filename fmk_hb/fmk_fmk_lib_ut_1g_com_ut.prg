@@ -19,7 +19,7 @@
  */
 
 
-/*!  GetComPort()
+/*  GetComPort()
  *   Vraca oznaku COM port-a: 1, 2, 3...
  */
 function GetComPort()
@@ -33,7 +33,7 @@ return VAL(cComPort)
 
 
 
-/*!  GetComBaudRate()
+/*  GetComBaudRate()
  *   Baud rate
  */
 function GetComBaudRate()
@@ -46,7 +46,7 @@ return VAL(cBaudRate)
 
 
 
-/*!  TestComPort(nPort, nBuffSize, lClose)
+/*  TestComPort(nPort, nBuffSize, lClose)
  *   Testiranje COM porta
  *   nPort - oznaka COM port-a
  *   nBuffSize - velicina buffer-a (def. 4000)
@@ -73,7 +73,7 @@ return
 
 
 
-/*!  InitComPort(nPort)
+/*  InitComPort(nPort)
  *   Inicijalizacija com port-a
  *   nPort - oznaka port-a
  *  \result 1 - OK, 0 - not OK
@@ -93,7 +93,7 @@ return
 
 
 
-/*!  Send2ComPort(cOutPut)
+/*  Send2ComPort(cOutPut)
  *   Salje cOutput na COM port
  *   cOutPut - string koji se salje na com port
  */

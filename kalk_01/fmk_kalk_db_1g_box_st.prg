@@ -30,7 +30,7 @@
  *   Racunanje i prikaz stanja robe
  */
 
-/*!  KalkStanje(cIdRoba)
+/*  KalkStanje(cIdRoba)
  *   Racunanje i prikaz stanja robe
  */
 

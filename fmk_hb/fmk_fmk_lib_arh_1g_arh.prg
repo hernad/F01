@@ -82,7 +82,7 @@ return
 
 
 
-/*!  OtkUredjaj
+/*  OtkUredjaj
  *   Otkljucava direktorij
  *
  * \code
@@ -107,7 +107,7 @@ return  cDir
 
 
 
-/*!  DirMak2(cDir)
+/*  DirMak2(cDir)
  *   rekurzivno pravi direktorij
  *    - cDir - direktorij
  *  return: - .t. - uspjesno
@@ -143,7 +143,7 @@ endif
 
 
 
-/*!  CopySve(cMask,cInPath,cOutPath)
+/*  CopySve(cMask,cInPath,cOutPath)
 *    Kopiraj sve fajlove iz cInPath-a u cOutPath
 */
 
@@ -161,7 +161,7 @@ next
 return NIL
 
 
-/*!  DelSve(cMask,cInPath)
+/*  DelSve(cMask,cInPath)
  *   Brisi sve iz inPath-a
  *
  * \code
@@ -187,7 +187,7 @@ next
 return NIL
 
 
-/*!  Zakljucaj(cIme)
+/*  Zakljucaj(cIme)
 *  Zakljucava fajlove u direktoriju
 *
 * return: - .t. ako je uspio zakljucatio fajlove
@@ -645,7 +645,7 @@ return fret
 
 
 
-/*!  OFSveuDir(cPath, aFiles)
+/*  OFSveuDir(cPath, aFiles)
  *  Otvori Fajlove Sve u Direktoriju
  * biljeska: proslijedi aFiles
  * return: - ako su svi otvoreni - okupirani, vrati .t.
@@ -670,7 +670,7 @@ return nRet
 
 
 
-/*!  ZFSveUDir(aFiles)
+/*  ZFSveUDir(aFiles)
  *   kontra OFSveuDir
  *  \sa OfSveuDir
  */

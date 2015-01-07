@@ -25,7 +25,7 @@
  */
 
 
-/*!  ServFun()
+/*  ServFun()
  *   Servisne funkcije
  */
 
@@ -103,7 +103,7 @@ return
 *string FmkIni_ExePath_SifPartn_Fax;
 
 
-/*!  P_Firma(cId,dx,dy)
+/*  P_Firma(cId,dx,dy)
  *   Otvara sifrarnik partnera
  *   cId
  *   dx
@@ -209,7 +209,7 @@ return PostojiSifra(F_PARTN,1,10,60,"Lista Partnera",@cId,dx,dy,{|Ch| PartnBlok(
 
 
 
-/*!  PartnBlok(Ch)
+/*  PartnBlok(Ch)
  *   Obrada funkcija nad sifrarnikom partnera
  *   Ch  - pritisnuti taster
  */
@@ -251,7 +251,7 @@ RETURN DE_CONT
 
 
 
-/*!  IzfUgovor()
+/*  IzfUgovor()
  *   Pregled ugovora za partnere, specificno za ZIPS
  */
 
@@ -335,7 +335,7 @@ return .t.
 
 
 
-/*!  P_KontoFin(cId,dx,dy,lBlag)
+/*  P_KontoFin(cId,dx,dy,lBlag)
  *   Otvara sifrarnik konta spec. za FIN
  *   cId
  *   dx
@@ -421,7 +421,7 @@ return PostojiSifra(F_KONTO,1,10,60,"Lista: Konta ",@cId,dx,dy,{|Ch| KontoBlok(C
 
 
 
-/*!  KontoBlok(Ch)
+/*  KontoBlok(Ch)
  *   Obradjuje funkcije nad sifrarnikom konta
  *   Ch  - pritisnuti taster
  */
@@ -528,7 +528,7 @@ return DE_CONT
 
 
 
-/*!  P_PKonto(cId,dx,dy)
+/*  P_PKonto(cId,dx,dy)
  *   Otvara sifrarnik prenosa konta u novu godinu
  *   cId
  *   dx
@@ -547,7 +547,7 @@ return PostojiSifra(F_PKONTO,1,10,60,"Lista: Nacin prenosa konta u novu godinu",
 
 
 
-/*!  TipPKonto(cTip)
+/*  TipPKonto(cTip)
  *   Tip prenosa konta u novu godinu
  *   cTip
  */
@@ -572,7 +572,7 @@ endif
 
 
 
-///*!  P_Valuta(cId,dx,dy)
+///*  P_Valuta(cId,dx,dy)
 // *   Otvara sifrarnik valuta
 // *   cId
 // *   dx
@@ -598,7 +598,7 @@ endif
 
 
 
-/*!  P_Funk(cId,dx,dy)
+/*  P_Funk(cId,dx,dy)
  *   Otvara sifranik funkcionalnih klasifikacija
  *   cId
  *   dx
@@ -618,7 +618,7 @@ return PostojiSifra(F_FUNK,1,10,70,"Lista funkcionalne klasifikacije",@cId,dx,dy
 
 
 
-/*!  P_Fond(cId,dx,dy)
+/*  P_Fond(cId,dx,dy)
  *   Otvara sifrarnik fondova
  *   cId
  *   dx
@@ -638,7 +638,7 @@ return PostojiSifra(F_FOND,1,10,70,"Lista: Fondovi",@cId,dx,dy)
 
 
 
-/*!  P_BuIz(cId,dx,dy)
+/*  P_BuIz(cId,dx,dy)
  *   Otvara sifrarnik konta-izuzetci
  *   cId
  *   dx
@@ -658,7 +658,7 @@ return PostojiSifra(F_BUIZ,1,10,70,"Lista: konta-izuzeci u sortiranju",@cId,dx,d
 
 
 
-/*!  P_Budzet(cId,dx,dy)
+/*  P_Budzet(cId,dx,dy)
  *   Otvara sifrarnik plana budzeta
  *   cId
  *   dx
@@ -683,7 +683,7 @@ return PostojiSifra(F_BUDZET,1,10,55,"Plan budzeta za tekucu godinu",@cId,dx,dy)
 
 
 
-/*!  P_ParEK(cId,dx,dy)
+/*  P_ParEK(cId,dx,dy)
  *   Otvara sifrarnik ekonomskih kategorija
  *   cId
  *   dx
@@ -703,7 +703,7 @@ return PostojiSifra(F_PAREK,1,10,55,"Partije->Konta" ,@cId,dx,dy)
 
 
 
-/*!  P_TRFP2(cId,dx,dy)
+/*  P_TRFP2(cId,dx,dy)
  *   Otvara sifrarnik parametri prenosa u FP
  *   cId
  *   dx
@@ -752,7 +752,7 @@ return
 
 
 
-/*!  P_TRFP3(cId,dx,dy)
+/*  P_TRFP3(cId,dx,dy)
  *   Otvara sifrarnik shema kontiranja obracuna LD
  *   cId
  *   dx
@@ -794,7 +794,7 @@ return
 
 
 
-/*!  ImaUSuban(cKljuc,cTag)
+/*  ImaUSuban(cKljuc,cTag)
  *
  *   cKljuc
  *   cTag
@@ -837,7 +837,7 @@ return PostojiSifra(F_VRSTEP,1,10,55,"Sifrarnik vrsta placanja",@cid,dx,dy)
 
 */
 
-/*!  P_ULimit(cId,dx,dy)
+/*  P_ULimit(cId,dx,dy)
  *   Otvara sifrarnik limita po ugovorima
  *   cId
  *   dx
@@ -875,7 +875,7 @@ RETURN vrati
 
 
 
-/*!  DFTParU2(lIni)
+/*  DFTParU2(lIni)
  *   Tekuci podaci za nove ugovore
  *   lIni
  */
@@ -1023,7 +1023,7 @@ return
 
 */
 
-/*!  DaUSifv(cBaza,cIdKar,cId,cVrKar)
+/*  DaUSifv(cBaza,cIdKar,cId,cVrKar)
  *
  *   cBaza
  *   cIdKar
@@ -1044,7 +1044,7 @@ RETURN lVrati
 
 
 
-/*!  P_Kuf(cId,dx,dy)
+/*  P_Kuf(cId,dx,dy)
  *   Otvara sifrarnik KUF
  *   cId
  *   dx
@@ -1078,7 +1078,7 @@ return PostojiSifra(F_KUF,IF(gRJ=="D","ID2",1),15,77,"KUF",@cid,dx,dy,{|Ch| KUFB
 
 
 
-/*!  KUFBlok(Ch)
+/*  KUFBlok(Ch)
  *   Obradjuje operacije nad sifrarnikom KUF-a
  *   Ch - pritisnuti taster
  */
@@ -1157,7 +1157,7 @@ return DE_CONT
 
 
 
-/*!  KUFFor1()
+/*  KUFFor1()
  *
  */
 
@@ -1167,7 +1167,7 @@ RETURN .t.
 
 
 
-/*!  KUFSvaki1()
+/*  KUFSvaki1()
  *
  */
 
@@ -1179,7 +1179,7 @@ RETURN
 
 
 
-/*!  P_Kif(cId,dx,dy)
+/*  P_Kif(cId,dx,dy)
  *   Otvara sifrarnik KIF-a
  *   cId
  *   dx
@@ -1212,7 +1212,7 @@ RETURN PostojiSifra(F_KIF,IF(gRJ=="D","ID2",1),15,77,"KIF",@cid,dx,dy,{|Ch| KIFB
 
 
 
-/*!  KifBlok(Ch)
+/*  KifBlok(Ch)
  *   Obradjuje funkcije nad sifrarnikom KIF-a
  *   Ch - pritisnuti taster
  */
@@ -1290,7 +1290,7 @@ return DE_CONT
 
 
 
-/*!  KifFor1()
+/*  KifFor1()
  *
  */
 
@@ -1299,7 +1299,7 @@ function KIFFor1()
 RETURN .t.
 
 
-/*!  KifSvaki1()
+/*  KifSvaki1()
  *
  */
 
@@ -1310,7 +1310,7 @@ RETURN
 
 
 
-/*!  P_VPrih(cId,dx,dy)
+/*  P_VPrih(cId,dx,dy)
  *   Otvara sifrarnik vrsta prihoda
  *   cId
  *   dx
@@ -1329,7 +1329,7 @@ return PostojiSifra(F_VPRIH,1,10,55,"Sifrarnik vrsta prihoda",@cid,dx,dy)
 
 
 
-/*!  Mvpsifra(wId)
+/*  Mvpsifra(wId)
  *   Zabranjuje dupli unos sifre
  *   wId
  */
@@ -1360,7 +1360,7 @@ return nRet
 
 
 
-/*!  MNNSifru()
+/*  MNNSifru()
  *   Nadji novu sifru - radi na pritisak <F8> pri unosu nove sifre
  */
 

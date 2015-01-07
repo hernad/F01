@@ -13,7 +13,7 @@
 #include "sc.ch"
 
 
-/*!  RabVrijednost(cIdRab, cTipRab, cIdRoba, nTekIzn)
+/*  RabVrijednost(cIdRab, cTipRab, cIdRoba, nTekIzn)
  *   Vrati vrijednost rabata - pozovi func. GetRabatForArticle()
  */
 function RabVrijednost(cIdRab, cTipRab, cIdRoba, nTekIzn)
@@ -29,7 +29,7 @@ return nRet
 
 
 
-/*!  GetDays(cIdRab, cTipRab)
+/*  GetDays(cIdRab, cTipRab)
  *   Vrati vrijednost broja dana za rabat - poziva GetDaysForRabat()
  */
 function GetDays(cIdRab, cTipRab)
@@ -40,7 +40,7 @@ nRet := GetDaysForRabat(cIdRab, cTipRab)
 return nRet
 
 
-/*!  GetSKntForArticle()
+/*  GetSKntForArticle()
  *   Vrati vrijdnost SKONTO za artikal - poziva GetSkontoArtcile()
  */
 function SKVrijednost(cIdRab, cTipRab, cIdRoba)
@@ -52,7 +52,7 @@ return nRet
 
 
 
-/*!  SrediRabate()
+/*  SrediRabate()
  *   Sredjivanje rabata u pripremi
  */
 function SrediRabate()
@@ -185,7 +185,7 @@ return nRet
 
 
 
-/*!  CheckMemo(aMemo)
+/*  CheckMemo(aMemo)
  *   Provjerava da li je memo prazan
  */
 function CheckMemo(aMemo)

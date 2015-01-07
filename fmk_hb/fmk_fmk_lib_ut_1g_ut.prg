@@ -18,7 +18,7 @@
  * ----------------------------------------------------------------
  */
 
-/*!  nToLongC(nN)
+/*  nToLongC(nN)
  *   Pretvara broj u LONG (C-ovski prikaz long integera)
  *
  */

@@ -26,7 +26,7 @@
  */
 
 
-/*!  IP()
+/*  IP()
  *   Generisanje dokumenta tipa IP - inventura prodavnice
  */
 
@@ -290,7 +290,7 @@ return
 
 
 
-/*!  RedniBroj(nRbr)
+/*  RedniBroj(nRbr)
  *   Pretvaranje numericke vrijednosti u string, s tim da je string koji se formira duzine 3. Za brojeve preko 999 koristi se slovo na mjestu prvog znaka, npr.1000 -> A00, 1100 -> B00, 1200 -> C00, ...
  *   nRbr -
  */
@@ -312,7 +312,7 @@ return
 
 
 
-/*!  RbrUNum(cRBr)
+/*  RbrUNum(cRBr)
  *   Pretvaranje stringa duzine 3 u numericku vrijednost uz mogucnost da prvi znak u stringu bude slovo, npr. A01 -> 1001, B01 -> 1101, C01 -> 1201 ...
  */
 
@@ -330,7 +330,7 @@ return
 
 
 
-/*!  Get1_IP()
+/*  Get1_IP()
  *   Prva strana maske za unos dokumenta tipa IP
  */
 

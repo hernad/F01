@@ -59,7 +59,7 @@
  */
 
 
-/*!  StKalk41()
+/*  StKalk41()
  *   Stampa dokumenta tipa 41
  */
 
@@ -386,7 +386,7 @@ return
 
 
 
-/*!  Naslov4x()
+/*  Naslov4x()
  *   Naslovi za dokumente tipa 4x
  */
 

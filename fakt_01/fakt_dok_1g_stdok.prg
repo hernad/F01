@@ -400,7 +400,7 @@ closeret
 
 
 
-/*!  Zagl()
+/*  Zagl()
  *   Ispis zaglavlja
  */
 
@@ -426,7 +426,7 @@ return
 
 
 
-/*!  NStr0(bZagl)
+/*  NStr0(bZagl)
  *   Nova strana, prelazak na novu stranu
  */
 
@@ -443,7 +443,7 @@ return
 
 
 
-/*!  Koef(cDinDem)
+/*  Koef(cDinDem)
  *   Konverzija valute
  *   cDinDem
  */
@@ -460,7 +460,7 @@ endif
 
 
 
-/*!  Mjesto(cRJ)
+/*  Mjesto(cRJ)
  *   Uzima mjesto
  */
 
@@ -485,7 +485,7 @@ return TRIM(cVrati)
 
 
 
-/*!  JokSBr()
+/*  JokSBr()
  *
  */
 
@@ -498,7 +498,7 @@ return IF(gNW=="R","  KJ/KG ", IF(glDistrib,"", IF(BK_SB, "  BARKOD   ","Ser.bro
 
 
 
-/*!  NSRNPIIdRoba(cSR,fSint)
+/*  NSRNPIIdRoba(cSR,fSint)
  *   Nasteli sif->roba na pripr->idroba
  *   cSR
  *   fSint  - ako je fSint:=.t. sinteticki prikaz
@@ -530,7 +530,7 @@ return
 
 
 
-/*!  PrStr2T(cIdTipDok)
+/*  PrStr2T(cIdTipDok)
  *   Stampa potpisa na kraju fakture
  *   cIdTipDok
  */
@@ -608,7 +608,7 @@ return
 
 
 
-/*!  PrStr2R(cIdTipDok)
+/*  PrStr2R(cIdTipDok)
  *   Vraca tekst potpisa RTF
  *   cIdTipDok
  *  return: cVrati
@@ -629,7 +629,7 @@ return (cVrati)
 
 
 
-/*!  ShowIdPar(cId,n,lNoviRed,lVratiRPBNiz)
+/*  ShowIdPar(cId,n,lNoviRed,lVratiRPBNiz)
  *   Prikazi ID partnera na fakturi
  *   cId
  *   n
@@ -949,7 +949,7 @@ endif
 */
 
 
-/*!  GetRtmFile(cDefRtm)
+/*  GetRtmFile(cDefRtm)
  *   Vraca naziv rtm fajla za stampu
  */
 function GetRtmFile(cDefRtm)

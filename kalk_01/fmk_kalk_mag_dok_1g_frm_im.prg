@@ -19,7 +19,7 @@
  */
  
 
-/*!  Get1_IM()
+/*  Get1_IM()
  *   Prva strana maske za unos dokumenta tipa IM
  */
 

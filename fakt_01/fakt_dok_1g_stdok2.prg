@@ -226,7 +226,7 @@
 *string FmkIni_ExePath_FAKT_DelphiRB;
 
 
-/*!  StDok2()
+/*  StDok2()
  *   Stampa fakture u varijanti 2
  *   cIdFirma
  *   cIdTipDok
@@ -1240,7 +1240,7 @@ CLOSERET
 
 
 
-/*!  Zagl2()
+/*  Zagl2()
  *   Stampa zaglavlja na fakturi u varijanti 2
  */
 static function Zagl2()
@@ -1314,7 +1314,7 @@ return
 
 
 
-/*!  NStr0(bZagl,fPrenos)
+/*  NStr0(bZagl,fPrenos)
  *   Prelaz na novu stranu
  *   bZagl
  *   fPrenos
@@ -1352,7 +1352,7 @@ endif
 
 
 
-/*!  StKupac(fDelphiRB)
+/*  StKupac(fDelphiRB)
  *
  *   fdelphiRB
  */
@@ -1574,7 +1574,7 @@ return
 
 
 
-/*!  KatBr()
+/*  KatBr()
  *   Kataloski broj
  */
 
@@ -1590,7 +1590,7 @@ return ""
 
 
 
-/*!  UgRabTXT()
+/*  UgRabTXT()
  *   Uzima tekst iz fajla gFUgRab
  */
 
@@ -1605,7 +1605,7 @@ return cPom
 
 
 
-/*!  DiVoRel()
+/*  DiVoRel()
  *
  *  todo: nesto vezano za vindiju
  */
@@ -1627,7 +1627,7 @@ return
 
 
 
-/*!  IspisiAmbalazu()
+/*  IspisiAmbalazu()
  *   Ispisuje ambalazu
  */
 
@@ -1642,7 +1642,7 @@ return
 
 
 
-/*!  IspisiPoNar()
+/*  IspisiPoNar()
  *   Ispisi po narudzbi
  */
 
@@ -1666,7 +1666,7 @@ return cV
 
 
 
-/*!  Kolicina()
+/*  Kolicina()
  *
  */
 

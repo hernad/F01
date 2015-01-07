@@ -77,7 +77,7 @@ return
 
 
 
-/*!  SpecIOS()
+/*  SpecIOS()
  *   Specifikacija otvorenih stavki
  */
 
@@ -248,7 +248,7 @@ return
 
 
 
-/*!  ZagSpecIOS()
+/*  ZagSpecIOS()
  *   Zaglavlje specifikacije otvorenih stavki
  */
 
@@ -366,7 +366,7 @@ return 1
 
 
 
-/*!  IOSPrekid()
+/*  IOSPrekid()
  *   Ukoliko dodje do prekida u IOSS nastavlja dalje
  */
 
@@ -432,7 +432,7 @@ return
 
 
 
-/*!  IOSPojed()
+/*  IOSPojed()
  *   Pojedinacni IOS
  */
 
@@ -926,7 +926,7 @@ RETURN
 
 
 
-/*!  OstatakOpisa(cO,nCO,bUslov,nSir)
+/*  OstatakOpisa(cO,nCO,bUslov,nSir)
  *   Stampa ostatka opisa
  *   cO
  *   nCO

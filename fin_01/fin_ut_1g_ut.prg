@@ -30,7 +30,7 @@ return .t.
 
 
 
-/*!  Izvj0()
+/*  Izvj0()
  *
  */
 function Izvj0()
@@ -46,7 +46,7 @@ Izvjestaji()
 return
 
 
-/*!  PovratNaloga()
+/*  PovratNaloga()
  *   Povrat naloga
  */
 function PovratNaloga()
@@ -58,7 +58,7 @@ endif
 return
 
 
-/*!  Preknjizenje()
+/*  Preknjizenje()
  *   preknjizenje
  */
 function Preknjizenje()
@@ -73,7 +73,7 @@ endif
 return
 
 
-/*!  Prebfin_kartica()
+/*  Prebfin_kartica()
  *   Prebacivanja kartica
  */
 function Prebfin_kartica()
@@ -87,7 +87,7 @@ function Prebfin_kartica()
 return
 
 
-/*!  GenPocStanja()
+/*  GenPocStanja()
  *   generacija pocetnog stanja
  */
 function GenPocStanja()
@@ -102,7 +102,7 @@ endif
 return
 
 
-/*!  ImaUSubanNemaUNalog()
+/*  ImaUSubanNemaUNalog()
  *   Ispituje da li nalog postoji u SUBAN ako ga nema u NALOG
  */
 function ImaUSubanNemaUNalog()

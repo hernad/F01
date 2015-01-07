@@ -15,7 +15,7 @@
 
 
 
-/*!  CrePStDB(cModulName)
+/*  CrePStDB(cModulName)
  *   Kreiranje tabela za prenos (OSTAV, PARAMS)
  *   cModulName - ime modula - generisi tabele samo dok si u modulu POS
  */
@@ -67,7 +67,7 @@ return
 
 
 
-/*!  O_PrenHH(cPosID)
+/*  O_PrenHH(cPosID)
  *   Otvaranje tabele za prenos na HH
  *   cPosID - id oznaka POS-a - bitan za modul FIN
  */
@@ -103,7 +103,7 @@ return
 
 
 
-/*!  GetTopsKumPathFromKoncij(cTId)
+/*  GetTopsKumPathFromKoncij(cTId)
  *   Vraca KUMPATH TOPS-a iz tabele koncij
  *   cTId - idpm TOPS
  *  todo: razraditi procedure ako nema podesenog PATH-a
@@ -127,7 +127,7 @@ return cTKPath
 
 
 
-/*!  AddToOstav(nId, nIznosG)
+/*  AddToOstav(nId, nIznosG)
  *   Dodaje gotovinski zapis u tabelu ostav - iz TOPS-a
  *   nId - polje IDN iz rngost (veza sa partn->id)
  *   nIznosG - saldo partnera iz TOPS-a
@@ -153,7 +153,7 @@ select (nArr)
 return
 
 
-/*!  AddToPartn(nId, cIdFmk, cNaziv)
+/*  AddToPartn(nId, cIdFmk, cNaziv)
  *   Dodaje zapis u tabelu partn - iz TOPS-a
  *   nId - polje IDN iz rngost (veza sa partn->id)
  *   cIdFmk - polje IDFMK iz tabele RNGOST
@@ -176,7 +176,7 @@ return
 
 
 
-/*!  AddToParams(cID, cNaziv, cOpis)
+/*  AddToParams(cID, cNaziv, cOpis)
  *   Dodaje zapis u tabelu params - ovo je kontrolna tabela iz koje mozemo vidjeti koliko je preneseno partnera a koliko otvorenih stavki te kada je zadnji put prenos radjen.
  *   cID - 1. PAZ - Posljednje azuriranje 2. PCN - Broj prenesenih partnera 3. SCN - Broj prenesenih otvorenih stavki.
  *   cNaziv - Naziv promjene
@@ -199,7 +199,7 @@ return
 
 
 
-/*!  AddFinIntervalsToOstav(cIdPartn, nIznos1, nIznos2, nIznos3, nIznos4)
+/*  AddFinIntervalsToOstav(cIdPartn, nIznos1, nIznos2, nIznos3, nIznos4)
  *   Dodaje rocne intervale u OSTAV iz modula FIN 
  *   cIdPartn - id partnera
  *   nIznos1 - saldo do 4 dana
@@ -259,7 +259,7 @@ return
 
 
 
-/*!  GetOstavCnt()
+/*  GetOstavCnt()
  *   Vraca broj prenesenih partnera u OSTAV
  */
 function GetOstavCnt()
@@ -273,7 +273,7 @@ return nCnt
 
 
 
-/*!  GetFOstavCnt()
+/*  GetFOstavCnt()
  *   Vraca broj prenesenih partnera u OSTAV iz modula FIN
  */
 function GetFOstavCnt()
@@ -287,7 +287,7 @@ return nCnt
 
 
 
-/*!  GetPartnCnt()
+/*  GetPartnCnt()
  *   Vraca broj prenesenih partnera u OSTAV
  */
 function GetPartnCnt()

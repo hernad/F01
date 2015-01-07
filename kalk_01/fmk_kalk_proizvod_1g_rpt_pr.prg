@@ -33,7 +33,7 @@
  */
 
 
-/*!  StKalkPR()
+/*  StKalkPR()
  *   Stampa kalkulacije PR
  */
 

@@ -2436,7 +2436,7 @@ RETURN (NIL)
 
 
 
-/*!  VpSifra(wId)
+/*  VpSifra(wId)
  *   Stroga kontrola ID-a sifre pri unosu nove ili ispravci postojece!
  *   wId - ID koji se provjerava
  */
@@ -2469,7 +2469,7 @@ return nRet
 
 
 
-/*!  VpNaziv(wNaziv)
+/*  VpNaziv(wNaziv)
  *   Stroga kontrola naziva sifre pri unosu nove ili ispravci postojece sifre
  *   wNaziv - Naziv koji se provjerava
  */

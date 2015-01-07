@@ -103,7 +103,7 @@
 
 
 
-/*!  GenRekap2(lK2X, cC, lPrDatOd, lVpRab, lMarkiranaRoba)
+/*  GenRekap2(lK2X, cC, lPrDatOd, lVpRab, lMarkiranaRoba)
  *
  *  lK2X : .f. - ne gledaj K2='X' za zbrajanje kolicine; .t. - uzmi u obzir K2='X' za zbrajanje kolicine (roba kod koje je ROBA->K2="X" nece ulaziti u zbir)
  * 

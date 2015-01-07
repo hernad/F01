@@ -358,7 +358,7 @@ endif
 return 1
 
 
-/*!  Preknjiz()
+/*  Preknjiz()
  *   Preknjizenje naloga
  */
 

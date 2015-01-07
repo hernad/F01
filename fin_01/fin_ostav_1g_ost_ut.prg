@@ -13,7 +13,7 @@
 #include "fin01.ch"
 
 
-/*!  OStUndo()
+/*  OStUndo()
  *   Otvorene stavke - UNDO operacija
  */
 function OStUndo()
@@ -56,7 +56,7 @@ return
 
 
 
-/*!  GetVars(dDatOd, dDatDo, cPartn, cKonto, cDp, cVNal)
+/*  GetVars(dDatOd, dDatDo, cPartn, cKonto, cDp, cVNal)
  *   Setuj parametre
  */
 static function GetVars(dDatOd, dDatDo, cPartn, cKonto, cDp, cVNal)
@@ -82,7 +82,7 @@ return 1
 
 
 
-/*!  OStRunUndo()
+/*  OStRunUndo()
  *   glavna funkcija obrade dokumenta 
  */
 static function OStRunUndo(dDOd, dDDo, cIdPartn, cIdKonto, cDugPot, cVNal)
@@ -178,7 +178,7 @@ return
 
 
 
-/*!  OStAfterAzur(cIdPart, cIdKonto, cDp)
+/*  OStAfterAzur(cIdPart, cIdKonto, cDp)
  *   Pokrece asistenta otvorenih stavki poslije azuriranja naloga
  */
 function OStAfterAzur(aPartList, cIdPart, cIdKonto, cDp)

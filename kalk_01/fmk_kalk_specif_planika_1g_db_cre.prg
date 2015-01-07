@@ -81,7 +81,7 @@
  */
 
 
-/*!  CrePOK1()
+/*  CrePOK1()
  *   Kreiraj pomocne tabele POBJEKTI, PK1
  */
  
@@ -286,7 +286,7 @@ return
 
 
 
-/*!  CrePPProd()
+/*  CrePPProd()
  *   Kreiraj tabelu kalk_ppprod
  *  \sa tbl_kalk_ppprod
  *

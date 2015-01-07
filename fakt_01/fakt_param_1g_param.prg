@@ -29,7 +29,7 @@ return
 
 
 
-/*!  fakt_menu_params()
+/*  fakt_menu_params()
  *   Otvara glavni menij sa parametrima
  */
 function fakt_menu_params()
@@ -257,7 +257,7 @@ endif
 return
 
 
-/*!  fakt_set_parametri_razno()
+/*  fakt_set_parametri_razno()
  *   Podesenja parametri-razno
  */
 function fakt_set_parametri_razno()
@@ -580,7 +580,7 @@ return
  */
 
 
-/*!  fakt_set_firmat_parametri()
+/*  fakt_set_firmat_parametri()
  *   Podesenje osnovnih parametara o firmi
  */
 
@@ -646,7 +646,7 @@ return
  */
 
 
-/*!  fakt_set_pict()
+/*  fakt_set_pict()
  *   Podesenje Pict iznosa, kolicine, ...
  */
 
@@ -844,7 +844,7 @@ return
  */
 
 
-/*!  fakt_set_varijante()
+/*  fakt_set_varijante()
  *   Podesenje varijante obrade dokumenata
  */
 
@@ -1194,7 +1194,7 @@ return
  */
 
 
-/*!  set_varijante_izgleda_dokumenta_1()
+/*  set_varijante_izgleda_dokumenta_1()
  *   Varijante izgleda dokumenta
  */
 
@@ -1787,7 +1787,7 @@ return
  */
 
 
-/*!  SetT2()
+/*  SetT2()
  *   Ispis naziva dokumenta i potpisa na kraju fakture
  */
 
@@ -2084,7 +2084,7 @@ return
 
 
 
-/*!  V_VZagl()
+/*  V_VZagl()
  *   Ispravka zaglavlja
  */
 
@@ -2103,7 +2103,7 @@ return .t.
 
 
 
-/*!  V_VNar()
+/*  V_VNar()
  *   Ispravka fajla narudzbenice
  */
 
@@ -2124,7 +2124,7 @@ return .t.
 
 
 
-/*!  V_VUgRab()
+/*  V_VUgRab()
  *   Ispravka fajla ugovora o rabatu
  */
 function V_VUgRab()
@@ -2238,7 +2238,7 @@ return .t.
 *string ProizvjIni_ExePath_Varijable_LokSlika;
 
 
-/*!  P_WinFakt()
+/*  P_WinFakt()
  *   Podesavanje parametara stampe kroz DelphiRB
  */
 
@@ -2378,7 +2378,7 @@ return
  */
 
 
-/*!  PRabat()
+/*  PRabat()
  *   Podesenje parametara rabatnih skala
  */
 

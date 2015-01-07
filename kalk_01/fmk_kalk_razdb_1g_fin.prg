@@ -296,7 +296,7 @@ return
 
 
 
-/*!  kalk_zagl_11()
+/*  kalk_zagl_11()
  *   Zaglavlje analitickog naloga
  */
 
@@ -336,7 +336,7 @@ return
 
 
 
-/*!  SintStav()
+/*  SintStav()
  *   Formiranje sintetickih stavki
  */
 
@@ -1105,7 +1105,7 @@ return
 
 
 
-/*!  PovFin(cidfirma,cidvn,cbrnal)
+/*  PovFin(cidfirma,cidvn,cbrnal)
  *   Povrat finansijskog naloga u pripremu
  *   cidfirma - firma
  *   cidvn - vrsta naloga

@@ -19,7 +19,7 @@
  *   Meni opcija za generisanje dokumenata za modul KALK
  */
 
-/*!  kalk_meni_gen_dokumenti()
+/*  kalk_meni_gen_dokumenti()
  *   Meni opcija za generisanje dokumenata za modul KALK
  */
 

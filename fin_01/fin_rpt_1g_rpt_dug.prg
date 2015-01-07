@@ -392,7 +392,7 @@ CLOSERET
 return
 
 
-/*!  ZaglDuznici(fStrana, lSvi)
+/*  ZaglDuznici(fStrana, lSvi)
  *   Zaglavlje izvjestaja duznika
  *   fStrana
  *   lSvi

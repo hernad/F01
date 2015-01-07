@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -51,9 +51,9 @@ return 1
 // Vraca podesenje putanje do exportovanih fajlova
 // -----------------------------------------------------
 static function _gExpPath( cPath )
-cPath:=IzFmkIni("FMK", "ImportPath", "c:\import\", PRIVPATH)
+cPath:=IzFmkIni("FMK", "ImportPath", "c:" + SLASH + "import" + SLASH, PRIVPATH)
 if Empty(cPath) .or. cPath == nil
-	cPath := "c:\import\"
+	cPath := "c:" + SLASH + "import" + SLASH
 endif
 return
 
@@ -63,7 +63,7 @@ return
 // ---------------------------------------
 static function _cBarkod()
 local aErr := {}
-local nScan 
+local nScan
 local i
 local nCnt
 
@@ -74,15 +74,15 @@ go top
 
 // stavke sa statusom 0 - nemaju svog para u ROBI
 do while !EOF() .and. field->status = 0
-	
+
 	cTmp := field->barkod
-	
+
 	nScan := ASCAN( aErr, {| xVal | xVal[1] == cTmp } )
-	
+
 	if nScan = 0
 		AADD( aErr, { field->barkod, field->kolicina } )
 	endif
-	
+
 	skip
 enddo
 
@@ -122,7 +122,7 @@ local lTrimData := .t.
 local lLastSeparator := .f.
 local cFileName := ""
 local cFilePath := ""
-local nScan 
+local nScan
 local cBK
 local nCnt := 0
 
@@ -137,33 +137,33 @@ cre_tmp()
 
 select (249)
 use (PRIVPATH + "R_EXPORT") alias "exp"
-index on barkod TAG "ID" 
+index on barkod TAG "ID"
 
 O_ROBA
 set order to tag "BARKOD"
 go top
 
 do while !EOF()
-	
+
 	cBK := PADR( field->barkod, 20 )
 
 	if EMPTY( cBK )
 		skip
 		loop
 	endif
-	
+
 	select exp
 	go top
 	seek cBK
-	
+
 	if !FOUND()
-		
+
 		append blank
 		replace field->barkod with roba->barkod
 		replace field->naz with roba->naz
 		replace field->tk with 0
 		replace field->tc with roba->vpc
-	
+
 		++ nCnt
 	endif
 
@@ -220,4 +220,3 @@ AADD( aFields, {"tc", "N", 8, 2} )
 t_exp_create( aFields )
 
 return
-

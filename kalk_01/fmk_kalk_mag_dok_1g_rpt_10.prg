@@ -24,7 +24,7 @@
  */
 
 
-/*!  StKalk10_2()
+/*  StKalk10_2()
  *   Stampa dokumenta tipa 10, varijanta sa troskovima u kolonama
  */
 
@@ -194,7 +194,7 @@ return
 
 
 
-/*!  StKalk10_3()
+/*  StKalk10_3()
  *   Stampa kalkulacije 10 - magacin po vp, DEFAULT VARIJANTA
  */
 
@@ -522,7 +522,7 @@ return
 
 
 
-/*!  StKalk10_4()
+/*  StKalk10_4()
  *   Stampa kalkulacije 10 - varijanta 3, za papir formata A3
  */
 

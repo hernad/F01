@@ -121,7 +121,7 @@ END CLASS
 #endif
 #endif
 
-/*!  *void TAppMod::init(TObject oParent,string cModul,string cVerzija,string cPeriod,string cKorisn,string cSifra,string p3,string p4,string p5,string p6,string p7)
+/*  *void TAppMod::init(TObject oParent,string cModul,string cVerzija,string cPeriod,string cKorisn,string cSifra,string p3,string p4,string p5,string p6,string p7)
  *   Incijalizacija AppMod objekta
  */
 
@@ -147,7 +147,7 @@ method init(oParent, cModul, cVerzija, cPeriod, cKorisn, cSifra, p3,p4,p5,p6,p7)
 return
 
 
-/*!  *bool TAppMod::hasParent()
+/*  *bool TAppMod::hasParent()
  *   ima li objekat "roditelja"
  */
  
@@ -159,7 +159,7 @@ return !(::oParent==nil)
 
 
 
-/*!  *TObject TAppMod::setParent(TObject oParent)
+/*  *TObject TAppMod::setParent(TObject oParent)
  *   postavi roditelja ovog objekta
  *
  *  Roditelj je programski modul (objekat) koji je izvrsio kreiranje ovog objekta. To bi znacilo za oPos to parent oFMK - "master" aplikacijski modul koji poziva pojedinacne programske module (oFIN, oKALK, oFAKT)
@@ -174,7 +174,7 @@ return
 
 
 
-/*!  *TObject TAppMod::getParent()
+/*  *TObject TAppMod::getParent()
  *   Daj mi roditelja ovog objekta
  */
 
@@ -280,7 +280,7 @@ return
 
 
 
-/*!  *void TAppMod::quit(bool lVratiseURP)
+/*  *void TAppMod::quit(bool lVratiseURP)
  *   izlazak iz aplikacijskog modula
  *   lVratiSeURP - default vrijednost .t.; kada je .t. vrati se u radno podrucje; .f. ne mjenjaj radno podrucje
  *
@@ -675,7 +675,7 @@ endif
 return .t.
 
 
-/*!  TAppMod::setTGVars() 
+/*  TAppMod::setTGVars() 
  *   Setuje globalne varijable, te setuje incijalne vrijednosti objekata koji pripadaju glavnom app objektu
  */
 
@@ -706,7 +706,7 @@ endif
 return
 
 
-/*!  TAppMod::limitKLicenca(nLevel)
+/*  TAppMod::limitKLicenca(nLevel)
  *   Prikazuje poruku o ogranicenosti korisnicke licence
  *  return:  True ako je nLevel> oApp:nKLicenca return .t.
  */

@@ -18,7 +18,7 @@
  */
 
 
-/*!  PregledProdaje()
+/*  PregledProdaje()
  *   Pregled prodaje - Vindija
  */
 
@@ -491,7 +491,7 @@ return nV
 
 
 
-/*!  GetPictDem(nLen, nDec)
+/*  GetPictDem(nLen, nDec)
  *   Vraca velicinu i broj decimala num polja
  *   nLen
  *   nDec

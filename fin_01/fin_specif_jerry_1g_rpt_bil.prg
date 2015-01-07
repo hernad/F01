@@ -31,7 +31,7 @@
  *   Bilans stanja, bilans uspjeha
  */
 
-/*!  BilansS()
+/*  BilansS()
  *   Bilans stanja 
  */
  
@@ -168,7 +168,7 @@ return
 
 
 
-/*!  BilansU()
+/*  BilansU()
  *   Bilans uspjeha
  */
  

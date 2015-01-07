@@ -54,7 +54,7 @@ END CLASS
 
 
 
-/*!  *void TDBFakt::dummy()
+/*  *void TDBFakt::dummy()
  */
 
 
@@ -62,7 +62,7 @@ method dummy
 return
 
 
-/*!  *void TDBFakt::skloniSezonu(string cSezona, bool finverse,bool fda,bool fnulirati,bool fRS)
+/*  *void TDBFakt::skloniSezonu(string cSezona, bool finverse,bool fda,bool fnulirati,bool fRS)
  *   formiraj sezonsku bazu podataka
  *   cSezona -
  *   fInverse - .t. iz sezone u radno, .f. iz radnog u sezonu
@@ -283,7 +283,7 @@ return
 
 
 
-/*!  *void TDBFakt::install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7)
+/*  *void TDBFakt::install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7)
  *   osnovni meni za instalacijske procedure
  */
 
@@ -293,7 +293,7 @@ method install(cKorisn,cSifra,p3,p4,p5,p6,p7)
 return
 
 
-/*!  *void TDBFakt::Kreiraj(int nArea)
+/*  *void TDBFakt::Kreiraj(int nArea)
  *   Kreiranje baze podataka Fakt-a
  */
 
@@ -606,7 +606,7 @@ return
 
 
 
-/*!  *void TDBFakt::obaza(int i)
+/*  *void TDBFakt::obaza(int i)
  *   otvara odgovarajucu tabelu
  *
  *
@@ -665,7 +665,7 @@ endif
 return
 
 
-/*!  *void TDBFakt::ostalef()
+/*  *void TDBFakt::ostalef()
  *   Ostalef funkcije (bivsi install modul)
  *  biljeska:  sifra: SIGMAXXX
 */
@@ -677,7 +677,7 @@ method ostalef()
 return
 
 
-/*!  *void TDBFakt::konvZn()
+/*  *void TDBFakt::konvZn()
  *   koverzija 7->8 baze podataka KALK
  */
 

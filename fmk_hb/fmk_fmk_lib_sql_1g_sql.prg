@@ -168,7 +168,7 @@ return
 
 
 
-/*!  sql_azur(fLock)
+/*  sql_azur(fLock)
  *  
  *   fLock - True - zakljucaj record u koji upisujes; False - vec je zakljucan, default value
  *  return: True - uspjesno, False - neuspjesno
@@ -277,7 +277,7 @@ endif
 
 
 
-/*!  New_OID()
+/*  New_OID()
  *   utvrdjuje novi OID (Object identification)
  */
  
@@ -324,7 +324,7 @@ PopWa()
 return Num2Oid(nPom+1) // novi OID
 
 
-/*!  Oid2Num(cOID)
+/*  Oid2Num(cOID)
  *  todo: izbaciti ovu funkciju - nepotrebna
  */
 function Oid2Num(cOID)
@@ -333,7 +333,7 @@ local i,nPom
 return cOID
 
 
-/*!  Num2Oid(cOID)
+/*  Num2Oid(cOID)
  *  todo: izbaciti ovu funkciju - nepotrebna
  */
 function Num2Oid(nOid)

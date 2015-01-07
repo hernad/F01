@@ -724,7 +724,7 @@ return lRet
 
 
 
-/*!  Konto(nBroj,cDef,cTekst)
+/*  Konto(nBroj,cDef,cTekst)
  *   nBroj - koju varijablu punimo (1-ckonto1,2-ckonto2,3-ckonto3)
  *   cDef - default tj.ponudjeni tekst
  *   cTekst - opis podatka koji se unosi
@@ -795,7 +795,7 @@ return 0
 
 
 
-/*!  RJ(nBroj,cDef,cTekst)
+/*  RJ(nBroj,cDef,cTekst)
  *   nBroj - koju varijablu punimo (1-cRj1,2-cRj2)
  *   cDef - default tj.ponudjeni tekst
  *   cTekst - opis podatka koji se unosi
@@ -831,7 +831,7 @@ return 0
 
 
 
-/*!  DatVal()
+/*  DatVal()
  *   Odredjivanje datuma valute - varijabla dDatVal
  */
 
@@ -891,7 +891,7 @@ return 0
 
 
 
-/*!  Partner(nBroj,cDef,cTekst,lFaktura,dp)
+/*  Partner(nBroj,cDef,cTekst,lFaktura,dp)
  *   nBroj - 1 znaci da se sifrom partnera puni varijabla cPartner1
  *   cDef - default tj.ponudjeni tekst
  *   cTekst - opis podatka koji se unosi u varijablu cPartner1
@@ -966,7 +966,7 @@ return 0
 
 
 
-/*!  SetZaDoks()
+/*  SetZaDoks()
  *   Setuje nnv,nvpv,nmpv za doks.dbf
  */
 
@@ -1013,7 +1013,7 @@ return
 
 
 
-/*!  IspitajRezim()
+/*  IspitajRezim()
  *   Ako se radi o privremenom rezimu obrade KALK dokumenata setuju se vrijednosti parametara gCijene i gMetodaNC na vrijednosti u dvoclanom nizu aRezim
  */
 
@@ -1030,7 +1030,7 @@ return
 
 
 
-/*!  RekapK()
+/*  RekapK()
  *   fstara - .f. znaci poziv iz tabele pripreme, .t. radi se o azuriranoj kalkulaciji pa se prvo getuje broj dokumenta (cIdFirma,cIdVD,cBrdok)
  *   Pravi rekapitulaciju kalkulacija a ako je ulazni parametar fstara==.t. poziva se i kontiranje dokumenta
  */

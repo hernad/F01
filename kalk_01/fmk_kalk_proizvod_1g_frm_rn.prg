@@ -32,7 +32,7 @@
  */
 
 
-/*!  Get1_RN()
+/*  Get1_RN()
  *   Prva strana maske za unos dokumenta tipa RN
  */
 
@@ -227,7 +227,7 @@ return lastkey()
 
 
 
-/*!  Get2_RN()
+/*  Get2_RN()
  *   Druga strana maske za unos dokumenta tipa RN
  */
 

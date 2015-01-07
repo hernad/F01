@@ -199,7 +199,7 @@ return
 
 
 
-/*!  SifKalkTops()
+/*  SifKalkTops()
  *   Prenos sifrarnika iz KALK u TOPS
  */
 
@@ -254,7 +254,7 @@ return
 
 
 
-/*!  Mnu_GenKaTOPS()
+/*  Mnu_GenKaTOPS()
  *   Menij generacije tops dokumenata na osnovu KALK-a
  */
 
@@ -286,7 +286,7 @@ return
 
 
 
-/*!  CheckKALKDokument(idfirma, tipdokumenta, brojdokumenta)
+/*  CheckKALKDokument(idfirma, tipdokumenta, brojdokumenta)
  *   Provjerava da li dokument uopste postoji!
  *   idfirma - id firme
  *   tipdokumenta - tip dokumenta
@@ -309,7 +309,7 @@ endif
 
 
 
-/*!  GenTopsAzur(idfirma, idtipdokumenta, brojdokumenta)
+/*  GenTopsAzur(idfirma, idtipdokumenta, brojdokumenta)
  *   Generacija kalk->tops na osnovu azuriranih kalkulacija
  *   idfirma - id firme
  *   idtipdokumenta - tip dokumenta
@@ -520,7 +520,7 @@ return
 
 
 
-/*!  CreDBKaTOPS()
+/*  CreDBKaTOPS()
  *   Kreira datoteku prenosa
  */
 function CreDBKaTOPS()

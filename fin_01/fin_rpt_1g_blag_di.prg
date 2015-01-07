@@ -22,7 +22,7 @@
 #define DABLAGAS lBlagAsis.and._IDVN==cBlagIDVN
 
 
-/*!  Blagajna()
+/*  Blagajna()
  *   Blagajna dnevni izvjestaj
  */
 

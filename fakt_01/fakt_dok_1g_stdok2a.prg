@@ -33,7 +33,7 @@
  *   Stampa faktura u varijanti 2 a
  */
  
-/*!  StDok2a()
+/*  StDok2a()
  *   Stampa fakture u varijanti 2 a 
  *   cIdFirma 
  *   cIdTipDok
@@ -426,7 +426,7 @@ CLOSERET
 
 
 
-/*!  Zagl2a()
+/*  Zagl2a()
  *   Stampa zaglavlja za 2 a 
  */
  
@@ -457,7 +457,7 @@ return .t.
 
 
 
-/*!  Krizaj2a()
+/*  Krizaj2a()
  *   
  */
  

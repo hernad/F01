@@ -18,7 +18,7 @@
  *   Visokotarifni artikli
  */
 
-/*! VtPorezi()
+/* VtPorezi()
  *  Porezi za visokotarifne artikle
  */
 

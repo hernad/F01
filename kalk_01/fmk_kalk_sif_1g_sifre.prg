@@ -56,7 +56,7 @@ return .f.
 
 
 
-/*!  kalk_serv_fun()
+/*  kalk_serv_fun()
  *   Servisne funkcije
  */
 
@@ -68,7 +68,7 @@ return
 
 
 
-/*!  RobaBlock(Ch)
+/*  RobaBlock(Ch)
  *   Obrada funkcija nad sifrarnikom robe
  *   Ch - Pritisnuti taster
  */
@@ -162,7 +162,7 @@ return
 */
 
 
-/*!  OSifBaze()
+/*  OSifBaze()
  *   Otvara sve tabele vezane za sifrarnike
  */
 

@@ -25,7 +25,7 @@
  */
 
 
-/*!  StKalk95_sk()
+/*  StKalk95_sk()
  *   Stampa kalkulacije tipa 95, varijanta samo kolicine (bez cijena)
  */
 

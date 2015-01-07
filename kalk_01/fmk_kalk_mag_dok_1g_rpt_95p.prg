@@ -19,7 +19,7 @@
  * ----------------------------------------------------------------
  */
  
-/*!  StKalk95_1()
+/*  StKalk95_1()
  *   Stampa kalkulacije tipa 95, varijanta samo po nabavnim cijenama
  */
 

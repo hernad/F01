@@ -289,7 +289,7 @@
 *string FmkIni_KumPath_FAKT_Doks2opis;
 
 
-/*!  StDok23()
+/*  StDok23()
  *   Stampa fakture u varijanti 2 3
  *   cIdFirma
  *   cIdTipDok
@@ -1227,7 +1227,7 @@ CLOSERET
 
 
 
-/*!  Zagl2()
+/*  Zagl2()
  *   Ispis zaglavlja
  */
  
@@ -1278,7 +1278,7 @@ return
 
 
 
-/*!  NStr0(bZagl,fPrenos)
+/*  NStr0(bZagl,fPrenos)
  *   Prelazak na novu stranu
  *   bZagl
  *   fPrenos
@@ -1322,7 +1322,7 @@ endif
 
 
 
-/*!  StKupac(fDelphiRB)
+/*  StKupac(fDelphiRB)
  *   
  *   fDelphiRB
  */
@@ -1587,7 +1587,7 @@ return
 
 
 
-/*!  ListDodP()
+/*  ListDodP()
  *   Priprema liste dodatnih podataka
  *  return: aVrati
  */

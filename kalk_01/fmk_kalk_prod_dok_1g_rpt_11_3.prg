@@ -39,7 +39,7 @@
  */
 
 
-/*!  StKalk11_3()
+/*  StKalk11_3()
  *   Stampa kalkulacije 11, varijanta "3" - papir formata A3
  */
 

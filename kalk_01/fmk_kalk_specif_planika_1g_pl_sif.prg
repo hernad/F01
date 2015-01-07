@@ -36,7 +36,7 @@
  *
  */
 
-/*!  P_RVrsta(cId,dx,dy)
+/*  P_RVrsta(cId,dx,dy)
  *   Otvara sifrarnik vrsta artikala planika 
  *   cId
  *   dx

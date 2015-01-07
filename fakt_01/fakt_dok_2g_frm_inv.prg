@@ -105,7 +105,7 @@ oObj:lTerminate:=.f.
 return oObj
 
 
-/*!  FaUnosInv()
+/*  FaUnosInv()
  *   Poziva se unos dokumenta inventure
  */
 
@@ -160,7 +160,7 @@ END CLASS
 
 #endif
 
-/*!  TFrmInv::open()
+/*  TFrmInv::open()
  */
 
 
@@ -271,7 +271,7 @@ endcase
 return DE_CONT
 
 
-/*!  TFrmInv::walk()
+/*  TFrmInv::walk()
  *   Prodji kroz sve stavke dokumenta
  */
 
@@ -299,7 +299,7 @@ oFrmItem:=nil
 return
 
 
-/*!  TFrmInv::noveStavke()
+/*  TFrmInv::noveStavke()
  *   Unos novih stavki
  */
 
@@ -323,7 +323,7 @@ return
 
 
 
-/*!  TFrmInv::sayKomande()
+/*  TFrmInv::sayKomande()
  *   Stampa Liste komandi na dnu ekrana
  *
  */
@@ -341,7 +341,7 @@ return
 
 
 
-/*!  TFrmInv::setColuns()
+/*  TFrmInv::setColuns()
  *   Postavi vrijednost aImeKol, aKol matrica
  *  biljeska: takodje se na kraju postavljaju priv var: ImeKol:=aImeKol, Kol:=aKol
  */
@@ -381,7 +381,7 @@ Kol:=::aKol
 return
 
 
-/*!  TFrmInv::print()
+/*  TFrmInv::print()
  *   Stampa obrasca uporednog prikaza knjiznih i popisanih kolicina
  *
  *  \code
@@ -403,7 +403,7 @@ RptInv()
 return
 
 
-/*!  TFrmInv::printOPop()
+/*  TFrmInv::printOPop()
  *   Stampa obrasca Popisa
  *
  *  \code
@@ -436,7 +436,7 @@ CLOSERET
 return
 
 
-/*!  TFrmInv::itemsCount()
+/*  TFrmInv::itemsCount()
  *   Prodji kroz sve stavke dokumenta
  */
 
@@ -495,7 +495,7 @@ Menu_SC("ppin")
 return nil
 
 
-/*!  TFrmInv::genDok()
+/*  TFrmInv::genDok()
  */
 
 
@@ -518,7 +518,7 @@ endif
 return
 
 
-/*!  TFrmInv::genDokManjak()
+/*  TFrmInv::genDokManjak()
  */
 
 
@@ -564,7 +564,7 @@ return
 
 
 
-/*!  TFrmInv::genDokVisak()
+/*  TFrmInv::genDokVisak()
  */
 
 

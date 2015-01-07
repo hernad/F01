@@ -35,7 +35,7 @@ return
 
 
 
-/*!  KalkNaF(cidroba,nKols)
+/*  KalkNaF(cidroba,nKols)
  *   Stanje zadanog artikla u FAKT
  */
 
@@ -64,7 +64,7 @@ return
 
 // ako nije razduzeno kako bi trebalo po metodi NC
 
-/*!  MsgNCRazd()
+/*  MsgNCRazd()
  *
  *  todo: ukinuti?
  */
@@ -77,7 +77,7 @@ return
 
 
 
-/*!  P_Kalk(cIdFirma,cIdVD,cBrDok)
+/*  P_Kalk(cIdFirma,cIdVD,cBrDok)
  *   Ispituje postojanje zadanog dokumenta medju azuriranim
  */
 
@@ -102,7 +102,7 @@ return nRez
 
 
 
-/*!  VVT()
+/*  VVT()
  *   Prikaz PPP i proracun marze za visokotarifnu robu
  */
 
@@ -124,7 +124,7 @@ return .t.
 
 
 
-/*!  DuplRoba()
+/*  DuplRoba()
  *   Obrada slucaja pojavljivanja duplog unosa robe u dokumentu
  */
 
@@ -169,7 +169,7 @@ return .t.
 
 
 
-/*!  DatPosljK()
+/*  DatPosljK()
  *   Ispituje da li je datum zadnje promjene na zadanom magacinu i za zadani artikal noviji od one koja se unosi
  */
 
@@ -189,7 +189,7 @@ return
 
 
 
-/*!  DatPosljP()
+/*  DatPosljP()
  *   Ispituje da li je datum zadnje promjene na zadanoj prodavnici i za zadani artikal noviji od one koja se unosi
  */
 
@@ -219,7 +219,7 @@ return
 
 
 
-/*!  SljBroj(cidfirma,cIdvD,nMjesta)
+/*  SljBroj(cidfirma,cIdvD,nMjesta)
  *   Sljedeci slobodan broj dokumenta za zadanu firmu i vrstu dokumenta
  */
 
@@ -432,7 +432,7 @@ return
 
 
 
-/*!  kalk_renum_priprema(cDok,cidvd)
+/*  kalk_renum_priprema(cDok,cidvd)
  *   Prenumerisanje stavki zadanog dokumenta u pripremi
  */
 
@@ -459,7 +459,7 @@ return
 
 
 
-/*!  IspitajPrekid()
+/*  IspitajPrekid()
  *   Ispituje da li je pritisnuta tipka ESC. Koristi se u do while uslovu
  *  return: Ako je pritisnut ESC vraca .f., u suprotnom .t.
  */
@@ -474,7 +474,7 @@ return IF(LASTKEY()==27,PrekSaEsc(),.t.)
 
 
 
-/*!  KaKaProd(nUlaz,nIzlaz,nMPV,nNV)
+/*  KaKaProd(nUlaz,nIzlaz,nMPV,nNV)
  *   Kalkulacija stanja za karticu artikla u prodavnici
  */
 
@@ -504,7 +504,7 @@ return
 
 
 
-/*!  NCuMP(_idfirma,_idroba,_idkonto,nKolicina,dDatDok)
+/*  NCuMP(_idfirma,_idroba,_idkonto,nKolicina,dDatDok)
  *   Proracun stanja i nabavne vrijednosti za zadani artikal i prodavnicu
  */
 
@@ -530,7 +530,7 @@ return nc2
 
 
 
-/*!  KalkTrUvoz()
+/*  KalkTrUvoz()
  *   Proracun carine i ostalih troskova koji se javljaju pri uvozu
  *  todo: samo otvorena f-ja
  */
@@ -551,7 +551,7 @@ CLOSERET
 
 
 
-/*!  ObracunPorezaUvoz()
+/*  ObracunPorezaUvoz()
  *   Proracun poreza pri uvozu
  */
 
@@ -626,7 +626,7 @@ return aTros[n]
 
 
 
-/*!  KTroskovi()
+/*  KTroskovi()
  *   Proracun iznosa troskova pri unosu u pripremi
  */
 
@@ -797,7 +797,7 @@ endif
 return
 
 
-/*!  UkupnoKolM(nTotalUlaz, nTotalIzlaz)
+/*  UkupnoKolM(nTotalUlaz, nTotalIzlaz)
  *  \sa UkupnoKolP
  */
 
@@ -858,7 +858,7 @@ return
 
 
 
-/*!  UzmiIzP(cSta)
+/*  UzmiIzP(cSta)
  *   Uzmi iz parametara
  *   cSta - "KOL", "NV", "MPV", MPVBP"...
  */

@@ -1138,7 +1138,7 @@ return
 
 
 
-/*!  InigEpson()
+/*  InigEpson()
  *   Inicijaliziraj globalne varijable za Epson stampace (matricne) ESC/P2
  */
 function InigEpson()

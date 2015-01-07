@@ -34,7 +34,7 @@ static nCnt:=0
     biljeska: prebaciti u potpunosti na objektni model (ionako se koristi oApp)
  */
 
-/*!  f01_start(oApp, lSezone)
+/*  f01_start(oApp, lSezone)
  *   Aktiviranje "glavnog" programskog modula"
  */
 
@@ -48,7 +48,7 @@ static nCnt:=0
  */
 
 
-/*!  f01_start(oApp, lSezone)
+/*  f01_start(oApp, lSezone)
  *   Inicijalizacija sclib sistema
  *
  *  todo: Nakon verzije 1.5 ... kreiranje F_SECUR  treba ukinuti
@@ -178,7 +178,7 @@ return
 
 
 
-/*!  If01_start(oApp, lSezone)
+/*  If01_start(oApp, lSezone)
  *   Aktiviranje "install" programskog modula"
  */
 
@@ -267,7 +267,7 @@ return
 
 
 
-/*!  IBatchRun(oApp)
+/*  IBatchRun(oApp)
  *   Batch funkcije za kreiranje baze podataka
  *  todo: Sve batch funkcije prebaciti u appsrv kompomentu
  */
@@ -511,7 +511,7 @@ endif
 return cPars
 
 
-/*!  PID(cStart)
+/*  PID(cStart)
  *   funkcije za kreiranje/brisanje PID fajla
  *  biljeska: PID (Program Idefntifcation)
  *
@@ -644,7 +644,7 @@ return
 
 
 
-/*!  Prijava(oApp,lScreen)
+/*  Prijava(oApp,lScreen)
  *   Prijava korisnika pri ulasku u aplikaciju
  *  todo: Prijava je primjer klasicne kobasica funkcije ! Razbiti je.
  *  todo: prijavu na osnovu scshell.ini izdvojiti kao posebnu funkciju

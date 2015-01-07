@@ -25,7 +25,7 @@
 
 
 
-/*!  TopsFakt()
+/*  TopsFakt()
  *   Prenos dokumenata TOPS->FAKT
  */
 
@@ -144,7 +144,7 @@ return
 
 
 
-/*!  SljedBrFakt()
+/*  SljedBrFakt()
  *   Sljedeci broj fakture
  */
 

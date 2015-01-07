@@ -30,7 +30,7 @@
  *   SQL operacije
  */
 
-/*!  O_Log()
+/*  O_Log()
  *   Otvara log fajl
  */
  

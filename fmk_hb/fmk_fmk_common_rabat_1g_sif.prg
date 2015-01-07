@@ -14,7 +14,7 @@
 #include "rabat.ch"
 
 
-/*!  P_Rabat(cid, dx, dy)
+/*  P_Rabat(cid, dx, dy)
  *   Vraca ID rabata ukoliko postoji, u suprotnom izvali prozor za odabir iz sif.
  *   cid - ??
  *   dx - ??
@@ -49,7 +49,7 @@ return PostojiSifra(F_RABAT, 1, 10, 70, "Rabatne skale", @cId, dx, dy, {|Ch| Rab
 
 
 
-/*!  RabatBlock()
+/*  RabatBlock()
  *   Opcije sifrarnika rabata
  */
 function RabatBlock(Ch)
@@ -68,7 +68,7 @@ return DE_CONT
 
 
 
-/*!  FillRabats()
+/*  FillRabats()
  *   Napuni rabate iz sifrarnika robe
  */
 function FillRabats()
@@ -129,7 +129,7 @@ return
 
 
 
-/*!  RabSExist(cRabId, cRabType, cArticle)
+/*  RabSExist(cRabId, cRabType, cArticle)
  *   provjerava da li rabatna skala postoji
  */
 function RabSExist(cRabId, cRabType, cArticle)
@@ -151,7 +151,7 @@ return bRet
 
 
 
-/*!  CopyRabat()
+/*  CopyRabat()
  *   Kopiraj rabat 
  */
 function CopyRabat()

@@ -103,7 +103,7 @@ closeret
 return
 
 
-/*!  KnjNal()
+/*  KnjNal()
  *   Otvara pripremu za knjizenje naloga
  */
 
@@ -151,7 +151,7 @@ closeret
 return
 
 
-/*!  WRbr()
+/*  WRbr()
  *   Sredjivaje rednog broja u pripremi
  */
 function WRbr()
@@ -174,7 +174,7 @@ return .t.
 
 
 
-/*!  VRbr()
+/*  VRbr()
  *
  */
 
@@ -185,7 +185,7 @@ return .t.
 
 
 
-/*!  fin_o_edit()
+/*  fin_o_edit()
  *   Otvara unos nove stavke u pripremi
  */
 
@@ -238,7 +238,7 @@ return
 
 
 
-/*!  fin_edit_pripr()
+/*  fin_edit_pripr()
  *   Ispravka stavke u pripremi
  *   fNovi .t. - Nova stavka, .f. - Ispravka postojece
  */
@@ -413,7 +413,7 @@ endif
 return .t.
 
 
-/*!  MinKtoLen(cIdKonto)
+/*  MinKtoLen(cIdKonto)
  *   Provjerava minimalnu dozvoljenu duzinu konta pri knjizenju
  *   cIdKonto - konto id
  */
@@ -436,7 +436,7 @@ return
 
 
 
-/*!  V_IznosDEM(p1, p2, cVar, oGet)
+/*  V_IznosDEM(p1, p2, cVar, oGet)
  *   Sredjivanje iznosa
  *   p1
  *   p2
@@ -456,7 +456,7 @@ endif
 return .t.
 
 
-/*!  CheckMark(cIdKonto)
+/*  CheckMark(cIdKonto)
  *   Provjerava da li je konto markiran, ako nije izbrisi zapamceni _IdPartner
  *   cIdKonto - oznaka konta
  *   cIdPartner - sifra partnera koja ce se ponuditi
@@ -474,7 +474,7 @@ function CheckMark(cIdKonto, cIdPartner, cNewPartner)
 return .t.
 
 
-/*!  Partija(cIdKonto)
+/*  Partija(cIdKonto)
  *
  *   cIdKonto - oznaka konta
  */
@@ -515,7 +515,7 @@ return _D_P $ "12"
 
 
 
-/*!  DinDem(p1,p2,cVar)
+/*  DinDem(p1,p2,cVar)
  *
  *   p1
  *   p2
@@ -544,7 +544,7 @@ AEVAL(GetList,{|o| o:display()})
 // c-T  -  Brisanje stavke,  F5 - kontrola zbira za jedan nalog
 // F6 -  Suma naloga, ENTER-edit stavke, c-A - ispravka naloga
 
-/*!  fin_edpripr()
+/*  fin_edpripr()
  *   Ostale operacije u ispravki stavke
  */
 
@@ -875,7 +875,7 @@ cStr := PADL( ALLTRIM(cStr), 4 )
 return .t.
 
 
-/*!  StNal(lAuto)
+/*  StNal(lAuto)
  *   Priprema za stampu naloga
  *   lAuto
  */
@@ -889,7 +889,7 @@ return
 
 
 
-/*!  StAnalNal(lAuto)
+/*  StAnalNal(lAuto)
  *   Stampanje analitickog naloga
  *   lAuto
  */
@@ -997,7 +997,7 @@ return
 
 
 
-/*!  fin_zagl_11()
+/*  fin_zagl_11()
  *   Zaglavlje analitickog naloga
  */
 
@@ -1074,7 +1074,7 @@ select(nArr)
 return
 
 
-/*!  SintStav(lAuto)
+/*  SintStav(lAuto)
  *   Formiranje sintetickih stavki
  *   lAuto
  */
@@ -1252,7 +1252,7 @@ return cRet
 
 
 
-/*!  DifIdP(cIdPartner)
+/*  DifIdP(cIdPartner)
  *   Formatira cIdPartner na 6 mjesta ako mu je duzina 8
  *   cIdPartner - id partnera
  */
@@ -1264,7 +1264,7 @@ return 0
 
 
 
-/*!  Preduzece()
+/*  Preduzece()
  *   Vraca naziv firme
  */
 
@@ -1287,7 +1287,7 @@ return
 
 
 
-/*!  BrisiPBaze()
+/*  BrisiPBaze()
  *   Brisi pomocne baze
  */
 
@@ -1303,7 +1303,7 @@ RETURN (NIL)
 
 
 
-/*!  PreuzSezSPK(cSif)
+/*  PreuzSezSPK(cSif)
  *   Preuzimanje sifre iz sezone
  *   cSif
  */
@@ -1321,7 +1321,7 @@ static cSezNS:="1998"
   cSezNS:=ALLTRIM(cSezNS)
  BoxC()
  IF cSif=="P"
-   USE (TRIM(cDirSif)+"\"+cSezNS+"\PARTN") ALIAS PARTN2 NEW
+   USE (TRIM(cDirSif) + SLASH + cSezNS + SLASH + "PARTN") ALIAS PARTN2 NEW
    SELECT PARTN2
    SET ORDER TO TAG "ID"
    GO TOP
@@ -1339,7 +1339,7 @@ static cSezNS:="1998"
    ENDIF
    SELECT PARTN2; USE
  ELSE
-   USE (TRIM(cDirSif)+"\"+cSezNS+"\KONTO") ALIAS KONTO2 NEW
+   USE (TRIM(cDirSif) + SLASH + cSezNS + SLASH + "KONTO") ALIAS KONTO2 NEW
    SELECT KONTO2
    SET ORDER TO TAG "ID"
    GO TOP
@@ -1360,7 +1360,7 @@ RETURN
 
 
 
-/*!  SintFilt(lSint,cFilter)
+/*  SintFilt(lSint,cFilter)
  *   Iz filterisane SUBAN.DBF tabele generise POM.DBF
  *   Ova funkcija ne podrzava varijantu gDatNal:="D"
  *   lSint   - .t.-POM.DBF je analitika, .f.-POM.DBF
@@ -1511,7 +1511,7 @@ RETURN (NIL)
 
 
 
-/*!  OstaleOpcije()
+/*  OstaleOpcije()
  *   Ostale opcije koje se pozivaju sa <F10>
  */
 
@@ -1557,7 +1557,7 @@ RETURN
 
 
 
-/*!  PodijeliN()
+/*  PodijeliN()
  *
  */
 
@@ -1710,7 +1710,7 @@ return DE_REFRESH
 
 
 
-/*!  SetDatUPripr()
+/*  SetDatUPripr()
  *   Postavi datum u pripremi
  */
 
@@ -1741,7 +1741,7 @@ return
 
 
 
-/*!  StSubNal(cInd,lAuto)
+/*  StSubNal(cInd,lAuto)
  *   Stapmanje subanalitickog naloga
  *   cInd  - "1"-stampa pripreme, "2"-stampa azuriranog, "3"-stampa dnevnika
  *   lAuto
@@ -1974,7 +1974,7 @@ RETURN
 
 
 
-/*!  PrenosDNal()
+/*  PrenosDNal()
  *   Ispis prenos na sljedecu stranicu
  */
 
@@ -2011,14 +2011,14 @@ RETURN
 
 
 
-/*!  IzvodBanke()
+/*  IzvodBanke()
  *   Formira nalog u pripremi na osnovu txt-izvoda iz banke
  */
 
 function IzvodBanke()
 
  LOCAL nIF:=1, cBrNal:=""
- PRIVATE cLFSpec := "A:\ZEN*.", cIdVn:="99"
+ PRIVATE cLFSpec := "C:" + SLASH + "ZEN*.", cIdVn:="99"
 
  O_NALOG
  O_PRIPR
@@ -2062,7 +2062,7 @@ function IzvodBanke()
     // -------------------------
     Menu("IBan",aFajlovi,0,.f.)
   ENDIF
-  cIme := LEFT(cLFSpec,2)+"\"+TRIM(aFajlovi[nIF])
+  cIme := LEFT(cLFSpec,2) + SLASH + TRIM(aFajlovi[nIF])
   m_x := old_m_x; m_y := old_m_y
   @ m_x+4, m_y+2 SAY "Izabran fajl:"
   @ m_x+4, col()+2 SAY cIme COLOR INVERT
@@ -2175,7 +2175,7 @@ return
 
 
 
-/*!  K3Iz256(cK3)
+/*  K3Iz256(cK3)
  *
  *   cK3
  */
@@ -2203,9 +2203,8 @@ RETURN cK3
 
 
 
-/*!  K3U256(cK3)
+/*  K3U256(cK3)
  *
- *  \cK3
  */
 
 function K3U256(cK3)
@@ -2230,7 +2229,7 @@ RETURN cK3
 
 
 
-/*!  KontrZbNal()
+/*  KontrZbNal()
  *   Kontrola zbira naloga
  */
 
@@ -2311,7 +2310,7 @@ return
 
 
 
-/*!  BrDokOK()
+/*  BrDokOK()
  *
  */
 
@@ -2344,7 +2343,7 @@ return lOK
 
 
 
-/*!  SetTekucaRJ(cRJ)
+/*  SetTekucaRJ(cRJ)
  *   Setuje tekucu radnu jedinicu
  *   cRJ
  */
@@ -2372,7 +2371,7 @@ return
 
 
 
-/*!  GetTekucaRJ()
+/*  GetTekucaRJ()
  *   Daje tekucu radnu jedinicu
  */
 

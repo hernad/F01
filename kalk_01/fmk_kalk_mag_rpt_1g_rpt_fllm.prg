@@ -389,7 +389,7 @@ return
 
 
 
-/*!  ZaglFLLM()
+/*  ZaglFLLM()
  *   Ispis zaglavlja izvjestaja "finansijsko stanje magacina"
  */
 

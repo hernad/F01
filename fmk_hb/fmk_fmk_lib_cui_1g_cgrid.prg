@@ -22,7 +22,7 @@
 
 
 
-/*!  function ObjDBedit(cImeBoxa,  xw, yw, bUserF,  cMessTop, cMessBot, lInvert, aMessage, nFreeze, bPodvuci, nPrazno, nGPrazno, aPoredak, skipblock)
+/*  function ObjDBedit(cImeBoxa,  xw, yw, bUserF,  cMessTop, cMessBot, lInvert, aMessage, nFreeze, bPodvuci, nPrazno, nGPrazno, aPoredak, skipblock)
  *  Glavna funkcija tabelarnog prikaza podataka
  *  cImeBoxa - ime box-a
  *  xw - duzina
@@ -399,7 +399,7 @@ RETURN
 
 static function DoGet()
 
-/*! 
+/* 
  *Izvrsi GET za tekucu kolonu u browse-u
  */
 
@@ -847,7 +847,7 @@ return .f.
 
 
 
-/*!  function TBPomjeranje(TB, cPomjeranje)
+/*  function TBPomjeranje(TB, cPomjeranje)
  *   Opcije pomjeranja tbrowsea u direkt rezimu
  *   TB          -  TBrowseObjekt
  *   cPomjeranje - ">", ">2", "V0"

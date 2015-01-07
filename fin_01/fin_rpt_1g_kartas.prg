@@ -248,7 +248,7 @@ return
 
 
 
-/*!  SinKZagl()
+/*  SinKZagl()
  *   Zaglavlje sinteticke kartice
  */
  
@@ -290,7 +290,7 @@ RETURN
 
 
 
-/*!  SinKart2()
+/*  SinKart2()
  *   Sinteticka kartica (varijanta po mjesecima)
  */
 
@@ -494,7 +494,7 @@ return
 
 
 
-/*!  ZaglSinK2()
+/*  ZaglSinK2()
  *   Zaglavlje sinteticke kartice varijante 2
  */
  
@@ -539,7 +539,7 @@ RETURN
 
 
 
-/*!  AnKart()
+/*  AnKart()
  *   Analiticka kartica
  */
  
@@ -833,7 +833,7 @@ return
 
 
 
-/*!  AnalKZagl()
+/*  AnalKZagl()
  *   Zaglavlje analiticke kartice
  */
 

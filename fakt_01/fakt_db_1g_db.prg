@@ -279,7 +279,7 @@ enddo // eof
 closeret
 
 
-/*!  fakt_povrat(fR,cIdFirma,cIdTipDok,cBrDok,lTest)
+/*  fakt_povrat(fR,cIdFirma,cIdTipDok,cBrDok,lTest)
  *   Povrat dokumenta u pripremu
  *   fR          - rezervacija
  *   cIdFirma
@@ -683,7 +683,7 @@ return
 
 
 
-/*!  fakt_sredi_rbr()
+/*  fakt_sredi_rbr()
  *   Sredi redni broj
  */
 function fakt_sredi_rbr()
@@ -1640,7 +1640,7 @@ endif
 return
 
 
-/*!  KomIznosFakt()
+/*  KomIznosFakt()
  *   Kompletiranje iznosa fakture pomocu usluga
  */
 

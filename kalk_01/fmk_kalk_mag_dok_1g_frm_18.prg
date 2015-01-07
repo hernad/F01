@@ -46,7 +46,7 @@
  */
 
 
-/*!  Get1_18()
+/*  Get1_18()
  *   Prva strana maske za unos dokumenta tipa 18
  */
 

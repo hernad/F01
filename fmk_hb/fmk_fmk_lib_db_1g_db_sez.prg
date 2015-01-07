@@ -517,7 +517,7 @@ return
 
 
 
-/*!  BrowseSezone
+/*  BrowseSezone
  *   Prikazuje listu sezonskih podrucja (koja imaju sadrzaj)
  *  return: selektovanu sezonu (npr "0502") , ili "" ako nismo nista odabrali
  *

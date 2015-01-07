@@ -13,7 +13,7 @@
 #include "kalk01.ch"
 
 
-/*!  StKalk80(fBezNc)
+/*  StKalk80(fBezNc)
  *   Stampa dokumenta tipa 80 - direktno zaduzenje prodavnice
  *   fBezNc -
  */

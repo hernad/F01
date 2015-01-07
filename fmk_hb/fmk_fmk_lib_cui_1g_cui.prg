@@ -29,7 +29,7 @@ static aMenuStack:={}
 static aMsgStack:={}
 *;
 
-/*!  Menu(MenuId,Items,ItemNo,Inv)
+/*  Menu(MenuId,Items,ItemNo,Inv)
  *
  *   Prikazuje zadati meni, vraca odabranu opciju
  *
@@ -246,7 +246,7 @@ endcase
 return cAction
 
 
-/*!  Msg(Text,Sec, xPos)
+/*  Msg(Text,Sec, xPos)
 *    Ispisuje tekst i ceka <Sec> sekundi
 *    xPos je pozicija ukoliko se ne zeli centrirati poruka
 *   biljeska: Maksimalna duzina jednog reda je 72 slova
@@ -359,7 +359,7 @@ endif
 return
 
 
-/*!  Box(BoxId, N, Length, Inv, chMsg, cHelpT)
+/*  Box(BoxId, N, Length, Inv, chMsg, cHelpT)
  *   Otvara prozor BoxID dimenzija (N x Length), invertovan
  *         (Inv=.T. ili ne)
  *
@@ -470,7 +470,7 @@ SET(_SET_DEVICE,cPom)
 return
 
 
-/*!  OpcTipke(aNiz)
+/*  OpcTipke(aNiz)
  *   prikaz opcija u Browse-u
  *
  * \code
@@ -673,7 +673,7 @@ setcolor(cOldColor)
 
 return nItemNo + nCtrlKeyVal
 
-/*!  AChoice3(x1,y1,x2,y2,Items,f1,cFunc,nItemNo)
+/*  AChoice3(x1,y1,x2,y2,Items,f1,cFunc,nItemNo)
  *   AChoice za broj stavki > 16
  *  todo: Ugasiti stari Achoice ??, ne trebaju nam dva
  */
@@ -857,7 +857,7 @@ return
 
 
 
-/*!  Postotak(nIndik,nUkupno,cTekst,cBNasl,cBOkv,lZvuk)
+/*  Postotak(nIndik,nUkupno,cTekst,cBNasl,cBOkv,lZvuk)
 *    Prikaz procenta uradjenog posla
 *
 * Ova fja omogucava prikaz procenta uradjenog posla, sto je efektno
@@ -918,7 +918,7 @@ return
 
 
 
-/*!  LomiGa(cTekst,nOrig,nLin,nDuz)
+/*  LomiGa(cTekst,nOrig,nLin,nDuz)
  *  Formatira tekst u varijabli 'cTekst'
  *
  * To se radi prema zeljenom ispisu u 'nLin'
@@ -968,7 +968,7 @@ function LomiGa(cTekst,nOrig,nLin,nDuz)
 return cTekst
 
 
-/*!  KudaDalje(cTekst, aOpc, cPom)
+/*  KudaDalje(cTekst, aOpc, cPom)
  *   Meni od maksimalno 15 opcija opisanih u nizu aOpc
  *
  * Naslov menija je
@@ -1361,7 +1361,7 @@ return
 
 
 
-/*!  SecurR(cLevel, cStavka)
+/*  SecurR(cLevel, cStavka)
  *
  * return: A - moze sve, administrator, C - citaj, P - pisi, B - brisi, N - nedostupno, T - tekuca aktivnost - nije specijalno definisano
  *
@@ -1633,7 +1633,7 @@ next
 return cPom
 
 
-/*!  TokUNiz(cTok,cSN,cSE)
+/*  TokUNiz(cTok,cSN,cSE)
  *   Token pretvori u matricu
  *   cTok - string tokena
  *   cSN - separator nizova
@@ -1659,7 +1659,7 @@ LOCAL aNiz:={}, nN:=0, nE:=0, aPom:={}, i:=0, j:=0, cTE:="", cE:=""
 return (aNiz)
 
 
-/*!  TxtUNiz(cTxt,nKol)
+/*  TxtUNiz(cTxt,nKol)
  *   Pretvara TXT u niz
  *   cTxt   - tekst
  *   nKol   - broj kolona
@@ -1750,7 +1750,7 @@ return .t.
 
 
 
-/*!  Menu_SC(cIzp, fMain, lBug)
+/*  Menu_SC(cIzp, fMain, lBug)
  *
  *  opc    - indirektno priv.var, matrica naslova opcija
  *  opcexe - indirektno priv.var, matrica funkcija (string ili kodni blok promjenljive)
@@ -1857,7 +1857,7 @@ setpos(nx,ny)
 return .t.
 
 
-/*!  SayPrivDir(cDirPriv)
+/*  SayPrivDir(cDirPriv)
  *   Prikazi  ime korisnika + ":" + privatni direktorij na vrhu ekrana
  *
  */

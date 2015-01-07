@@ -25,7 +25,7 @@
  */
 
 
-/*!  Params()
+/*  Params()
  *   Osnovni meni za ispravku parametara modula KALK
  */
 
@@ -82,7 +82,7 @@ return
 
 
 
-/*!  kalk_set_varijante()
+/*  kalk_set_varijante()
  *   Ispravka parametara "varijante obrade i prikaza pojedinih dokumenata"
  */
 
@@ -217,7 +217,7 @@ return nil
 
 
 
-/*!  kalk_set_parametri_razno()
+/*  kalk_set_parametri_razno()
  *   Ispravka parametara "razno"
  */
 
@@ -272,7 +272,7 @@ return .t.
 
 
 
-/*!  SetMetoda()
+/*  SetMetoda()
  *   Ispravka parametara "METODA NC, ISPRAVKA DOKUMENATA"
  */
 
@@ -300,7 +300,7 @@ return .f.
 
 
 
-/*!  Recimu()
+/*  Recimu()
  *   Poruka koja objasnjava znacenje parametara "METODA NC, ISPRAVKA DOKUMENATA"
  */
 
@@ -325,7 +325,7 @@ return .t.
 
 
 
-/*!  kalk_set_firmat_parametri()
+/*  kalk_set_firmat_parametri()
  *   Ispravka parametara "MATICNA FIRMA, BAZNA VALUTA"
  */
 
@@ -357,7 +357,7 @@ return .f.
 
 
 
-/*!  kalk_set_pict()
+/*  kalk_set_pict()
  *   Ispravka parametara "PARAMETRI PRIKAZA - PICTURE KODOVI"
  */
 
@@ -397,7 +397,7 @@ return .t.
 
 
 
-/*!  SetKomis()
+/*  SetKomis()
  *   Ispravka parametara "PARAMETRI KOMISIONE PRODAJE"
  */
 
@@ -422,7 +422,7 @@ return nil
 
 
 
-/*!  SetZavDok()
+/*  SetZavDok()
  *   Ispravka parametara "NACINI FORMIRANJA ZAVISNIH DOKUMENATA"
  */
 
@@ -461,7 +461,7 @@ return nil
 
 
 
-/*!  SetODirs()
+/*  SetODirs()
  *   Ispravka parametara "DIREKTORIJI"
  */
 
@@ -507,7 +507,7 @@ return nil
 
 
 
-/*!  kalk_set_varijante_izgleda_dokumenta_1()
+/*  kalk_set_varijante_izgleda_dokumenta_1()
  *   Ispravka parametara "Troskovi 10-ka"
  */
 
@@ -538,7 +538,7 @@ return nil
 
 
 
-/*!  SetTRN()
+/*  SetTRN()
  *   Ispravka parametara "RADNI NALOG"
  */
 
@@ -570,7 +570,7 @@ return nil
 
 
 
-/*!  SetT24()
+/*  SetT24()
  *   Ispravka parametara "24 - USLUGE"
  */
 

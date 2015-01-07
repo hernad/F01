@@ -56,7 +56,7 @@
  */
 
 
-/*!  RptInvObrPopisa()
+/*  RptInvObrPopisa()
  *   Stampa inventurnog obrasca popisa
  */
  
@@ -112,7 +112,7 @@ GO nRecNo
 return
 
 
-/*!  ZInvp(cLinija)
+/*  ZInvp(cLinija)
  *   Zaglavlje izvjestaja inventura
  *   cUlaz - Proslijedjuje se linija koja se ispise iznad i ispod zaglavlja 
  */

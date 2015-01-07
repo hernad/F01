@@ -51,7 +51,7 @@
 *string FmkIni_KumPath_FAKT_RegBrPorBr;
 
 
-/*!  StDok29()
+/*  StDok29()
  *   Stampa fakture u varijanti 2 9
  *   cIdFirma
  *   cIdTipDok
@@ -546,7 +546,7 @@ closeret
 
 
 
-/*!  Zagl29()
+/*  Zagl29()
  *   Zaglavlje za fakturu iz varijante 2 9
  */
  
@@ -627,7 +627,7 @@ return .t.
 
 
 
-/*!  Krizaj()
+/*  Krizaj()
  *   
  */
  

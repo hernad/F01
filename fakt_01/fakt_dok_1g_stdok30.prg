@@ -33,7 +33,7 @@
  *   Stampa faktura u varijanti 3 0
  */
  
-/*!  StDok30()
+/*  StDok30()
  *   Stampa fakture u varijanti 3 0
  *   cIdFirma
  *   cIdTipDok
@@ -98,7 +98,7 @@ CLOSERET
 
 
 
-/*!  StFD0()
+/*  StFD0()
  *   Uslovi za stampu fakture
  */
  
@@ -129,7 +129,7 @@ return .t.
 
 
 
-/*!  StFD1()
+/*  StFD1()
  *   Zaglavlje (naziv firme, broj ziro racuna, telefon)
  */
  
@@ -141,7 +141,7 @@ return
 
 
 
-/*!  StFD2()
+/*  StFD2()
  *   Broj fakture, datum, kupac, dobavljac, valuta itd..
  */
  
@@ -168,7 +168,7 @@ return
 
 
 
-/*!  StFD3()
+/*  StFD3()
  *   Tabela (stavke)
  */
  
@@ -198,7 +198,7 @@ return
 
 
 
-/*!  Blok30()
+/*  Blok30()
  *   
  */
  
@@ -241,7 +241,7 @@ return
 
 
 
-/*!  StFD4()
+/*  StFD4()
  *   Rekapitulacije
  */
  
@@ -267,7 +267,7 @@ RETURN
 
 
 
-/*!  StFD5()
+/*  StFD5()
  *   Tekst na kraju fakture (napomena, odobrio, primio ...)
  */
  
@@ -297,7 +297,7 @@ nUk:=nUk*(1+gCarEv/100)+nUkCar+nUkPor
 RETURN
 
 
-/*!  Znakova(nZnakova,nModIz,nModU)
+/*  Znakova(nZnakova,nModIz,nModU)
  *   Modovi: npr. 10, 12, 17, 20
  *   nZnakova
  *   nModIz

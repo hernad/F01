@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -12,7 +12,7 @@
 
 #include "fin01.ch"
 
- 
+
 function PrenosFin()
 local cStranaBitna
 local lStranaBitna
@@ -28,7 +28,7 @@ RPar("k1",@fk1)
 RPar("k2",@fk2)
 RPar("k3",@fk3)
 RPar("k4",@fk4)
-select params 
+select params
 use
 
 private cK1:=cK2:="9"
@@ -48,7 +48,7 @@ cKlPotraz := "5"
 Box(, 12, 60)
   nMjesta:=3
   ddatDo:=date()
-  
+
   @ m_x+1,m_y+2 SAY "Navedite koje grupacije konta se isto ponasaju:"
   @ m_x+3,m_y+2 SAY "Grupisem konte na (broj mjesta)" GET nMjesta pict "9"
   @ m_x+5,m_y+2 SAY "Datum do kojeg se promet prenosi" GET dDatDo
@@ -60,14 +60,14 @@ if fk4=="D"; @ m_x+8,col()+1 SAY "K4 (99 svi):" GET cK4; endif
 
   @ m_x+9, m_y+2 SAY "Klasa konta duguje " GET cKlDuguje PICT "9"
   @ m_x+10, m_y+2 SAY "Klasa konta potraz " GET cKlPotraz PICT "9"
-  
+
   @ m_x+12, m_y+2 SAY "Saldo strane valute je bitan ?" GET cStranaBitna ;
   	PICT "@!" ;
 	VALID cStranaBitna $ "DN"
-  
+
   read
   ESC_BCR
-  
+
 BoxC()
 
 lStranaBitna := (cStranaBitna == "D")
@@ -81,11 +81,7 @@ else
 endif
 if ck4=="99"; ck4:=""; endif
 
-//select F_SUBAN
-//usex (cDirRad+"\suban") index  (cDirRad+"\subani3")
 
-//select F_PKONTO
-//usex (cDirSif+"\pkonto") index (cDirSif+"\pkontoi1")
 
 lPrenos4:=lPrenos5:=lPrenos6:=.f.
 SELECT (F_PKONTO)
@@ -114,7 +110,7 @@ endif
 
 IF lPrenos4 .or. lPrenos5 .or. lPrenos6
   select (F_SUBAN)
-  usex (cDirRad+"\suban")
+  usex (cDirRad + SLASH + "suban")
   if lPrenos4
     index on idfirma+idkonto+idpartner+idrj+funk+fond to SUBSUB
   endif
@@ -126,7 +122,7 @@ IF lPrenos4 .or. lPrenos5 .or. lPrenos6
   endif
   use
   select (F_SUBAN)
-  usex (cDirRad+"\suban")
+  usex (cDirRad + SLASH + "suban")
   if lPrenos4
     SET INDEX TO SUBSUB
     SET ORDER TO TAG "SUBSUB"
@@ -141,8 +137,7 @@ IF lPrenos4 .or. lPrenos5 .or. lPrenos6
   endif
 ELSE
   select (F_SUBAN)
-  usex (cDirRad+"\suban"); set order to tag "3"
-  //IdFirma+IdKonto+IdPartner+BrDok+dtos(DatDok)"
+  usex (cDirRad + SLASH + "suban"); set order to tag "3"
 ENDIF
 
 IF !(cFilter==".t.")
@@ -151,7 +146,7 @@ IF !(cFilter==".t.")
 ENDIF
 
 select (F_PKONTO)
-usex (cDirSif+"\pkonto"); set order to tag "ID"
+usex (cDirSif+ SLASH + "pkonto"); set order to tag "ID"
 
 O_PRIPR
 if reccount2()<>0
@@ -264,15 +259,15 @@ do while !eof()
               if EMPTY(dDatVal)
 
 		// konto kupaca
-		if ( LEFT(IdKonto, 1) == cKlDuguje ) .and. (d_p=="1") 
+		if ( LEFT(IdKonto, 1) == cKlDuguje ) .and. (d_p=="1")
 			if IsVindija()
-				if EMPTY(DatVal) .and. !(IsVindija() .and. idvn == "09") 
+				if EMPTY(DatVal) .and. !(IsVindija() .and. idvn == "09")
 					dDatVal:=datdok
 				else
 					dDatVal:=datval
 				endif
 			else
-				if EMPTY(DatVal) 
+				if EMPTY(DatVal)
 					dDatVal:=datdok
 				else
 					dDatVal:=datval
@@ -281,7 +276,7 @@ do while !eof()
 		endif
 
 		// konto dobavljaca
-		if ( LEFT(IdKonto, 1) == cKlPotraz ) .and. (d_p=="2") 
+		if ( LEFT(IdKonto, 1) == cKlPotraz ) .and. (d_p=="2")
 			if EMPTY(DatVal)
 				dDatVal:=datdok
 			else
@@ -289,12 +284,12 @@ do while !eof()
 			endif
 		endif
 
-	       		
+
 	      endif
-	       
+
 	       nDin+=iif(d_p=="1", iznosbhd, -iznosbhd)
                nDem+=iif(d_p=="1", iznosdem, -iznosdem)
-	       
+
                IF lVodeSeRJ .and. EMPTY(cTekucaRJ)
                  cTekucaRJ:=IDRJ
                ENDIF
@@ -317,7 +312,7 @@ do while !eof()
                         brdok  with cBrDok,;
                         datdok with dDatDo+1 ,;
 			datval with dDatVal
-			
+
                if !(cFilter==".t.")
                  REPLACE  k1 WITH cSUBk1,;
                           k2 WITH cSUBk2,;
@@ -326,23 +321,23 @@ do while !eof()
                endif
 
 	       if cTipPr == "1"
-                 if LEFT(IdKonto, 1) == cKlPotraz 
+                 if LEFT(IdKonto, 1) == cKlPotraz
 		    // konto dobavljaca
                     replace d_p with "2", iznosbhd with -nDin,iznosdem with -nDem
 		 else
 		    // konto kupca
                     replace d_p with "1", iznosbhd with nDin,iznosdem with nDem
 		 endif
-		 
+
 	       else
-	         // cTipPr <> "1" 
+	         // cTipPr <> "1"
                  if ndin >= 0
                     replace d_p with "1",iznosbhd with nDin,iznosdem with nDem
                  else
                     replace d_p with "2",iznosbhd with -nDin, iznosdem with -nDem
-                 endif 
+                 endif
 	       endif
-	       
+
                IF lVodeSeRj
                  REPLACE IDRJ WITH cTekucaRJ
                ENDIF
@@ -381,7 +376,7 @@ do while !eof()
                         funk with cFunk,;
                         fond with cFond,;
                         datdok with dDatDo+1
-			
+
                if !(cFilter==".t.")
                  REPLACE  k1 WITH cSUBk1,;
                           k2 WITH cSUBk2,;
@@ -514,7 +509,7 @@ do while !eof()
                        k3 WITH cSUBk3,;
                        k4 WITH cSUBk4
             endif
-	    
+
             if nDin >= 0
                replace d_p with "1",;
                        iznosbhd with nDin,;
@@ -524,7 +519,7 @@ do while !eof()
                        iznosbhd with -nDin,;
                        iznosdem with -nDem
             endif // ndin
-	    
+
             select suban
           endif // <> 0
         endif
@@ -591,10 +586,10 @@ return
 
 
 
-/*!  PreKart()
- *   Prebacivanje subanalitickih konta... 
+/*  PreKart()
+ *   Prebacivanje subanalitickih konta...
  */
- 
+
 function PreKart()
 
 LOCAL aNiz:={}
@@ -736,10 +731,10 @@ return NIL
 
 
 
-/*!  EPPK()
- *   Ispravka konta, promjena konta 
+/*  EPPK()
+ *   Ispravka konta, promjena konta
  */
- 
+
 function EPPK()
 
 local nTr2
@@ -779,10 +774,10 @@ return DE_CONT
 
 
 
-/*!  AzurPPK()
- *   Azuriranje promjena konta 
+/*  AzurPPK()
+ *   Azuriranje promjena konta
  */
- 
+
 function AzurPPK()
 
  LOCAL lIndik1:=.f., lIndik2:=.f., nZapisa:=0, nSlog:=0, cStavka:="   "
@@ -796,7 +791,7 @@ function AzurPPK()
 
     // azuriraj subanalitiku
   //////////////////////////////////////////////////
-    if (TEMP77->idkonto != TEMP77->konto2)  
+    if (TEMP77->idkonto != TEMP77->konto2)
       SELECT SUBAN
       GO TEMP77->NSLOG
       Scatter()
@@ -804,7 +799,7 @@ function AzurPPK()
       Gather()
     endif
 
-    if (TEMP77->idpartner != TEMP77->part2)  
+    if (TEMP77->idpartner != TEMP77->part2)
       SELECT SUBAN
       GO TEMP77->NSLOG
       Scatter()
@@ -954,10 +949,10 @@ RETURN
 
 
 
-/*!  ZadnjiRbr()
- *   Vraca zadnji redni broj 
+/*  ZadnjiRbr()
+ *   Vraca zadnji redni broj
  */
- 
+
 function ZadnjiRBR()
 
 local nZRBR:=0
@@ -969,5 +964,3 @@ nZRBR:=VAL(rbr)
 use
 select (nObl)
 return (nZRBR)
-
-

@@ -101,7 +101,7 @@ CLOSERET
 
 
 
-/*!  TraziRbr(cKljuc)
+/*  TraziRbr(cKljuc)
  *   Utvrdjuje posljednji redni broj stavke zadanog dokumenta u pripremi
  */
 
@@ -118,7 +118,7 @@ return cVrati
 
 
 
-/*!  TraziNC(cTrazi,dDat)
+/*  TraziNC(cTrazi,dDat)
  *   Utvrdjuje najcescu NC zadane robe na zadanom kontu do zadanog datuma
  */
 

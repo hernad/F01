@@ -33,7 +33,7 @@
  */
 
 
-/*!  BrowseRn()
+/*  BrowseRn()
  *   Ispravka broja veze - radni nalozi
  */
 
@@ -93,7 +93,7 @@ return
 
 
 
-/*!  EdBrn(Ch)
+/*  EdBrn(Ch)
  *   Obrada opcija u browse-u radnih naloga
  */
 

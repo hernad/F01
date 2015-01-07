@@ -21,7 +21,7 @@
 static cENTER:=chr(K_ENTER)+chr(K_ENTER)+chr(K_ENTER)
 *;
 
-/*!  Knjiz()
+/*  Knjiz()
  *   Nudi meni za rad na dokumentu u staroj varijanti ili direktno poziva tabelu pripreme u novoj (default) varijanti
  */
 
@@ -83,7 +83,7 @@ return
 
 
 
-/*!  KUnos(lAutoObrada)
+/*  KUnos(lAutoObrada)
  *   Tabela pripreme dokumenta
  */
 
@@ -171,7 +171,7 @@ return
 
 
 
-/*!  OEdit()
+/*  OEdit()
  *   Otvara sve potrebne baze za pripremu dokumenata
  */
 
@@ -200,7 +200,7 @@ return
 
 
 
-/*!  kalk_edpripr(lAObrada)
+/*  kalk_edpripr(lAObrada)
  *   Obrada dostupnih opcija u tabeli pripreme
  */
 
@@ -374,7 +374,7 @@ endcase
 return DE_CONT
 
 
-/*!  EditStavka()
+/*  EditStavka()
  *   Ispravka stavke dokumenta u pripremi
  */
 
@@ -456,7 +456,7 @@ return DE_CONT
 
 
 
-/*!  NovaStavka()
+/*  NovaStavka()
  *   Unos nove stavke dokumenta u pripremi
  */
 
@@ -539,7 +539,7 @@ return DE_REFRESH
 
 
 
-/*!  EditAll()
+/*  EditAll()
  *   Cirkularna ispravka stavki dokumenta u pripremi
  */
 
@@ -638,7 +638,7 @@ return DE_REFRESH
 
 
 
-/*!  KnjizAsistent()
+/*  KnjizAsistent()
  *   Asistent za obradu stavki dokumenta u pripremi
  */
 
@@ -669,7 +669,7 @@ return DE_REFRESH
 
 
 
-/*!  MeniF10()
+/*  MeniF10()
  *   Meni ostalih opcija koji se poziva tipkom F10 u tabeli pripreme
  */
 
@@ -816,7 +816,7 @@ return DE_REFRESH
 
 
 
-/*!  MeniF11()
+/*  MeniF11()
  *   Meni ostalih opcija koji se poziva tipkom F11 u tabeli pripreme
  */
 
@@ -849,7 +849,7 @@ return DE_REFRESH
 
 
 
-/*!  ProtStErase()
+/*  ProtStErase()
  *   Brisi sve protustavke
  */
 function ProtStErase()
@@ -873,7 +873,7 @@ return
 
 
 
-/*!  SetNcTo0()
+/*  SetNcTo0()
  *   Setuj sve NC na 0
  */
 function SetNcTo0()
@@ -898,7 +898,7 @@ return
 
 
 
-/*!  kalk_edit_pripr(fNovi)
+/*  kalk_edit_pripr(fNovi)
  *   Centralna funkcija za unos/ispravku stavke dokumenta
  */
 
@@ -962,7 +962,7 @@ return
 
 
 
-/*!  Get1()
+/*  Get1()
  *   fnovi
  *   Prva strana/prozor maske unosa/ispravke stavke dokumenta
  */
@@ -1060,7 +1060,7 @@ return
 
 
 
-/*!  Get2()
+/*  Get2()
  *   fnovi
  *   Druga strana/prozor maske unosa/ispravke stavke dokumenta
  */
@@ -1087,7 +1087,7 @@ return K_ESC
 
 
 
-/*!  Get1Header()
+/*  Get1Header()
  *   Maska za unos/ispravku podataka zajednickih za sve stavke dokumenta
  */
 
@@ -1140,7 +1140,7 @@ return 1
 
 
 
-/*!  VpcSaPpp()
+/*  VpcSaPpp()
  *   Vrsi se preracunavanje veleprodajnih cijena ako je _VPC=0
  */
 
@@ -1161,7 +1161,7 @@ return .t.
 
 
 
-/*!  RaspTrosk(fSilent)
+/*  RaspTrosk(fSilent)
  *   Rasporedjivanje troskova koji su predvidjeni za raspored. Takodje se koristi za raspored ukupne nabavne vrijednosti na pojedinacne artikle kod npr. unosa pocetnog stanja prodavnice ili magacina
  */
 
@@ -1404,7 +1404,7 @@ return
 
 
 
-/*!  Savjetnik()
+/*  Savjetnik()
  *   Zamisljeno da se koristi kao pomoc u rjesavanju problema pri unosu dokumenta. Nije razradjeno.
  */
 
@@ -1491,7 +1491,7 @@ return
 
 
 
-/*!  OpisStavke(lGreska)
+/*  OpisStavke(lGreska)
  *   Daje informacije o dokumentu i artiklu radi lociranja problema. Koristi je opcija "savjetnik"
  *  \sa Savjetnik()
  */
@@ -1509,7 +1509,7 @@ return
 
 
 
-/*!  Soboslikar(aNiz,nIzKodaBoja,nUKodBoja)
+/*  Soboslikar(aNiz,nIzKodaBoja,nUKodBoja)
  *   Mijenja boje dijela ekrana
  */
 
@@ -1552,7 +1552,7 @@ return
 
 
 
-/*!  NazProdObj()
+/*  NazProdObj()
  *   Daje naziv prodavnickog konta iz pripreme
  */
 
@@ -1568,7 +1568,7 @@ return cVrati
 
 
 
-/*!  IzbDokOLPP()
+/*  IzbDokOLPP()
  *   Izbor dokumenta za stampu u formi OLPP-a
  */
 
@@ -1621,7 +1621,7 @@ return
 
 
 
-/*!  PlusMinusKol()
+/*  PlusMinusKol()
  *   Mijenja predznak kolicini u svim stavkama u pripremi
  */
 
@@ -1647,7 +1647,7 @@ return
 
 
 
-/*!  UzmiTarIzSif()
+/*  UzmiTarIzSif()
  *   Filuje tarifu u svim stavkama u pripremi odgovarajucom sifrom tarife iz sifrarnika robe
  */
 
@@ -1673,7 +1673,7 @@ return
 
 
 
-/*!  DiskMPCSAPP()
+/*  DiskMPCSAPP()
  *   Formira diskontnu maloprodajnu cijenu u svim stavkama u pripremi
  */
 
@@ -1707,7 +1707,7 @@ return
 
 
 
-/*!  MPCSAPPuSif()
+/*  MPCSAPPuSif()
  *   Maloprodajne cijene svih artikala u pripremi kopira u sifrarnik robe
  */
 
@@ -1735,7 +1735,7 @@ return
 
 
 
-/*!  MPCSAPPiz80uSif()
+/*  MPCSAPPiz80uSif()
  *   Maloprodajne cijene svih artikala iz izabranog azuriranog dokumenta tipa 80 kopira u sifrarnik robe
  */
 
@@ -1776,7 +1776,7 @@ return
 
 
 
-/*!  VPCSifUDok()
+/*  VPCSifUDok()
  *   Filuje VPC u svim stavkama u pripremi odgovarajucom VPC iz sifrarnika robe
  */
 
@@ -1805,7 +1805,7 @@ return
 
 
 
-/*!  StKalk()
+/*  StKalk()
  *   fstara
  *   cSeek
  *   Centralna funkcija za stampu KALK dokumenta. Poziva odgovarajucu funkciju za stampu dokumenta u zavisnosti od tipa dokumenta i podesenja parametara varijante izgleda dokumenta
@@ -2162,7 +2162,7 @@ return nil
 
 
 
-/*!  PopustKaoNivelacijaMP()
+/*  PopustKaoNivelacijaMP()
  *   Umjesto iskazanog popusta odradjuje smanjenje MPC
  */
 
@@ -2204,7 +2204,7 @@ return
 
 
 
-/*!  StOLPPAz()
+/*  StOLPPAz()
  *   Funkcija za stampu OLPP-a za azurirani KALK dokument
  */
 

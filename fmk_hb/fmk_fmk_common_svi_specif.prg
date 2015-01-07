@@ -497,7 +497,7 @@ lTehnoprom:=lValue
 
 
 
-/*!  SetSpecifVars()
+/*  SetSpecifVars()
  *   Setuje globalne varijable za specificne korisnike
  */
  

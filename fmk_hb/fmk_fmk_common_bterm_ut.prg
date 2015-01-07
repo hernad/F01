@@ -67,7 +67,7 @@ endif
 return 1
   
 
-/*!  TxtErase(cTxtFile, lErase)
+/*  TxtErase(cTxtFile, lErase)
  *   Brisanje fajla cTxtFile
  *   cTxtFile - fajl za brisanje
  *   lErase - .t. ili .f. - brisati ili ne brisati fajl txt nakon importa

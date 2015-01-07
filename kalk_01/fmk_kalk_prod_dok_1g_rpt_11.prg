@@ -25,7 +25,7 @@
  */
 
 
-/*!  StKalk11_2(fZaTops)
+/*  StKalk11_2(fZaTops)
  *   Stampa dokumenta tipa 11
  */
 

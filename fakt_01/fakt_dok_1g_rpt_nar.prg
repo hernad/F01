@@ -69,7 +69,7 @@
 
 
 
-/*!  StNarKup()
+/*  StNarKup()
  *   Stampa narudzbenice
  *  todo: Prebaciti u /RPT
  */
@@ -276,7 +276,7 @@ return
 
 
 
-/*!  fakt_uzmi_var(cVar)
+/*  fakt_uzmi_var(cVar)
  *   Uzima varijable
  *   cVar
  *  return: cVrati

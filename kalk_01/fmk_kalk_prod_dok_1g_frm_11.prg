@@ -25,7 +25,7 @@
  */
 
 
-/*!  Get1_11()
+/*  Get1_11()
  *   Prva strana maske za unos dokumenta tipa 11
  */
 

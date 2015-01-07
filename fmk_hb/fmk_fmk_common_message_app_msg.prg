@@ -15,7 +15,7 @@
 
 
 
-/*!  InsertIntoAMessage()
+/*  InsertIntoAMessage()
  *   Importuje poruke iz svih prodavnica u zbirnu tabelu poruka AMESSAGE (all messages) 
  */ 
 function InsertIntoAMessage()
@@ -71,7 +71,7 @@ return
 
 
 
-/*!  DeleteAllOldMsg(lAppSrv)
+/*  DeleteAllOldMsg(lAppSrv)
  *   Brise sve poruke od Date()-cBrojDana pa unazad
  *   lAppSrv - ako se poziva kroz appsrv onda brise DATE()-93
  */
@@ -134,7 +134,7 @@ return
 
 
 
-/*!  DeleteReadMsg()
+/*  DeleteReadMsg()
  *   Brise sve procitane poruke
  */
 function DeleteReadMsg()
@@ -161,7 +161,7 @@ return
 
 
 
-/*!  DeleteSentMsg()
+/*  DeleteSentMsg()
  *   Brise sve poruke koje su poslane
  */
 function DeleteSentMsg()
@@ -189,7 +189,7 @@ return
 
 
 
-/*!  ImportMsgFrom(cDrive, cSite)
+/*  ImportMsgFrom(cDrive, cSite)
  *   Importuje poruke sa druge lokacije (npr. import poruka sa i:\kase\tops\kum1\message.dbf u c:\kase\tops\kum1\message.dbf)
  *   cDrive - oznaka drive-a (npr. I:)
  *   cSite - oznaka site-a prodavnice (npr. 50)
@@ -267,7 +267,7 @@ return
 
 
 
-/*!  IsMsgExistLocaly(cFromHost, cFromUser, cText, dCreated, dSent, cTo)
+/*  IsMsgExistLocaly(cFromHost, cFromUser, cText, dCreated, dSent, cTo)
  *   Da li poruka postoji lokalno. Ako postoji vraca .T. a ako ne .F.
  *   cFromHost
  *   cFromUser

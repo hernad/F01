@@ -1,7 +1,7 @@
 #include "sc.ch"
 
 
-/*!  CreInt1DB()
+/*  CreInt1DB()
  *   Kreiranje tabela dinteg1 i integ1
  */
 function CreDIntDB()
@@ -146,7 +146,7 @@ return
 
 
 
-/*!  ChkDTbl()
+/*  ChkDTbl()
  *   
  */
 function ChkDTbl()
@@ -171,7 +171,7 @@ return
 
 
 
-/*!  DInt1NextID()
+/*  DInt1NextID()
  *   Vrati sljedeci zapis polja ID za tabelu DINTEG1
  */
 function DInt1NextID()
@@ -190,7 +190,7 @@ return nId
 
 
 
-/*!  DInt2NextID()
+/*  DInt2NextID()
  *   Vrati sljedeci zapis polja ID za tabelu DINTEG2
  */
 function DInt2NextID()
@@ -208,7 +208,7 @@ return nId
 
 
 
-/*!  NextDIntID()
+/*  NextDIntID()
  *   Vraca sljedeci ID broj za polje ID
  */
 function NextDIntID()

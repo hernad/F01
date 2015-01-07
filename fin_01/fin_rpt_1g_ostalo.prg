@@ -34,7 +34,7 @@
  *   Ostali izvjestaji
  */
 
-/*!  Ostalo()
+/*  Ostalo()
  *   Menij ostalih izvjestaja
  */
  

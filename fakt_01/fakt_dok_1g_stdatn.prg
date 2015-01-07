@@ -1113,7 +1113,7 @@ return
 
 
 
-/*!  EdDatN()
+/*  EdDatN()
  *   Ispravka azuriranih dokumenata (u tabelarnom pregledu)
  */
 
@@ -1403,7 +1403,7 @@ return nRet
 
 
 
-/*!  fakt_rekap_tarife(cPMP,cRegion)
+/*  fakt_rekap_tarife(cPMP,cRegion)
  *   Rekapitulacija po tarifama
  *  todo: Prebaciti u /RPT
  *   cPMP
@@ -1521,7 +1521,7 @@ return
 
 
 
-/*!  VTPorezi()
+/*  VTPorezi()
  *   Smjesta poreze iz tarifa u javne varijable
  */
 
@@ -1544,7 +1544,7 @@ return
 
 
 
-/*!  fakt_realizacija_partner()
+/*  fakt_realizacija_partner()
  *   Realizacija po partnerima
  *  todo: Prebaciti u /RPT
  */

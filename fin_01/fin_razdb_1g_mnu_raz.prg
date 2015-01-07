@@ -16,7 +16,7 @@
  *   Menij razmjene podataka
  */
  
-/*!  MnuRazmjenaPodataka() 
+/*  MnuRazmjenaPodataka() 
  *   Menij razmjene podataka
  */
 function MnuRazmjenaPodataka()
@@ -45,7 +45,7 @@ return
 
 
 
-/*!  PosFin()
+/*  PosFin()
  *   Prenos prometa pologa
  */
 function PosFin()
@@ -62,7 +62,7 @@ Menu_SC("pf")
 return
 
 
-/*!  BlagFin()
+/*  BlagFin()
  *   Prenos blagajne
  */
 function BlagFin()

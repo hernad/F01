@@ -70,7 +70,7 @@
 
 
 
-/*!  StdRtf21()
+/*  StdRtf21()
  *   Stampa faktura u RTF formatu varijanta 2 1
  *   cImeF
  *   cIdFirma

@@ -17,7 +17,7 @@
  *   Menij sifrarnika za vindiju
  */
 
-/*!  SifOVindija()
+/*  SifOVindija()
  *   Opci sifrarnik koji koristi vindija
  */
 

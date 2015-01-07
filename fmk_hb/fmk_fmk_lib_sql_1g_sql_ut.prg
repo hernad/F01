@@ -110,7 +110,7 @@ endif
 return
 
 
-/*! fn Log_Record(cTn)
+/* fn Log_Record(cTn)
  *   Logiraj record
  */
 function Log_Record(cTn)
@@ -168,7 +168,7 @@ endif
 return
 
 
-/*! fn New_Record(cTn)
+/* fn New_Record(cTn)
  *   Napravi novi record na osnovu postojeceg
  */
 function New_Record(cTn)

@@ -24,7 +24,7 @@
  *   Generacija dokumenata sitnog inventara
  */
 
-/*!  Otpis16SI()
+/*  Otpis16SI()
  *   Otpis 16 sitnog inventara. Kada je izvrsena doprema SI 16kom, napraviti novu 16ku na konto troskovnog mjesta otpisanog SI.
  */
  

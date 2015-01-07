@@ -31,7 +31,7 @@
  *   Menij izvjestaja
  */
 
-/*!  MMenuTar()
+/*  MMenuTar()
  *   Glavni menij izvjestaja
  */
  

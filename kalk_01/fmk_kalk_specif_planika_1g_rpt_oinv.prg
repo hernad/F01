@@ -47,7 +47,7 @@
  */
 
 
-/*!  ObrazInv()
+/*  ObrazInv()
  *   Obrazac inventure za prodavnice
  *  \param
  */
@@ -719,7 +719,7 @@ return
 
 
 
-/*!  ZaglObrPC(cKako)
+/*  ZaglObrPC(cKako)
  *   Zaglavlje obrasca inventure za prodavnicu
  *   cKako
  */
@@ -754,7 +754,7 @@ return
 
 
 
-/*!  ZaglInv()
+/*  ZaglInv()
  *   Zaglavlje inventure
  */
 

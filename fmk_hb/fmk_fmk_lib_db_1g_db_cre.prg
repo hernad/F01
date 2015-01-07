@@ -66,7 +66,7 @@ endif
 return
 
 
-/*!  CreSystemDb()
+/*  CreSystemDb()
  *   Kreiraj sistemske tabele (gparams, params, adres, ...)
  */
 function CreSystemDb(nArea)

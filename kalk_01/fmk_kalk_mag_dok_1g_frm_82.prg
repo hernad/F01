@@ -46,7 +46,7 @@
  */
 
 
-/*!  Get1_82()
+/*  Get1_82()
  *   Prva strana maske za unos dokumenta tipa 82
  */
 

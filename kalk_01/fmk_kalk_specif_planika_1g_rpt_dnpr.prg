@@ -15,7 +15,7 @@
 static cLinija
 
 
-/*!  DnevProm()
+/*  DnevProm()
  *   Izvjestaj dnevnog prometa
  *  todo: Ovaj izvjestaj nije dobro uradjen - formira se matrica, koja ce puci na velikom broju artikala
  */
@@ -85,7 +85,7 @@ return
 
 
 
-/*!  PromPeriod()
+/*  PromPeriod()
  *   (Vise)dnevni promet za period
  */
 function PromPeriod()
@@ -159,7 +159,7 @@ return
 
 
 
-/*!  ScanTops(dDan, aR, dDatDo, cPKto)
+/*  ScanTops(dDan, aR, dDatDo, cPKto)
  *   Skenira tabele kasa i kupi promet
  */
 static function ScanTops(dDan, aR, dDatDo, cPKto)
@@ -268,7 +268,7 @@ return 1
 
 
 
-/*!  ScanKalk(dDan, aR, dDatDo, cPKto)
+/*  ScanKalk(dDan, aR, dDatDo, cPKto)
  *   Skenira tabelu kalk i kupi promet prodavnica
  */
 static function ScanKalk(dDan, aR, dDatDo, cPKto)

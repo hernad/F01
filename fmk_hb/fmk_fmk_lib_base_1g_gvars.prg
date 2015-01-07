@@ -260,7 +260,7 @@ return nil
 
 
 
-/*!  IniGParam2(lSamoKesiraj)
+/*  IniGParam2(lSamoKesiraj)
  *   Ucitava globalne parametre gPTKonv ... gKesiraj
  *   lSamoKesiraj - ucitaj samo gKesiraj
  *  Prvo ucitava "p?" koji je D ako zelimo ucitavati globalne parametre iz PRIVDIR

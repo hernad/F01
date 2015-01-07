@@ -64,7 +64,7 @@ closeret
 
 
 
-/*!  fakt_prenos_diskete()
+/*  fakt_prenos_diskete()
  *   Prenos na diskete
  */
 
@@ -339,7 +339,7 @@ return
 
 
 
-/*!  fakt_povrat_sa_diskete()
+/*  fakt_povrat_sa_diskete()
  *   Povrat podataka
  */
 
@@ -548,7 +548,7 @@ closeret
 
 
 
-/*!  fakt_parametri_prenosa_diskete(lIni)
+/*  fakt_parametri_prenosa_diskete(lIni)
  *   Podesavanje parametara prenosa
  */
 

@@ -240,7 +240,7 @@ return PostojiSifra(F_RULES,1,17,70,"Rules - pravila za definisanje korisnika i 
 
 
 
-/*!  IncID(wId)
+/*  IncID(wId)
  *   Povecava vrijednost polja ID za 1
  */
 static function IncID(wId)
@@ -256,7 +256,7 @@ endif
 return nRet
 
 
-/*!  LastID(nRecNo)
+/*  LastID(nRecNo)
  *   Vraca vrijednost polja ID tabele events.dbf ili bilo koje tabele koja ima polje ID (numericko)
  *   nRecNo - broj zapisa na koji se pointer treba vratiti poslije uzete vrijednosti
  */

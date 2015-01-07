@@ -24,7 +24,7 @@
  */
 
 
-/*!  GenProizvodnja()
+/*  GenProizvodnja()
  *   Meni opcija za generisanje dokumenata u vezi sa proizvodnjom
  */
 
@@ -45,7 +45,7 @@ return
 
 
 
-/*!  Iz47u96Norm()
+/*  Iz47u96Norm()
  *   Generisanje dokumenta tipa 96 na osnovu 47-ica po normativima
  */
 

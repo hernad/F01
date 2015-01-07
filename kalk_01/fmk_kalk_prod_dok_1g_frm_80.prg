@@ -26,7 +26,7 @@
  */
 
 
-/*!  Get1_80()
+/*  Get1_80()
  *   Prva strana maske za unos dokumenta tipa 80
  */
 
@@ -286,7 +286,7 @@ return lastkey()
 
 
 
-/*!  Svedi(cSvedi)
+/*  Svedi(cSvedi)
  *   Svodi vrijednost protustavke na vrijednost stavke
  */
 
@@ -318,7 +318,7 @@ return .t.
 
 
 
-/*!  VKol()
+/*  VKol()
  *   Validacija unesene kolicine u dokumentu tipa 80
  */
 

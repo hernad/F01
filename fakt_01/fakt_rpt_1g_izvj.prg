@@ -57,7 +57,7 @@ return nCV
 
 
 
-/*!  Pregled1()
+/*  Pregled1()
  *   Pregled isporucenog uglja po kupcima i asortimanu
  *   Izvjestaj je specificno radjen za Rudnik
  */
@@ -233,7 +233,7 @@ return
 
 
 
-/*!  FFor1()
+/*  FFor1()
  *
  */
 
@@ -284,7 +284,7 @@ RETURN
 
 
 
-/*!  TekRac()
+/*  TekRac()
  *
  */
 
@@ -298,7 +298,7 @@ return (nil)
 
 
 
-/*!  Pregled2()
+/*  Pregled2()
  *   Pregled faktura asortimana za kupca
  *   Izvjestaj specificno radjen za Rudnik
  */
@@ -431,7 +431,7 @@ return
 
 
 
-/*!  FFor2()
+/*  FFor2()
  *
  */
 
@@ -454,7 +454,7 @@ return .t.
 
 
 
-/*!  Pregled3()
+/*  Pregled3()
  *   Pregled isporucenog asortimana za kupca po pogonima
  *   Izvjestaj specifican za rudnik
  */
@@ -628,7 +628,7 @@ return
 
 
 
-/*!  FFor3()
+/*  FFor3()
  *
  */
 
@@ -671,7 +671,7 @@ return .t.
 
 
 
-/*!  FSvaki3()
+/*  FSvaki3()
  *
  */
 function FSvaki3()
@@ -681,7 +681,7 @@ RETURN
 
 
 
-/*!  Pregled4()
+/*  Pregled4()
  *   Pregled faktura usluga za kupca
  *   Izvjestaj specifican za runik
  */
@@ -781,7 +781,7 @@ return
 
 
 
-/*!  FFor4()
+/*  FFor4()
  *
  */
 
@@ -802,7 +802,7 @@ cIdTipDok:=idtipdok; cBrDok:=brdok; dDatum:=datdok
 return .t.
 
 
-/*!  FSvaki4()
+/*  FSvaki4()
  */
 
 function FSvaki4()
@@ -811,7 +811,7 @@ RETURN
 
 
 
-/*!  Pregled5()
+/*  Pregled5()
  *   Pregled poreza po fakturama
  *   Izvjestaj specifican za rudnik
  */
@@ -954,7 +954,7 @@ return
 
 
 
-/*!  FFor5()
+/*  FFor5()
  *
  */
 
@@ -993,7 +993,7 @@ return .t.
 
 
 
-/*!  FSvaki5()
+/*  FSvaki5()
  */
 function FSvaki5()
 
@@ -1001,7 +1001,7 @@ RETURN
 
 
 
-/*!  VRobPoPar()
+/*  VRobPoPar()
  *   Vrijednost robe po partnerima/prodavnicama
  */
 
@@ -1135,7 +1135,7 @@ return
 
 
 
-/*!  fakt_ffor6()
+/*  fakt_ffor6()
  *
  */
 
@@ -1185,7 +1185,7 @@ RETURN .t.
 
 
 
-/*!  FSvaki6()
+/*  FSvaki6()
  *
  */
 
@@ -1195,7 +1195,7 @@ RETURN
 
 
 
-/*!  fakt_subtot6()
+/*  fakt_subtot6()
  *
  */
 
@@ -1217,7 +1217,7 @@ RETURN aVrati
 
 
 
-/*!  VRobPoIzd()
+/*  VRobPoIzd()
  *   Vrijednost robe po izdavacima/dobavljacima
  */
 
@@ -1329,7 +1329,7 @@ return
 
 
 
-/*!  FFor7()
+/*  FFor7()
  *
  */
 
@@ -1364,7 +1364,7 @@ RETURN .t.
 
 
 
-/*!  FSvaki7()
+/*  FSvaki7()
  */
 
 function FSvaki7()
@@ -1374,7 +1374,7 @@ RETURN
 
 
 
-/*!  SubTot7()
+/*  SubTot7()
  *
  */
 
@@ -1391,7 +1391,7 @@ RETURN aVrati
 
 
 
-/*!  PorPoOps()
+/*  PorPoOps()
  *   Porezi po tarifama i po opstinama
  */
 
@@ -1610,7 +1610,7 @@ return
 
 
 
-/*!  FFor8()
+/*  FFor8()
  */
 
 function FFor8()
@@ -1619,7 +1619,7 @@ RETURN .t.
 
 
 
-/*!  FSvaki8()
+/*  FSvaki8()
  *
  */
 
@@ -1639,7 +1639,7 @@ RETURN (NIL)
 
 
 
-/*!  SiSiRo()
+/*  SiSiRo()
  *   Sirina sifre robe
  *   specificno za opresu - novine
  */
@@ -1655,7 +1655,7 @@ RETURN cSR
 
 
 
-/*!  KarticaKons()
+/*  KarticaKons()
  *   Kartica konsignacije
  */
 
@@ -2005,7 +2005,7 @@ return
 
 
 
-/*!  ZagKartKons(lIniStrana)
+/*  ZagKartKons(lIniStrana)
  *   Zaglavlje kartice konsignacije
  */
 
@@ -2044,7 +2044,7 @@ return
 
 
 
-/*!  Oporezovana(cIdTarifa)
+/*  Oporezovana(cIdTarifa)
  *
  */
 
@@ -2060,7 +2060,7 @@ return (TARIFA->opp<>0 .or. TARIFA->ppp<>0 .or. TARIFA->zpp<>0)
 
 
 
-/*!  SortFakt(cId,cSort)
+/*  SortFakt(cId,cSort)
  *   Sortiranje faktura
  *   cId
  *   cSort
@@ -2084,7 +2084,7 @@ RETURN cVrati
 
 
 
-/*!  TmpFakt()
+/*  TmpFakt()
  *
  */
 
@@ -2094,7 +2094,7 @@ RETURN TEMPFILE(KUMPATH,"CDX",0)
 
 
 
-/*!  MyFErase()
+/*  MyFErase()
  *
  */
 

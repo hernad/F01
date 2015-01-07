@@ -18,7 +18,7 @@
  * ----------------------------------------------------------------
  */
 
-/*!  Get1_14()
+/*  Get1_14()
  *   Prva strana maske za unos dokumenta tipa 14
  */
 
@@ -292,7 +292,7 @@ return lastkey()
 
 
 
-/*!  PPP14(fret)
+/*  PPP14(fret)
  *   Prikaz poreza pri unosu 14-ke
  */
 
@@ -314,7 +314,7 @@ return fret
 
 
 
-/*!  KM2()
+/*  KM2()
  *   Magacinska kartica kao pomoc pri unosu 14-ke
  */
 
@@ -344,7 +344,7 @@ return nil
 
 
 
-/*!  MarkBrDok(fNovi)
+/*  MarkBrDok(fNovi)
  *   Odredjuje sljedeci broj dokumenta uzimajuci u obzir marker definisan u polju koncij->m1
  */
 

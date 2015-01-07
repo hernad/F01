@@ -209,7 +209,7 @@ return PostojiSifra(F_RELAC,1,10,75,"Lista: Relacije",@cId,dx,dy)
 
 
 
-/*!  P_Vozila(cId,dx,dy)
+/*  P_Vozila(cId,dx,dy)
  *   Otvara sifrarnik Volzila
  *   cId
  *   dx
@@ -230,7 +230,7 @@ Private gTBDir:="N"
 return PostojiSifra(F_VOZILA,1,10,75,"Lista: Vozila",@cId,dx,dy)
 
 
-/*!  FaPartnBlock(Ch)
+/*  FaPartnBlock(Ch)
  *
  *
  */
@@ -313,7 +313,7 @@ return .t.
 */
 
 
-/*!  RobaBlok(Ch)
+/*  RobaBlok(Ch)
  *
  *   Ch
  */
@@ -477,7 +477,7 @@ endif
 
 RETURN DE_CONT
 
-/*!  FaktStanje(cIdRoba)
+/*  FaktStanje(cIdRoba)
  *   Stanje robe fakt-a
  *   cIdRoba
  */
@@ -535,7 +535,7 @@ return
 
 
 
-/*!  BoxStanje(aStanje,cIdRoba)
+/*  BoxStanje(aStanje,cIdRoba)
  *
  *   aStanje
  *   cIdRoba
@@ -646,7 +646,7 @@ return
 
 
 
-/*!  P_VrsteP(cId,dx,dy)
+/*  P_VrsteP(cId,dx,dy)
  *   Otvara sifranik vrsta placanja
  *   cId
  *   dx
@@ -695,7 +695,7 @@ RETURN vrati
 
 
 
-/*!  PrikFTxt()
+/*  PrikFTxt()
  *   Prikazuje uzorak teksta
  */
 
@@ -714,7 +714,7 @@ LOCAL  i:=0, aTXT:={}
 return -1
 
 
-/*!  fn ObSif()
+/*  fn ObSif()
  *
  */
 
@@ -762,7 +762,7 @@ RETURN
 
 
 
-/*!  ImaUKumul(cKljuc,cTag)
+/*  ImaUKumul(cKljuc,cTag)
  *
  *   cKljuc
  *   cTag
@@ -796,7 +796,7 @@ RETURN lVrati
 
 
 
-/*!  P_DefDok(cId,dx,dy)
+/*  P_DefDok(cId,dx,dy)
  *   Otvara sifranik definicije dokumenata
  *   cId
  *   dx
@@ -817,7 +817,7 @@ return PostojiSifra(F_FADO,1,10,60,"Lista dokumenata u FAKT <F5> - definisi izgl
 
 
 
-/*!  DefDokBlok(Ch)
+/*  DefDokBlok(Ch)
  *   Obradjuje dogadjaje za pritisnuti taster Ch
  *   Ch  - pritisnuti taster (npr. CTRL+T)
  */
@@ -873,7 +873,7 @@ return DE_CONT
 
 
 
-/*!  V_DefDok()
+/*  V_DefDok()
  *
  *   cId  - Id ugovora
  */
@@ -911,7 +911,7 @@ return .t.
 
 
 
-/*!  EdDefDok(Ch)
+/*  EdDefDok(Ch)
  *
  *   Ch - Pritisnuti taster
  */
@@ -1006,7 +1006,7 @@ return nRet
 
 
 
-/*!  LabelU()
+/*  LabelU()
  *   Labeliranje ugovora
  */
 
@@ -1216,7 +1216,7 @@ return
 
 
 
-/*!  BlokSLU()
+/*  BlokSLU()
  */
 function BlokSLU()
 
@@ -1224,7 +1224,7 @@ RETURN
 
 
 
-/*!  ZipsTemp()
+/*  ZipsTemp()
  *   Generisanje ugovora na osnovu telefon fax
  */
 
@@ -1517,7 +1517,7 @@ RETURN lVrati
 
 
 
-/*!  IzborRelacije(cIdRelac,cIdDist,cIdVozila,dDatum,cMarsuta)
+/*  IzborRelacije(cIdRelac,cIdDist,cIdVozila,dDatum,cMarsuta)
  *   Izbor relacije
  *   cIdRelac    - id relacije
  *   cIdDist     - id distribucije
@@ -1580,7 +1580,7 @@ RETURN lVrati
 
 
 
-/*!  UpisiURF(cTekst,cFajl,lNoviRed,lNoviFajl)
+/*  UpisiURF(cTekst,cFajl,lNoviRed,lNoviFajl)
  *   Upisi u report fajl
  *   cTekst    - tekst
  *   cFajl     - ime fajla
@@ -1596,7 +1596,7 @@ RETURN
 
 
 
-/*!  DiffMFV(cZn,cDiff)
+/*  DiffMFV(cZn,cDiff)
  *   differences: memo vs field variable
  *   cZn
  *   cdiff

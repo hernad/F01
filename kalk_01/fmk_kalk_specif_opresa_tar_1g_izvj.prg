@@ -30,7 +30,7 @@
  *   Izvjestaji
  */
 
-/*!  IzvjTar()
+/*  IzvjTar()
  *   Menij izvjestaja
  */
  
@@ -52,7 +52,7 @@ return .f.
 
 
 
-/*!  Kart41_42()
+/*  Kart41_42()
  *   Kartica za varijantu "vodi samo tarife", 41-avans, 42-obracun
  *  \param
  */
@@ -250,7 +250,7 @@ CLOSERET
 
 
 
-/*!  Zagl2()
+/*  Zagl2()
  *   Zaglavlje izvjestaja
  */
  
@@ -273,7 +273,7 @@ return (nil)
 
 
 
-/*!  Kart412v2()
+/*  Kart412v2()
  *   Kartica za varijantu "vodi samo tarife" varijanta 2
  *  \param
  */
@@ -494,7 +494,7 @@ CLOSERET
 
 
 
-/*!  Zagl3()
+/*  Zagl3()
  *   Zaglavlje izvjestaja
  */
  

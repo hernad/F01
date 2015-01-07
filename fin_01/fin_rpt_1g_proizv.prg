@@ -34,7 +34,7 @@
  *   Proizvoljni izvjestaji
  */
 
-/*!  ProIzv()
+/*  ProIzv()
  *   Proizvoljni izvjestaji
  */
 
@@ -67,7 +67,7 @@ RETURN
 
 
 
-/*!  OtBazPI()
+/*  OtBazPI()
  *   Otvara baze proizvoljnih izvjestaja
  */
 
@@ -82,7 +82,7 @@ return
 
 
 
-/*!  GenProIzv()
+/*  GenProIzv()
  *   Generisanje proizvoljnih izvjestaja
  */
 
@@ -950,7 +950,7 @@ CLOSERET
 
 
 
-/*!  PrikaziTI(cSif)
+/*  PrikaziTI(cSif)
  *   Prikazuje tekuci izvjestaj
  *   cSif - sifra
  */
@@ -983,7 +983,7 @@ RETURN
 
 
 
-/*!  FForPI()
+/*  FForPI()
  *
  */
 
@@ -1007,7 +1007,7 @@ RETURN lVrati
 
 
 
-/*!  VidiUaKolS()
+/*  VidiUaKolS()
  *
  */
 
@@ -1026,7 +1026,7 @@ RETURN lVrati
 
 
 
-/*!  FSvakiPI()
+/*  FSvakiPI()
  *
  */
 
@@ -1049,7 +1049,7 @@ RETURN IF(!EMPTY(PODVUCI),"PODVUCI"+PODVUCI,NIL)
 
 
 
-/*!  PlBudzeta(cTipK,cKonto)
+/*  PlBudzeta(cTipK,cKonto)
  *   Plan budzeta, specificno za budzetske korisnike
  *   cTipK
  *   cKonto
@@ -1078,7 +1078,7 @@ RETURN nVrati
 
 
 
-/*!  RebBudzeta(cTipK,cKonto)
+/*  RebBudzeta(cTipK,cKonto)
  *   Rebalans budzeta
  *   cTipK
  *   cKonto
@@ -1110,7 +1110,7 @@ RETURN nVrati
 
 
 
-/*!  ParSviIzvj()
+/*  ParSviIzvj()
  *   Parametri za sve izvjestaje
  */
 
@@ -1290,7 +1290,7 @@ ENDIF
 
 
 
-/*!  UKucice(cSta,nKucica)
+/*  UKucice(cSta,nKucica)
  *
  *   cSta
  *   nKucica
@@ -1304,7 +1304,7 @@ RETURN ( "I"+CHARMIX(PADL(TRIM(cSta),nKucica,IF(EMPTY(cSta)," ","0")),"I") )
 
 
 
-/*!  KZnBazaWin(cDbf)
+/*  KZnBazaWin(cDbf)
  *   Konverzija znakova u bazama
  */
 

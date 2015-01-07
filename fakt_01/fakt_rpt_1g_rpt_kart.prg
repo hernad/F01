@@ -38,7 +38,7 @@
 
 
 
-/*!  fakt_kartica()
+/*  fakt_kartica()
  *   Izvjestaj - kartica
  */
  

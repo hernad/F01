@@ -13,7 +13,7 @@
 #include "kalk01.ch"
 
 
-/*!  Get1_PR()
+/*  Get1_PR()
  *   Prva strana maske za unos dokumenta tipa PR
  */
 

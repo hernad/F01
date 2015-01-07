@@ -44,7 +44,7 @@
  */
 
 
-/*!  Get1_12()
+/*  Get1_12()
  *   Prva strana maske za unos dokumenta tipa 12
  */
 

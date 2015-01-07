@@ -13,7 +13,7 @@
 #include "sc.ch"
 
 
-/*!  GetKalkVars(cFirma, cKonto, cPath)
+/*  GetKalkVars(cFirma, cKonto, cPath)
  *   Vraca osnovne var.za rad sa kalk-om
  *   cFirma - id firma kalk
  *   cKonto - konto prodavnice u kalk-u
@@ -31,7 +31,7 @@ return
 
 
 
-/*!  IntegTekGod()
+/*  IntegTekGod()
  *   Vraca tekucu godinu, ako je tek.datum veci od 10.01.TG onda je godina = TG, ako je tek.datum <= 10.01.TG onda je godina (TG - 1)
  *  return: string cYear
  */
@@ -55,7 +55,7 @@ endif
 return cYear
 
 
-/*!  IntegTekDat() 
+/*  IntegTekDat() 
  *   Vraca datum od kada pocinje tekuca godina TOPS, 01.01.TG
  */
 function IntegTekDat()
@@ -69,7 +69,7 @@ cDate := ALLTRIM( IntegTekGod() ) + "0101"
 return SToD(cDate)
 
 
-/*!  AddToErrors(cType, cIdRoba, cDoks, cOpis)
+/*  AddToErrors(cType, cIdRoba, cDoks, cOpis)
  *   dodaj zapis u tabelu errors
  */
 function AddToErrors(cType, cIDroba, cDoks, cOpis)
@@ -85,7 +85,7 @@ return
 
 
 
-/*!  GetErrorDesc(cType)
+/*  GetErrorDesc(cType)
  *   Vrati naziv greske po cType
  *   cType - tip greske, C, W, N ...
  */
@@ -107,7 +107,7 @@ return cRet
 
 
 
-/*!  RptInteg()
+/*  RptInteg()
  *   report nakon testa integ1
  *   lFilter - filter za kriticne greske
  *   lAutoSent - automatsko slanje email-a
@@ -213,7 +213,7 @@ RptSendEmail(lAutoSent)
 return
 
 
-/*!  RptSendEmail()
+/*  RptSendEmail()
  *   Slanje reporta na email
  */
 function RptSendEmail(lAuto)
@@ -251,7 +251,7 @@ return
 
 
 
-/*!  GetSendVars(cScript)
+/*  GetSendVars(cScript)
  *   cScript - ruby skripta
  *   cPSite - prodavnicki site
  *   cRptFile - report fajl
@@ -266,7 +266,7 @@ return
 
 
 
-/*!  BrisiError()
+/*  BrisiError()
  *   Brisanje tabele Errors.dbf
  */
 function BrisiError()
@@ -280,7 +280,7 @@ return
 
 
 
-/*!  EmptDInt(nInteg)
+/*  EmptDInt(nInteg)
  *   Da li je prazna tabela dinteg
  */
 function EmptDInt(nInteg)

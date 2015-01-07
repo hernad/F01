@@ -13,7 +13,7 @@
 #include "kalk01.ch"
 
 
-/*!  Get1_24()
+/*  Get1_24()
  *   Obradjuje kalkulacije usluga
  */
 

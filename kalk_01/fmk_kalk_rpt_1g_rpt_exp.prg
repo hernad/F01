@@ -126,7 +126,7 @@ endif
 
 return .t.
 
-/*!  get_uio_fields(aArr)
+/*  get_uio_fields(aArr)
  *   napuni matricu aArr sa specifikacijom polja tabele
  *   aArr - matrica
  */

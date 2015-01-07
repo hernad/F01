@@ -41,7 +41,7 @@
  */
 
 
-/*!  StDoks()
+/*  StDoks()
  *   Centralna funkcija koja poziva funkciju stampe liste dokumenata
  */
 
@@ -64,7 +64,7 @@ return
 
 
 
-/*!  SStDoks()
+/*  SStDoks()
  *   Stampa liste dokumenata
  */
 
@@ -260,7 +260,7 @@ return
 
 
 
-/*!  kalk_gen_dokumenti()
+/*  kalk_gen_dokumenti()
  *   Generisanje tabele DOKS na osnovu tabele KALK
  */
 

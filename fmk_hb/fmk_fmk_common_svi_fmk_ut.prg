@@ -20,7 +20,7 @@
  * ----------------------------------------------------------------
  */
 
-/*!  UBrojDok(nBroj,nNumDio,cOstatak)
+/*  UBrojDok(nBroj,nNumDio,cOstatak)
  *  Pretvara Broj podbroj u string format "Broj dokumenta"
  * \code
  * UBrojDok ( 123,  5, "/99" )   =>   00123/99
@@ -32,7 +32,7 @@ function UBrojDok(nBroj,nNumdio,cOstatak)
 return padl( alltrim(str(nBroj)), nNumDio, "0")+cOstatak
 
 
-/*!  Calc()
+/*  Calc()
  *   Kalkulator
  */
 function Calc()

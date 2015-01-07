@@ -29,7 +29,7 @@ static aPorezi:={}
  */
 
 
-/*!  Get1_81()
+/*  Get1_81()
  *   Prva strana maske za unos dokumenta tipa 81
  */
 
@@ -139,7 +139,7 @@ return lastkey()
 
 
 
-/*!  VKol()
+/*  VKol()
  *   Validacija kolicine pri unosu dokumenta tipa 81
  */
 
@@ -171,7 +171,7 @@ return .t.
 
 
 
-/*!  Get2_81()
+/*  Get2_81()
  *   Druga strana maske za unos dokumenta tipa 81
  */
 

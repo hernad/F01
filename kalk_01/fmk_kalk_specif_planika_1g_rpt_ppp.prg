@@ -44,7 +44,7 @@
  */
 
 
-/*!   PPProd()
+/*   PPProd()
  *  \ingroup Planika
  *   Izvjestaj: Pregled prometa prodavnice
  */
@@ -472,7 +472,7 @@ return
 
 
 
-/*!  AFPos(cIdKonto, cVisaNiza, nCijena, nCijenaBp, nKolicina)
+/*  AFPos(cIdKonto, cVisaNiza, nCijena, nCijenaBp, nKolicina)
  *   (A)ppend (F)rom Table (Pos)
  *   cIdKonto - konto prodavnice
  *   cVisaNiza - "1" - niza tarifa ostala obuca; "2" - visa tarifa - djecija obuca
@@ -545,7 +545,7 @@ USE
 return 1
 
 
-/*!  ARFPromVp(cIdKonto, nPolog01, nPolog02, nPolog03, nPolog04, nPolog05, nPolog06, nPolog07, nPolog08, nPolog09, nPolog10, nPolog11, nPolog12)
+/*  ARFPromVp(cIdKonto, nPolog01, nPolog02, nPolog03, nPolog04, nPolog05, nPolog06, nPolog07, nPolog08, nPolog09, nPolog10, nPolog11, nPolog12)
  *   (A)ppend (R)ow (F)rom Table (PromVp)
  *   cIdKonto - prodavnicki konto
  *   nPolog01 - polog pazara vrste 01 (.. do nPolog12)

@@ -63,7 +63,7 @@
 *string FmkIni_ExePath_POREZI_PPUgostKaoPPU;
 
 
-/*!  StDok3()
+/*  StDok3()
  *   Stampa fakture u varijanti 3
  *   cIdFirma
  *   cIdTipDok
@@ -459,7 +459,7 @@ closeret
 
 
 
-/*!  Zagl3()
+/*  Zagl3()
  *   Stampa zaglavlja za varijantu 3
  */
  

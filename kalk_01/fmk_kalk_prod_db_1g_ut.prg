@@ -82,7 +82,7 @@ return
 
 
 
-/*!  Marza2(fMarza)
+/*  Marza2(fMarza)
  *   Postavi _Marza2, _mpc, _mpcsapp
  */
 
@@ -237,7 +237,7 @@ return
 
 
 
-/*!  Marza2R()
+/*  Marza2R()
  *   Marza2 pri realizaciji prodavnice je MPC-NC
  */
 
@@ -281,7 +281,7 @@ return
 
 
 
-/*!  Marza2R()
+/*  Marza2R()
  *   Marza pri realizaciji prodavnice
  */
 
@@ -327,7 +327,7 @@ return
 
 
 
-/*!  FaktMPC(nMPC,cseek,dDatum)
+/*  FaktMPC(nMPC,cseek,dDatum)
  *   Fakticka maloprodajna cijena
  */
 
@@ -363,7 +363,7 @@ return
 
 
 
-/*!  UzmiMPCSif()
+/*  UzmiMPCSif()
  *
  */
 
@@ -454,7 +454,7 @@ return lRet
 
 
 
-/*!  V_KolPro()
+/*  V_KolPro()
  *
  */
 
@@ -484,7 +484,7 @@ return .t.
 
 
 
-/*!  StanjeProd(cKljuc,ddatdok)
+/*  StanjeProd(cKljuc,ddatdok)
  *
  */
 

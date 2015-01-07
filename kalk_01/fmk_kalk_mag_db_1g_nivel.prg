@@ -38,7 +38,7 @@
  *   Generisanje dokumenta nivelacije cijena u magacinu
  */
 
-/*!  Niv_10()
+/*  Niv_10()
  *   Generisanje dokumenta nivelacije cijena u magacinu
  */
 

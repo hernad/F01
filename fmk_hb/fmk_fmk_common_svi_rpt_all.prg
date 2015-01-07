@@ -14,7 +14,7 @@
 
 
 
-/*!  DokNovaStrana(nColumn, nStr, nSlijediRedovaZajedno)
+/*  DokNovaStrana(nColumn, nStr, nSlijediRedovaZajedno)
  *   Prelazak na novu stranicu
  *   nColumn - kolona na kojoj se stampa "Str: XXX"
  *   nStr  - stranica
@@ -75,7 +75,7 @@ return
 
 
 
-/*!  IspisFirme(cIdRj)
+/*  IspisFirme(cIdRj)
  *   Ispisuje naziv fime
  *   cIdRj  - Oznaka radne jedinice
  */

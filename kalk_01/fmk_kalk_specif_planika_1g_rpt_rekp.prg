@@ -32,7 +32,7 @@
  */
  
  
-/*!  Planika2()
+/*  Planika2()
  *   Rekapitulacija za period 
  *  \ingroup Planika
  * \code
@@ -297,7 +297,7 @@ return
 
 
 
-/*!  ZPlanika()
+/*  ZPlanika()
  *   Zaglavlje rekapitulacije
  */
  

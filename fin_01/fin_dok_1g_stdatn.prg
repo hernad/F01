@@ -210,7 +210,7 @@ return
 
 
 
-/*!  DnevnikNaloga()
+/*  DnevnikNaloga()
  *   Dnevnik naloga
  */
  
@@ -322,7 +322,7 @@ return
 
 
 
-/*!  NazMjeseca(nMjesec)
+/*  NazMjeseca(nMjesec)
  *   Vraca naziv mjeseca za zadati nMjesec (np. 1 => Januar)
  *   nMjesec - oznaka mjeseca - integer
  */
@@ -335,7 +335,7 @@ RETURN IF( nMjesec>0.and.nMjesec<13 , aVrati[nMjesec] , "" )
 
 
 
-/*!  VidiNaloge()
+/*  VidiNaloge()
  *   Pregled naloga
  */
  
@@ -359,7 +359,7 @@ return
 
 
 
-/*!  EdNal()
+/*  EdNal()
  *   Ispravka datuma na nalogu 
  */
  

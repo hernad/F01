@@ -33,7 +33,7 @@
  */
 
 
-/*!  StKalk82()
+/*  StKalk82()
  *   Stampa kalkulacije 82 - izlaz iz magacina diskont
  */
 

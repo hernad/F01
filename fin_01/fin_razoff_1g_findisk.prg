@@ -13,7 +13,7 @@
 #include "fin01.ch"
 
 
-/*!  FinDisk()
+/*  FinDisk()
  *   Menij prenosa fin<->fin (diskete, modem)
  */
 
@@ -32,7 +32,7 @@ Menu_SC("pfin")
 return .f.
 
 
-/*!  fin_prenos_diskete()
+/*  fin_prenos_diskete()
  *   Prenos dokumenata
  */
 
@@ -279,7 +279,7 @@ return
 
 
 
-/*!  fin_povrat_sa_diskete()
+/*  fin_povrat_sa_diskete()
  *   Povrat dokumenata
  */
 
@@ -414,7 +414,7 @@ return
 
 
 
-/*!  fin_parametri_prenosa_diskete(lIni)
+/*  fin_parametri_prenosa_diskete(lIni)
  *   Podesavanje prenosa i prijema dokumenata
  *   lIni
  */

@@ -416,7 +416,7 @@ return
 
 
 
-/*!  PrenosMP()
+/*  PrenosMP()
  *   Prenos maloprodajnih kalkulacija FAKT->KALK (11->41)
  */
 
@@ -673,7 +673,7 @@ closeret
 return
 
 
-/*!  Prenos01_2()
+/*  Prenos01_2()
  *   Prenos FAKT->KALK (01->81)
  */
 
@@ -815,7 +815,7 @@ return
 
 
 
-/*!  Prenos13_2()
+/*  Prenos13_2()
  *   Otprema u mp->kalk (13->80) prebaci u prodajni objekt
  */
 
@@ -988,7 +988,7 @@ return
 
 
 
-/*!  Prenos15()
+/*  Prenos15()
  *   Izlaz iz MP putem VP, FAKT15->KALK15
  */
 
@@ -1173,7 +1173,7 @@ closeret
 return
 
 
-/*!  PrenosMP2()
+/*  PrenosMP2()
  *   Prenos maloprodajnih kalkulacija FAKT->KALK (11->42)
  */
 

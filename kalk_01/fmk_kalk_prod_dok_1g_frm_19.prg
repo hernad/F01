@@ -25,7 +25,7 @@
  */
 
 
-/*!  Get1_19()
+/*  Get1_19()
  *   Prva strana maske za unos dokumenta tipa 19
  */
 

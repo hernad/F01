@@ -29,7 +29,7 @@
  *   Generacija dokumenata - menij
  */
 
-/*!  MnuGenDok()
+/*  MnuGenDok()
  *   Menij generacije dokumenata
  */
 

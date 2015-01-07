@@ -64,7 +64,7 @@ return
 
 
 
-/*!  kalk_prenos_diskete()
+/*  kalk_prenos_diskete()
  *   Prenos podataka na diskete
  */
 
@@ -291,7 +291,7 @@ return
 
 
 
-/*!  kalk_povrat_sa_diskete()
+/*  kalk_povrat_sa_diskete()
  *   Preuzimanje podataka sa diskete
  */
 
@@ -450,7 +450,7 @@ return
 
 
 
-/*!  kalk_parametri_prenosa_diskete(lIni)
+/*  kalk_parametri_prenosa_diskete(lIni)
  *   lIni - .t. vec su inicijalizovani parametri, .f. treba inicijalizovati parametre - default vrijednost
  *   Podesavanje parametara prenosa i prijema podataka putem disketa
  */

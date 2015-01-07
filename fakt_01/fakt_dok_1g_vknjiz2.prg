@@ -212,7 +212,7 @@ return .t.
 
 
 
-/*!  IniVars()
+/*  IniVars()
  *   Ini varijable
  */
 
@@ -248,7 +248,7 @@ EndIF
 
 
 
-/*!  SetVars()
+/*  SetVars()
  *   Setuj varijable
  */
 
@@ -275,7 +275,7 @@ return
 
 
 
-/*!  Tb_V_RBr()
+/*  Tb_V_RBr()
  *
  */
 
@@ -286,7 +286,7 @@ return .t.
 
 
 
-/*!  Tb_W_IdRoba()
+/*  Tb_W_IdRoba()
  *
  */
 
@@ -298,7 +298,7 @@ return W_Roba()
 
 
 
-/*!  Tb_V_IdRoba()
+/*  Tb_V_IdRoba()
  *
  */
 
@@ -316,7 +316,7 @@ return tb_V_Cijena()
 
 
 
-/*!  Tb_V_Kolicina()
+/*  Tb_V_Kolicina()
  *
  */
 
@@ -334,7 +334,7 @@ return V_Kolicina()
 
 
 
-/*!  Tb_W_Cijena()
+/*  Tb_W_Cijena()
  *
  */
 
@@ -344,7 +344,7 @@ return KLevel<="1"
 
 
 
-/*!  Tb_V_Cijena()
+/*  Tb_V_Cijena()
  *
  */
 
@@ -357,7 +357,7 @@ return .t.
 
 
 
-/*!  Tb_W_TRabat()
+/*  Tb_W_TRabat()
  *
  */
 
@@ -368,7 +368,7 @@ return !(_idtipdok $ "12#13#11#15#27") .and. _podbr<>" ."
 
 
 
-/*!  Tb_V_Rabat()
+/*  Tb_V_Rabat()
  *
  */
 
@@ -380,7 +380,7 @@ return .t.
 
 
 
-/*!  Tb_V_TRabat()
+/*  Tb_V_TRabat()
  *
  */
 
@@ -393,7 +393,7 @@ return .t.
 
 
 
-/*!  Tb_W_Porez()
+/*  Tb_W_Porez()
  *
  */
 
@@ -420,7 +420,7 @@ return nRet
 
 
 
-/*!  Tb_V_Porez()
+/*  Tb_V_Porez()
  *
  */
 
@@ -436,7 +436,7 @@ return V_Porez()
 
 
 
-/*!  ValidRed()
+/*  ValidRed()
  *
  */
 
@@ -465,7 +465,7 @@ return TBCanClose
 
 
 
-/*!  PrGoreRed()
+/*  PrGoreRed()
  *
  */
 
@@ -479,7 +479,7 @@ endif
 
 
 
-/*!  PrDoleRed()
+/*  PrDoleRed()
  *
  */
 
@@ -537,7 +537,7 @@ return .t.  // uspjesno otiso u novi red
 
 
 
-/*!  PrDodajRed()
+/*  PrDodajRed()
  *
  */
 
@@ -570,7 +570,7 @@ return
 
 
 
-/*!  TbRobaNaz()
+/*  TbRobaNaz()
  *
  */
 
@@ -582,7 +582,7 @@ return left(Roba->naz,25)
 
 
 
-/*!  ObracunajPP(cSetPor,dDatDok)
+/*  ObracunajPP(cSetPor,dDatDok)
  *   Obracunaj porez na promet
  *   cSetPor
  *   dDatDok
@@ -636,7 +636,7 @@ RETURN
 
 
 
-/*!  UCKalk()
+/*  UCKalk()
  *   Uzmi cijenu iz Kalk-a
  */
 
@@ -704,7 +704,7 @@ RETURN
 
 
 
-/*!  ChSveStavke(fNovi)
+/*  ChSveStavke(fNovi)
  *
  *   fNovi
  */
@@ -754,7 +754,7 @@ RETURN
 
 
 
-/*!  TarifaR(cRegion, cIdRoba, aPorezi)
+/*  TarifaR(cRegion, cIdRoba, aPorezi)
  *   Tarifa na osnovu region + roba
  *   cRegion
  *   cIdRoba

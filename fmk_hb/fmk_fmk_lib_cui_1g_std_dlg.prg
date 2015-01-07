@@ -21,7 +21,7 @@ STATIC cLDirekt := "0"
  */
  
 
-/*!  Pitanje(cId,cPitanje,cOdgDefault,cMogOdg)
+/*  Pitanje(cId,cPitanje,cOdgDefault,cMogOdg)
  *   Otvara box sa zadatim pitanjem na koje treba odgovoriti sa D,N,..
  *   cId
  *   cPitanje       - Pitanje
@@ -81,7 +81,7 @@ RETURN .f.
 
 
 
-/*!  Pitanje2(cId,cPitanje,cOdgDefault)
+/*  Pitanje2(cId,cPitanje,cOdgDefault)
  *   
  *   cId
  *   cPitanje       - Pitanje
@@ -143,7 +143,7 @@ return cDirekt
 
 
 
-/*!  UpitPrinter(cDirekt)
+/*  UpitPrinter(cDirekt)
  *  
  *   cDirekt   
  */
@@ -190,7 +190,7 @@ endif
 
 
 
-/*!  GetLozinka(nSiflen)
+/*  GetLozinka(nSiflen)
  *  
  *   nSiflen
  */
@@ -246,7 +246,7 @@ return padr(cKorSif,nSifLen)
 
 
 
-/*!  TrebaRegistrovati(nSlogova)
+/*  TrebaRegistrovati(nSlogova)
  *   Provjera da li je program registrovan
  *   nSlogova
  */
@@ -282,7 +282,7 @@ endif
 return
 
 
-/*!  PozdravMsg(cNaslov,cVer,nk)
+/*  PozdravMsg(cNaslov,cVer,nk)
  *   Ispisuje ekran sa pozdravnom porukom
  *   cNaslov
  *   cVer       

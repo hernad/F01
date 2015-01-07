@@ -14,7 +14,7 @@
 
 #define D_STAROST_DANA   25
 
-/*!  FilePath(cFile)
+/*  FilePath(cFile)
  *    Extract the full path name from a filename
  *  return: cFilePath
  */
@@ -182,7 +182,7 @@ return fPostoji
 
 
 
-/*!  BrisiSFajlove(cDir)
+/*  BrisiSFajlove(cDir)
   *  Brisi fajlove starije od 45 dana
   *
   * \code

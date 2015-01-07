@@ -32,7 +32,7 @@
  */
 
 
-/*!  IzKalk2f()
+/*  IzKalk2f()
  *   Preuzimanje kalkulacije iz druge firme
  */
 

@@ -32,7 +32,7 @@
  */
 
 
-/*!  StornoDok()
+/*  StornoDok()
  *   Generisanje storna dokumenta promjenom predznaka na kolicini
  */
 
@@ -86,7 +86,7 @@ return
 
 
 
-/*!  ImaDok(cDok)
+/*  ImaDok(cDok)
  *   Ispituje postojanje zadanog dokumenta medju azuriranim
  */
 

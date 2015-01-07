@@ -25,7 +25,7 @@
  */
 
 
-/*!  FaktKonsig()
+/*  FaktKonsig()
  *   Meni opcija prenosa FAKT->KALK za konsignaciju
  */
 
@@ -43,7 +43,7 @@ return
 
 
 
-/*!  Prenos16()
+/*  Prenos16()
  *   Racun konsignacije (FAKT 16) -> ulaz od dobavljaca (KALK 10)
  */
  

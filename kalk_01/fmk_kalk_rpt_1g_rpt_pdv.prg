@@ -88,7 +88,7 @@ show_uio( (cLandscape=="D"), (cSvakaHeader=="D"), lAkciznaRoba, lZasticeneCijene
 close all
 
 
-/*!  get_uio_fields(aArr)
+/*  get_uio_fields(aArr)
  *   napuni matricu aArr sa specifikacijom polja tabele
  *   aArr - matrica
  */

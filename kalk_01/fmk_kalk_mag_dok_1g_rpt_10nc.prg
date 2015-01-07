@@ -33,7 +33,7 @@
  */
 
 
-/*!  StKalk10_1()
+/*  StKalk10_1()
  *   Stampa kalkulacije 10 - nabavne cijene
  */
 

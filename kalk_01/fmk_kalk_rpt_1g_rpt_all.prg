@@ -69,7 +69,7 @@ return cRet
 
 
 
-/*!  PrikaziDobavljaca(cIdRoba, nRazmak, lNeIspisujDob)
+/*  PrikaziDobavljaca(cIdRoba, nRazmak, lNeIspisujDob)
  *   Funkcija vraca dobavljaca cIdRobe na osnovu polja roba->dob
  *   cIdRoba
  *   nRazmak - razmak prije ispisa dobavljaca

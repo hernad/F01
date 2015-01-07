@@ -36,7 +36,7 @@ return
 
 
 
-/*!  StOAnal()
+/*  StOAnal()
  *   Stampanje proknjizenog analitickog naloga
  */
 
@@ -110,7 +110,7 @@ return
 
 
 
-/*!  StOSNal(fKum)
+/*  StOSNal(fKum)
  *   Stampa sintetickog naloga
  *   fKum  - if fkum = .t. - stampa naloga iz anal.dbf, if fkum = .f. - stampa naloga iz panal.dbf
  */
@@ -269,7 +269,7 @@ return
 
 
 
-/*!  Zagl12()
+/*  Zagl12()
  *   Zaglavlje sintetickog naloga
  */
 

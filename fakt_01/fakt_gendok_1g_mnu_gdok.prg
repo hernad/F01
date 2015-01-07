@@ -43,7 +43,7 @@
  *   Meni opcija za generisanje dokumenata za modul FAKT
  */
 
-/*!  fakt_meni_gen_dokumenti()
+/*  fakt_meni_gen_dokumenti()
  *   Meni opcija za generisanje dokumenata za modul FAKT
  */
 
@@ -64,7 +64,7 @@ return
 
 
 
-/*!  GPStanje()
+/*  GPStanje()
  *   Generisanje dokumenta pocetnog stanja
  */
  

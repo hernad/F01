@@ -19,7 +19,7 @@
  */
  
 
-/*!  StViseDokMenu(cVarijanta)
+/*  StViseDokMenu(cVarijanta)
  *   Menij stampe vise dokumenata
  *   cVarijanta   - varijanta
  */
@@ -82,7 +82,7 @@ return IF(nPom=LEN(aPom).and.cVarijanta!="BRISI".or.nPom==0,.f.,.t.)
 
 
 
-/*!  FilterPrNovine()
+/*  FilterPrNovine()
  *   Postavlja filter na zadani dokument sa gFiltNov
  *  todo: Pregledati gdje se koristi, izgleda da je vezano samo za ZIPS ili Opresu
  */

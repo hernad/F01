@@ -194,7 +194,7 @@ return
 
 
 
-/*!  GetProdKto(aProd)
+/*  GetProdKto(aProd)
  *   Vrati matricu sa prodavnicama
  *   aProd
  */
@@ -253,7 +253,7 @@ return
 
 
 
-/*!  GenPreknj(cPKonto, cPrTarifa, dDatOd, dDatDo, cBrKalk, lPst)
+/*  GenPreknj(cPKonto, cPrTarifa, dDatOd, dDatDo, cBrKalk, lPst)
  *   Opcija generisanja dokumenta preknjizenja
  *   cPKonto - prodavnicki konto
  *   cPrTarifa - tarifa preknjizenja

@@ -17,7 +17,7 @@
 
 * KREIRANJE PORUKE
 
-/*!  CreateMsg()
+/*  CreateMsg()
  *   Kreiranje poruka
  */
 function CreateMsg(cIdPos)
@@ -98,7 +98,7 @@ return
 
 
 
-/*!  SaveMessage(aLinijeText, cFrom, cUserName, cPrioritet, cTo)
+/*  SaveMessage(aLinijeText, cFrom, cUserName, cPrioritet, cTo)
  *   Snimanje poruke u tabelu MESSAGE
  */
 function SaveMessage(aLinijeText, cFrom, cUserName, cPrioritet, cTo)
@@ -125,7 +125,7 @@ return
 * CITANJE PORUKA
 
 
-/*!  ReadMsg(lNeprocitane)
+/*  ReadMsg(lNeprocitane)
  *   Citanje poruka
  *   lNeprocitane - samo koje nisu procitane (.t.) ili sve (.f.)
  */
@@ -221,7 +221,7 @@ return
 
 
 
-/*!  IsNewMsgExists()
+/*  IsNewMsgExists()
  *   Da li postoji nova poruka sa praznim poljem READ
  */
 function IsNewMsgExists()
@@ -376,7 +376,7 @@ return (DE_REFRESH)
 
 
 
-/*!  SendMsgToClipboard(idMsg, aLinijeTXT, idPos, fromuser, prioritet, to)
+/*  SendMsgToClipboard(idMsg, aLinijeTXT, idPos, fromuser, prioritet, to)
  *   Salje poruku u TMPMSG.DBF
  */
 function SendMsgToClipboard(idMsg, aLinijeTXT, idpos, fromuser, prioritet, to)
@@ -417,7 +417,7 @@ return
 
 
 
-/*!  GetMsgFromClipboard(idMsg)
+/*  GetMsgFromClipboard(idMsg)
  *   Kopira sadrzaj polja TMPMSG u MESSAGE za zadani idMsg
  *   idMsg - oznaka poruke
  */

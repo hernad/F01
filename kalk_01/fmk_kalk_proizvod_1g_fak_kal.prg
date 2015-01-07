@@ -553,7 +553,7 @@ return
 
 
 
-/*!  PrenosNo2()
+/*  PrenosNo2()
  *   Prenos FAKT -> KALK 10 po normativima
  */
 

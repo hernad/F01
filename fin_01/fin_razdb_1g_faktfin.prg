@@ -225,7 +225,7 @@ closeret
 
 
 
-/*!  PorezMp(cVar)
+/*  PorezMp(cVar)
  *   Porez u maloprodaji
  *   cVar
  */
@@ -296,7 +296,7 @@ return nVrati
 
 
 
-/*!  fin_kontiranje_naloga(dDatNal)
+/*  fin_kontiranje_naloga(dDatNal)
  *   Kontiranje naloga
  *   dDatNal  - datum naloga
  */
@@ -502,7 +502,7 @@ return
 
 
 
-/*!  RasKon(cRoba,aSifre,aKonta)
+/*  RasKon(cRoba,aSifre,aKonta)
  *   Trazi poziciju cRoba u aSifre i ako nadje vraca element iz aKonta koji je na nadjenoj poziciji
  *   cRoba
  *   aSifre
@@ -519,7 +519,7 @@ return if(nPom>0,aKonta[nPom],"")
 
 
 
-/*!  PrStopa(nProc)
+/*  PrStopa(nProc)
  *    Preracunata stopa
  *  \nProc - Broj
  */
@@ -531,7 +531,7 @@ return (if(nProc==0,0,1/(1+1/(nProc/100))))
 
 
 
-/*!  IzKalk(cIdRoba,cKonSir,cSta)
+/*  IzKalk(cIdRoba,cKonSir,cSta)
  *
  *   cIdRoba
  *   cKonSir

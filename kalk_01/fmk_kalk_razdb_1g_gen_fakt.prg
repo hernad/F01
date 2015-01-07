@@ -48,7 +48,7 @@
  */
 
 
-/*!  P_Fakt()
+/*  P_Fakt()
  *   Generacija FAKT dokumenta na osnovu kalkulacije (dokumenta u KALK)
  */
 
@@ -472,7 +472,7 @@ return
 
 
 
-/*!  kalk_prenos_modem(fSif)
+/*  kalk_prenos_modem(fSif)
  *
  */
 

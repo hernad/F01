@@ -32,7 +32,7 @@
  */
 
 
-/*!  KPro()
+/*  KPro()
  *   Kartica prodavnice koja se poziva iz pripreme dokumenta
  */
 

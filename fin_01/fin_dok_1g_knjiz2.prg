@@ -14,7 +14,7 @@
 
 
 
-/*!  OiNIsplate()
+/*  OiNIsplate()
  *   Odobrenje i nalog isplate
  */
  
@@ -181,7 +181,7 @@ return
 
 
 
-/*!  ChkKtoMark(cIdKonto)
+/*  ChkKtoMark(cIdKonto)
  *   provjeri da li postoji marker na kontu
  *   Uslov za ovu opciju: SIFK podesenje: ID=KONTO, OZNAKA=MARK, TIP=C, DUZ=1
  *   cIdKonto - id konto

@@ -19,7 +19,7 @@
  */
  
 
-/*!  Get1_16PDV()
+/*  Get1_16PDV()
  *   Prva strana maske za unos dokumenta tipa 16
  */
 
@@ -183,7 +183,7 @@ return lastkey()
 
 
 
-/*!  Get1_16bPDV()
+/*  Get1_16bPDV()
  *  
  */
 

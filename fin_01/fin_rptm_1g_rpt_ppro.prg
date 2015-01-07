@@ -168,7 +168,7 @@ return
 
 
 
-/*!  RedIspisa()
+/*  RedIspisa()
  *
  */
 
@@ -185,7 +185,7 @@ RETURN cVrati
 
 
 
-/*!  ZagPPR(cI)
+/*  ZagPPR(cI)
  *   Zaglavlje pregleda promjena na racunu
  *   cI
  */

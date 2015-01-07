@@ -56,7 +56,7 @@ CLASS TDbKalk FROM TDB
 END CLASS
 
 
-/*!  *void TDbKalk::dummy()
+/*  *void TDbKalk::dummy()
  */
 *void TDbKalk::dummy()
 
@@ -64,7 +64,7 @@ method dummy
 return
 
 
-/*!  *void TDbKalk::skloniSezonu(string cSezona, bool finverse,bool fda,bool fnulirati,bool fRS)
+/*  *void TDbKalk::skloniSezonu(string cSezona, bool finverse,bool fda,bool fnulirati,bool fRS)
  *   formiraj sezonsku bazu podataka
  *   cSezona - 
  *   fInverse - .t. iz sezone u radno, .f. iz radnog u sezonu
@@ -201,7 +201,7 @@ restore screen from cScr
 return
 
 
-/*!  *void TDbKalk::setgaDbfs()
+/*  *void TDbKalk::setgaDbfs()
  *   Setuje matricu gaDbfs 
  */
 *void TDbKalk::setgaDbfs()
@@ -252,7 +252,7 @@ return
 
 
 
-/*!  *void TDbKalk::install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7)
+/*  *void TDbKalk::install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7)
  *   osnovni meni za instalacijske procedure
  */
 
@@ -264,7 +264,7 @@ method install(cKorisn,cSifra,p3,p4,p5,p6,p7)
 return
 
 
-/*!  *void TDbKalk::kreiraj(int nArea)
+/*  *void TDbKalk::kreiraj(int nArea)
  *   kreirane baze podataka POS
  */
  
@@ -663,7 +663,7 @@ endif
 return
 
 
-/*!  *void TDbKalk::obaza(int i)
+/*  *void TDbKalk::obaza(int i)
  *   otvara odgovarajucu tabelu
  *  
  *      
@@ -747,7 +747,7 @@ endif
 return
 
 
-/*!  *void TDbKalk::ostalef()
+/*  *void TDbKalk::ostalef()
  *   Ostalef funkcije (bivsi install modul)
  *  biljeska:  sifra: SIGMAXXX
 */
@@ -819,7 +819,7 @@ endif
 return
 
 
-/*!  *void TDbKalk::konvZn()
+/*  *void TDbKalk::konvZn()
  *   koverzija 7->8 baze podataka KALK
  */
  

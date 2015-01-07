@@ -264,7 +264,7 @@ close all
 return
 
 
-/*!  fakt_10_kalk_14()
+/*  fakt_10_kalk_14()
  *   Prenos FAKT 10 -> KALK 14 (veleprodajni racun)
  */
 
@@ -470,7 +470,7 @@ return
 
 
 
-/*!  PrenosOt(cIndik)
+/*  PrenosOt(cIndik)
  *   Prenosi FAKT->KALK (12->96),(19->96),(01->10),(0x->16)
  */
 

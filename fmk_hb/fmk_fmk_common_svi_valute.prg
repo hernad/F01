@@ -18,7 +18,7 @@
  * ----------------------------------------------------------------
  */
  
-/*!  Kurs(dDat,cValIz,cValU)
+/*  Kurs(dDat,cValIz,cValU)
  *   dDat - datum na koji se trazi omjer
  *   cValIz - valuta iz koje se vrsi preracun iznosa
  *   cValU  - valuta u koju se preracunava iznos valute cValIz
@@ -273,7 +273,7 @@ endif
 
 
 
-/*!  OmjerVal(v1,v2)
+/*  OmjerVal(v1,v2)
  *   Omjer valuta 
  *   v1  - valuta 1
  *   v2  - valuta 2

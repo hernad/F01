@@ -34,7 +34,7 @@ static nPreuseLevel:=0
 *;
 
 
-/*!  Scatter(cZn)
+/*  Scatter(cZn)
   *  vrijednosti field varijabli tekuceg sloga prebacuje u public varijable
   *
   *  cZn - Default = "_"; odredjuje prefixs varijabli koje ce generisati
@@ -184,7 +184,7 @@ return nil
 
 
 
-/*!  Gather2(cZn)
+/*  Gather2(cZn)
 *    Gather ne versi rlock-unlock
 *   biljeska: Gather2 pretpostavlja zakljucan zapis !!
 */
@@ -339,7 +339,7 @@ return nil
 
 
 
-/*!  AppFrom(cFDbf, fOtvori)
+/*  AppFrom(cFDbf, fOtvori)
 *   apenduje iz cFDbf-a u tekucu tabelu
 *   cFDBF - ime dbf-a
 *   fOtvori - .t. - otvori DBF, .f. - vec je otvorena
@@ -491,7 +491,7 @@ function nErr(oe)
 break oe
 
 
-/*!  EofFndRet(ef, close)
+/*  EofFndRet(ef, close)
  *   Daje poruku da ne postoje podaci
  *   ef = .t.   gledaj eof();  ef == .f. gledaj found()
  *  return:  .t. ako ne postoje podaci
@@ -524,7 +524,7 @@ return fRet
 
 
 
-/*!  SigmaSif(cSif)
+/*  SigmaSif(cSif)
  *   zasticene funkcije sistema
  *
  * za programske funkcije koje samo serviser
@@ -563,7 +563,7 @@ endif
 
 return
 
-/*!  O_POMDB(nArea,cImeDBF)
+/*  O_POMDB(nArea,cImeDBF)
  *   otvori pomocnu tabelu, koja ako se nalazi na CDU npr se kopira u lokalni
  *   direktorij pa zapuje
  */
@@ -704,7 +704,7 @@ endif
 return
 
 
-/*!  SetWOnly()
+/*  SetWOnly()
  *   Set write atributa
  */
 function SetWOnly(lSilent)
@@ -762,7 +762,7 @@ endif
 return
 
 
-/*!  SkratiAZaD(aStruct)
+/*  SkratiAZaD(aStruct)
  *   skrati matricu za polje D
 
  *  \code
@@ -785,7 +785,7 @@ ASIZE(aStruct,nLen)
 return nil
 
 
-/*!  Append2()
+/*  Append2()
  *  Dodavanje novog zapisa u (nArr) -
  * biljeska: koristi se kod dodavanja zapisa u bazu nakon Izdvajanja zapisa funkcijom Izdvoji()
  */
@@ -801,7 +801,7 @@ replace recno with nRec
 
 return nil
 
-/*!  DbfName(nArea, lFull)
+/*  DbfName(nArea, lFull)
  *   nArea
  *   lFull True - puno ime cPath + cDbfName; False - samo cDbfName; default=False
  *
@@ -949,7 +949,7 @@ ENDIF
 return
 
 
-/*!  ExportBaze(cBaza)
+/*  ExportBaze(cBaza)
 
    Vidljive slogove tekuce baze kopira u bazu cBaza. Prije toga izbrise
    bazu cBaza i pripadajuce indekse ukoliko postoje. cBaza ostaje zatvorena
@@ -990,7 +990,7 @@ return nil
 
 
 
-/*!  SmReplace(cField, xValue, lReplAlways)
+/*  SmReplace(cField, xValue, lReplAlways)
  *   Smart Replace - vrsi replace. Ako je lReplAlways .T. uvijek vrsi, .F. samo ako je vrijdnost polja razlicita
  *  biljeska: vrsi se i REPLSQL, kada je gSql=="D"
  */
@@ -1015,7 +1015,7 @@ endif
 return
 
 
-/*!   PreUseEvent(cImeDbf, fShared)
+/*   PreUseEvent(cImeDbf, fShared)
  *   Poziva se prije svako otvaranje DBF-a komanom USE
  *
  * Za gSQL=="D":
@@ -1075,7 +1075,7 @@ nPreuseLevel:=0
 return cImeDbf
 
 
-/*!  ScanDb()
+/*  ScanDb()
  *   Prodji kroz sve tabele i pokreni PreuseEvent
  *  biljeska: sve tabele koje je gateway azurirao bice indeksirane
  */

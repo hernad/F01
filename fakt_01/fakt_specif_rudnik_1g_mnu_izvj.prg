@@ -34,7 +34,7 @@
  *   Izvjestaji rudnik
  */
  
-/*!  MnuRudnik()
+/*  MnuRudnik()
  *   menij izvjestaja rudnika
  */
  

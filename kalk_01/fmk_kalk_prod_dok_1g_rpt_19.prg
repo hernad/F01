@@ -26,7 +26,7 @@
  */
 
 
-/*!  StKalk19()
+/*  StKalk19()
  *   Stampa dokumenta tipa 19
  */
 
@@ -169,7 +169,7 @@ return
 
 
 
-/*!  Obraz19()
+/*  Obraz19()
  *   Stampa dokumenta tipa 19 - obrazac nivelacije
  */
 

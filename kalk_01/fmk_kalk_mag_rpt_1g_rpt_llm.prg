@@ -1477,7 +1477,7 @@ return
 
 
 
-/*!  PocStMag()
+/*  PocStMag()
  *   Generacija pocetnog stanja magacina
  */
 
@@ -1502,7 +1502,7 @@ return
 
 
 
-/*!  IsInGroup(cGr, cPodGr, cIdRoba)
+/*  IsInGroup(cGr, cPodGr, cIdRoba)
  *   Provjerava da li artikal pripada odredjenoj grupi i podgrupi
  *   cGr - grupa
  *   cPodGr - podgrupa

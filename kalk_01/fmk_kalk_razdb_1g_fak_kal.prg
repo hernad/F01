@@ -25,7 +25,7 @@
  */
 
 
-/*!  FaktKalk()
+/*  FaktKalk()
  *   Meni opcija za prenos dokumenata iz modula FAKT u KALK
  */
 
@@ -51,7 +51,7 @@ return
 
 
 
-/*!  ProvjeriSif(clDok,cImePoljaID,nOblSif,clFor)
+/*  ProvjeriSif(clDok,cImePoljaID,nOblSif,clFor)
  *   Provjera postojanja sifara
  *   clDok - "while" uslov za obuhvatanje slogova tekuce baze
  *   cImePoljaID - ime polja tekuce baze u kojem su sifre za ispitivanje

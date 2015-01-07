@@ -177,7 +177,7 @@ TxtErase(cImpFile, .t.)
 return
 
 
-/*!  GetImpFilter()
+/*  GetImpFilter()
  *   Vraca filter za naziv dokumenta u zavisnosti sta je odabrano VP ili MP
  */
 static function GetImpFilter()
@@ -209,7 +209,7 @@ return cRet
 
 
 
-/*!  MnuObrDok()
+/*  MnuObrDok()
  *   Obrada dokumenata iz pomocne tabele
  */
 static function MnuObrDok()
@@ -225,7 +225,7 @@ return
 
 
 
-/*!  ImpTxtPartn()
+/*  ImpTxtPartn()
  *   Import sifrarnika partnera
  */
 static function ImpTxtPartn()
@@ -346,7 +346,7 @@ return
 
 
 
-/*!  SetTblDok(aDbf)
+/*  SetTblDok(aDbf)
  *   Setuj matricu sa poljima tabele dokumenata RACUN
  *   aDbf - matrica
  */
@@ -420,7 +420,7 @@ return
 
 
 
-/*!  SetRuleDok(aRule)
+/*  SetRuleDok(aRule)
  *   Setovanje pravila upisa zapisa u temp tabelu
  *   aRule - matrica pravila
  */
@@ -478,7 +478,7 @@ return
 
 
 
-/*!  SetRulePartn(aRule)
+/*  SetRulePartn(aRule)
  *   Setovanje pravila upisa zapisa u temp tabelu
  *   aRule - matrica pravila
  */
@@ -541,7 +541,7 @@ return
 
 
 
-/*!  GetExpPath(cPath)
+/*  GetExpPath(cPath)
  *   Vraca podesenje putanje do exportovanih fajlova
  *   cPath - putanja, zadaje se sa argumentom @ kao priv.varijabla
  */
@@ -556,7 +556,7 @@ return
 
 
 
-/*!  txt_to_temp_import_tabela(aDbf, aRules, cTxtFile)
+/*  txt_to_temp_import_tabela(aDbf, aRules, cTxtFile)
  *   Kreiranje temp tabele, te prenos zapisa iz text fajla "cTextFile" u tabelu putem aRules pravila
  *   aDbf - struktura tabele
  *   aRules - pravila upisivanja jednog zapisa u tabelu, princip uzimanja zapisa iz linije text fajla
@@ -628,7 +628,7 @@ return
 
 
 
-/*!  CheckFile(cTxtFile)
+/*  CheckFile(cTxtFile)
  *   Provjerava da li je fajl prazan
  *   cTxtFile - txt fajl
  */
@@ -639,7 +639,7 @@ return nBrLin
 
 
 
-/*!  CreTemp(aDbf)
+/*  CreTemp(aDbf)
  *   Kreira tabelu PRIVPATH\TEMP.DBF prema definiciji polja iz aDbf
  *   aDbf - def.polja
  */
@@ -674,7 +674,7 @@ return
 
 
 
-/*!  CrePriprTDbf()
+/*  CrePriprTDbf()
  *   Kreiranje tabele PRIVPATH + PRIPT.DBF
  */
 function CrePripTDbf()
@@ -696,7 +696,7 @@ return
 
 
 
-/*!  CheckBrFakt()
+/*  CheckBrFakt()
  *   Provjeri da li postoji broj fakture u azuriranim dokumentima
  */
 static function CheckBrFakt(aFakt )
@@ -910,7 +910,7 @@ return aRet
 
 
 
-/*!  ParExist()
+/*  ParExist()
  *   Provjera da li postoje sifre partnera u sifraniku FMK
  */
 static function ParExist(lPartNaz)
@@ -944,7 +944,7 @@ return aRet
 
 
 
-/*!  GetKTipDok(cFaktTD)
+/*  GetKTipDok(cFaktTD)
  *   Vraca kalk tip dokumenta na osnovu fakt tip dokumenta
  *   cFaktTD - fakt tip dokumenta
  */
@@ -1113,7 +1113,7 @@ enddo
 return aRet
 
 
-/*!  TTbl2Kalk(aFExist, lFSkip)
+/*  TTbl2Kalk(aFExist, lFSkip)
  *   kopira podatke iz pomocne tabele u tabelu KALK->PRIPT
  *   aFExist matrica sa postojecim fakturama
  *   lFSkip preskaci postojece fakture
@@ -1424,7 +1424,7 @@ return 1
 
 
 
-/*!  GetKtKalk(cTipDok, cPm, cTip)
+/*  GetKtKalk(cTipDok, cPm, cTip)
  *   Varaca konto za trazeni tip dokumenta i prodajno mjesto
  *   cTipDok - tip dokumenta
  *   cPm - prodajno mjesto
@@ -1456,7 +1456,7 @@ return cRet
 
 
 
-/*!  TTbl2Partn(lEditOld)
+/*  TTbl2Partn(lEditOld)
  *   kopira podatke iz pomocne tabele u tabelu PARTN
  *   lEditOld - ispraviti stare zapise
  */
@@ -1591,7 +1591,7 @@ return 1
 
 
 
-/*!  GetKVars(dDatDok, cBrKalk, cTipDok, cIdKonto, cIdKonto2, cRazd)
+/*  GetKVars(dDatDok, cBrKalk, cTipDok, cIdKonto, cIdKonto2, cRazd)
  *   Setuj parametre prenosa TEMP->PRIPR(KALK)
  *   dDatDok - datum dokumenta
  *   cBrKalk - broj kalkulacije
@@ -1630,7 +1630,7 @@ return 1
 
 
 
-/*!  ObradiImport()
+/*  ObradiImport()
  *   Obrada importovanih dokumenata
  */
 function ObradiImport(nPocniOd, lAsPokreni, lStampaj)
@@ -1752,7 +1752,7 @@ MsgBeep("Dokumenti obradjeni!")
 return
 
 
-/*!  SaveObrada()
+/*  SaveObrada()
  *   Snima momenat do kojeg je dosao pri obradi dokumenata
  */
 static function SaveObrada(nPRec)
@@ -1774,7 +1774,7 @@ select (nArr)
 return
 
 
-/*!  RestoreObrada()
+/*  RestoreObrada()
  *   Pokrece ponovo obradu od momenta do kojeg je stao
  */
 static function RestoreObrada()
@@ -1819,7 +1819,7 @@ ObradiImport( nDosaoDo , nil, __stampaj )
 return
 
 
-/*!  ObradiDokument(cIdVd)
+/*  ObradiDokument(cIdVd)
  *   Obrada jednog dokumenta
  *   cIdVd - id vrsta dokumenta
  */
@@ -1896,7 +1896,7 @@ enddo
 return
 
 
-/*!  ChkKPripr(cIdVd, nRes)
+/*  ChkKPripr(cIdVd, nRes)
  *   Provjeri da li je priprema prazna
  *   cIdVd - id vrsta dokumenta
  */
@@ -1918,7 +1918,7 @@ return 0
 
 
 
-/*!  ChkTipDok(cIdVd)
+/*  ChkTipDok(cIdVd)
  *   Provjeri pripremu za tip dokumenta
  *   cIdVd - vrsta dokumenta
  */
@@ -1956,7 +1956,7 @@ return 0
 
 
 
-/*!  ChkTD14(cVezniDok)
+/*  ChkTD14(cVezniDok)
  *   Provjeri vezne dokumente za tip dokumenta 14
  *   cVezniDok - dokument iz pripreme
  *  \result vraca 1 ako je sve ok, ili 2 ako vezni dokument ne odgovara
@@ -1970,7 +1970,7 @@ endif
 return 2
 
 
-/*!  ChkTD41()
+/*  ChkTD41()
  *   Provjeri vezne dokumente za tip dokumenta 41
  */
 static function ChkTD41(cVezniDok)
@@ -1982,7 +1982,7 @@ endif
 return 2
 
 
-/*!  ChkTD11()
+/*  ChkTD11()
  *   Provjeri vezne dokumente za tip dokumenta 11
  */
 static function ChkTD11(cVezniDok)
@@ -1994,7 +1994,7 @@ endif
 return 2
 
 
-/*!  ChkTD95()
+/*  ChkTD95()
  *   Provjeri vezne dokumente za tip dokumenta 95
  */
 static function ChkTD95(cVezniDok)
@@ -2007,7 +2007,7 @@ return 2
 
 
 
-/*!  FillDobSifra()
+/*  FillDobSifra()
  *   Popunjavanje polja sifradob prema kljucu
  */
 static function FillDobSifra()

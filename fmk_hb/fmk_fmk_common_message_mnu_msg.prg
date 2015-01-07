@@ -14,7 +14,7 @@
 #include "msg.ch"
 
 
-/*!  Mnu_Poruke()
+/*  Mnu_Poruke()
  *   Glavni menij poruka
  */
 function Mnu_Poruke()

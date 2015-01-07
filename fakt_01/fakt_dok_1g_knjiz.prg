@@ -110,7 +110,7 @@ return
 
 
 
-/*!  TekDokument()
+/*  TekDokument()
  *   Tekuci dokument
  */
 
@@ -141,7 +141,7 @@ return
 
 
 
-/*!  Rbr()
+/*  Rbr()
  *   Redni broj
  */
 
@@ -197,7 +197,7 @@ endcase
 return padr( cRet, 30)
 
 
-/*!  JedinaStavka()
+/*  JedinaStavka()
  *   U dokumentu postoji samo jedna stavka
  */
 
@@ -221,7 +221,7 @@ return IIF(nBrStavki==1, .t., .f.)
 
 
 
-/*!  EdPripr
+/*  EdPripr
  *   Sprema pripremu za unos/ispravku dokumenta
  *   Priprema ekran i definise tipke (c+N,a+A...)
  *  todo: Ovu funkciju definitivno treba srediti....
@@ -812,7 +812,7 @@ return
 
 
 
-/*!  CijeneOK(cStr)
+/*  CijeneOK(cStr)
  *
  *   cStr
  */
@@ -848,7 +848,7 @@ return (lRetFlag)
 
 
 
-/*!  EdOtpr(Ch)
+/*  EdOtpr(Ch)
  *   Ispravka otpremnica
  *   Ch
  */
@@ -874,7 +874,7 @@ return nRet
 
 
 
-/*!  fakt_renum_priprema(cVezOtpr,dNajnoviji)
+/*  fakt_renum_priprema(cVezOtpr,dNajnoviji)
  *
  *   cVezOtpr
  *   dNajnoviji - datum posljednje radjene otpremnice
@@ -1941,7 +1941,7 @@ return cList
 
 
 
-/*!  FRokPl(cVar, fNovi)
+/*  FRokPl(cVar, fNovi)
  *   Validacija roka placanja
  *   cVar
  *   fNovi
@@ -2022,7 +2022,7 @@ return .t.
 
 
 
-/*!  SljBrDok13(cBrD,nBrM,cKon)
+/*  SljBrDok13(cBrD,nBrM,cKon)
  *
  *   cBrD
  *   nBrM
@@ -2047,7 +2047,7 @@ return cPom2+cPom+"/"+PADL(ALLTRIM(STR(nBrM)),2,"0")
 
 
 
-/*!  PrCijSif()
+/*  PrCijSif()
  *   Promjena cijene u sifrarniku
  */
 
@@ -2076,7 +2076,7 @@ return
 
 
 
-/*!  RJIzKonta(cKonto)
+/*  RJIzKonta(cKonto)
  *   Vraca radnu jedinicu iz sif->konto na osnovu zadatog konta
  *   cKonto   - konto
  *  return: cVrati
@@ -2101,7 +2101,7 @@ return cVrati
 
 
 
-/*!  KontoIzRJ(cRJ)
+/*  KontoIzRJ(cRJ)
  *   Vraca konto na osnovu radne jedinice
  *   cRJ  - radna jedinica
  *  return: cVrati
@@ -2122,7 +2122,7 @@ return cVrati
 
 
 
-/*!  NarBrDok(fNovi)
+/*  NarBrDok(fNovi)
  *   Postavlja u pripremi broj dokumenta - puni pripremu
  *   NarBrDok(fNovi)->cBroj  - Generise naredni broj dokumenta
  *   fNovi
@@ -2263,7 +2263,7 @@ return _BrDok
 
 
 
-/*!  StampTXT(cIdFirma,cIdTipDok,cBrDok)
+/*  StampTXT(cIdFirma,cIdTipDok,cBrDok)
  *   Stampa dokumenta
  *  todo: Ovo bi trebalo prebaciti u /RPT
  *   cIdFirma
@@ -2438,7 +2438,7 @@ return
 
 
 
-/*!  StampRtf(cImeF,cIdFirma,cIdTipDok,cBrDok)
+/*  StampRtf(cImeF,cIdFirma,cIdTipDok,cBrDok)
  *   Stampa u rtf formatu
  *  todo: Ovo bi trebalo prebaciti u /RPT
  *   cImeF
@@ -2514,7 +2514,7 @@ endif
 
 
 
-/*!  IsprUzorTxt(fSilent,bFunc)
+/*  IsprUzorTxt(fSilent,bFunc)
  *   Ispravka teksta ispod fakture
  *   fSilent
  *   bFunc
@@ -2622,7 +2622,7 @@ return
 
 
 
-/*!  PrerCij()
+/*  PrerCij()
  *   Prerada cijene
  *   Ako je u polje SERBR unesen podatak KJ/KG iznos se dobija kao KOLICINA*CIJENA*PrerCij()  - varijanta R - Rudnik
  *  return: nVrati
@@ -2639,7 +2639,7 @@ return nVrati
 
 
 
-/*!  TestMainIndex()
+/*  TestMainIndex()
  *
  *  return: lVrati
  */
@@ -2705,7 +2705,7 @@ return lVrati
 
 
 
-/*!  PRNKod_ON(cKod)
+/*  PRNKod_ON(cKod)
  *
  *   cKod
  */
@@ -2727,7 +2727,7 @@ return (nil)
 
 
 
-/*!  PRNKod_OFF(cKod)
+/*  PRNKod_OFF(cKod)
  *
  *  todo: Prebaciti u /RPT
  *   cKod
@@ -2769,7 +2769,7 @@ I_OFF
 return
 
 
-/*!  EdDoks2()
+/*  EdDoks2()
  *   Editovanje DOKS2 pri unosu fakture
  */
 
@@ -2873,7 +2873,7 @@ return lRet
 
 
 
-/*!  SKCKalk(lSet)
+/*  SKCKalk(lSet)
  *   Set Key za Cijenu iz Kalk
  *   lSet
  */
@@ -2899,7 +2899,7 @@ return .t.
 
 
 
-/*!  StUgRabKup()
+/*  StUgRabKup()
  *   Stampa dokumenta ugovor o rabatu
  *  todo: Treba prebaciti u /RPT
  */
@@ -2914,7 +2914,7 @@ return
 
 
 
-/*!  Naziv19ke()
+/*  Naziv19ke()
  *   Vraca naziv za tip dokumenta 19
  *  return: cVrati
  */
@@ -2927,7 +2927,7 @@ return cVrati
 
 
 
-/*!  IzborBanke(cToken)
+/*  IzborBanke(cToken)
  *   Izbor banke
  *   cToken
  *  return: cVrati
@@ -2993,7 +2993,7 @@ return cVrati
 
 
 
-/*!  KonZbira(lVidi)
+/*  KonZbira(lVidi)
  *
  *   lVidi - ako je .t. ili nil mora da postoji i privatna varijabla nC:=1
  */
@@ -3039,7 +3039,7 @@ return
 
 
 
-/*!  JeStorno10()
+/*  JeStorno10()
  *   True je distribucija i TipDokumenta=10  i krajnji desni dio broja dokumenta="S"
  */
 
@@ -3049,7 +3049,7 @@ return glDistrib .and. _idtipdok=="10" .and. UPPER(RIGHT(TRIM(_BrDok),1))=="S"
 
 
 
-/*!  RabPor10()
+/*  RabPor10()
  *
  */
 

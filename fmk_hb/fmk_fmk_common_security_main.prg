@@ -252,7 +252,7 @@ return DBUILD
 
 
 
-/*!  MigrateRulesForGroup(cExistingGroup, cNewGroup, cSetLicenceTo)
+/*  MigrateRulesForGroup(cExistingGroup, cNewGroup, cSetLicenceTo)
  *   Kopira pravila za novu grupu korisnika po uzoru na postojecu
  *   cExistingGroup - ID postojece grupe
  *   cNewGroup - ID nove grupe

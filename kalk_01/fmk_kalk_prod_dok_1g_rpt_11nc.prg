@@ -42,7 +42,7 @@
  */
 
 
-/*!  StKalk11_1()
+/*  StKalk11_1()
  *   Stampa kalkulacije 11 / magacin po nabavnim cjenama
  */
 

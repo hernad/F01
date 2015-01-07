@@ -14,7 +14,7 @@
 #include "msg.ch"
 
 
-/*!  CreDB_Message()
+/*  CreDB_Message()
  *   Kreiranje tabele za razmjenu poruka
  */
 function CreDB_Message()

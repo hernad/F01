@@ -570,7 +570,7 @@ return .t.
 
 
 
-/*!  W_BrOtp(fNovi)
+/*  W_BrOtp(fNovi)
  *
  *   fNovi
  */
@@ -583,7 +583,7 @@ return .t.
 
 
 
-/*!  V_Rabat()
+/*  V_Rabat()
  *
  */
 
@@ -895,7 +895,7 @@ PushWa()
 PopWa()
 
 
-/*!  GetUsl(fNovi)
+/*  GetUsl(fNovi)
  *   get usluga
  *   fNovi
  */
@@ -945,7 +945,7 @@ return .t.
 
 
 
-/*!  Nijedupla(fNovi)
+/*  Nijedupla(fNovi)
  *
  *   fNovi
  */
@@ -990,7 +990,7 @@ RETURN (.t.)
 
 
 
-/*!  Prepak(cIdRoba,cPako,nPak,nKom,nKol,lKolUPak)
+/*  Prepak(cIdRoba,cPako,nPak,nKom,nKol,lKolUPak)
  *   Preracunavanje paketa i komada ...
  *   cIdRoba  - sifra artikla
  *   nPak     - broj paketa/kartona
@@ -1036,7 +1036,7 @@ RETURN lVrati
 
 
 
-/*!  UGenNar()
+/*  UGenNar()
  *   U Generalnoj Narudzbi
  */
 

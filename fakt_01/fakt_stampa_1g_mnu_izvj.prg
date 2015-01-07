@@ -23,7 +23,7 @@
  *   Izvjestaji vezani za opresu stampa
  */
 
-/*!  MnuStampa()
+/*  MnuStampa()
  *   Menij izvjestaja za opresu stampa
  */
  

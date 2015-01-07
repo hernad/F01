@@ -13,7 +13,7 @@
 #include "sc.ch"
 
 
-/*!  ShowIznRac(nIznos)
+/*  ShowIznRac(nIznos)
  *   Ispisuje iznos racuna velikim slovima
  */
 

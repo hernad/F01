@@ -42,7 +42,7 @@ return .t.
 
 
 
-/*!  WMpc(fRealizacija,fMarza)
+/*  WMpc(fRealizacija,fMarza)
  *   When blok za unos MPC
  *   fRealizacija -
  *   fMarza -
@@ -75,7 +75,7 @@ return .t.
 
 
 
-/*!  VMpc(fRealizacija,fMarza)
+/*  VMpc(fRealizacija,fMarza)
  *   Valid blok za unos MPC
  *   fRealizacija -
  *   fMarza -
@@ -106,7 +106,7 @@ return .t.
 
 
 
-/*!  VMpcSaPP(fRealizacija,fMarza)
+/*  VMpcSaPP(fRealizacija,fMarza)
  *   Valid blok za unos MpcSaPP
  *   fRealizacija -
  *   fMarza -
@@ -154,7 +154,7 @@ return .t.
 
 
 
-/*!  SayPorezi(nRow)
+/*  SayPorezi(nRow)
  *   Ispisuje poreze
  *   nRow - relativna kooordinata reda u kojem se ispisuju porezi
  */
@@ -182,7 +182,7 @@ return
 
 
 
-/*!  FillIzgStavke(pIzgStavke)
+/*  FillIzgStavke(pIzgStavke)
  *   Puni polja izgenerisane stavke
  *   pIzgStavke - .f. ne puni, .t. puni
  */
@@ -228,7 +228,7 @@ return
 
 
 
-/*!  VRoba_lv(fNovi, aPorezi)
+/*  VRoba_lv(fNovi, aPorezi)
  *   Setuje tarifu i poreze na osnovu sifrarnika robe i tarifa
  *  biljeska: koristi lokalne varijable
  */
@@ -280,7 +280,7 @@ endif
 return .t.
 
 
-/*!  WMpc_lv(fRealizacija, fMarza, aPorezi)
+/*  WMpc_lv(fRealizacija, fMarza, aPorezi)
  *   When blok za unos MPC
  *   fRealizacija -
  *   fMarza -
@@ -317,7 +317,7 @@ return .t.
 
 
 
-/*!  VMpc_lv(fRealizacija, fMarza, aPorezi)
+/*  VMpc_lv(fRealizacija, fMarza, aPorezi)
  *   Valid blok za unos MPC
  *   fRealizacija -
  *   fMarza -
@@ -344,7 +344,7 @@ return .t.
 
 
 
-/*!  V_Mpc_(cIdVd, lNaprijed, aPorezi)
+/*  V_Mpc_(cIdVd, lNaprijed, aPorezi)
  */
 
 function V_Mpc_( cIdVd, lNaprijed, aPorezi)
@@ -368,7 +368,7 @@ return .t.
 
 
 
-/*!  VMpcSaPP_lv(fRealizacija, fMarza, aPorezi)
+/*  VMpcSaPP_lv(fRealizacija, fMarza, aPorezi)
  *   Valid blok za unos MpcSaPP
  *   fRealizacija -
  *   fMarza -
@@ -417,7 +417,7 @@ return .t.
 
 
 
-/*!  V_MpcSaPP_( cIdVd, lNaprijed, aPorezi, lShowGets)
+/*  V_MpcSaPP_( cIdVd, lNaprijed, aPorezi, lShowGets)
  */
 
 function V_MpcSaPP_( cIdVd, lNaprijed, aPorezi, lShowGets)
@@ -457,7 +457,7 @@ return .t.
 
 
 
-/*!  SayPorezi_lv(nRow, aPorezi)
+/*  SayPorezi_lv(nRow, aPorezi)
  *   Ispisuje poreze
  *   nRow - relativna kooordinata reda u kojem se ispisuju porezi
  *  \aPorezi - koristi lokalne varijable

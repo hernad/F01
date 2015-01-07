@@ -27,7 +27,7 @@
 
 
 
-/*!  kalk_rekap_tarife()
+/*  kalk_rekap_tarife()
  *   Nova funkcija RekTarife - koristi proracun poreza iz roba/tarife.prg
  * prosljedjuje se cidfirma,cidvd,cbrdok
  */
@@ -204,7 +204,7 @@ go nRec
 return
 
 
-/*!  PKontoCnt(cSeek)
+/*  PKontoCnt(cSeek)
  *   Kreira niz prodavnickih konta koji se nalaze u zadanom dokumentu
  *   cSeek - firma + tip dok + broj dok
  */

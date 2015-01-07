@@ -377,7 +377,7 @@ return
 
 
 
-/*!  ZaglRPartn(fTabela)
+/*  ZaglRPartn(fTabela)
  *   Zaglavlje izvjestaja "realizacija veleprodaje po partnerima"
  */
 

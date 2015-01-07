@@ -12,7 +12,7 @@
 
 #include "sc.ch"
 
-/*!  MnuEvents()
+/*  MnuEvents()
  *   Menij events
  */
 function MnuEvents()

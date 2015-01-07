@@ -17,7 +17,7 @@
  *   Azuriranje kalkulacija i povrat kalkulacija u pripremu
  */
 
-/*!  kalk_Azur()
+/*  kalk_Azur()
  *   Azuriranje kalkulacije
  */
 
@@ -550,7 +550,7 @@ return
 
 
 
-/*!  Azur9()
+/*  Azur9()
  *  
  */
 
@@ -612,7 +612,7 @@ closeret
 
 
 
-/*!  kalk_povrat()
+/*  kalk_povrat()
  *   Povrat kalkulacije u pripremu
  */
 
@@ -803,7 +803,7 @@ return
 
 // iz pripr 9 u pripr
 
-/*!  Povrat9()
+/*  Povrat9()
  *   Povrat kalkulacije iz "smeca" u pripremu
  */
 
@@ -939,7 +939,7 @@ return
 
 // iz pripr 9 u pripr najstariju kalkulaciju
 
-/*!  P9najst()
+/*  P9najst()
  *   Povrat najstarije kalkulacije iz "smeca" u pripremu
  */
 
@@ -1002,7 +1002,7 @@ closeret
 
 // iz kalk u pripr najnoviju kalkulaciju
 
-/*!  Pnajn()
+/*  Pnajn()
  *   Povrat najnovije kalkulacije u pripremu
  */
 
@@ -1097,7 +1097,7 @@ closeret
 
 
 
-/*!  ErPripr9(cIdF, cIdVd, cBrDok)
+/*  ErPripr9(cIdF, cIdVd, cBrDok)
  *   Brise dokument iz tabele PRIPR9
  */
 function ErPripr9(cIdF, cIdVd, cBrDok)
@@ -1121,7 +1121,7 @@ return
 
 
 
-/*!  ErP9All()
+/*  ErP9All()
  *   Brisi sve zapise iz tabele PRIPR9
  */
 function ErP9All()

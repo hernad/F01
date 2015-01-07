@@ -23,7 +23,7 @@
  *   Izvjestaji
  */
 
-/*!  MIzvjestaji()
+/*  MIzvjestaji()
  *   Glavni menij izvjestaja
  */
  
@@ -52,7 +52,7 @@ return
 return
 
 
-/*!  IzvjMaPr()
+/*  IzvjMaPr()
  *   Izvjestaji magacin / prodavnica
  */
  

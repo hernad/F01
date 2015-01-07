@@ -32,7 +32,7 @@
  */
 
 
-/*!  StKalk18()
+/*  StKalk18()
  *   Stampa dokumenta tipa 18
  */
 

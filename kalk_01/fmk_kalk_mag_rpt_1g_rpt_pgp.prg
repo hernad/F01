@@ -271,7 +271,7 @@ return
 
 
 
-/*!  ZaglPGP()
+/*  ZaglPGP()
  *   Zaglavlje izvjestaja "promet grupe partnera"
  */
 

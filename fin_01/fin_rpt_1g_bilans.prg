@@ -684,7 +684,7 @@ RETURN
 
 
 
-/*!  ZaglSan()
+/*  ZaglSan()
  *   Zaglavlje strane subanalitickog bruto bilansa
  */
 
@@ -734,7 +734,7 @@ RETURN
 
 
 
-/*!  AnalBB()
+/*  AnalBB()
  *   Analiticki bruto bilans
  */
 
@@ -1049,7 +1049,7 @@ closeret
 return
 
 
-/*!  BrBil_21()
+/*  BrBil_21()
  *   Zaglavlje analitickog bruto bilansa
  */
 
@@ -1086,7 +1086,7 @@ RETURN
 
 
 
-/*!  SintBB()
+/*  SintBB()
  *   Sinteticki bruto bilans
  */
 
@@ -1418,7 +1418,7 @@ return
 
 
 
-/*!  BrBil_31()
+/*  BrBil_31()
  *   Zaglavlje sintetickog bruto bilansa
  */
 
@@ -1452,7 +1452,7 @@ select SINT
 RETURN
 
 
-/*!  GrupBB()
+/*  GrupBB()
  *   Bruto bilans po grupama konta
  */
 
@@ -1733,7 +1733,7 @@ return
 
 
 
-/*!  BrBil_41()
+/*  BrBil_41()
  *   Zaglavlje bruto bilansa po grupama
  */
 
@@ -1769,7 +1769,7 @@ RETURN
 
 
 
-/*!  BBMnoziSaK()
+/*  BBMnoziSaK()
  *
  */
 

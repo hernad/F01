@@ -25,7 +25,7 @@
  */
 
 
-/*!  GenProd()
+/*  GenProd()
  *   Meni opcija za generisanje prodavnickih dokumenata
  */
 
@@ -123,7 +123,7 @@ return
 
 
 
-/*!  GenNivP()
+/*  GenNivP()
  *   Generisanje 19-ke na osnovu azuriranog dokumenta IP
  */
 
@@ -247,7 +247,7 @@ return
 
 
 
-/*!  NivPoProc()
+/*  NivPoProc()
  *   Generisanje dokumenta tipa 19 tj. nivelacije na osnovu zadanog %
  */
 
@@ -417,7 +417,7 @@ return
 
 
 
-/*!  VratiZadNiv()
+/*  VratiZadNiv()
  *   Generise novu 19-ku tj.nivelaciju na osnovu vec azurirane
  */
 
@@ -512,7 +512,7 @@ return
 
 
 
-/*!  KorekMPC()
+/*  KorekMPC()
  *   Generisanje nivelacije radi korekcije MPC
  */
 
@@ -694,7 +694,7 @@ return
 
 
 
-/*!  Iz13u11()
+/*  Iz13u11()
  *   Generisanje dokumenta tipa 11 na osnovu 13-ke
  */
 
@@ -768,7 +768,7 @@ return
 
 
 
-/*!  Gen41S()
+/*  Gen41S()
  *   Generisanje stavki u 42-ki na osnovu storna 41-ica
  *  todo: Prebaciti u specif za KALKT (Opresa)
  */
@@ -901,7 +901,7 @@ return .t.
 
 
 
-/*!  Iz11u412()
+/*  Iz11u412()
  *   Generisanje dokumenta tipa 41 ili 42 na osnovu 11-ke
  */
 
@@ -1009,7 +1009,7 @@ return
 
 
 
-/*!  Iz10u11()
+/*  Iz10u11()
  *   Generisanje dokumenta tipa 11 na osnovu 10-ke
  */
 

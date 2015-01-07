@@ -196,7 +196,7 @@ END CLASS
  */
 
 
-/*!  *void TDB::logAgain(string cSezona, bool lSilent, bool lWriteKParam)
+/*  *void TDB::logAgain(string cSezona, bool lSilent, bool lWriteKParam)
  *   logiraj se ponovo, sa oznakom nove sezone
  *   cSezona
  *   lSilent
@@ -523,7 +523,7 @@ return nPom
 
 
 
-/*!  TDB::mInstall()
+/*  TDB::mInstall()
  *   meni install database funkcija
  *  biljeska: bivsa funkcija Sistem
  */
@@ -603,7 +603,7 @@ return
 
 
 
-/*!  TDB::vratiSez()
+/*  TDB::vratiSez()
  *   vrati stanje podataka iz sezone u radno podrucje
  */
  
@@ -726,7 +726,7 @@ return
 
 
 
-/*!  TDB::loadSezonaRadimUSezona()
+/*  TDB::loadSezonaRadimUSezona()
  *   ucitaj ::cSezona, ::cRadimUSezona iz tabele parametara
  */
  
@@ -818,7 +818,7 @@ return
 
 
 
-/*!  *void TDB::radiUSezonskomPodrucju()
+/*  *void TDB::radiUSezonskomPodrucju()
  *   Na osnovu ::cRadimUSezona odredi database: Sezonsko ili Radno podrucje
  *  biljeska: centralno pitanje je "Prosli put ste radili u sezonskom podrucju ... Nastaviti ?"
  */

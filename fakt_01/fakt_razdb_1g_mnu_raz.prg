@@ -25,7 +25,7 @@
  */
 
 
-/*!  ModRazmjena()
+/*  ModRazmjena()
  *   Centralni meni opcija za prenos podataka FAKT<->ostali moduli
  */
 

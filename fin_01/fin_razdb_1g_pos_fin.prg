@@ -14,7 +14,7 @@
 
 #define F_T_PROMVP		245
 
-/*!  GetPrVPParams(cProdId, dDatOd, dDatDo, dDatDok, cTipNal, cShema)
+/*  GetPrVPParams(cProdId, dDatOd, dDatDo, dDatDok, cTipNal, cShema)
  *   Setuj parametre prenosa
  *   cProdId - id prodavnice
  *   dDatOd - datum prenosa od
@@ -51,7 +51,7 @@ return
 
 
 
-/*!  PromVP2Fin()
+/*  PromVP2Fin()
  *   Centralna funkcija za prenos PROMVP u FIN
  */
 function PromVP2Fin()
@@ -144,7 +144,7 @@ return
 
 
 
-/*!  Azur2Pripr(cBrojNal, dDatNal)
+/*  Azur2Pripr(cBrojNal, dDatNal)
  *   Azuriranje stavke u pripremu
  *   cBrojNal - broj naloga
  *   dDatNal - datum naloga
@@ -174,7 +174,7 @@ return
 
 
 
-/*!  NaDan(cField)
+/*  NaDan(cField)
  *   Vraca ukupan iznos pologa (cField) za datumski period
  *   cField - polje, npr "POLOG01"
  */
@@ -208,7 +208,7 @@ return 1
 
 
 
-/*!  GetVrPlIznos(cField)
+/*  GetVrPlIznos(cField)
  *   Vraca iznos pologa za datumski period
  *   cField - polje, npr "POLOG01"
  */
@@ -241,7 +241,7 @@ return nIzn
 
 
 
-/*!  O_PrVP_DB()
+/*  O_PrVP_DB()
  *   Otvaranje neophodnih tabela 
  */
 static function O_PrVP_DB()
@@ -259,7 +259,7 @@ return
 
 
 
-/*!  GetTopsParams(cTKPath, cProdKonto)
+/*  GetTopsParams(cTKPath, cProdKonto)
  *   Setuje TOPS kumpath i idkonto 
  *   cTKPath - kumpath tops
  *   cProdKonto - prodavnicki konto

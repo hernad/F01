@@ -17,7 +17,7 @@
  *   Popunjavanje SIFK-karakteristika na osnovu azuriranih dokumenata
  */
 
-/*!  MPSifk()
+/*  MPSifk()
  *   Popunjava SIFK-karakteristiku sifrarnika robe SEZ (oznaka sezone)
  */
 
@@ -76,7 +76,7 @@ return
 
 
 
-/*!  DobUSifk()
+/*  DobUSifk()
  *   Popunjava SIFK-karakteristiku sifrarnika robe DOB (dobavljac)
  */
 

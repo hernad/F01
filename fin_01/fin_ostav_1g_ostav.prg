@@ -49,7 +49,7 @@ return
 
 
 
-/*!  SpecOtSt()
+/*  SpecOtSt()
  *   Specifikacija otvorenih stavki
  */
 
@@ -242,7 +242,7 @@ return
 
 
 
-/*!  ZaglSpK()
+/*  ZaglSpK()
  *   Zaglavlje specifikacije
  */
 
@@ -289,7 +289,7 @@ RETURN
 
 
 
-/*!  AutoZat()
+/*  AutoZat()
  *   Zatvaranje stavki automatski
  */
 function AutoZat(lAuto, cKto, cPtn)
@@ -439,7 +439,7 @@ return
 
 
 
-/*!  RucnoZat()
+/*  RucnoZat()
  *   Rucno zatvaranje otvaranih stavki
  */
 
@@ -564,7 +564,7 @@ return
 
 
 
-/*!  EdROS()
+/*  EdROS()
  *   Rucno zatvaranje otvorenih stavki
  */
 
@@ -667,7 +667,7 @@ return nRet
 
 
 
-/*!  OSt_StatLin()
+/*  OSt_StatLin()
  *
  */
 
@@ -691,7 +691,7 @@ return
 
 
 
-/*!  StKart(fSolo,fTiho,bFilter)
+/*  StKart(fSolo,fTiho,bFilter)
  *   Otvorene stavke grupisane po brojevima veze
  *   fSolo
  *   fTiho
@@ -1063,7 +1063,7 @@ ENDIF
 
 
 
-/*!  fin_cre_pom(fTiho)
+/*  fin_cre_pom(fTiho)
  *   Kreira pomocnu tabelu
  */
 
@@ -1114,7 +1114,7 @@ return .t.
 
 
 
-/*!  ZagKStSif(fStrana,lEx)
+/*  ZagKStSif(fStrana,lEx)
  *   Zaglavlje kartice OS-a
  *   fStrana
  *   lEx
@@ -1177,7 +1177,7 @@ RETURN
 
 
 
-/*!  StBrVeze()
+/*  StBrVeze()
  *   Stampa broja veze
  */
 
@@ -1272,7 +1272,7 @@ END PRINT
 
 
 
-/*!  ZagBRVeze()
+/*  ZagBRVeze()
  *   Zaglavlje izvjestaja broja veze
  */
 
@@ -1311,7 +1311,7 @@ RETURN
 
 
 
-/*!  Kompenzacija()
+/*  Kompenzacija()
  *   Pravljenje "Izjave o kompenzaciji"
  */
 
@@ -1669,7 +1669,7 @@ return
 
 
 
-/*!  EdKomp()
+/*  EdKomp()
  *   Ispravka kompenzacije
  */
 
@@ -1740,7 +1740,7 @@ return nVrati
 
 
 
-/*!  StKompenz()
+/*  StKompenz()
  *   Stampa kompenzacije
  */
 
@@ -1917,7 +1917,7 @@ RETURN (NIL)
 
 
 
-/*!  SkipT12i60()
+/*  SkipT12i60()
  *
  */
 
@@ -1938,7 +1938,7 @@ RETURN (NIL)
 
 
 
-/*!  fin_uzmi_var(cVar)
+/*  fin_uzmi_var(cVar)
  *   Uzmi varijable
  *   cVar - varijabla
  */
@@ -2031,7 +2031,7 @@ RETURN cVrati
 
 
 
-/*!  GenAZ()
+/*  GenAZ()
  *
  */
 
@@ -2534,7 +2534,7 @@ return
 
 
 
-/*!  StAz()
+/*  StAz()
  *   Stampa promjena
  */
 
@@ -2572,7 +2572,7 @@ return .t.
 
 
 
-/*!  fin_ostav_skipdb_blok(nRequest)
+/*  fin_ostav_skipdb_blok(nRequest)
  *
  *   nRequest
  */

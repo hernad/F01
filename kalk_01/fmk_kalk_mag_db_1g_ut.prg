@@ -18,7 +18,7 @@
  */
 
 
-/*!  KalkNabP(cIdFirma,cIdRoba,cIdKonto,nKolicina,nKolZN,nNC,nSNC,dDatNab,dRokTr)
+/*  KalkNabP(cIdFirma,cIdRoba,cIdKonto,nKolicina,nKolZN,nNC,nSNC,dDatNab,dRokTr)
  *   
  *   nNC - zadnja nabavna cijena
  *   nSNC - srednja nabavna cijena
@@ -294,7 +294,7 @@ return
 
 
 
-/*!  Marza(fmarza)
+/*  Marza(fmarza)
  *   Proracun veleprodajne marze
  */
 
@@ -370,7 +370,7 @@ return
 
 
 
-/*!  FaktVPC(nVPC,cseek,dDatum)
+/*  FaktVPC(nVPC,cseek,dDatum)
  *   Fakticka veleprodajna cijena
  */
 
@@ -423,7 +423,7 @@ return
 
 
 
-/*!  PratiKMag(cIdFirma,cIdKonto,cIdRoba)
+/*  PratiKMag(cIdFirma,cIdKonto,cIdRoba)
  *   Prati karticu magacina
  */
  
@@ -472,7 +472,7 @@ return
 
 
 
-/*!  ObSetVPC(nNovaVrijednost)
+/*  ObSetVPC(nNovaVrijednost)
  *   Obavezno setuj VPC
  */
 
@@ -495,7 +495,7 @@ return .t.
 
 
 
-/*!  UzmiVPCSif(cMKonto,lKoncij)
+/*  UzmiVPCSif(cMKonto,lKoncij)
  *   Za zadani magacinski konto daje odgovarajucu VPC iz sifrarnika robe
  */
 
@@ -516,7 +516,7 @@ return nCV
 
 
 
-/*!  NabCj()
+/*  NabCj()
  *   Proracun nabavne cijene za ulaznu kalkulaciju 10
  */
 
@@ -590,7 +590,7 @@ return
 
 
 
-/*!  NabCj2(n1,n2)  
+/*  NabCj2(n1,n2)  
  *   n1 - ukucana NC
  *   n2 - izracunata NC
  *   Ova se f-ja koristi samo za 10-ku bez troskova (gVarijanta="1")
@@ -611,7 +611,7 @@ return .t.
 
 
 
-/*!  SetujVPC(nNovaVrijednost,fUvijek)
+/*  SetujVPC(nNovaVrijednost,fUvijek)
  *   fUvijek -.f. samo ako je vrijednost u sifrarniku 0, .t. uvijek setuj
  *   Utvrdi varijablu VPC. U sifrarnik staviti novu vrijednost
  */
@@ -647,7 +647,7 @@ return .t.
 
 
 
-/*!  KoncijVPC()
+/*  KoncijVPC()
  *   Daje odgovarajucu VPC iz sifrarnika robe
  */
 
@@ -670,7 +670,7 @@ return (nil)
 
 
 
-/*!  MMarza()
+/*  MMarza()
  *   Preracunava iznos veleprodajne marze
  */
 
@@ -690,7 +690,7 @@ return nMarza
 
 
 
-/*!  PrerRab()
+/*  PrerRab()
  *   Rabat veleprodaje - 14
  */
 
@@ -759,7 +759,7 @@ return .t.
 
 
 
-/*!  V_RabatV()
+/*  V_RabatV()
  *   Ispisuje vrijednost rabata u VP
  */
  

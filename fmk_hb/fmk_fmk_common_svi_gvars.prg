@@ -190,7 +190,7 @@ return
 
 
 
-/*!  ParPDV()
+/*  ParPDV()
  *   Provjeri parametar pdv
  */
 function ParPDV()
@@ -207,7 +207,7 @@ return
 
 
 
-/*!  IsPDV()
+/*  IsPDV()
  *   Da li je pdv rezim rada ili ne
  *  \ret .t. or .f.
  */

@@ -446,7 +446,7 @@ return
 
 
 
-/*!  ZaglSRobe()
+/*  ZaglSRobe()
  *   Zaglavlje izvjestaja stanje robe
  */
 function ZaglSRobe()

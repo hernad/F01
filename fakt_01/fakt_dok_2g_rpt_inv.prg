@@ -62,7 +62,7 @@
  */
 
 
-/*!  RptInv()
+/*  RptInv()
  *   Stampa dokumenta inventure IM
  */
  
@@ -180,7 +180,7 @@ return
 
 
 
-/*!  ZaglInv(cLinija)
+/*  ZaglInv(cLinija)
  *   Zaglavlje izvjestaja inventura
  *   cLinija - Proslijedjuje se linija koja se ispisuje iznad i ispod zaglavlja 
  */

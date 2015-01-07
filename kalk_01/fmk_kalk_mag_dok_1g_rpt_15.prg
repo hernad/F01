@@ -27,7 +27,7 @@
  */
 
 
-/*!  StKalk15()
+/*  StKalk15()
  *   Stampa kalkulacije 15
  */
 

@@ -190,7 +190,7 @@ return
 
 
 
-/*!  GetMagKto(aMag)
+/*  GetMagKto(aMag)
  *   Vrati matricu sa magacinima   
  *   aMag
  */
@@ -225,7 +225,7 @@ return
 
 
 
-/*!  GenPreknM(cMKonto, cPrTarifa, dDatOd, dDatDo, cBrKalk, lPst)
+/*  GenPreknM(cMKonto, cPrTarifa, dDatOd, dDatDo, cBrKalk, lPst)
  *   Opcija generisanja dokumenta preknjizenja
  *   cMKonto - magacinski  konto
  *   cPrTarifa - tarifa preknjizenja

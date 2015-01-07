@@ -18,7 +18,7 @@
  * ----------------------------------------------------------------
  */
  
-/*!  Fakt_Kalk(lFaktKalk)
+/*  Fakt_Kalk(lFaktKalk)
  *   Uporedni prikaz stanja Kalk<->Fakt 
  *   lFaktKalk
  */

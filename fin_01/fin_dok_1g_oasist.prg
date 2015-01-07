@@ -86,7 +86,7 @@ return .t.
 
 
 
-/*!  KonsultOS()
+/*  KonsultOS()
  *   Sredjivanje otvorenih stavki pri knjizenju, poziv na polju strane valute<a+O>
  */
 
@@ -407,7 +407,7 @@ RETURN (NIL)
 
 
 
-/*!  EdKonsROS()
+/*  EdKonsROS()
  *   Ispravka broja veze u SUBAN
  */
 

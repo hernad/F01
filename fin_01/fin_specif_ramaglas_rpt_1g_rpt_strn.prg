@@ -18,7 +18,7 @@
  */
 
 
-/*!  SpecTrosRN()
+/*  SpecTrosRN()
  *   Specifikacija troskova po radnim nalozima (tj.objektima)
  */
 

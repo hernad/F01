@@ -25,7 +25,7 @@
  */
 
 
-/*!  Get1_16()
+/*  Get1_16()
  *   Prva strana maske za unos dokumenta tipa 16
  */
 
@@ -210,7 +210,7 @@ return lastkey()
 
 
 
-/*!  Get1_16b()
+/*  Get1_16b()
  *  
  */
 
@@ -304,7 +304,7 @@ return lastkey()
 
 
 
-/*!  SvediM(cSvedi)
+/*  SvediM(cSvedi)
  *   Svodjenje kolicine u protustavci da bi se dobila ista vrijednost (kada su cijene u stavci i protustavci razlicite)
  */
 

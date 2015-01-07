@@ -26,7 +26,7 @@
 
 
 
-/*!  StDokM()
+/*  StDokM()
  *  
  *   cIdFirma
  *   cIdTipDok
@@ -163,7 +163,7 @@ CLOSERET
 
 
 
-/*!  UkupneVrijednosti()
+/*  UkupneVrijednosti()
  *   
  */
  
@@ -321,7 +321,7 @@ return .t.
 
 
 
-/*!  IspisiZaglavlje()
+/*  IspisiZaglavlje()
  *   Ispisuje zaglavlje
  */
  
@@ -343,7 +343,7 @@ LOCAL i:=0
 RETURN
 
 
-/*!  IspisiPodnozje()
+/*  IspisiPodnozje()
  *   Ispisuje podnozje
  */
  
@@ -362,7 +362,7 @@ RETURN
 
 
 
-/*!  MSay(cTxt,x,y,cKod)
+/*  MSay(cTxt,x,y,cKod)
  *   
  *   cTxt
  *   x
@@ -380,7 +380,7 @@ STATIC nLine:=0
 RETURN
 
 
-/*!  PljuniKod(cKod)
+/*  PljuniKod(cKod)
  *   Daje neke sekvence stampaca...
  *   cKod
  */
@@ -402,7 +402,7 @@ RETURN (PCOL()-nKol)
 
 
 
-/*!  LiziKod(cKod)
+/*  LiziKod(cKod)
  *   Nesto lize
  *   cKod
  */
@@ -424,7 +424,7 @@ RETURN (PCOL()-nKol)
 
 
 
-/*!  MjestIDat()
+/*  MjestIDat()
  *   
  */
  

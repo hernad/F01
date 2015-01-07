@@ -106,7 +106,7 @@ return nil
 
 
 
-/*!  GDokInvManjak(cIdRj, cBrDok)
+/*  GDokInvManjak(cIdRj, cBrDok)
  *   cIdRj - oznaka firme dokumenta IM na osnovu kojeg se generise dok.19
  *   cBrDok - broj dokumenta IM na osnovu kojeg se generise dok.19
  *   Generacija dokumenta 19 tj. otpreme iz mag na osnovu dok. IM
@@ -149,7 +149,7 @@ return
 
 
 
-/*!  ApndInvMItem(cIdRj, cIdRoba, cBrDok, nKolicina, cRbr)
+/*  ApndInvMItem(cIdRj, cIdRoba, cBrDok, nKolicina, cRbr)
  *   cIdRj - oznaka firme dokumenta
  *   cIdRoba - sifra robe
  *   cBrDok - broj dokumenta
@@ -188,7 +188,7 @@ return
 
 
 
-/*!  GDokInvVisak(cIdRj, cBrDok)
+/*  GDokInvVisak(cIdRj, cBrDok)
  *   cIdRj - oznaka firme dokumenta IM na osnovu kojeg se generise dok.19
  *   cBrDok - broj dokumenta IM na osnovu kojeg se generise dok.19
  *   Generacija dokumenta 01 tj.primke u magacin na osnovu dok. IM
@@ -232,7 +232,7 @@ return
 
 
 
-/*!  ApndInvVItem(cIdRj, cIdRoba, cBrDok, nKolicina, cRbr)
+/*  ApndInvVItem(cIdRj, cIdRoba, cBrDok, nKolicina, cRbr)
  *   cIdRj - oznaka firme dokumenta
  *   cIdRoba - sifra robe
  *   cBrDok - broj dokumenta

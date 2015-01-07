@@ -41,7 +41,7 @@
  */
 
 
-/*!  PocStProd()
+/*  PocStProd()
  *   Generisanje dokumenta pocetnog stanja prodavnice
  */
 

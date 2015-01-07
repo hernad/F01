@@ -80,7 +80,7 @@
 *string FmkIni_KumPath_FAKT_RegBrPorBr;
 
 
-/*!  StdRtf1()
+/*  StdRtf1()
  *   Stampa fakture u RTF formatu
  *   cImeF
  *   cIdFirma
@@ -445,7 +445,7 @@ BoxC()
 
 
 
-/*!  Zagl1()
+/*  Zagl1()
  *   Stampa zaglavlja
  */
 
@@ -466,7 +466,7 @@ return
 
 
 
-/*!  NStr(fPrvaStr)
+/*  NStr(fPrvaStr)
  *   Prelazak na novu stranu
  *   fPrvaStrana
  */
@@ -500,7 +500,7 @@ return
 
 
 
-/*!  RegIPorBr()
+/*  RegIPorBr()
  *   Registarski i poreski broj
  */
 

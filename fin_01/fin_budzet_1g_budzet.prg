@@ -43,7 +43,7 @@
  *   Budzet
  */
 
-/*!  IzvrsBudz()
+/*  IzvrsBudz()
  *   Izvrsenje budzeta
  */
 
@@ -951,7 +951,7 @@ return
 
 
 
-/*!  IB_Zagl1()
+/*  IB_Zagl1()
  *   Zaglavlje izvrsenje budzeta 1
  */
 
@@ -977,7 +977,7 @@ RETURN
 
 
 
-/*!  IB_Zagl2()
+/*  IB_Zagl2()
  *   Zaglavlje izvjestaja izvrsenje budzeta 2
  */
 
@@ -997,7 +997,7 @@ RETURN
 
 
 
-/*!  IB_Zagl3()
+/*  IB_Zagl3()
  *   Zaglavlje izvjestaja izvrsenje budzeta varijanta 3
  */
 
@@ -1019,7 +1019,7 @@ RETURN
 
 
 
-/*!  IB_Zagl4()
+/*  IB_Zagl4()
  *   Zaglavlje izvjestaja izvrsenje budzeta varijanta 4
  */
 
@@ -1043,7 +1043,7 @@ RETURN
 
 
 
-/*!  Prihodi()
+/*  Prihodi()
  *   Prihodi
  */
 
@@ -1440,7 +1440,7 @@ return
 
 
 
-/*!  PR_Zagl()
+/*  PR_Zagl()
  *   Zaglavlje prihoda
  */
 
@@ -1463,7 +1463,7 @@ RETURN
 
 
 
-/*!  Razmak(nBrRed)
+/*  Razmak(nBrRed)
  *   Daje nBrRed praznih redova
  *  todo: Treba prebaciti u /sclib
  *   nBrRed  - broj redova
@@ -1482,7 +1482,7 @@ return
 
 
 
-/*!  BuIz(cKonto)
+/*  BuIz(cKonto)
  *   Sortiraj izuzetke u budzetu
  *   cKonto
  */

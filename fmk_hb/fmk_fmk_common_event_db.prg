@@ -13,7 +13,7 @@
 #include "sc.ch"
 
 
-/*!  CreEvents(nArea)
+/*  CreEvents(nArea)
  *   Kreiranje tabela bitnih za logiranje dogadjaja
  *   nArea - podrucje
  */
@@ -103,7 +103,7 @@ return
 
 
 
-/*!  P_Events(cId,dx,dy)
+/*  P_Events(cId,dx,dy)
  *   Pregled sifrarnika dogadjaja
  */
 function P_Events(cId,dx,dy)
@@ -135,7 +135,7 @@ return PostojiSifra(F_EVENTS,1,10,60,"Events - dogadjaji koji se logiraju",@cId,
 
 
 
-/*!  IncID(wId)
+/*  IncID(wId)
  *   Povecava vrijednost polja ID za 1
  */
 static function IncID(wId)
@@ -154,7 +154,7 @@ return nRet
 
 
 
-/*!  LastID(nRecNo)
+/*  LastID(nRecNo)
  *   Vraca vrijednost polja ID tabele events.dbf ili bilo koje tabele koja ima polje ID (numericko)
  *   nRecNo - broj zapisa na koji se pointer treba vratiti poslije uzete vrijednosti
  */
@@ -166,7 +166,7 @@ go nRecNo
 return nLastID
 
 
-/*!  BrisiLogove(lAutomatic)
+/*  BrisiLogove(lAutomatic)
  *   Brisanje logova iz tabele EVENTLOG
  *   lAutomatic - .t. brisi automatski, .f. nemoj brisati automatski
  */

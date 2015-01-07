@@ -558,7 +558,7 @@ CLOSERET
 
 
 
-/*!  StKupac()
+/*  StKupac()
  */
  
 static function StKupac()

@@ -13,7 +13,7 @@
 #include "sc.ch"
 #include "rabat.ch"
 
-/*!  CreRabDB()
+/*  CreRabDB()
  *   Kreira tabelu rabat u SIFPATH
  */
  
@@ -44,7 +44,7 @@ return
 
 
 
-/*!  GetRabForArticle(cIdRab, cTipRab, cIdRoba, nTekIznos)
+/*  GetRabForArticle(cIdRab, cTipRab, cIdRoba, nTekIznos)
  *   Vraca iznos rabata za dati artikal
  *   cIdRab - id rabat
  *   nTekIznos - tekuce polje iznosa
@@ -75,7 +75,7 @@ return nRet
 
 
 
-/*!  GetDaysForRabat(cIdRab, cTipRab)
+/*  GetDaysForRabat(cIdRab, cTipRab)
  *   Vraca broj dana (rok placanja) za odredjeni tip rabata
  *   cIdRab - id rabat
  *   cTipRab - tip rabata
@@ -101,7 +101,7 @@ return nRet
 
 
 
-/*!  GetRabIznos(cTekIzn)
+/*  GetRabIznos(cTekIzn)
  *   Vraca iznos rabata za zadati cTekIznos (vrijednost polja)
  *   cTekIzn - tekuce polje koje se uzima
  */
@@ -120,7 +120,7 @@ return nRet
 
 
 
-/*!  GetSkontoArticle(cIdRab, cTipRab, cIdRoba)
+/*  GetSkontoArticle(cIdRab, cTipRab, cIdRoba)
  *   Vraca iznos skonto za dati artikal
  *   cIdRab - id rabat
  *   cTipRab - tip rabata

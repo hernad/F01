@@ -17,7 +17,7 @@
  *   Prenos podataka LD->FIN
  */
 
-/*!  LdFin()
+/*  LdFin()
  *   Prenos podataka LD->FIN
  */
 
@@ -255,7 +255,7 @@ return
 
 
 
-/*!  RLD(cId, nIz12)
+/*  RLD(cId, nIz12)
  *
  *   cId
  *   nIz12
@@ -277,7 +277,7 @@ return nVrati
 
 
 
-/*!  RekapLD(cId, nGodina, nMjesec, nIzn1, nIzn2, cOpis)
+/*  RekapLD(cId, nGodina, nMjesec, nIzn1, nIzn2, cOpis)
  *   Rekapitulacija LD
  *   cId
  *   nGodina
@@ -313,7 +313,7 @@ return
 
 
 
-/*!  RLDP(cId, cBrDok, nIz12)
+/*  RLDP(cId, cBrDok, nIz12)
  *
  *   cId
  *   cBrDok
@@ -335,7 +335,7 @@ return 0
 
 
 
-/*!  RekapLDP(cId, nGodina, nMjesec, nIzn1, nIzn2, cBrDok)
+/*  RekapLDP(cId, nGodina, nMjesec, nIzn1, nIzn2, cBrDok)
  *
  *   cId
  *   nGodina

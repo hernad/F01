@@ -453,7 +453,7 @@ endif
 
 
 
-/*!  RowNC(nNcU, nNcI)
+/*  RowNC(nNcU, nNcI)
  *   Popunjava polja NC
  */
  

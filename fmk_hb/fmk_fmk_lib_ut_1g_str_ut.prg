@@ -576,7 +576,7 @@ function strkznutf8( cInput, cIz )
 
 
 
-/*!  Slovima(nIzn,cDinDem)
+/*  Slovima(nIzn,cDinDem)
  *   Ispisuje iznos slovima
  *   nIzn       - iznos
  *   cDinDem    -
@@ -645,7 +645,7 @@ return
 
 
 
-/*!  Stotice(nIzn, cRez, fDecimale, fMnozina, cDinDem)
+/*  Stotice(nIzn, cRez, fDecimale, fMnozina, cDinDem)
  *   Formatira tekst ako iznos prelazi 100
  *   nIzn       - iznos
  *   cRez
@@ -742,7 +742,7 @@ return cRez
 
 
 
-/*!  CreateHashString(aColl)
+/*  CreateHashString(aColl)
  *   Kreira hash string na osnovu podataka iz matrice aColl
  *   primjer: aColl[1] = "podatak1"
  	            aColl[2] = "podatak2"
@@ -769,7 +769,7 @@ next
 return cHStr
 
 
-/*!  ReadHashString(cHashString)
+/*  ReadHashString(cHashString)
  *   Iscitava hash string u matricu
  *  return: aColl - matrica popunjena podacima iz stringa
  */
@@ -786,7 +786,7 @@ return aColl
 
 
 
-/*!  StrToArray(cStr, nLen)
+/*  StrToArray(cStr, nLen)
  *   Kreiraj array na osnovu stringa
  *   cStr - string
  *   nLen - na svakih nLen upisi novu stavku u array
@@ -818,7 +818,7 @@ return aColl
 
 
 
-/*!  FlushMemo(aMemo)
+/*  FlushMemo(aMemo)
  *   Vraca vrijednost memo niza u string
  */
 function FlushMemo(aMemo)

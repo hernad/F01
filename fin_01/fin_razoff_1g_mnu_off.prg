@@ -31,7 +31,7 @@
  */
  
 
-/*!  MnuUdaljeneLokacije()
+/*  MnuUdaljeneLokacije()
  *   Menij prenosa udaljenih lokacija
  */
 

@@ -596,7 +596,7 @@ return
 
 
 
-/*!  ZagOPoMF()
+/*  ZagOPoMF()
  *   Zaglavlje obrta 
  */
  

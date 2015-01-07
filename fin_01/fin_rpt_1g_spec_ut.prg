@@ -193,7 +193,7 @@ LOCAL nDana := ABS(IF( EMPTY(datval) , datdok , datval ) - dNaDan), nVrati
 RETURN nVrati
 
 
-/*!  IspisRocnosti()
+/*  IspisRocnosti()
  *   Ispis rocnosti
  */
 

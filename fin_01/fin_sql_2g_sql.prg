@@ -50,7 +50,7 @@ static cTblPriv:="#PARAM#YY"
 
 
 
-/*!  TSqlLogNew()
+/*  TSqlLogNew()
  *   funkcija koja kreira SqlLog objekat
  */
 
@@ -111,7 +111,7 @@ END CLASS
 #endif
 
 
-/*!  *bool TSqlLog::open()
+/*  *bool TSqlLog::open()
  *   Otvara - kreira Sql log
  */
 
@@ -148,7 +148,7 @@ Gw("SET MODUL "+gModul)
 return .t.
 
 
-/*!  *bool TSqlLog::import(integer nSite)
+/*  *bool TSqlLog::import(integer nSite)
  *   importuje log "nSite".log u Db
  */
 
@@ -193,7 +193,7 @@ goModul:oDatabase:scan()
 return .t.
 
 
-/*!  *void TSqlLog::importInteractive()
+/*  *void TSqlLog::importInteractive()
  *   Interaktivni import - trazi od korisnika unos Site-a koji se importuje
  */
 
@@ -218,7 +218,7 @@ return .t.
 
 
 
-/*!  *void TSqlLog::genZeroState()
+/*  *void TSqlLog::genZeroState()
  *   Generise log pocetnog - trenutnog stanja Db-a
  */
 
@@ -328,7 +328,7 @@ return nil
 
 
 
-/*!  *void TSqlLog::genPeriod(dDatOd, dDatDo)
+/*  *void TSqlLog::genPeriod(dDatOd, dDatDo)
  *   Generise log za datumski period
  */
 
@@ -340,7 +340,7 @@ return nil
 
 
 
-/*!  *void TSqlLog::menuAdmin()
+/*  *void TSqlLog::menuAdmin()
  *   Meni za administraciju Sql logova
  */
 
@@ -369,12 +369,12 @@ return .f.
 
 *string FmkIni_ExePath_Gateway_AutoImportSql;
 
-/*! *string FmkIni_ExePath_Gateway_AutoImportSql;
+/* *string FmkIni_ExePath_Gateway_AutoImportSql;
  *
  *
  */
 
-/*!  *void TSqlLog::autoImport()
+/*  *void TSqlLog::autoImport()
  *   Vrsi automatsko importovanje log-a na osnovu ini parametra Gateway/AutoImportSQL
  *  \sa FmkIni_ExePath_Gateway_AutoImportSql
  */
@@ -402,7 +402,7 @@ return 1
 
 
 
-/*!  *bool TSqlLog::startSynchro()
+/*  *bool TSqlLog::startSynchro()
  *   Trazim od servera da izvrsi proces sinhronizacije za moj <Site>
  *  Clipper -> lokalnom Gateway-u -> TCP/IP -> remote Gateway-u; Kada remote gateway dobije ovaj poziv on pokrece sql_synchro.py <Site>
  */

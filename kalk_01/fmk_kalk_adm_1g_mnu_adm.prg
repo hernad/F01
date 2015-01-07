@@ -25,7 +25,7 @@
  */
 
 
-/*!  MAdminKALK()
+/*  MAdminKALK()
  *   Meni administrativnih opcija
  */
 
@@ -71,7 +71,7 @@ CLOSERET
 
 
 
-/*!  MenuSK()
+/*  MenuSK()
  *   Meni opcija za korekciju kartica artikala
  */
 

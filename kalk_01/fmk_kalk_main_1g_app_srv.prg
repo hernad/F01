@@ -33,7 +33,7 @@
  */
 
 
-/*!  BatchObrada(p3,p4,p5,p6,p7)
+/*  BatchObrada(p3,p4,p5,p6,p7)
  *   p3 -
  *   p4 -
  *   p5 -

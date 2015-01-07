@@ -13,7 +13,7 @@
 #include "sc.ch"
 
 
-/*!  Test_StrUt()
+/*  Test_StrUt()
  *   TEST CASE string utility
  */
  
@@ -40,7 +40,7 @@ return
 
 
 
-/*!  TestCreHashStrRW()
+/*  TestCreHashStrRW()
  *   Test case kreiranja hash stringa
  */
 function TestCreHashStr()
@@ -78,7 +78,7 @@ return
 
 
 
-/*!  TestRdHashStr()
+/*  TestRdHashStr()
  *   Test case citanja hash stringa
  */
 function TestRdHashStr()
@@ -131,7 +131,7 @@ return
 
 
 
-/*!  TestStr2Arr()
+/*  TestStr2Arr()
  *   Test kreiranja niza iz stringa
  */
 function TestStr2Arr()

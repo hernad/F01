@@ -33,7 +33,7 @@
  */
 
 
-/*!  NaPrimPak()
+/*  NaPrimPak()
  *   Svedi artikle na primarno pakovanje
  */
 
@@ -212,7 +212,7 @@ return
 
 
 
-/*!  NaPrPak2()
+/*  NaPrPak2()
  *   Svedi artikle na primarno pakovanje v.2
  */
 

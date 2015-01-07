@@ -100,7 +100,7 @@ static GW_STRING
 *;
 
 
-/*!  Gw(cStr, nHandle, cAkcija)
+/*  Gw(cStr, nHandle, cAkcija)
  *   cStr - string koji prosljedjujemo gateway-u
  *   nHandle - ne koristi se, izbaciti !
  *   cAkcija = A - azuriraj odmah, default value; P - pocetak; D - dodaj;  Z- zavrsi; L - upisi direktno u log fajl (ne salji gateway-u)
@@ -217,7 +217,7 @@ endif
 return ""
 
 
-/*!  GwOdgovor(cBazaInOut)
+/*  GwOdgovor(cBazaInOut)
  *   cBazaInOut  - c:/sigma
  */
 static function GwOdgovor(cBazaInOut)
@@ -286,7 +286,7 @@ return LEFT(cBuf,nRead)
 
 
 
-/*!  TimeOutIzaci(nGwSec)
+/*  TimeOutIzaci(nGwSec)
  */
  
 static function TimeOutIzaci(nGwSec)
@@ -322,7 +322,7 @@ return .f.
 
 
 
-/*!  GwStaMai(nBroji2)
+/*  GwStaMai(nBroji2)
  *  
  *   nBroji2
  *
@@ -632,7 +632,7 @@ return GW_STRING
 
 
 
-/*!  GwDirektno(cSql)
+/*  GwDirektno(cSql)
  *   Upisuje SQL komandu u log fajl direktno
  */
 

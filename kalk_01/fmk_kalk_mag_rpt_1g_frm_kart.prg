@@ -25,7 +25,7 @@
  */
 
 
-/*!  AnaKart()
+/*  AnaKart()
  *   Analiza kartica u magacinu
  */
 
@@ -149,7 +149,7 @@ return
 
 
 
-/*!  EdLLM()
+/*  EdLLM()
  *   Obrada opcija u browse-u tabele LLM
  */
 

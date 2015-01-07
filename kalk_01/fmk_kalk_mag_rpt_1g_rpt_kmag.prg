@@ -959,7 +959,7 @@ return (nil)
 
 
 
-/*!  Zagl()
+/*  Zagl()
  *   Zaglavlje izvjestaja "kartica magacin"
  */
 

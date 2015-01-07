@@ -13,7 +13,7 @@
 
 STATIC s_cFileContent := NIL
 
-/*!  VidiFajl(cImeF, aLinFiks, aKolFiks)
+/*  VidiFajl(cImeF, aLinFiks, aKolFiks)
  *   Pregled tekstualnog fajla
  *
  *
@@ -661,7 +661,7 @@ cSendIme:=PADR("send",8)
 if Pitanje(,"Izvrsiti snimanje izvjestaja - dokumenta ?","D")=="N"
 	return
 endif
-cLokacija:=IzFmkIni("FMK","SendLokacija",ToUnix("c:\sigma\send"))
+cLokacija:=IzFmkIni("FMK","SendLokacija",ToUnix("c:" + SLASH + "sigma" + SLASH + "send"))
 DirMak2(cLokacija)
 
 Box(,3,60)

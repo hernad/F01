@@ -376,7 +376,7 @@ return nRet
 
 
 
-/*!  BrowseDok()
+/*  BrowseDok()
  *   Pregled dokumenta u vidu browse tabele
  */
 
@@ -408,7 +408,7 @@ BoxC()
 
 
 
-/*!  EdDOK(Ch)
+/*  EdDOK(Ch)
  *   Obrada opcija u browsu odredjenog dokumenta
  */
 
@@ -428,7 +428,7 @@ return nRet
 
 
 
-/*!  BrowseKart()
+/*  BrowseKart()
  *   Browse prikaz kartice artikla 
  */
 
@@ -591,7 +591,7 @@ return
 
 
 
-/*!  OznaciMag(fsilent)
+/*  OznaciMag(fsilent)
  *   Markira sumnjive stavke na magac.kartici i daje poruku o indikacijama
  */
 
@@ -665,7 +665,7 @@ return .f.
 
 
 
-/*!  OznaciPro(fsilent)
+/*  OznaciPro(fsilent)
  *   Markira sumnjive stavke na prod.kartici i daje poruku o indikacijama
  */
 
@@ -734,7 +734,7 @@ return .f.
 
 
 
-/*!  EdKart(Ch)
+/*  EdKart(Ch)
  *   Obrada opcija u browsu kartice
  */
 

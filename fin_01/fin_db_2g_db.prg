@@ -1016,7 +1016,7 @@ endif
 return
 
 
-/*!  *void TDBFin::ostalef()
+/*  *void TDBFin::ostalef()
  *   Ostalef funkcije (bivsi install modul)
 */
 
@@ -1029,7 +1029,7 @@ closeret
 return
 
 
-/*!  *void TDBFin::konvZn()
+/*  *void TDBFin::konvZn()
  *   Koverzija znakova
  *  biljeska: sifra: KZ
  */
@@ -1103,7 +1103,7 @@ return
 
 
 
-/*!  *void TDbFin::scan()
+/*  *void TDbFin::scan()
  */
 *void TDbFin::scan()
 

@@ -12,7 +12,7 @@
 
 #include "sc.ch"
 
-/*!  GenPartnSt(lGenPartnSt, nSldMinIzn, cPosId)
+/*  GenPartnSt(lGenPartnSt, nSldMinIzn, cPosId)
  *   Postavljanje upita za generisanje stanja partnera te setovanje varijabli
  *   lGenPartnSt - da li se koristi ovaj feature
  *   nMinIznos - minimalan iznos 
@@ -59,7 +59,7 @@ return
 
 
 
-/*!  AzurTopsOstav(nId, cIdFmk, cNaziv, nIznosG, nSldMinIzn)
+/*  AzurTopsOstav(nId, cIdFmk, cNaziv, nIznosG, nSldMinIzn)
  *   Poziva funkciju AddToOstav() i odredjuje da li je nIznosG manji od nSldMinIzn 
  */
 function AzurTopsOstav(nId, cIdFmk, cNaziv, nIznosG, nSldMinIzn)
@@ -74,7 +74,7 @@ return
 
 
 
-/*!  AzurTopsParams(cId, cNaziv, cOpis)
+/*  AzurTopsParams(cId, cNaziv, cOpis)
  *   Poziva f-ju AddToParams()
  */
 function AzurTopsParams(cId, cNaziv, cOpis)
@@ -85,7 +85,7 @@ return
 
 
 
-/*!  AzurFinOstav(cPosId, cIdFmk, nIznos1, nIznos2, nIznos3, nIznos4, nSldMinIzn)
+/*  AzurFinOstav(cPosId, cIdFmk, nIznos1, nIznos2, nIznos3, nIznos4, nSldMinIzn)
  *   Poziva f-ju AddFinIntervalsToOstav() 
  */
 function AzurFinOstav(cPosId, cIdFmk, cParNaz, nIznos1, nIznos2, nIznos3, nIznos4, nIznos5, nSldMinIzn)
@@ -102,7 +102,7 @@ return
 
 
 
-/*!  AddPAzToParams(dDate)
+/*  AddPAzToParams(dDate)
  *   Poziva f-ju AddToParams() i dodjeljuje joj parametre PAZ
  *   dDate - datum azuriranja
  */
@@ -113,7 +113,7 @@ return
 
 
 
-/*!  AddSCnToParams(lSilent)
+/*  AddSCnToParams(lSilent)
  *   Poziva f-ju AddToParams() i dodjeljuje joj parametre SCN
  *   lSilent - .t. - tihi mod, .f. - prijavi MSG o prenesenim parametrima
  */
@@ -131,7 +131,7 @@ return
 
 
 
-/*!  AddPCnToParams(lSilent)
+/*  AddPCnToParams(lSilent)
  *   Poziva f-ju AddToParams() i dodjeljuje joj parametre PCN
  *   lSilent - .t. - tihi mod, .f. - prijavi MSG o prenesenim parametrima
  */
@@ -150,7 +150,7 @@ return
 
 
 
-/*!  Rpt_Ostav()
+/*  Rpt_Ostav()
  *   Stampa kontrolnog izvjestaja
  */
 function Rpt_Ostav()

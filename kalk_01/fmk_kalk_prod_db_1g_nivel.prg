@@ -25,7 +25,7 @@
  */
 
 
-/*!  Niv_11()
+/*  Niv_11()
  *   Automatsko generisanje dokumenta nivelacije pri azuriranju 11 ili 81
  */
 

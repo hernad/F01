@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -32,8 +32,8 @@ return
 
 
 // --------------------------------------------------------
-// Kreiranje temp tabele, te prenos zapisa iz text fajla 
-// "cTextFile" u tabelu 
+// Kreiranje temp tabele, te prenos zapisa iz text fajla
+// "cTextFile" u tabelu
 //  - param cTxtFile - txt fajl za import
 // --------------------------------------------------------
 function Txt2TTerm( cTxtFile )
@@ -65,7 +65,7 @@ nStart := 0
 
 // prodji kroz svaku liniju i insertuj zapise u temp.dbf
 for i := 1 to nBrLin
-	
+
 	aBTerm := SljedLin( cTxtFile, nStart )
 	nStart := aBTerm[2]
 	// uzmi u cText liniju fajla
@@ -75,16 +75,16 @@ for i := 1 to nBrLin
 		loop
 	endif
 
-	aRow := csvrow2arr( cVar, cDelimiter ) 
-	
+	aRow := csvrow2arr( cVar, cDelimiter )
+
 	// struktura podataka u txt-u je
 	// [1] - barkod
 	// [2] - kolicina
-	
+
 	// pa uzimamo samo sta nam treba
 	cTmp := PADR( ALLTRIM( aRow[1] ), 13 )
 	nTmp := VAL ( ALLTRIM( aRow[2] ) )
-	
+
 	select roba
 	set order to tag "BARKOD"
 	go top
@@ -118,7 +118,7 @@ return
 
 
 // ----------------------------------------------------------------
-// Kreira tabelu PRIVPATH\TEMP.DBF prema definiciji polja iz aDbf
+// Kreira tabelu PRIVPATH/TEMP.DBF prema definiciji polja iz aDbf
 // ----------------------------------------------------------------
 static function _creTemp( aDbf, lIndex )
 cTmpTbl := PRIVPATH + "TEMP"
@@ -138,13 +138,10 @@ endif
 
 DbCreate2(cTmpTbl, aDbf)
 
-if lIndex 
+if lIndex
 	create_index("1","barkod", cTmpTbl )
 	create_index("2","idroba", cTmpTbl )
 	create_index("3","STR(status)", cTmpTbl )
 endif
 
 return
-
-
-

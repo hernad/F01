@@ -65,7 +65,7 @@ END CLASS
 #endif
 
 
-/*!  TFaktMod::dummy()
+/*  TFaktMod::dummy()
  *   dummy
  */
 
@@ -84,7 +84,7 @@ return NIL
 
 
 
-/*!  *void TFaktMod::mMenu()
+/*  *void TFaktMod::mMenu()
  *   Osnovni meni FAKT modula
  */
 
@@ -219,7 +219,7 @@ return
 
 
 
-/*!  *void TFaktMod::setGVars()
+/*  *void TFaktMod::setGVars()
  *   opste funkcije FIN modula
  */
 

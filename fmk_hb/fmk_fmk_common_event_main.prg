@@ -92,7 +92,7 @@ return
 
 
 
-/*!  Logirati(cModul,cKomponenta,cFunkcija)
+/*  Logirati(cModul,cKomponenta,cFunkcija)
  *   Provjerava da li funkciju treba logirati
  *   cModul modul
  *   cKomponenta komponenta unutar modula

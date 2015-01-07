@@ -33,7 +33,7 @@
  */
 
 
-/*!  StKalkRN()
+/*  StKalkRN()
  *   Stampa kalkulacije RN
  */
 

@@ -80,7 +80,7 @@ return
 
 
 
-/*!  MPoreziMag()
+/*  MPoreziMag()
  *   Meni izvjestaja o porezima
  */
 
@@ -103,7 +103,7 @@ return
 
 
 
-/*!  MRekMag()
+/*  MRekMag()
  *   Meni izvjestaja za vise objekata(konta)
  */
  

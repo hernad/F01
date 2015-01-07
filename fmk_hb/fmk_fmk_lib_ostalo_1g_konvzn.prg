@@ -12,7 +12,7 @@
 
 #include "SC.CH"
 
-/*!  KonvZnWin(cTekst, cWinKonv)
+/*  KonvZnWin(cTekst, cWinKonv)
  *   Konverzija znakova u stringu
  *   cTekst - tekst
  *   cWinKonv - tip konverzije

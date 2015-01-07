@@ -32,7 +32,7 @@
  *   Setovanje marze u dokumentu tipa 10 koji se nalazi u pripremi
  */
 
-/*!  SetMarza10()
+/*  SetMarza10()
  *   Setovanje marze u dokumentu tipa 10 koji se nalazi u pripremi
  */
 

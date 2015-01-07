@@ -658,7 +658,7 @@ cmxAutoOpen(.f.)  // ne otvaraj CDX-ove
 if pcount()==0
 	?
   	? "Sintaksa:   MODSTRU  <ImeKomandnog_fajla>  <direktorij_sa_DBF_fajlovima>"
-  	? "     npr:   MODSTRU  ver0155.chs    C:\EM\FIN\1"
+  	? "     npr:   MODSTRU  ver0155.chs    C:/EM/FIN/1"
   	?
   	quit
 endif

@@ -12,7 +12,7 @@
 
 #include "kalk01.ch"
 
-/*!  Get1_14PDV()
+/*  Get1_14PDV()
  *   Prva strana maske za unos dokumenta tipa 14
  */
 
@@ -250,7 +250,7 @@ return lastkey()
 
 
 
-/*!  pPDV14(fret)
+/*  pPDV14(fret)
  *   Prikaz PDV pri unosu 14-ke
  */
 

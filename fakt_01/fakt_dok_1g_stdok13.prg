@@ -169,7 +169,7 @@
 *string FmkIni_KumPath_STAMPA_Opresa13kaRedova;
 
 
-/*!  StDok13()
+/*  StDok13()
  *   Stampa dokumenta tipa 13
  */
 
@@ -473,7 +473,7 @@ PrStr2T(cIdTipDok)
 CLOSERET
 
 
-/*!  NadjiVr()
+/*  NadjiVr()
  *   Nadji vrijednost
  */
 
@@ -526,7 +526,7 @@ return
 
 
 
-/*!  Rob13Naz()
+/*  Rob13Naz()
  *   Naziv robe
  */
 
@@ -540,7 +540,7 @@ endif
 
 
 
-/*!  StDok13s()
+/*  StDok13s()
  *   Stampa otpremnice - Opresa magacin stampe
  */
 
@@ -818,7 +818,7 @@ CLOSERET
 
 
 
-/*!  GetRegion()
+/*  GetRegion()
  *
  *  return: cRegion
  */

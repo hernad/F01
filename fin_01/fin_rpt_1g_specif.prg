@@ -246,7 +246,7 @@ return
 
 
 
-/*!  ZaglDPK()
+/*  ZaglDPK()
  *   Zaglavlje specifikacije partnera po kontu
  */
 
@@ -316,7 +316,7 @@ RETURN
 
 
 
-/*!  SpecBrDan()
+/*  SpecBrDan()
  *   Otvorene stavke preko odredjenog broja dana
  */
 
@@ -584,7 +584,7 @@ return
 
 
 
-/*!  ZaglSpBrDana()
+/*  ZaglSpBrDana()
  *   Zaglavlje za otvorene stavke preko odredjenog broja dana
  */
 
@@ -657,7 +657,7 @@ endif
 RETURN
 
 
-/*!  SpecPoK()
+/*  SpecPoK()
  *   Specifikacija po kontima
  */
 
@@ -804,7 +804,7 @@ return
 
 
 
-/*!  Zagl5()
+/*  Zagl5()
  *   Zaglavlje specifikacije po kontima
  */
 
@@ -1435,7 +1435,7 @@ return
 
 
 
-/*!  SpecSubPro()
+/*  SpecSubPro()
  *   Specifikacija subanalitike po proizvoljnom sortiranju, verzija C52
  */
 
@@ -1660,7 +1660,7 @@ return
 
 
 
-/*!  TekRec()
+/*  TekRec()
  *   Vraca tekuci zapis
  */
 static function TekRec()
@@ -1668,7 +1668,7 @@ static function TekRec()
 return nil
 
 
-/*!  Zagl6(cSkVar)
+/*  Zagl6(cSkVar)
  *   Zaglavlje specifikacije
  *   cSkVar
  */
@@ -1733,7 +1733,7 @@ endif
 ? m
 return
 
-/*!  SpecKK2(lOtvSt)
+/*  SpecKK2(lOtvSt)
  *   Specifikacija konto/konto2 partner
  *   lOtvSt
  */
@@ -1984,7 +1984,7 @@ return
 
 
 
-/*!  Zagl7()
+/*  Zagl7()
  *   Zaglavlje specifikacije konto/konto2
  */
 static function Zagl7()
@@ -2022,7 +2022,7 @@ return
 
 
 
-/*!  SpecPop()
+/*  SpecPop()
  *   Specifikacija konta za odredjene partnere
  */
 function SpecPop()
@@ -2161,7 +2161,7 @@ return
 
 
 
-/*!  ZglSpSifK()
+/*  ZglSpSifK()
  *   Zaglavlje specifikacije po kontima
  */
 function ZglSpSifK()
@@ -2191,7 +2191,7 @@ RETURN
 
 
 
-/*!  SpecOstPop()
+/*  SpecOstPop()
  *   Specifikacija otvorenih stavki po kontima za partnera
  */
 function SpecOstPop()
@@ -2331,7 +2331,7 @@ return
 
 
 
-/*!  ZglSpOstP()
+/*  ZglSpOstP()
  *   Zaglavlje specifikacije otvorenih stavki partnera po kontima
  */
 function ZglSpOstP()
@@ -2362,7 +2362,7 @@ RETURN
 
 
 
-/*!  PregNDP()
+/*  PregNDP()
  *   Pregled novih dugovanja i potrazivanja
  */
 function PregNDP()
@@ -2619,7 +2619,7 @@ return
 
 
 
-/*!  Zagl9()
+/*  Zagl9()
  *   Zaglavlje pregleda novih dugovanja i potrazivanja
  *  \param
  */
@@ -2695,7 +2695,7 @@ return
 
 
 
-/*!  UpitK1K4(mxplus,lK)
+/*  UpitK1K4(mxplus,lK)
  *   Pita za polja od K1 do K4
  *   mxplus
  *   lK
@@ -2726,7 +2726,7 @@ return
 
 
 
-/*!  CistiK1K4(lK)
+/*  CistiK1K4(lK)
  *   Cisti polja od K1 do K4
  *   lK
  */
@@ -2765,7 +2765,7 @@ return
 
 
 
-/*!  PrikK1K4(lK)
+/*  PrikK1K4(lK)
  *   Prikazi polja od K1 do K4
  *   lK
  */
@@ -2874,7 +2874,7 @@ return
 
 
 
-/*!  PartVanProm()
+/*  PartVanProm()
  *   Partneri van prometa
  */
 
@@ -2971,7 +2971,7 @@ return
 
 
 
-/*!  FormDat1(dUlazni)
+/*  FormDat1(dUlazni)
  *   formatira datum sa stoljecem (dUlazni)=> cDat
  *   dUlazni - ulazni datum
  */
@@ -2986,7 +2986,7 @@ RETURN cVrati
 
 
 
-/*!  SpecPoDosp(lKartica)
+/*  SpecPoDosp(lKartica)
  *   Otvorene stavke grupisano po brojevima veze
  *   lKartica
  */
@@ -3882,7 +3882,7 @@ go (nPRecNo)
 return .f.
 
 
-/*!  ZSpecPoDosp(fStrana,lSvi)
+/*  ZSpecPoDosp(fStrana,lSvi)
  *   Zaglavlje izvjestaja specifikacije po dospjecu
  *   fStrana
  *   lSvi
@@ -4201,7 +4201,7 @@ RETURN cVrati
 
 
 
-/*!  RekPPG(lPdv)
+/*  RekPPG(lPdv)
  *   Posmatraju se samo otvorene stavke iz izvje�taja otv.stavki grupisano po brojevima veze. (POM.DBF koji se pravi f-jom StKart() modula OSTAV.PRG). Ako otvorena stavka ima datum valutiranja, uzima se godina iz tog datuma. Ako otvorena stavka nema datuma val., racun se trazi prvo u tekucoj godini. Ako se nalazi u poc.stanju, trazenje se vrsi u proslim godinama. Ako ga nema u poc.stanju, trazi se prvo knjizenje na odgovarajucoj strani (za kupce dugovnoj, za dobavljace potraznoj) i ako ga ima uzima se godina iz datuma dokumenta.
  *   lPdv
  */
@@ -4402,7 +4402,7 @@ CLOSERET
 
 
 
-/*!  Mjesto(cMjesto)
+/*  Mjesto(cMjesto)
  *
  *   cMjesto
  */
@@ -4424,7 +4424,7 @@ return fRet
 
 
 
-/*!  TraziUPGod(cKrit,cDP)
+/*  TraziUPGod(cKrit,cDP)
  *
  *   cKrit
  *   cDP
@@ -4485,7 +4485,7 @@ RETURN
 
 
 
-/*!  P_VKSG(cId,dx,dy)
+/*  P_VKSG(cId,dx,dy)
  *
  *   cId
  *   dx
@@ -4551,7 +4551,7 @@ RETURN
 
 
 
-/*!  RPPG()
+/*  RPPG()
  *   Rekapitulacija partnera po godinama
  */
 
@@ -4594,7 +4594,7 @@ return
 
 
 
-/*!  PopValIzSifPartn()
+/*  PopValIzSifPartn()
  *   Popunjavanje datuma valute na osnovu DatDok+Partn/RokPl
  *  biljeska: Preduslov je da je podeseno polje ROKP u sif.partnera (preko SifK)
  */

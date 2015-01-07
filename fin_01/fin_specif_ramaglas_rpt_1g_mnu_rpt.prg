@@ -17,7 +17,7 @@
  *   Meni izvjestaja za rama glas - "pogonsko knjigovodstvo"
  */
 
-/*!  Izvjestaji()
+/*  Izvjestaji()
  *   Glavni menij za izbor izvjestaja
  *   
  */

@@ -26,7 +26,7 @@
 
 
 
-/*!  Pripr9View()
+/*  Pripr9View()
  *   Pregled smeca
  */
 static function Pripr9View()
@@ -94,7 +94,7 @@ return
 
 
 
-/*! EdPr9()
+/* EdPr9()
  * Opcije pregleda smeca
  */
 static function EdPr9()
@@ -117,7 +117,7 @@ return
 
 
 
-/*!  PovPr9()
+/*  PovPr9()
  *   povrat dokumenta iz PRIPR9
  */
 static function PovPr9()
@@ -133,7 +133,7 @@ return DE_CONT
 
 
 
-/*!  P9SetFilter(aUslFirma, aUslDok, dDat1, dDat2)
+/*  P9SetFilter(aUslFirma, aUslDok, dDat1, dDat2)
  *   Postavlja filter na tabeli PRIPR9
  */
 static function P9SetFilter(aUslFirma, aUslDok, dDat1, dDat2)

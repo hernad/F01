@@ -40,7 +40,7 @@
 
 
 
-/*!  StdRtf3()
+/*  StdRtf3()
  *   Stampa faktura u RTF formatu verijanta 3
  *   cImeF
  *   cIdFirma
@@ -463,7 +463,7 @@ select pripr
 closeret
 
 
-/*!  Zagl3()
+/*  Zagl3()
  *   Stampa zaglavlja rtf3
  */
  
@@ -484,7 +484,7 @@ WWCellS({"\f2\fs18\qc\sb30\sa20 Rbr","\fs22 Sifra","Tar", "Naziv robe","Kol.","j
 return
 
 
-/*!  NStr3(fPrvaStr)
+/*  NStr3(fPrvaStr)
  *   Prelazak na novu stranu
  *   fPrvaStrana
  */

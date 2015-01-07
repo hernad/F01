@@ -613,7 +613,7 @@ return
 
 
 
-/*!  Izmj_cPrSort()
+/*  Izmj_cPrSort()
  *   Formula za kljucni dio sifre pri grupisanju roba
  *  \ingroup Planika
  */

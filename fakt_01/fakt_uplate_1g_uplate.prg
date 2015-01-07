@@ -23,7 +23,7 @@
  */
 
 
-/*!  Uplate()
+/*  Uplate()
  *   Uplate
  */
  
@@ -105,7 +105,7 @@ return nil
 
 
 
-/*!  EdUplata()
+/*  EdUplata()
  *   Obradjuje funkcije nad uplatama
  */
  
@@ -162,7 +162,7 @@ return nRet
 
 
 
-/*!  DajStanjeKupca()
+/*  DajStanjeKupca()
  *   Vraca stanje kupca
  */
  
@@ -175,7 +175,7 @@ return nil
 
 
 
-/*!  UkZaduz()
+/*  UkZaduz()
  *   Ukupno zaduzenje
  */
  
@@ -199,7 +199,7 @@ return nVrati
 
 
 
-/*!  UkUplata(lPushWA)
+/*  UkUplata(lPushWA)
  *   Ukupno uplata
  *   lPushWA - .t.-skeniraj pa vrati stanje baze uplata, .f.-ne radi to
  */
@@ -238,7 +238,7 @@ return nVrati
 
 
 
-/*!  fakt_skipdb_blok(nRequest)
+/*  fakt_skipdb_blok(nRequest)
  *  
  *   nRequest
  */
@@ -283,7 +283,7 @@ return (nCount)
 
 
 
-/*!  StKartKup()
+/*  StKartKup()
  *   Stanje na kartici kupca
  */
  
@@ -332,7 +332,7 @@ return nil
 
 
 
-/*!  SaldaKupaca(lPocStanje)
+/*  SaldaKupaca(lPocStanje)
  *   Izvjestaj koji daje salda svih kupaca
  *   lPocStanje - .t.-generisi i pocetno stanje, .f.-daj samo pregled
  */
@@ -470,7 +470,7 @@ return nil
 
 
 
-/*!  GPSUplata()
+/*  GPSUplata()
  *   Generisanje pocetnog stanja za evidenciju uplata
  */
 

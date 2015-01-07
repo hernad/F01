@@ -147,7 +147,7 @@ return nil
 
 
 
-/*!  PovModem()
+/*  PovModem()
  *
  */
 
@@ -274,7 +274,7 @@ endif
 
 
 
-/*!  BrisiSFajlove(cDir)
+/*  BrisiSFajlove(cDir)
  *   Brise sve fajlove iz zadatog direktorija starije od 45 dana
  *   cDir  - direktorij
  */

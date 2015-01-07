@@ -155,7 +155,7 @@ return cDefault
 
 
 
-/*!  R_IniWrite ( cSection, cEntry, cString, cFName )
+/*  R_IniWrite ( cSection, cEntry, cString, cFName )
  *
  *  cSection - String that specifies the section to which the string will  be copied. If the section does not exist, it is created. cSection is case-independent
  *  cEntry - String containing the entry to be associated with the string. If the entry does not exist in the specified section, it is created. If the parameter is NIL, the entire section, including all entries within the section, is deleted.
@@ -361,7 +361,7 @@ return .t.
 
 
 
-/*!  I_At(cSearch, cString, nStart)
+/*  I_At(cSearch, cString, nStart)
  *   nStart - pocni pretragu od nStart pozicije
  */
 static function I_At(cSearch, lUpper, nStart)
@@ -376,7 +376,7 @@ return if ( nPos > 0, nPos + nStart - 1, 0 )
 
 
 
-/*!  IzFmkIni(cSection, cVar, cValue, cLokacija )
+/*  IzFmkIni(cSection, cVar, cValue, cLokacija )
  *
  *   cSection  - [SECTION]
  *   cVar      - Variable
@@ -1050,7 +1050,7 @@ return oBuffObj
 
 
 
-/*!  IzFmkIni(cSection, cVar, cValue, cLokacija )
+/*  IzFmkIni(cSection, cVar, cValue, cLokacija )
  *
  *   cSection  - [SECTION]
  *   cKey      - Variable

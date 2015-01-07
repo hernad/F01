@@ -25,7 +25,7 @@
  */
 
 
-/*!  StKalkIP(fZaTops)
+/*  StKalkIP(fZaTops)
  *   Stampa dokumenta tipa IP
  *   fZaTops -
  */
@@ -255,7 +255,7 @@ return
 
 
 
-/*!  StObrazSL()
+/*  StObrazSL()
  *   Stampa forme obrasca sank liste
  */
 

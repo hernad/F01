@@ -211,7 +211,7 @@ END CLASS
 
 
 
-/*!  TFrmInvIt::runAction()
+/*  TFrmInvIt::runAction()
  *
  */
 
@@ -276,7 +276,7 @@ return
 
 
 
-/*!  TFrmInvIt::newItem()
+/*  TFrmInvIt::newItem()
  /*   Dodaj novu stavku u dokument inventure
  */
 method newItem()
@@ -308,7 +308,7 @@ return
 
 
 
-/*!  TFrmInvIt::deleteItem()
+/*  TFrmInvIt::deleteItem()
  /*   izbrisi stavku
  */
 method deleteItem()
@@ -317,7 +317,7 @@ return
 
 
 
-/*!  TFrmInvIt::nextItem()
+/*  TFrmInvIt::nextItem()
  *   Sljedeca stavka
  */
 
@@ -379,7 +379,7 @@ return
 
 
 
-/*!  TFrmInvIt::saveToTbl()
+/*  TFrmInvIt::saveToTbl()
  *
  */
 method saveToTbl()
@@ -412,7 +412,7 @@ cTxt:=cTxt+Chr(16)+cStr+Chr(17)
 return nil
 
 
-/*!  TFrmInvIt::vIdRj()
+/*  TFrmInvIt::vIdRj()
  *   Validacija radne jedinice
  */
 method vldRj()
@@ -432,7 +432,7 @@ P_RJ(@cPom)
 return .t.
 
 
-/*!  TFrmInvIt::wheBrDok()
+/*  TFrmInvIt::wheBrDok()
  *   Prije ulaska u BrDok
  */
 
@@ -443,7 +443,7 @@ return .t.
 
 
 
-/*!  TFrmInvIt::vldRbr()
+/*  TFrmInvIt::vldRbr()
  *   Validacija Redni broj
  */
 *bool TFrmInvIt::vldRbr()
@@ -453,7 +453,7 @@ return .f.
 
 
 
-/*!  TFrmInvIt::vldBrDok()
+/*  TFrmInvIt::vldBrDok()
  *   Validacija BrDok
  */
 *bool TFrmInvIt::vldBrDok()
@@ -466,7 +466,7 @@ else
 endif
 
 
-/*!  TFrmInvIt::vldIdRoba()
+/*  TFrmInvIt::vldIdRoba()
  *   validacija IdRoba
  */
 method vldIdRoba()
@@ -491,7 +491,7 @@ return .t.
 
 
 
-/*!  TFrmInvIt::wheIdRoba()
+/*  TFrmInvIt::wheIdRoba()
  *   When (pred ulazak u) IdRoba
  */
 method wheIdRoba()
@@ -515,7 +515,7 @@ return .t.
 
 
 
-/*!  TFrmInvIt::getPartner(int nRow)
+/*  TFrmInvIt::getPartner(int nRow)
  *   Uzmi Podatke partnera
  */
 method getPartner(nRow)
@@ -529,7 +529,7 @@ method getPartner(nRow)
 return
 
 
-/*!  TFrmInvIt::sayPartner(int nRow)
+/*  TFrmInvIt::sayPartner(int nRow)
  *   Odstampaj podatke o partneru
  */
 
@@ -546,7 +546,7 @@ method sayPartner(nRow)
 return
 
 
-/*!  TFrmInvIt::whePartner()
+/*  TFrmInvIt::whePartner()
  *   When Partner polja
  */
 method whePartner()
@@ -559,7 +559,7 @@ method whePartner()
 return .t.
 
 
-/*!  TFrmInvIt::vldPartner()
+/*  TFrmInvIt::vldPartner()
  *   Validacija nakon unosa Partner polja - vidi je li sifra
  */
 method vldPartner()
@@ -587,7 +587,7 @@ return  .t.
 
 
 
-/*!  TFrmInvIt::vldPKolicina()
+/*  TFrmInvIt::vldPKolicina()
  *   Validacija Popisane Kolicine
  */
 
@@ -623,7 +623,7 @@ return .t.
 
 
 
-/*!  TFrmInvIt::vldKKolicina()
+/*  TFrmInvIt::vldKKolicina()
  *   Validacija Knjizne Kolicine
  */
 method vldKKolicina()
@@ -639,7 +639,7 @@ return .t.
 
 
 
-/*!  TFrmInvIt::wheKKolicina()
+/*  TFrmInvIt::wheKKolicina()
  *   Prije ulaska u polje Knjizne Kolicine
  */
 method wheKKolicina()
@@ -648,7 +648,7 @@ method wheKKolicina()
 return .t.
 
 
-/*!  TFrmInvIt::showArtikal()
+/*  TFrmInvIt::showArtikal()
  *   Pokazi podatke o artiklu na formi ItemInventure
  */
 

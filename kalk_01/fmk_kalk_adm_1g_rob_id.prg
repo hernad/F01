@@ -32,7 +32,7 @@
  */
 
 
-/*!  RobaIdSredi()
+/*  RobaIdSredi()
  *   Ispravka sifre artikla u dokumentima
  */
 
@@ -115,7 +115,7 @@ closeret
 
 
 
-/*!  Sljedeci(cIdFirma,cVrsta)
+/*  Sljedeci(cIdFirma,cVrsta)
  *   Za zadanu firmu i vrstu dokumenta daje sljedeci slobodan broj dokumenta
  */
 

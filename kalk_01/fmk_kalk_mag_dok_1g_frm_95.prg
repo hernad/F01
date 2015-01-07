@@ -13,7 +13,7 @@
 #include "kalk01.ch"
 
 
-/*!  Get1_95()
+/*  Get1_95()
  *   Prva strana maske za unos dokumenata tipa 95, 96, 97
  */
 
@@ -338,7 +338,7 @@ return lastkey()
 
 
 
-/*!  StKalk95()
+/*  StKalk95()
  *   Stampa kalkulacija tipa 16,95,96,97
  */
 

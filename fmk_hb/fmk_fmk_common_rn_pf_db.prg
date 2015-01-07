@@ -33,7 +33,7 @@ return 1
 
 
 
-/*!  drn_create()
+/*  drn_create()
  *   kreiranje tabela RN i DRN
  */
 function drn_create()
@@ -113,7 +113,7 @@ return
 
 
 
-/*!  get_drn_fields(aArr)
+/*  get_drn_fields(aArr)
  *   napuni matricu aArr sa specifikacijom polja tabele
  *   aArr - matrica
  */
@@ -161,7 +161,7 @@ return
 
 
 
-/*!  get_rn_fields(aArr)
+/*  get_rn_fields(aArr)
  *   napuni matricu aArr sa specifikacijom polja tabele
  *   aArr - matrica
  */
@@ -196,7 +196,7 @@ AADD(aArr, {"OPIS",   "C", 200, 0})
 return
 
 
-/*!  get_dtxt_fields(aArr)
+/*  get_dtxt_fields(aArr)
  *   napuni matricu aArr sa specifikacijom polja tabele
  *   aArr - matrica
  */

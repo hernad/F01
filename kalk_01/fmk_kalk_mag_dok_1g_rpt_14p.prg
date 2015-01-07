@@ -20,7 +20,7 @@
  */
  
 
-/*!  StKalk14PDV()
+/*  StKalk14PDV()
  *   Stampa kalkulacije 14
  */
 
