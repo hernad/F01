@@ -177,7 +177,7 @@ return
 
 
 
-method TKalkMod:setGVars()
+METHOD TKalkMod:setGVars()
 
 local cPPSaMr
 local cBazniDir

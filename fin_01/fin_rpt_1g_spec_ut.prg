@@ -141,9 +141,9 @@ return
 // prikaz vrijednosti na izvjestaju
 // ------------------------------------------
 function Pljuc(xVal)
-? "�"
+? BOX_CHAR_USPRAVNO
 ?? xVal
-?? "�"
+?? BOX_CHAR_USPRAVNO
 RETURN
 
 // -------------------------------------------
@@ -151,7 +151,7 @@ RETURN
 // -------------------------------------------
 function PPljuc(xVal)
 ?? xVal
-?? "�"
+?? BOX_CHAR_USPRAVNO
 RETURN
 
 

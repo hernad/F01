@@ -578,7 +578,7 @@ do case
      return DE_REFRESH
 
   case Ch==K_ALT_F9
-	if SigmaSif("UNDEL")
+	if sifra_za_koristenje_opcije("UNDEL")
 		set deleted off
 		go top
 		do while !eof()
@@ -1330,7 +1330,7 @@ return 0
 
 function SifClipBoard()
 
-if !SigmaSif("CLIP")
+if !sifra_za_koristenje_opcije("CLIP")
        msgBeep("Neispravna lozinka ....")
        return DE_CONT
 endif
@@ -1381,7 +1381,7 @@ endif
 
 
            USE
-           USEX (cPath+cDBF) ALIAS novi NEW
+           USE_EXCLUSIVE(cPath+cDBF) ALIAS novi NEW
            select (nDBF)
            set order to 0; go top
            do while !eof()
@@ -1413,7 +1413,7 @@ endif
                ferase(strtran(cPath+cDbf,".DBF",".CDX"))
            endif
 
-           USEX (cPath+cDBF)  NEW alias CLIPB
+           USE_EXCLUSIVE(cPath+cDBF)  NEW alias CLIPB
            select (nDBF)
            if reccount2()<>0
               if pitanje(,"Sifrarnik nije prazan, izbrisati postojece stavke ?"," ")=="D"
@@ -2050,7 +2050,7 @@ PushWA()
 
 nTrec:=recno()
 set order to tag "ID_J"
-seek cStr+"�"
+seek cStr+BOX_CHAR_USPRAVNO
 skip -1
 // ova fja se uvijek poziva nakon Edsif-a
 // ako je __LAST_CH__=f4 onda se radi o dupliciranju
@@ -2687,7 +2687,7 @@ endif
 
 set filter to // pocisti filter
 set order to tag "BARKOD"
-seek cPrefix+"�" // idi na kraj
+seek cPrefix+BOX_CHAR_USPRAVNO // idi na kraj
 skip -1 // lociraj se na zadnji slog iz grupe prefixa
 if left(barkod,nDuzPrefix) == cPrefix
  if cEAN=="13"

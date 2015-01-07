@@ -19,7 +19,7 @@
 function OStUndo()
 
 
-if !SigmaSif("SCUNDO")
+if !sifra_za_koristenje_opcije("SCUNDO")
 	MsgBeep("Nemate ovlastenja za koristenje ove operacije!")
 	return
 endif

@@ -425,7 +425,7 @@ else
 endif
 ? space(gnLMarg); ?? m
 ?
-ctxt2:=strtran(ctxt2,"�"+Chr(10),"")
+ctxt2:=strtran(ctxt2,BOX_CHAR_USPRAVNO+Chr(10),"")
 ctxt2:=strtran(ctxt2,Chr(13)+Chr(10),Chr(13)+Chr(10)+space(gnLMarg))
 ? space(gnLMarg); ?? ctxt2
 ?

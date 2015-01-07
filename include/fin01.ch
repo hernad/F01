@@ -9,8 +9,8 @@
 #endif
 
 
-#xcommand O_PRIPR     => select (F_PRIPR);   usex (PRIVPATH+"PRIPR") ; set order to tag "1"
-#xcommand O_PRIPRRP   => select (F_PRIPRRP); usex (strtran(cDirPriv,goModul:oDataBase:cSezonDir,SLASH)+"PRIPR") alias priprrp; set order to 1
+#xcommand O_PRIPR     => select (F_PRIPR);   USE_EXCLUSIVE(PRIVPATH+"PRIPR") ; set order to tag "1"
+#xcommand O_PRIPRRP   => select (F_PRIPRRP); USE_EXCLUSIVE(strtran(cDirPriv,goModul:oDataBase:cSezonDir,SLASH)+"PRIPR") alias priprrp; set order to 1
 
 #xcommand O_SUBAN    => OKumul(F_SUBAN,KUMPATH,"SUBAN",5); set order to tag 1
 #xcommand O_KUF      => OKumul(F_KUF  ,KUMPATH,"KUF"  ,2); set order to tag "ID"
@@ -28,10 +28,10 @@
 #xcommand O_BBKLAS    => O_POMDB(F_BBKLAS,"BBKLAS"); set order to 1
 #xcommand O_IOS    =>   O_POMDB(F_IOS,"IOS"); set order to 1
 
-#xcommand O_PNALOG   => select (F_PNALOG); usex (PRIVPATH+"PNALOG"); set order to 1
-#xcommand O_PSUBAN   => select (F_PSUBAN); usex (PRIVPATH+"PSUBAN"); set order to 1
-#xcommand O_PANAL   => select (F_PANAL); usex (PRIVPATH+"PANAL")   ; set order to 1
-#xcommand O_PSINT   => select (F_PSINT); usex (PRIVPATH+"PSINT")   ; set order to 1
+#xcommand O_PNALOG   => select (F_PNALOG); USE_EXCLUSIVE(PRIVPATH+"PNALOG"); set order to 1
+#xcommand O_PSUBAN   => select (F_PSUBAN); USE_EXCLUSIVE(PRIVPATH+"PSUBAN"); set order to 1
+#xcommand O_PANAL   => select (F_PANAL); USE_EXCLUSIVE(PRIVPATH+"PANAL")   ; set order to 1
+#xcommand O_PSINT   => select (F_PSINT); USE_EXCLUSIVE(PRIVPATH+"PSINT")   ; set order to 1
 
 #xcommand O_RJ   => select (F_RJ);          use  (KUMPATH+"RJ")    ; set order to tag "ID"
 #xcommand O_FUNK   => select (F_FUNK);    use  (KUMPATH+"FUNK") ; set order to tag "ID"
@@ -42,22 +42,22 @@
 #xcommand O_KOLIZ  => select (F_KOLIZ);    use  (KUMPATH+"KOLIZ") ; set order to tag "ID"
 #xcommand O_BUIZ   => select (F_BUIZ);    use  (KUMPATH+"BUIZ") ; set order to tag "ID"
 #xcommand O_KONTO    => select (F_KONTO);  use (SIFPATH+"KONTO");  set order to tag "ID"
-#xcommand OX_KONTO    => select (F_KONTO);  usex (SIFPATH+"KONTO")  ;  set order to tag "ID"
+#xcommand OX_KONTO    => select (F_KONTO);  USE_EXCLUSIVE(SIFPATH+"KONTO")  ;  set order to tag "ID"
 #xcommand O_VKSG     => select (F_VKSG);  use (SIFPATH+"VKSG");  set order to tag "1"
-#xcommand OX_VKSG     => select (F_VKSG);  usex (SIFPATH+"VKSG")  ;  set order to tag "1"
+#xcommand OX_VKSG     => select (F_VKSG);  USE_EXCLUSIVE(SIFPATH+"VKSG")  ;  set order to tag "1"
 
 #xcommand O_RKONTO    => select (F_KONTO);  user (SIFPATH+"KONTO") ; set order to tag "ID"
 #xcommand O_PARTN    => select (F_PARTN);  use (SIFPATH+"PARTN") ; set order to tag "ID"
-#xcommand OX_PARTN    => select (F_PARTN);  usex (SIFPATH+"PARTN") ; set order to tag "ID"
+#xcommand OX_PARTN    => select (F_PARTN);  USE_EXCLUSIVE(SIFPATH+"PARTN") ; set order to tag "ID"
 #xcommand O_RPARTN    => select (F_PARTN);  user (SIFPATH+"PARTN") ; set order to tag "ID"
 #xcommand O_TNAL    => select (F_TNAL);  use (SIFPATH+"TNAL")      ; set order to tag "ID"
-#xcommand OX_TNAL    => select (F_TNAL);  usex (SIFPATH+"TNAL")      ; set order to tag "ID"
+#xcommand OX_TNAL    => select (F_TNAL);  USE_EXCLUSIVE(SIFPATH+"TNAL")      ; set order to tag "ID"
 #xcommand O_TDOK    => select (F_TDOK);  use (SIFPATH+"TDOK")      ; set order to tag "ID"
-#xcommand OX_TDOK    => select (F_TDOK);  usex (SIFPATH+"TDOK")      ; set order to tag "ID"
+#xcommand OX_TDOK    => select (F_TDOK);  USE_EXCLUSIVE(SIFPATH+"TDOK")      ; set order to tag "ID"
 #xcommand O_PKONTO   => select (F_PKONTO); use  (SIFPATH+"pkonto")  ; set order to tag "ID"
-#xcommand OX_PKONTO   => select (F_PKONTO); usex  (SIFPATH+"pkonto")  ; set order to tag "ID"
+#xcommand OX_PKONTO   => select (F_PKONTO); USE_EXCLUSIVE (SIFPATH+"pkonto")  ; set order to tag "ID"
 #xcommand O_VALUTE   => select(F_VALUTE);  use  (SIFPATH+"VALUTE")  ; set order to tag "ID"
-#xcommand OX_VALUTE   => select(F_VALUTE);  usex  (SIFPATH+"VALUTE")  ; set order to tag "ID"
+#xcommand OX_VALUTE   => select(F_VALUTE);  USE_EXCLUSIVE (SIFPATH+"VALUTE")  ; set order to tag "ID"
 
 #xcommand O_FAKT      => select (F_FAKT) ;   use  (gFaktKum+"FAKT") ; set order to tag  "1"
 #xcommand O_KALK      => select (F_KALK) ;   use  (gKalkKum+"KALK") ; set order to tag  "1"
@@ -68,7 +68,7 @@
 #xcommand O_TRFP2    => select(F_TRFP2);   use  (SIFPATH+"trfp2")       ; set order to tag "ID"
 #xcommand O_TRFP3    => select(F_TRFP3);   use  (SIFPATH+"trfp3")       ; set order to tag "ID"
 #xcommand O_KONCIJ => select(F_KONCIJ);  use  (SIFPATH+"KONCIJ")     ; set order to tag "ID"
-#xcommand O_FINMAT  => select(F_FINMAT); usex (PRIVPATH+"FINMAT")    ; set order to 1
+#xcommand O_FINMAT  => select(F_FINMAT); USE_EXCLUSIVE(PRIVPATH+"FINMAT")    ; set order to 1
 
 #xcommand O__KONTO => select(F__KONTO); use  (PRIVPATH+"_KONTO")
 #xcommand O__PARTN => select(F__PARTN); use  (PRIVPATH+"_PARTN")

@@ -23,20 +23,16 @@ close all
 
 if VALTYPE(goModul:oDatabase:cSigmaBD) <> "C"
 	MsgBeep("Nije podesen parametar ## EXEPATH / fmk.ini #" +;
-	        "[Svi]#"+;
-		"SigmaBD=c:" + SLASH + "sigma")
-	goModul:oDatabase:cSigmaBD = "c:" + SLASH + "sigma"
+	        "[Svi]#"+ "SigmaBD=" + DATA_ROOT )
+	goModul:oDatabase:cSigmaBD = DATA_ROOT
 endif
 
-cPath:=goModul:oDataBase:cSigmaBD+SLASH+"security"+SLASH
+cPath:=goModul:oDataBase:cSigmaBD + SLASH + "security" + SLASH
 
 if !DirExists(cPath)
 	DirMak2(cPath)
 endif
 
-if gReadOnly
-	return
-endif
 
 if (nArea==nil)
 	nArea:=-1
@@ -177,7 +173,7 @@ if lAutomatic
 	return
 endif
 
-if !SigmaSif("BRISILOG")
+if !sifra_za_koristenje_opcije("BRISILOG")
 	return
 endif
 

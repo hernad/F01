@@ -45,8 +45,8 @@ FOR nCnt := LEN (cIzn) TO 1 STEP -1
          @ m_x+3, NextY SAY "      �"
          @ m_x+4, NextY SAY "      �"
          @ m_x+5, NextY SAY "�������"
-         @ m_x+6, NextY SAY "�"
-         @ m_x+7, NextY SAY "�"
+         @ m_x+6, NextY SAY BOX_CHAR_USPRAVNO
+         @ m_x+7, NextY SAY BOX_CHAR_USPRAVNO
          @ m_x+8, NextY SAY "�     �"
          @ m_x+9, NextY SAY "�������"
       CASE Char = "3"
@@ -61,8 +61,8 @@ FOR nCnt := LEN (cIzn) TO 1 STEP -1
          @ m_x+9, NextY SAY "�������"
       CASE Char = "4"
          NextY -= 8
-         @ m_x+2, NextY SAY "�"
-         @ m_x+3, NextY SAY "�"
+         @ m_x+2, NextY SAY BOX_CHAR_USPRAVNO
+         @ m_x+3, NextY SAY BOX_CHAR_USPRAVNO
          @ m_x+4, NextY SAY "�     �"
          @ m_x+5, NextY SAY "�     �"
          @ m_x+6, NextY SAY "�������"
@@ -72,8 +72,8 @@ FOR nCnt := LEN (cIzn) TO 1 STEP -1
       CASE Char = "5"
          NextY -= 8
          @ m_x+2, NextY SAY "�������"
-         @ m_x+3, NextY SAY "�"
-         @ m_x+4, NextY SAY "�"
+         @ m_x+3, NextY SAY BOX_CHAR_USPRAVNO
+         @ m_x+4, NextY SAY BOX_CHAR_USPRAVNO
          @ m_x+5, NextY SAY "�������"
          @ m_x+6, NextY SAY "      �"
          @ m_x+7, NextY SAY "      �"
@@ -82,8 +82,8 @@ FOR nCnt := LEN (cIzn) TO 1 STEP -1
       CASE Char = "6"
          NextY -= 8
          @ m_x+2, NextY SAY "�������"
-         @ m_x+3, NextY SAY "�"
-         @ m_x+4, NextY SAY "�"
+         @ m_x+3, NextY SAY BOX_CHAR_USPRAVNO
+         @ m_x+4, NextY SAY BOX_CHAR_USPRAVNO
          @ m_x+5, NextY SAY "�������"
          @ m_x+6, NextY SAY "�     �"
          @ m_x+7, NextY SAY "�     �"
@@ -98,7 +98,7 @@ FOR nCnt := LEN (cIzn) TO 1 STEP -1
          @ m_x+6, NextY SAY "   �"
          @ m_x+7, NextY SAY "  �"
          @ m_x+8, NextY SAY " �"
-         @ m_x+9, NextY SAY "�"
+         @ m_x+9, NextY SAY BOX_CHAR_USPRAVNO
       CASE Char = "8"
          NextY -= 8
          @ m_x+2, NextY SAY "�������"

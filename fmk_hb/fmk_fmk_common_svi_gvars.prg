@@ -1,64 +1,16 @@
 /* 
- * This file is part of the bring.out FMK, a free and open source 
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
 
 
 #include "f01.ch"
-
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
- * ----------------------------------------------------------------
- * $Source: c:/cvsroot/cl/sigma/fmk/svi/gvars.prg,v $
- * $Author: sasavranic $ 
- * $Revision: 1.11 $
- * $Log: gvars.prg,v $
- * Revision 1.11  2004/04/05 09:40:02  sasavranic
- * Uvedena globalna varijabla gNoReg koja odredjuje da li se modul treba registrovati ili ne
- *
- * Revision 1.10  2004/03/23 15:47:26  sasavranic
- * Uveo novu globalnu varijablu gOznVal (oznaka valute)
- *
- * Revision 1.9  2003/12/01 13:27:41  sasavranic
- * uvedena var. gNovine
- *
- * Revision 1.8  2003/10/08 15:07:12  sasavranic
- * Uvedene varijable:
- * -  gnDebug
- * -  gOpSist
- *
- * Revision 1.7  2003/10/04 12:35:02  sasavranic
- * uveden security sistem
- *
- * Revision 1.6  2002/11/18 12:12:58  mirsad
- * dorade i korekcije-security
- *
- * Revision 1.5  2002/10/01 12:44:13  mirsad
- * korekcije na ucitavanju globalnih varijabli naziv firme, tip subjekta, sifra firme
- *
- * Revision 1.4  2002/06/26 10:34:54  ernad
- *
- *
- * ne pitaj ime firme za POS modul
- *
- * Revision 1.3  2002/06/20 16:52:06  ernad
- *
- *
- * ciscenje planika, uvedeno fmk/svi/specif.prg
- *
- * Revision 1.2  2002/06/16 11:44:53  ernad
- * unos header-a
- *
- *
- */
- 
 
 function SetFmkSGVars()
 
@@ -108,7 +60,7 @@ endif
 // u sekciji 1 je pdv parametar
 cSection := "1"
 
-if gModul <> "TOPS" 
+if gModul <> "TOPS"
 	RPar("PD",@gPDV)
 	ParPDV()
 	// odjavi gSql
@@ -217,7 +169,3 @@ if gPDV=="D"
 	return .t.
 endif
 return .f.
-
-
-
-

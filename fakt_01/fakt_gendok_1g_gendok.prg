@@ -443,7 +443,7 @@ if reccount2() == 0
            
 	    IF gMreznoNum == "N"
                
-	       dbseek( dxidfirma + _n_tip_dok + "�", .t. )
+	       dbseek( dxidfirma + _n_tip_dok + BOX_CHAR_USPRAVNO, .t. )
                
 	       skip -1
                
@@ -550,7 +550,7 @@ if  idtipdok $ "12#20#13#01#27"
         @ m_x+1,m_y+2 SAY "Dokument: "; ?? idfirma+"-"+idtipdok+"-"+brdok,"   ", Datdok
         // select FAKT; go top
         select DOKS; go top
-        seek pripr->idfirma+cNoviTip+"�"
+        seek pripr->idfirma+cNoviTip+BOX_CHAR_USPRAVNO
         skip -1
         if  cNoviTip<>idtipdok
          cBrDok:=UBrojDok(1,gNumDio,"")

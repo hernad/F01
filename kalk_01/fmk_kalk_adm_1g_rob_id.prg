@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -13,35 +13,13 @@
 #include "kalk01.ch"
 
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
- * ----------------------------------------------------------------
- * $Source: c:/cvsroot/cl/sigma/fmk/kalk/adm/1g/rob_id.prg,v $
- * $Author: mirsad $ 
- * $Revision: 1.2 $
- * $Log: rob_id.prg,v $
- * Revision 1.2  2002/06/18 14:02:38  mirsad
- * dokumentovanje (priprema za doxy)
- *
- *
- */
-
-/* file fmk/kalk/adm/1g/rob_id.prg
- *  
- */
-
-
-/*  RobaIdSredi()
- *   Ispravka sifre artikla u dokumentima
- */
 
 function RobaIdSredi()
 
 cSifOld:=space(10)
 cSifNew:=space(10)
 
-if !SigmaSif("SIGMASIF")
+if !sifra_za_koristenje_opcije("SIGMASIF")
   return
 endif
 
@@ -71,7 +49,7 @@ do while .t.
 
 	select kalk
 	locate for idroba==cSifNew
-	
+
 	if found()
 		BoxC()
 		Msg("Nova sifra se vec nalazi u prometu. prekid !")
@@ -135,4 +113,3 @@ if gBrojac=="D"
  cBrKalk:=UBrojDok(val(left(cBrKalk,5))+1,5,right(cBrKalk,3))
 endif
 return cBrKalk
-

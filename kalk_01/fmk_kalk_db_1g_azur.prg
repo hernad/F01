@@ -663,7 +663,7 @@ Box("",1,35)
 BoxC()
 
 if cBrDok="."
-	if !SigmaSif()
+	if !sifra_za_koristenje_opcije()
      		closeret
   	endif
 	private qqBrDok:=qqDatDok:=qqIdvD:=space(80)

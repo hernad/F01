@@ -184,7 +184,7 @@ if Pitanje(,"Prenijeti u datoteku prenosa suban.naloge sa ovim kriterijem ?","N"
   		cpBrNal:=brnal
   	SKIP -1
   	IF cpFirma+cpIdVN+cpBrNal!=idfirma+idvn+brnal
-  		? "  "+idfirma+" �  "+idvn+" �"+brnal+"�"+DTOC(nalog->datNal)
+  		? "  "+idfirma+" �  "+idvn+" �"+brnal+BOX_CHAR_USPRAVNO+DTOC(nalog->datNal)
   	ENDIF
   	skip 1
   enddo

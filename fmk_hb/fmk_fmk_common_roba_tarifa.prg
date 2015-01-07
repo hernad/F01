@@ -626,7 +626,7 @@ function KorekTar()
 local cTekIdTarifa
 local cPriprema
 
-if !SigmaSif("SIGMATAR")
+if !sifra_za_koristenje_opcije("SIGMATAR")
 	return
 endif
 

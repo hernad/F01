@@ -627,7 +627,7 @@ if !empty(::cSezonDir) // sezonski podaci
 endif
 
 close all
-if !sigmasif("SIGMASEZ")
+if !sifra_za_koristenje_opcije("SIGMASEZ")
   return
 endif
 

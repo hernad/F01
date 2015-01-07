@@ -79,7 +79,7 @@ AADD(aDbf, {"recno", "N", 6, 0 } )
 dbcreate2(PRIVPATH+"LLM",aDbf)
 
 select 70
-usex (PRIVPATH+"llm")
+USE_EXCLUSIVE(PRIVPATH+"llm")
 index on id tag "ID"
 index on brisano tag "BRISAN"
 set order to tag "ID"

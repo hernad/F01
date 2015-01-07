@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,11 +14,11 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  *
  */
- 
+
 
 function P_TRFP(cId,dx,dy)
 
@@ -48,18 +48,18 @@ private cKavd:="  "
 private cFiltTRFP:=""
 
 if Pitanje(,"Zelite li postaviti filter za odredjenu shemu","N")=="D"
-  
+
   Box(,1,60)
      @ m_x+1,m_y+2 SAY "Odabir sheme:" GET cShema  pict "@!"
      @ m_x+1,col()+2 SAY "vrsta kalkulacije (prazno sve)" GET cKavd pict "@!"
      read
   Boxc()
-  
+
   select TRFP
   cFiltTRFP := "SHEMA='"+ cShema + "'" +IIF(EMPTY(cKaVD),"",".and.IDVD=='"+cKaVD+"'")
   set filter to &cFiltTRFP
   go top
-  
+
 else
   select trfp
   set filter to
@@ -76,7 +76,7 @@ local cShema2:="1"
 local cTekShema
 local cIdvd:=""
 local nRec:=0
-local cDirSa:=PADR("C:\SIGMA\SIF0\", 20)
+local cDirSa:=PADR( DATA_ROOT + SLASH + "SIF0" + SLASH, 20)
 local cPobSt:="D"
 
 if Ch==K_CTRL_F4
@@ -111,10 +111,10 @@ elseif Ch==K_CTRL_F5
   if IsPdv()
   	cShema2:="E"
   endif
-  
+
   if Pitanje(,"Preuzeti sheme kontiranja?","D")=="D"
 
-    
+
     Box(,3,70)
      @ m_x+1,  m_y+2 SAY "Preuzeti podatke sa:" GET cDirSa VALID PostTRFP(cDirSa)
      @ m_x+2,  m_y+2 SAY "Odabir sheme:" GET cShema2  pict "@!"
@@ -140,7 +140,7 @@ elseif Ch==K_CTRL_F5
 
   SELECT TRFP
   SET FILTER TO
-  
+
   if cPobSt=="D"
     go top
     do while !eof()
@@ -251,4 +251,3 @@ elseif  pitanje(,"Tekuce parametre kontiranja staviti u arhivu br. "+gSetForm+" 
  restore screen from cscr
 endif
 return .t.
-

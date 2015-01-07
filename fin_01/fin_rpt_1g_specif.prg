@@ -3796,11 +3796,11 @@ return
 // vraca liniju za report varijanta 1
 // -----------------------------------------------------
 static function _get_line1(cTmpL, cSaRokom, cPicForm )
-local cStart := "�"
-local cMidd := "�"
-local cLine := "�"
-local cEnd := "�"
-local cFill := "�"
+local cStart := BOX_CHAR_USPRAVNO
+local cMidd := BOX_CHAR_USPRAVNO
+local cLine := BOX_CHAR_USPRAVNO
+local cEnd := BOX_CHAR_USPRAVNO
+local cFill := BOX_CHAR_USPRAVNO
 local nFor := 3
 
 if cSaRokom == "D"
@@ -3825,10 +3825,10 @@ return
 // vraca liniju varijantu 2
 // ------------------------------------------------------
 static function _get_line2( cTmpL, cSaRokom, cPicForm )
-local cStart := "�"
-local cLine := "�"
-local cEnd := "�"
-local cFill := "�"
+local cStart := BOX_CHAR_USPRAVNO
+local cLine := BOX_CHAR_USPRAVNO
+local cEnd := BOX_CHAR_USPRAVNO
+local cFill := BOX_CHAR_USPRAVNO
 local nFor := 3
 
 if cSaRokom == "D"
@@ -3974,195 +3974,195 @@ ELSE
 	IF cSaRokom=="D"
 
 		// prvi red
-		cTmp := "�"
-		cTmp += REPLICATE("�", __par_len)
-		cTmp += "�"
-		cTmp += REPLICATE("�", 25)
-		cTmp += "�"
-		cTmp += REPLICATE("�", (LEN(PICPIC) * 5) + 4 )
-		cTmp += "�"
-		cTmp += REPLICATE("�", LEN(PICPIC))
-		cTmp += "�"
-		cTmp += REPLICATE("�", (LEN(PICPIC) * 5) + 4 )
-		cTmp += "�"
-		cTmp += REPLICATE("�", LEN(PICPIC))
-		cTmp += "�"
-		cTmp += REPLICATE("�", LEN(PICPIC))
-		cTmp += "�"
+		cTmp := BOX_CHAR_USPRAVNO
+		cTmp += REPLICATE(BOX_CHAR_USPRAVNO, __par_len)
+		cTmp += BOX_CHAR_USPRAVNO
+		cTmp += REPLICATE(BOX_CHAR_USPRAVNO, 25)
+		cTmp += BOX_CHAR_USPRAVNO
+		cTmp += REPLICATE(BOX_CHAR_USPRAVNO, (LEN(PICPIC) * 5) + 4 )
+		cTmp += BOX_CHAR_USPRAVNO
+		cTmp += REPLICATE(BOX_CHAR_USPRAVNO, LEN(PICPIC))
+		cTmp += BOX_CHAR_USPRAVNO
+		cTmp += REPLICATE(BOX_CHAR_USPRAVNO, (LEN(PICPIC) * 5) + 4 )
+		cTmp += BOX_CHAR_USPRAVNO
+		cTmp += REPLICATE(BOX_CHAR_USPRAVNO, LEN(PICPIC))
+		cTmp += BOX_CHAR_USPRAVNO
+		cTmp += REPLICATE(BOX_CHAR_USPRAVNO, LEN(PICPIC))
+		cTmp += BOX_CHAR_USPRAVNO
 
 		? cTmp
 
 		// drugi red
-   		cTmp := "�"
+   		cTmp := BOX_CHAR_USPRAVNO
 		cTmp += REPLICATE(" ", __par_len)
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += REPLICATE(" ", 25)
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text("U      V  A  L  U  T  I", (LEN(PICPIC) * 5) + 4 )
 
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += REPLICATE(" ", LEN(PICPIC))
 
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text("V  A  N      V  A  L  U  T  E", (LEN(PICPIC) * 5) + 4 )
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += REPLICATE(" ", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += REPLICATE(" ", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 
 		? cTmp
 
 
 		// treci red
-		cTmp := "�"
+		cTmp := BOX_CHAR_USPRAVNO
 		cTmp += PADC("SIFRA", __par_len)
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text("NAZIV  PARTNERA", 25)
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 
 		for nII := 1 to 5
-			cTmp += REPLICATE("�", LEN(PICPIC) )
+			cTmp += REPLICATE(BOX_CHAR_USPRAVNO, LEN(PICPIC) )
 
 			if nII == 5
-				cTmp += "�"
+				cTmp += BOX_CHAR_USPRAVNO
 			else
-				cTmp += "�"
+				cTmp += BOX_CHAR_USPRAVNO
 			endif
 
 		next
 
 		cTmp += _f_text( " ", LEN(PICPIC) )
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 
 		for nII := 1 to 5
-			cTmp += REPLICATE("�", LEN(PICPIC) )
+			cTmp += REPLICATE(BOX_CHAR_USPRAVNO, LEN(PICPIC) )
 
 			if nII == 5
-				cTmp += "�"
+				cTmp += BOX_CHAR_USPRAVNO
 			else
-				cTmp += "�"
+				cTmp += BOX_CHAR_USPRAVNO
 			endif
 		next
 
 		cTmp += _f_text( " ", LEN(PICPIC) )
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text( "UKUPNO", LEN(PICPIC) )
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 
 		? cTmp
 
-   		cTmp := "�"
+   		cTmp := BOX_CHAR_USPRAVNO
 		cTmp += PADC("PARTN.", __par_len)
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text(" ", 25)
 
-		cTmp += "�"
+		cTmp += "�����"
 		cTmp += _f_text( "DO" + STR(nDoDana1, 3) + " D.", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text( "DO" + STR(nDoDana2, 3) + " D.", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text( "DO" + STR(nDoDana3, 3) + " D.", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text( "DO" + STR(nDoDana4, 3) + " D.", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text( "PR." + STR(nDoDana4, 2) + " D.", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text( "UKUPNO", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text( "DO" + STR(nDoDana1, 3) + " D.", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text( "DO" + STR(nDoDana2, 3) + " D.", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text( "DO" + STR(nDoDana3, 3) + " D.", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text( "DO" + STR(nDoDana4, 3) + " D.", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text( "PR." + STR(nDoDana4, 2) + " D.", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text( "UKUPNO", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text( " ", LEN(PICPIC))
-		cTmp +=	"�"
+		cTmp +=	BOX_CHAR_USPRAVNO
 
 		? cTmp
 
-		cTmp := "�"
-		cTmp += REPLICATE("�", __par_len)
-		cTmp += "�"
-		cTmp += REPLICATE("�", 25)
+		cTmp := BOX_CHAR_USPRAVNO
+		cTmp += REPLICATE(BOX_CHAR_USPRAVNO, __par_len)
+		cTmp += BOX_CHAR_USPRAVNO
+		cTmp += REPLICATE(BOX_CHAR_USPRAVNO, 25)
 
 		for nII := 1 to 13
-			cTmp += "�"
-			cTmp += REPLICATE("�", LEN(PICPIC))
+			cTmp += BOX_CHAR_USPRAVNO
+			cTmp += REPLICATE(BOX_CHAR_USPRAVNO, LEN(PICPIC))
 		next
 
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 
 		? cTmp
 
 	ELSE
 
 		// 1 red
-		cTmp := "�"
-		cTmp += REPLICATE("�", __par_len)
-		cTmp += "�"
-		cTmp += REPLICATE("�", 25)
+		cTmp := BOX_CHAR_USPRAVNO
+		cTmp += REPLICATE(BOX_CHAR_USPRAVNO, __par_len)
+		cTmp += BOX_CHAR_USPRAVNO
+		cTmp += REPLICATE(BOX_CHAR_USPRAVNO, 25)
 
 		for nII := 1 to 3
-			cTmp += "�"
-			cTmp += REPLICATE("�", LEN(PICPIC) )
+			cTmp += BOX_CHAR_USPRAVNO
+			cTmp += REPLICATE(BOX_CHAR_USPRAVNO, LEN(PICPIC) )
 		next
 
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 
 		? cTmp
 
 
 		// 2 red
 
-		cTmp := "�"
+		cTmp := BOX_CHAR_USPRAVNO
 		cTmp += PADC("SIFRA", __par_len)
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text(" ", 25)
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text("UKUPNO", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text("UKUPNO", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text(" ", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 
 		? cTmp
 
 		// 3 red
 
-		cTmp := "�"
+		cTmp := BOX_CHAR_USPRAVNO
 		cTmp += PADC("PARTN.", __par_len)
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text("NAZIV PARTNERA", 25)
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text("U VALUTI", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text("VAN VAL.", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 		cTmp += _f_text("UKUPNO", LEN(PICPIC))
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 
 		? cTmp
 
 		// 4 red
-		cTmp := "�"
-		cTmp += REPL("�", __par_len)
-		cTmp += "�"
-		cTmp += REPLICATE("�", 25)
+		cTmp := BOX_CHAR_USPRAVNO
+		cTmp += REPL(BOX_CHAR_USPRAVNO, __par_len)
+		cTmp += BOX_CHAR_USPRAVNO
+		cTmp += REPLICATE(BOX_CHAR_USPRAVNO, 25)
 
 		for nII := 1 to 3
-			cTmp += "�"
-			cTmp += REPLICATE("�", LEN(PICPIC) )
+			cTmp += BOX_CHAR_USPRAVNO
+			cTmp += REPLICATE(BOX_CHAR_USPRAVNO, LEN(PICPIC) )
 		next
 
-		cTmp += "�"
+		cTmp += BOX_CHAR_USPRAVNO
 
 		? cTmp
  	ENDIF
@@ -4575,7 +4575,7 @@ Izbor:=menu("frppg",opc,Izbor,.f.)
      case izbor==1
          RekPPG()
      case izbor==2
-         IF SigmaSif("FIGMAXMF")
+         IF sifra_za_koristenje_opcije("FIGMAXMF")
            IF Pitanje(,"Zelite li ponistiti datume val.u dokumentima poc.stanja? (D/N)","N")=="D"
              PonDVPS()
            ENDIF
@@ -4606,7 +4606,7 @@ PRIVATE cIdFirma:=gFirma, cIdPartner:=space(6), cBrisi:="N"
 PRIVATE cIdVnOb:=cIdVnPS:=space(30), cDP:="1", ccOpis, cPopuni:="D"
 PRIVATE aUslBrisi:=aUslPopuni:=".f."
 
-if !SigmaSif("SCPOPVAL")
+if !sifra_za_koristenje_opcije("SCPOPVAL")
    return
 endif
 

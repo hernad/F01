@@ -227,7 +227,7 @@ return .t.
 method genZeroState()
 local nStartSec
 
-if !SigmaSif("SQLPS")
+if !sifra_za_koristenje_opcije("SQLPS")
 	MsgBeep("Neispravna sifra ...")
   	return
 endif

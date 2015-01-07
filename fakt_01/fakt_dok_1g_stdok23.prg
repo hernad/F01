@@ -614,7 +614,7 @@ if fDelphiRB
 	
 	dbcreate2(PRIVPATH+'POM.DBF',aDbf)
    	select (F_POM)
-	usex (PRIVPATH+'POM')
+	USE_EXCLUSIVE(PRIVPATH+'POM')
    	INDEX ON RBR  TAG "1"
    	select pripr
 else
@@ -1139,7 +1139,7 @@ if !fDelphiRB
 endif
 
 if fDelphiRB
-  ctxt2:=strtran(ctxt2,"�"+Chr(10),"")
+  ctxt2:=strtran(ctxt2,BOX_CHAR_USPRAVNO+Chr(10),"")
   ctxt2:=strtran(ctxt2,Chr(13)+Chr(10),Chr(13)+Chr(10))
 
   for i:=1 to 15
@@ -1150,7 +1150,7 @@ if fDelphiRB
    UzmiIzIni(cIniName,'Varijable','KrajTxt'+alltrim(str(i)),"####"+token(KonvZnWin(@cTxt2,gKonvZnWin),Chr(13)+Chr(10),i),'WRITE')
   next
 else
-  ctxt2:=strtran(ctxt2,"�"+Chr(10),"")
+  ctxt2:=strtran(ctxt2,BOX_CHAR_USPRAVNO+Chr(10),"")
   ctxt2:=strtran(ctxt2,Chr(13)+Chr(10),Chr(13)+Chr(10)+space(gnLMarg))
   ? space(gnLMarg); ?? ctxt2
   ?

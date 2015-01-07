@@ -226,7 +226,7 @@ return
 function SljBroj(cidfirma,cIdvD,nMjesta)
 private cReturn:="0"
 select kalk
-seek cidfirma+cidvd+"�"
+seek cidfirma+cidvd+BOX_CHAR_USPRAVNO
 skip -1
 if idvd<>cidvd
      cReturn:=space(8)
@@ -1036,7 +1036,7 @@ return
 function SetPdvCijene()
 
 
-if !SigmaSif("SETPDVC")
+if !sifra_za_koristenje_opcije("SETPDVC")
    MsgBeep("Ne cackaj!")
    return
 endif
@@ -1165,7 +1165,7 @@ local nZaokruzenje:=2
 cSetCijena:="1"
 
 
-if !SigmaSif("SETCPOFA")
+if !sifra_za_koristenje_opcije("SETCPOFA")
    MsgBeep("Ne cackaj!")
    return
 endif
@@ -1673,7 +1673,7 @@ if Pitanje(,"Izvrsiti konverziju ?", "N") == "N"
 	return
 endif
 
-if !SigmaSif("SIFDOB")
+if !sifra_za_koristenje_opcije("SIFDOB")
 	msgbeep("Ne cackaj !!!")
 	return
 endif
@@ -1723,7 +1723,7 @@ if ddoc_vars( @dD_f, @dD_t ) = 0
 	return
 endif
 
-if !SigmaSif("KALKDEL")
+if !sifra_za_koristenje_opcije("KALKDEL")
 	msgbeep("Ne cackaj !")
 	return
 endif
@@ -1822,7 +1822,7 @@ if EMPTY( cSezone )
 	return
 endif
 
-if !SigmaSif("KALKJ")
+if !sifra_za_koristenje_opcije("KALKJ")
 	msgbeep("Ne cackaj!")
 	return
 endif

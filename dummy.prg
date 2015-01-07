@@ -92,11 +92,10 @@ FUNCTION connect_to_f01_server()
   RETURN .T.
 
 
-FUNCTION my_dbUseArea( lNew, xRdd, cDb, cAlias, lExclusive, lReadOnly )
-
+FUNCTION my_dbUseArea( lNew, xRdd, cDb, cAlias, lShared, lReadOnly )
 
    cDb := f01_server() + STRTRAN( cDb, "C" + ":", "" )
-   RETURN dbUseArea( lNew, xRdd, cDb, cAlias, !gInstall , gReadOnly )                                               ;
+   RETURN dbUseArea( lNew, xRdd, cDb, cAlias, lShared , lReadOnly )                                               ;
 
 
 FUNCTION testMain()
@@ -113,4 +112,3 @@ FUNCTION run_ext_command( cCommand )
 FUNCTION OL_YIELD()
 
   RETURN .T.
-  

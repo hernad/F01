@@ -60,7 +60,7 @@ fPostoji:=.t.
 #endif
 
 	select (F_TMP)
-	USEX(cImeDbf)
+	USE_EXCLUSIVE (cImeDbf)
 
 	if USED()
 		nPos:=FIELDPOS("BRISANO")
@@ -211,7 +211,7 @@ inkey(3)
 restore screen from cScr
 
 select (F_TMP)
-usex (cImeDbf)
+USE_EXCLUSIVE(cImeDbf)
 return
 
 
@@ -647,7 +647,7 @@ function ModStru
 parameters cImeF,cPath, fString
 
 
-? SPACE(40),"SIGMA-COM, 10.99, ver 02.33 CDX"
+? SPACE(40),"bring.out, 10.99, ver 02.33 CDX"
 ? SPACE(40),"-------------------------------"
 ?
 set deleted on  // ne kopiraj izbrisane zapise !!!
@@ -725,7 +725,7 @@ if left(cLin,1)="*"
 	    cDbf:=UPPER(cDbf+iif(at(".",cDbf)<>0,"",".DBF"))
      	if file(cPath+cDbf)
        		select 1
-       		usex (cPath+cDbf) alias olddbf
+       		USE_EXCLUSIVE(cPath+cDbf) alias olddbf
      	else
        		cDbf:="*"
        		?? "  Ne nalazi se u direktorijumu"
@@ -943,7 +943,7 @@ if (field->_OID_==0 .and. RecCount2()<>0)
 
    if OID_ASK=="0"
             // OID nije inicijaliziran
-            if SigmaSif("OIDFILL")
+            if sifra_za_koristenje_opcije("OIDFILL")
                OID_ASK:="D"
             endif
    endif

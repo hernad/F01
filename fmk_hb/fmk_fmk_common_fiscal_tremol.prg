@@ -399,7 +399,7 @@ local cBr_zahtjeva
 local nErr_no := 0
 local cCmd := ""
 
-if !SigmaSif("RPLU")
+if !sifra_za_koristenje_opcije("RPLU")
 	return 0
 endif
 

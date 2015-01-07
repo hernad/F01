@@ -253,15 +253,16 @@ return nil
 
 function appblank2(fcisti,funl)
 
-local aStruct,i, nPrevOrd, cnew_oid
+local aStruct,i, nPrevOrd, cNew_oid
 
 if fcisti==nil
   fcisti:=.t.
 endif
 
-if funl==nil; funl:=.t.; endif
+if funl==nil
+  funl:=.t.
+endif
 
-if gReadonly; return; endif
 
 do while .t.
 set deleted off
@@ -283,15 +284,18 @@ if !(found() .and. deleted())
        dbappend(.t.)
         field->brisano:=" "
         if gSQL=="D" .and. fieldpos("_OID_")<>0
-         field->_OID_:=cNew_OID // setuj OID koji slijedi !!!
+         field->_OID_:=cNew_OID
          sql_azur()
         endif
      else // if flock
        set deleted on
        inkey(0.4)
        loop
-     endif // if flock
-     if funl; dbunlockall(); endif
+     endif
+
+     if funl
+         dbunlockall()
+     endif
 
 else
       if !funl .or. rlock()
@@ -316,13 +320,17 @@ else
         field->brisano:=" "
         dbrecall()
         field->brisano:=" "
+
         if gSQL=="D" .and. fieldpos("_OID_")<>0
          field->_OID_:=cnew_OID // setuj OID koji slijedi !!!
          sql_azur()
         endif
+
         set deleted on
         ordsetfocus(nPrevOrd)
-        if funl; dbunlockall(); endif
+        if funl
+            dbunlockall()
+        endif
 
       else // rlock
          inkey(0.4)
@@ -524,7 +532,7 @@ return fRet
 
 
 
-/*  SigmaSif(cSif)
+/*  sifra_za_koristenje_opcije(cSif)
  *   zasticene funkcije sistema
  *
  * za programske funkcije koje samo serviser
@@ -536,7 +544,7 @@ return fRet
  * return: .t. kada je lozinka ispravna
 */
 
-function SigmaSif(cSif)
+function sifra_za_koristenje_opcije(cSif)
 local lGw_Status
 
 lGw_Status:=IF("U"$TYPE("GW_STATUS"),"-",gw_status)
@@ -578,50 +586,19 @@ endif
 cImeCDX:=strtran(UPPER(cImeDBF),"."+DBFEXT,"."+INDEXEXT)
 cImeCDX:=ToUnix(cImeCDX)
 
-#xcommand USEXX <(db)>                                                    ;
-             [VIA <rdd>]                                                ;
-             [ALIAS <a>]                                                ;
-             [<new: NEW>]                                               ;
-             [<ro: READONLY>]                                           ;
-             [INDEX <(index1)> [, <(indexn)>]]                          ;
-                                                                        ;
-      => dbUseArea(                                                     ;
-                    <.new.>, <rdd>, <(db)>, <(a)>,                      ;
-                     .f., .f.        ;
-                  )                                                     ;
 
-// podaci na cdu
-if (gReadonly .or. gKesiraj=="X")
-    cPom:=STRTRAN(PRIVPATH,LEFT(PRIVPATH,3),"C:"+SLASH)
+USE_EXCLUSIVE(PRIVPATH+cImeDBF)
 
-    // dir na c
-    DirMak2(cpom)
-
-    if !file(cPom+cImeDBF) .or. !file(cPom+cImeCDX)
-          COPY FILE (PRIVPATH+cImeDBF)  TO  (cPom+cImeDBF)
-          COPY FILE (PRIVPATH+cImeCDX)  TO  (cPom+cImeCDX)
-          SETFATTR(cPom+cImeDBF, 32)  // normal
-          SETFATTR(cPom+cImeCDX, 32)  // normal
-    endif
-    usexx (cPom+cImeDBF)
-    __dbzap()
-    return
-
-else
-    usex (PRIVPATH+cImeDBF)
-endif
 
 return
 
 function JelReadOnly()
+
 IF !( "U" $ TYPE("gGlBaza") )
 	IF !EMPTY(gGlBaza)
-		#ifdef CLIP
-      			gReadOnly := ( FILEATTR(ToUnix(goModul:oDatabase:cDirKum+SLASH+gGlBaza))==1 )
-		#else
-      			gReadOnly := ( FILEATTR(ToUnix(cDirRad+SLASH+gGlBaza))==1 )
-		#endif
-    	ENDIF
+      			gReadOnly := .F.
+  ENDIF
+
 ENDIF
 return nil
 
@@ -656,7 +633,7 @@ IF !lSilent .and. gReadOnly
 	RETURN
 ENDIF
 
-if !lSilent .and. !SigmaSif("ZAKSEZ")
+if !lSilent .and. !sifra_za_koristenje_opcije("ZAKSEZ")
 	return
 endif
 
@@ -718,7 +695,7 @@ if lSilent
 	MsgO("Otkljucavam sezonu...")
 endif
 
-if !lSilent .and. !SigmaSif("OTKSEZ")
+if !lSilent .and. !sifra_za_koristenje_opcije("OTKSEZ")
 	return
 endif
 
@@ -1090,7 +1067,7 @@ for i:=1 to 250
 	cDbfName:=DbfName(i,.t.)
 	if !EMPTY(cDbfName)
 		if FILE(cDbfName+"."+DBFEXT)
-			USEX (cDbfName)
+			USE_EXCLUSIVE(cDbfName)
 			if (RECCOUNT()<>RecCount2())
 				MsgO("Pakujem "+cDbfName)
 					__DBPACK()

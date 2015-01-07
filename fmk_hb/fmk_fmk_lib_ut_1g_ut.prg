@@ -86,16 +86,16 @@ RETURN
 // ------------------------------
 // ------------------------------
 function KSTo852(cStr)
-  cStr:=strtran(cStr,"{","�")
-  cStr:=strtran(cStr,"|","�")
-  cStr:=strtran(cStr,"`","�")
-  cStr:=strtran(cStr,"~","�")
-  cStr:=strtran(cStr,"}","�")
-  cStr:=strtran(cStr,"[","�")
-  cStr:=strtran(cStr,"\","�")
-  cStr:=strtran(cStr,"@","�")
-  cStr:=strtran(cStr,"^","�")
-  cStr:=strtran(cStr,"]","�")
+  cStr:=strtran(cStr,"{",BOX_CHAR_USPRAVNO)
+  cStr:=strtran(cStr,"|",BOX_CHAR_USPRAVNO)
+  cStr:=strtran(cStr,"`",BOX_CHAR_USPRAVNO)
+  cStr:=strtran(cStr,"~",BOX_CHAR_USPRAVNO)
+  cStr:=strtran(cStr,"}",BOX_CHAR_USPRAVNO)
+  cStr:=strtran(cStr,"[",BOX_CHAR_USPRAVNO)
+  cStr:=strtran(cStr,"\",BOX_CHAR_USPRAVNO)
+  cStr:=strtran(cStr,"@",BOX_CHAR_USPRAVNO)
+  cStr:=strtran(cStr,"^",BOX_CHAR_USPRAVNO)
+  cStr:=strtran(cStr,"]",BOX_CHAR_USPRAVNO)
 return cStr
 
 function BH7u8()

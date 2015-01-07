@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -26,7 +26,7 @@ cFirma:="50"
 cKonto := IzFmkIni("TOPS", "TopsKalkKonto", "13270", KUMPATH)
 cKonto := PADR(cKonto, 7)
 // putanja
-cPath := IzFmkIni("TOPS", "KalkKumPath", "i:\sigma", KUMPATH)
+cPath := IzFmkIni("TOPS", "KalkKumPath", DATA_ROOT, KUMPATH)
 return
 
 
@@ -47,7 +47,7 @@ dPDate := SToD(ALLTRIM(STR(dTYear))+"0110") // preracunati datum
 dTDate := DATE() // tekuci datum
 
 if dTDate > dPDate
-	cYear := ALLTRIM( STR( YEAR( DATE() ) ))	
+	cYear := ALLTRIM( STR( YEAR( DATE() ) ))
 else
 	cYear := ALLTRIM( STR( YEAR( DATE() ) - 1 ))
 endif
@@ -55,7 +55,7 @@ endif
 return cYear
 
 
-/*  IntegTekDat() 
+/*  IntegTekDat()
  *   Vraca datum od kada pocinje tekuca godina TOPS, 01.01.TG
  */
 function IntegTekDat()
@@ -157,14 +157,14 @@ do while !EOF()
 	if !lOnlyCrit
 		? STR(nCnt, 4) + ". " + ALLTRIM(field->idroba)
 	endif
-	
+
 	do while !EOF() .and. field->idroba == cErRoba
-		
+
 		if lOnlyCrit .and. ALLTRIM(field->type) <> "C"
 			skip
 			loop
 		endif
-		
+
 		// ako je prazno DOKSERR onda fali doks
 		if cErRoba = "DOKSERR"
 			if ALLTRIM(field->doks) == cTmpDoks
@@ -172,26 +172,26 @@ do while !EOF()
 				loop
 			endif
 		endif
-		
+
 		cTmpDoks := ALLTRIM(field->doks)
-		
+
 		++nCnt
-		
-		? SPACE(5) + GetErrorDesc(ALLTRIM(field->type)), ALLTRIM(field->doks), ALLTRIM(field->opis)	
-	
+
+		? SPACE(5) + GetErrorDesc(ALLTRIM(field->type)), ALLTRIM(field->doks), ALLTRIM(field->opis)
+
 		if ALLTRIM(field->type) == "C"
-			++ nCrit 
+			++ nCrit
 		endif
 		if ALLTRIM(field->type) == "N"
-			++ nNorm 
+			++ nNorm
 		endif
 		if ALLTRIM(field->type) == "W"
-			++ nWarr 
+			++ nWarr
 		endif
 		if ALLTRIM(field->type) == "P"
 			++ nPrOk
 		endif
-	
+
 		skip
 	enddo
 enddo
@@ -233,7 +233,7 @@ endif
 // setuj varijable
 GetSendVars(@cScript, @cPSite, @cRptFile)
 // komanda je sljedeca
-cKom := cScript + " " + cPSite + " " + cRptFile 
+cKom := cScript + " " + cPSite + " " + cRptFile
 
 // snimi sliku i ocisti ekran
 save screen to cRbScr
@@ -384,28 +384,28 @@ local cRTemp
 select p_roba
 go top
 
-do while !EOF() 
+do while !EOF()
 
 	cRTemp := field->id
 
 	// provjeri da li se spominje u POS-u
 	select p_pos
 	hseek cRTemp
-	
+
 	// ako se ne spominje i preskoci ga, ovo je nebitna sifra...
 	if !FOUND()
 		select p_roba
 		skip
 		loop
 	endif
-	
+
 	select roba
 	hseek cRTemp
-	
+
 	if !FOUND()
 		AddToErrors("C", cRTemp, "", "Konto: " + ALLTRIM(cPKonto) + ", FMK, nepostojeca sifra artikla !!!")
 	endif
-	
+
 	select p_roba
 	skip
 enddo
@@ -423,5 +423,3 @@ if !Found()
 	AddToErrors("C", cSifra, "", "TOPSK, nepostojeca sifra artikla !!!")
 endif
 return
-
-

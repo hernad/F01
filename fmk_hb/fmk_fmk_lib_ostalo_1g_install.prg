@@ -238,7 +238,7 @@ function ServisKom
 local cScr
 local izbor
 
-if !sigmasif("SKOM")
+if !sifra_za_koristenje_opcije("SKOM")
   msgbeep("Ne cackaj !")
   return
 endif

@@ -304,13 +304,13 @@ P_10CPI
 ? "KUPAC:",cIdPartner,"-",PARTN->naz
 ?
 ? "-------- "+REPL("-",LEN(opis))+" "+REPL("-",10)
-? "DAT.UPL.�"+PADC("OPIS",LEN(opis))+"�"+PADC("IZNOS",10)
+? "DAT.UPL.�"+PADC("OPIS",LEN(opis))+BOX_CHAR_USPRAVNO+PADC("IZNOS",10)
 ? "-------- "+REPL("-",LEN(opis))+" "+REPL("-",10)
 
 seek cIdPartner
 do while !eof() .and. idpartner==cIdPartner
 	? datupl
-	?? "�"+opis+"�"
+	?? BOX_CHAR_USPRAVNO+opis+BOX_CHAR_USPRAVNO
 	?? TRANS(iznos,"9999999.99")
 	skip 1
 enddo
@@ -363,7 +363,7 @@ set order to tag "2"
 
 if lPocStanje
 	select 0
-	usex (STRTRAN(cDirKum,gSezonDir,SLASH)+"UPL") alias uplrp
+	USE_EXCLUSIVE(STRTRAN(cDirKum,gSezonDir,SLASH)+"UPL") alias uplrp
 endif
 
 cIdPartner:=SPACE(6)

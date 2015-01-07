@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -12,19 +12,6 @@
 
 #include "fin01.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
- * ----------------------------------------------------------------
- * $Source: c:/cvsroot/cl/sigma/fmk/fin/specif/jerry/1g/rpt_bil.prg,v $
- * $Author: sasa $ 
- * $Revision: 1.2 $
- * $Log: rpt_bil.prg,v $
- * Revision 1.2  2002/06/21 08:48:36  sasa
- * no message
- *
- *
- */
 
 
 /* file fmk/fin/specif/jerry/1g/rpt_bil.prg
@@ -32,9 +19,9 @@
  */
 
 /*  BilansS()
- *   Bilans stanja 
+ *   Bilans stanja
  */
- 
+
 function BilansS()
 
 dDo:=DATE()
@@ -124,21 +111,21 @@ dDo:=DATE()
    cPom  := REPL("-",nDKol)
    cPom1 := PADC("A K T I V A",nDKol)
    cPom2 := PADC("P A S I V A",nDKol)
-   ? cPom , "�", cPom
-   ? cPom1, "�", cPom2
-   ? cPom , "�", cPom
+   ? cPom , BOX_CHAR_USPRAVNO, cPom
+   ? cPom1, BOX_CHAR_USPRAVNO, cPom2
+   ? cPom , BOX_CHAR_USPRAVNO, cPom
    FOR i:=1 TO MAX( LEN(aAktiva) , LEN(aPasiva) )
      cPom1 := IF( i>LEN(aAktiva) , SPACE(nDKol) , aAktiva[i] )
      cPom2 := IF( i>LEN(aPasiva) , SPACE(nDKol) , aPasiva[i] )
-     ? cPom1, "�", cPom2
+     ? cPom1, BOX_CHAR_USPRAVNO, cPom2
    NEXT
 
    cPom  := REPL("-",nDKol)
    cPom1 := PADR("UKUPNO AKTIVA",62)+TRANS(nUkSveD,gPicBHD)
    cPom2 := PADR("UKUPNO PASIVA",62)+TRANS(nUkSveP,gPicBHD)
-   ? cPom , "�", cPom
-   ? cPom1, "�", cPom2
-   ? cPom , "�", cPom
+   ? cPom , BOX_CHAR_USPRAVNO, cPom
+   ? cPom1, BOX_CHAR_USPRAVNO, cPom2
+   ? cPom , BOX_CHAR_USPRAVNO, cPom
 
    cPom  := REPL("=",nDKol)
    IF nUkSveD>nUkSveP
@@ -155,10 +142,10 @@ dDo:=DATE()
      cPom1 := cPom2 := SPACE(nDKol)
      cPom3 := SPACE(62)+TRANS(nUkSveD,gPicBHD)
    ENDIF
-   ? cPom , "�", cPom
-   ? cPom1, "�", cPom2
-   ? cPom3, "�", cPom3
-   ? cPom , "�", cPom
+   ? cPom , BOX_CHAR_USPRAVNO, cPom
+   ? cPom1, BOX_CHAR_USPRAVNO, cPom2
+   ? cPom3, BOX_CHAR_USPRAVNO, cPom3
+   ? cPom , BOX_CHAR_USPRAVNO, cPom
 
    FF
   END PRINT
@@ -171,7 +158,7 @@ return
 /*  BilansU()
  *   Bilans uspjeha
  */
- 
+
 function BilansU()
 
 dDo:=DATE()
@@ -261,21 +248,21 @@ dDo:=DATE()
    cPom  := REPL("-",nDKol)
    cPom1 := PADC("R A S H O D",nDKol)
    cPom2 := PADC("P R I H O D",nDKol)
-   ? cPom , "�", cPom
-   ? cPom1, "�", cPom2
-   ? cPom , "�", cPom
+   ? cPom , BOX_CHAR_USPRAVNO, cPom
+   ? cPom1, BOX_CHAR_USPRAVNO, cPom2
+   ? cPom , BOX_CHAR_USPRAVNO, cPom
    FOR i:=1 TO MAX( LEN(aRashod) , LEN(aPrihod) )
      cPom1 := IF( i>LEN(aRashod) , SPACE(nDKol) , aRashod[i] )
      cPom2 := IF( i>LEN(aPrihod) , SPACE(nDKol) , aPrihod[i] )
-     ? cPom1, "�", cPom2
+     ? cPom1, BOX_CHAR_USPRAVNO, cPom2
    NEXT
 
    cPom  := REPL("-",nDKol)
    cPom1 := PADR("UKUPNO RASHOD",62)+TRANS(nUkSveD,gPicBHD)
    cPom2 := PADR("UKUPNO PRIHOD",62)+TRANS(nUkSveP,gPicBHD)
-   ? cPom , "�", cPom
-   ? cPom1, "�", cPom2
-   ? cPom , "�", cPom
+   ? cPom , BOX_CHAR_USPRAVNO, cPom
+   ? cPom1, BOX_CHAR_USPRAVNO, cPom2
+   ? cPom , BOX_CHAR_USPRAVNO, cPom
 
    cPom  := REPL("=",nDKol)
    IF nUkSveD>nUkSveP
@@ -292,16 +279,12 @@ dDo:=DATE()
      cPom1 := cPom2 := SPACE(nDKol)
      cPom3 := SPACE(62)+TRANS(nUkSveD,gPicBHD)
    ENDIF
-   ? cPom , "�", cPom
-   ? cPom1, "�", cPom2
-   ? cPom3, "�", cPom3
-   ? cPom , "�", cPom
+   ? cPom , BOX_CHAR_USPRAVNO, cPom
+   ? cPom1, BOX_CHAR_USPRAVNO, cPom2
+   ? cPom3, BOX_CHAR_USPRAVNO, cPom3
+   ? cPom , BOX_CHAR_USPRAVNO, cPom
 
    FF
   END PRINT
 CLOSERET
 return
-
-
-
-

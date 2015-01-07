@@ -60,7 +60,7 @@ if gTops<>"0 " .and. Pitanje(,"Izgenerisati datoteku KATOPS","N")=="D"
 
   cTOPSDBF:=trim(gTopsDEST)+"KATOPS.DBF"
   dbcreate2(cTOPSDBF,aDBf)
-  usex (cTopsDBF)   NEW   alias katops
+  USE_EXCLUSIVE(cTopsDBF)   NEW   alias katops
   select pripr
   nRbr:=0
   dDatdok:=date()
@@ -141,7 +141,7 @@ if gTops<>"0 " .and. Pitanje(,"Izgenerisati datoteku KATOPS","N")=="D"
        cDestMod:=RIGHT(DToS(dDatDok),4)  // 1998 1105  - 11 mjesec, 05 dan
        cDestMod:=TRIM(aIdPos[i0])+"\KT"+cDestMod
        // cDestMod ==  "1\KT1117"
-       usex (cTopsDBF) new alias ntops
+       USE_EXCLUSIVE(cTopsDBF) new alias ntops
        fIzadji:=.f.
        // donja for-next pelja otvara baze i , ako postoje, gleda da li je
        // u njih pohranjen isti dokument
@@ -149,9 +149,9 @@ if gTops<>"0 " .and. Pitanje(,"Izgenerisati datoteku KATOPS","N")=="D"
        	  bErr:=ERRORBLOCK({|o| MyErrH(o)})
           begin sequence
             if i>21
-              usex ( strtran(cTopsDbf,"KATOPS",cDestMod+"U"+CHR(i%21+64)) ) new alias otops
+              USE_EXCLUSIVE( strtran(cTopsDbf,"KATOPS",cDestMod+"U"+CHR(i%21+64)) ) new alias otops
             else
-              usex ( strtran(cTopsDbf,"KATOPS",cDestMod+chr(64+i)) ) new alias otops
+              USE_EXCLUSIVE( strtran(cTopsDbf,"KATOPS",cDestMod+chr(64+i)) ) new alias otops
             endif
             // OD A-C
 
@@ -456,7 +456,7 @@ if (gModemVeza=="D")
 		// 1998 1105  - 11 mjesec, 05 dan
        		cDestMod:=TRIM(aIdPos[i0]) + "\KT" + cDestMod
        		// cDestMod ==  "1\KT1117"
-       		usex (cTopsDBF) new alias ntops
+       		USE_EXCLUSIVE(cTopsDBF) new alias ntops
        		fIzadji:=.f.
        		// donja for-next pelja otvara baze
 		// i ako postoje, gleda da li je
@@ -465,9 +465,9 @@ if (gModemVeza=="D")
 			bErr:=ERRORBLOCK({|o| MyErrH(o)})
           		begin sequence
             		if i>21
-              			usex ( strtran(cTopsDbf,"KATOPS",cDestMod+"U"+CHR(i%21+64)) ) new alias otops
+              			USE_EXCLUSIVE( strtran(cTopsDbf,"KATOPS",cDestMod+"U"+CHR(i%21+64)) ) new alias otops
             		else
-              			usex ( strtran(cTopsDbf,"KATOPS",cDestMod+chr(64+i)) ) new alias otops
+              			USE_EXCLUSIVE( strtran(cTopsDbf,"KATOPS",cDestMod+chr(64+i)) ) new alias otops
             		endif
             		// OD A-C
             		if ntops->brdok==otops->brdok
@@ -567,7 +567,7 @@ endif
 
 cTOPSDBF:=trim(gTopsDEST)+"KATOPS.DBF"
 dbcreate2(cTOPSDBF,aDBf)
-usex (cTopsDBF)   NEW   alias katops
+USE_EXCLUSIVE(cTopsDBF)   NEW   alias katops
 
 MsgC()
 

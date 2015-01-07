@@ -67,7 +67,7 @@ BoxC()
 
 
 if cBrNal="."
-	IF !SigmaSif()
+	IF !sifra_za_koristenje_opcije()
      		CLOSERET
   	ENDIF
   	private qqBrNal:=qqDatDok:=qqIdvn:=space(80)

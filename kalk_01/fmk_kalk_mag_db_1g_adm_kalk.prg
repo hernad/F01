@@ -21,7 +21,7 @@ local nPom:=0
 private cMagac := "1310   "
 private dDok := DATE()
 
-IF !SigmaSif("SIGMAPR2")
+IF !sifra_za_koristenje_opcije("SIGMAPR2")
    return
 endif
 

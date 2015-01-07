@@ -347,7 +347,7 @@ RETURN nVrati
 
 function StrKZN0(cInput,cIz,cU)
 
-LOCAL a852:={"�","�","�","�","�","�","�","�","�","�"}
+LOCAL a852:={BOX_CHAR_USPRAVNO,BOX_CHAR_USPRAVNO,BOX_CHAR_USPRAVNO,BOX_CHAR_USPRAVNO,BOX_CHAR_USPRAVNO,BOX_CHAR_USPRAVNO,BOX_CHAR_USPRAVNO,BOX_CHAR_USPRAVNO,BOX_CHAR_USPRAVNO,BOX_CHAR_USPRAVNO}
 LOCAL a437:={"[","\","^","]","@","{","|","~","}","`"}
 LOCAL aEng:={"S","D","C","C","Z","s","d","c","c","z"}
 LOCAL i:=0, aIz:={}, aU:={}
@@ -362,11 +362,11 @@ LOCAL i:=0, aIz:={}, aU:={}
 
 function StrKZN( cInput, cIz, cU, aFrom, aTo )
 
-  local a852:={"�","�","�","�","�","�","�","�","�","�"}
+  local a852:={BOX_CHAR_USPRAVNO,BOX_CHAR_USPRAVNO,BOX_CHAR_USPRAVNO,BOX_CHAR_USPRAVNO,BOX_CHAR_USPRAVNO,BOX_CHAR_USPRAVNO,BOX_CHAR_USPRAVNO,BOX_CHAR_USPRAVNO,BOX_CHAR_USPRAVNO,BOX_CHAR_USPRAVNO}
   local a437:={"[","\","^","]","@","{","|","~","}","`"}
   local aEng:={"S","D","C","C","Z","s","d","c","c","z"}
   local aEngB:={"SS","DJ","CH","CC","ZZ","ss","dj","ch","cc","zz"}
-  local aWin:= {"�", "�", "�", "�", "�", "�", "�", "�", "�", "�"}
+  local aWin:= {BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO}
   local aUTF:= {"&#352;", "&#272;", "&#268;", "&#262;", "&#381;", "&#353;", ;
   "&#273;", "&#269;", "&#263;", "&#382;"}
   local i := 0
@@ -474,16 +474,16 @@ function strkznutf8( cInput, cIz )
 
               // windows kodovi...
               AADD( aWin, "&" )
-              AADD( aWin, "�" )
-              AADD( aWin, "�" )
-              AADD( aWin, "�" )
-              AADD( aWin, "�" )
-              AADD( aWin, "�" )
-              AADD( aWin, "�" )
-              AADD( aWin, "�" )
-              AADD( aWin, "�" )
-              AADD( aWin, "�" )
-              AADD( aWin, "�" )
+              AADD( aWin, BOX_CHAR_USPRAVNO )
+              AADD( aWin, BOX_CHAR_USPRAVNO )
+              AADD( aWin, BOX_CHAR_USPRAVNO )
+              AADD( aWin, BOX_CHAR_USPRAVNO )
+              AADD( aWin, BOX_CHAR_USPRAVNO )
+              AADD( aWin, BOX_CHAR_USPRAVNO )
+              AADD( aWin, BOX_CHAR_USPRAVNO )
+              AADD( aWin, BOX_CHAR_USPRAVNO )
+              AADD( aWin, BOX_CHAR_USPRAVNO )
+              AADD( aWin, BOX_CHAR_USPRAVNO )
               AADD( aWin, "!" )
               AADD( aWin, '"' )
               AADD( aWin, "'" )
@@ -504,16 +504,16 @@ function strkznutf8( cInput, cIz )
 
               // pandan 852 je...
               AADD( a852, "&" ) // feature
-              AADD( a852, "�" ) // SS
-              AADD( a852, "�" ) // DJ
-              AADD( a852, "�" ) // CC
-              AADD( a852, "�" ) // CH
-              AADD( a852, "�" ) // ZZ
-              AADD( a852, "�" ) // ss
-              AADD( a852, "�" ) // dj
-              AADD( a852, "�" ) // cc
-              AADD( a852, "�" ) // ch
-              AADD( a852, "�" ) // zz
+              AADD( a852, BOX_CHAR_USPRAVNO ) // SS
+              AADD( a852, BOX_CHAR_USPRAVNO ) // DJ
+              AADD( a852, BOX_CHAR_USPRAVNO ) // CC
+              AADD( a852, BOX_CHAR_USPRAVNO ) // CH
+              AADD( a852, BOX_CHAR_USPRAVNO ) // ZZ
+              AADD( a852, BOX_CHAR_USPRAVNO ) // ss
+              AADD( a852, BOX_CHAR_USPRAVNO ) // dj
+              AADD( a852, BOX_CHAR_USPRAVNO ) // cc
+              AADD( a852, BOX_CHAR_USPRAVNO ) // ch
+              AADD( a852, BOX_CHAR_USPRAVNO ) // zz
               AADD( a852, "!" ) // uzvicnik
               AADD( a852, '"' ) // navodnici
               AADD( a852, "'" ) // jedan navodnik

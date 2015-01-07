@@ -1,40 +1,20 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
 
 
 #include "f01.ch"
-
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
- * ----------------------------------------------------------------
- * $Source: c:/cvsroot/cl/sigma/fmk/pi/db_cre.prg,v $
- * $Author: ernad $ 
- * $Revision: 1.2 $
- * $Log: db_cre.prg,v $
- * Revision 1.2  2002/06/16 14:16:43  ernad
- * ciscenja ...
- *
- * Revision 1.1  2002/06/16 11:42:41  ernad
- *
- *
- * komponenta pi - proizvoljni izvjestaji
- *
- *
- */
-
 /*  CreFmkPi()
- *  Kreiraj tabele proizvoljnih izvjestaja 
+ *  Kreiraj tabele proizvoljnih izvjestaja
  */
- 
+
 function CreFmkPi()
 
 local cImeDBF
@@ -112,4 +92,3 @@ CREATE_INDEX("ID","id", cImeDBF)
 CREATE_INDEX("1" ,"izv+STR(ri,4)" , cImeDBF)
 
 return
-

@@ -417,7 +417,7 @@ if lastkey()<>K_ESC
   	Wpar("5f", g50f)
 	Wpar("pR", gPDFPrint)
  	if gKesiraj $ "CD"
-   		if sigmaSif("SKESH")
+   		if sifra_za_koristenje_opcije("SKESH")
     			Wpar("kE",gKesiraj)
    		else
     			MsgBeep("Neispravna sifra!")

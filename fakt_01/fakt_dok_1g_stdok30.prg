@@ -288,7 +288,7 @@ nUk:=nUk*(1+gCarEv/100)+nUkCar+nUkPor
  endif
  ? space(Znakova(gnLMarg,10,17)); ?? m
  ?
- ctxt2:=strtran(ctxt2,"�"+Chr(10),"")
+ ctxt2:=strtran(ctxt2,BOX_CHAR_USPRAVNO+Chr(10),"")
  ctxt2:=strtran(ctxt2,Chr(13)+Chr(10),Chr(13)+Chr(10)+space(Znakova(gnLMarg,10,17)))
  ? space(Znakova(gnLMarg,10,17)); ?? ctxt2
  ?; ?; P_12CPI

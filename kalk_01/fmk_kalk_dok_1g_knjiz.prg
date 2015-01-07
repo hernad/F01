@@ -785,7 +785,7 @@ do while .t.
                 DiskMPCSAPP()
 
             case izbor == 16
-                IF SigmaSif("SIGMAXXX")
+                IF sifra_za_koristenje_opcije("SIGMAXXX")
                   IF Pitanje(,"Koristiti dokument u pripremi (D) ili azurirani (N) ?","N")=="D"
                     MPCSAPPuSif()
                   ELSE

@@ -110,7 +110,7 @@ endif
 
 IF lPrenos4 .or. lPrenos5 .or. lPrenos6
   select (F_SUBAN)
-  usex (cDirRad + SLASH + "suban")
+  USE_EXCLUSIVE(cDirRad + SLASH + "suban")
   if lPrenos4
     index on idfirma+idkonto+idpartner+idrj+funk+fond to SUBSUB
   endif
@@ -122,7 +122,7 @@ IF lPrenos4 .or. lPrenos5 .or. lPrenos6
   endif
   use
   select (F_SUBAN)
-  usex (cDirRad + SLASH + "suban")
+  USE_EXCLUSIVE(cDirRad + SLASH + "suban")
   if lPrenos4
     SET INDEX TO SUBSUB
     SET ORDER TO TAG "SUBSUB"
@@ -137,7 +137,7 @@ IF lPrenos4 .or. lPrenos5 .or. lPrenos6
   endif
 ELSE
   select (F_SUBAN)
-  usex (cDirRad + SLASH + "suban"); set order to tag "3"
+  USE_EXCLUSIVE(cDirRad + SLASH + "suban"); set order to tag "3"
 ENDIF
 
 IF !(cFilter==".t.")
@@ -146,7 +146,7 @@ IF !(cFilter==".t.")
 ENDIF
 
 select (F_PKONTO)
-usex (cDirSif+ SLASH + "pkonto"); set order to tag "ID"
+USE_EXCLUSIVE(cDirSif+ SLASH + "pkonto"); set order to tag "ID"
 
 O_PRIPR
 if reccount2()<>0
@@ -596,7 +596,7 @@ LOCAL aNiz:={}
  PRIVATE cKonto:=SPACE(60), cPartn:=SPACE(60)
  PRIVATE dDat0:=CTOD(""), dDat1:=CTOD(""), cFirma:=gFirma
 
- IF !SigmaSif("SIGMAPRE")
+ IF !sifra_za_koristenje_opcije("SIGMAPRE")
    CLOSERET
  ENDIF
 
@@ -636,8 +636,10 @@ LOCAL aNiz:={}
 
  O_KONTO
  O_PARTN
- O_SINT; SET ORDER TO 2
- O_ANAL; SET ORDER TO 2
+ O_SINT
+ SET ORDER TO 2
+ O_ANAL
+ SET ORDER TO 2
  O_SUBAN
 
  IF !FILE("TEMP77.DBF")
@@ -647,14 +649,16 @@ LOCAL aNiz:={}
    AADD(aTmp,{"NSLOG","N",10,0})
    DBCREATE2("TEMP77.DBF",aTmp)
  ENDIF
- USEX TEMP77 NEW
+
+ SELECT F_TEMP77
+ USE_EXCLUSIVE ( "TEMP77" )
  ZAP
 
  SELECT F_SUBAN
 
- cFilt1 := ".t." + IF(!EMPTY(cFirma),".and.IDFIRMA=="+cm2str(cFirma),"")+;
-           IF(!EMPTY(dDat0),".and.DATDOK>="+cm2str(dDat0),"")+;
-           IF(!EMPTY(dDat1),".and.DATDOK<="+cm2str(dDat1),"")+;
+ cFilt1 := ".t." + IIF(!EMPTY(cFirma),".and.IDFIRMA=="+cm2str(cFirma),"")+;
+           IIF(!EMPTY(dDat0),".and.DATDOK>="+cm2str(dDat0),"")+;
+           IIF(!EMPTY(dDat1),".and.DATDOK<="+cm2str(dDat1),"")+;
            ".and."+aUsl1+".and."+aUsl2
 
  cFilt1 := STRTRAN( cFilt1 , ".t..and." , "" )

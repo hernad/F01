@@ -304,7 +304,7 @@ if aParametri[9]==0
  IF !lIzOBJDB; BoxC(); ENDIF
  Box(aParametri[1],aParametri[2],aParametri[3],aParametri[4],aParametri[5])
 else
- @ m_x+aParametri[2]-aParametri[9],m_y+1 SAY replicate("�",aParametri[3])
+ @ m_x+aParametri[2]-aParametri[9],m_y+1 SAY replicate(BOX_CHAR_USPRAVNO,aParametri[3])
 endif
 
 IF !lIzOBJDB
@@ -312,9 +312,9 @@ IF !lIzOBJDB
   Kol:=azKol
 ENDIF
 
-  @ m_x,m_y+2 SAY aParametri[8]+IF(!lIzOBJDB,REPL("�",42),"")
+  @ m_x,m_y+2 SAY aParametri[8]+IF(!lIzOBJDB,REPL(BOX_CHAR_USPRAVNO,42),"")
   @ m_x+aParametri[2]+1,m_y+2 SAY aParametri[7] COLOR "GR+/B"
-  @ m_x+aParametri[2]+1,col()+1 SAY IF(!lIzOBJDB,REPL("�",42),"")
+  @ m_x+aParametri[2]+1,col()+1 SAY IF(!lIzOBJDB,REPL(BOX_CHAR_USPRAVNO,42),"")
   @ m_x+1,m_y+aParametri[3]-6 SAY STR(RecCount2(),5)
   TB:=TBRowseDB(m_x+2+aParametri[10],m_y+1,m_x+aParametri[2]-aParametri[9]-iif(aParametri[9]<>0,1,0),m_y+aParametri[3])
 
@@ -334,7 +334,7 @@ ENDIF
     END IF
   NEXT
   TB:headSep := '�'
-  TB:colsep :="�"
+  TB:colsep :=BOX_CHAR_USPRAVNO
   if aParametri[6]==NIL
      TB:Freeze:=1
   else
@@ -363,7 +363,7 @@ LOCAL i,j,k
  ENDIF
 
    //@ m_x,m_y+2 SAY aParametri[8]+"�UPOZORENJE: Mod direktnog unosa u tabelu!"
-   @ m_x,m_y+2 SAY aParametri[8]+IF(!lIzOBJDB,REPL("�",42),"")
+   @ m_x,m_y+2 SAY aParametri[8]+IF(!lIzOBJDB,REPL(BOX_CHAR_USPRAVNO,42),"")
    //@ m_x+aParametri[2]+1,m_y+2 SAY aParametri[7]+"�UPOZORENJE: Mod direktnog unosa u tabelu!"
    @ m_x+aParametri[2]+1,m_y+2 SAY aParametri[7] COLOR "GR+/B"
 
@@ -386,7 +386,7 @@ LOCAL i,j,k
    NEXT
    TB:headSep := CHR(220)
    //TB:colsep :=CHR(219)
-   TB:colsep :="�"
+   TB:colsep :=BOX_CHAR_USPRAVNO
    if aParametri[6]==NIL
       TB:Freeze:=1
    else
@@ -815,7 +815,7 @@ DO CASE
      nRez:=INDEXORD()
      Prozor1(12,20,17+nPored,59,"UTVRDJIVANJE PORETKA",,,"GR+/N","W/N,B/W,,,B/W",2)
      FOR i:=1 TO nPored
-      @ 13+i,23 SAY PADR("poredak po "+aPoredak[i],33,"�")+STR(i,1)
+      @ 13+i,23 SAY PADR("poredak po "+aPoredak[i],33,BOX_CHAR_USPRAVNO)+STR(i,1)
      NEXT
      @ 18,27 SAY "UREDITI TABELU PO BROJU:" GET nRez VALID nRez>0 .AND. nRez<nPored+1 PICT "9"
      READ

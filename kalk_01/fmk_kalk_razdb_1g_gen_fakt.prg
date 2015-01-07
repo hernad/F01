@@ -172,8 +172,8 @@ do while .t.
     elseif pripr->idvd $ "95#96"
        cIdFakt:="19"
     endif
-//    seek pripr->idfirma+cidfakt+"�"
-    seek cFaktFirma+cidfakt+"�"
+//    seek pripr->idfirma+cidfakt+BOX_CHAR_USPRAVNO
+    seek cFaktFirma+cidfakt+BOX_CHAR_USPRAVNO
     skip -1
     if  cidfakt<>idtipdok
         cbrfakt:=padr("00001",len(brdok))
@@ -493,7 +493,8 @@ select xpripr
 copy structure extended to struct
 
 // dodacu jos par polja u struct
-usex struct new
+SELECT 501
+USE_EXCLUSIVE ("struct")
 dbappend()
 replace field_name with "VPC" , field_type with "N", ;
         field_len with 12, field_dec with 3
@@ -566,11 +567,12 @@ if fsif
 else
   cDestMod:=right(dtos(pripr->datdok),4)  // 1998 1105  - 11 mjesec, 05 dan
 endif
-cDestMod:="PRENOS\"+gmodemveza+"F"+cDestMod  // PRENOS\SF1205
+cDestMod:="PRENOS" + SLASH +gmodemveza+"F"+cDestMod  // PRENOS\SF1205
 
 dirmak2(KUMPATH+"PRENOS") // napravi direktorij prenos !!!
 
-usex (PRIVPATH+"_FAKT.DBF") new alias nFAKT
+SELECT 502
+USE_EXCLUSIVE (PRIVPATH + "_FAKT.DBF") alias nFAKT
 fIzadji:=.f.
 // donja for-next pelja otvara baze i , ako postoje, gleda da li je
 // u njih pohranjen isti dokument
@@ -578,7 +580,7 @@ for i:=1 to 25
 
    bErr:=ERRORBLOCK({|o| MyErrH(o)})
    begin sequence
-     usex ( KUMPATH+cDestMod+chr(64+i) ) new alias oFAKT
+     USE_EXCLUSIVE( KUMPATH+cDestMod+chr(64+i) ) new alias oFAKT
      // OD A-C
      if nFAKT->(idfirma+idtipdok+brdok)==oFAKT->(idfirma+idtipdok+brdok)
        fIzadji:=.t.

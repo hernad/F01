@@ -236,22 +236,6 @@
                             ;endif
 
 
-#command USEX <(db)>                                                   ;
-             [VIA <rdd>]                                                ;
-             [ALIAS <a>]                                                ;
-             [<new: NEW>]                                               ;
-             [<ro: READONLY>]                                           ;
-             [INDEX <(index1)> [, <(indexn)>]]                          ;
-                                                                        ;
-      =>  PreUseEvent(<(db)>,.f.,gReadOnly)				;
-        ;  dbUseArea(                                                    ;
-                    <.new.>, <rdd>, <(db)>, <(a)>,                      ;
-                     .f., gReadOnly       ;
-                  )                                                     ;
-                                                                        ;
-      [; dbSetIndex( <(index1)> )]                                      ;
-      [; dbSetIndex( <(indexn)> )]
-
 
 
 #define DE_REF      12      // Force reread/redisplay of all data rows

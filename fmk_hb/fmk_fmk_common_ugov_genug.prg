@@ -216,18 +216,18 @@ SELECT PRIPR
    endif
 
    select pripr
-   seek gFirma+cidtipdok+"�"
+   seek gFirma+cidtipdok+BOX_CHAR_USPRAVNO
    skip -1
    if idtipdok <> cIdTipdok
-     seek "�" // idi na kraj, nema zeljenih dokumenata
+     seek BOX_CHAR_USPRAVNO // idi na kraj, nema zeljenih dokumenata
    endif
 
    select fakt
-   seek gFirma+cidtipdok+"�"
+   seek gFirma+cidtipdok+BOX_CHAR_USPRAVNO
    skip -1
 
    if idtipdok <> cIdTipdok
-     seek "�" // idi na kraj, nema zeljenih  dokumenata
+     seek BOX_CHAR_USPRAVNO // idi na kraj, nema zeljenih  dokumenata
    endif
 
    if pripr->brdok > fakt->brdok

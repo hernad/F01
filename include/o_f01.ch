@@ -13,7 +13,7 @@
 #xcommand O_VALUTE => select(F_VALUTE);  use  (SIFPATH+"VALUTE")     ; set order to tag "ID"
 #xcommand O_SAST   => select (F_SAST); use  (SIFPATH+"SAST")         ; set order to tag "ID"
 
-#xcommand O_BARKOD  => select(F_BARKOD);  usex (PRIVPATH+"BARKOD"); set order to tag "1"
+#xcommand O_BARKOD  => select(F_BARKOD);  USE_EXCLUSIVE(PRIVPATH+"BARKOD"); set order to tag "1"
 
 #xcommand O_RJ   => select(F_RJ);  use  (KUMPATH+"RJ")         ; set order to tag "ID"
 
@@ -38,21 +38,21 @@
 
 // KALK
 
-#xcommand O_PRIPR   => select(F_PRIPR); usex (PRIVPATH+"PRIPR") ; set order to 1
+#xcommand O_PRIPR   => select(F_PRIPR); USE_EXCLUSIVE(PRIVPATH+"PRIPR") ; set order to 1
 #xcommand O_S_PRIPR   => select(F_PRIPR); use (PRIVPATH+"PRIPR") ; set order to 1
 
-#xcommand O_PRIPRRP   => select (F_PRIPRRP);   usex (strtran(cDirPriv,goModul:oDataBase:cSezonDir,SLASH)+"PRIPR") alias priprrp ; set order to 1
+#xcommand O_PRIPRRP   => select (F_PRIPRRP);   USE_EXCLUSIVE(strtran(cDirPriv,goModul:oDataBase:cSezonDir,SLASH)+"PRIPR") alias priprrp ; set order to 1
 
-#xcommand O_PRIPR2  => select(F_PRIPR2); usex (PRIVPATH+"PRIPR2") ; set order to 1
-#xcommand O_PRIPR9  => select(F_PRIPR9); usex (PRIVPATH+"PRIPR9") ; set order to 1
-#xcommand O__KALK  => select(F__KALK); usex (PRIVPATH+"_KALK")
+#xcommand O_PRIPR2  => select(F_PRIPR2); USE_EXCLUSIVE(PRIVPATH+"PRIPR2") ; set order to 1
+#xcommand O_PRIPR9  => select(F_PRIPR9); USE_EXCLUSIVE(PRIVPATH+"PRIPR9") ; set order to 1
+#xcommand O__KALK  => select(F__KALK); USE_EXCLUSIVE(PRIVPATH+"_KALK")
 
-#xcommand O_FINMAT  => select(F_FINMAT); usex (PRIVPATH+"FINMAT")    ; set order to 1
+#xcommand O_FINMAT  => select(F_FINMAT); USE_EXCLUSIVE(PRIVPATH+"FINMAT")    ; set order to 1
 
 #xcommand O_KALK   => select(F_KALK);  use  (KUMPATH+"KALK")  ; set order to 1
 #xcommand O_KALKSEZ   => select(F_KALKSEZ);  use  (KUMPATH+"2005"+SLASH+"KALK") alias kalksez ; set order to 1
 #xcommand O_ROBASEZ   => select(F_ROBASEZ);  use  (SIFPATH+"2005"+SLASH+"ROBA") alias robasez ; set order to tag "ID"
-#xcommand O_KALKX  => select(F_KALK);  usex  (KUMPATH+"KALK")  ; set order to 1
+#xcommand O_KALKX  => select(F_KALK);  USE_EXCLUSIVE (KUMPATH+"KALK")  ; set order to 1
 
 #xcommand O_KALKS  => select(F_KALKS);  use  (KUMPATH+"KALKS")  ; set order to 1
 #xcommand O_KALKREP => if gKalks; select(F_KALK);use;select(F_KALK); use  (KUMPATH+"KALKS") alias KALK ; set order to 1;else; select(F_KALK);  use  (KUMPATH+"KALK")  ; set order to 1; end
@@ -60,7 +60,7 @@
 #xcommand O_SKALK   => select(F_KALK);  use  (KUMPATH+"KALK")  alias PRIPR ; set order to 1
 #xcommand O_DOKS    => select(F_DOKS);  use  (KUMPATH+"DOKS")     ; set order to 1
 #xcommand O_DOKS2   => select(F_DOKS2);  use  (KUMPATH+"DOKS2")     ; set order to 1
-#xcommand O_PORMP  => select(F_PORMP); usex (PRIVPATH+"PORMP")     ; set order to 1
+#xcommand O_PORMP  => select(F_PORMP); USE_EXCLUSIVE(PRIVPATH+"PORMP")     ; set order to 1
 
 #xcommand O__ROBA   => select(F__ROBA);  use  (PRIVPATH+"_ROBA")
 #xcommand O__PARTN   => select(F__PARTN);  use  (PRIVPATH+"_PARTN")
@@ -84,7 +84,7 @@
 
 
 #xcommand O_FAKT      => select (F_FAKT) ;   use  (KUMPATH+"FAKT") ; set order to tag  "1"
-#xcommand O__FAKT     => select(F__FAKT)  ; cmxAutoOpen(.f.);  usex (PRIVPATH+"_FAKT") ; cmxAutoOpen(.t.)
+#xcommand O__FAKT     => select(F__FAKT)  ; cmxAutoOpen(.f.);  USE_EXCLUSIVE(PRIVPATH+"_FAKT") ; cmxAutoOpen(.t.)
 #xcommand O__ROBA   => select(F__ROBA);  use  (PRIVPATH+"_ROBA")
 #xcommand O_PFAKT     => select (F_FAKT);  use  (KUMPATH+"FAKT") alias PRIPR; set order to tag   "1"
 #xcommand O_DOKS      => select(F_DOKS);    use  (KUMPATH+"DOKS")  ; set order to tag "1"
@@ -93,7 +93,7 @@
 #xcommand O_FTXT    => select (F_FTXT);    use (SIFPATH+"ftxt")    ; set order to tag "ID"
 #xcommand O_UPL      => select (F_UPL); use  (KUMPATH+"UPL")         ; set order to tag "1"
 #xcommand O_DEST     => select(F_DEST);  use  (SIFPATH+"DEST")     ; set order to tag "ID"
-#xcommand O_POR      => select 95; cmxAutoOpen(.f.); usex (PRIVPATH+"por")  ; cmxAutoOpen(.t.)
+#xcommand O_POR      => select 95; cmxAutoOpen(.f.); USE_EXCLUSIVE(PRIVPATH+"por")  ; cmxAutoOpen(.t.)
 
 #xcommand O_VRSTEP => SELECT (F_VRSTEP); USE (SIFPATH+"VRSTEP"); set order to tag "ID"
 #xcommand O_OPS    => SELECT (F_OPS)   ; USE (SIFPATH+"OPS"); set order to tag "ID"
@@ -131,22 +131,22 @@
 #xcommand O_DRNTEXT => select(F_DRNTEXT); use (PRIVPATH+"DRNTEXT"); set order to tag "1"
 #xcommand O_DOKSPF => select(F_DOKSPF); use (KUMPATH+"DOKSPF"); set order to tag "1"
 
-#xcommand O_R_EXP => select (F_R_EXP); usex (PRIVPATH+"r_export")
+#xcommand O_R_EXP => select (F_R_EXP); USE_EXCLUSIVE(PRIVPATH+"r_export")
 
-#xcommand O_LOKAL => select (F_LOKAL); usex (SIFPATH+"lokal")
+#xcommand O_LOKAL => select (F_LOKAL); USE_EXCLUSIVE(SIFPATH+"lokal")
 
 // tabele provjere integriteta
-#xcommand O_DINTEG1 => SELECT (F_DINTEG1); USEX (KUMPATH+"DINTEG1"); set order to tag "1"
-#xcommand O_DINTEG2 => SELECT (F_DINTEG2); USEX (KUMPATH+"DINTEG2"); set order to tag "1"
-#xcommand O_INTEG1 => SELECT (F_INTEG1); USEX (KUMPATH+"INTEG1"); set order to tag "1"
-#xcommand O_INTEG2 => SELECT (F_INTEG2); USEX (KUMPATH+"INTEG2"); set order to tag "1"
-#xcommand O_ERRORS => SELECT (F_ERRORS); USEX (PRIVPATH+"ERRORS"); set order to tag "1"
+#xcommand O_DINTEG1 => SELECT (F_DINTEG1); USE_EXCLUSIVE(KUMPATH+"DINTEG1"); set order to tag "1"
+#xcommand O_DINTEG2 => SELECT (F_DINTEG2); USE_EXCLUSIVE(KUMPATH+"DINTEG2"); set order to tag "1"
+#xcommand O_INTEG1 => SELECT (F_INTEG1); USE_EXCLUSIVE(KUMPATH+"INTEG1"); set order to tag "1"
+#xcommand O_INTEG2 => SELECT (F_INTEG2); USE_EXCLUSIVE(KUMPATH+"INTEG2"); set order to tag "1"
+#xcommand O_ERRORS => SELECT (F_ERRORS); USE_EXCLUSIVE(PRIVPATH+"ERRORS"); set order to tag "1"
 
 
 // tabele DOK_SRC
 #xcommand O_DOKSRC => SELECT (F_DOKSRC); USE (KUMPATH+"DOKSRC"); set order to tag "1"
-#xcommand O_P_DOKSRC => SELECT (F_P_DOKSRC); USEX (PRIVPATH+"P_DOKSRC"); set order to tag "1"
+#xcommand O_P_DOKSRC => SELECT (F_P_DOKSRC); USE_EXCLUSIVE(PRIVPATH+"P_DOKSRC"); set order to tag "1"
 
 #xcommand O_RELATION => SELECT (F_RELATION); USE (SIFPATH+"RELATION"); set order to tag "1"
 
-#xcommand O_TEMP => select (F_TEMP); usex (PRIVPATH+"temp")
+#xcommand O_TEMP => select (F_TEMP); USE_EXCLUSIVE(PRIVPATH+"temp")

@@ -27,11 +27,11 @@
 
 #define NL  chr(13)+chr(10)
 
-#xcommand O_PRIPR     => select (F_PRIPR);   usex (PRIVPATH+"PRIPR") ; set order to tag "1"
-#xcommand O_PRIPR9     => select (F_PRIPR9);   usex (PRIVPATH+"PRIPR9") ; set order to tag "1"
-#xcommand O_PRIPRRP   => select (F_PRIPRRP); usex (strtran(cDirPriv,goModul:oDataBase:cSezonDir,SLASH)+"PRIPR")   alias priprrp; set order to tag  "1"
+#xcommand O_PRIPR     => select (F_PRIPR);   USE_EXCLUSIVE(PRIVPATH+"PRIPR") ; set order to tag "1"
+#xcommand O_PRIPR9     => select (F_PRIPR9);   USE_EXCLUSIVE(PRIVPATH+"PRIPR9") ; set order to tag "1"
+#xcommand O_PRIPRRP   => select (F_PRIPRRP); USE_EXCLUSIVE(strtran(cDirPriv,goModul:oDataBase:cSezonDir,SLASH)+"PRIPR")   alias priprrp; set order to tag  "1"
 #xcommand O_FAKT      => select (F_FAKT) ;   use  (KUMPATH+"FAKT") ; set order to tag  "1"
-#xcommand O__FAKT     => select(F__FAKT)  ; cmxAutoOpen(.f.);  usex (PRIVPATH+"_FAKT") ; cmxAutoOpen(.t.)
+#xcommand O__FAKT     => select(F__FAKT)  ; cmxAutoOpen(.f.);  USE_EXCLUSIVE(PRIVPATH+"_FAKT") ; cmxAutoOpen(.t.)
 #xcommand O__ROBA   => select(F__ROBA);  use  (PRIVPATH+"_ROBA")
 #xcommand O_PFAKT     => select (F_FAKT);  use  (KUMPATH+"FAKT") alias PRIPR; set order to tag   "1"
 #xcommand O_DOKS      => select(F_DOKS);    use  (KUMPATH+"DOKS")  ; set order to tag "1"
@@ -48,7 +48,7 @@
 #xcommand O_KONTO    => select(F_KONTO);  use  (SIFPATH+"KONTO"); set order to tag "ID"
 #xcommand O_UGOV     => select(F_UGOV);  use  (KUMPATH+"UGOV")     ; set order to tag "ID"
 #xcommand O_RUGOV    => select(F_RUGOV);  use  (KUMPATH+"RUGOV")   ; set order to tag "ID"
-#xcommand O_POR      => select 95; cmxAutoOpen(.f.); usex (PRIVPATH+"por")  ; cmxAutoOpen(.t.)
+#xcommand O_POR      => select 95; cmxAutoOpen(.f.); USE_EXCLUSIVE(PRIVPATH+"por")  ; cmxAutoOpen(.t.)
 
 #xcommand O_FADO     => select (F_FADO); use  (SIFPATH+"FADO")    ; set order to tag "ID"
 #xcommand O_FADE     => select (F_FADE); use  (SIFPATH+"FADE")    ; set order to tag "ID"

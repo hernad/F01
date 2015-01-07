@@ -96,7 +96,7 @@ endif
 
 MsgO("Kontiram nalog ...")
 // daj naredni broj naloga
-private cBrNal:=NextNal( gFirma, cTipNal )
+private cBrNal:=sljedeci_fin_nalog( gFirma, cTipNal )
 private nRBr:=0
 private nIznos:=0
 private nIznDEM:=0

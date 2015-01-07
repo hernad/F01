@@ -58,9 +58,9 @@ cKalkFirma:=gFirma
 cIdfirma:=gFirma
 
 //direktorij kumulativ FAKT-a
-cF2F:=PADR(ToUnix("C:" + SLASH + "SIGMA" + SLASH + "FAKT" + SLASH + "KUM1" + SLASH), 40)
+cF2F:=PADR(ToUnix( DATA_ROOT + SLASH + "FAKT" + SLASH + "KUM1" + SLASH), 40)
 
-cF2FS:=PADR(TRIM(goModul:oDatabase:cDirSif)+SLASH,40)
+cF2FS:=PADR(TRIM(goModul:oDatabase:cDirSif) + SLASH,40)
 qqRoba:=""
 dDatOd:=ctod("")
 dDatDo:=date()

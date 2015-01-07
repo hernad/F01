@@ -677,13 +677,13 @@ if gTBDir="D"
  @ m_x+16,m_y+1 SAY space(78)
  @ m_x+17,m_y+1 SAY padr("Direktni mod za unos: ispravka opisa",78)
  @ m_x+18,m_y+1 SAY space(78)
- @ m_x+19,m_y+1 SAY REPL("�",78)
+ @ m_x+19,m_y+1 SAY REPL(BOX_CHAR_USPRAVNO,78)
  @ m_x+20,m_y+1 SAY ""; ?? "Konto:",cIdKonto
 else
  @ m_x+16,m_y+1 SAY " <F2>   Ispravka broja dok.       <c-P> Print   <a-P> Print Br.Dok          "
  @ m_x+17,m_y+1 SAY " <K>    Ukljuci/iskljuci racun za kamate         <F5> uzmi broj dok.        "
  @ m_x+18,m_y+1 SAY '<ENTER> Postavi/Ukini zatvaranje                 <F6> "nalijepi" broj dok.  '
- @ m_x+19,m_y+1 SAY REPL("�",78)
+ @ m_x+19,m_y+1 SAY REPL(BOX_CHAR_USPRAVNO,78)
  @ m_x+20,m_y+1 SAY ""; ?? "Konto:",cIdKonto
 endif
 
@@ -1106,7 +1106,7 @@ IF fTiho
   AADD(aDBf,{ 'GOD'+STR(VAL(aGod[i-1,1])-2,4), 'N' , 15 ,  2 })  // godina valute
 ENDIF
 DBCREATE2 (cPom, aDbf)
-USEX (cPom)
+USE_EXCLUSIVE(cPom)
 INDEX ON IDPARTNER+DTOS(DATDOK)+DTOS(IIF(EMPTY(DATVAL),DATDOK,DATVAL))+BRDOK TAG "1"
 SET ORDER TO TAG "1" ; GO TOP
 return .t.
@@ -1411,7 +1411,7 @@ IF lIzgen .or. !FILE("TEMP12.DBF")
 ENDIF
 
 SELECT 77
-USEX TEMP12 ALIAS TEMP12
+USE_EXCLUSIVE ("TEMP12") ALIAS TEMP12
 index on brisano tag "BRISAN"
 //ZAP
 
@@ -1424,7 +1424,7 @@ IF lIzgen .or. !FILE("TEMP60.DBF")
 ENDIF
 
 SELECT 78
-USEX TEMP60 ALIAS TEMP60
+USE_EXCLUSIVE ("TEMP60") ALIAS TEMP60
 index on brisano tag "BRISAN"
 //ZAP
 
@@ -1448,7 +1448,7 @@ if cfilter==".t."
 else
   set filter to &cFilter
 endif
-   //HSEEK cIdFirma+qqKonto+qqPartner
+
 
 nStr:=0
 
@@ -1635,12 +1635,12 @@ ImeKol:={ ;
 Kol:={}; for i:=1 to LEN(ImeKol); AADD(Kol,i); next
 Box(,21,77)
 @ m_x,m_y+20 SAY 'KREIRANJE OBRASCA "IZJAVA O KOMPENZACIJI"'
-@ m_x+18,m_y+1 SAY REPL("�",77)
+@ m_x+18,m_y+1 SAY REPL(BOX_CHAR_USPRAVNO,77)
 @ m_x+19,m_y+1 SAY "<K> - izaberi/ukini racun za kompenzaciju"
 @ m_x+20,m_y+1 SAY "<CTRL>+<P> - stampanje kompenzacije               <T> - promijeni tabelu"
 @ m_x+21,m_y+1 SAY "<CTRL>+<N> - nova,   <CTRL>+<T> - brisanje,   <ENTER> - ispravka stavke "
 FOR i:=1 TO 17
-  @ m_x+i, m_y+39 SAY "�"
+  @ m_x+i, m_y+39 SAY BOX_CHAR_USPRAVNO
 NEXT
 
 SELECT TEMP60; GO TOP
@@ -1831,18 +1831,18 @@ LOCAL a1:={}, a2:={}, GetList:={}
           ++nBrSt
 
           IF lTemp60
-            ? SPACE(nLM) + "�"+STR(nBrSt,4)+".�"+brdok+"�"+STR(iznosbhd,17,2)
+            ? SPACE(nLM) + BOX_CHAR_USPRAVNO+STR(nBrSt,4)+".�"+brdok+BOX_CHAR_USPRAVNO+STR(iznosbhd,17,2)
             nUkup60+=iznosbhd
           ELSE
-            ? SPACE(nLM) + "�     �"+SPACE(10)+"�"+SPACE(17)
+            ? SPACE(nLM) + "�     �"+SPACE(10)+BOX_CHAR_USPRAVNO+SPACE(17)
           ENDIF
 
           SELECT TEMP12
           IF lTemp12
-            ?? "�"+STR(nBrSt,4)+".�"+brdok+"�"+STR(iznosbhd,17,2)+"�"
+            ?? BOX_CHAR_USPRAVNO+STR(nBrSt,4)+".�"+brdok+BOX_CHAR_USPRAVNO+STR(iznosbhd,17,2)+BOX_CHAR_USPRAVNO
             nUkup12+=iznosbhd
           ELSE
-            ?? "�     �"+SPACE(10)+"�"+SPACE(17)+"�"
+            ?? "�     �"+SPACE(10)+BOX_CHAR_USPRAVNO+SPACE(17)+BOX_CHAR_USPRAVNO
           ENDIF
           SKIP 1
 
@@ -1852,7 +1852,7 @@ LOCAL a1:={}, a2:={}, GetList:={}
         ENDDO
 
         FOR j:=nBrSt+1 TO 11
-          ? SPACE(nLM) + "�     �"+SPACE(10)+"�"+SPACE(17)+"�     �"+SPACE(10)+"�"+SPACE(17)+"�"
+          ? SPACE(nLM) + "�     �"+SPACE(10)+BOX_CHAR_USPRAVNO+SPACE(17)+"�     �"+SPACE(10)+BOX_CHAR_USPRAVNO+SPACE(17)+BOX_CHAR_USPRAVNO
         NEXT
         nSaldo:=ABS(nUkup12-nUkup60)
 
@@ -2109,7 +2109,7 @@ endif
 create (PRIVPATH+"OSUBAN") from OEXT
 
 select (F_OSUBAN)
-usex (PRIVPATH+"OSUBAN")
+USE_EXCLUSIVE(PRIVPATH+"OSUBAN")
 index on IdFirma+IdKonto+IdPartner+dtos(DatDok)+BrNal+RBr  tag "1"
 index on idfirma+idkonto+idpartner+brdok  tag "3"
 index on dtos(datdok)+dtos(iif(empty(DatVal),DatDok,DatVal))  tag "DATUM"
@@ -2387,7 +2387,7 @@ select suban
 use
 select osuban
 use
-usex (PRIVPATH+"osuban") alias suban
+USE_EXCLUSIVE(PRIVPATH+"osuban") alias suban
 
 select SUBAN
 set order to tag "1" // IdFirma+IdKonto+IdPartner+dtos(DatDok)+BrNal+RBr
@@ -2443,7 +2443,7 @@ private aPPos:={cIdPartner,1}  // pozicija kolone partner, broj veze
 
 set cursor on
 @ m_x+16,m_y+1 SAY "****************  REZULTATI ASISTENTA ************"
-@ m_x+17,m_y+1 SAY REPL("�",78)
+@ m_x+17,m_y+1 SAY REPL(BOX_CHAR_USPRAVNO,78)
 @ m_x+18,m_y+1 SAY " <F2> Ispravka broja dok.       <c-P> Print      <a-P> Print Br.Dok           "
 @ m_x+19,m_y+1 SAY " <K> Ukljuci/iskljuci racun za kamate "
 @ m_x+20,m_y+1 SAY ' < F6 > Stampanje izvrsenih promjena  '
@@ -2485,7 +2485,7 @@ use
 MsgBeep("U slucaju da azurirate rezultate asistenta#program ce izmijeniti sadrzaj subanalitickih podataka !")
 if pitanje(,"Zelite li izvrsiti azuriranje rezultata asistenta u bazu SUBAN !!","N")=="D"
 	select (F_OSUBAN)
-	usex (PRIVPATH+"osuban")
+	USE_EXCLUSIVE(PRIVPATH+"osuban")
  	O_SUBAN
  	if !flock()
    		MsgBeep("Program ne dozvoljava drugim korisnicima unos podataka !")

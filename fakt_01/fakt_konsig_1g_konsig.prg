@@ -121,7 +121,7 @@ RPar("c2",@dOd     )
   // odredimo novi broj racuna
   // ----------------------------
    select fakt
-   seek cIdRJ+"16"+"�"
+   seek cIdRJ+"16"+BOX_CHAR_USPRAVNO
    skip -1
 
    if idfirma+idtipdok <> cIdRJ+"16"

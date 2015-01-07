@@ -188,49 +188,49 @@ for i:=1 to len(cStr)
     cPom+="\}"
   elseif cChar=="\"
     cPom+="\\"
-  elseif cChar $ "Á"
+  elseif cChar $ BOX_CHAR_USPRAVNO
     cPom+="\'9a"
-  elseif cChar $ "Ê"
+  elseif cChar $ BOX_CHAR_USPRAVNO
     cPom+="\'8a"
-  elseif cChar $ "Ü"
+  elseif cChar $ BOX_CHAR_USPRAVNO
     if gWord97=="D"
      cPom+="\u263\'63"
     else
      cPom+="\'e6"
     endif
-  elseif cChar $ "è"
+  elseif cChar $ BOX_CHAR_USPRAVNO
     if gWord97=="D"
      cPom+="\u262\'43"
     else
      cPom+="\'c6"
     endif
-  elseif cChar $ "ü"
+  elseif cChar $ BOX_CHAR_USPRAVNO
     if gWord97=="D"
      cPom+="\u269\'63"
     else
      cPom+="\'e8"
     endif
-  elseif cChar $ "¨"
+  elseif cChar $ BOX_CHAR_USPRAVNO
     if gWord97=="D"
      cPom+="\u268\'43"
     else
      cPom+="\'c8"
     endif
-  elseif cChar $ "–"
+  elseif cChar $ BOX_CHAR_USPRAVNO
     if gWord97=="D"
      cPom+="\u273\'64"
     else
      cPom+="\'f0"
     endif
-  elseif cChar $ "—"
+  elseif cChar $ BOX_CHAR_USPRAVNO
     if gWord97=="D"
      cPom+="\u272\'do"
     else
      cPom+="\'d0"
     endif
-  elseif cChar $ "ß"
+  elseif cChar $ BOX_CHAR_USPRAVNO
     cPom+="\'9e"
-  elseif cChar $ "¶"
+  elseif cChar $ BOX_CHAR_USPRAVNO
     cPom+="\'8e"
   elseif substr(cStr,i,2)==NL
     cPom+="\par "

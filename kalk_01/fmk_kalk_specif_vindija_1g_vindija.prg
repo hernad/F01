@@ -340,7 +340,7 @@ AADD(aDBf,{ 'KOLICINA'    , 'N' , 18 ,  8 })
 AADD(aDBf,{ 'CIJENA'      , 'N' , 10 ,  4 })
 AADD(aDBf,{ 'IZNOS'       , 'N' , 18 ,  8 })
 DBCREATE2 (cPom, aDbf)
-USEX (cPom)
+USE_EXCLUSIVE(cPom)
 INDEX ON IDG+IDPG+IDROBA TAG "1"
 INDEX ON IDG+IDPG+LEFT(NAZ,40) TAG "2"
 SET ORDER TO TAG "1" ; GO TOP

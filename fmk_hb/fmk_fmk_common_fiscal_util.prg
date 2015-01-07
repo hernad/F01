@@ -67,7 +67,7 @@ if roba->(FIELDPOS("FISC_PLU")) = 0
 	return .f.
 endif
 
-if lSilent == .f. .and. !SigmaSIF("GENPLU")
+if lSilent == .f. .and. !sifra_za_koristenje_opcije("GENPLU")
 	msgbeep("NE DIRAJ !!!")
 	return .f.
 endif
@@ -221,7 +221,7 @@ else
 endif
 
 if lReset = .t. .and. !lSilent
-	if !SigmaSif("RESET")
+	if !sifra_za_koristenje_opcije("RESET")
 		msgbeep("Unesena pogresna sifra !")
 		select (nTArea)
 		return nGenPlu

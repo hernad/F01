@@ -222,43 +222,16 @@ RETURN
 
 function ToUnix(cFileName)
 
-local nPos
 
-#ifdef CLIP
+cFileName := UPPER(cFileName)
 
-cFileName:=LOWER(cFileName)
-// tekuci direktorij
-cFileName:=STRTRAN(cFileName,".\","")
-cFileName:=STRTRAN(cFileName,".korisn","korisn")
-cFileName:=STRTRAN(cFileName,".mparams","mparams")
-cFileName:=STRTRAN(cFileName,".secur","secur")
-cFileName:=STRTRAN(cFileName,"c:","/c")
-cFileName:=STRTRAN(cFileName,"d:","/d")
-cFileName:=STRTRAN(cFileName,"k:","/k")
-cFileName:=STRTRAN(cFileName,"i:","/i")
-cFileName:=STRTRAN(cFileName,"t:","/t")
-cFileName:=STRTRAN(cFileName,"q:","/q")
-cFileName:=STRTRAN(cFileName,"\","/")
-
-if (cFileName=="/params")
-	cFileName:="params"
-endif
-if (cFileName=="/kparams")
-	cFileName:="kparams"
-endif
-
-return cFileName
-
-#else
-
-//CLIPPER
-cFileName:=strtran(cFileName,"/c/","C:\")
-cFileName:=strtran(cFileName,"/","\")
-return UPPER(cFileName)
-
+cFileName := STRTRAN( cFileName, "C:" + BACKSLASH, "" )
+cFileName := STRTRAN( cFileName, "C:" + SLASH, "" )
+#ifdef __PLATFORM__UNIX
+  cFileName := STRTRAN( cFileName, BACKSLASH, SLASH )
 #endif
 
-
+RETURN cFileName
 
 
 

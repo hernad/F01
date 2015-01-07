@@ -492,10 +492,10 @@ IF VALTYPE(aNiz)=="A"
    IF( MOD(i-1,nBrKol)==0 , EVAL({|| ++j,k:=0})  , k+=nOduz )
    IF i>LEN(aNiz); AADD(aNiz,""); ENDIF
    IF aNiz[i]==NIL; aNiz[i]=""; ENDIF
-   @ 24-nBrRed+j,k SAY PADR(aNiz[i],nOduz-1)+IF(MOD(i-1,nBrKol)==nBrKol-1,"","�")
+   @ 24-nBrRed+j,k SAY PADR(aNiz[i],nOduz-1)+IF(MOD(i-1,nBrKol)==nBrKol-1,"",BOX_CHAR_USPRAVNO)
  NEXT
  FOR i:=1 TO nBrKol
-   @ 24-nBrRed,(i-1)*nOduz SAY REPLICATE("�",nOduz-IF(i==nBrKol,0,1))+IF(i==nBrKol,"","�")
+   @ 24-nBrRed,(i-1)*nOduz SAY REPLICATE(BOX_CHAR_USPRAVNO,nOduz-IF(i==nBrKol,0,1))+IF(i==nBrKol,"",BOX_CHAR_USPRAVNO)
  NEXT
  xVrati:=nBrRed+1
 ENDIF
@@ -794,7 +794,7 @@ LOCAL xM:=0,yM:=0
  h:=ARRAY(LEN(aNiz))
  AFILL(h,"")
  Prozor1(x1,y1,x1+xM+2,y1+yM+1,cNasl,,B_DOUBLE+" ",,,0)
- @ x1+1,y1 SAY "�"+REPLICATE("�",yM)+"�"
+ @ x1+1,y1 SAY BOX_CHAR_USPRAVNO+REPLICATE(BOX_CHAR_USPRAVNO,yM)+BOX_CHAR_USPRAVNO
  IF LEN(aNiz)>16
   nIzb:=ACHOICE3(x1+2,y1+1,x1+xM+2,y1+yM,aNiz,,"KorMenu2",nIzb)
  ELSE
@@ -895,11 +895,11 @@ function Postotak(nIndik,nUkupno,cTekst,cBNasl,cBOkv,lZvuk)
       nCilj:=nUkupno
       cKraj:=cTekst+" zavrseno."
       Prozor1(10,13,14,66,cTekst+" u toku...",cNas,,cOkv,"B/W",0)
-      @ 12,15 SAY REPLICATE("�",50) COLOR "B/W"
+      @ 12,15 SAY REPLICATE(BOX_CHAR_USPRAVNO,50) COLOR "B/W"
       IF lZvuk; TONE(1900,0); ENDIF
     CASE nIndik==2
       nKara=INT(50*nUkupno/nCilj)
-      @ 12,15 SAY REPLICATE("�",nKara) COLOR "B/BG"
+      @ 12,15 SAY REPLICATE(BOX_CHAR_USPRAVNO,nKara) COLOR "B/BG"
       @ 13,37 SAY STR(2*nKara,3)+" %" COLOR "B/W"
     CASE nIndik<=0
       @ 10,(78-LEN(cKraj))/2 SAY " "+cKraj+" " COLOR cNas
@@ -1116,8 +1116,8 @@ function KonvZnakova(cTekst)
 
 
  // jedan par: { 7-bit znak, 852 znak }
- LOCAL aNiz:={  {"[","�"}, {"{","�"}, {"}","�"}, {"]","�"}, {"^","�"},;
-                {"~","�"}, {"`","�"}, {"@","�"}, {"|","�"}, {"\","�"}  }
+ LOCAL aNiz:={  {"[",BOX_CHAR_USPRAVNO}, {"{",BOX_CHAR_USPRAVNO}, {"}",BOX_CHAR_USPRAVNO}, {"]",BOX_CHAR_USPRAVNO}, {"^",BOX_CHAR_USPRAVNO},;
+                {"~",BOX_CHAR_USPRAVNO}, {"`",BOX_CHAR_USPRAVNO}, {"@",BOX_CHAR_USPRAVNO}, {"|",BOX_CHAR_USPRAVNO}, {"\",BOX_CHAR_USPRAVNO}  }
  LOCAL i,j
  IF "U" $ TYPE("g852"); g852:="D"; ENDIF
  IF g852=="D"
@@ -1502,7 +1502,7 @@ endif
 DISPBox(2,0,4,79,B_DOUBLE+' ',NORMAL)
 
 if fbox
-	DISPBox(5,0,24,79,B_DOUBLE+"�",INVERT)
+	DISPBox(5,0,24,79,B_DOUBLE+BOX_CHAR_USPRAVNO,INVERT)
 endif
 
 @ 3,1 SAY PADC(gNaslov+' Ver.'+gVerzija,72) COLOR NORMAL
@@ -1610,14 +1610,14 @@ for i:=1 to len(cInput)
   endif
 
   fDupli:=.f.  // slova D�, NJ, LJ
-  if (cChar="D" .and. substr(cInput,i+1,1)="�")
-     nPos:=AT("�",cBTOETABLE)+1   //LJ
+  if (cChar="D" .and. substr(cInput,i+1,1)=BOX_CHAR_USPRAVNO)
+     nPos:=AT(BOX_CHAR_USPRAVNO,cBTOETABLE)+1   //LJ
      fDupli:=.t.
   elseif (cChar="L" .and. substr(cInput,i+1,1)="J")
-     nPos:=AT("�",cBTOETABLE)+1   //LJ
+     nPos:=AT(BOX_CHAR_USPRAVNO,cBTOETABLE)+1   //LJ
      fDupli:=.t.
   elseif (cChar="N" .and. substr(cInput,i+1,1)="J")
-     nPos:=AT("�",cBTOETABLE)
+     nPos:=AT(BOX_CHAR_USPRAVNO,cBTOETABLE)
      fDupli:=.t.
   else
      nPos:=AT(cChar,cBTOETAble)

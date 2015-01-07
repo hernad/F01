@@ -1278,7 +1278,7 @@ return 0
 // lokovanje tabela fakt i doks
 function fakt_lock()
 
-if !SigmaSif("LOCK")
+if !sifra_za_koristenje_opcije("LOCK")
 	return
 endif
 
@@ -1436,7 +1436,7 @@ if gSecurity == "D" .and. _idtipdok $ "12#22" .and. !EMPTY( _prefix )
 
     	_srch_tag := _prefix + "/"
 
-	seek _idfirma +_idtipdok + _srch_tag + "�"
+	seek _idfirma +_idtipdok + _srch_tag + BOX_CHAR_USPRAVNO
  	skip -1
 
    	if field->idfirma == _idfirma .and. field->idtipdok == _idtipdok .and. LEFT( field->brdok, 3 ) == _srch_tag
@@ -1481,7 +1481,7 @@ if (gVarNum=="2".and._idtipdok=="13")
    		skip -1
  	enddo
 else
-	seek _idfirma+_idtipdok+"�"
+	seek _idfirma+_idtipdok+BOX_CHAR_USPRAVNO
  	skip -1
 
  	if (_idtipdok $ "10#11" .and. ;

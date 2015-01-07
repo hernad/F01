@@ -2012,7 +2012,7 @@ return 2
  */
 static function FillDobSifra()
 
-if !SigmaSif("FILLDOB")
+if !sifra_za_koristenje_opcije("FILLDOB")
 	MsgBeep("Nemate ovlastenja za ovu opciju!!!")
 	return
 endif

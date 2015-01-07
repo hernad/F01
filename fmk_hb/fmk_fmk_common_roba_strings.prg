@@ -19,7 +19,7 @@ local nTArea := SELECT()
 private ImeKol
 private Kol
 
-if !SigmaSIF("STRING")
+if !sifra_za_koristenje_opcije("STRING")
 	MsgBeep("Opcija nedostupna !!!")
 	return
 endif

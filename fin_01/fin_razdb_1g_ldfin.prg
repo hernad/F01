@@ -88,7 +88,7 @@ select trfp3
 set filter to shema=cShema
 go top
 
-cBrNal := nextnal( gFirma, trfp3->idvn )
+cBrNal := sljedeci_fin_nalog( gFirma, trfp3->idvn )
 
 select trfp3
 

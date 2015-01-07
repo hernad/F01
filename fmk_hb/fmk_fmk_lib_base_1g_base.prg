@@ -155,21 +155,19 @@ SET EXCLUSIVE OFF
 //Setuj globalne varijable varijable modula
 oApp:setGVars()
 
-// nakon verzije 1.5 ovo cemo ukinuti
+altd()
+
+/*
+
 cImeDbf:=KUMPATH+"SECUR.DBF"
 if !FILE(cImeDbf)
-	#ifdef CLIP
-		? "prije oApp:oDatabase:kreiraj"
-		inkey(0)
-		inkey(0)
-		inkey(0)
-	#endif
 	oApp:oDatabase:kreiraj(F_SECUR)
 endif
+*/
 
-oApp:oDataBase:setSigmaBD(IzFmkIni("Svi","SigmaBD","c:"+SLASH+"sigma",EXEPATH))
+oApp:oDataBase:setSigmaBD(IzFmkIni("Svi","SigmaBD", "c:"+SLASH + "sigma", EXEPATH))
 
-if (gSecurity=="D")
+if ( gSecurity == "D")
 	AddSecgaSDBFs()
 	LoginScreen()
 	ShowUser()
@@ -389,7 +387,7 @@ if !oApp:lStarted
 	   Prijava(oApp,.f.)  // bez prijavnog Box-a
 	 else
 	   Prijava(oApp)
-	   PokreniInstall(oApp)
+	   //PokreniInstall(oApp)
 	 endif
 	else
 	 Prijava(oApp)
@@ -429,6 +427,7 @@ if !PostDir(cFile)
 endif
 
 if lPitaj
+  altd()
 	if Pitanje(,"Pokrenuti instalacijsku proceduru ?","D")=="D"
 		oApp:oDatabase:install()
 	endif
@@ -783,13 +782,12 @@ endif
 
 if (ImeKorisn=="SYSTEM")
 
-#ifdef CLIP
-	? "setujem dirkum, dirsif, dirpriv (oApp:oDatabase:setDirPriv ..)=tekuci dir"
-#endif
 	oApp:oDatabase:setDirKum(".")
 	oApp:oDatabase:setDirSif(".")
 	oApp:oDatabase:setDirPriv(".")
+
 else
+
 	SELECT korisn
 	LOCATE FOR oApp:cSifra==field->sif .and. field->ime==oApp:cKorisn
 
@@ -797,9 +795,11 @@ else
 	ImeKorisn:=korisn->ime
 	SifraKorisn:=korisn->sif
 
-	oApp:oDatabase:setDirKum(korisn->dirRad)
-	oApp:oDatabase:setDirSif(korisn->dirSif)
-	oApp:oDatabase:setDirPriv(korisn->dirPriv)
+  altd()
+
+	oApp:oDatabase:setDirKum( ToUnix( korisn->dirRad ) )
+	oApp:oDatabase:setDirSif( ToUnix( korisn->dirSif ) )
+	oApp:oDatabase:setDirPriv( ToUnix( korisn->dirPriv) )
 
 	// KLevel ... ubaciti u TAppMod klasu
 	KLevel := level

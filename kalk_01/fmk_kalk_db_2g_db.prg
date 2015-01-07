@@ -737,7 +737,7 @@ if lIdiDalje
 	endif
 
 	select(i)
-	usex(cDbfName)
+	USE_EXCLUSIVE (cDbfName)
 else
 	use
 	return
@@ -830,7 +830,7 @@ LOCAL cIz:="7", cU:="8", aPriv:={}, aKum:={}, aSif:={}
 LOCAL GetList:={}, cSif:="D", cKum:="D", cPriv:="D"
 
 if !gAppSrv
-	if !SigmaSif("KZ      ")
+	if !sifra_za_koristenje_opcije("KZ      ")
 		return
 	endif
 	Box(,8,50)

@@ -16,9 +16,9 @@
 #define F_LDNO    24
 #define F_RJES    25
 
-#xcommand O_LDNO   => select (F_LDNO)  ; usex (KUMPATH+"LDNO"); set order to 1
-#xcommand O_PRIPNO => select (F_PRIPNO); usex (PRIVPATH+"PRIPNO")
-#xcommand O_RJES => select (F_RJES); usex (KUMPATH+"RJES"); set order to tag "NAOSNOVU"
+#xcommand O_LDNO   => select (F_LDNO)  ; USE_EXCLUSIVE(KUMPATH+"LDNO"); set order to 1
+#xcommand O_PRIPNO => select (F_PRIPNO); USE_EXCLUSIVE(PRIVPATH+"PRIPNO")
+#xcommand O_RJES => select (F_RJES); USE_EXCLUSIVE(KUMPATH+"RJES"); set order to tag "NAOSNOVU"
 
 
 #xcommand O_RADN    => OKumul(F_RADN, KUMPATH,"RADN",1); set order to 1
@@ -28,18 +28,18 @@
 #xcommand O_RADSIHT   => OKumul(F_RADSIHT, KUMPATH,"RADSIHT",1); set order to tag "1"
 
 
-#xcommand O__RADN    => select (F__RADN);  usex (PRIVPATH+"_RADN")
+#xcommand O__RADN    => select (F__RADN);  USE_EXCLUSIVE(PRIVPATH+"_RADN")
 #xcommand O_RADKR    => OKumul(F_RADKR, KUMPATH,"RADKR",1); set order to  1
-#xcommand O_RADKRX   => select (F_RADKR);  usex (KUMPATH+"RADKR") ; set order to  0
+#xcommand O_RADKRX   => select (F_RADKR);  USE_EXCLUSIVE(KUMPATH+"RADKR") ; set order to  0
 #xcommand O__RADKR   => select (F__RADKR);    use (PRIVPATH+"_RADKR")
 #xcommand O_LD      => OKumul(F_LD, KUMPATH, "LD",1)   ; set order to 1
-#xcommand O_LDX      => select (F_LD);    usex (KUMPATH+"LD") ; set order to 1
-#xcommand O__LD     => select (F__LD);    usex (PRIVPATH+"_LD")
+#xcommand O_LDX      => select (F_LD);    USE_EXCLUSIVE(KUMPATH+"LD") ; set order to 1
+#xcommand O__LD     => select (F__LD);    USE_EXCLUSIVE(PRIVPATH+"_LD")
 #xcommand O_LDSM    => select (F_LDSM);   use (PRIVPATH+"LDSM") ; set order to 1
-#xcommand O_LDSMX   => select (F_LDSM);   usex (PRIVPATH+"LDSM") ; set order to 0
-#xcommand O_OPSLD  => select 95; usex (PRIVPATH+"opsld") ; set order to 1
-#xcommand O_REKLD0 => select (F_REKLD); usex (KUMPATH+"rekld")
-#xcommand O_REKLD  => select (F_REKLD); usex (KUMPATH+"rekld") ; set order to 1
+#xcommand O_LDSMX   => select (F_LDSM);   USE_EXCLUSIVE(PRIVPATH+"LDSM") ; set order to 0
+#xcommand O_OPSLD  => select 95; USE_EXCLUSIVE(PRIVPATH+"opsld") ; set order to 1
+#xcommand O_REKLD0 => select (F_REKLD); USE_EXCLUSIVE(KUMPATH+"rekld")
+#xcommand O_REKLD  => select (F_REKLD); USE_EXCLUSIVE(KUMPATH+"rekld") ; set order to 1
 
 #xcommand O_RJ   => select (F_RJ); use  (KUMPATH+"RJ") ; set order to tag "ID"
 #xcommand O_KBENEF => select (F_KBENEF); use (SIFPATH+"KBENEF")  ;set order to tag "ID"

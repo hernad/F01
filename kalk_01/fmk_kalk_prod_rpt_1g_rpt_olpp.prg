@@ -180,7 +180,7 @@ for ik:=1 to 2
 	// total pdv
  	@ prow(),nC2 SAY nU2 pict picdem 
 	// mpc sa pdv
- 	? STRTRAN(m," ","�")
+ 	? STRTRAN(m," ",BOX_CHAR_USPRAVNO)
  	?
 	
 	// rekap. tarifa

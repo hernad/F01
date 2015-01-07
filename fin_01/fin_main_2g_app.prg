@@ -37,7 +37,7 @@ method dummy()
 return
 
 
-method initdb()
+method TFinMod:initdb()
 
 ::oDatabase:=TDBFinNew()
 
@@ -45,7 +45,7 @@ return NIL
 
 
 
-method mMenu()
+method TFinMod:mMenu()
 
 ::oSqlLog:=TSqlLogNew()
 
@@ -133,7 +133,7 @@ AADD(opc, "------------------------------------")
 AADD(opcexe, {|| nil})
 
 AADD(opc, "K. kontrola zbira datoteka")
-AADD(opcexe, {|| KontrZb()})
+AADD(opcexe, {|| kontrola_zbira_fin()})
 
 AADD(opc, "P. povrat dokumenta u pripremu")
 if (ImaPravoPristupa(goModul:oDatabase:cName,"UT","POVRATNALOGA"))
@@ -160,15 +160,12 @@ Menu_SC("gfin",.t.,lPodBugom)
 return
 
 
-method sRegg()
+method TFinMod:sRegg()
 
 return
 
+method TFinMod:srv()
 
-
-*void TFinMod::srv()
-
-method srv()
 ? "Pokrecem FIN aplikacijski server"
 
 // konverzija baza
@@ -213,14 +210,8 @@ endif
 return
 
 
-/*  *void TFinMod::setGVars()
- *   opste funkcije FIN modula
- */
 
-*void TFinMod::setGVars()
-
-
-method setGVars()
+method TFinMod:setGVars()
 
 SetFmkSGVars()
 SetFmkRGVars()
@@ -325,6 +316,6 @@ gModul:="FIN"
 gTema:="OSN_MENI"
 gGlBaza:="SUBAN.DBF"
 
-public cZabrana:="Opcija nedostupna za ovaj nivo !!!"
+public cZabrana := "Opcija nedostupna za ovaj nivo !"
 
 return

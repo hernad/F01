@@ -76,18 +76,18 @@
 #xcommand O_PROMVP    => SELECT (F_PROMVP); USE (KUMPATH+"PROMVP"); set order to 1
 
 // exclusive use
-#xcommand OX_DOKS     => SELECT (F_DOKS); USEX (KUMPATH+"DOKS"); set order to 1
-#xcommand OX_POS      => SELECT (F_POS); USEX (KUMPATH+"POS"); set order to 1
-#xcommand OX_RNGPLA   => SELECT (F_RNGPLA); USEX (KUMPATH+"RNGPLA"); set order to 1
-#xcommand OX_PROMVP    => SELECT (F_PROMVP); USEX (KUMPATH+"PROMVP"); set order to 1
+#xcommand OX_DOKS     => SELECT (F_DOKS); USE_EXCLUSIVE(KUMPATH+"DOKS"); set order to 1
+#xcommand OX_POS      => SELECT (F_POS); USE_EXCLUSIVE(KUMPATH+"POS"); set order to 1
+#xcommand OX_RNGPLA   => SELECT (F_RNGPLA); USE_EXCLUSIVE(KUMPATH+"RNGPLA"); set order to 1
+#xcommand OX_PROMVP    => SELECT (F_PROMVP); USE_EXCLUSIVE(KUMPATH+"PROMVP"); set order to 1
 
 // Pomocne prometne datoteke
-#xcommand O__POS      => SELECT (F__POS)  ; USEX (PRIVPATH+"_POS")  ; set order to 1
-#xcommand O__PRIPR    => SELECT (F__PRIPR); USEX (PRIVPATH+"_PRIPR"); set order to 1
-#xcommand O_PRIPRZ    => SELECT (F_PRIPRZ); USEX (PRIVPATH+"PRIPRZ"); set order to 1
-#xcommand O_PRIPRG    => SELECT (F_PRIPRG); USEX (PRIVPATH+"PRIPRG"); set order to 1
-#xcommand O__POSP     => select(F__POSP)  ; cmxAutoOpen(.f.);  usex (PRIVPATH+"_POSP") ; cmxAutoOpen(.t.)
-#xcommand O__DOKSP     => select(F__DOKSP)  ; cmxAutoOpen(.f.);  usex (PRIVPATH+"_DOKSP") ; cmxAutoOpen(.t.)
+#xcommand O__POS      => SELECT (F__POS)  ; USE_EXCLUSIVE(PRIVPATH+"_POS")  ; set order to 1
+#xcommand O__PRIPR    => SELECT (F__PRIPR); USE_EXCLUSIVE(PRIVPATH+"_PRIPR"); set order to 1
+#xcommand O_PRIPRZ    => SELECT (F_PRIPRZ); USE_EXCLUSIVE(PRIVPATH+"PRIPRZ"); set order to 1
+#xcommand O_PRIPRG    => SELECT (F_PRIPRG); USE_EXCLUSIVE(PRIVPATH+"PRIPRG"); set order to 1
+#xcommand O__POSP     => select(F__POSP)  ; cmxAutoOpen(.f.);  USE_EXCLUSIVE(PRIVPATH+"_POSP") ; cmxAutoOpen(.t.)
+#xcommand O__DOKSP     => select(F__DOKSP)  ; cmxAutoOpen(.f.);  USE_EXCLUSIVE(PRIVPATH+"_DOKSP") ; cmxAutoOpen(.t.)
 
 
 // Privatne datoteke
@@ -96,10 +96,10 @@
 #xcommand O_ROBAIZ    => SELECT (F_ROBAIZ); USE (PRIVPATH+"ROBAIZ"); set order to 1
 #xcommand O_RAZDR     => SELECT (F_RAZDR) ; USE (PRIVPATH+"RAZDR")
 // exclusive use
-#xcommand OX_K2C      => SELECT (F_K2C); USEX (PRIVPATH+"K2C"); set order to 1
-#xcommand OX_MJTRUR   => SELECT (F_MJTRUR); USEX (PRIVPATH+"MJTRUR"); set order to 1
-#xcommand OX_ROBAIZ   => SELECT (F_ROBAIZ); USEX (PRIVPATH+"ROBAIZ"); set order to 1
-#xcommand OX_RAZDR    => SELECT (F_RAZDR); USEX (PRIVPATH+"RAZDR")
+#xcommand OX_K2C      => SELECT (F_K2C); USE_EXCLUSIVE(PRIVPATH+"K2C"); set order to 1
+#xcommand OX_MJTRUR   => SELECT (F_MJTRUR); USE_EXCLUSIVE(PRIVPATH+"MJTRUR"); set order to 1
+#xcommand OX_ROBAIZ   => SELECT (F_ROBAIZ); USE_EXCLUSIVE(PRIVPATH+"ROBAIZ"); set order to 1
+#xcommand OX_RAZDR    => SELECT (F_RAZDR); USE_EXCLUSIVE(PRIVPATH+"RAZDR")
 
 // SIFARNICI
 #xcommand O_ROBA   => SELECT (F_ROBA); USE (gSIFPATH+"ROBA"); set order to tag "ID"
@@ -117,18 +117,18 @@
 #xcommand O_RNGOST => SELECT (F_RNGOST); USE (gSIFPATH+"RNGOST"); set order to tag "ID"
 #xcommand O_MARS   => SELECT (F_MARS); USE (gSIFPATH+"MARS"); set order to tag "ID"
 
-#xcommand OX_ROBA   => SELECT (F_ROBA); USEX (gSIFPATH+"ROBA"); set order to tag "ID"
-#xcommand OX_SIROV  => SELECT (F_SIROV); USEX (gSIFPATH+"SIROV"); set order to tag "ID"
-#xcommand OX_SAST   => SELECT (F_SAST); USEX (gSIFPATH+"SAST"); set order to tag "ID"
-#xcommand OX_STRAD  => SELECT (F_STRAD); USEX (gSIFPATH+"STRAD")
-#xcommand OX_OSOB   => SELECT (F_OSOB); USEX (gSIFPATH+"OSOB")
-#xcommand OX_TARIFA => SELECT (F_TARIFA); USEX (gSIFPATH+"TARIFA" )
-#xcommand OX_VALUTE => SELECT (F_VALUTE); USEx (gSIFPATH+"VALUTE")
-#xcommand OX_VRSTEP => SELECT (F_VRSTEP); USEx (gSIFPATH+"VRSTEP")
-#xcommand OX_KASE   => SELECT (F_KASE); USEX (gSIFPATH+"KASE")
-#xcommand OX_ODJ    => SELECT (F_ODJ); USEX (gSIFPATH+"ODJ"); set order to tag "ID"
-#xcommand OX_DIO    => SELECT (F_DIO); USEX (gSIFPATH+"DIO"); set order to tag "ID"
-#xcommand OX_UREDJ  => SELECT (F_UREDJ); USEX (gSIFPATH+"UREDJ"); set order to tag "ID"
-#xcommand OX_RNGOST => SELECT (F_RNGOST); USEX (gSIFPATH+"RNGOST"); set order to tag "ID"
-#xcommand OX_MARS   => SELECT (F_MARS); USEX (gSIFPATH+"MARS"); set order to tag "ID"
+#xcommand OX_ROBA   => SELECT (F_ROBA); USE_EXCLUSIVE(gSIFPATH+"ROBA"); set order to tag "ID"
+#xcommand OX_SIROV  => SELECT (F_SIROV); USE_EXCLUSIVE(gSIFPATH+"SIROV"); set order to tag "ID"
+#xcommand OX_SAST   => SELECT (F_SAST); USE_EXCLUSIVE(gSIFPATH+"SAST"); set order to tag "ID"
+#xcommand OX_STRAD  => SELECT (F_STRAD); USE_EXCLUSIVE(gSIFPATH+"STRAD")
+#xcommand OX_OSOB   => SELECT (F_OSOB); USE_EXCLUSIVE(gSIFPATH+"OSOB")
+#xcommand OX_TARIFA => SELECT (F_TARIFA); USE_EXCLUSIVE(gSIFPATH+"TARIFA" )
+#xcommand OX_VALUTE => SELECT (F_VALUTE); USE_EXCLUSIVE(gSIFPATH+"VALUTE")
+#xcommand OX_VRSTEP => SELECT (F_VRSTEP); USE_EXCLUSIVE(gSIFPATH+"VRSTEP")
+#xcommand OX_KASE   => SELECT (F_KASE); USE_EXCLUSIVE(gSIFPATH+"KASE")
+#xcommand OX_ODJ    => SELECT (F_ODJ); USE_EXCLUSIVE(gSIFPATH+"ODJ"); set order to tag "ID"
+#xcommand OX_DIO    => SELECT (F_DIO); USE_EXCLUSIVE(gSIFPATH+"DIO"); set order to tag "ID"
+#xcommand OX_UREDJ  => SELECT (F_UREDJ); USE_EXCLUSIVE(gSIFPATH+"UREDJ"); set order to tag "ID"
+#xcommand OX_RNGOST => SELECT (F_RNGOST); USE_EXCLUSIVE(gSIFPATH+"RNGOST"); set order to tag "ID"
+#xcommand OX_MARS   => SELECT (F_MARS); USE_EXCLUSIVE(gSIFPATH+"MARS"); set order to tag "ID"
 

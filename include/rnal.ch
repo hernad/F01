@@ -16,17 +16,17 @@
 // PRIVPATH
 // -------------------------------------
 
-#xcommand O__DOCS => select (F__DOCS); usex (PRIVPATH + "_DOCS"); set order to tag "1"
-#xcommand O__DOC_IT => select (F__DOC_IT); usex (PRIVPATH + "_DOC_IT"); set order to tag "1"
-#xcommand O__DOC_IT2 => select (F__DOC_IT2); usex (PRIVPATH + "_DOC_IT2"); set order to tag "1"
-#xcommand O__DOC_OPS => select (F__DOC_OPS); usex (PRIVPATH + "_DOC_OPS"); set order to tag "1"
-#xcommand O__FND_PAR => select (F__FND_PAR); usex (PRIVPATH + "_FND_PAR"); set order to tag "1"
-#xcommand O_T_DOCIT => select (F_T_DOCIT); usex (PRIVPATH + "T_DOCIT"); set order to tag "1"
-#xcommand O_T_DOCIT2 => select (F_T_DOCIT2); usex (PRIVPATH + "T_DOCIT2"); set order to tag "1"
-#xcommand O_T_DOCOP => select (F_T_DOCOP); usex (PRIVPATH + "T_DOCOP"); set order to tag "1"
-#xcommand O_T_PARS => select (F_T_PARS); usex (PRIVPATH + "T_PARS"); set order to tag "id_par"
-#xcommand O__TMP1 => select (F__TMP1); usex (PRIVPATH + "_TMP1"); set order to tag "1"
-#xcommand O__TMP2 => select (F__TMP2); usex (PRIVPATH + "_TMP2"); set order to tag "1"
+#xcommand O__DOCS => select (F__DOCS); USE_EXCLUSIVE(PRIVPATH + "_DOCS"); set order to tag "1"
+#xcommand O__DOC_IT => select (F__DOC_IT); USE_EXCLUSIVE(PRIVPATH + "_DOC_IT"); set order to tag "1"
+#xcommand O__DOC_IT2 => select (F__DOC_IT2); USE_EXCLUSIVE(PRIVPATH + "_DOC_IT2"); set order to tag "1"
+#xcommand O__DOC_OPS => select (F__DOC_OPS); USE_EXCLUSIVE(PRIVPATH + "_DOC_OPS"); set order to tag "1"
+#xcommand O__FND_PAR => select (F__FND_PAR); USE_EXCLUSIVE(PRIVPATH + "_FND_PAR"); set order to tag "1"
+#xcommand O_T_DOCIT => select (F_T_DOCIT); USE_EXCLUSIVE(PRIVPATH + "T_DOCIT"); set order to tag "1"
+#xcommand O_T_DOCIT2 => select (F_T_DOCIT2); USE_EXCLUSIVE(PRIVPATH + "T_DOCIT2"); set order to tag "1"
+#xcommand O_T_DOCOP => select (F_T_DOCOP); USE_EXCLUSIVE(PRIVPATH + "T_DOCOP"); set order to tag "1"
+#xcommand O_T_PARS => select (F_T_PARS); USE_EXCLUSIVE(PRIVPATH + "T_PARS"); set order to tag "id_par"
+#xcommand O__TMP1 => select (F__TMP1); USE_EXCLUSIVE(PRIVPATH + "_TMP1"); set order to tag "1"
+#xcommand O__TMP2 => select (F__TMP2); USE_EXCLUSIVE(PRIVPATH + "_TMP2"); set order to tag "1"
 
 
 // -----------------------------------

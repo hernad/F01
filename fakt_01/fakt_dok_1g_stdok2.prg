@@ -532,7 +532,7 @@ if fDelphiRB
 
    dbcreate2(PRIVPATH+'POM.DBF',aDbf)
    select ( F_POM )
-   usex (PRIVPATH+'POM')
+   USE_EXCLUSIVE(PRIVPATH+'POM')
    INDEX ON RBR  TAG "1"
    select pripr
 else
@@ -1072,7 +1072,7 @@ ENDIF
 
 if fDelphiRB
 
-  cTxt2:=strtran(cTxt2,"�"+Chr(10),"")
+  cTxt2:=strtran(cTxt2,BOX_CHAR_USPRAVNO+Chr(10),"")
   cTxt2:=strtran(cTxt2, Chr(13)+Chr(10), "####"+Chr(200))
 
   for i:=1 to 25
@@ -1085,7 +1085,7 @@ if fDelphiRB
   next
 
 else
-	cTxt2:=strtran(ctxt2,"�"+Chr(10),"")
+	cTxt2:=strtran(ctxt2,BOX_CHAR_USPRAVNO+Chr(10),"")
 	cTxt2:=strtran(ctxt2,Chr(13)+Chr(10),Chr(13)+Chr(10)+space(gnLMarg))
 	? space(gnLMarg)
 	?? ctxt2

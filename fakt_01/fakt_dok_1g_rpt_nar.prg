@@ -168,9 +168,9 @@ else
         		nUkIznos:=0
         		nZaokr:=ZAOKRUZENJE
         		cDinDEM:=dindem
-        		? "������������������������������������������������������������������������������"+IF(lCijene,"���������������������������������","")+"�"
-        		? "�R.BR.�               N A Z I V   R O B E                  �  KOLICINA  �J.MJ."+IF(lCijene,"�    CIJENA     �     IZNOS      ","")+"�"
-        		? "������������������������������������������������������������������������������"+IF(lCijene,"���������������������������������","")+"�"
+        		? "������������������������������������������������������������������������������"+IF(lCijene,"���������������������������������","")+BOX_CHAR_USPRAVNO
+        		? "�R.BR.�               N A Z I V   R O B E                  �  KOLICINA  �J.MJ."+IF(lCijene,"�    CIJENA     �     IZNOS      ","")+BOX_CHAR_USPRAVNO
+        		? "������������������������������������������������������������������������������"+IF(lCijene,"���������������������������������","")+BOX_CHAR_USPRAVNO
         		do while !eof()
 				NSRNPIdRoba()
           			if alltrim(podbr)=="."
@@ -191,19 +191,19 @@ else
             				cTxt1:=padr(aTxtR[1],52)
           			endif
           			++nBrSt
-          			? "�"+STR(nBrSt,4)+".�"+cTxt1+"�"+PADL(TRANSFORM(kolicina,PicKol),12)+"�"+PADC(ALLTRIM(ROBA->jmj),5)
+          			? BOX_CHAR_USPRAVNO+STR(nBrSt,4)+".�"+cTxt1+BOX_CHAR_USPRAVNO+PADL(TRANSFORM(kolicina,PicKol),12)+BOX_CHAR_USPRAVNO+PADC(ALLTRIM(ROBA->jmj),5)
           			IF lCijene
-            				?? "�"+PADL(TRANSFORM(cijena,PicDEM),15)
-            				?? "�"+PADL(TRANSFORM(kolicina*cijena*Koef(cDinDem),PicDEM),16)
+            				?? BOX_CHAR_USPRAVNO+PADL(TRANSFORM(cijena,PicDEM),15)
+            				?? BOX_CHAR_USPRAVNO+PADL(TRANSFORM(kolicina*cijena*Koef(cDinDem),PicDEM),16)
             				nUkIznos += round(kolicina*cijena*Koef(cDinDem),nzaokr)
           			ENDIF
-          			?? "�"
+          			?? BOX_CHAR_USPRAVNO
           			SKIP 1
         		ENDDO
         		IF lCijene
           			nUkIznos := round(nUkIznos, nZaokr)
           			? "��������������������������������������������������������������������������������������������������������������Ĵ"
-          			? "� U K U P N O ................................................................................�"+PADL(TRANSFORM(nUkIznos,PicDEM),16)+"�"
+          			? "� U K U P N O ................................................................................�"+PADL(TRANSFORM(nUkIznos,PicDEM),16)+BOX_CHAR_USPRAVNO
           			? "����������������������������������������������������������������������������������������������������������������"
           			gp12cpi()
         		ELSE

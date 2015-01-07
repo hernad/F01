@@ -147,7 +147,7 @@ if fDa .or. !fInverse .and. (!File(cFull) .or. Pitanje(,cPath+cIme+" je vec pohr
    	?
   	if (nKopirano<>0 .and. fNuliraj)
      		select 66
-     		usex (cPath+cIme)
+     		USE_EXCLUSIVE(cPath+cIme)
      		zap
      	use
 	endif
@@ -168,7 +168,7 @@ return
 function BrisiSezonu()
 
 
-if !sigmasif("SIGMABS")
+if !sifra_za_koristenje_opcije("SIGMABS")
     return
 endif
   Box(,20,77)
@@ -491,7 +491,7 @@ if (oDatabase==nil)
 	oDatabase:=goModul:oDatabase
 endif
 
-if !SigmaSif("SS      ")
+if !sifra_za_koristenje_opcije("SS      ")
   return
 endif
 

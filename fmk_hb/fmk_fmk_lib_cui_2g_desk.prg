@@ -226,7 +226,7 @@ endif
 
 DispBox(2,0,4,79,B_DOUBLE+' ',NORMAL)
 if lClear
-	DispBox(5,0,24,79,B_DOUBLE+"�",INVERT)
+	DispBox(5,0,24,79,B_DOUBLE+BOX_CHAR_USPRAVNO,INVERT)
 endif
 
 @ 3,1 SAY PADC(gNaslov+' Ver.'+gVerzija,72) COLOR NORMAL

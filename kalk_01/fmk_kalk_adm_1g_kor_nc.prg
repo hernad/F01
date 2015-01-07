@@ -19,7 +19,7 @@ local nPom:=0
 local cPom2
 private cMagac:="1310   "
  
-if !SigmaSif("SIGMAPRN")
+if !sifra_za_koristenje_opcije("SIGMAPRN")
 	return
 endif
  

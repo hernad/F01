@@ -162,7 +162,7 @@ else
  	ENDIF
 endif
 
-usex (cTopsDBF) NEW alias TOPSKA
+USE_EXCLUSIVE(cTopsDBF) NEW alias TOPSKA
 
 go bottom
 cBRKALK:=LEFT(STRTRAN(DTOC(datum),".",""),4) + "/" + idpos

@@ -28,8 +28,9 @@ if fSif; O_PRIPR; endif
 select pripr
 copy structure extended to struct
 
+SELECT 504
 // dodacu jos par polja u struct
-usex struct new
+USE_EXCLUSIVE ("struct")
 dbappend()
 replace field_name with "VPC" , field_type with "N", ;
         field_len with 12, field_dec with 3
@@ -106,7 +107,7 @@ cDestMod:="PRENOS" + SLASH + gmodemveza + "F" + cDestMod  // PRENOS/SF1205
 
 dirmak2(KUMPATH+"PRENOS") // napravi direktorij prenos !
 
-usex (PRIVPATH+"_FAKT.DBF") new alias nFAKT
+USE_EXCLUSIVE(PRIVPATH+"_FAKT.DBF") new alias nFAKT
 fIzadji:=.f.
 // donja for-next pelja otvara baze i , ako postoje, gleda da li je
 // u njih pohranjen isti dokument
@@ -114,7 +115,7 @@ for i:=1 to 25
 
    bErr:=ERRORBLOCK({|o| MyErrH(o)})
    begin sequence
-     usex ( KUMPATH+cDestMod+chr(64+i) ) new alias oFAKT
+     USE_EXCLUSIVE( KUMPATH+cDestMod+chr(64+i) ) new alias oFAKT
      // OD A-C
      if nFAKT->(idfirma+idtipdok+brdok)==oFAKT->(idfirma+idtipdok+brdok)
        fIzadji:=.t.
@@ -218,7 +219,7 @@ select (F_ROBA)
 if !used(); O_ROBA; endif
 
 
-usex (cPrenosDBF) NEW alias _FAKT
+USE_EXCLUSIVE(cPrenosDBF) NEW alias _FAKT
 
 if !eof() .and. empty(idtipdok+brdok)
    MsgBeep("Osvjezenje sifrarnika")

@@ -504,58 +504,6 @@
       [; dbSetIndex( <(index1)> )]                                      ;
       [; dbSetIndex( <(indexn)> )]
 
-#command USEXV <(db)>                                                   ;
-             [VIA <rdd>]                                                ;
-             [ALIAS <a>]                                                ;
-             [<new: NEW>]                                               ;
-             [<ro: READONLY>]                                           ;
-             [INDEX <(index1)> [, <(indexn)>]]                          ;
-                                                                        ;
-      =>  PreUseEvent(<(db)>,.f.,gReadOnly)				;
-        ;  dbUseArea(                                                    ;
-                    <.new.>, <rdd>, <(db)>, <(a)>,                      ;
-                     .f., gReadOnly       ;
-                  )                                                     ;
-                                                                        ;
-      [; dbSetIndex( <(index1)> )]                                      ;
-      [; dbSetIndex( <(indexn)> )]
-
-
-
-#command USEW <(db)>                                                     ;
-             [VIA <rdd>]                                                ;
-             [ALIAS <a>]                                                ;
-             [<new: NEW>]                                               ;
-             [<ro: READONLY>]                                           ;
-             [INDEX <(index1)> [, <(indexn)>]]                          ;
-                                                                        ;
-      => dbUseArea(                                                     ;
-                    <.new.>, <rdd>, <(db)>, <(a)>,                      ;
-                     .t., .f.      ;
-                  )                                                     ;
-                                                                        ;
-      [; dbSetIndex( <(index1)> )]                                      ;
-      [; dbSetIndex( <(indexn)> )]
-
-
-
-#command USER <(db)>                                                    ;
-             [VIA <rdd>]                                                ;
-             [ALIAS <a>]                                                ;
-             [<new: NEW>]                                               ;
-             [<ro: READONLY>]                                           ;
-             [INDEX <(index1)> [, <(indexn)>]]                          ;
-                                                                        ;
-      => dbUseArea(                                                     ;
-                    <.new.>, <rdd>, <(db)>, <(a)>,                      ;
-                     .t., .t.                                           ;
-                  )                                                     ;
-                                                                        ;
-      [; dbSetIndex( <(index1)> )]                                      ;
-      [; dbSetIndex( <(indexn)> )]
-
-
-
 
 #command SET INDEX TO [ <(index1)> [, <(indexn)>]]                      ;
                                                                         ;

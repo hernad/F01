@@ -380,7 +380,7 @@ local nCnt // counter upisa u DRNTEXT
 
 // slobodni tekst se upisuje u DRNTEXT od F20 -- F50
 
-cTxt := STRTRAN(cTxt, "�" + Chr(10), "")
+cTxt := STRTRAN(cTxt, BOX_CHAR_USPRAVNO + Chr(10), "")
 // daj mi matricu sa tekstom line1, line2 itd...
 aLines := TokToNiz(cTxt, Chr(13) + Chr(10))
 

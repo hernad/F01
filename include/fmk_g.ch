@@ -1,9 +1,4 @@
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
- * ----------------------------------------------------------------
- */
- 
+
 #define FMK_DEFINED
 
 #ifndef SC_DEFINED
@@ -30,7 +25,7 @@
 #define F_IZVJE    14
 #define F_ZAGLI    15
 #define F_KOLIZ    16
-#define D_S_TABELE 
+#define D_S_TABELE
 
 //OVA ZAGLAVLJA NAPUSTITI!
 #define F_PRIPR     17
@@ -74,16 +69,16 @@
 #define F_VPRIH    55
 
 //FMK ROBA
-#define F_TARIFA    60 
+#define F_TARIFA    60
 #define F_PARTN     61
 #define F_TNAL      62
 #define F_TDOK      63
-#define F_ROBA      64 
+#define F_ROBA      64
 #define F_KONTO     65
 #define F_TRFP      66
 #define F_TRMP      67
 #define F_VALUTE    68
-#define F_KONCIJ    69 
+#define F_KONCIJ    69
 #define F_SAST      70
 #define F_BARKOD    71
 #define F__VALUTE   72
@@ -93,7 +88,7 @@
 #define F_STRINGS  180
 
 //KALK
-#define F_KPRIPR    85 
+#define F_KPRIPR    85
 #define F_FINMAT    86
 #define F_KALK      87
 #define F_PORMP     88
@@ -115,7 +110,7 @@
 #define F_FADOKS    103
 #define F__FAKT     104
 #define F_FAPRIPRRP 105
-#define F_UPL       106 
+#define F_UPL       106
 #define F_DEST      107
 #define F_LABELU    108
 #define F_FADOKS2   109
@@ -149,7 +144,7 @@
 #define F_DIO       148
 #define F_MARS      149
 #define F_PROMVP    150
-#define F_DOKS_S    151 
+#define F_DOKS_S    151
 #define F_POS_S     152
 #define F_DOKS_K    153
 #define F_POS_K     154
@@ -276,6 +271,8 @@
 #define F_TEMP	236
 #define F_PRIPT	237
 #define F_CACHE	240
+#define F_TEMP77 500
+
 // tops integritet
 #define F_DINTEG1 238
 #define F_DINTEG2 239
@@ -306,7 +303,7 @@
 // priprema kif
 #define F_P_KIF 249
 
-// KIF shema za generaciju 
+// KIF shema za generaciju
 // kif_s_gen
 #define F_SG_KUF 240
 // KUF shema za generaciju
@@ -360,7 +357,7 @@
 #define F_DOKSRC 181
 
 
-#define POR_PPP		1 
+#define POR_PPP		1
 #define POR_PPU		2
 #define POR_PP		3
 #define POR_PRUC	4
@@ -373,4 +370,3 @@
 #define POR_I_MPC3	4
 #define POR_I_PPP	5
 #define POR_I_MPC4	6
-

@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -12,25 +12,7 @@
 
 #include "f01.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
- * ----------------------------------------------------------------
- * $Source: c:/cvsroot/cl/sigma/fmk/roba/rpt_cjen.prg,v $
- * $Author: ernad $ 
- * $Revision: 1.3 $
- * $Log: rpt_cjen.prg,v $
- * Revision 1.3  2002/08/19 10:04:24  ernad
- *
- *
- * podesenja CLIP
- *
- * Revision 1.2  2002/06/16 14:16:54  ernad
- * no message
- *
- *
- */
- 
+
 function CjenR()
 
 private cKomLin
@@ -105,10 +87,10 @@ cKomLin:="DelphiRB "+IzFmkIni("Cjen","CjenRTM","cjen", SIFPATH)+TRIM(cCjenIzbor)
 if IsPlanika()
 	MsgO("kopi -> c:/sigma")
 		//kopiraj sa mreznog diska na c:
-		COPY FILE (PRIVPATH+"barkod.dbf") TO ("c:\sigma\barkod.dbf")
-		COPY FILE (PRIVPATH+"barkod.cdx") TO ("c:\sigma\barkod.cdx")
+		COPY FILE (PRIVPATH+"barkod.dbf") TO ( DATA_ROOT + "barkod.dbf")
+		COPY FILE (PRIVPATH+"barkod.cdx") TO ( DATA_ROOT + "barkod.cdx")
 	MsgC()
-	cKomLin += " c:\sigma\  barkod id"
+	cKomLin += " " + DATA_ROOT + "  barkod id"
 else
 	cKomLin += " "+PRIVPATH+"  barkod id"
 endif
@@ -165,13 +147,13 @@ do while !EOF()
 		skip
 		loop
 	endif
-	
+
 	++ nCnt
-	
+
 	? PADL( STR( nCnt, 5) + ".", 6 ), PADR(field->id, 10), PADR(field->naz, 20), PADL( STR(field->mpc, 12, 2), 15 ), PADL( STR(field->zanivel, 12, 2), 15 )
-	
+
 	skip
-	
+
 enddo
 
 FF

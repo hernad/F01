@@ -318,9 +318,9 @@ function UkloniRet(xTekst,lPrazno)
 local cTekst
  if lPrazno==nil; lPrazno:=.f.; endif
  if VALTYPE(xTekst)=="B"
-   cTekst:=strtran(EVAL(xTekst),"�"+Chr(10),"")
+   cTekst:=strtran(EVAL(xTekst),BOX_CHAR_USPRAVNO+Chr(10),"")
  else
-   cTekst:=strtran(&xTekst,"�"+Chr(10),"")
+   cTekst:=strtran(&xTekst,BOX_CHAR_USPRAVNO+Chr(10),"")
  endif
  if lPrazno
   cTekst:=strtran(cTekst,NRED,NRED+space(7))
@@ -630,11 +630,11 @@ if nOdvoji==nil; nOdvoji:=0; endif
  if nCrtice==0
      cOk:={"-", "-", " ", "-", " ", "-", " ", "-", "-", " ", "-", " ", "-", "-", "-", " "}
  elseif nCrtice==1
-     cOk:={"�", "�", "�", "�", "�", "�", "�", "�", "�", "�", "�", "�", "�", "�", "�", "�"}
+     cOk:={BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO}
  elseif nCrtice==9    // rtf-fajlovi
      cOk:={" ", " ", " ", " ", "#", " ", " ", " ", " ", " ", " ", "#", " ", " ", " ", " "}
  else
-     cOk:={"�", "�", "�", "�", "�", "�", "�", "�", "�", "�", "�", "�", "�", "�", "�", "�"}
+     cOk:={BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO, BOX_CHAR_USPRAVNO}
  endif   // 1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16
          ////////////////////////////////////////////////////////////////////////////////
 

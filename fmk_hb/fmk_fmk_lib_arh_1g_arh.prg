@@ -67,7 +67,7 @@ if date()-dDatArh  > 3  // svaka tri dana
        restore screen from cScr
 
        select 120
-       usex (cDbfKontr) via RDDENGINE
+       USE_EXCLUSIVE(cDbfKontr) via RDDENGINE
        replace datum with date()
        use
        // datum arhive
@@ -85,8 +85,8 @@ return
 /*  OtkUredjaj
  *   Otkljucava direktorij
  *
- * \code
- * OtkUredj("C:\SIGMA\SIF")  ->  "SIGMA\SIF"
+ *
+ * OtkUredj("C:/SIGMA/SIF")  ->  "SIGMA/SIF"
  * \endcode
 */
 
@@ -113,13 +113,12 @@ return  cDir
  *  return: - .t. - uspjesno
  *
  *
- * \code
- *
+
  * Dirmak2("C:\sigma\fakt\11")
  *
  * - rekurzivno odradjuje, sto znaci ako imamo dir c:\sigma
  * - formira fakt, pa onda poddirektorij 11
- * \encdode
+
  */
 
 function Dirmak2(cDir)
@@ -507,7 +506,7 @@ if cSwitch==NIL
  cSwitch:="-jf "  // otpakuj upravo tamo gdje je i zapakovano
 endif
 
-if !SigmaSif("ART     ")
+if !sifra_za_koristenje_opcije("ART     ")
    MSgBeep("Klonite se corava posla...")
    return
 else

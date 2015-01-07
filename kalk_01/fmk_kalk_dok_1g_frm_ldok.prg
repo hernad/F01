@@ -474,7 +474,7 @@ AADD(aDbf, {"MPV", "N", 15, 3 } )
 dbcreate2(PRIVPATH+"Kartica",aDbf)
 
 select 66
-usex (PRIVPATH+"kartica")
+USE_EXCLUSIVE(PRIVPATH+"kartica")
 index on id tag "ID"
 index on brisano tag "BRISAN"
 set order to tag "ID"

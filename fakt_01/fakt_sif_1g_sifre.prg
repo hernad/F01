@@ -1064,7 +1064,7 @@ AADD (aDBf, {"FAX"    , 'C' ,  12 ,  0 })
 Dbcreate2(PRIVPATH + "LABELU.DBF",aDbf)
 
 select (F_LABELU)
-usex (PRIVPATH+"labelu")
+USE_EXCLUSIVE(PRIVPATH+"labelu")
 
 index ON BRISANO TAG "BRISAN"    //TO (PRIVPATH+"ZAKSM")
 index on str(kolicina,12,2)+mjesto+naz     tag "1"
@@ -1543,7 +1543,7 @@ LOCAL lVrati:=.t., aMogRel:={}, nArr:=SELECT(), aIzb:={}
    SELECT KALPOS
    SEEK RELAC->id+DTOS(dDatum)
    DO WHILE !EOF() .and. idrelac==RELAC->id .and. DTOS(datum)>=DTOS(dDatum)
-     AADD( aMogRel , {DTOC(datum)+"�"+idrelac+"�"+iddist+"�"+idvozila,;
+     AADD( aMogRel , {DTOC(datum)+BOX_CHAR_USPRAVNO+idrelac+BOX_CHAR_USPRAVNO+iddist+BOX_CHAR_USPRAVNO+idvozila,;
                       idrelac,iddist,idvozila,datum,RELAC->naz} )
      SKIP 1
    ENDDO

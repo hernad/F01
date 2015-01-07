@@ -494,7 +494,7 @@ if IzFmkIni("Fakt295","Meridijan","N",PRIVPATH)=="D"
    cPom:=transform(round(nUk-nRab+nPor2-nFZaokr,nzaokr),PicDEM)
    aLinija[i]:=strtran(aLinija[i],"#1#",cPom)
 
-   ctxt2:=strtran(ctxt2,"�"+Chr(10),"")
+   ctxt2:=strtran(ctxt2,BOX_CHAR_USPRAVNO+Chr(10),"")
    // ctxt2 - tekst na kraju fakture u formatu : Linija1 + chr(13)+chr(10) + Linija2 itdd
 
    cPom:=token(cTxt2,Chr(13)+Chr(10),1)
@@ -529,7 +529,7 @@ endif
 
 B_ON; @ 27+gnTMarg3A5,nCol1 SAY round(nUk-nRab+nPor2-nFZaokr,nzaokr) pict picdem; B_OFF  // -4=gnTmarg3
 
-ctxt2:=strtran(ctxt2,"�"+Chr(10),"")
+ctxt2:=strtran(ctxt2,BOX_CHAR_USPRAVNO+Chr(10),"")
 ctxt2:=strtran(ctxt2,Chr(13)+Chr(10),Chr(13)+Chr(10)+space(gnLMargA5+6))
 FOR i:=1 TO gnTmarg4A5; ?; NEXT    // 0=gnTmarg4
 ? space(gnLMargA5+6); ?? ctxt2

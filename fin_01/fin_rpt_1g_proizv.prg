@@ -376,10 +376,10 @@ LOCAL nPr:=1, lKumSuma:=.f., GetList:={}
   SELECT (F_POM)
 #ifdef CAX
   if !used()
-    AX_AutoOpen(.f.); usex (PRIVPATH+"pom")  ; AX_AutoOpen(.t.)
+    AX_AutoOpen(.f.); USE_EXCLUSIVE(PRIVPATH+"pom")  ; AX_AutoOpen(.t.)
   endif
 #else
-  usex (PRIVPATH+"pom")
+  USE_EXCLUSIVE(PRIVPATH+"pom")
 #endif
 
   private cTag:="1"
@@ -1316,7 +1316,7 @@ cWinKonv:=IzFmkIni("DelphiRb","Konverzija","5")
 
 if cWinKonv>"0" // ima konverzije
 
-usex (cDBF) new
+USE_EXCLUSIVE(cDBF) new
 beep(1)
 ordsetfocus(0)
 GO TOP

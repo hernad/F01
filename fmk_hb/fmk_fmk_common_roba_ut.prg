@@ -23,7 +23,7 @@ read
 
 MsgBeep("Prije pokretanja ove opcije !!!OBAVEZNO!!!##napraviti arhivu podataka!")
 if Pitanje(,"Sigurno zelite obrisati sifre (D/N) ?","N")=="D"
-	if SigmaSif("BRSIF")
+	if sifra_za_koristenje_opcije("BRSIF")
 		BrisiVisakSifri()
 	endif
 endif

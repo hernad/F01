@@ -454,7 +454,7 @@ static function kalk_Cre_Pom()
   AADD(aDBf,{ 'DOKUM'       , 'C' , 10 ,  0 })
   AADD(aDBf,{ 'DATDOK'      , 'D' ,  8 ,  0 })
   DBCREATE2 (cPom, aDbf)
-  USEX (cPom)
+  USE_EXCLUSIVE(cPom)
   IF cPojed=="D"
     INDEX ON ID+TARIFA+DOKUM TAG "1"
     INDEX ON ID+TARIFA+DTOS(DATDOK)+DOKUM TAG "2"

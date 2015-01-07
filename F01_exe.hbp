@@ -5,7 +5,7 @@
 
 {F18_GT_QTC}-DF18_GT_QTC
 
-F01_kalk.prg
+F01_fin.prg
 init_f01.prg
 fin_01/*.prg
 kalk_01/*.prg

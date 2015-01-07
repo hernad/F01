@@ -1266,7 +1266,7 @@ do case
 
      if ( PADR(dindem, 3) <> PADR(ValDomaca(), 3) )
 
-       if !SigmaSif("PRVAL")
+       if !sifra_za_koristenje_opcije("PRVAL")
      		MsgBeep("!!! Opcija nedostupna !!!")
      		return DE_CONT
        endif

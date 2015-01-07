@@ -200,7 +200,7 @@ if Pitanje(,"Prenijeti u datoteku prenosa KALK sa ovim kriterijom ?","D")=="D"
     select KALK
     SKIP 1; cpFirma:=idfirma; cpTipDok:=idvd; cpBrDok:=brdok; SKIP -1
     IF cpFirma+cpTipDok+cpBrDok!=idfirma+idvd+brdok
-     ? "  "+idfirma+" �  "+idvd+" �"+brdok+"�"+DTOC(datdok)
+     ? "  "+idfirma+" �  "+idvd+" �"+brdok+BOX_CHAR_USPRAVNO+DTOC(datdok)
     ENDIF
     skip
   enddo

@@ -12,28 +12,11 @@
 
 #include "f01.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software
- * ----------------------------------------------------------------
- * $Source: c:/cvsroot/cl/sigma/fmk/roba/adm_db.prg,v $
- * $Author: ernad $
- * $Revision: 1.3 $
- * $Log: adm_db.prg,v $
- * Revision 1.3  2003/01/19 23:44:18  ernad
- * test network speed (sa), korekcija bl.lnk
- *
- * Revision 1.2  2002/06/16 14:16:54  ernad
- * no message
- *
- *
- */
-
 function PP_Sast()
 
   PRIVATE cAkoNema:="N"
   // cDirSif - putanja (direktorij) sifrarnika aktivne firme
-  cK2KS:=PADR(TRIM(cDirSif)+"\",40)
+  cK2KS:=PADR(TRIM(cDirSif) + SLASH, 40)
 
   O_PARAMS
   private cSection:="6",cHistory:=" "; aHistory:={}

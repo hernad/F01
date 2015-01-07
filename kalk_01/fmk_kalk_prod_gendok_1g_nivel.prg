@@ -289,7 +289,7 @@ return
 // prebaci iz zanivel2 u zanivel
 function zaniv2_zaniv()
 
-if !SigmaSif("NIVEL")
+if !sifra_za_koristenje_opcije("NIVEL")
 	MsgBeep("Ne cackaj!")
 	return
 endif
@@ -342,7 +342,7 @@ local cUzCj := "1"
 local nUvecaj := 0
 local nZaok := 2
 
-if !SigmaSif("SETMPC")
+if !sifra_za_koristenje_opcije("SETMPC")
 	MsgBeep("Ne cackaj!")
 	return
 endif
@@ -416,7 +416,7 @@ function set_mpc_iz_zanivel()
 local cSetCj := "1"
 
 
-if !SigmaSif("SETMPC")
+if !sifra_za_koristenje_opcije("SETMPC")
 	MsgBeep("Ne cackaj!")
 	return
 endif

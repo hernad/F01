@@ -385,7 +385,7 @@ endif
 
 if !lSilent
 
-	if !SIGMASIF("RESET")
+	if !sifra_za_koristenje_opcije("RESET")
 		return
 	endif
 

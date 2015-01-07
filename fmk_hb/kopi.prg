@@ -59,7 +59,7 @@ if fProm
      ferase(cpath+cPath2+"tmp.cdx")
      dbcreate(cpath+cPath2+"tmp.tmp",aNStru)
      select 2
-     usex (cpath+cPath2+"tmp.tmp") alias tmp
+     USE_EXCLUSIVE(cpath+cPath2+"tmp.tmp") alias tmp
      select olddbf  //5.2
      ?
      nRow:=row()

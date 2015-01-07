@@ -12,11 +12,6 @@
 
 #include "fakt01.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software
- * ----------------------------------------------------------------
- */
 
 function MnuAdmin()
 private opc
@@ -63,7 +58,7 @@ local cOldRbr
 local cNewRbr
 local nTotRecord
 
-if !SigmaSif("RBRREG")
+if !sifra_za_koristenje_opcije("RBRREG")
 	return
 endif
 
@@ -125,7 +120,7 @@ local nStPorez
 O_FAKT
 O_DOKS
 
-if !SigmaSif("REGEN")
+if !sifra_za_koristenje_opcije("REGEN")
 	return
 endif
 
@@ -284,7 +279,7 @@ if doks->(FIELDPOS("dat_isp")) = 0
 	return
 endif
 
-if !SigmaSif("REGEN")
+if !sifra_za_koristenje_opcije("REGEN")
 	return
 endif
 
@@ -344,7 +339,7 @@ local cRbr
 local cPartn
 local dDatPl
 
-if !SigmaSif("MEMREG")
+if !sifra_za_koristenje_opcije("MEMREG")
 	return
 endif
 
@@ -450,7 +445,7 @@ local cPartn
 local cMsg
 local lFaktOverwrite := .f.
 
-if !SigmaSif("PARREG")
+if !sifra_za_koristenje_opcije("PARREG")
 	return
 endif
 

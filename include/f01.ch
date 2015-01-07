@@ -1,13 +1,25 @@
 #define SC_DEFINED
 #define SC_LIB_VER  "03.00"
 
-//#DEFINE SLASH Chr(92)
+#DEFINE BACKSLASH Chr(92)
+
 #DEFINE SLASH hb_osPathSeparator()
 #DEFINE USB_ROOT_PATH "F:" + SLASH
 #define DRIVE_ROOT_PATH "C:" + SLASH
 
+#ifdef __PLATFORM__UNIX
+  #define DATA_ROOT "/opt/f01/data"
+#else
+  #define DATA_ROOT DRIVE_ROOT_PATH+"SIGMA"
+#endif
+
+#define DBFBASEPATH DATA_ROOT
+
 #DEFINE DBUILD "HB1"
 
+#define BOX_CHAR_USPRAVNO "|"
+
+#define  MEMOEXTENS  "FPT"
 #DEFINE INDEXEXTENS "CDX"
 #DEFINE INDEXEXT "CDX"
 #DEFINE DBFEXT "DBF"
@@ -42,8 +54,6 @@
 #define DE_ADD  5
 #define DE_DEL  6
 
-#define DBFBASEPATH DRIVE_ROOT_PATH + "SIGMA"
-
 #define P_KUMPATH  1
 #define P_SIFPATH  2
 #define P_PRIVPATH 3
@@ -71,12 +81,62 @@
                 )
 
 
+#xcommand USE_EXCLUSIVE <(db)>                                       ;
+          [VIA <rdd>]                                                ;
+          [ALIAS <a>]                                                ;
+          [<new: NEW>]                                               ;
+          [<ro: READONLY>]                                           ;
+          [INDEX <(index1)> [, <(indexn)>]]                          ;
+          ;
+          =>  PreUseEvent(<(db)>,.f.,gReadOnly)		 		               ;
+          ;  my_dbUseArea(                                           ;
+              <.new.>, <rdd>, <(db)>, <(a)>,                         ;
+                  .f., gReadOnly       ;
+              )                                                      ;
+          ;
+          [; dbSetIndex( <(index1)> )]                               ;
+          [; dbSetIndex( <(indexn)> )]
+
+
+
+#command USEW <(db)>                                                     ;
+        [VIA <rdd>]                                                ;
+        [ALIAS <a>]                                                ;
+        [<new: NEW>]                                               ;
+        [<ro: READONLY>]                                           ;
+        [INDEX <(index1)> [, <(indexn)>]]                          ;
+        ;
+        => my_dbUseArea(                                                ;
+                    <.new.>, <rdd>, <(db)>, <(a)>,                      ;
+                    .t., .f.      ;
+                    )                                                     ;
+        ;
+        [; dbSetIndex( <(index1)> )]                                      ;
+        [; dbSetIndex( <(indexn)> )]
+
+
+
+#command USER <(db)>                                                    ;
+        [VIA <rdd>]                                                ;
+        [ALIAS <a>]                                                ;
+        [<new: NEW>]                                               ;
+        [<ro: READONLY>]                                           ;
+        [INDEX <(index1)> [, <(indexn)>]]                          ;
+        ;
+        => my_dbUseArea(                                                     ;
+            <.new.>, <rdd>, <(db)>, <(a)>,                      ;
+            .t., .t.                                           ;
+          )                                                     ;
+         ;
+        [; dbSetIndex( <(index1)> )]                                      ;
+        [; dbSetIndex( <(indexn)> )]
+
 
 #ifndef FMK_DEFINED
 	#include "o_f01.ch"
 #endif
 
-#include "sc_db.ch"
+#include "o_f01_params.ch"
 
 // #include "cm52.ch"
 

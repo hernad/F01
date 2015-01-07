@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -12,40 +12,6 @@
 
 #include "fakt01.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
- * ----------------------------------------------------------------
- * $Source: c:/cvsroot/cl/sigma/fmk/fakt/dok/1g/stdrtf21.prg,v $
- * $Author: ernad $ 
- * $Revision: 1.8 $
- * $Log: stdrtf21.prg,v $
- * Revision 1.8  2003/01/19 23:44:17  ernad
- * test network speed (sa), korekcija bl.lnk
- *
- * Revision 1.7  2002/09/16 09:01:28  mirsad
- * dokumentovanje INI parametara
- *
- * Revision 1.6  2002/07/05 13:11:04  mirsad
- * no message
- *
- * Revision 1.5  2002/07/04 08:34:19  mirsad
- * dokumentovanje ini parametara
- *
- * Revision 1.4  2002/06/21 12:51:22  sasa
- * no message
- *
- * Revision 1.3  2002/06/21 12:28:23  sasa
- * no message
- *
- * Revision 1.2  2002/06/18 13:01:05  sasa
- * no message
- *
- * Revision 1.1.1.1  2002/06/17 18:30:18  ernad
- * no message
- *
- *
- */
 
 
 /* file fmk/fakt/dok/1g/stdrtf21.prg
@@ -77,7 +43,7 @@
  *   cIdTipDok
  *   cBrDok
  */
- 
+
 function StdRtf21()
 
 parameters cImeF,cIdFirma,cIdTipDok,cBrDok
@@ -160,7 +126,7 @@ if val(podbr)=0  .and. val(rbr)==1
    cTxt3a:=aMemo[3]
    cTxt3b:=aMemo[4]
    cTxt3c:=aMemo[5]
-   cTxt2:=ToRtfStr( strtran(ctxt2,"�"+Chr(10),"") )
+   cTxt2:=ToRtfStr( strtran(ctxt2,BOX_CHAR_USPRAVNO+Chr(10),"") )
    if len(aMemo)>=9
     _BrOtp:=aMemo[6]; _DatOtp:=ctod(aMemo[7]); _BrNar:=amemo[8]; _DatPl:=ctod(aMemo[9])
    endif
@@ -643,8 +609,3 @@ select por; use
 select pripr
 
 closeret
-
-
-
-
-

@@ -54,7 +54,7 @@ private Izbor:=1
 AADD(opc,"1. povrat dokumenta u pripremu       ")
 AADD(opcexe,{|| fakt_povrat()})
 AADD(opc,"2. povrat dokumenata prema kriteriju ")
-AADD(opcexe,{|| if(SigmaSif(), fakt_PovSvi(), nil)})
+AADD(opcexe,{|| if(sifra_za_koristenje_opcije(), fakt_PovSvi(), nil)})
 AADD(opc,"3. prekid rezervacije")
 AADD(opcexe,{|| fakt_povrat(.t.)})
 AADD(opc,"4. evidentiranje uplata")

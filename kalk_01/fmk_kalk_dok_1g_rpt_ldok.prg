@@ -12,28 +12,6 @@
 
 #include "kalk01.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software
- * ----------------------------------------------------------------
- * $Source: c:/cvsroot/cl/sigma/fmk/kalk/dok/1g/rpt_ldok.prg,v $
- * $Author: mirsad $
- * $Revision: 1.5 $
- * $Log: rpt_ldok.prg,v $
- * Revision 1.5  2003/07/21 08:35:07  mirsad
- * varijanta koristenja polja UKSTAVKI u DOKS u koje se upisuje broj stavki dokumenta
- *
- * Revision 1.4  2003/07/21 08:10:12  mirsad
- * varijanta koristenja polja UKSTAVKI u DOKS u koje se upisuje broj stavki dokumenta
- *
- * Revision 1.3  2003/06/25 17:48:40  mirsad
- * 1) vra�anje u f-ju 15-ke
- *
- * Revision 1.2  2002/06/19 13:57:53  mirsad
- * no message
- *
- *
- */
 
 
 /* file fmk/kalk/dok/1g/rpt_ldok.prg

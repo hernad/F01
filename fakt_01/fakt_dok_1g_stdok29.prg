@@ -492,7 +492,7 @@ else
   B_ON; @ 56+IF(gVarF=="B",5,0)+gnTmarg3,nCol1 SAY round(nUk-nRab+nPor2-nFZaokr,nzaokr) pict picdem; B_OFF
 endif
 
-ctxt2:=strtran(ctxt2,"�"+Chr(10),"")
+ctxt2:=strtran(ctxt2,BOX_CHAR_USPRAVNO+Chr(10),"")
 ctxt2:=strtran(ctxt2,Chr(13)+Chr(10),Chr(13)+Chr(10)+space(gnLMarg+4))
 ctxt2:=OdsjPLK(ctxt2)
 

@@ -788,15 +788,8 @@ return lRet
 
 
 
+function sljedeci_fin_nalog( cIdFirma, cIdVN )
 
-
-// ---------------------------------------------
-// centralna funkcija za odredjivanje
-// novog broja naloga !!!!
-// cIdFirma - firma
-// cIdVn - tip naloga
-// ---------------------------------------------
-function NextNal( cIdFirma, cIdVN )
 local nArr
 nArr := SELECT()
 
@@ -823,6 +816,7 @@ if gBrojac=="1"
 	else
 		cBrNal := "00000001"
 	endif
+
 else
 	select NALOG
 	set order to 2
@@ -843,7 +837,7 @@ return cBrNal
 // ----------------------------------------------------------------
 function regen_tbl()
 
-if !SigmaSIF("REGEN")
+if !sifra_za_koristenje_opcije("REGEN")
 	MsgBeep("Ne diraj lava dok spava !")
 	return
 endif

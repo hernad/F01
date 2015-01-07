@@ -235,7 +235,7 @@ if Pitanje(,"Prenijeti u datoteku prenosa fakt sa ovim kriterijom ?","D")=="D"
 		cpBrDok:=brdok
 		SKIP -1
     		IF cpFirma+cpTipDok+cpBrDok!=idfirma+idtipdok+brdok
-     			? "  "+idfirma+" �  "+idtipdok+" �"+brdok+"�"+DTOC(datdok)
+     			? "  "+idfirma+" �  "+idtipdok+" �"+brdok+BOX_CHAR_USPRAVNO+DTOC(datdok)
     		ENDIF
 
 		skip

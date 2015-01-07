@@ -372,7 +372,7 @@ else
 endif
 
 
-ctxt2:=strtran(ctxt2,"�"+Chr(10),"")
+ctxt2:=strtran(ctxt2,BOX_CHAR_USPRAVNO+Chr(10),"")
 ctxt2:=strtran(ctxt2,Chr(13)+Chr(10),Chr(13)+Chr(10)+space(gnLMarg+4))
 
 if gFormatA5=="D"

@@ -678,9 +678,9 @@ LOCAL nArr:=SELECT(), aUlazi:={}, GetList:={}, cIdPartner:=_idpartner
   ENDIF
   DO WHILE !EOF() .and. _idroba==idroba
     IF idpartner==cIdPartner .and. idvd=="10" .and. kolicina>0
-      AADD( aUlazi , idfirma+"-"+idvd+"-"+brdok+"�"+;
-                     DTOC(datdok)+"�"+;
-                     STR(kolicina,11,3)+"�"+;
+      AADD( aUlazi , idfirma+"-"+idvd+"-"+brdok+BOX_CHAR_USPRAVNO+;
+                     DTOC(datdok)+BOX_CHAR_USPRAVNO+;
+                     STR(kolicina,11,3)+BOX_CHAR_USPRAVNO+;
                      STR(fcj,11,3)                     )
     ENDIF
     SKIP 1

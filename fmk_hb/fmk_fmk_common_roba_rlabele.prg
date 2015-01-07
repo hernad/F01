@@ -153,7 +153,7 @@ AADD(aDBf,{ 'porez2'		, 'N',  8, 2 })
 AADD(aDBf,{ 'porez3'		, 'N',  8, 2 })
 
 DbCreate2(cPom+'.dbf',aDbf)
-usex (cPom)
+USE_EXCLUSIVE(cPom)
 index on idRoba tag "1"
 set order to tag "1"
 return nil
