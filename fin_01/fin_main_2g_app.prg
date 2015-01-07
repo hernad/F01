@@ -213,7 +213,7 @@ endif
 return
 
 
-/*!  *void TFinMod::setGVars()
+/*  *void TFinMod::setGVars()
  *   opste funkcije FIN modula
  */
 

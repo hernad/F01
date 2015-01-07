@@ -4,7 +4,7 @@
 
 {F18_GT_QTC}-DF18_GT_QTC
 
-init_f01.prg
+#init_f01.prg
 fin_01/*.prg
 #kalk_01/*.prg
 #fakt_01/*.prg
