@@ -15,10 +15,9 @@
 // stampanje dokumenata .t. or .f.
 static __stampaj
 
-// ---------------------------------------------
-// glavni meni importa
-// ---------------------------------------------
+
 function MnuImpTxt()
+
 private izbor:=1
 private opc:={}
 private opcexe:={}
@@ -56,6 +55,7 @@ return
 // podesenja importa
 // ----------------------------------
 static function aimp_setup()
+
 local nX
 local GetList:={}
 
@@ -66,7 +66,6 @@ nX := 1
 Box(, 10, 70)
 
 	@ m_x + nX, m_y + 2 SAY "Podesenja importa ********"
-
 	nX += 2
 	@ m_x + nX, m_y + 2 SAY "Stampati dokumente pri auto obradi (D/N)" GET gAImpPrint VALID gAImpPrint $ "DN" PICT "@!"
 

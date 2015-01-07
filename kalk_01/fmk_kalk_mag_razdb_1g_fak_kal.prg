@@ -314,8 +314,7 @@ if glBrojacPoKontima
 	cBrKalk := SljBrKalk("14", cIdFirma, cSufiks)
 
 else
-	//******* izbaceno koristenje stare funkcije !!!
-	//cBrKalk:=SljBrKalk("14",cIdFirma)
+
 	cBrKalk:=GetNextKalkDoc(cIdFirma, "14")
 endif
 
