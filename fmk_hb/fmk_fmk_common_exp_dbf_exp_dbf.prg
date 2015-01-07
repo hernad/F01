@@ -10,7 +10,7 @@
  */
 
 
-#include "sc.ch"
+#include "f01.ch"
 
 static cij_decimala:=3
 static izn_decimala:=2

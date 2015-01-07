@@ -10,7 +10,7 @@
  */
 
 
-#include "sc.ch"
+#include "f01.ch"
 
 /****h SC_CLIB/SC_RPT ***
 * 

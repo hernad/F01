@@ -10,7 +10,7 @@
  */
 
 
-#include "sc.ch"
+#include "f01.ch"
 
 
 
@@ -52,7 +52,7 @@ next
 // setuj kolone za pripremu...
 set_a_kol(@ImeKol, @Kol)
 
-cBoxHead := "<SPACE> markiranje Í <ESC> kraj"
+cBoxHead := "<SPACE> markiranje ï¿½ <ESC> kraj"
 cBoxFoot := "Priprema za labeliranje bar-kodova..."
 
 Box(,20,50)

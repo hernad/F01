@@ -10,7 +10,7 @@
  */
 
 
-#include "sc.ch"
+#include "f01.ch"
 
 static F_RN_TXT := "RACUN_TXT"
 static _F_VRN_TXT := "FV*.TXT"

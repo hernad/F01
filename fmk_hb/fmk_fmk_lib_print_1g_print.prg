@@ -10,7 +10,7 @@
  */
 
 
-#include "sc.ch"
+#include "f01.ch"
 
 
 // file sc1g/print/print.prg

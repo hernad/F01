@@ -9,7 +9,7 @@
  * By using this software, you agree to be bound by its terms.
  */
 
-#include "sc.ch"
+#include "f01.ch"
 
 STATIC s_cFileContent := NIL
 

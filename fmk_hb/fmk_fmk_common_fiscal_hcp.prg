@@ -10,7 +10,7 @@
  */
 
 
-#include "sc.ch"
+#include "f01.ch"
 
 static _cmdok := "CMD.OK"
 static _razmak1 := " "

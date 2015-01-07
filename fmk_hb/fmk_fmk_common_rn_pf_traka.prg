@@ -10,7 +10,7 @@
  */
 
 
-#include "sc.ch"
+#include "f01.ch"
 
 static LEN_KOLICINA := 9
 static LEN_CIJENA := 12

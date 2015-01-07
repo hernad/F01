@@ -1,5 +1,5 @@
 #ifndef SC_DEFINED
-	#include "sc.ch"
+	#include "f01.ch"
 #endif
 
 #define D_OS_VERZIJA "02.08"

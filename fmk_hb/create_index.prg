@@ -9,7 +9,7 @@
  * By using this software, you agree to be bound by its terms.
  */
 
-#include "sc.ch"
+#include "f01.ch"
 #include "fileio.ch"
 
 static OID_ASK:="0"

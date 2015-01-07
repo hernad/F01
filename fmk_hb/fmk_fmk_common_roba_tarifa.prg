@@ -10,7 +10,7 @@
  */
 
 
-#include "sc.ch"
+#include "f01.ch"
 
 /*  P_Tarifa(cId,dx,dy)
  *   Otvara sifrarnik tarifa

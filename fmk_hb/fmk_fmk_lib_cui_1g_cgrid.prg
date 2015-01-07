@@ -10,7 +10,7 @@
  */
 
 
-#include "SC.CH"
+#include "f01.ch"
 #include "dbstruct.ch"
 #include "error.ch"
 #include "setcurs.ch"

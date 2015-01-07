@@ -10,7 +10,7 @@
  */
 
 
-#include "sc.ch"
+#include "f01.ch"
 
 static _razmak1 := " "
 static _inp_dir := ""

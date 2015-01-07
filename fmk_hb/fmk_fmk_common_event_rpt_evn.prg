@@ -10,7 +10,7 @@
  */
 
 
-#include "sc.ch"
+#include "f01.ch"
 
 /*  KarticaLog()
  *   Stampa pregleda dogadjaja

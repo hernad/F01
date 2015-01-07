@@ -10,7 +10,7 @@
  */
 
 
-#include "SC.CH"
+#include "f01.ch"
 
 /*  KorPreg()
  *  Pregled korisnika programa

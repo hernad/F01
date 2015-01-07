@@ -10,7 +10,7 @@
  */
 
 
-#include "sc.ch"
+#include "f01.ch"
 
 static nStr := 0
 static lPrintedTotal := .f.

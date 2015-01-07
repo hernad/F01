@@ -10,7 +10,7 @@
  */
 
 
-#include "sc.ch"
+#include "f01.ch"
 
 /* todo koristi li se ova tabela TOKVAL, ako ne ukloniti je
  */

@@ -10,7 +10,7 @@
  */
 
 
-#include "sc.ch"
+#include "f01.ch"
 
  
 function P_KonCij(CId,dx,dy)

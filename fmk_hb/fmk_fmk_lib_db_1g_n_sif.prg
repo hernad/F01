@@ -10,7 +10,7 @@
  */
 
 
-#include "sc.ch"
+#include "f01.ch"
 
 // -----------------------------------------------------------------------
 * F-ja vraca novu sifru koju odredjuje uvecavanjem postojece po sljedecem

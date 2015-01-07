@@ -10,7 +10,7 @@
  */
 
 
-#include "sc.ch"
+#include "f01.ch"
 
 
 static LEN_KOLICINA := 8
@@ -822,7 +822,7 @@ nTime := nTimeOut
 // primjer: c:\tring\xml\odgovori\sfr.001
 cF_name := cPath + _d_answer + SLASH + trg_filename( cTrig )
 
-// ova opcija podrazumjeva da je ukljuèena opcija 
+// ova opcija podrazumjeva da je ukljuï¿½ena opcija 
 // prikaza greske tipa ER,OK...
 
 Box(,1,50)

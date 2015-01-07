@@ -10,7 +10,7 @@
  */
 
 
-#include "SC.CH"
+#include "f01.ch"
 
 /****h SC_CLIB/FMK_PI ***
 * 
@@ -391,7 +391,7 @@ STATIC PROCEDURE P_KonIz()
   @ m_x+18,m_y+2 SAY "<a-P> popuni bazu iz sifrarnika   <a-N> preuzmi iz drugog izvjestaja"
   @ m_x+19,m_y+2 SAY "<c-N> nova stavka                 <c-I> nuliranje po uslovu         "
   @ m_x+20,m_y+2 SAY "<c-T> brisi stavku              <Enter> ispravka stavke             "
-  ObjDBEdit("PKONIZ",20,77,{|| KonIzBlok()},"","Priprema redova za izvjestaj br."+cBrI+"ÍÍÍÍÍ<c-P> vidi komplet definiciju", , , , ,3)
+  ObjDBEdit("PKONIZ",20,77,{|| KonIzBlok()},"","Priprema redova za izvjestaj br."+cBrI+"ï¿½ï¿½ï¿½ï¿½ï¿½<c-P> vidi komplet definiciju", , , , ,3)
  BoxC()
 RETURN
 

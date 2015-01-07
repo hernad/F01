@@ -1,5 +1,5 @@
 #ifndef SC_DEFINED
-	#include "sc.ch"
+	#include "f01.ch"
 #endif
 
 #define D_PO_VERZIJA "03.35"

@@ -10,7 +10,7 @@
  */
 
 
-#include "sc.ch"
+#include "f01.ch"
 
 /*  GenPartnSt(lGenPartnSt, nSldMinIzn, cPosId)
  *   Postavljanje upita za generisanje stanja partnera te setovanje varijabli

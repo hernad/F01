@@ -10,7 +10,7 @@
  */
 
 
-#include "sc.ch"
+#include "f01.ch"
 
 // stampa fakture a4
 function st_pf_a4_2(lStartPrint)

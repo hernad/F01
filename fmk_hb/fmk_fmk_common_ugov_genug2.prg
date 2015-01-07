@@ -10,7 +10,7 @@
  */
 
 
-#include "sc.ch"
+#include "f01.ch"
 
 // ---------------------------------------------
 // Generacija faktura po ugovorima, v2

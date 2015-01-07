@@ -1,5 +1,5 @@
 #ifndef SC_DEFINED
-	#include "sc.ch"
+	#include "f01.ch"
 #endif
 
 #define D_ADMIN_VERZIJA "02.15"
