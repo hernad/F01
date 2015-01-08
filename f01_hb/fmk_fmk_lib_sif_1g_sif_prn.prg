@@ -323,9 +323,9 @@ local cTekst
    cTekst:=strtran(&xTekst,BOX_CHAR_USPRAVNO+Chr(10),"")
  endif
  if lPrazno
-  cTekst:=strtran(cTekst,NRED,NRED+space(7))
+  cTekst:=strtran(cTekst,NOVI_RED,NOVI_RED+space(7))
  else
-  cTekst:=strtran(cTekst,NRED," ")
+  cTekst:=strtran(cTekst,NOVI_RED," ")
  endif
 return cTekst
 
@@ -1017,7 +1017,7 @@ else
       	exit
       endif
 enddo
-setprc(prow()+nPodStr(NRED,cZag),pcol())
+setprc(prow()+nPodStr(NOVI_RED,cZag),pcol())
   ?
   fclose(nHZ)
  endif
@@ -1135,8 +1135,8 @@ function DajRed(tekst,kljuc)
 
 local cVrati:="", nPom:=0, nPoc:=0
   nPom := AT( kljuc , tekst )
-  nPoc := RAT( NRED , LEFT(tekst,nPom) )
-  nKraj:= AT(  NRED , SUBSTR(tekst,nPom) )
+  nPoc := RAT( NOVI_RED , LEFT(tekst,nPom) )
+  nKraj:= AT(  NOVI_RED , SUBSTR(tekst,nPom) )
   nPoc := IF(nPoc==0,1,nPoc+2)
   nKraj:= IF(nKraj==0,LEN(tekst),nPom-1+nKraj+1)
   cVrati:=SUBSTR(tekst,nPoc,nKraj-nPoc+1)

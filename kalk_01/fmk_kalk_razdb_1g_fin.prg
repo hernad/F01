@@ -188,7 +188,7 @@ DO WHILE !EOF()
 	 	FF
 	 	kalk_zagl_11()
 	 endif
-         P_NRED
+         P_NOVI_RED
          @ prow(),0 SAY RBr
          @ prow(),pcol()+1 SAY IdKonto
 
@@ -241,7 +241,7 @@ DO WHILE !EOF()
       ENDIF
       Pok:=0
       for i:=2 to len(aRez)
-        P_NRED
+        P_NOVI_RED
         @ prow(),nColStr say aRez[i]
         If i=2
            @ prow(),nColDok say opis
@@ -252,7 +252,7 @@ DO WHILE !EOF()
         endif
       next
       If Pok=0 .and. !Empty(opis+k1+k2+k3+k4)
-         P_NRED
+         P_NOVI_RED
          @ prow(),nColDok say opis+" "+k1+"-"+k2+"-"+k3+"-"+k4
       endif
 
@@ -324,11 +324,11 @@ endif
 select TNAL; hseek cidvn
 @ prow(),pcol()+4 SAY naz
 @ prow(),pcol()+15 SAY "Str:"+str(++nStr,3)
-P_NRED; ?? M
-P_NRED; ?? "*R. * KONTO * PART *    NAZIV PARTNERA ILI      *   D  O  K  U  M  E  N  T    *         IZNOS U  "+ValDomaca()+"         *    IZNOS U "+ValPomocna()+"    *"
-P_NRED; ?? "              NER                                ----------------------------- ------------------------------- ---------------------"
-P_NRED; ?? "*BR *       *      *    NAZIV KONTA             * BROJ VEZE * DATUM  * VALUTA *  DUGUJE "+ValDomaca()+"  * POTRAZUJE "+ValDomaca()+"* DUG. "+ValPomocna()+"* POT."+ValPomocna()+"*"
-P_NRED; ?? M
+P_NOVI_RED; ?? M
+P_NOVI_RED; ?? "*R. * KONTO * PART *    NAZIV PARTNERA ILI      *   D  O  K  U  M  E  N  T    *         IZNOS U  "+ValDomaca()+"         *    IZNOS U "+ValPomocna()+"    *"
+P_NOVI_RED; ?? "              NER                                ----------------------------- ------------------------------- ---------------------"
+P_NOVI_RED; ?? "*BR *       *      *    NAZIV KONTA             * BROJ VEZE * DATUM  * VALUTA *  DUGUJE "+ValDomaca()+"  * POTRAZUJE "+ValDomaca()+"* DUG. "+ValPomocna()+"* POT."+ValPomocna()+"*"
+P_NOVI_RED; ?? M
 select(nArr)
 return
 
@@ -939,11 +939,11 @@ SELECT TNAL; HSEEK cIdVN; select PANAL
 @ prow(),120 SAY "Str:"+str(++nStr,3)
 
 gVar1:="1"
-P_NRED; ?? m
-P_NRED; ?? "*RED*"+PADC(if(.t.,"","DATUM"),8)+"*           NAZIV KONTA                               *            IZNOS U "+ValDomaca()+"           *"+IF(gVar1=="1","","     IZNOS U "+ValPomocna()+"       *")
-P_NRED; ?? "    *        *                                                      ----------------------------------- "+IF(gVar1=="1","","-------------------------")
-P_NRED; ?? "*BR *        *                                                     * DUGUJE  "+ValDomaca()+"    * POTRAZUJE  "+ValDomaca()+" *"+IF(gVar1=="1",""," DUG. "+ValPomocna()+"  * POT. "+ValPomocna()+" *")
-P_NRED; ?? m
+P_NOVI_RED; ?? m
+P_NOVI_RED; ?? "*RED*"+PADC(if(.t.,"","DATUM"),8)+"*           NAZIV KONTA                               *            IZNOS U "+ValDomaca()+"           *"+IF(gVar1=="1","","     IZNOS U "+ValPomocna()+"       *")
+P_NOVI_RED; ?? "    *        *                                                      ----------------------------------- "+IF(gVar1=="1","","-------------------------")
+P_NOVI_RED; ?? "*BR *        *                                                     * DUGUJE  "+ValDomaca()+"    * POTRAZUJE  "+ValDomaca()+" *"+IF(gVar1=="1",""," DUG. "+ValPomocna()+"  * POT. "+ValPomocna()+" *")
+P_NOVI_RED; ?? m
 
 return
 

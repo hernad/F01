@@ -164,28 +164,28 @@ do while .t.
 	if cAkcija=="A" // odmah sve zavrsi
     		nHgw:=FCREATE(cBazaInOut+SLASH+"out"+SLASH+"komanda")
     		if nHgw>0
-      			FWRITE(nHgw,"---"+NRED+cStr)
+      			FWRITE(nHgw,"---"+NOVI_RED+cStr)
       			FSEEK(nHgw,0)
       			// upisi zaglavlje ...
-      			FWRITE(nHgw,"#H#"+NRED)
+      			FWRITE(nHgw,"#H#"+NOVI_RED)
       			FCLOSE(nHgw)
       			exit
     		endif
 
   	elseif cAkcija=="P" 
 		// zapocni
-       		GW_STRING:="---"+NRED+cStr
+       		GW_STRING:="---"+NOVI_RED+cStr
        		exit
 
   	elseif cAkcija=="D" 
 		// dodaj
-      		GW_STRING+=NRED+cStr
+      		GW_STRING+=NOVI_RED+cStr
       		exit
 
   	elseif cAkcija=="Z"  
 		// zavrsi
       		if !(cStr=="")
-        		GW_STRING+=NRED+cStr
+        		GW_STRING+=NOVI_RED+cStr
       		endif
 
       		nHgw:=FCREATE(cBazaInOut+"\out\komanda")
@@ -196,7 +196,7 @@ do while .t.
         		GW_STRING:=""
         		// upisi zaglavlje ...
         		FSEEK(nHGw,0)
-        		FWRITE(nHGw,"#H#"+NRED)
+        		FWRITE(nHGw,"#H#"+NOVI_RED)
         		FCLOSE(nHGw)
       		endif
       		exit
@@ -665,7 +665,7 @@ if nHLog==-999
 endif
 
 FSEEK(nHLog,0,FS_END)
-FWRITE(nHLog,cSql+NRED)
+FWRITE(nHLog,cSql+NOVI_RED)
 FCLOSE(nHLog)
 return ""
 

@@ -199,7 +199,7 @@ nCol1:=70
        DO WHILE  eval(b1) .and. eval(b2) .and. eval(b4)  // analiticki konto
           select KONTO; hseek cidkonto
           select PANAL
-          P_NRED
+          P_NOVI_RED
           @ prow(),0 SAY  ++nRBr PICTURE '9999'
           @ prow(),pcol()+1 SAY IF(gDatNal=="D",SPACE(8),datnal)
           @ prow(),pcol()+1 SAY cIdKonto
@@ -221,8 +221,8 @@ nCol1:=70
     ENDDO  // siteticki konto
 
     IF prow()>61+gPStranica; FF; Zagl12(); ENDIF
-    P_NRED; ?? M
-    P_NRED
+    P_NOVI_RED; ?? M
+    P_NOVI_RED
     @ prow(),1 SAY ++nRBr2 PICTURE '999'
     @ prow(),pcol()+1 SAY PADR(cIdSinKon,6)
     SELECT KONTO; HSEEK cIdSinKon
@@ -234,7 +234,7 @@ nCol1:=70
      @ prow(),pcol()+1 SAY nUkDugDEM PICTURE PicDEM
      @ prow(),pcol()+1 SAY nUkPotDEM PICTURE PicDEM
     ENDIF
-    P_NRED; ?? M
+    P_NOVI_RED; ?? M
 
     nUkUkDugBHD+=nUkDugBHD
     nUKUkPotBHD+=nUkPotBHD
@@ -245,15 +245,15 @@ nCol1:=70
 
  IF prow()>61+gPStranica; FF; Zagl12(); ENDIF
 
- P_NRED; ?? M
- P_NRED; ?? "ZBIR NALOGA:"
+ P_NOVI_RED; ?? M
+ P_NOVI_RED; ?? "ZBIR NALOGA:"
  @ prow(),nCol1 SAY nUkUkDugBHD PICTURE PicBHD
  @ prow(),pcol()+1 SAY nUkUkPotBHD PICTURE PicBHD
  IF gVar1!="1"
   @ prow(),pcol()+1 SAY nUkUkDugDEM PICTURE PicDEM
   @ prow(),pcol()+1 SAY nUkUkPotDEM PICTURE PicDEM
  ENDIF
- P_NRED; ?? M
+ P_NOVI_RED; ?? M
 
 FF
 
@@ -296,9 +296,9 @@ endif
 SELECT TNAL; HSEEK cIdVN; select PANAL
 @ prow(),pcol()+4 SAY tnal->naz
 @ prow(),pcol()+15 SAY "Str:"+str(++nStr,3)
-P_NRED; ?? m
-P_NRED; ?? "*RED*"+PADC(IF(gDatNal=="D","","DATUM"),8)+"*           NAZIV KONTA                               *            IZNOS U "+ValDomaca()+"           *"+IF(gVar1=="1","","     IZNOS U "+ValPomocna()+"       *")
-P_NRED; ?? "    *        *                                                      ----------------------------------- "+IF(gVar1=="1","","-------------------------")
-P_NRED; ?? "*BR *        *                                                     * DUGUJE  "+ValDomaca()+"    * POTRAZUJE  "+ValDomaca()+" *"+IF(gVar1=="1",""," DUG. "+ValPomocna()+"  * POT. "+ValPomocna()+" *")
-P_NRED; ?? m
+P_NOVI_RED; ?? m
+P_NOVI_RED; ?? "*RED*"+PADC(IF(gDatNal=="D","","DATUM"),8)+"*           NAZIV KONTA                               *            IZNOS U "+ValDomaca()+"           *"+IF(gVar1=="1","","     IZNOS U "+ValPomocna()+"       *")
+P_NOVI_RED; ?? "    *        *                                                      ----------------------------------- "+IF(gVar1=="1","","-------------------------")
+P_NOVI_RED; ?? "*BR *        *                                                     * DUGUJE  "+ValDomaca()+"    * POTRAZUJE  "+ValDomaca()+" *"+IF(gVar1=="1",""," DUG. "+ValPomocna()+"  * POT. "+ValPomocna()+" *")
+P_NOVI_RED; ?? m
 return

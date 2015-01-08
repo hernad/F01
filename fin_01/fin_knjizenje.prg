@@ -1051,27 +1051,27 @@ ENDIF
 
 lJerry := ( IzFMKIni("FIN","JednovalutniNalogJerry","N",KUMPATH) == "D" )
 
-P_NRED
+P_NOVI_RED
 ?? M
 if gNW=="D"
- P_NRED
+ P_NOVI_RED
  ?? IF(lDnevnik,"R.BR. *   BROJ       *DAN*","") + "*R. * KONTO *" + PADC("PART", __par_len) + "*"+IF(gVar1=="1".and.lJerry,"       NAZIV PARTNERA         *                    ","    NAZIV PARTNERA ILI      ")+"*   D  O  K  U  M  E  N  T    *         IZNOS U  "+ValDomaca()+"         *"+IF(gVar1=="1","","    IZNOS U "+ValPomocna()+"    *")
- P_NRED
+ P_NOVI_RED
 
  ?? IF(lDnevnik,"U DNE-*  NALOGA      *   *","")+"             " + PADC("NER", __par_len) + " "+IF(gVar1=="1".and.lJerry,"            ILI                      O P I S       ","                            ")+" ----------------------------- ------------------------------- "+IF(gVar1=="1","","---------------------")
- P_NRED
+ P_NOVI_RED
 
  ?? IF(lDnevnik,"VNIKU *              *   *","")+"*BR *       *" + REPL(" ", __par_len) + "*"+IF(gVar1=="1".and.lJerry,"        NAZIV KONTA           *                    ","    NAZIV KONTA             ")+"* BROJ VEZE * DATUM  * VALUTA *  DUGUJE "+ValDomaca()+"  * POTRAZUJE "+ValDomaca()+"*"+IF(gVar1=="1",""," DUG. "+ValPomocna()+"* POT."+ValPomocna()+"*")
 ELSE
- P_NRED
+ P_NOVI_RED
  ?? IF(lDnevnik,"R.BR. *   BROJ       *DAN*","")+"*R. * KONTO *" + PADC("PART", __par_len) + "*"+IF(gVar1=="1".and.lJerry,"       NAZIV PARTNERA         *                    ","    NAZIV PARTNERA ILI      ")+"*           D  O  K  U  M  E  N  T             *         IZNOS U  "+ValDomaca()+"         *"+IF(gVar1=="1","","    IZNOS U "+ValPomocna()+"    *")
- P_NRED
+ P_NOVI_RED
 
  ?? IF(lDnevnik,"U DNE-*  NALOGA      *   *","")+"             " + PADC("NER", __par_len) + " "+IF(gVar1=="1".and.lJerry,"            ILI                      O P I S       ","                            ")+" ---------------------------------------------- ------------------------------- "+IF(gVar1=="1","","---------------------")
- P_NRED
+ P_NOVI_RED
  ?? IF(lDnevnik,"VNIKU *              *   *","")+"*BR *       *" + REPL(" ", __par_len)+ "*"+IF(gVar1=="1".and.lJerry,"        NAZIV KONTA           *                    ","    NAZIV KONTA             ")+"*  TIP I NAZIV   * BROJ VEZE * DATUM  * VALUTA *  DUGUJE "+ValDomaca()+"  * POTRAZUJE "+ValDomaca()+"*"+IF(gVar1=="1",""," DUG. "+ValPomocna()+"* POT."+ValPomocna()+"*")
 ENDIF
-P_NRED
+P_NOVI_RED
 ?? M
 select(nArr)
 return
@@ -1795,7 +1795,7 @@ DO WHILE !eof() .and. eval(b2)
          endif
          fin_zagl_11()
        endif
-       P_NRED
+       P_NOVI_RED
        IF cInd=="3"
          @ prow(),0 SAY STR(++nRBrDN,6)
          @ prow(),pcol()+1 SAY cIdFirma+"-"+cIdVN+"-"+cBrNal
@@ -1944,9 +1944,9 @@ DO WHILE !eof() .and. eval(b2)
 
    IF cInd $ "1#2" .and. !lAuto
      IF prow()>58+gPStranica; FF; fin_zagl_11();  endif
-     P_NRED
+     P_NOVI_RED
      ?? M
-     P_NRED
+     P_NOVI_RED
      ?? "Z B I R   N A L O G A:"
      @ prow(),nColIzn  SAY nUkDugBHD PICTURE picBHD
      @ prow(),pcol()+1 SAY nUkPotBHD PICTURE picBHD
@@ -1954,17 +1954,17 @@ DO WHILE !eof() .and. eval(b2)
        @ prow(),pcol()+1 SAY nUkDugDEM PICTURE picDEM
        @ prow(),pcol()+1 SAY nUkPotDEM PICTURE picDEM
      ENDIF
-     P_NRED
+     P_NOVI_RED
      ?? M
      nUkDugBHD:=nUKPotBHD:=nUkDugDEM:=nUKPotDEM:=0
 
      if gPotpis=="D"
        IF prow()>58+gPStranica; FF; fin_zagl_11();  endif
-       P_NRED
-       P_NRED; F12CPI
-       P_NRED
+       P_NOVI_RED
+       P_NOVI_RED; F12CPI
+       P_NOVI_RED
        @ prow(),55 SAY "Obrada AOP "; ?? replicate("_",20)
-       P_NRED
+       P_NOVI_RED
        @ prow(),55 SAY "Kontirao   "; ?? replicate("_",20)
      endif
      FF

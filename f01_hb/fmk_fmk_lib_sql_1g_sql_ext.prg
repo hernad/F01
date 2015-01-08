@@ -111,7 +111,7 @@ if (nH<=0)
   return "ERR"
 endif
 
-FWRITE(nH,cSQL+";"+NRED)
+FWRITE(nH,cSQL+";"+NOVI_RED)
 
 if LEFT(cFile,5)=="#END#"
 	// kraj zavrsi

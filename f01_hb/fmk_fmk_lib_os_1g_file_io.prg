@@ -88,7 +88,7 @@ IF nLineLength==nil
 ENDIF
 
 IF cDelim==nil
-      cDelim := NRED
+      cDelim := NOVI_RED
 ENDIF
 
 nCurPos   := FilePos( nHandle )

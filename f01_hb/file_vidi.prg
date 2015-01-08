@@ -26,658 +26,664 @@ STATIC s_cFileContent := NIL
  * je broj kolona koje zaredom, pocevsi od prve zadane, treba fiksirati, a
  * treci el. predstavlja broj reda pocevsi od kojeg se uzima za prikaz
  * fiksirana kolona)
- *
- * todo: Razbiti ogromni CASE na pojedinacne funkcije
  */
 
-function VidiFajl(cImeF, aLinFiks, aKolFiks)
+FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
 
-local nDF := VelFajla(cImeF, 0)
-local nKol:=1
-local nOfset, nOf1l:=0, nZnak
-local lNevazna:=.f.
-local nRed:=1
-local lSkrol:=.f.
-local nURed := BrLinFajla(cImeF)
-LOCAL cKom,nLin:=21,nFRed:=0,nFRed2:=0
-local cFajlPRN:="PRN777.TXT", nOfM1:=0 , nOfM2:=0
-local nPrviRed:=1
-local aZagFix:={}
-local nPrvaKol:=0
-local nUKol:=80
-local aRedovi
-local lPrintReady
+   LOCAL nDF := VelFajla( cImeF, 0 )
+   LOCAL nKol := 1
+   LOCAL nOfset, nOf1l := 0, nZnak
+   LOCAL lNevazna := .F.
+   LOCAL nRed := 1
+   LOCAL lSkrol := .F.
+   LOCAL nURed := BrLinFajla( cImeF )
+   LOCAL cKom, nLin := 21, nFRed := 0, nFRed2 := 0
+   LOCAL cFajlPRN := "PRN777.TXT", nOfM1 := 0, nOfM2 := 0
+   LOCAL nPrviRed := 1
+   LOCAL aZagFix := {}
+   LOCAL nPrvaKol := 0
+   LOCAL nUKol := 80
+   LOCAL aRedovi
+   LOCAL lPrintReady
 
-private cTrazi:=SPACE(30)
-private cMarkF:="1"
-private cVStamp:="1"
-private nStrOd:=1
-private nStrDo:=1
+   PRIVATE cTrazi := Space( 30 )
+   PRIVATE cMarkF := "1"
+   PRIVATE cVStamp := "1"
+   PRIVATE nStrOd := 1
+   PRIVATE nStrDo := 1
+
+   init_file_content()
+
+   CSetAtMupa( .T. )
+
+   IF aLinFiks != nil
+      nPrviRed += aLinFiks[ 2 ]
+      aZagFix  := DioFajlaUNiz( cImeF, aLinFiks[ 1 ], aLinFiks[ 2 ], nURed )
+   ENDIF
+   IF aKolFiks != nil
+      nPrvaKol := aKolFiks[ 2 ]
+      nUKol    := 80 - aKolFiks[ 2 ]
+   ENDIF
+
+   aRedovi := Array( nLin + 1 -nPrviRed, 2 )
+   ShemaBoja( gShemaVF )
+   @ 22, 0 SAY "Pomjeranje slike.......<>.<>.<>.<" + Chr( 26 ) + ">." + ;
+      "<PgUp>.<PgDn>.<Ctrl>+<PgUp>.<Ctrl>+<PgDn>" COLOR cbokvira
+
+   @ 23, 0 SAY "N.fajla:<Ctrl>+<N> Stampa:<Ctrl>+<P>,<Alt>+<P> Trazi:<F>/<F3> Marker:<Ctrl>+<J> " COLOR cbnaslova
+   @ 24, 0 SAY "Pr.fajla:<Ctrl>+<O>     FAJL:                 KOLONA:         RED:              " COLOR cbnaslova
+   DO WHILE .T.
+      nOfset := nOf1l
+      IF !lNevazna
+         @ 24, 54 SAY Str( nKol, 3 ) + "/321" COLOR cbokvira
+         @ 24, 67 SAY PadR( AllTrim( Str( nRed, 6 ) ) + "/" + AllTrim( Str( nURed, 6 ) ), 13 ) COLOR cbokvira
+         @ 24, 30 SAY PadR( AfterAtNum( SLASH, cImeF ), 15 ) COLOR cbokvira
+         IF Len( aZagFix ) > 0
+            FOR i := 1 TO Len( aZagFix )
+               IF nPrvaKol > 0
+                  @ i,       0 SAY SubStr( PadR( aZagFix[ i ], 400 ), aKolFiks[ 1 ], nPrvaKol ) COLOR "W+/B"
+                  @ i, nPrvaKol SAY SubStr( PadR( aZagFix[ i ], 400 ), nKol + IF( aKolFiks[ 1 ] > 1, 0, nPrvaKol ), nUKol ) COLOR "W+/B"
+               ELSE
+                  @ i, 0 SAY SubStr( PadR( aZagFix[ i ], 400 ), nKol, 80 ) COLOR "W+/B"
+               ENDIF
+            NEXT
+         ENDIF
+
+         FOR i := 1 to ( nLin + 1 - nPrviRed )
+
+            IF !lSkrol
+               aPom := SljedLin( cImeF, nOfset )
+               aRedovi[ i ] := aPom
+            ELSE
+               aPom := aRedovi[ i ]
+            ENDIF
+            IF nPrvaKol > 0
+               IF Len( aKolFiks ) > 3
+                  cPom77 := aKolFiks[ 4 ]
+                  @ i - 1 + nPrviRed, 0 SAY iif( !&cPom77, Space( nPrvaKol ), SubStr( PadR( aRedovi[ i, 1 ], 400 ), aKolFiks[ 1 ], nPrvaKol ) ) COLOR IF( nRed + i - 1 == nFRed, "W+/B", IF( nRed + i - 1 == nFRed2, "W+/R", cbteksta ) )
+               ELSE
+                  @ i - 1 + nPrviRed, 0 SAY iif( nRed + i - 1 < aKolFiks[ 3 ], Space( nPrvaKol ), SubStr( PadR( aRedovi[ i, 1 ], 400 ), aKolFiks[ 1 ], nPrvaKol ) ) COLOR IF( nRed + i - 1 == nFRed, "W+/B", IF( nRed + i - 1 == nFRed2, "W+/R", cbteksta ) )
+               ENDIF
+               @ i - 1 + nPrviRed, nPrvaKol SAY SubStr( PadR( aRedovi[ i, 1 ], 400 ), nKol + IF( aKolFiks[ 1 ] > 1, 0, nPrvaKol ), nUKol ) COLOR IF( nRed + i - 1 == nFRed, "W+/B", IF( nRed + i - 1 == nFRed2, "W+/R", cbteksta ) )
+            ELSE
+               @ i - 1 + nPrviRed, 0 SAY SubStr( PadR( aRedovi[ i, 1 ], 400 ), nKol, 80 ) COLOR IF( nRed + i - 1 == nFRed, "W+/B", IF( nRed + i - 1 == nFRed2, "W+/R", cbteksta ) )
+            ENDIF
+            nOfset := aPom[ 2 ]
+         NEXT
+
+      ENDIF
+
+      lNevazna := .F.
+      lSkrol := .F.
+
+      KeyboardEvent( @nZnak )
+
+      DO CASE
+      CASE nZnak == 32         // svicuj zamrzavanje kolone
+         IF nUKol < 80
+            nPrvaKol := iif( nPrvaKol > 0, 0, aKolFiks[ 2 ] )
+         ENDIF
+
+      CASE nZnak == K_ESC
+         EXIT
+      CASE nZnak == K_CTRL_J  // pomjeri marker
+
+         nPom1 := nFRed
+         nPom2 := nFRed2
+         nPom3 := nURed
+         IF VarEdit( { { "Pozicija 1.(plavog) markera (broj reda)", "nPom1", "nPom1<=nPom3.and.nPom1>=0", "9999999", }, ;
+               { "Pozicija 2.(crvenog) markera (broj reda)", "nPom2", "nPom2<=nPom3.and.nPom2>=0", "9999999", } }, 10, 1, 15, 78, ;
+               "POMJERANJE MARKERA TEKSTA U FAJLU", gShemaVF )
+            nPomRed := 1; nOfPom := 0; nOfM1 := 0; nOfM2 := 0
+            DO WHILE nPomRed <= Max( nPom1, nPom2 ) .AND. nPomRed <= nURed
+               aPom := SljedLin( cImeF, nOfPom )
+               ++nPomRed
+               nOfPom := aPom[ 2 ]
+               IF nPomRed == nPom1
+                  nOfM1 := nOfPom
+               ELSEIF nPomRed == nPom2
+                  nOfM2 := nOfPom
+               ENDIF
+            ENDDO
+            nFRed  := nPom1
+            nFRed2 := nPom2
+         ENDIF
+
+      CASE Upper( Chr( nZnak ) ) == 'F' .OR. nZnak == K_F3  // trazi tekst
+         IF nZnak == K_F3 .OR. ;
+               VarEdit( { ;
+               { "Tekst", "cTrazi",, "@!", }, ;
+               { "Oznaciti nadjeno markerom (1-plavi,2-crveni)", "cMarkF", "cMarkF$'12'", "", };
+               }, 10, 10, 15, 69, ;
+               "PRETRAGA TEKSTA U FAJLU", gShemaVF )
+            aStaro := { nOf1l, nRed }
+            IF cMarkF == "1" .AND. Upper( Chr( nZnak ) ) == 'F'
+               nFRed := 0
+            ELSEIF Upper( Chr( nZnak ) ) == 'F'
+               nFRed2 := 0
+            ENDIF
+            IF Upper( Chr( nZnak ) ) == 'F' .OR. ;
+                  cMarkF == "1" .AND. PripadaNInt( nFRed, nRed, nRed + 19 ) .OR. ;
+                  cMarkF == "2" .AND. PripadaNInt( nFRed2, nRed, nRed + 19 )
+               FOR i := IF( nZnak == K_F3, iif( cMarkF == "1", nFRed, nFRed2 ) -nRed + 2, 1 ) TO nLin + 1 -nPrviRed
+                  IF ( nFPoz := At( Trim( cTrazi ), Upper( aRedovi[ i, 1 ] ) ) ) > 0
+                     IF cMarkF == "1"
+                        nFRed := nRed + i - 1
+                        nOfM1 := IF( i == 1, nOf1l, aRedovi[ i - 1, 2 ] )
+                     ELSE
+                        nFRed2 := nRed + i - 1
+                        nOfM2:I = IF( i == 1, nOf1l, aRedovi[ i - 1, 2 ] )
+                     ENDIF
+                     IF nFPoz < 40
+                        nKol := 1
+
+                     ELSEIF nFPoz > 360
+                        nKol := 321
+                     ELSE
+                        nKol := 10 * Int( ( nFPoz - 40 ) / 10 ) + 1
+                     ENDIF
+
+                     lSkrol := .T.
+                     EXIT
+                  ENDIF
+               NEXT
+            ENDIF
+
+            DO WHILE !lSkrol .AND. nRed < nURed - nLin + 1 -1 + nPrviRed
+               ++nRed
+               aPom := SljedLin( cImeF, aRedovi[ nLin + 1 -nPrviRed, 2 ] )
+               nOf1l := aRedovi[ 1, 2 ]; ADel( aRedovi, 1 ); aRedovi[ nLin + 1 -nPrviRed ] := aPom
+               IF nZnak == K_F3 .AND. ;
+                     iif( cMarkF == "1", nFRed >= nRed + nLin - 1 + 1 -nPrviRed, nFRed2 >= nRed + nLin - 1 + 1 -nPrviRed )
+                  LOOP
+               ENDIF
+               IF ( nFPoz := At( Trim( cTrazi ), Upper( aRedovi[ nLin + 1 -nPrviRed, 1 ] ) ) ) > 0
+                  lSkrol := .T.
+                  IF cMarkF == "1"
+                     nFRed := nRed + nLin - 1 + 1 -nPrviRed
+                     nOfM1 := aRedovi[ nLin - 1 + 1 -nPrviRed, 2 ]
+                  ELSE
+                     nFRed2 := nRed + nLin - 1 + 1 -nPrviRed
+                     nOfM2 := aRedovi[ nLin - 1 + 1 -nPrviRed, 2 ]
+                  ENDIF
+                  IF nFPoz < 40
+                     nKol := 1
+                  ELSEIF nFPoz > 360
+                     nKol := 321
+                  ELSE
+                     nKol := 10 * Int( ( nFPoz - 40 ) / 10 ) + 1
+                  ENDIF
+               ENDIF
+            ENDDO
+            IF iif( cMarkF == "1", nFRed == 0, nFRed2 == 0 )  // vrati se na staru poziciju
+               nOf1l := aStaro[ 1 ]; nRed := aStaro[ 2 ]
+               lSkrol := .F.
+               Msg( "Tekst nije nadjen!", 4 )
+            ENDIF
+         ENDIF
+
+      CASE nZnak == K_ALT_F1  // spremi tekucu i/ili vise baza na diskete
+         // na koji disk
+         cDisk := "A"
+         Box(, 3, 77 )
+         @ m_x + 1, m_y + 2 SAY "Izvrsiti prenos na disk A/B ?" GET cDisk PICT "@!" VALID cDisk >= "A" .AND.  diskprazan( cDisk )
+         READ
+         BoxC()
+
+         IF LastKey() != K_ESC
+
+            // koje baze
+            IF aDefSpremBaz != NIL .AND. !Empty( aDefSpremBaz )     // vise njih
+               nTekArr := Select()
+               FOR i := 1 TO Len( aDefSpremBaz )
+                  SELECT ( aDefSpremBaz[ i, 1 ] )
+                  cPomFilt := aDefSpremBaz[ i, 4 ]
+                  PushWA()
+                  SET FILTER TO
+                  SET FILTER to &cPomFilt
+                  GO TOP
+                  MsgO( "Kopiram '" + Alias( Select() ) + ".DBF' u '" + cDisk + ":" + SLASH + "_" + Alias( Select() ) + ".DBF" + "' !" )
+                  CurToExtBase( cDisk + ":" + SLASH + "_" + Alias( Select() ) + ".DBF" )
+                  MsgC()
+                  SET FILTER TO
+                  PopWA()
+               NEXT
+               SELECT ( nTekArr )
+            ENDIF
+
+            // odradi tekucu
+            ccPom := cDisk + ":" + SLASH + "_" + Alias( Select() )
+            PushWA(); GO TOP
+            MsgO( "Kopiram '" + Alias( Select() ) + ".DBF' u '" + cDisk + ":" + SLASH + "_" + Alias( Select() ) + ".DBF" + "' !" )
+            CurToExtBase( cDisk + ":" + SLASH + "_" + Alias( Select() ) + ".DBF" )
+            MsgC()
+            SET FILTER TO
+            PopWA()
+
+            // zapisi skript fajl
+
+            MsgBeep( "Kopiranje zavrseno!" )
+         ENDIF  // LASTKEY()!=K_ESC
+
+      CASE nZnak == K_CTRL_O
+         // ucitaj fajl
+         nPom := RAt( SLASH, cImeF )
+         DO WHILE .T.
+            ccPom := PadR( SubStr( cImeF, nPom + 1 ), 12 )
+            IF VarEdit( { { "Fajl", "ccPom",, "@!", } }, 10, 20, 14, 59, "NAZIV FAJLA ZA PREGLED", gShemaVF )
+               ccPom := AllTrim( Left( cImeF, nPom ) + ccPom )
+               IF File2( ccPom )
+                  cImeF := ccPom
+                  nPom := RAt( SLASH, cImeF )
+                  nDF := VelFajla( cImeF, 0 ); nKol := 1; nOf1l := 0; lNevazna := .F.
+                  nRed := 1; lSkrol := .F. ; nURed := BrLinFajla( cImeF )
+                  aRedovi := Array( nLin + 1 -nPrviRed, 2 )
+                  EXIT
+               ELSE
+                  Msg( "Zadani fajl ne postoji!", 4 )
+               ENDIF
+            ELSE
+               EXIT
+            ENDIF
+         ENDDO
+
+      CASE ( nZnak == K_LEFT .AND. nKol > 1 )
+         lSkrol := .T.
+         nKol -= 10
+
+      CASE ( nZnak == K_RIGHT .AND. nKol < 321 )
+         lSkrol := .T.
+         nKol += 10
+
+      CASE nZnak == K_UP .AND. nRed > 1
+         lSkrol := .T.
+         aPom := PrethLin( cImeF, nOf1l )
+         --nRed
+         AIns( aRedovi, 1 )
+         aRedovi[ 1 ] := { aPom[ 1 ], nOf1l }
+         nOf1l := iif( aPom[ 2 ] <= 0, 0, aPom[ 2 ] )
+
+      CASE nZnak == K_DOWN .AND. nRed < nURed - nLin + 1 -1 + nPrviRed
+
+         lSkrol := .T.
+         ++nRed
+         aPom := SljedLin( cImeF, aRedovi[ nLin + 1 -nPrviRed, 2 ] )
+         nOf1l := aRedovi[ 1, 2 ]
+         ADel( aRedovi, 1 )
+         aRedovi[ nLin + 1 -nPrviRed ] := aPom
+
+      CASE nZnak == K_PGUP .AND. nRed > 1
+         IF nRed - nLin - 1 + nPrviRed > 1
+            lSkrol := .T.
+            FOR i := 1 TO nLin + 1 -nPrviRed
+               aRedovi[ nLin + 1 + 1 -nPrviRed - i, 2 ] := IF( i == 1, nOf1l, aPom[ 2 ] )
+               aPom := PrethLin( cImeF, nOf1l )
+               nOf1l := aPom[ 2 ]
+               aRedovi[ nLin + 1 + 1 -nPrviRed - i, 1 ] := aPom[ 1 ]
+            NEXT
+            nRed -= nLin + 1 -nPrviRed
+            IF nOf1l <= 0; nOf1l := 0; nRed := 1; ENDIF
+         ELSE
+            nRed := 1
+            nOf1l := 0
+         ENDIF
+
+      CASE nZnak == K_PGDN .AND. nRed < nURed - nLin + 1 -1 + nPrviRed
+         IF nRed + nLin + 1 -nPrviRed <= nUred - nLin + 1 -1 + nPrviRed
+            nOf1l := aRedovi[ nLin + 1 -nPrviRed, 2 ]
+            nRed += nLin + 1 -nPrviRed
+         ELSE
+            nOf1l := aRedovi[ nURed - nLin + 1 -1 + nPrviRed - nRed, 2 ]
+            nRed := nURed - nLin + 1 -1 + nPrviRed
+         ENDIF
+      CASE ( nZnak == K_CTRL_PGUP .OR. nZnak == K_HOME ) .AND. nRed > 1
+         nOf1l := 0; nRed := 1
+      CASE ( nZnak == K_CTRL_PGDN .OR. nZnak == K_END ) .AND. nURed > nLin + 1 -nPrviRed
+         nOf1l := nDF + 2
+         FOR i := 1 TO iif( FileStr( cImeF, 2, nDF - 2 ) != NOVI_RED, nLin + 1 -nPrviRed, nLin + 1 + 1 -nPrviRed )
+            IF nOf1l > 0
+               aPom := PrethLin( cImeF, nOf1l )
+               nOf1l := aPom[ 2 ]
+            ENDIF
+         NEXT
+         nRed := nURed - nLin + 1 -1 + nPrviRed
+
+      CASE nZnak == K_CTRL_N
+         nPom := RAt( SLASH, cImeF )
+         DO WHILE .T.
+            ccPom := PadR( SubStr( cImeF, nPom + 1 ), 12 )
+            IF VarEdit( { { "Fajl", "ccPom",, "@!", } }, 10, 20, 14, 59, "PROMJENA NAZIVA FAJLA", gShemaVF )
+               ccPom := AllTrim( Left( cImeF, nPom ) + ccPom )
+               IF RenameFile( cImeF, ccPom ) == 0
+                  cImeF := ccPom
+                  nPom := RAt( SLASH, cImeF )
+                  EXIT
+               ENDIF
+            ELSE
+               EXIT
+            ENDIF
+         ENDDO
+      CASE gPrinter = "R" .AND. ( nZnak = K_CTRL_P .OR. nZnak == K_ALT_P )
+
+         IF gPDFPrint == "X" .AND. goModul:oDataBase:cName == "FAKT"
+            IF Pitanje(, "Print u PDF/PTXT", "D" ) == "D"
+               PDFView( cImeF )
+            ELSE
+               Ptxt( cImeF )
+            ENDIF
+         ELSEIF gPDFPrint == "D" .AND. goModul:oDataBase:cName == "FAKT"
+            PDFView( cImeF )
+         ELSE
+            Ptxt( cImeF )
+         ENDIF
+
+      CASE nZnak == K_ALT_S
+         SendFile( cImeF )
+
+      CASE nZnak == K_CTRL_P
+
+         IF nFRed > 0 .AND. nFRed2 > 0   // oba markera
+            IF VarEdit( { { "1-sve, 2-dio izmedju markera, 3-sve ispod mark.1, 4-sve ispod mark.2)", "cVStamp", "cVStamp$'1234'", "@!", } }, 10, 1, 14, 78, ;
+                  "IZBOR OBLASTI ZA STAMPANJE", gShemaVF )
+            ELSE
+               LOOP
+            ENDIF
+         ELSEIF nFRed > 0       // marker 1 (plavi)
+            IF VarEdit( { { "1-sve,  3-sve ispod markera 1", "cVStamp", "cVStamp$'13'", "@!", } }, 10, 1, 14, 78, ;
+                  "IZBOR OBLASTI ZA STAMPANJE", gShemaVF )
+            ELSE
+               LOOP
+            ENDIF
+         ELSEIF nFRed2 > 0      // marker 2 (crveni)
+            IF VarEdit( { { "1-sve,  4-sve ispod markera 2", "cVStamp", "cVStamp$'14'", "@!", } }, 10, 1, 14, 78, ;
+                  "IZBOR OBLASTI ZA STAMPANJE", gShemaVF )
+            ELSE
+               LOOP
+            ENDIF
+         ELSE // citav fajl
+            cVStamp := "1"
+         ENDIF
+
+         IF cVStamp == "1"
+            cFajlPRN := AllTrim( cImeF )
+         ELSE
+            cFajlPRN := "PRN777.TXT"
+            IF File2( cFajlPRN )
+               FErase( cFajlPRN )
+            ENDIF
+            nOfPoc := iif( cVStamp == "2", Min( nOfM1, nOfM2 ),;
+               iif( cVStamp == "3", nOfM1, nOfM2 ) )
+            nOfDuz := iif( cVStamp == "2", Abs( nOfM1 - nOfM2 ) + 1,;
+               iif( cVStamp == "3", nDF - nOfM1 + 1, nDF - nOfM2 + 1 ) )
+            nH := FCreate( cFajlPRN, 0 )
+            DO WHILE nOfDuz > 0
+               cPomF := FileStr( cImeF, iif( nOfDuz >= 400, 400, nOfDuz ), nOfPoc )
+               FWrite( nH, cPomF )
+               nOfPoc += 400
+               nOfDuz -= 400
+            ENDDO
+            FWrite( nH, NOVI_RED )
+            FClose( nH )
+         ENDIF
+
+         cKom := "LPT" + gPPort
+         IF gPPort > "4"
+            lPrintReady := .T.
+            IF gPPort == "5"
+               cKom := "LPT1"
+
+            ELSEIF gPPort == "6"
+               ckom := "LPT2"
+            ELSEIF gPPort == "7"
+               cKom := "LPT3"
+            ENDIF
+         ELSE
+            lPrintReady := .F.
+         ENDIF
+
+         // cPom:=cFajlPRN+" "+cKom
+         DO WHILE .T.
+            IF lPrintReady .OR. PrintReady( Val( gpport ) )
+               MsgO( "Sacekajte, stampanje u toku..." )
+               FileCopy( cFajlPRN, cKom )
+               MsgC()
+               EXIT
+            ENDIF
+            IF Pitanje(, "Stampac nije spreman! Zelite li da probate ponovo?", "N" ) != "D"
+               EXIT
+            ENDIF
+         ENDDO
+      CASE nZnak == K_ALT_P
+         IF VarEdit( { { "Stampati od stranice br.", "nStrOd", "nStrOd>0", "9999", }, ;
+               { "         do stranice br.", "nStrDo", "nStrDo>=nStrOd", "9999", } }, 10, 1, 15, 78, ;
+               "IZBOR STRANICA ZA STAMPANJE", gShemaVF )
+         ELSE
+            LOOP
+         ENDIF
+
+         cFajlPRN := "PRN777.TXT"
+         IF File2( cFajlPRN )
+            FErase( cFajlPRN )
+         ENDIF
+
+         aPom   := VratiOfset( gPFF, nStrOd - 1, nStrDo, cImeF, nDF )
+         nOfPoc := aPom[ 1 ]
+         nOfDuz := 1 + aPom[ 2 ] -aPom[ 1 ]
+
+         nH := FCreate( cFajlPRN, 0 )
+         FWrite( nH, gPINI )
+         DO WHILE nOfDuz > 0
+            cPomF := FileStr( cImeF, iif( nOfDuz >= 400, 400, nOfDuz ), nOfPoc )
+            FWrite( nH, cPomF )
+            nOfPoc += 400
+            nOfDuz -= 400
+         ENDDO
+         FWrite( nH, NOVI_RED )
+         FClose( nH )
+
+         cKom := "LPT" + gPPort
+         IF gpport > "4"
+            IF gpport == "5"
+               cKom := "LPT1"
+            ELSEIF gpport == "6"
+               ckom := "LPT2"
+            ELSEIF gpport == "7"
+               cKom := "LPT3"
+            ENDIF
+         ENDIF
+         // cPom:=cFajlPRN+" "+cKom
+         DO WHILE .T.
+            IF PrintReady( Val( gpport ) )
+               MsgO( "Sacekajte, stampanje u toku..." )
+               // !copy &cPom
+               FileCopy( cFajlPRN, cKom )
+               MsgC()
+               EXIT
+            ENDIF
+            IF Pitanje(, "Stampac nije spreman! Zelite li da probate ponovo?", "N" ) != "D"
+               EXIT
+            ENDIF
+         ENDDO
+      OTHERWISE
+         goModul:GProc( nZnak )
+         lNevazna := .T.
+      ENDCASE
+   ENDDO
+
+   RETURN
 
 
-init_file_content()
+FUNCTION init_file_content()
 
-CSETATMUPA(.t.)
+   s_cFileContent := NIL
 
-if aLinFiks!=nil
-   nPrviRed += aLinFiks[2]
-   aZagFix  := DioFajlaUNiz( cImeF , aLinFiks[1] , aLinFiks[2] , nURed )
-endif
-if aKolFiks!=nil
-   nPrvaKol := aKolFiks[2]
-   nUKol    := 80 - aKolFiks[2]
-endif
-
-aRedovi:=ARRAY(nLin+1-nPrviRed,2)
-ShemaBoja(gShemaVF)
-@ 22,0 SAY "Pomjeranje slike.......<>.<>.<>.<"+CHR(26)+">."+;
-            "<PgUp>.<PgDn>.<Ctrl>+<PgUp>.<Ctrl>+<PgDn>" COLOR cbokvira
-
-@ 23,0 SAY "N.fajla:<Ctrl>+<N> Stampa:<Ctrl>+<P>,<Alt>+<P> Trazi:<F>/<F3> Marker:<Ctrl>+<J> " COLOR cbnaslova
-@ 24,0 SAY "Pr.fajla:<Ctrl>+<O>     FAJL:                 KOLONA:         RED:              " COLOR cbnaslova
-do while .t.
-  nOfset:=nOf1l
-  if !lNevazna
-    @ 24,54 SAY STR(nKol,3)+"/321" COLOR cbokvira
-    @ 24,67 SAY PADR(ALLTRIM(STR(nRed,6))+"/"+ALLTRIM(STR(nURed,6)),13) COLOR cbokvira
-    @ 24,30 SAY PADR(AFTERATNUM(SLASH,cImeF),15) COLOR cbokvira
-    if LEN(aZagFix)>0
-      for i:=1 to LEN(aZagFix)
-        if nPrvaKol>0
-          @ i,       0 SAY SUBSTR(PADR(aZagFix[i],400),aKolFiks[1],nPrvaKol) COLOR "W+/B"
-          @ i,nPrvaKol SAY SUBSTR(PADR(aZagFix[i],400),nKol+IF(aKolFiks[1]>1,0,nPrvaKol),nUKol) COLOR "W+/B"
-        else
-          @ i,0 SAY SUBSTR(PADR(aZagFix[i],400),nKol,80) COLOR "W+/B"
-        endif
-      next
-    endif
-
-    for i:=1 to ( nLin + 1- nPrviRed)
-
-      if !lSkrol
-        aPom := SljedLin(cImeF, nOfset)
-        aRedovi[i]:=aPom
-      else
-        aPom:=aRedovi[i]
-      endif
-      if nPrvaKol>0
-        if LEN(aKolFiks)>3
-          cPom77:=aKolFiks[4]
-          @ i-1+nPrviRed,0 SAY IIF(!&cPom77,SPACE(nPrvaKol),SUBSTR(PADR(aRedovi[i,1],400),aKolFiks[1],nPrvaKol)) COLOR IF(nRed+i-1==nFRed,"W+/B",IF(nRed+i-1==nFRed2,"W+/R",cbteksta))
-        else
-          @ i-1+nPrviRed,0 SAY IIF(nRed+i-1<aKolFiks[3],SPACE(nPrvaKol),SUBSTR(PADR(aRedovi[i,1],400),aKolFiks[1],nPrvaKol)) COLOR IF(nRed+i-1==nFRed,"W+/B",IF(nRed+i-1==nFRed2,"W+/R",cbteksta))
-        endif
-        @ i-1+nPrviRed,nPrvaKol SAY SUBSTR(PADR(aRedovi[i,1],400),nKol+IF(aKolFiks[1]>1,0,nPrvaKol),nUKol) COLOR IF(nRed+i-1==nFRed,"W+/B",IF(nRed+i-1==nFRed2,"W+/R",cbteksta))
-      else
-        @ i-1+nPrviRed,0 SAY SUBSTR(PADR(aRedovi[i,1],400),nKol,80) COLOR IF(nRed+i-1==nFRed,"W+/B",IF(nRed+i-1==nFRed2,"W+/R",cbteksta))
-      endif
-      nOfset:=aPom[2]
-    next
-
-  endif
-
-  lNevazna:=.f.
-  lSkrol:=.f.
-
-  KeyboardEvent(@nZnak)
-
-  do CASE
-    CASE nZnak==32         // svicuj zamrzavanje kolone
-       if nUKol<80
-         nPrvaKol := IIF(nPrvaKol>0,0,aKolFiks[2])
-       endif
-
-    CASE nZnak==K_ESC
-       exit
-    CASE nZnak==K_CTRL_J  // pomjeri marker
-
-       nPom1:=nFRed
-       nPom2:=nFRed2
-       nPom3:=nURed
-       if VarEdit({{"Pozicija 1.(plavog) markera (broj reda)","nPom1","nPom1<=nPom3.and.nPom1>=0","9999999",},;
-                   {"Pozicija 2.(crvenog) markera (broj reda)","nPom2","nPom2<=nPom3.and.nPom2>=0","9999999",}},10,1,15,78,;
-                             "POMJERANJE MARKERA TEKSTA U FAJLU",gShemaVF)
-         nPomRed:=1; nOfPom:=0; nOfM1:=0; nOfM2:=0
-         do while nPomRed <= MAX(nPom1,nPom2) .and. nPomRed<=nURed
-           aPom := SljedLin(cImeF, nOfPom)
-           ++nPomRed
-           nOfPom:=aPom[2]
-           if nPomRed==nPom1
-             nOfM1:=nOfPom
-           elseif nPomRed==nPom2
-             nOfM2:=nOfPom
-           endif
-         enddo
-         nFRed  := nPom1
-         nFRed2 := nPom2
-       endif
-
-    CASE upper(chr(nZnak))=='F' .or. nZnak==K_F3  // trazi tekst
-       if nZnak==K_F3 .or.;
-          VarEdit({ ;
-                    {"Tekst","cTrazi",,"@!",},;
-                    {"Oznaciti nadjeno markerom (1-plavi,2-crveni)","cMarkF","cMarkF$'12'","",};
-                   },10,10,15,69,;
-                             "PRETRAGA TEKSTA U FAJLU",gShemaVF)
-         aStaro:={nOf1l,nRed}
-         if cMarkF=="1" .and. upper(chr(nZnak))=='F'
-           nFRed:=0
-         elseif upper(chr(nZnak))=='F'
-           nFRed2:=0
-         endif
-         if upper(chr(nZnak))=='F' .or.;
-            cMarkF=="1" .and. PripadaNInt(nFRed,nRed,nRed+19) .or.;
-            cMarkF=="2" .and. PripadaNInt(nFRed2,nRed,nRed+19)
-               for i:=IF(nZnak==K_F3, IIF(cMarkF=="1",nFRed,nFRed2)-nRed+2,1) to nLin+1-nPrviRed
-                 if (nFPoz:=AT(TRIM(cTrazi),UPPER(aRedovi[i,1])))>0
-                   if cMarkF=="1"
-                     nFRed:=nRed+i-1
-                     nOfM1:=IF(i==1,nOf1l,aRedovi[i-1,2])
-                   else
-                     nFRed2:=nRed+i-1
-                     nOfM2:I=IF(i==1,nOf1l,aRedovi[i-1,2])
-                   endif
-                   if nFPoz<40
-                     nKol:=1
-
-                   elseif nFPoz>360
-                     nKol:=321
-                   else
-                     nKol:=10*INT((nFPoz-40)/10)+1
-                   endif
-
-                   lSkrol:=.t.
-                   exit
-                 endif
-               next
-         endif
-
-         do while !lSkrol .and. nRed<nURed-nLin+1-1+nPrviRed
-           ++nRed
-           aPom:=SljedLin(cImeF,aRedovi[nLin+1-nPrviRed,2])
-           nOf1l:=aRedovi[1,2]; ADEL(aRedovi,1); aRedovi[nLin+1-nPrviRed]:=aPom
-           if nZnak==K_F3 .and.;
-              IIF( cMarkF=="1" , nFRed>=nRed+nLin-1+1-nPrviRed , nFRed2>=nRed+nLin-1+1-nPrviRed )
-             loop
-           endif
-           if (nFPoz:=AT(TRIM(cTrazi),UPPER(aRedovi[nLin+1-nPrviRed,1])))>0
-             lSkrol:=.t.
-             if cMarkF=="1"
-               nFRed:=nRed+nLin-1+1-nPrviRed
-               nOfM1:=aRedovi[nLin-1+1-nPrviRed,2]
-             else
-               nFRed2:=nRed+nLin-1+1-nPrviRed
-               nOfM2:=aRedovi[nLin-1+1-nPrviRed,2]
-             endif
-             if nFPoz<40
-               nKol:=1
-             elseif nFPoz>360
-               nKol:=321
-             else
-               nKol:=10*INT((nFPoz-40)/10) + 1
-             endif
-           endif
-         enddo
-         if IIF(cMarkF=="1",nFRed==0,nFRed2==0)  // vrati se na staru poziciju
-           nOf1l:=aStaro[1]; nRed:=aStaro[2]
-           lSkrol:=.f.
-           Msg("Tekst nije nadjen!",4)
-         endif
-       endif
-
-    CASE nZnak==K_ALT_F1  // spremi tekucu i/ili vise baza na diskete
-       // na koji disk
-       cDisk:="A"
-       Box(,3,77)
-        @ m_x+1,m_y+2 SAY "Izvrsiti prenos na disk A/B ?" GET cDisk pict "@!" valid cDisk>="A" .and.  diskprazan(cDisk)
-        READ
-       BoxC()
-
-       if LASTKEY()!=K_ESC
-
-       // koje baze
-       if aDefSpremBaz!=nil .and. !EMPTY(aDefSpremBaz)     // vise njih
-         nTekArr:=SELECT()
-         for i:=1 to LEN(aDefSpremBaz)
-           SELECT (aDefSpremBaz[i,1])
-           cPomFilt:=aDefSpremBaz[i,4]
-           PushWA()
-           SET FILTER TO
-           SET FILTER to &cPomFilt
-           GO TOP
-           MsgO("Kopiram '"+ALIAS(SELECT())+".DBF' u '"+cDisk+":" + SLASH + "_" + ALIAS(SELECT())+".DBF"+"' !")
-            CurToExtBase(cDisk+":" + SLASH + "_" + ALIAS(SELECT())+".DBF")
-           MsgC()
-           SET FILTER TO
-           PopWA()
-         next
-         SELECT (nTekArr)
-       endif
-
-       // odradi tekucu
-       ccPom:=cDisk+":" + SLASH + "_" + ALIAS(SELECT())
-       PushWA(); GO TOP
-       MsgO("Kopiram '"+ALIAS(SELECT()) + ".DBF' u '" + cDisk + ":" + SLASH + "_" + ALIAS(SELECT())+".DBF"+"' !")
-        CurToExtBase(cDisk+ ":" + SLASH + "_" + ALIAS(SELECT())+".DBF")
-       MsgC()
-       SET FILTER TO
-       PopWA()
-
-       // zapisi skript fajl
-
-       MsgBeep("Kopiranje zavrseno!")
-       endif  // LASTKEY()!=K_ESC
-
-    CASE nZnak==K_CTRL_O
-       // ucitaj fajl
-       nPom:=RAT(SLASH,cImeF)
-       do while .t.
-         ccPom:=PADR(SUBSTR(cImeF,nPom+1),12)
-         if VarEdit({{"Fajl","ccPom",,"@!",}},10,20,14,59, "NAZIV FAJLA ZA PREGLED",gShemaVF)
-           ccPom:=ALLTRIM(LEFT(cImeF,nPom)+ccPom)
-           if File2(ccPom)
-             cImeF:=ccPom
-             nPom:=RAT(SLASH,cImeF)
-             nDF:=VelFajla(cImeF,0); nKol:=1; nOf1l:=0; lNevazna:=.f.
-             nRed:=1; lSkrol:=.f.; nURed:=BrLinFajla(cImeF)
-             aRedovi:=ARRAY(nLin+1-nPrviRed,2)
-             exit
-           else
-             Msg("Zadani fajl ne postoji!",4)
-           endif
-         else
-           exit
-         endif
-       enddo
-
-    CASE (nZnak==K_LEFT .and. nKol>1)
-       lSkrol:=.t.
-       nKol-=10
-
-    CASE (nZnak==K_RIGHT.and.nKol<321)
-       lSkrol:=.t.
-       nKol+=10
-
-    CASE nZnak==K_UP.and.nRed > 1
-       lSkrol:=.t.
-       aPom:=PrethLin(cImeF,nOf1l)
-       --nRed
-       AINS(aRedovi,1)
-       aRedovi[1]:={aPom[1],nOf1l}
-       nOf1l:= IIF(aPom[2]<=0,0,aPom[2])
-
-    CASE nZnak==K_DOWN.and.nRed<nURed-nLin+1-1+nPrviRed
-
-       lSkrol:=.t.
-       ++nRed
-       aPom := SljedLin(cImeF,aRedovi[nLin+1-nPrviRed,2])
-       nOf1l:=aRedovi[1,2]
-       ADEL(aRedovi,1)
-       aRedovi[nLin+1-nPrviRed]:=aPom
-
-    CASE nZnak==K_PGUP.and.nRed>1
-       if nRed-nLin-1+nPrviRed>1
-         lSkrol:=.t.
-         for i:=1 to nLin+1-nPrviRed
-           aRedovi[nLin+1+1-nPrviRed-i,2]:=IF(i==1,nOf1l,aPom[2])
-           aPom:=PrethLin(cImeF,nOf1l)
-           nOf1l:=aPom[2]
-           aRedovi[nLin+1+1-nPrviRed-i,1]:=aPom[1]
-         next
-         nRed-=nLin+1-nPrviRed
-         if nOf1l<=0; nOf1l:=0; nRed:=1; endif
-       else
-         nRed:=1
-         nOf1l:=0
-       endif
-
-    CASE nZnak==K_PGDN.and.nRed<nURed-nLin+1-1+nPrviRed
-       if nRed+nLin+1-nPrviRed<=nUred-nLin+1-1+nPrviRed
-          nOf1l:=aRedovi[nLin+1-nPrviRed,2]
-          nRed+=nLin+1-nPrviRed
-       else
-          nOf1l:=aRedovi[nURed-nLin+1-1+nPrviRed-nRed,2]
-          nRed:=nURed-nLin+1-1+nPrviRed
-       endif
-    CASE ( nZnak==K_CTRL_PGUP .or. nZnak==K_HOME ) .and. nRed>1
-       nOf1l:=0; nRed:=1
-    CASE ( nZnak==K_CTRL_PGDN .or. nZnak==K_END ) .and. nURed>nLin+1-nPrviRed
-       nOf1l:=nDF+2
-       for i:=1 to IIF(FILESTR(cImeF,2,nDF-2)!=NRED,nLin+1-nPrviRed,nLin+1+1-nPrviRed)
-         if nOf1l>0
-           aPom:=PrethLin(cImeF,nOf1l)
-           nOf1l:=aPom[2]
-         endif
-       next
-       nRed:=nURed-nLin+1-1+nPrviRed
-
-    CASE nZnak==K_CTRL_N
-       nPom:=RAT(SLASH,cImeF)
-       do while .t.
-         ccPom:=PADR(SUBSTR(cImeF,nPom+1),12)
-         if VarEdit({{"Fajl","ccPom",,"@!",}},10,20,14,59, "PROMJENA NAZIVA FAJLA",gShemaVF)
-           ccPom:=ALLTRIM(LEFT(cImeF,nPom)+ccPom)
-           if RenameFile(cImeF,ccPom)==0
-             cImeF:=ccPom
-             nPom:=RAT(SLASH,cImeF)
-             exit
-           endif
-         else
-           exit
-         endif
-       enddo
-    case gPrinter="R" .and. (nZnak=K_CTRL_P .or. nZnak==K_ALT_P)
-
-       if gPDFPrint == "X" .and. goModul:oDataBase:cName=="FAKT"
-       	if Pitanje(,"Print u PDF/PTXT", "D") == "D"
-		    PDFView(cImeF)
-     	else
-	    	Ptxt(cImeF)
-    	endif
-       elseif gPDFPrint == "D" .and. goModul:oDataBase:cName == "FAKT"
-       	PDFView(cImeF)
-       else
-       	Ptxt(cImeF)
-       endif
-
-    case nZnak==K_ALT_S
-    	SendFile(cImeF)
-
-    case nZnak==K_CTRL_P
-
-       if nFRed>0 .and. nFRed2>0   // oba markera
-         if VarEdit({{"1-sve, 2-dio izmedju markera, 3-sve ispod mark.1, 4-sve ispod mark.2)","cVStamp","cVStamp$'1234'","@!",}},10,1,14,78,;
-                               "IZBOR OBLASTI ZA STAMPANJE",gShemaVF)
-         else
-           loop
-         endif
-       elseif nFRed>0       // marker 1 (plavi)
-         if VarEdit({{"1-sve,  3-sve ispod markera 1","cVStamp","cVStamp$'13'","@!",}},10,1,14,78,;
-                               "IZBOR OBLASTI ZA STAMPANJE",gShemaVF)
-         else
-           loop
-         endif
-       elseif nFRed2>0      // marker 2 (crveni)
-         if VarEdit({{"1-sve,  4-sve ispod markera 2","cVStamp","cVStamp$'14'","@!",}},10,1,14,78,;
-                               "IZBOR OBLASTI ZA STAMPANJE",gShemaVF)
-         else
-           loop
-         endif
-       else // citav fajl
-         cVStamp:="1"
-       endif
-
-       if cVStamp=="1"
-         cFajlPRN:=ALLTRIM(cImeF)
-       else
-         cFajlPRN:="PRN777.TXT"
-         if File2( cFajlPRN )
-           FERASE( cFajlPRN )
-         endif
-         nOfPoc := IIF( cVStamp=="2" , MIN(nOfM1,nOfM2) ,;
-                   IIF( cVStamp=="3" , nOfM1 , nOfM2 ) )
-         nOfDuz := IIF( cVStamp=="2" , ABS(nOfM1-nOfM2)+1 ,;
-                   IIF( cVStamp=="3" , nDF-nOfM1+1 , nDF-nOfM2+1 ) )
-         nH := FCREATE( cFajlPRN , 0 )
-         do while nOfDuz>0
-           cPomF := FILESTR( cImeF , IIF(nOfDuz>=400, 400, nOfDuz) , nOfPoc )
-           FWRITE( nH , cPomF )
-           nOfPoc+=400
-           nOfDuz-=400
-         enddo
-         FWRITE( nH , NRED )
-         FCLOSE( nH )
-       endif
-
-       cKom:="LPT"+gPPort
-       if gPPort>"4"
-	       lPrintReady:=.t.
-         if gPPort=="5"
-           cKom:="LPT1"
-
-         elseif gPPort=="6"
-           ckom:="LPT2"
-         elseif gPPort=="7"
-           cKom:="LPT3"
-         endif
-       else
-          lPrintReady:=.f.
-       endif
-
-       //cPom:=cFajlPRN+" "+cKom
-       do while .t.
-         if lPrintReady .or. PRINTREADY(VAL(gpport))
-           MsgO("Sacekajte, stampanje u toku...")
-           filecopy(cFajlPRN, cKom)
-           MsgC()
-           exit
-         endif
-         if Pitanje(,"Stampac nije spreman! Zelite li da probate ponovo?","N")!="D"
-           exit
-         endif
-       enddo
-    CASE nZnak==K_ALT_P
-       if VarEdit({ {"Stampati od stranice br.","nStrOd","nStrOd>0","9999",},;
-                    {"         do stranice br.","nStrDo","nStrDo>=nStrOd","9999",} },10,1,15,78,;
-                             "IZBOR STRANICA ZA STAMPANJE",gShemaVF)
-       else
-         loop
-       endif
-
-       cFajlPRN:="PRN777.TXT"
-       if File2( cFajlPRN )
-         FERASE( cFajlPRN )
-       endif
-
-       aPom   := VratiOfset( gPFF, nStrOd-1, nStrDo, cImeF, nDF)
-       nOfPoc := aPom[1]
-       nOfDuz := 1+aPom[2]-aPom[1]
-
-       nH := FCREATE( cFajlPRN , 0 )
-       FWRITE( nH , gPINI )
-       do while nOfDuz>0
-         cPomF := FILESTR( cImeF , IIF(nOfDuz>=400, 400, nOfDuz) , nOfPoc )
-         FWRITE( nH , cPomF )
-         nOfPoc+=400
-         nOfDuz-=400
-       enddo
-       FWRITE( nH , NRED )
-       FCLOSE( nH )
-
-       cKom:="LPT"+gPPort
-       if gpport>"4"
-         if gpport=="5"
-           cKom:="LPT1"
-         elseif gpport=="6"
-           ckom:="LPT2"
-         elseif gpport=="7"
-           cKom:="LPT3"
-         endif
-       endif
-       //cPom:=cFajlPRN+" "+cKom
-       do while .t.
-         if PRINTREADY(VAL(gpport))
-           MsgO("Sacekajte, stampanje u toku...")
-           //!copy &cPom
-           filecopy(cFajlPRN,cKom)
-           MsgC()
-           exit
-         endif
-         if Pitanje(,"Stampac nije spreman! Zelite li da probate ponovo?","N")!="D"
-           exit
-         endif
-       enddo
-    OTHERWISE
-       goModul:GProc(nZnak)
-       lNevazna:=.t.
-  ENDCASE
- enddo
-return
-
-
-function init_file_content()
-
-  s_cFileContent := NIL
-
-  RETURN .T.
+   RETURN .T.
 
 
 FUNCTION get_file_content( cFajl, nPocetak )
 
+   IF s_cFileContent == NIL
+      s_cFileContent := FileStr( cFajl, NIL )
+   ENDIF
 
-IF s_cFileContent == NIL
-  s_cFileContent := FileStr( cFajl, NIL )
-ENDIF
+   IF nPocetak == NIL
+      nPocetak := 0
+   ENDIF
 
-IF nPocetak == NIL
-  nPocetak := 0
-ENDIF
-
-RETURN SUBSTR( s_cFileContent, nPocetak )
-
-
-function SljedLin(cFajl, nPocetak)
-
-local cPom, nPom
-
-cPom := get_file_content( cFajl, nPocetak )
-
-nPom := AT(NRED, cPom )
-
-if nPom==0
-  nPom:=LEN(cPom)+1
-endif
-
-return {LEFT(cPom,nPom-1), nPocetak+nPom+1}    // {cLinija,nPocetakSljedece}
+   RETURN SubStr( s_cFileContent, nPocetak )
 
 
-function PrethLin(cFajl,nKraj)
+FUNCTION SljedLin( cFajl, nPocetak )
 
- local nKor:=400, cPom, nPom
- if nKraj-nKor-2<0; nKor:=nKraj-2; endif
+   LOCAL cPom, nPom
 
- cPom:=FILESTR(cFajl,nKor,nKraj-nKor-2)
- nPom:=RAT( NRED ,cPom)
+   cPom := get_file_content( cFajl, nPocetak )
 
-return IIF( nPom==0, { cPom, 0}, { SUBSTR(cPom,nPom+2), nKraj-nKor+nPom-1} )
+   nPom := At( NOVI_RED, cPom )
 
+   IF nPom == 0
+      nPom := Len( cPom ) + 1
+   ENDIF
 
-return
-
-
-function BrLinFajla(cImeF)
-
- local nOfset:=0,nSlobMem:=0,cPom:="",nVrati:=0
-
- if FILESTR(cImeF, 2, VelFajla(cImeF) - 2) != NRED
-   nVrati:=1
- endif
-
- do while LEN(cPom)>=nSlobMem
-
-  //nSlobMem:=MEMORY(1)*1024-100
-  nSlobMem := 1024
-
-  cPom := FILESTR(cImeF, nSlobMem, nOfset)
-  nOfset := nOfset + nSlobMem - 1
-  nVrati := nVrati + NUMAT( NRED, cPom)
-
- enddo
-
-return nVrati
+   RETURN { Left( cPom, nPom - 1 ), nPocetak + nPom + 1 }    // {cLinija,nPocetakSljedece}
 
 
-function VelFajla(cImeF,cAttr)
+FUNCTION PrethLin( cFajl, nKraj )
 
- local aPom:=DIRECTORY(cImeF,cAttr)
+   LOCAL nKor := 400, cPom, nPom
 
-return iif (!EMPTY(aPom), aPom[1,2], 0)
+   IF nKraj - nKor - 2 < 0; nKor := nKraj - 2; ENDIF
 
+   cPom := FileStr( cFajl, nKor, nKraj - nKor - 2 )
+   nPom := RAt( NOVI_RED,cPom )
+
+   RETURN iif( nPom == 0, { cPom, 0 }, { SubStr( cPom, nPom + 2 ), nKraj - nKor + nPom - 1 } )
+
+   RETURN
+
+
+FUNCTION BrLinFajla( cImeF )
+
+   LOCAL nOfset := 0, nSlobMem := 0, cPom := "", nVrati := 0
+
+   IF FileStr( cImeF, 2, VelFajla( cImeF ) - 2 ) != NOVI_RED
+      nVrati := 1
+   ENDIF
+
+   DO WHILE Len( cPom ) >= nSlobMem
+
+      // nSlobMem:=MEMORY(1)*1024-100
+      nSlobMem := 1024
+
+      cPom := FileStr( cImeF, nSlobMem, nOfset )
+      nOfset := nOfset + nSlobMem - 1
+      nVrati := nVrati + NumAt( NOVI_RED, cPom )
+
+   ENDDO
+
+   RETURN nVrati
+
+
+FUNCTION VelFajla( cImeF, cAttr )
+
+   LOCAL aPom := Directory( cImeF, cAttr )
+
+   RETURN iif ( !Empty( aPom ), aPom[ 1, 2 ], 0 )
 
 
 
 
-function PripadaNInt(nBroj,nOd,nDo,lSaKrajnjim)
 
-local lVrati:=.f.
-  if lSaKrajnjim==nil; lSaKrajnjim:=.t.; endif
-  if lSaKrajnjim .and. nBroj>=nOd .and. nBroj<=ndo .or.;
-                        nBroj>nOd .and. nBroj<nDo
-    lVrati:=.t.
-  endif
-return lVrati
+FUNCTION PripadaNInt( nBroj, nOd, nDo, lSaKrajnjim )
 
+   LOCAL lVrati := .F.
 
+   IF lSaKrajnjim == nil; lSaKrajnjim := .T. ; ENDIF
+   IF lSaKrajnjim .AND. nBroj >= nOd .AND. nBroj <= ndo .OR. ;
+         nBroj > nOd .AND. nBroj < nDo
+      lVrati := .T.
+   ENDIF
 
-function DioFajlaUNiz(cImeF,nPocRed,nUkRedova,nUkRedUF)
-
-  local aVrati:={},nTekRed:=0,nOfset:=0,aPom:={}
-  if nUkRedUF==nil; nUkRedUF:=BrLinFajla(cImeF); endif
-  for nTekRed:=1 to nUkRedUF
-    aPom:=SljedLin(cImeF,nOfset)
-    if nTekRed>=nPocRed .and. nTekRed<nPocRed+nUkRedova
-      AADD(aVrati,aPom[1])
-    endif
-    if nTekRed>=nPocRed+nUkRedova-1
-      exit
-    endif
-    nOfset:=aPom[2]
-  next
-return aVrati
+   RETURN lVrati
 
 
-function VratiOfset(cTrazeniTekst,nOdPojavljivanja,nDoPojavljivanja,cUFajlu,nVelicinaFajla)
 
- local nOfset:=0, aPom:={}, aOfsetOdDo:={0,0}, nPojava:=0
- do while nVelicinaFajla>nOfset            // ?? mozda treba >nOfset+1
-   aPom := SljedLin(cUFajlu, nOfset)
-   if cTrazeniTekst $ aPom[1]
-     nPojava++
-   else
-     nOfset:=aPom[2]
-     loop
-   endif
-   if nOdPojavljivanja>0 .and. nOdPojavljivanja==nPojava
-     aOfsetOdDo[1] := nOfset + AT(cTrazeniTekst,aPom[1]) + LEN(cTrazeniTekst) - 1
-   endif
-   if nDoPojavljivanja==nPojava
-     nOfset := nOfset + AT(cTrazeniTekst,aPom[1]) + LEN(cTrazeniTekst) - 2
-     exit
-   endif
-   nOfset:=aPom[2]
- enddo
- aOfsetOdDo[2] := nOfset
-return aOfsetOdDo
+FUNCTION DioFajlaUNiz( cImeF, nPocRed, nUkRedova, nUkRedUF )
+
+   LOCAL aVrati := {}, nTekRed := 0, nOfset := 0, aPom := {}
+
+   IF nUkRedUF == nil
+      nUkRedUF := BrLinFajla( cImeF )
+   ENDIF
+
+   FOR nTekRed := 1 TO nUkRedUF
+      aPom := SljedLin( cImeF, nOfset )
+      IF nTekRed >= nPocRed .AND. nTekRed < nPocRed + nUkRedova
+         AAdd( aVrati, aPom[ 1 ] )
+      ENDIF
+      IF nTekRed >= nPocRed + nUkRedova - 1
+         EXIT
+      ENDIF
+      nOfset := aPom[ 2 ]
+   NEXT
+
+   RETURN aVrati
 
 
-static function SendFile(cImeF)
+FUNCTION VratiOfset( cTrazeniTekst, nOdPojavljivanja, nDoPojavljivanja, cUFajlu, nVelicinaFajla )
 
-local cSendIme
-local cLokacija
-private cKom
+   LOCAL nOfset := 0, aPom := {}, aOfsetOdDo := { 0, 0 }, nPojava := 0
 
-cSendIme:=PADR("send",8)
+   DO WHILE nVelicinaFajla > nOfset            // ?? mozda treba >nOfset+1
+      aPom := SljedLin( cUFajlu, nOfset )
+      IF cTrazeniTekst $ aPom[ 1 ]
+         nPojava++
+      ELSE
+         nOfset := aPom[ 2 ]
+         LOOP
+      ENDIF
+      IF nOdPojavljivanja > 0 .AND. nOdPojavljivanja == nPojava
+         aOfsetOdDo[ 1 ] := nOfset + At( cTrazeniTekst, aPom[ 1 ] ) + Len( cTrazeniTekst ) - 1
+      ENDIF
+      IF nDoPojavljivanja == nPojava
+         nOfset := nOfset + At( cTrazeniTekst, aPom[ 1 ] ) + Len( cTrazeniTekst ) - 2
+         EXIT
+      ENDIF
+      nOfset := aPom[ 2 ]
+   ENDDO
+   aOfsetOdDo[ 2 ] := nOfset
 
-if Pitanje(,"Izvrsiti snimanje izvjestaja - dokumenta ?","D")=="N"
-	return
-endif
-cLokacija:=IzFmkIni("FMK","SendLokacija",ToUnix("c:" + SLASH + "sigma" + SLASH + "send"))
-DirMak2(cLokacija)
+   RETURN aOfsetOdDo
 
-Box(,3,60)
-@ m_x+1, m_y+2 SAY "Lokacija: FmkIni_KumPath/[FMK]/SendLokacija "+cLokacija
-@ m_x+3, m_y+2 SAY "Ime dokumenta je " GET cSendIme
-@ m_x+3, COL()+2 SAY ".txt"
-READ
-BoxC()
-if (LASTKEY()==K_ESC)
-	return 0
-endif
 
-AddBs(@cLokacija)
-COPY FILE (cImeF) TO (cLokacija+ALLTRIM(cSendIme)+".txt")
+STATIC FUNCTION SendFile( cImeF )
 
-cKom:="start "+cLokacija
-RUN &cKom
+   LOCAL cSendIme
+   LOCAL cLokacija
+   PRIVATE cKom
 
-return 1
+   cSendIme := PadR( "send", 8 )
+
+   IF Pitanje(, "Izvrsiti snimanje izvjestaja - dokumenta ?", "D" ) == "N"
+      RETURN
+   ENDIF
+   cLokacija := IzFmkIni( "FMK", "SendLokacija", ToUnix( "c:" + SLASH + "sigma" + SLASH + "send" ) )
+   DirMak2( cLokacija )
+
+   Box(, 3, 60 )
+   @ m_x + 1, m_y + 2 SAY "Lokacija: FmkIni_KumPath/[FMK]/SendLokacija " + cLokacija
+   @ m_x + 3, m_y + 2 SAY "Ime dokumenta je " GET cSendIme
+   @ m_x + 3, Col() + 2 SAY ".txt"
+   READ
+   BoxC()
+   IF ( LastKey() == K_ESC )
+      RETURN 0
+   ENDIF
+
+   AddBs( @cLokacija )
+   COPY File ( cImeF ) TO ( cLokacija + AllTrim( cSendIme ) + ".txt" )
+
+   cKom := "start " + cLokacija
+   RUN &cKom
+
+   RETURN 1

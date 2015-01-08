@@ -36,9 +36,9 @@
 #DEFINE RDDENGINE "DBFCDX"
 #DEFINE DRVPATH ":" + SLASH
 
-#define NRED hb_eol()
+#define NOVI_RED hb_eol()
 
-#define P_NRED QOUT()
+#define P_NOVI_RED QOUT()
 
 #include "sc_base.ch"
 #include "inkey.ch"

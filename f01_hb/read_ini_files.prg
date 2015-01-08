@@ -77,25 +77,23 @@ if lPom0
 
       // nPos points to start of section
 
-      // Skip [section] + NRED
+      // Skip [section] + NOVI_RED
       nPos = nPos + 4 + Len ( cSection )
 
       // nPos points to start of first entry
-			altd()
-
       DO WHILE nPos <= Len ( cCache ) .and. SubStr ( cCache, nPos, 1 ) != '['
 
          nEnd    := I_At ( '=', .f., nPos )
          cEntry  := SubStr ( cCache, nPos, nEnd - nPos )
          nPos    := nEnd + 1
-         nEnd    := I_At ( NRED, .f., nPos )
+         nEnd    := I_At ( NOVI_RED, .f., nPos )
          cString := SubStr ( cCache, nPos, nEnd - nPos )
          AAdd ( aEntries, { cEntry, cString } )
          nPos    := nEnd + 2
 
-         DO WHILE SubStr(cCache, nPos, LEN( NRED) ) == NRED
-            // Skip NRED's, if any
-            nPos += LEN( NRED )
+         DO WHILE SubStr(cCache, nPos, LEN( NOVI_RED) ) == NOVI_RED
+            // Skip NOVI_RED's, if any
+            nPos += LEN( NOVI_RED )
          ENDDO
 
 
@@ -115,7 +113,7 @@ if lPom0
          nPos += Len ( cEntry )
 
          // Return value
-         return SubStr ( cCache, nPos+1, I_At ( NRED, .f., nPos+1 ) - nPos - 1 )
+         return SubStr ( cCache, nPos+1, I_At ( NOVI_RED, .f., nPos+1 ) - nPos - 1 )
 
       endif
 
@@ -239,7 +237,7 @@ if !lPom
    FSeek(nHandle, 0, FS_END)
 
    // APPEND NEW SECTION (separated with an empty line)
-   FWrite (nHandle, NRED, 2)
+   FWrite (nHandle, NOVI_RED, LEN(NOVI_RED) )
    PutSection (nHandle, cSection)
 
    PutEntry(nHandle, cEntry, cString)
@@ -268,7 +266,7 @@ else
 
    endif
 
-   // Skip section + NRED
+   // Skip section + NOVI_RED
    nPos = nPos + 4 + Len ( cSection )
 
    if ( nEntry := I_At ( Upper ( cEntry ) + '=', .t., nPos ) ) = 0
@@ -294,15 +292,15 @@ else
             //-- Next section present at : nEntry - 2
 
             //-- INSERT ENTRY AT END OF SECTION
-            DO WHILE SubStr ( cCache, nEntry-2, 2 ) = NRED
-               //-- Skip NRED's, if any ...
+            DO WHILE SubStr ( cCache, nEntry-2, 2 ) = NOVI_RED
+               //-- Skip NOVI_RED's, if any ...
                nEntry -= 2
             ENDDO
 
-            //-- Keep 1 NRED string ...
+            //-- Keep 1 NOVI_RED string ...
             nEntry += 2
 
-            cCache:=Stuff(cCache, nEntry, 0, cEntry + '=' + cString + NRED)
+            cCache:=Stuff(cCache, nEntry, 0, cEntry + '=' + cString + NOVI_RED)
 
             ReWrite(nHandle, cFName)
 
@@ -320,7 +318,7 @@ else
          //-- DELETE ENTRY !
 
          // nEntry points to first pos of entry name
-         nPos := I_At(NRED, .f., nEntry ) + 2
+         nPos := I_At(NOVI_RED, .f., nEntry ) + 2
 
          // Delete bytes from string
          cCache := Stuff ( cCache, nEntry, nPos - nEntry, '' )
@@ -331,7 +329,7 @@ else
 
          nEntry  := nEntry + Len ( cEntry ) + 1
          cCache := Stuff ( cCache, nEntry, ;
-            At ( NRED, SubStr ( cCache, nEntry ) ) - 1, cString )
+            At ( NOVI_RED, SubStr ( cCache, nEntry ) ) - 1, cString )
 
       endif
 
@@ -514,8 +512,8 @@ FRead ( hnd, @cCache, Len(cCache) )
 // ukloni \r iz DOS ini fajlova
 cCache := STRTRAN( cCache, Chr(13), "" )
 
-// \n zamjeni sa NRED kakav god bio HOST OS
-cCache := STRTRAN( cCache, Chr(10), NRED )
+// \n zamjeni sa NOVI_RED kakav god bio HOST OS
+cCache := STRTRAN( cCache, Chr(10), NOVI_RED )
 
 
 return
@@ -524,7 +522,7 @@ return
 static function PutSection(hnd, sect)
 
 if !EMPTY( sect )
-  return FWrite ( hnd, '[' + sect + ']' + NRED )
+  return FWrite ( hnd, '[' + sect + ']' + NOVI_RED )
 else
   return nil
 endif
@@ -535,7 +533,7 @@ return
 static function PutEntry( hnd,entry,val )
 
 if !Empty ( entry ) .and. !Empty ( val )
- return FWrite ( hnd, entry + '=' + val + NRED )
+ return FWrite ( hnd, entry + '=' + val + NOVI_RED )
 else
  return nil
 endif
