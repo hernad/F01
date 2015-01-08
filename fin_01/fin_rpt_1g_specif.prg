@@ -394,7 +394,7 @@ cIdFirma:=left(cIdFirma,2)
 
 nStr:=0
 
-IF IzFMKIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
+IF is_use_vrste_placanja()
   O_VRSTEP
 ENDIF
 
@@ -2780,7 +2780,7 @@ IF lK==NIL
 	lK:=.t.
 ENDIF
 
-IF IzFMKIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
+IF is_use_vrste_placanja()
 	lVrsteP:=.t.
   	SELECT (F_VRSTEP)
   	IF !USED()

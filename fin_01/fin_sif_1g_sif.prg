@@ -1067,7 +1067,7 @@ PRIVATE ImeKol:={},Kol:={}
  AADD( ImeKol, { "Dat.fakture" , {|| DATFAKT  }, "DATFAKT"      } )
  AADD( ImeKol, { "Br.fakture"  , {|| BRFAKT   }, "BRFAKT"       } )
  AADD( ImeKol, { "Iznos"       , {|| IZNOS    }, "IZNOS"        } )
- IF IzFMKIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
+ IF is_use_vrste_placanja()
    AADD( ImeKol , { "Vrsta plac." , {|| IDVRSTEP }, "IDVRSTEP" , {|| .t.}, {|| P_VrsteP(@wIdVrsteP)} } )
  ENDIF
  AADD( ImeKol , { "Rok placanja", {|| DATPL    }, "DATPL"        } )
@@ -1201,7 +1201,7 @@ PRIVATE ImeKol:={},Kol:={}
  AADD( ImeKol, { "Dat.fakture" , {|| DATFAKT  }, "DATFAKT"      } )
  AADD( ImeKol, { "Br.fakture"  , {|| BRFAKT   }, "BRFAKT"       } )
  AADD( ImeKol, { "Iznos"       , {|| IZNOS    }, "IZNOS"        } )
- IF IzFMKIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
+ IF is_use_vrste_placanja()
    AADD( ImeKol , { "Vrsta plac." , {|| IDVRSTEP }, "IDVRSTEP" , {|| .t.}, {|| P_VrsteP(@wIdVrsteP)} } )
  ENDIF
  AADD( ImeKol , { "Rok placanja", {|| DATPL    }, "DATPL"        } )

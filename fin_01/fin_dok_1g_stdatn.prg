@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -86,29 +86,29 @@ DO WHILE !EOF()
       ?? "LISTA FIN. DOKUMENATA (NALOGA) NA DAN:",DATE()
       ? m
       ? "*RED*FIR* V *" + PADR(" BR", nBrNalLen + 1) +"* DAT    *   DUGUJE       *   POTRAZUJE    *"+IF(gVar1=="0","   DUGUJE   * POTRAZUJE *","")
-      
+
       if fieldpos("SIFRA")<>0
         ?? "  OP. *"
       endif
-      
+
       if cInteg=="D"
       	?? "  1  * 2 * 3 *"
       endif
-      
+
       ? "*BRD*MA * N *" + PADR(" NAL", nBrNalLen + 1) + "* NAL    *    "+ValDomaca()+"        *      "+ValDomaca()+"      *"
-      
+
       if gVar1=="0"
       	?? "    "+ValPomocna()+"    *    "+ValPomocna()+"   *"
       endif
-      
+
       if fieldpos("SIFRA")<>0
         ?? "      *"
       endif
-      
+
       if cInteg=="D"
       	?? "     *   *   *"
       endif
-      
+
       if fieldpos("SIFRA")<>0
       endif
       ? m
@@ -213,7 +213,7 @@ return
 /*  DnevnikNaloga()
  *   Dnevnik naloga
  */
- 
+
 function DnevnikNaloga()
 
 LOCAL cMjGod:=""
@@ -248,7 +248,7 @@ LOCAL cMjGod:=""
 
   SET KEY K_F5 TO
 
-  IF IzFMKIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
+  IF is_use_vrste_placanja()
     O_VRSTEP
   ENDIF
   O_TNAL
@@ -326,7 +326,7 @@ return
  *   Vraca naziv mjeseca za zadati nMjesec (np. 1 => Januar)
  *   nMjesec - oznaka mjeseca - integer
  */
- 
+
 function NazMjeseca(nMjesec)
 
 LOCAL aVrati:={"Januar","Februar","Mart","April","Maj","Juni","Juli",;
@@ -338,7 +338,7 @@ RETURN IF( nMjesec>0.and.nMjesec<13 , aVrati[nMjesec] , "" )
 /*  VidiNaloge()
  *   Pregled naloga
  */
- 
+
 function VidiNaloge()
 
 O_NALOG; SET ORDER TO TAG "3"; GO TOP
@@ -360,9 +360,9 @@ return
 
 
 /*  EdNal()
- *   Ispravka datuma na nalogu 
+ *   Ispravka datuma na nalogu
  */
- 
+
 function EdNal()
 
 LOCAL nVrati:=DE_CONT, dDatNal:=NALOG->datnal, GetList:={}
@@ -381,5 +381,3 @@ LOCAL nVrati:=DE_CONT, dDatNal:=NALOG->datnal, GetList:={}
     ENDIF
   ENDIF
 RETURN nVrati
-
-

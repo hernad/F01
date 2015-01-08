@@ -192,7 +192,7 @@ return .t.
 
 function fin_o_edit()
 
-IF IzFMKIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
+IF is_use_vrste_placanja()
 	O_VRSTEP
 ENDIF
 
@@ -328,7 +328,7 @@ if fk3=="D"
 endif
 
 if fk4=="D"
-	if IzFMKIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
+	if is_use_vrste_placanja()
        		@  m_x+11,col()+2 SAY "K4" GET _k4 VALID EMPTY(_k4) .or. P_VRSTEP(@_k4) pict "@!"
      	else
        		@  m_x+11,col()+2 SAY "K4" GET _k4 pict "@!"
@@ -905,7 +905,7 @@ if lAuto==NIL
 	lAuto:=.f.
 ENDIF
 
-if IzFmkIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
+if is_use_vrste_placanja()
   O_VRSTEP
 endif
 
@@ -1919,7 +1919,7 @@ DO WHILE !eof() .and. eval(b2)
           ENDIF
           if i==2 .and. ( !Empty(k1+k2+k3+k4) .or. grj=="D" .or. gtroskovi=="D" )
             ?? " "+k1+"-"+k2+"-"+K3Iz256(k3)+"-"+k4
-            if IzFMKIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
+            if is_use_vrste_placanja()
               ?? "("+Ocitaj(F_VRSTEP,k4,"naz")+")"
             endif
             if gRj=="D"

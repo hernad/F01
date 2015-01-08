@@ -265,11 +265,11 @@ return NIL
 
 function WWInsPict(cIme,cPath)
 
-if cpath=NIL
+if cPath=NIL
   cPath:="c:/sigma/"
 else
- cPath:=strtran(cpath,"\","/")  // rtf to trazi
+ cPath:=strtran(cPath,"\","/")  // rtf to trazi
 endif
-?? "{\field{\*\fldinst { INCLUDEPICTURE "+cpath+cime+"\\d  \\* MERGEFORMAT }}\par}"
+?? "{\field{\*\fldinst { INCLUDEPICTURE "+cPath+cime+"\\d  \\* MERGEFORMAT }}\par}"
 return
 

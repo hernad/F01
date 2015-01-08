@@ -25,7 +25,7 @@ function fakt_Knjiz()
 // da li je ocitan barkod
 private gOcitBarkod:=.f.
 private fID_J:=.f.
-private lVrsteP := ( IzFmkIni("FAKT","VrstePlacanja","N",SIFPATH)=="D" )
+private lVrsteP := is_use_vrste_placanja()
 private lOpcine := ( IzFmkIni("FAKT","Opcine","N",SIFPATH)=="D" )
 private gTBDir:="N"
 

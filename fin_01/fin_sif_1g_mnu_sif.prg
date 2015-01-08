@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -13,10 +13,10 @@
 #include "fin01.ch"
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/fin/sif/1g/mnu_sif.prg,v $
- * $Author: sasavranic $ 
+ * $Author: sasavranic $
  * $Revision: 1.9 $
  * $Log: mnu_sif.prg,v $
  * Revision 1.9  2004/03/02 18:37:27  sasavranic
@@ -92,7 +92,7 @@ AADD(opcexe, {|| P_Trfp2()})
 AADD(opc, "3. prenos konta u ng")
 AADD(opcexe, {|| P_PKonto()})
 
-if IzFMKIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
+if is_use_vrste_placanja()
 	O_VRSTEP
  	AADD(opc,"4. vrste placanja")
 	AADD(opcexe, {|| P_VrsteP()})
@@ -199,7 +199,3 @@ if File(SIFPATH+"trfp2.dbf")
 	O_TRFP2
 endif
 return
-
-
-
-

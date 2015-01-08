@@ -60,7 +60,7 @@ use
 
 private dDatNal:=date()
 
-IF IzFMKIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
+IF is_use_vrste_placanja()
   O_VRSTEP
 ENDIF
 O_NALOG

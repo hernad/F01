@@ -12,11 +12,6 @@
 
 #include "fakt01.ch"
 
-/*
- * ----------------------------------------------------------------
- *                          Copyright Sigma-com software 2000-2006
- * ----------------------------------------------------------------
- */
 
 
 /* file fmk/fakt/sif/1g/sifre.prg
@@ -25,21 +20,11 @@
 
 
 /* ingroup ini
-  * var: *string FmkIni_SifPath_FAKT_VrstePlacanja
-  *  Da li se koristi sifrarnik vrsta placanja i evidentiranje vrste placanja na fakturama?
-  *  N - ne, default vrijednost
-  *  D - da
-  */
-*string FmkIni_SifPath_FAKT_VrstePlacanja;
-
-
-/* ingroup ini
   * var: *string FmkIni_SifPath_Partn_Naziv2
   *  Da li se koristi i dodatno polje NAZIV2 za naziv firme u sifrarniku partnera
   *  N - ne, default vrijednost
   *  D - da
   */
-*string FmkIni_SifPath_Partn_Naziv2;
 
 
 /* ingroup ini
@@ -748,7 +733,7 @@ IF gNW=="T"
    	O_FADE
 ENDIF
 
-IF IzFMKIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
+IF is_use_vrste_placanja()
 	O_VRSTEP
 ENDIF
 

@@ -279,7 +279,7 @@ local cFaktFirma:=gFirma
 local dDatPl:=ctod("")
 local fDoks2:=.f.
 
-PRIVATE lVrsteP := ( IzFmkIni("FAKT","VrstePlacanja","N",SIFPATH)=="D" )
+PRIVATE lVrsteP := is_use_vrste_placanja()
 
 O_KONCIJ
 O_PRIPR

@@ -1,4 +1,7 @@
 *.bak
+GPARAMS.*
+BRINGOUT
+SIGMA
 *.BAK
 *.INI
 *.app

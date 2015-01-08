@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -12,7 +12,7 @@
 
 #include "fin01.ch"
 
- 
+
 function fin_kartica()
 private opc:={}
 private opcexe:={}
@@ -43,7 +43,7 @@ if gRj == "D"
 	O_RJ
 endif
 
-if IzFMKIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
+if is_use_vrste_placanja()
 	lVrsteP:=.t.
   	O_VRSTEP
 endif
@@ -224,7 +224,7 @@ Box("#"+ cBoxName, 21, 65)
 
 		read
 		ESC_BCR
-	
+
 		if !(cK14 $ "123") .and. ( cSazeta=="D" .or. gNW=="D" )
    			cK14:="3"
  		endif
@@ -235,11 +235,11 @@ Box("#"+ cBoxName, 21, 65)
    				nC1:=63+IF(gNW=="N",17,0)
   			endif
 	 	endif
-	
+
 		if cDinDem=="3"
    			cKumul:="1"
 	 	endif
-	
+
 		aUsl3:=parsiraj(cIdVN,"IDVN","C")
  		if gDUFRJ=="D"
    			aUsl4:=Parsiraj(cIdFirma,"IdFirma")
@@ -343,7 +343,7 @@ lVrsteP:=.f.
 
 o_kart_tbl()
 
-if IzFMKIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
+if is_use_vrste_placanja()
 	lVrsteP:=.t.
   	O_VRSTEP
 endif
@@ -435,7 +435,7 @@ do whilesc !eof() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.) // firma
 	if nStr==0
 		ZaglSif(.t.)
 	endif
-	if cBrza=="D"  
+	if cBrza=="D"
   		if IdKonto<>qqKonto .or. IdPartner<>qqPartner .and. RTRIM(qqPartner)!=";"
      			exit
   		endif
@@ -456,7 +456,7 @@ do whilesc !eof() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.) // firma
 
     		__p_naz := ""
 		__k_naz := ""
-		
+
 		nPDugBHD:=0
 		nPPotBHD:=0
 		nPDugDEM:=0
@@ -486,13 +486,13 @@ do whilesc !eof() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.) // firma
 		endif
 
 		select (nTarea)
-    		
+
 		if cRasclaniti=="D"
        			cRasclan:=idrj+funk+fond
     		else
        			cRasclan:=""
     		endif
-    		
+
 		if cBrza=="D"   // "brza" kartica
       			if IdKonto<>qqKonto .or. IdPartner<>qqPartner .and. RTRIM(qqPartner)!=";"
          			exit
@@ -530,9 +530,9 @@ do whilesc !eof() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.) // firma
 			@ prow(),pcol()+1 SAY ALLTRIM(naz2)
 			@ prow(),pcol()+1 SAY ZiroR
     		endif
-    		
+
 		select SUBAN
-    		
+
 		if c1k1z=="D"
       			ZaglSif(.f.)
     		else
@@ -541,7 +541,7 @@ do whilesc !eof() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.) // firma
     		fPrviPr:=.t.  // prvi prolaz
 
 		do whilesc !eof() .and. cIdKonto==IdKonto .and. (cIdPartner==IdPartner .or. (cBrza=="D" .and. RTRIM(qqPartner)==";")) .and. Rasclan() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.)
-			
+
 			// incijalizuj varijable za izvjestaj
 			__vr_nal := ""
 			__br_nal := ""
@@ -552,7 +552,7 @@ do whilesc !eof() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.) // firma
 			__br_veze := ""
 			__dug := 0
 			__pot := 0
-			
+
 			if prow()>62+gPStranica
              			FF
 				ZaglSif(.t.)
@@ -576,7 +576,7 @@ do whilesc !eof() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.) // firma
              			select SUBAN
              			? m
           		endif
-			
+
 			if cPredh=="2" .and. fPrviPr
              			fPrviPr:=.f.
              			do while !eof() .and. cIdKonto==IdKonto .and. (cIdPartner==IdPartner .or. (cBrza=="D".and.RTRIM(qqPartner)==";")) .and. Rasclan().and. dDatOd>DatDok  .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.)
@@ -599,7 +599,7 @@ do whilesc !eof() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.) // firma
              				endif
 					skip
              			enddo  //prethodni promet
-				
+
 				? "PROMET DO "; ?? dDatOd
              			if cSazeta=="D"
                 			if cDinDem=="3"
@@ -622,7 +622,7 @@ do whilesc !eof() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.) // firma
                  				endif
                 			endif
              			endif
-             			
+
 				nC1:=pcol()+1
              			if cDinDem=="1"
                 			@ prow(),pcol()+1 SAY nPDugBHD PICTURE picBHD
@@ -672,9 +672,9 @@ do whilesc !eof() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.) // firma
              			// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
           		endif  // prethodni promet
-			
+
 			if !(fOtvSt .and. OtvSt=="9")
-              	
+
 				// incijalizuj varijable za izvjestaj
 				__vr_nal := field->idvn
 				__br_nal := field->brnal
@@ -683,7 +683,7 @@ do whilesc !eof() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.) // firma
 				__dat_val := field->datval
 				__opis := field->opis
 				__br_veze := field->brdok
-		
+
 				? IdVN
 				@ prow(),pcol()+1 SAY BrNal
               			if cSazeta=="N"
@@ -695,12 +695,12 @@ do whilesc !eof() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.) // firma
                 				@ prow(),pcol()+1 SAY naz
                				endif
               			endif
-              			
+
 				SELECT SUBAN
-              			
+
 				@ prow(),pcol()+1 SAY padr(BrDok,10)
               			@ prow(),pcol()+1 SAY datdok
-				
+
               			if ck14=="1"
                 			@ prow(),pcol()+1 SAY k1+"-"+k2+"-"+K3Iz256(k3)+k4
               			elseif ck14=="2"
@@ -731,7 +731,7 @@ do whilesc !eof() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.) // firma
              					nZDugBHD+=IznosBHD
             				else
              					nZPotBHD+=IznosBHD
-            				endif	
+            				endif
            			else // otvorena stavka
             				if D_P=="1"
              					@ prow(),pcol()+1 SAY IznosBHD PICTURE picBHD
@@ -827,7 +827,7 @@ do whilesc !eof() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.) // firma
 
 			// upisi u export dbf
 		  	if cExpDbf == "D"
-				
+
 				if field->d_p == "1"
 					__dug := field->iznosbhd
 					__pot := 0
@@ -1019,7 +1019,7 @@ endif
 ? M
 ?
 // cBrza
-endif 
+endif
 
 FF
 END PRINT
@@ -1087,7 +1087,7 @@ return
  *   Postavlja uslov za partnera (npr. Telefon('417'))
  *   cTel  - Broj telefona
  */
- 
+
 function Telefon(cTel)
 
 local nSelect
@@ -1103,7 +1103,7 @@ return partn->telefon=cTel
  *   Zaglavlje subanaliticke kartice ili kartice otvorenih stavki
  *   lPocStr
  */
- 
+
 function ZaglSif(lPocStr)
 ?
 if lPocStr==NIL
@@ -1229,7 +1229,7 @@ RETURN
 /*  Rasclan()
  *   Rasclanjuje SUBAN->(IdRj+Funk+Fond)
  */
- 
+
 function Rasclan()
 
 if cRasclaniti=="D"
@@ -1244,7 +1244,7 @@ endif
  *   Subanaliticka kartica kod koje se mogu navesti dva konta i vidjeti kroz jednu karticu
  *   lOtvSt
  */
- 
+
 function SubKart2(lOtvSt)
 
 local cBrza:="D"
@@ -1414,7 +1414,7 @@ else
 endif
 
 lVrsteP:=.f.
-IF IzFMKIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
+IF is_use_vrste_placanja()
   lVrsteP:=.t.
   O_VRSTEP
 ENDIF
@@ -1788,7 +1788,7 @@ return
  *   Zaglavlje subanaliticke kartice 2
  *   fStrana
  */
- 
+
 function ZaglSif2(fStrana)
 ?
 if cDinDem=="3"  .or. cKumul=="2"
@@ -1902,7 +1902,7 @@ RETURN
  *   Validacija firme - unesi firmu po referenci
  *   cIdfirma  - id firme
  */
- 
+
 function V_Firma(cIdFirma)
 
 P_Firma(@cIdFirma)
@@ -1914,11 +1914,11 @@ return .t.
 
 
 /*  Prelomi(nDugX,nPotX)
- *   
+ *
  *   nDugX
- *   nPotX 
+ *   nPotX
  */
- 
+
 function Prelomi(nDugX,nPotX)
 
 if (ndugx-npotx)>0
@@ -1929,6 +1929,3 @@ else
    nDugX:=0
 endif
 return
-
-
-

@@ -24,7 +24,7 @@ private cImekup,cidfirma,qqTipDok,cBrFakDok,qqPartn
 
 private ddatod,ddatdo
 
-private lVrsteP := ( IzFmkIni("FAKT","VrstePlacanja","N",SIFPATH)=="D" )
+private lVrsteP := is_use_vrste_placanja()
 private lOpcine := .t.
 
 if lVrsteP

@@ -35,7 +35,7 @@ local lAMat2
 local nRecNo
 local lPrvoDzok := (IzFMKINI("KontiranjeKALK", "PrioritetImajuDzokeri", "N", SIFPATH) == "D")
 
-private lVrsteP := ( IzFmkIni("FAKT","VrstePlacanja","N",SIFPATH)=="D" )
+private lVrsteP := is_use_vrste_placanja()
 
 if (lAGen == nil)
 	lAGen := .f.

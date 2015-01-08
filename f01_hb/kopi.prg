@@ -12,108 +12,113 @@
 
 #include "f01.ch"
 
-function kopi(fProm)
+FUNCTION kopi( fProm )
 
-if fBrisiDBF
-     nPos:=at(".",cDbf)
-     select olddbf; use
-     ferase(cpath+left(cdbf,npos)+"DBF")
-     ? "BRISEM :",cpath+left(cdbf,npos)+"DBF"
-     ferase(cpath+left(cdbf,npos)+"FPT")
-     ? "BRISEM :",cpath+left(cdbf,npos)+"FPT"
-     fBrisiDBF:=.f.
-     return
+   IF fBrisiDBF
+      nPos := At( ".", cDbf )
+      SELECT olddbf; USE
+      FErase( cPath + Left( cDbf, npos ) + "DBF" )
+      ? "BRISEM :", cPath + Left( cDbf, npos ) + "DBF"
+      FErase( cPath + Left( cDbf, npos ) + "FPT" )
+      ? "BRISEM :", cPath + Left( cDbf, npos ) + "FPT"
+      fBrisiDBF := .F.
+      RETURN
 
-endif
+   ENDIF
 
-if fRenameDBF
-     nPos:=at(".",cDbf)
-     nPos2:=at(".",cImeP)
-     c1:=cpath+left(cdbf, nPos) + "DBF"
-     c2:=cpath+left(cImeP,nPos2) + "DBF"
-     select olddbf; use
-     if frename(c1,c2) = 0
-      ? "PREIMENOVAO :",c1," U ",c2
-     endif
-     c1:=cpath+left(cdbf,npos)+"FPT"
-     c2:=cpath+left(cImeP,npos2)+"FPT"
-     if frename(c1,c2) = 0
-      ? "PREIMENOVAO :",c1," U ", c2
-     endif
-     fRenameDBF:=.f.
-     return
-endif
+   IF fRenameDBF
+      nPos := At( ".", cDbf )
+      nPos2 := At( ".", cImeP )
+      c1 := cPath + Left( cDbf, nPos ) + "DBF"
+      c2 := cPath + Left( cImeP, nPos2 ) + "DBF"
+      SELECT olddbf; USE
+      IF FRename( c1, c2 ) = 0
+         ? "PREIMENOVAO :", c1, " U ", c2
+      ENDIF
+      c1 := cPath + Left( cDbf, npos ) + "FPT"
+      c2 := cPath + Left( cImeP, npos2 ) + "FPT"
+      IF FRename( c1, c2 ) = 0
+         ? "PREIMENOVAO :", c1, " U ", c2
+      ENDIF
+      fRenameDBF := .F.
+      RETURN
+   ENDIF
 
-if fProm
-     nPos:=RAT(SLASH,cDbf)
-     if nPos<>0
-       cPath2:=substr(cDbf,1,nPos)
-     else
-       cPath2:=""
-     endif
-     cCDX:=strtran(cDBF,"."+DBFEXT,"."+INDEXEXT)
-     if right(cCDX,4)="."+INDEXEXT
-       ferase(cPath+cCDX)
-     endif
+   IF fProm
+      nPos := RAt( SLASH, cDbf )
+      IF nPos <> 0
+         cPath2 := SubStr( cDbf, 1, nPos )
+      ELSE
+         cPath2 := ""
+      ENDIF
+      cCDX := StrTran( cDBF, "." + DBFEXT, "." + INDEXEXT )
+      IF Right( cCDX, 4 ) = "." + INDEXEXT
+         FErase( cPath + cCDX )
+      ENDIF
 
-     ferase( ToUnix( cPath+cPath2+"tmp.fpt" ) )
-     ferase( ToUnix( cPath+cPath2+"tmp.tmp" ) )
-     ferase( ToUnix( cPath+cPath2+"tmp.cdx" ) )
-     dbcreate( ToUnix( cPath+cPath2 + "TMP_TMP.DBF" ) , aNStru)
+      FErase( ToUnix( cPath + cPath2 + "TMP_TMP.FPT" ) )
+      FErase( ToUnix( cPath + cPath2 + "TMP_TMP.DBF" ) )
+      FErase( ToUnix( cPath + cPath2 + "TMP_TMP.CDX" ) )
+      
+      dbCreate( ToUnix( cPath + cPath2 + "TMP_TMP.DBF" ), aNStru )
 
-     select 2
-     USE_EXCLUSIVE( ToUnix( cPath + cPath2 + "TMP_TMP" ) ) alias tmp
-     select olddbf
+      SELECT 2
+      USE_EXCLUSIVE( ToUnix( cPath + cPath2 + "TMP_TMP" ) ) ALIAS tmp
+      SELECT olddbf
 
-     ?
-     nRow:=row()
-     @ nrow,20 SAY "/"; ?? reccount()
-     set order to 0;  go top
-     do while !eof()
-        @ nrow,1  SAY recno()
-        select tmp
-        dbappend()
+      ?
+      nRow := Row()
+      @ nrow, 20 SAY "/"; ?? RecCount()
+      SET ORDER TO 0;  GO TOP
+      DO WHILE !Eof()
+         @ nrow, 1  SAY RecNo()
+         SELECT tmp
+         dbAppend()
 
-        for i:=1 to Len(aStru)
-         // prolaz kroz staru strukturu i preuzimanje podataka
-         cImeP:=aStru[i,1]
-         if len(aStru[i])>4
-           cImePN:=aStru[i,5]
-           if aStru[i,2]==aStru[i,6]
-              replace &cImePN with olddbf->&cImeP
-           elseif aStru[i,2]=="C" .and. aStru[i,6]=="N"
-              replace &cImePN with val(olddbf->&cImeP)
-           elseif aStru[i,2]=="N" .and. aStru[i,6]=="C"
-              replace &cImePN with str(olddbf->&cImeP)
-           elseif aStru[i,2]=="C" .and. aStru[i,6]=="D"
-              replace &cImePN with ctod(olddbf->&cImeP)
-           endif
-         else
-           nPos:=ascan(aNStru,{|x| cImeP==x[1]})
-           if nPos<>0 // polje postoji u novoj bazi
-             replace &cImeP with olddbf->&cImeP
-           endif
-         endif
-        next // aStru
+         FOR i := 1 TO Len( aStru )
+            // prolaz kroz staru strukturu i preuzimanje podataka
+            cImeP := aStru[ i, 1 ]
+            IF Len( aStru[ i ] ) > 4
+               cImePN := aStru[ i, 5 ]
+               IF aStru[ i, 2 ] == aStru[ i, 6 ]
+                  replace &cImePN WITH olddbf->&cImeP
+               ELSEIF aStru[ i, 2 ] == "C" .AND. aStru[ i, 6 ] == "N"
+                  replace &cImePN WITH Val( olddbf->&cImeP )
+               ELSEIF aStru[ i, 2 ] == "N" .AND. aStru[ i, 6 ] == "C"
+                  replace &cImePN WITH Str( olddbf->&cImeP )
+               ELSEIF aStru[ i, 2 ] == "C" .AND. aStru[ i, 6 ] == "D"
+                  replace &cImePN WITH CToD( olddbf->&cImeP )
+               ENDIF
+            ELSE
+               nPos := AScan( aNStru, {| x| cImeP == x[ 1 ] } )
+               IF nPos <> 0 // polje postoji u novoj bazi
+                  replace &cImeP WITH olddbf->&cImeP
+               ENDIF
+            ENDIF
+         NEXT // aStru
 
-        select olddbf
-        skip
-     enddo  // prolaz kroz fajl
+         SELECT olddbf
+         SKIP
+      ENDDO  // prolaz kroz fajl
 
-     close all
-     nPos:=rat(".",cDbf)
-     ferase(cpath+left(cDbf,npos)+"BAK")
-     frename(cpath+cdbf, cpath+left(cDbf,npos)+"BAK")
-     frename(cpath+cPath2+"tmp.tmp",cpath+cdbf)
-     ferase(cpath+cPath2+"tmp.tmp")
-     if file(cpath+cPath2+"tmp.fpt")  // postoje memo polja
-        ferase(cpath+left(cdbf,npos)+"FPK")
-        frename(cpath+left(cdbf,npos)+"FPT", cpath+left(cDbf,npos)+"FPK")
-        frename(cpath+cPath2+"tmp.FPT",cpath+left(cdbf,npos)+"FPT")
-        ferase(cpath+cPath2+"tmp.fpt")
-        ferase(cpath+left(cdbf,npos)+"CDX")
-        ferase(cpath+left(cdbf,npos)+"cdx")
-     endif
-endif  // fprom
+      CLOSE ALL
+      nPos := RAt( ".", cDbf )
 
-return
+      FErase( cPath + Left( cDbf, npos ) + "BAK" )
+      FRename( cPath + cDbf, cPath + Left( cDbf, npos ) + "BAK" )
+      FRename( cPath + cPath2 + "TMP_TMP.DBF", cPath + cDbf )
+      FErase( cPath + cPath2 + "TMP_TMP.DBF" )
+
+      IF File( cPath + cPath2 + "TMP_TMP.FPT" )  // postoje memo polja
+
+         FErase( cPath + Left( cDbf, nPos ) + "FPK" )
+         FRename( cPath + Left( cDbf, nPos ) + "FPT", cPath + Left( cDbf, nPos ) + "FPK" )
+         FRename( cPath + cPath2 + "TMP_TMP.FPT", cPath + Left( cDbf, nPos ) + "FPT" )
+         FErase( cPath + cPath2 + "TMP_TMP.FPT" )
+
+         FErase( cPath + Left( cDbf, nPos ) + "CDX" )
+         FErase( cPath + Left( cDbf, npos ) + "cdx" )
+      ENDIF
+   ENDIF  // fprom
+
+   RETURN

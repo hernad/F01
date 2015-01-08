@@ -63,6 +63,7 @@ PROCEDURE Main()
          iif( netio_FuncExec( "hb_DirCreate", "./data" ) == -1, "error", "OK" )
    ENDIF
 
+/*
    ? "'" + DBNAME + "'"
    createdb( DBNAME )
    testdb( DBNAME )
@@ -76,6 +77,7 @@ PROCEDURE Main()
    ? "delete table with indexes:", dbDrop( DBNAME )
    ? "table exists:", dbExists( DBNAME )
    WAIT
+*/
 
 
    DO while .T.

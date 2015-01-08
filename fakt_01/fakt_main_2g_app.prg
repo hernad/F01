@@ -812,7 +812,7 @@ glRadNal:=(IzFmkIni("FAKT","RadniNalozi","N",KUMPATH)=="D")
 public gKonvZnWin
 gKonvZnWin:=IzFmkIni("DelphiRB","Konverzija","3",EXEPATH)
 
-::lVrstePlacanja:=IzFMKIni("FAKT","VrstePlacanja","N",SIFPATH)=="D"
+::lVrstePlacanja:=is_use_vrste_placanja()
 
 ::lOpcine:=IzFmkIni("FAKT","Opcine","N",SIFPATH)=="D"
 
