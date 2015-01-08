@@ -76,7 +76,7 @@ local cShema2:="1"
 local cTekShema
 local cIdvd:=""
 local nRec:=0
-local cDirSa:=PADR( DATA_ROOT + SLASH + "SIF0" + SLASH, 20)
+local cDirSa:=PADR( DATA_ROOT + "SIF0" + SLASH, 20)
 local cPobSt:="D"
 
 if Ch==K_CTRL_F4

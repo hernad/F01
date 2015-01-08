@@ -223,7 +223,7 @@ return
  *   opste funkcije FIN modula
  */
 
-method setGVars()
+method TFaktMod:setGVars()
 local cSekcija
 local cVar
 local cVal
@@ -833,5 +833,7 @@ if !(goModul:oDatabase:lAdmin)
 		USE
 	MsgC()
 endif
+
+::super:setGvars()
 
 return

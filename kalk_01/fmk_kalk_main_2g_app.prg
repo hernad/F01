@@ -187,7 +187,6 @@ local cOdradjeno
 local cSekcija
 local cVar,cVal
 
-::super:setTGVars()
 SetFmkRGVars()
 SetFmkSGVars()
 
@@ -530,5 +529,8 @@ gRobaBlock:={|Ch| RobaBlock(Ch)}
 // ona sluzi za automatsku obradu kalkulacija
 // vindija - varazdin
 public lAutoObr := .f.
+
+
+::super:setGvars()
 
 return

@@ -13,24 +13,11 @@
 #include "f01.ch"
 #include "fileio.ch"
 
-/*
- * ----------------------------------------------------------------
- *                          Copyright Sigma-com software 1994-2006
- * ----------------------------------------------------------------
- */
 
-
-// File cache buffer
-*string
 static cCache
-*;
 
-// Name of the .INI file that is in the cache buffer
-*string
 static cIniFile
-*;
 
-//#include "COMMON.CH"
 
 static INI_DATA := {}
 static INI_NAME := ''
@@ -48,6 +35,10 @@ local   lPom0, lPom
 
 if lAppend==NIL
 	lAppend:=.f.
+endif
+
+if cSection == "VINDIJA"
+ altd()
 endif
 
 
@@ -69,8 +60,6 @@ if ( cIniFile != cFName )
       // Error opening .INI file
       return nil
    endif
-
-   // INI file opened ...
 
    // Read complete file into cCache
    ReadFile(nHandle)
@@ -96,6 +85,8 @@ if lPom0
       nPos = nPos + 4 + Len ( cSection )
 
       // nPos points to start of first entry
+			altd()
+
       DO WHILE nPos <= Len ( cCache ) .and. SubStr ( cCache, nPos, 1 ) != '['
 
          nEnd    := I_At ( '=', .f., nPos )
@@ -106,10 +97,12 @@ if lPom0
          AAdd ( aEntries, { cEntry, cString } )
          nPos    := nEnd + 2
 
-         DO WHILE SubStr(cCache, nPos, 2) = NRED
+         DO WHILE SubStr(cCache, nPos, LEN( NRED) ) == NRED
             // Skip NRED's, if any
-            nPos += 2
+            nPos += LEN( NRED )
          ENDDO
+
+
 
       ENDDO
 
@@ -126,8 +119,7 @@ if lPom0
          nPos += Len ( cEntry )
 
          // Return value
-         return SubStr ( cCache, nPos+1, ;
-            I_At ( NRED, .f., nPos+1 ) - nPos - 1 )
+         return SubStr ( cCache, nPos+1, I_At ( NRED, .f., nPos+1 ) - nPos - 1 )
 
       endif
 
@@ -203,7 +195,7 @@ if (cIniFile != cFName)
 
       if (nHandle:=FCreate(cFName, FC_NORMAL)) < 5
          // Error creating .INI file
-	IniRefresh()
+	       IniRefresh()
          return .f.
 
       else
@@ -214,13 +206,13 @@ if (cIniFile != cFName)
 
          // ReRead file to adjust cCache cache
 
-	 ReadFile(nHandle)
+	       ReadFile(nHandle)
          FClose(nHandle)
 
          // Buffer in cache ...
          cIniFile := cFName
 
-	IniRefresh()
+	       IniRefresh()
          return .t.
 
       endif
@@ -239,6 +231,7 @@ endif
 nPos:=0
 
 lPom:=SeekSection( cSection, @nPos)
+
 if !lPom
    // Section NOT present : append SECTION AND ENTRY !
    if (nHandle==NIL)
@@ -317,7 +310,7 @@ else
 
             ReWrite(nHandle, cFName)
 
-		IniRefresh()
+		        IniRefresh()
             return .t.
 
          endif
@@ -401,13 +394,18 @@ if (lAppend==nil)
 	lAppend:=.f.
 endif
 
-if !File2(cLokacija+cNazIni)
+if !File2(cLokacija + cNazIni)
+  OutStd( "ne postoji ini: " + cLokacija + cNazIni + hb_eol() )
   nFH := FCreate(cLokacija+cNazIni)
   FWrite(nFh,";------- Ini Fajl FMK-------")
   Fclose(nFH)
 endif
 
 cRez := R_IniRead( cSection, cVar,  "", cLokacija + cNazIni)
+
+IF EMPTY( cRez )
+  OutStd( "ini sadrzaj ne postoji: " + cSection + " : " + cVar + " : "  + cLokacija + cNazIni  + hb_eol() )
+ENDIF
 
 if (lAppend .and. EMPTY(cRez))
 	// nije toga bilo u fmk.ini
@@ -501,6 +499,7 @@ return
 
 
 static function SeekSection( sect, pos )
+
 // Look for the specified section in buffer
 
 pos:= At ('['+Upper (sect)+']', Upper (cCache) )
@@ -515,6 +514,13 @@ static function ReadFile( hnd)
 cCache:=Space( FSeek ( hnd, 0, FS_END ) )
 FSeek ( hnd, 0, FS_SET )
 FRead ( hnd, @cCache, Len(cCache) )
+
+// ukloni \r iz DOS ini fajlova
+cCache := STRTRAN( cCache, Chr(13), "" )
+
+// \n zamjeni sa NRED kakav god bio HOST OS
+cCache := STRTRAN( cCache, Chr(10), NRED )
+
 
 return
 
@@ -548,4 +554,5 @@ endif
 hnd := FCreate ( fnm, FC_NORMAL )
 FWrite ( hnd, cCache )
 FClose ( hnd )
+
 return

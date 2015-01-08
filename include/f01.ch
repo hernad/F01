@@ -5,13 +5,19 @@
 
 #DEFINE SLASH hb_osPathSeparator()
 #DEFINE USB_ROOT_PATH "F:" + SLASH
-#define DRIVE_ROOT_PATH "C:" + SLASH
+
 
 #ifdef __PLATFORM__UNIX
-  #define DATA_ROOT "/F01/DATA"
+
+  #define DRIVE_ROOT_PATH "/F01/"
+  #define DATA_ROOT "/F01/"
+
 #else
-  #define DATA_ROOT DRIVE_ROOT_PATH+"SIGMA"
+  #define DRIVE_ROOT_PATH "C:" + SLASH
+  #define DATA_ROOT DRIVE_ROOT_PATH+"SIGMA"+SLASH
 #endif
+
+#define D_VERZIJA "CDX"
 
 #define MODULE_ROOT "SIGMA"
 

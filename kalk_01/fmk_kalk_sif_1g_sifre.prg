@@ -12,46 +12,48 @@
 
 #include "kalk01.ch"
 
-function kalk_Sifre_meni()
+FUNCTION kalk_Sifre_meni()
 
-PRIVATE PicDem
-PicDem:=gPICDem
-close all
+   PRIVATE PicDem
 
-private opc:={}
-private opcexe:={}
-AADD(opc,"1. opci sifrarnici                  ")
-if (ImaPravoPristupa(goModul:oDataBase:cName,"SIF","OPCISIFOPEN"))
-	AADD(opcexe, {|| SifFmkSvi()})
-else
-	AADD(opcexe, {|| MsgBeep(cZabrana)})
-endif
-AADD(opc,"2. robno-materijalno poslovanje")
-if (ImaPravoPristupa(goModul:oDataBase:cName,"SIF","ROBMATSIFOPEN"))
-	AADD(opcexe, {|| SifFmkRoba()})
-else
-	AADD(opcexe, {|| MsgBeep(cZabrana)})
-endif
+   PicDem := gPICDem
+   CLOSE ALL
 
-AADD(opc,"3. magacinski i prodajni objekti")
-if (ImaPravoPristupa(goModul:oDataBase:cName,"SIF","PRODOBJSIFOPEN"))
-	AADD(opcexe, {|| P_Objekti()})
-else
-	AADD(opcexe, {|| MsgBeep(cZabrana)})
-endif
+   PRIVATE opc := {}
+   PRIVATE opcexe := {}
+   AAdd( opc, "1. opci sifrarnici                  " )
+   IF ( ImaPravoPristupa( goModul:oDataBase:cName, "SIF", "OPCISIFOPEN" ) )
+      AAdd( opcexe, {|| SifFmkSvi() } )
+   ELSE
+      AAdd( opcexe, {|| MsgBeep( cZabrana ) } )
+   ENDIF
+   AAdd( opc, "2. robno-materijalno poslovanje" )
+   IF ( ImaPravoPristupa( goModul:oDataBase:cName, "SIF", "ROBMATSIFOPEN" ) )
+      AAdd( opcexe, {|| SifFmkRoba() } )
+   ELSE
+      AAdd( opcexe, {|| MsgBeep( cZabrana ) } )
+   ENDIF
 
-if IsPlanika()
-	AADD(opc, "P. planika")
-	if (ImaPravoPristupa(goModul:oDataBase:cName,"SIF","PLSIFOPEN"))
-		AADD(opcexe, {|| KaSifPlanika() })
-	else
-		AADD(opcexe, {|| MsgBeep(cZabrana) })
-	endif
-endif
-private Izbor:=1
-Menu_SC("msif")
-CLOSERET
-return .f.
+   AAdd( opc, "3. magacinski i prodajni objekti" )
+   IF ( ImaPravoPristupa( goModul:oDataBase:cName, "SIF", "PRODOBJSIFOPEN" ) )
+      AAdd( opcexe, {|| P_Objekti() } )
+   ELSE
+      AAdd( opcexe, {|| MsgBeep( cZabrana ) } )
+   ENDIF
+
+   IF IsPlanika()
+      AAdd( opc, "P. planika" )
+      IF ( ImaPravoPristupa( goModul:oDataBase:cName, "SIF", "PLSIFOPEN" ) )
+         AAdd( opcexe, {|| KaSifPlanika() } )
+      ELSE
+         AAdd( opcexe, {|| MsgBeep( cZabrana ) } )
+      ENDIF
+   ENDIF
+   PRIVATE Izbor := 1
+   Menu_SC( "msif" )
+   CLOSERET
+
+   RETURN .F.
 
 
 
@@ -60,11 +62,12 @@ return .f.
  *   Servisne funkcije
  */
 
-function kalk_serv_fun()
+FUNCTION kalk_serv_fun()
 
-Msg("Nije u upotrebi")
-closeret
-return
+   Msg( "Nije u upotrebi" )
+   closeret
+
+   RETURN
 
 
 
@@ -73,163 +76,150 @@ return
  *   Ch - Pritisnuti taster
  */
 
-function RobaBlock(Ch)
+FUNCTION RobaBlock( Ch )
 
-LOCAL cSif:=ROBA->id, cSif2:=""
+   LOCAL cSif := ROBA->id, cSif2 := ""
 
-if Ch==K_CTRL_T .and. gSKSif=="D"
+   IF Ch == K_CTRL_T .AND. gSKSif == "D"
 
- // provjerimo da li je sifra dupla
- PushWA()
- SET ORDER TO TAG "ID"
- SEEK cSif
- SKIP 1
- cSif2:=ROBA->id
- PopWA()
- IF !(cSif==cSif2)
-   // ako nije dupla provjerimo da li postoji u kumulativu
-   if ImaUKumul(cSif,"7")
-     Beep(1)
-     Msg("Stavka se ne moze brisati jer se vec nalazi u dokumentima!")
-     return 7
-   endif
- ENDIF
+      // provjerimo da li je sifra dupla
+      PushWA()
+      SET ORDER TO TAG "ID"
+      SEEK cSif
+      SKIP 1
+      cSif2 := ROBA->id
+      PopWA()
+      IF !( cSif == cSif2 )
+         // ako nije dupla provjerimo da li postoji u kumulativu
+         IF ImaUKumul( cSif, "7" )
+            Beep( 1 )
+            Msg( "Stavka se ne moze brisati jer se vec nalazi u dokumentima!" )
+            RETURN 7
+         ENDIF
+      ENDIF
 
-elseif Ch==K_ALT_M
-   return  MpcIzVpc()
+   ELSEIF Ch == K_ALT_M
+      RETURN  MpcIzVpc()
 
-elseif Ch==K_F2 .and. gSKSif=="D"
- if ImaUKumul(cSif,"7")
-   return 99
- endif
+   ELSEIF Ch == K_F2 .AND. gSKSif == "D"
+      IF ImaUKumul( cSif, "7" )
+         RETURN 99
+      ENDIF
 
-elseif Ch==K_F8  // cjenovnik
+   ELSEIF Ch == K_F8  // cjenovnik
 
- PushWa()
- nRet:=CjenR()
- OSifBaze()
- SELECT ROBA
- PopWA()
- return nRet
+      PushWa()
+      nRet := CjenR()
+      OSifBaze()
+      SELECT ROBA
+      PopWA()
+      RETURN nRet
 
-elseif upper(Chr(Ch))=="O"
- if roba->(fieldpos("strings")) == 0
- 	return 6
- endif
- TB:Stabilize()
- PushWa()
- m_strings(roba->strings, roba->id)
- select roba
- PopWa()
- return 7
+   ELSEIF Upper( Chr( Ch ) ) == "O"
+      IF roba->( FieldPos( "strings" ) ) == 0
+         RETURN 6
+      ENDIF
+      TB:Stabilize()
+      PushWa()
+      m_strings( roba->strings, roba->id )
+      SELECT roba
+      PopWa()
+      RETURN 7
 
-elseif upper(Chr(Ch))=="S"
+   ELSEIF Upper( Chr( Ch ) ) == "S"
 
-  TB:Stabilize()  // problem sa "S" - exlusive, htc
-  PushWa()
-  KalkStanje(roba->id)
-  PopWa()
-  return 6  // DE_CONT2
+      TB:Stabilize()  // problem sa "S" - exlusive, htc
+      PushWa()
+      KalkStanje( roba->id )
+      PopWa()
+      RETURN 6  // DE_CONT2
 
-endif
+   ENDIF
 
-return DE_CONT
-
-
-
-function FSvaki2()
-
-return
+   RETURN DE_CONT
 
 
-/*
-function IspisFirme(cIdRj)
 
-local nOArr
+FUNCTION FSvaki2()
 
-nOArr:=SELECT()
-?? "Firma: "
-B_ON
-?? gNFirma
-B_OFF
-if !EMPTY(cIdrj)
-  SELECT rj
-  HSEEK cIdrj
-  SELECT(nOArr)
-  ?? "  RJ",rj->naz
-endif
-return
-*/
+   RETURN
+
+
 
 
 /*  OSifBaze()
  *   Otvara sve tabele vezane za sifrarnike
  */
 
-function OSifBaze()
+FUNCTION OSifBaze()
 
-O_SIFK
-O_SIFV
-O_KONTO
-O_KONCIJ
-O_PARTN
-O_TNAL
-O_TDOK
-O_TRFP
-O_TRMP
-O_VALUTE
-O_TARIFA
-O_ROBA
-O_SAST
-return
+   O_SIFK
+   O_SIFV
+   O_KONTO
+   O_KONCIJ
+   O_PARTN
+   O_TNAL
+   O_TDOK
+   O_TRFP
+   O_TRMP
+   O_VALUTE
+   O_TARIFA
+   O_ROBA
+   O_SAST
 
-
-
-
-function P_K1()
-local nTArea
-private ImeKol
-private Kol
-
-ImeKol := {}
-Kol := {}
-
-nTArea := SELECT()
-O_K1
-
-AADD(ImeKol, { "ID", {|| id}, "id" })
-add_mcode(@ImeKol)
-AADD(ImeKol, { "Naziv", {|| naz}, "naz" })
-
-for i:=1 to LEN(ImeKol)
-	AADD(Kol, i)
-next
-
-select (nTArea)
-PostojiSifra(F_K1, I_ID, 10, 60, "Lista - K1")
-return
+   RETURN
 
 
-function P_Objekti()
-local nTArea
-private ImeKol
-private Kol
 
-ImeKol := {}
-Kol := {}
 
-nTArea := SELECT()
-O_OBJEKTI
+FUNCTION P_K1()
 
-AADD(ImeKol, { "ID", {|| id}, "id" })
-add_mcode(@ImeKol)
-AADD(ImeKol, { "Naziv", {|| naz}, "naz" })
-AADD(ImeKol, { "IdObj", {|| idobj}, "idobj" })
+   LOCAL nTArea
+   PRIVATE ImeKol
+   PRIVATE Kol
 
-for i:=1 to LEN(ImeKol)
-	AADD(Kol, i)
-next
+   ImeKol := {}
+   Kol := {}
 
-select (nTArea)
-PostojiSifra(F_OBJEKTI, 1, 10, 60, "Objekti")
-return
+   nTArea := Select()
+   O_K1
+
+   AAdd( ImeKol, { "ID", {|| id }, "id" } )
+   add_mcode( @ImeKol )
+   AAdd( ImeKol, { "Naziv", {|| naz }, "naz" } )
+
+   FOR i := 1 TO Len( ImeKol )
+      AAdd( Kol, i )
+   NEXT
+
+   SELECT ( nTArea )
+   PostojiSifra( F_K1, I_ID, 10, 60, "Lista - K1" )
+
+   RETURN
+
+
+FUNCTION P_Objekti()
+
+   LOCAL nTArea
+   PRIVATE ImeKol
+   PRIVATE Kol
+
+   ImeKol := {}
+   Kol := {}
+
+   nTArea := Select()
+   O_OBJEKTI
+
+   AAdd( ImeKol, { "ID", {|| id }, "id" } )
+   add_mcode( @ImeKol )
+   AAdd( ImeKol, { "Naziv", {|| naz }, "naz" } )
+   AAdd( ImeKol, { "IdObj", {|| idobj }, "idobj" } )
+
+   FOR i := 1 TO Len( ImeKol )
+      AAdd( Kol, i )
+   NEXT
+
+   SELECT ( nTArea )
+   PostojiSifra( F_OBJEKTI, 1, 10, 60, "Objekti" )
+
+   RETURN

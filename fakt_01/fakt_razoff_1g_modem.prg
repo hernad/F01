@@ -184,7 +184,7 @@ next
 // elem 3 - datum
 // elem 4 - time
 if len(opcf)==0
-  MsgBeep("U direktoriju za prenos nema podataka")
+  MsgBeep("U direktoriju za prenos nema podataka -2")
   close all
   return .f.
 endif

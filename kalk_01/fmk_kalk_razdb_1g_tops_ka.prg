@@ -108,7 +108,7 @@ if gModemVeza == "D"
  	next
 
 	if LEN(OpcF)==0
-   		MsgBeep("U direktoriju za prenos nema podataka")
+   		MsgBeep("U direktoriju za prenos nema podataka -3")
    		closeret
  	endif
 else

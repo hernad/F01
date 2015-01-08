@@ -257,8 +257,6 @@ public gMjRj := "N"
 public aRuleCols := g_rule_cols()
 public bRuleBlock := g_rule_block()
 
-::super:setTGVars()
-
 O_PARAMS
 Rpar("br",@gBrojac)
 Rpar("ff",@gFirma)
@@ -316,6 +314,7 @@ gModul:="FIN"
 gTema:="OSN_MENI"
 gGlBaza:="SUBAN.DBF"
 
-public cZabrana := "Opcija nedostupna za ovaj nivo !"
+
+::super:setGvars()
 
 return

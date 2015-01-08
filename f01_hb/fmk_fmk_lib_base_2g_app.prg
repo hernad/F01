@@ -68,7 +68,7 @@ CREATE CLASS TAppMod
 	method gProc
 	method init
 	method gParams
-	method setTGVars
+	method setGVars
 	method limitKLicenca
 
 END CLASS
@@ -91,6 +91,31 @@ method TAppMod:init(oParent, cModul, cVerzija, cPeriod, cKorisn, cSifra, p3,p4,p
 ::lTerminate:=.f.
 
 return
+
+
+method TAppMod:setGvars()
+
+  IniPrinter()
+  JelReadOnly()
+
+	public cZabrana := "Opcija nedostupna za ovaj nivo !"
+
+	::cSqlLogBase:=IzFmkIni("Sql","SqlLogBase","c:"+SLASH+"sigma")
+	gSqlLogBase:=::cSqlLogBase
+
+	if IzFmkIni("Sql","SqlDirektno","D")=="D"
+	   ::lSqlDirektno:=.t.
+	else
+	  ::lSqlDirektno:=.f.
+	endif
+
+	if (::oDesktop!=nil)
+	  ::oDesktop:=nil
+	endif
+
+	::oDesktop:=TDesktopNew()
+
+  RETURN
 
 
 /*  *bool TAppMod::hasParent()
@@ -621,35 +646,8 @@ endif
 return .t.
 
 
-/*  TAppMod::setTGVars()
- *   Setuje globalne varijable, te setuje incijalne vrijednosti objekata koji pripadaju glavnom app objektu
- */
-
-*void TAppMod::setTGVars()
-
-method setTGVars()
-
-#ifdef CLIP
-? "base setTGVars ..."
-#endif
 
 
-::cSqlLogBase:=IzFmkIni("Sql","SqlLogBase","c:"+SLASH+"sigma")
-gSqlLogBase:=::cSqlLogBase
-
-if IzFmkIni("Sql","SqlDirektno","D")=="D"
-	::lSqlDirektno:=.t.
-else
-	::lSqlDirektno:=.f.
-endif
-
-if (::oDesktop!=nil)
-	::oDesktop:=nil
-endif
-
-::oDesktop:=TDesktopNew()
-
-return
 
 
 /*  TAppMod::limitKLicenca(nLevel)

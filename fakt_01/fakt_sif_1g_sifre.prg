@@ -763,14 +763,16 @@ RETURN
 
 
 /*  ImaUKumul(cKljuc,cTag)
- *
- *   cKljuc
- *   cTag
  */
 
 function ImaUKumul(cKljuc,cTag)
 
+  LOCAL oError
   LOCAL lVrati:=.f., lUsed:=.t., nArr:=SELECT()
+
+
+  BEGIN SEQUENCE WITH {| err| Break( err ) }
+
   SELECT (F_FAKT)
   IF !USED()
     lUsed:=.f.
@@ -778,11 +780,19 @@ function ImaUKumul(cKljuc,cTag)
   ELSE
     PushWA()
   ENDIF
+
   IF !EMPTY(INDEXKEY(VAL(cTag)+1))
     SET ORDER TO TAG (cTag)
     seek cKljuc
     lVrati:=found()
   ENDIF
+
+  RECOVER USING oError
+
+       MsgBeep( "FAKT se ne moze otvoriti :" + oError:description )
+       lVrati := .F.
+
+  ENDSEQUENCE
 
   IF !lUsed
     USE
@@ -790,6 +800,7 @@ function ImaUKumul(cKljuc,cTag)
     PopWA()
   ENDIF
   select (nArr)
+
 RETURN lVrati
 
 

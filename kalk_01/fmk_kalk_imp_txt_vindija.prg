@@ -16,7 +16,7 @@
 static __stampaj
 
 
-function MnuImpTxt()
+function meni_import_vindija_racuni()
 
 private izbor:=1
 private opc:={}
@@ -29,7 +29,7 @@ if gAImpPrint == "D"
 endif
 
 AADD(opc, "1. import vindija racun                 ")
-AADD(opcexe, {|| ImpTxtDok()})
+AADD(opcexe, {|| vindija_import_txt_dokument()})
 AADD(opc, "2. import vindija partner               ")
 AADD(opcexe, {|| ImpTxtPartn()})
 AADD(opc, "3. import vindija roba               ")
@@ -68,10 +68,8 @@ Box(, 10, 70)
 	@ m_x + nX, m_y + 2 SAY "Podesenja importa ********"
 	nX += 2
 	@ m_x + nX, m_y + 2 SAY "Stampati dokumente pri auto obradi (D/N)" GET gAImpPrint VALID gAImpPrint $ "DN" PICT "@!"
-
 	nX += 1
 	@ m_x + nX, m_y + 2 SAY "Automatska ravnoteza naloga na konto: " GET gAImpRKonto
-
 	nX += 1
 	@ m_x + nX, m_y + 2 SAY "Provjera broj naloga (minus karaktera):" GET gAImpRight PICT "9"
 
@@ -98,11 +96,7 @@ endif
 
 return
 
-
-/*  ImpTxtDok()
- *   Import dokumenta
- */
-function ImpTxtDok()
+function vindija_import_txt_dokument()
 
 local cCtrl_art := "N"
 private cExpPath
@@ -117,8 +111,7 @@ GetExpPath( @cExpPath )
 // daj mi filter za import MP ili VP
 cFFilt := GetImpFilter()
 
-if gNC_ctrl > 0 .and. Pitanje(,"Ispusti artikle sa problematicnom nc (D/N)", ;
-	"N" ) == "D"
+if gNC_ctrl > 0 .and. Pitanje(,"Ispusti artikle sa problematicnom nc (D/N)", "N" ) == "D"
 	cCtrl_art := "D"
 endif
 
@@ -148,7 +141,7 @@ SetRuleDok(@aRules)
 txt_to_temp_import_tabela(aDbf, aRules, cImpFile)
 
 if !CheckDok()
-	MsgBeep("Prekidamo operaciju !!!#Nepostojece sifre!!!")
+	MsgBeep("Prekidamo operaciju !#Nepostojece sifre!!!")
 	return
 endif
 
@@ -177,13 +170,14 @@ TxtErase(cImpFile, .t.)
 return
 
 
-/*  GetImpFilter()
+/*
  *   Vraca filter za naziv dokumenta u zavisnosti sta je odabrano VP ili MP
  */
+
 static function GetImpFilter()
 
 cVPMP := "V"
-// pozovi box za izbor
+
 Box(,5, 60)
 	@ 1+m_x, 2+m_y SAY "Importovati:"
 	@ 2+m_x, 2+m_y SAY "----------------------------------"
@@ -208,8 +202,7 @@ endcase
 return cRet
 
 
-
-/*  MnuObrDok()
+/*
  *   Obrada dokumenata iz pomocne tabele
  */
 static function MnuObrDok()
@@ -225,8 +218,8 @@ return
 
 
 
-/*  ImpTxtPartn()
- *   Import sifrarnika partnera
+/*
+ *   Import sifarnika partnera
  */
 static function ImpTxtPartn()
 
@@ -238,21 +231,24 @@ GetExpPath(@cExpPath)
 
 cFFilt := "P*.P??"
 
-// daj mi pregled fajlova za import, te setuj varijablu cImpFile
+// daj pregled fajlova za import, te setuj varijablu cImpFile
 if _gFList(cFFilt, cExpPath, @cImpFile) == 0
 	return
 endif
 
 // provjeri da li je fajl za import prazan
+
 if CheckFile(cImpFile)==0
-	MsgBeep("Odabrani fajl je prazan!#!!! Prekidam operaciju !!!")
+	MsgBeep("Odabrani fajl je prazan!#! Prekidam operaciju !!!")
 	return
 endif
 
 private aDbf:={}
 private aRules:={}
+
 // setuj polja temp tabele u matricu aDbf
 set_tbl_partner(@aDbf)
+
 // setuj pravila upisa podataka u temp tabelu
 SetRulePartn(@aRules)
 
@@ -269,9 +265,6 @@ else
 	return
 endif
 
-// ova opcija ipak i nije toliko dobra da se radi!
-//
-//lEdit := Pitanje(,"Izvrsiti korekcije postojecih podataka (D/N)?", "N") == "D"
 lEdit := .f.
 
 if TTbl2Partn(lEdit) == 0
@@ -300,7 +293,7 @@ GetExpPath( @cExpPath )
 
 cFFilt := "S*.S??"
 
-// daj mi pregled fajlova za import, te setuj varijablu cImpFile
+// daj pregled fajlova za import, te setuj varijablu cImpFile
 if _gFList(cFFilt, cExpPath, @cImpFile) == 0
 	return
 endif
@@ -346,7 +339,7 @@ return
 
 
 
-/*  SetTblDok(aDbf)
+/*
  *   Setuj matricu sa poljima tabele dokumenata RACUN
  *   aDbf - matrica
  */
@@ -376,7 +369,7 @@ AADD(aDbf,{"dtype", "C", 3, 0})
 return
 
 
-/*  set_tbl_partner(aDbf)
+/*
  *   Set polja tabele partner
  *   aDbf - matrica sa def.polja
  */
@@ -478,7 +471,7 @@ return
 
 
 
-/*  SetRulePartn(aRule)
+/*
  *   Setovanje pravila upisa zapisa u temp tabelu
  *   aRule - matrica pravila
  */
@@ -539,17 +532,15 @@ return
 
 
 
-
-
 /*  GetExpPath(cPath)
  *   Vraca podesenje putanje do exportovanih fajlova
  *   cPath - putanja, zadaje se sa argumentom @ kao priv.varijabla
  */
 static function GetExpPath(cPath)
 
-cPath:=IzFmkIni("KALK", "ImportPath", "c:" + SLASH + "liste" + SLASH, PRIVPATH)
+cPath:=IzFmkIni("KALK", "ImportPath",  DRIVE_ROOT_PATH + "liste" + SLASH, PRIVPATH)
 if Empty(cPath) .or. cPath == nil
-	cPath := "c:" + SLASH + "liste" + SLASH
+	cPath := DRIVE_ROOT_PATH + "liste" + SLASH
 endif
 return
 
@@ -600,8 +591,8 @@ for i:=1 to nBrLin
 		fname := FIELD(nCt)
 		xVal := aRules[nCt, 1]
 		replace &fname with &xVal
-
 	next
+
 next
 
 
@@ -611,6 +602,7 @@ select temp
 // prođi kroz temp i napuni da li je dtype pozitivno ili negativno
 // ali samo ako je u pitanju racun tabela... !
 if temp->(fieldpos("idtipdok")) <> 0
+
 	go top
 	do while !EOF()
 		if field->idtipdok == "10" .and. field->kolicina < 0
@@ -618,8 +610,13 @@ if temp->(fieldpos("idtipdok")) <> 0
 		else
 			replace field->dtype with "1"
 		endif
+
+		IF EMPTY(field->idfirma)
+		   DELETE // prazan red
+		ENDIF
 		skip
 	enddo
+
 endif
 
 MsgBeep("Import txt => temp - OK")
@@ -651,6 +648,7 @@ if File(cTmpTbl + ".DBF") .and. FErase(cTmpTbl + ".DBF") == -1
 	MsgBeep("Ne mogu izbrisati TEMP.DBF!")
     	ShowFError()
 endif
+
 if File(cTmpTbl + ".CDX") .and. FErase(cTmpTbl + ".CDX") == -1
 	MsgBeep("Ne mogu izbrisati TEMP.CDX!")
     	ShowFError()
@@ -670,11 +668,12 @@ else
 	create_index("1","idfirma+idtipdok+brdok+rbr", cTmpTbl)
 	create_index("2","dtype+idfirma+idtipdok+brdok+rbr", cTmpTbl)
 endif
+
 return
 
 
 
-/*  CrePriprTDbf()
+/*
  *   Kreiranje tabele PRIVPATH + PRIPT.DBF
  */
 function CrePripTDbf()
@@ -688,6 +687,7 @@ select pripr
 
 // napravi pript sa strukturom tabele PRIPR
 copy structure to (PRIVPATH+"struct")
+
 create (PRIVPATH + "pript") from (PRIVPATH + "struct")
 create_index("1","idfirma+idvd+brdok", PRIVPATH+"pript")
 create_index("2","idfirma+idvd+brdok+idroba", PRIVPATH+"pript")
@@ -736,14 +736,15 @@ return 1
 
 
 
-/*  CheckDok()
+/*
  *   Provjera da li postoje sve sifre u sifrarnicima za dokumente
  */
 static function CheckDok()
+
 local lSifDob := .t.
 
-aPomPart := ParExist()
-aPomArt  := TempArtExist( lSifDob )
+aPomPart := ParExist()  // parametri
+aPomArt  := TempArtExist( lSifDob ) // artikli po sifri dobavljaca
 
 if (LEN(aPomPart) > 0 .or. LEN(aPomArt) > 0)
 
@@ -773,16 +774,16 @@ if (LEN(aPomPart) > 0 .or. LEN(aPomArt) > 0)
 	END PRINT
 
 	return .f.
+
 endif
 
 return .t.
 
 
-
-
-/*  CheckPartn()
+/*
  *  Provjerava i daje listu nepostojecih partnera pri importu liste partnera
  */
+
 static function CheckPartn()
 
 
@@ -807,7 +808,6 @@ if (LEN(aPomPart) > 0)
 endif
 
 return LEN(aPomPart)
-
 
 
 
@@ -872,8 +872,6 @@ return LEN(aPomRoba)
 
 
 
-
-
 // --------------------------------------------------------
 // provjerava da li postoji roba po sifri dobavljaca
 // --------------------------------------------------------
@@ -916,6 +914,7 @@ return aRet
 static function ParExist(lPartNaz)
 
 O_PARTN
+
 select temp
 go top
 
@@ -929,13 +928,16 @@ do while !EOF()
 	select partn
 	go top
 	seek temp->idpartner
+
 	if !Found()
 		if lPartNaz
+		  altd()
 			AADD(aRet, {temp->idpartner, temp->naz})
 		else
 			AADD(aRet, {temp->idpartner})
 		endif
 	endif
+
 	select temp
 	skip
 enddo
@@ -1012,6 +1014,8 @@ if cPoslovnica == "" .or. cPoslovnica == nil
 	return "XXXXX"
 endif
 
+altd()
+
 cRet := IzFmkIni("VINDIJA", "VPR" + cProd + "_" + cPoslovnica, "xxxx", KUMPATH)
 
 if cRet == "" .or. cRet == nil
@@ -1029,8 +1033,9 @@ return cRet
 // -----------------------------------------------------------
 static function GetTdKonto(cTipDok, cTip, cPoslovnica)
 
-cRet := IzFmkIni("VINDIJA", "TD" + cTipDok + cTip + cPoslovnica, ;
-		"xxxx", KUMPATH)
+altd()
+
+cRet := IzFmkIni("VINDIJA", "TD" + cTipDok + cTip + cPoslovnica, "xxxx", KUMPATH)
 
 // primjer:
 // TD14Z050=1310 // posl.sarajevo

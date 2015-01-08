@@ -178,7 +178,7 @@ else
 		recover
 		bErr:=ERRORBLOCK(bErr)
 
-		cKom:= ToUnix( DATA_ROOT + SLASH + cFName)
+		cKom:= ToUnix( DATA_ROOT + cFName)
 		if gnDebug>=5
 			MsgBeep("Radi se o fajlu !##set printer to (cKom)##var cKom=" + AllTrim(cKom))
 		endif

@@ -128,7 +128,10 @@ PROCEDURE f01_init_harbour()
   SET EPOCH TO 1960
   SET DATE TO GERMAN
 
+  SET DELETED ON
+
   hb_cdpSelect( "SL852" )
   hb_SetTermCP( "SLISO" )
 
 
+  RETURN

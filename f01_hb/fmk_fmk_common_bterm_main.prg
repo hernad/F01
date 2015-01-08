@@ -52,9 +52,9 @@ return 1
 // -----------------------------------------------------
 static function _gExpPath( cPath )
 
-cPath:=IzFmkIni("FMK", "ImportPath", "c:" + SLASH + "import" + SLASH, PRIVPATH)
+cPath:=IzFmkIni("FMK", "ImportPath", DRIVE_ROOT_PATH + "import" + SLASH, PRIVPATH)
 if Empty(cPath) .or. cPath == nil
-	cPath := "c:" + SLASH + "import" + SLASH
+	cPath := DRIVE_ROOT_PATH + "import" + SLASH
 endif
 return
 
