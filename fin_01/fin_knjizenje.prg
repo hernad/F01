@@ -141,10 +141,11 @@ if gRj=="D" .and. pripr->(FIELDPOS("IDRJ")) <> 0
 ENDIF
 
 
+
 Box(,20,77)
-@ m_x+18,m_y+2 SAY "<c-N>  Nove Stavke    � <ENT> Ispravi stavku   � <c-T> Brisi Stavku         "
-@ m_x+19,m_y+2 SAY "<c-A>  Ispravka Naloga� <c-P> Stampa Naloga    � <a-A> Azuriranje           "
-@ m_x+20,m_y+2 SAY "<c-F9> Brisi pripremu � <F5>  KZB, <a-F5> PrDat� <a-B> Blagajna,<F10> Ostalo"
+@ m_x+18,m_y+2 SAY "<c-N>  Nove Stavke    "+BOX_CHAR_USPRAVNO+" <ENT> Ispravi stavku   "+BOX_CHAR_USPRAVNO+" <c-T> Brisi Stavku     "
+@ m_x+19,m_y+2 SAY "<c-A>  Ispravka Naloga"+BOX_CHAR_USPRAVNO+" <c-P> Stampa Naloga    "+BOX_CHAR_USPRAVNO+" <a-A> Azuriranje       "
+@ m_x+20,m_y+2 SAY "<c-F9> Brisi pripremu "+BOX_CHAR_USPRAVNO+" <F5>  KZB, <a-F5> PrDat"+BOX_CHAR_USPRAVNO+" <a-B> Blag,<F10> Ostalo"
 
 ObjDbedit("PNal", 20, 77, {|| fin_edpripr()},"","Priprema...", , , , ,3)
 BoxC()

@@ -71,7 +71,9 @@ IF LEN(aFixKoo)==2
 	lFK:=.t.
 ENDIF
 
+
 N:=IF(Len(Items)>nMaxVR,nMaxVR,LEN(Items))
+
 Length:=Len(Items[1])+1
 
 if Inv==NIL
@@ -138,11 +140,7 @@ m_y:=aMenu[3]
 aMenu[5]:=nTItemNo
 
 @ m_x,m_y TO m_x+N+1,m_y+Length+3
-//StackPop(aWhereStack)
 
-//
-//  Ako nije pritisnuto ESC, <-, ->, oznaci izabranu opciju
-//
 IF nTItemNo<>0
   SetColor(LocalIC)
   @ m_x+MIN(nTItemNo,nMaxVR),m_y+1 SAY " "+Items[nTItemNo]+" "
@@ -158,8 +156,6 @@ IF Ch==K_ESC .or. nTItemNo==0 .or. nTItemNo==nPovratak
   @ m_x,m_y CLEAR TO m_x+N+2-IF(lFK,1,0),m_y+Length+4-IF(lFK,1,0)
   aMenu:=StackPop(aMenuStack)
   RestScreen(m_x,m_y,m_x+N+2-IF(lFK,1,0),m_y+Length+4-IF(lFK,1,0),aMenu[4])
-  //if aMenu[6]<>NIL; PopHT(); endif
-  //AEVAL(h,{|e| e:=""})
 END IF
 
 
@@ -1754,8 +1750,7 @@ return .t.
  *
  *  opc    - indirektno priv.var, matrica naslova opcija
  *  opcexe - indirektno priv.var, matrica funkcija (string ili kodni blok promjenljive)
- *
- *  \code
+
  *  private Opc:={}
  *  private opcexe:={}
  *  AADD(Opc,"1. kartica                                ")
@@ -1766,13 +1761,12 @@ return .t.
  *  AADD(opcexe, {|| RekRPor})
  *  private Izbor:=1
  *  Menu_SC("itar")
- * \endcode
  *
  */
 
 function Menu_SC(cIzp, fMain, lBug)
 
-
+LOCAL i
 local cOdgovor
 local nIzbor
 
@@ -1786,6 +1780,10 @@ endif
 if fMain
   @ 4,5 SAY ""
 endif
+
+for i:=1 to len( opc )
+  opc[ i ] := hb_utf8ToStr( opc[i] )
+next
 
 do while .t.
    Izbor:=menu(cIzp, opc, Izbor, .f.)

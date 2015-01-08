@@ -333,8 +333,8 @@ ENDIF
        TB:addColumn(TCol)
     END IF
   NEXT
-  TB:headSep := '�'
-  TB:colsep :=BOX_CHAR_USPRAVNO
+  TB:headSep := BOX_CHAR_HORIZONT
+  TB:colsep  := BOX_CHAR_USPRAVNO
   if aParametri[6]==NIL
      TB:Freeze:=1
   else

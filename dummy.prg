@@ -120,3 +120,15 @@ FUNCTION run_ext_command( cCommand )
 FUNCTION OL_YIELD()
 
   RETURN hb_idleSleep()
+
+
+PROCEDURE f01_init_harbour()
+
+  SET CENTURY OFF
+  SET EPOCH TO 1960
+  SET DATE TO GERMAN
+
+  hb_cdpSelect( "SL852" )
+  hb_SetTermCP( "SLISO" )
+
+
