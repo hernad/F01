@@ -498,13 +498,13 @@ if (nArea==-1 .or. nArea==(F_DOKS))
         	DBcreate2(KUMPATH+'DOKS.DBF',aDbf)
 	endif
 
-	CREATE_INDEX("1","IdFirma+idvd+brdok",KUMPATH+"DOKS")
-	CREATE_INDEX("2","IdFirma+MKONTO+idzaduz2+idvd+brdok",KUMPATH+"DOKS")
-	CREATE_INDEX("3","IdFirma+dtos(datdok)+podbr+idvd+brdok",KUMPATH+"DOKS")
-	// za RN
-	if glBrojacPoKontima
-		CREATE_INDEX("1S","IdFirma+idvd+SUBSTR(brdok,6)+LEFT(brdok,5)",KUMPATH+"DOKS")
-	endif
+	CREATE_INDEX("1","IdFirma+idvd+brdok", KUMPATH+"DOKS")
+	CREATE_INDEX("2","IdFirma+MKONTO+idzaduz2+idvd+brdok", KUMPATH+"DOKS")
+	CREATE_INDEX("3","IdFirma+dtos(datdok)+podbr+idvd+brdok", KUMPATH+"DOKS")
+
+	// 00001/T => /T00001
+	// 00001/X => /X00001
+	CREATE_INDEX("1S","IdFirma+idvd+SUBSTR(brdok,6)+LEFT(brdok,5)",KUMPATH+"DOKS")
 
 	CREATE_INDEX("V_BRF","brfaktp+idvd",KUMPATH+"DOKS")
 	CREATE_INDEX("V_BRF2","idvd+brfaktp",KUMPATH+"DOKS")

@@ -246,9 +246,14 @@ return cReturn
 
 
 
-function SljBrKalk(cTipKalk, cIdFirma, cSufiks)
+function SljBrKalk(cTipKalk, cIdFirma, cSufiks, nUvecaj)
 
-local cBrKalk:=space(8)
+local cBrKalk := space(8)
+
+
+if nUvecaj == NIL
+  nUvecaj := 1
+endif
 
 if cSufiks==nil
 	cSufiks:=SPACE(3)
@@ -267,22 +272,20 @@ if gBrojac=="D"
 	endif
 	skip -1
 
-	if cTipKalk<>field->idVD .or. glBrojacPoKontima .and. right(field->brDok,3)<>cSufiks
+	if cTipKalk <> field->idVD .or. glBrojacPoKontima .and. right(field->brDok, 3)<>cSufiks
 		cBrKalk:=SPACE(gLenBrKalk)+cSufiks
 	else
 		cBrKalk:=field->brDok
 	endif
 
 	if cTipKalk=="16" .and. glEvidOtpis
-		cBrKalk:=STRTRAN(cBrKalk,"-X","  ")
+		cBrKalk := STRTRAN(cBrKalk,"-X","  ")
 	endif
 
 	if ALLTRIM( cBrKalk ) >= "99999"
-		cBrKalk := PADR( novasifra( ALLTRIM(cBrKalk) ), 5 ) + ;
-			right( cBrKalk, 3 )
+		cBrKalk := PADR( novasifra( ALLTRIM(cBrKalk) ), 5 ) + right( cBrKalk, 3 )
 	else
-		cBrKalk:=UBrojDok(val(left(cBrKalk,5)) + 1, ;
-			5, right(cBrKalk,3) )
+		cBrKalk := UBrojDok(val(left(cBrKalk,5)) + nUvecaj, 5, right(cBrKalk,3) )
 	endif
 
 endif

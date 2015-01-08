@@ -151,6 +151,8 @@ FUNCTION _g_num( cVal )
 // -------------------------------------------------------------
 FUNCTION TempArtExist( lSifraDob )
 
+   LOCAL aRet
+   
    IF lSifraDob == nil
       lSifraDob := .F.
    ENDIF

@@ -294,19 +294,19 @@ if cF=="1"
  ? "----- " + REPLICATE("-", __par_len) + " ------------------------------------ ----- ----------------- ----------------------------------------------------------------------- -----------------------------------------------------------------------"
  ? "*RED.*" + PADC("�IFRA", __par_len) + "*     NAZIV POSLOVNOG PARTNERA      * PTT *      MJESTO     *       K  U  M  U  L  A  T  I  V  N  I       P  R  O  M  E  T           *                 S      A      L      D       O                       *"
  ? "      " + REPL(" ", __par_len) + "                                                              ----------------------------------------------------------------------- -----------------------------------------------------------------------"
- ? "*BROJ*" + REPLICATE(" ", __par_len) + "*                                   * BROJ*                 *   DUGUJE   "+ValDomaca()+"  *  POTRA�UJE "+ValDomaca()+" *   DUGUJE  "+ValPomocna()+"  *   POTRA�. "+ValPomocna()+"  *    DUGUJE "+ValDomaca()+"  *  POTRA�UJE "+ValDomaca()+" *   DUGUJE  "+ValPomocna()+"  *   POTRA�."+ValPomocna()+"  *"
+ ? "*BROJ*" + REPLICATE(" ", __par_len) + "*                                   * BROJ*                 *   DUGUJE   "+ValDomaca()+"  *  POTRAZUJE "+ValDomaca()+" *   DUGUJE  "+ValPomocna()+"  *   POTRA�. "+ValPomocna()+"  *    DUGUJE "+ValDomaca()+"  *  POTRAZUJE "+ValDomaca()+" *   DUGUJE  "+ValPomocna()+"  *   POTRA�."+ValPomocna()+"  *"
  ? m
 elseif cPG=="D"
  ? "----- " + REPLICATE("-", __par_len) + " ------------------------ ---------------- ----------------------------------- -----------------------------------"
  ? "*RED.*" + PADC("�IFRA", __par_len) + "*     NAZIV POSLOVNOG    *     MJESTO     *         KUMULATIVNI  PROMET       *               SALDO              *"
  ? "                                                       ----------------------------------- -----------------------------------"
- ? "*BROJ*" + REPLICATE(" ", __par_len)  + "*     PARTNERA           *                *    DUGUJE       *   POTRA�UJE     *    DUGUJE       *   POTRA�UJE    *"
+ ? "*BROJ*" + REPLICATE(" ", __par_len)  + "*     PARTNERA           *                *    DUGUJE       *   POTRAZUJE     *    DUGUJE       *   POTRAZUJE    *"
  ? m
 else
  ? "----- " + REPLICATE("-", __par_len) + " ------------------------ ----------------------------------- -----------------------------------"
  ? "*RED.*" + PADC("SIFRA", __par_len) + "*      NAZIV POSLOVNOG    *         KUMULATIVNI  PROMET       *               SALDO              *"
  ? "      " + REPL(" ", __par_len)+ "                        ----------------------------------- -----------------------------------"
- ? "*BROJ*" + REPLICATE(" ", __par_len) + "*      PARTNERA           *    DUGUJE       *   POTRA�UJE     *    DUGUJE       *   POTRA�UJE    *"
+ ? "*BROJ*" + REPLICATE(" ", __par_len) + "*      PARTNERA           *    DUGUJE       *   POTRAZUJE     *    DUGUJE       *   POTRAZUJE    *"
  ? m
 endif
 
@@ -832,7 +832,7 @@ ENDIF
 
 select ANAL
 ? m
-? "KONTO      N A Z I V                                                           duguje            potra�uje                saldo"
+? "KONTO      N A Z I V                                                           duguje            potrazuje                saldo"
 ? m
 return
 
@@ -1278,7 +1278,7 @@ do whileSC !eof()
 
      			ENDIF
      			nCOpis:=PCOL()
-			// ispis partnera
+
      			if !empty(cIdPartner)
        				select PARTN
        				hseek cIdPartner
@@ -1720,9 +1720,9 @@ ELSE
 ENDIF
 if cTip $ "12"
   IF cSkVar!="D"
-    ? "KONTO  " + PADC("PARTN.", __par_len) + "  NAZIV KONTA / PARTNERA                                          duguje            potra�uje                saldo"
+    ? "KONTO  " + PADC("PARTN.", __par_len) + "  NAZIV KONTA / PARTNERA                                          duguje            potrazuje                saldo"
   ELSE
-    ? "KONTO  " + PADC("PARTN", __par_len) + "  " +  PADR("NAZIV KONTA / PARTNERA",nDOpis)+" "+PADC("duguje",nDIznos)+" "+PADC("potra�uje",nDIznos)+" "+PADC("saldo",nDIznos)
+    ? "KONTO  " + PADC("PARTN", __par_len) + "  " +  PADR("NAZIV KONTA / PARTNERA",nDOpis)+" "+PADC("duguje",nDIznos)+" "+PADC("potrazuje",nDIznos)+" "+PADC("saldo",nDIznos)
   ENDIF
 else
   IF cSkVar!="D"
@@ -2184,7 +2184,7 @@ endif
 ? "----- ------- ----------------------------- ------------------------------------------------------------ -----------------------------"
 ? "*RED.* KONTO *       N A Z I V             *     K U M U L A T I V N I    P R O M E T                   *      S A L D O              "
 ? "                                            ------------------------------------------------------------ -----------------------------"
-? "*BROJ*       *       K O N T A             *  DUGUJE   "+ValDomaca()+"  *  POTRA�UJE "+ValDomaca()+"* DUGUJE "+ValPomocna()+"* POTRA� "+ValPomocna()+"*    "+ValDomaca()+"        *    "+ValPomocna()+"   *"
+? "*BROJ*       *       K O N T A             *  DUGUJE   "+ValDomaca()+"  *  POTRAZUJE "+ValDomaca()+"* DUGUJE "+ValPomocna()+"* POTRA� "+ValPomocna()+"*    "+ValDomaca()+"        *    "+ValPomocna()+"   *"
 ? M
 
 SELECT SUBAN
@@ -2354,7 +2354,7 @@ endif
 ? "----- ------- ----------------------------- ------------------------------------------------------------ -----------------------------"
 ? "*RED.* KONTO *       N A Z I V             *     K U M U L A T I V N I    P R O M E T                   *      S A L D O              "
 ? "                                            ------------------------------------------------------------ -----------------------------"
-? "*BROJ*       *       K O N T A             *  DUGUJE   "+ValDomaca()+"  *  POTRA�UJE "+ValDomaca()+"* DUGUJE "+ValPomocna()+"* POTRA� "+ValPomocna()+"*    "+ValDomaca()+"        *    "+ValPomocna()+"   *"
+? "*BROJ*       *       K O N T A             *  DUGUJE   "+ValDomaca()+"  *  POTRAZUJE "+ValDomaca()+"* DUGUJE "+ValPomocna()+"* POTRA� "+ValPomocna()+"*    "+ValDomaca()+"        *    "+ValPomocna()+"   *"
 ? M
 
 SELECT SUBAN

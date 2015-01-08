@@ -28,7 +28,7 @@ if gAImpPrint == "D"
 	__stampaj := .t.
 endif
 
-AADD(opc, "1. import vindija racun                 ")
+AADD(opc, "1. import vindija račun                 ")
 AADD(opcexe, {|| vindija_import_txt_dokument()})
 AADD(opc, "2. import vindija partner               ")
 AADD(opcexe, {|| ImpTxtPartn()})
@@ -140,8 +140,8 @@ SetRuleDok(@aRules)
 // prebaci iz txt => temp tbl
 txt_to_temp_import_tabela(aDbf, aRules, cImpFile)
 
-if !CheckDok()
-	MsgBeep("Prekidamo operaciju !#Nepostojece sifre!!!")
+if !check_importovane_dokumente()
+	MsgBeep("Prekidamo operaciju !#Nepostojece sifre !")
 	return
 endif
 
@@ -300,7 +300,7 @@ endif
 
 // provjeri da li je fajl za import prazan
 if CheckFile(cImpFile)==0
-	MsgBeep("Odabrani fajl je prazan!#!!! Prekidam operaciju !!!")
+	MsgBeep("Odabrani fajl je prazan!# Prekidam operaciju !!!")
 	return
 endif
 
@@ -428,47 +428,59 @@ static function SetRuleDok(aRule)
 
 // idfirma
 AADD(aRule, {"SUBSTR(cVar, 1, 2)"})
+
 // idtipdok
 AADD(aRule, {"SUBSTR(cVar, 4, 2)"})
+
 // brdok
 AADD(aRule, {"SUBSTR(cVar, 7, 8)"})
+
 // datdok
 AADD(aRule, {"CTOD(SUBSTR(cVar, 16, 10))"})
+
 // idpartner
 AADD(aRule, {"SUBSTR(cVar, 27, 6)"})
+
 // id pm
 AADD(aRule, {"SUBSTR(cVar, 34, 3)"})
+
 // dindem
 AADD(aRule, {"SUBSTR(cVar, 38, 3)"})
+
 // zaokr
 AADD(aRule, {"VAL(SUBSTR(cVar, 42, 1))"})
+
 // rbr
 AADD(aRule, {"STR(VAL(SUBSTR(cVar, 44, 3)),3)"})
+
 // idroba
 AADD(aRule, {"ALLTRIM(SUBSTR(cVar, 48, 5))"})
+
 // kolicina
 AADD(aRule, {"VAL(SUBSTR(cVar, 54, 16))"})
+
 // cijena
 AADD(aRule, {"VAL(SUBSTR(cVar, 71, 16))"})
+
 // rabat
 AADD(aRule, {"VAL(SUBSTR(cVar, 88, 14))"})
+
 // porez
 AADD(aRule, {"VAL(SUBSTR(cVar, 103, 14))"})
+
 // procenat rabata
-
 AADD(aRule, {"VAL(SUBSTR(cVar, 118, 14))"})
+
 // datum valute
-
 AADD(aRule, {"CTOD(SUBSTR(cVar, 133, 10))"})
-// obracunska kolicina
 
+// obracunska kolicina
 AADD(aRule, {"VAL(SUBSTR(cVar, 144, 16))"})
 
 // poslovna jedinica "kod"
 AADD(aRule, {"SUBSTR(cVar, 161, 3)"})
 
 return
-
 
 
 /*
@@ -557,6 +569,8 @@ return
 
 static function txt_to_temp_import_tabela(aDbf, aRules, cTxtFile)
 
+LOCAL nLinija
+
 // prvo kreiraj tabelu temp
 close all
 
@@ -568,23 +582,28 @@ if !File2(PRIVPATH + SLASH + "TEMP.DBF")
 	return
 endif
 
-// zatim iscitaj fajl i ubaci podatke u tabelu
+init_file_content()
 
 // broj linija fajla
 nBrLin:=BrLinFajla(cTxtFile)
+
 nStart:=0
+
+nLinija := 0
 
 // prodji kroz svaku liniju i insertuj zapise u temp.dbf
 for i:=1 to nBrLin
 
-	aFMat:=SljedLin(cTxtFile, nStart)
+	aFMat := SljedLin(cTxtFile, nStart, .T. ) // .T. - DOS encoded fajl
+
   nStart:=aFMat[2]
 	// uzmi u cText liniju fajla
 	cVar:=aFMat[1]
 
 	// selektuj temp tabelu
 	select temp
-	// dodaj novi zapis
+
+	++nLinija
 	append blank
 
 	for nCt:=1 to LEN(aRules)
@@ -593,7 +612,14 @@ for i:=1 to nBrLin
 		replace &fname with &xVal
 	next
 
+  IF EMPTY(field->idfirma)
+	   OutStd( "import txt: brisem praznu liniju" + hb_eol() )
+	   DELETE
+  ENDIF
+
 next
+
+OutStd( hb_eol() + "vindija import txt linija: " + AllTrim( STR(nLinija) ) + hb_eol() )
 
 
 
@@ -739,12 +765,17 @@ return 1
 /*
  *   Provjera da li postoje sve sifre u sifrarnicima za dokumente
  */
-static function CheckDok()
 
-local lSifDob := .t.
+static function check_importovane_dokumente()
 
-aPomPart := ParExist()  // parametri
+LOCAL aPomPart
+LOCAL aPomArt
+LOCAL lSifDob := .t.
+
+aPomPart := ParExist()  // partneri
 aPomArt  := TempArtExist( lSifDob ) // artikli po sifri dobavljaca
+
+altd()
 
 if (LEN(aPomPart) > 0 .or. LEN(aPomArt) > 0)
 
@@ -876,6 +907,7 @@ return LEN(aPomRoba)
 // provjerava da li postoji roba po sifri dobavljaca
 // --------------------------------------------------------
 static function SDobExist()
+
 O_ROBA
 select temp
 go top
@@ -908,10 +940,12 @@ return aRet
 
 
 
-/*  ParExist()
+/*
  *   Provjera da li postoje sifre partnera u sifraniku FMK
  */
 static function ParExist(lPartNaz)
+
+LOCAL aRet
 
 O_PARTN
 
@@ -924,12 +958,16 @@ endif
 
 aRet:={}
 
+altd()
+
 do while !EOF()
+
 	select partn
 	go top
 	seek temp->idpartner
 
 	if !Found()
+	  altd()
 		if lPartNaz
 			AADD(aRet, {temp->idpartner, temp->naz})
 		else
@@ -945,7 +983,7 @@ return aRet
 
 
 
-/*  GetKTipDok(cFaktTD)
+/*
  *   Vraca kalk tip dokumenta na osnovu fakt tip dokumenta
  *   cFaktTD - fakt tip dokumenta
  */
@@ -1076,7 +1114,8 @@ do while !EOF()
 		cBrFakt := PADR( cBrFakt, LEN(cBrFakt) - nRight )
 	endif
 
-	cTDok := GetKTipDok(ALLTRIM(temp->idtipdok), temp->idpm)
+  altd()
+	cTDok := GetKTipDok( ALLTRIM(temp->idtipdok), temp->idpm )
 
 	if cBrFakt == cDok
 		skip
@@ -1226,9 +1265,23 @@ do while !EOF()
 		nUvecaj := 0
 	endif
 
+	// konta zaduzuje i razduzuje !
+	_id_konto := GetKtKalk( cTDok, temp->idpm, "Z", cIdPJ )
+	_id_konto2 := GetKtKalk( cTDok, temp->idpm, "R", cIdPJ )
+
+	IF cTDok $ "14"
+	   cIdKonto := _id_konto2
+	ELSE
+	   cIdKonto := _id_konto
+	ENDIF
+
+
 	if cFakt <> cPFakt
+	  altd()
 		++ nUvecaj
-		cBrojKalk := GetNextKalkDoc(gFirma, cTDok, nUvecaj)
+		//cBrojKalk := GetNextKalkDoc(gFirma, cTDok, nUvecaj)
+		cBrojKalk := kalk_novi_broj( gFirma, cTDok, cIdKonto, nUvecaj )
+
 		nRbr := 0
 		AADD(aPom, { cTDok, cBrojKalk, cFakt })
 	else
@@ -1236,7 +1289,8 @@ do while !EOF()
 		if cTDok == "11"
 			if cPm <> cPPm
 				++ nUvecaj
-				cBrojKalk := GetNextKalkDoc(gFirma, cTDok, nUvecaj)
+				//cBrojKalk := GetNextKalkDoc(gFirma, cTDok, nUvecaj)
+				cBrojKalk := kalk_novi_broj( gFirma, cTDok, cIdKonto, nUvecaj )
 				nRbr := 0
 				AADD(aPom, { cTDok, cBrojKalk, cFakt })
 			endif
@@ -1270,9 +1324,6 @@ do while !EOF()
 
 	endif
 
-	// konta zaduzuje i razduzuje !
-	_id_konto := GetKtKalk( cTDok, temp->idpm, "Z", cIdPJ )
-	_id_konto2 := GetKtKalk( cTDok, temp->idpm, "R", cIdPJ )
 
 	// pozicioniraj se na koncij stavku
 	select koncij
@@ -1289,7 +1340,7 @@ do while !EOF()
 
 	// uzmi pravilan tip dokumenta za kalk
 	replace idvd with cTDok
-
+altd()
 	replace brdok with cBrojKalk
 	replace datdok with temp->datdok
 	replace idpartner with temp->idpartner
@@ -1600,11 +1651,11 @@ return 1
  */
 static function GetKVars(dDatDok, cBrKalk, cTipDok, cIdKonto, cIdKonto2, cRazd)
 
-dDatDok:=DATE()
-cTipDok:="14"
-cIdFirma:=gFirma
-cIdKonto:=PADR("1200",7)
-cIdKonto2:=PADR("1310",7)
+dDatDok   := DATE()
+cTipDok   := "14"
+cIdFirma  := gFirma
+cIdKonto  := PADR("1200",7)
+cIdKonto2 := PADR("1310",7)
 cRazd:="D"
 O_KONTO
 O_DOKS
@@ -1632,6 +1683,8 @@ return 1
  *   Obrada importovanih dokumenata
  */
 function ObradiImport(nPocniOd, lAsPokreni, lStampaj)
+
+LOCAL cIdKonto
 local cN_kalk_dok := ""
 local nUvecaj := 0
 
@@ -1683,6 +1736,8 @@ Box(,10, 70)
 @ 1+m_x, 2+m_y SAY "Obrada dokumenata iz pomocne tabele:" COLOR "I"
 @ 2+m_x, 2+m_y SAY "===================================="
 
+nUvecaj := 0
+
 do while !EOF()
 
 	nPTRec:=RecNo()
@@ -1696,9 +1751,19 @@ do while !EOF()
 		loop
 	endif
 
+
+	IF cIdVd $ "14"
+	   cIdKonto := field->idkonto2
+	ELSE
+	   cIdKonto := field->idkonto
+	ENDIF
+
+
 	// daj novi broj dokumenta kalk
 	nT_area := SELECT()
-	cN_kalk_dok := GetNextKalkDoc(cFirma, cIdVd, 1)
+	//cN_kalk_dok := GetNextKalkDoc(cFirma, cIdVd, 1)
+	cN_kalk_dok := kalk_novi_broj( cFirma, cIdVd, cIdKonto, nUvecaj )
+
 	select (nT_area)
 
 	@ 3+m_x, 2+m_y SAY "Prebacujem: " + cFirma + "-" + cIdVd + "-" + cBrDok

@@ -38,7 +38,7 @@ if fSilent==nil
 endif
 
 if AT(SLASH,cImeDbf)==0  // onda se radi o kumulativnoj datoteci
-     cImeCdx :=  alltrim(cDirRad)+SLASH+ImeDBFCDX(cImeDbf)
+     cImeCdx :=  alltrim(cDirRad) + SLASH + ImeDBFCDX( cImeDbf )
 else
      cImeCdx := ImeDbfCdx(cImeDbf)
 endif
@@ -123,13 +123,17 @@ if !fPostoji
 	return
 endif
 
-if !File2(cImeCdx)  .or. nOrder==0  .or. UPPER(cOrdKey)<>UPPER(cKljuc)
+#ifdef __PLATFORM__UNIX
+   cImeCdx := ChangeExt( cImeCdx, "CDX", "cdx" )
 
+if !File( cImeCdx )  .or. nOrder==0  .or. UPPER(cOrdKey)<>UPPER(cKljuc)
+
+     altd()
 
      cFulDbf:=cImeDbf
      if right(cFulDbf,4)<>"."+DBFEXT
        cFulDbf:=trim(cFulDbf)+"."+DBFEXT
-       if at(SLASH,cFulDbf)==0  // onda se radi o kumulativnoj datoteci
+       if at(SLASH, cFulDbf)==0  // onda se radi o kumulativnoj datoteci
           cFulDbf:=alltrim(cDirRad)+SLASH+cFulDbf
        endif
      endif

@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -15,10 +15,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/sclib/sif/1g/sif_prn.prg,v $
- * $Author: ernad $ 
+ * $Author: ernad $
  * $Revision: 1.4 $
  * $Log: sif_prn.prg,v $
  * Revision 1.4  2002/07/30 17:40:59  ernad
@@ -31,7 +31,7 @@
  *
  *
  */
- 
+
 
 #define  MEMOEXT  ".MEM"
 
@@ -45,7 +45,7 @@
  * b) Formira se izlazni fajl
  * c) prikazuje se na ekranu (N,V,E) ili stampa na printer (D), ili salje
  *    PTXT-u (R)
- *   
+ *
  *ULAZI
  *bFor - uslov za prikaz zapisa
  *
@@ -53,7 +53,7 @@
  * Koristi i sljedece public varijable
  *
  *- Kol - sarzi raspored polja,
- *        npr: 
+ *        npr:
  *	    Kol:={0,1,0,2.............}
  *
  *- RKol (opciono)
@@ -66,6 +66,7 @@
  */
 
 function Izlaz(Zaglavlje, ImeDat, bFor, fIndex, lBezUpita)
+
 local i,k
 local bErrorHandler
 local bLastHandler
@@ -108,6 +109,8 @@ if "U" $ TYPE("gPostotak")
 	gPostotak:="N"
 endif
 
+init_file_content()
+
  if lBezUpita
  else
   Zaglavlje:=PADR(Zaglavlje,70)
@@ -130,7 +133,7 @@ endif
   @ m_x+4,m_y+3  SAY "Odvajati redove linijom (D/N) ?" GET gOdvTab VALID gOdvTab $ "DN" PICTURE "@!"
   @ m_x+5,m_y+3  SAY "Razmak izmedju redova   (D/N) ?" GET cRazmak VALID cRazmak $ "DN" PICTURE "@!"
   READ
- 
+
  endif
 
  lImaSifK:=.f.
@@ -141,12 +144,12 @@ endif
  if LEN(ImeKol[1])>2 .and. !lImaSifK
   private aStruct:=DBSTRUCT(), anDuz[FCOUNT(),2], ctxt2
   for i:=1 to len(aStruct)
-    
+
     // treci element jednog reda u matrici imekol
     k:= ASCAN(ImeKol, {|x| FIELD(i)==UPPER(x[3])})
 
-    j:=IF(k<>0, Kol[k], 0)
-    
+    j:= IIF(k<>0, Kol[k], 0)
+
     if j<>0
       xPom:=EVAL(ImeKol[k,2])
       anDuz[j,1]:=MAX( LEN(ImeKol[k,1]) , LEN(IF(VALTYPE(xPom)=="D",;
@@ -225,7 +228,7 @@ endif
     endif
   next
  endif
- 
+
  BoxC()
  BosTipke()
  if !lBezUpita
@@ -285,9 +288,9 @@ endif
 
 
 StampaTabele(aKol,{|| ZaRedBlok()},gnLMarg,;
-          IF(UPPER(RIGHT(ALLTRIM(SET(_SET_PRINTFILE)),3))=="RTF",9,gTabela),;
-          ,IF(gPrinter=="L","L4",gA43=="4"),;
-          ,,IF(gOstr=="N",-1,),,gOdvTab=="D",,nSlogova,"Kreiranje tabele")
+          IIF(UPPER(RIGHT(ALLTRIM(SET(_SET_PRINTFILE)),3))=="RTF",9,gTabela),;
+          ,IIF(gPrinter=="L","L4",gA43=="4"),;
+          ,,IIF(gOstr=="N",-1,),,gOdvTab=="D",,nSlogova,"Kreiranje tabele")
 
 if (gPrinter=="L" .or. gA43=="4" .and. nSirIzvj>165)
 	gPO_Port()
@@ -303,13 +306,13 @@ return nil
 function ZaRedBlok()
 
 ++RedBr
- 
+
 WhileEvent(RedBr,nil)
-  
+
 if !EMPTY(cNazMemo)
-    ctxt2:=UkloniRet(cNazMemo,.f.)
+    cTxt2:=UkloniRet(cNazMemo,.f.)
 endif
-  
+
 return .t.
 
 
@@ -427,14 +430,14 @@ AEVAL(Kl, {|broj| cKolona:=cKolona+STR(Broj,2)})
 // matrice kao karakterne memorijske varijable
 SAVE  ALL LIKE cKolona to &cImeF
 ACOPY(Kl,Kol)
-return    
+return
 
 
 /*
  * function DobraKol(Kol,i)
  * Nalazenje kolona koje se stampaju, Koristi je IzborP2
  */
- 
+
 function DobraKol(Kol,i)
 
 local n
@@ -481,7 +484,7 @@ return lVrati
 /*  StampaTabele(aKol, bZaRed, nOdvoji, nCrtice, bUslov, lA4papir, cNaslov, bFor, nStr, lOstr, lLinija, bSubTot, nSlogova, cTabBr, lCTab, bZagl)
  *
  *    Stampa tabele
- * 
+ *
  * \code
  * ULAZI
  * aKol - niz definicija kolona, npr.
@@ -548,14 +551,14 @@ if lOstr==nil; lOstr:=.t.; endif
 if nStr==nil; nStr:=1; endif
 if nCrtice==nil; nCrtice:=1; endif
 if nOdvoji==nil; nOdvoji:=0; endif
- 
+
  if bUslov==nil
  	bUslov:={|| INKEY(),IF(LASTKEY()==27,PrekSaEsc(),.t.)}
  endif
  if bZaRed==nil
  	bZaRed:={|| .t.}
  endif
- 
+
  if bFor==nil; bFor:={|| .t.}; endif
  if lCTab==nil; lCTab:=.t.; endif
  if lA4papir==nil; lA4papir:="4"; endif
@@ -1154,5 +1157,3 @@ ShowKorner(nValue, 5, nCnt)
 */
 
 return
-
-

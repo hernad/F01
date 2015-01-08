@@ -91,6 +91,7 @@ FUNCTION f01_start( oApp, lSezone )
    InitE( oApp )
 
    SetScGVar2()
+
    IF oApp:lTerminate
       RETURN
    ENDIF
@@ -99,6 +100,7 @@ FUNCTION f01_start( oApp, lSezone )
 
    IF mpar37( "/INSTALL", oApp )
       is_install( .T. )
+      oApp:setGVars()
       oApp:oDatabase:install()
    ENDIF
 

@@ -515,6 +515,7 @@ public glZabraniVisakIP
 glZabraniVisakIP:=(IzFmkIni("OPRESA","ZabraniVisakIP","N",KUMPATH)=="D")
 
 public glBrojacPoKontima
+altd()
 glBrojacPoKontima:=(IzFmkIni("KALK","BrojacPoKontima","N",KUMPATH)=="D")
 
 public glEvidOtpis

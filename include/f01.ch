@@ -37,6 +37,7 @@
 #DEFINE DRVPATH ":" + SLASH
 
 #define NOVI_RED hb_eol()
+#define NOVI_RED_DOS Chr(13)+Chr(10)
 
 #define P_NOVI_RED QOUT()
 

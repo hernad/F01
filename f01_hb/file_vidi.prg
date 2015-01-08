@@ -12,6 +12,7 @@
 #include "f01.ch"
 
 STATIC s_cFileContent := NIL
+STATIC s_cFileContentName := NIL
 
 /*  VidiFajl(cImeF, aLinFiks, aKolFiks)
  *   Pregled tekstualnog fajla
@@ -36,7 +37,7 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
    LOCAL lNevazna := .F.
    LOCAL nRed := 1
    LOCAL lSkrol := .F.
-   LOCAL nURed := BrLinFajla( cImeF )
+   LOCAL nURed
    LOCAL cKom, nLin := 21, nFRed := 0, nFRed2 := 0
    LOCAL cFajlPRN := "PRN777.TXT", nOfM1 := 0, nOfM2 := 0
    LOCAL nPrviRed := 1
@@ -54,6 +55,8 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
 
    init_file_content()
 
+   nURed := BrLinFajla( cImeF )
+   
    CSetAtMupa( .T. )
 
    IF aLinFiks != nil
@@ -100,11 +103,11 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
             IF nPrvaKol > 0
                IF Len( aKolFiks ) > 3
                   cPom77 := aKolFiks[ 4 ]
-                  @ i - 1 + nPrviRed, 0 SAY iif( !&cPom77, Space( nPrvaKol ), SubStr( PadR( aRedovi[ i, 1 ], 400 ), aKolFiks[ 1 ], nPrvaKol ) ) COLOR IF( nRed + i - 1 == nFRed, "W+/B", IF( nRed + i - 1 == nFRed2, "W+/R", cbteksta ) )
+                  @ i - 1 + nPrviRed, 0 SAY iif( !&cPom77, Space( nPrvaKol ), SubStr( PadR( aRedovi[ i, 1 ], 400 ), aKolFiks[ 1 ], nPrvaKol ) ) COLOR IIF( nRed + i - 1 == nFRed, "W+/B", IF( nRed + i - 1 == nFRed2, "W+/R", cbteksta ) )
                ELSE
                   @ i - 1 + nPrviRed, 0 SAY iif( nRed + i - 1 < aKolFiks[ 3 ], Space( nPrvaKol ), SubStr( PadR( aRedovi[ i, 1 ], 400 ), aKolFiks[ 1 ], nPrvaKol ) ) COLOR IF( nRed + i - 1 == nFRed, "W+/B", IF( nRed + i - 1 == nFRed2, "W+/R", cbteksta ) )
                ENDIF
-               @ i - 1 + nPrviRed, nPrvaKol SAY SubStr( PadR( aRedovi[ i, 1 ], 400 ), nKol + IF( aKolFiks[ 1 ] > 1, 0, nPrvaKol ), nUKol ) COLOR IF( nRed + i - 1 == nFRed, "W+/B", IF( nRed + i - 1 == nFRed2, "W+/R", cbteksta ) )
+               @ i - 1 + nPrviRed, nPrvaKol SAY SubStr( PadR( aRedovi[ i, 1 ], 400 ), nKol + IF( aKolFiks[ 1 ] > 1, 0, nPrvaKol ), nUKol ) COLOR IIF( nRed + i - 1 == nFRed, "W+/B", IIF( nRed + i - 1 == nFRed2, "W+/R", cbteksta ) )
             ELSE
                @ i - 1 + nPrviRed, 0 SAY SubStr( PadR( aRedovi[ i, 1 ], 400 ), nKol, 80 ) COLOR IF( nRed + i - 1 == nFRed, "W+/B", IF( nRed + i - 1 == nFRed2, "W+/R", cbteksta ) )
             ENDIF
@@ -165,7 +168,7 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
             IF Upper( Chr( nZnak ) ) == 'F' .OR. ;
                   cMarkF == "1" .AND. PripadaNInt( nFRed, nRed, nRed + 19 ) .OR. ;
                   cMarkF == "2" .AND. PripadaNInt( nFRed2, nRed, nRed + 19 )
-               FOR i := IF( nZnak == K_F3, iif( cMarkF == "1", nFRed, nFRed2 ) -nRed + 2, 1 ) TO nLin + 1 -nPrviRed
+               FOR i := IF( nZnak == K_F3, iif( cMarkF == "1", nFRed, nFRed2 ) - nRed + 2, 1 ) TO nLin + 1 -nPrviRed
                   IF ( nFPoz := At( Trim( cTrazi ), Upper( aRedovi[ i, 1 ] ) ) ) > 0
                      IF cMarkF == "1"
                         nFRed := nRed + i - 1
@@ -191,8 +194,9 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
 
             DO WHILE !lSkrol .AND. nRed < nURed - nLin + 1 -1 + nPrviRed
                ++nRed
-               aPom := SljedLin( cImeF, aRedovi[ nLin + 1 -nPrviRed, 2 ] )
-               nOf1l := aRedovi[ 1, 2 ]; ADel( aRedovi, 1 ); aRedovi[ nLin + 1 -nPrviRed ] := aPom
+               aPom := SljedLin( cImeF, aRedovi[ nLin + 1 - nPrviRed, 2 ] )
+               nOf1l := aRedovi[ 1, 2 ]; ADel( aRedovi, 1 )
+               aRedovi[ nLin + 1 -nPrviRed ] := aPom
                IF nZnak == K_F3 .AND. ;
                      iif( cMarkF == "1", nFRed >= nRed + nLin - 1 + 1 -nPrviRed, nFRed2 >= nRed + nLin - 1 + 1 -nPrviRed )
                   LOOP
@@ -337,10 +341,12 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
             nRed := nURed - nLin + 1 -1 + nPrviRed
          ENDIF
       CASE ( nZnak == K_CTRL_PGUP .OR. nZnak == K_HOME ) .AND. nRed > 1
-         nOf1l := 0; nRed := 1
+         nOf1l := 0
+         nRed := 1
+
       CASE ( nZnak == K_CTRL_PGDN .OR. nZnak == K_END ) .AND. nURed > nLin + 1 -nPrviRed
          nOf1l := nDF + 2
-         FOR i := 1 TO iif( FileStr( cImeF, 2, nDF - 2 ) != NOVI_RED, nLin + 1 -nPrviRed, nLin + 1 + 1 -nPrviRed )
+         FOR i := 1 TO iif( get_file_content( cImeF, LEN( _n_red() ), nDF - _n_red() ) != _n_red(), nLin + 1 - nPrviRed, nLin + 1 + 1 - nPrviRed )
             IF nOf1l > 0
                aPom := PrethLin( cImeF, nOf1l )
                nOf1l := aPom[ 2 ]
@@ -417,12 +423,12 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
                iif( cVStamp == "3", nDF - nOfM1 + 1, nDF - nOfM2 + 1 ) )
             nH := FCreate( cFajlPRN, 0 )
             DO WHILE nOfDuz > 0
-               cPomF := FileStr( cImeF, iif( nOfDuz >= 400, 400, nOfDuz ), nOfPoc )
+               cPomF := get_file_content( cImeF, iif( nOfDuz >= 400, 400, nOfDuz ), nOfPoc )
                FWrite( nH, cPomF )
                nOfPoc += 400
                nOfDuz -= 400
             ENDDO
-            FWrite( nH, NOVI_RED )
+            FWrite( nH, _n_red() )
             FClose( nH )
          ENDIF
 
@@ -473,12 +479,12 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
          nH := FCreate( cFajlPRN, 0 )
          FWrite( nH, gPINI )
          DO WHILE nOfDuz > 0
-            cPomF := FileStr( cImeF, iif( nOfDuz >= 400, 400, nOfDuz ), nOfPoc )
+            cPomF := get_file_content( cImeF, iif( nOfDuz >= 400, 400, nOfDuz ), nOfPoc )
             FWrite( nH, cPomF )
             nOfPoc += 400
             nOfDuz -= 400
          ENDDO
-         FWrite( nH, NOVI_RED )
+         FWrite( nH, _n_red() )
          FClose( nH )
 
          cKom := "LPT" + gPPort
@@ -516,36 +522,63 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
 FUNCTION init_file_content()
 
    s_cFileContent := NIL
+   altd()
 
    RETURN .T.
 
 
-FUNCTION get_file_content( cFajl, nPocetak )
+FUNCTION get_file_content( cFajl, nPocetak, nOffset )
+
+
+   LOCAL lRead := .F.
 
    IF s_cFileContent == NIL
       s_cFileContent := FileStr( cFajl, NIL )
+      s_cFileContentName := cFajl
+      lRead := .T.
    ENDIF
+
+   IF s_cFileContentName != cFajl .AND. !lRead
+      s_cFileContent := FileStr( cFajl, NIL )
+      lRead := .T.
+   ENDIF
+
 
    IF nPocetak == NIL
       nPocetak := 0
    ENDIF
 
-   RETURN SubStr( s_cFileContent, nPocetak )
+   IF nOffset != NIL
+      RETURN SubStr( s_cFileContent, nOffset, nPocetak )
+   ENDIF
+
+   RETURN SubStr( s_cFileContent, nPocetak + 1 )
 
 
-FUNCTION SljedLin( cFajl, nPocetak )
 
-   LOCAL cPom, nPom
+FUNCTION SljedLin( cFajl, nPocetak, lDos )
+
+   LOCAL cPom, nPom, cSeparator
+
+   IF lDos == NIL
+      lDos := .F.
+   ENDIF
+
+   IF lDos
+      cSeparator := NOVI_RED_DOS
+   ELSE
+      cSeparator := NOVI_RED
+   ENDIF
 
    cPom := get_file_content( cFajl, nPocetak )
 
-   nPom := At( NOVI_RED, cPom )
+   nPom := At( cSeparator, cPom )
 
    IF nPom == 0
       nPom := Len( cPom ) + 1
    ENDIF
 
-   RETURN { Left( cPom, nPom - 1 ), nPocetak + nPom + 1 }    // {cLinija,nPocetakSljedece}
+   RETURN { Left( cPom, nPom - 1 ), nPocetak + nPom + LEN( cSeparator ) - 1 }  // {cLinija, nPocetakSljedece}
 
 
 FUNCTION PrethLin( cFajl, nKraj )
@@ -554,8 +587,8 @@ FUNCTION PrethLin( cFajl, nKraj )
 
    IF nKraj - nKor - 2 < 0; nKor := nKraj - 2; ENDIF
 
-   cPom := FileStr( cFajl, nKor, nKraj - nKor - 2 )
-   nPom := RAt( NOVI_RED,cPom )
+   cPom := get_file_content( cFajl, nKor, nKraj - nKor - 2 )
+   nPom := RAt( _n_red(), cPom )
 
    RETURN iif( nPom == 0, { cPom, 0 }, { SubStr( cPom, nPom + 2 ), nKraj - nKor + nPom - 1 } )
 
@@ -566,18 +599,19 @@ FUNCTION BrLinFajla( cImeF )
 
    LOCAL nOfset := 0, nSlobMem := 0, cPom := "", nVrati := 0
 
-   IF FileStr( cImeF, 2, VelFajla( cImeF ) - 2 ) != NOVI_RED
+   IF get_file_content( cImeF, LEN( _n_red() ), VelFajla( cImeF ) - _n_red() ) != _n_red()
       nVrati := 1
    ENDIF
 
+   altd()
    DO WHILE Len( cPom ) >= nSlobMem
 
       // nSlobMem:=MEMORY(1)*1024-100
       nSlobMem := 1024
 
-      cPom := FileStr( cImeF, nSlobMem, nOfset )
+      cPom := get_file_content( cImeF, nSlobMem, nOfset )
       nOfset := nOfset + nSlobMem - 1
-      nVrati := nVrati + NumAt( NOVI_RED, cPom )
+      nVrati := nVrati + NumAt( _n_red(), cPom )
 
    ENDDO
 
@@ -589,7 +623,6 @@ FUNCTION VelFajla( cImeF, cAttr )
    LOCAL aPom := Directory( cImeF, cAttr )
 
    RETURN iif ( !Empty( aPom ), aPom[ 1, 2 ], 0 )
-
 
 
 
@@ -687,3 +720,10 @@ STATIC FUNCTION SendFile( cImeF )
    RUN &cKom
 
    RETURN 1
+
+
+FUNCTION _n_red()
+   RETURN NOVI_RED
+
+FUNCTION _n_red_dos()
+   RETURN NOVI_RED_DOS
