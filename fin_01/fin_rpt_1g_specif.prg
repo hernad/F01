@@ -911,11 +911,6 @@ private cRasclaniti:="N"
 private cRascFunkFond:="N"
 
 
-nRet := netio_funcexec( "SRV_ADD", 1, 2)
-altd()
-
-Alert( "1+2 = " + STR( nRet ) )
-
 cN2Fin:=IzFMkIni('FIN','PartnerNaziv2','N')
 
 nC:=50
