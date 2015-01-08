@@ -102,18 +102,12 @@ FUNCTION f01_start( oApp, lSezone )
       oApp:oDatabase:install()
    ENDIF
 
-   altd()
    IF mpar37( "/FN_ON_STARTUP:", oApp )
-     altd()
 
      oApp:setGVars()
      cStartFn := param_desni_dio()
      &cStartFn
    ENDIF
-
-   IniGparam2()
-   BosTipke()
-   KonvTable()
 
    IF lSezone
       oApp:oDatabase:loadSezonaRadimUSezona()

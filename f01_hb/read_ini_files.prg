@@ -37,10 +37,6 @@ if lAppend==NIL
 	lAppend:=.f.
 endif
 
-if cSection == "VINDIJA"
- altd()
-endif
-
 
 // Extension omitted : Add default extension
 if ( At ( '.', cFName ) == 0 )

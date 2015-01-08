@@ -931,7 +931,6 @@ do while !EOF()
 
 	if !Found()
 		if lPartNaz
-		  altd()
 			AADD(aRet, {temp->idpartner, temp->naz})
 		else
 			AADD(aRet, {temp->idpartner})
@@ -1014,8 +1013,6 @@ if cPoslovnica == "" .or. cPoslovnica == nil
 	return "XXXXX"
 endif
 
-altd()
-
 cRet := IzFmkIni("VINDIJA", "VPR" + cProd + "_" + cPoslovnica, "xxxx", KUMPATH)
 
 if cRet == "" .or. cRet == nil
@@ -1033,14 +1030,12 @@ return cRet
 // -----------------------------------------------------------
 static function GetTdKonto(cTipDok, cTip, cPoslovnica)
 
-altd()
-
 cRet := IzFmkIni("VINDIJA", "TD" + cTipDok + cTip + cPoslovnica, "xxxx", KUMPATH)
 
 // primjer:
 // TD14Z050=1310 // posl.sarajevo
 // TD14R050=1200
-// TD14R042=1201 // posl.tuzla npr...
+// TD14R042=1201 // posl.tuzla
 
 if cRet == "" .or. cRet == nil
 	cRet := "XXXXX"
@@ -1230,8 +1225,6 @@ do while !EOF()
 	if cTDok <> cPTDok
 		nUvecaj := 0
 	endif
-
-  altd()
 
 	if cFakt <> cPFakt
 		++ nUvecaj

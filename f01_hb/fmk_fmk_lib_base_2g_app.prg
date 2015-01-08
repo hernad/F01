@@ -115,6 +115,10 @@ method TAppMod:setGvars()
 
 	::oDesktop:=TDesktopNew()
 
+	IniGparam2()
+	BosTipke()
+	KonvTable()
+
   RETURN
 
 

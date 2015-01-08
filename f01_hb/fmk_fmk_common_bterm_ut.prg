@@ -188,7 +188,6 @@ FUNCTION TempArtExist( lSifraDob )
 
       // ako nisi nasao dodaj robu u matricu
       IF !Found()
-         AltD()
 
          nRes := AScan( aRet, {| aVal| aVal[ 1 ] == cTmpRoba } )
          IF nRes == 0
