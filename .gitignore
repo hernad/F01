@@ -1,5 +1,5 @@
 *.INI
-
+*.app
 *.exe
 hb_out.log
 .hbmk

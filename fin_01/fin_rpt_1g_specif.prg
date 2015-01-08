@@ -892,7 +892,7 @@ return aFields
 // ---------------------------------------------------
 // Specifikacija subanalitickih konta
 // ---------------------------------------------------
-function SpecPoKP()
+function fin_specif_suban_konta()
 local cSK:="N"
 local cLDrugi:=""
 local cPom:=""
@@ -903,11 +903,18 @@ local cIzr2
 local cExpRptDN:="N"
 local cOpcine := SPACE(20)
 local cVN := SPACE(20)
+LOCAL nRet := NIL
+
 private cSkVar:="N"
 private fK1:=fk2:=fk3:=fk4:="N"
 private cRasclaniti:="N"
 private cRascFunkFond:="N"
 
+
+nRet := netio_funcexec( "SRV_ADD", 1, 2)
+altd()
+
+Alert( "1+2 = " + STR( nRet ) )
 
 cN2Fin:=IzFMkIni('FIN','PartnerNaziv2','N')
 
@@ -1012,7 +1019,7 @@ Box("",20,65)
 		ESC_BCR
  		O_PARAMS
 
-    altd()
+
  		private cSection:="S"
 		private cHistory:=" "
 		private aHistory:={}
@@ -1023,8 +1030,7 @@ Box("",20,65)
  		select params
 		use
 
- 		//aUsl1:=Parsiraj(qqKonto,"IdKonto",NIL,@cIzr1)  ??
- 		//aUsl2:=Parsiraj(qqPartner,"IdPartner",NIL,@cIzr2) ??
+
  		aUsl1:=Parsiraj(qqKonto,"IdKonto")
  		aUsl2:=Parsiraj(qqPartner,"IdPartner")
  		IF gDUFRJ=="D"

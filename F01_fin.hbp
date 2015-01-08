@@ -6,6 +6,12 @@
 {F18_GT_QTC}-DF18_GT_QTC
 
 F01_fin.prg
+init_f01.prg
+fin_01/*.prg
+kalk_01/*.prg
+fakt_01/*.prg
+f01_hb/*.prg
+dummy.prg
 
 hbct.hbc
 xhb.hbc
@@ -13,6 +19,8 @@ hbxpp.hbc
 gtqtc.hbc
 -gtqtc
 
-F01.hbc
 F18_base.hbc
 hbnetio.hbc
+
+F01_exe.hbm
+F01_exe.hbm

@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -26,7 +26,7 @@ private opc := {}
 private opcexe := {}
 private izbor := 1
 
-__e_dbf_path := "c:" + SLASH + "sigma" + SLASH + "export" + SLASH 
+__e_dbf_path := "c:" + SLASH + "sigma" + SLASH + "export" + SLASH
 __e_zip_name := "kalk_exp.zip"
 
 AADD(opc,"1. => export podataka               ")
@@ -60,17 +60,16 @@ _exported := __export( _dat_od, _dat_do, _konta, _vrste_dok, _exp_sif )
 // zatvori sve tabele prije operacije pakovanja
 close all
 
-altd()
 
 // arhiviraj podatke
-if _exported > 0 
-   
+if _exported > 0
+
     // kompresuj ih u zip fajl za prenos
     _error := _compress()
 
     // sve u redu
     if _error == 0
-        
+
         // pobrisi fajlove razmjene
         del_exp_files( __e_dbf_path )
 
@@ -128,9 +127,9 @@ Box(, 11, 70 )
 
     ++ _x
     ++ _x
-        
+
     @ m_x + _x, m_y + 2 SAY "Vrste dokumenata:" GET vrste_dok PICT "@S40"
-    
+
     ++ _x
 
     @ m_x + _x, m_y + 2 SAY "Datumski period od" GET dat_od
@@ -159,7 +158,7 @@ BoxC()
 if LastKey() <> K_ESC
 
 	_ret := .t.
- 
+
  	select params
 
 	WPar( "d1", dat_od )
@@ -168,7 +167,7 @@ if LastKey() <> K_ESC
 	WPar( "v1", vrste_dok )
 	WPar( "ex", exp_sif )
 	WPar( "ed", _exp_dir )
-  
+
 	// setuj static varijablu...
 	__e_dbf_path := ALLTRIM( _exp_dir )
 
@@ -327,7 +326,7 @@ do while !EOF()
 
     // e sada mozemo komotno ici na export partnera
     select partn
-    hseek _id_partn 
+    hseek _id_partn
     if FOUND() .and. _export_sif == "D"
         Scatter()
         select e_partn
@@ -340,12 +339,12 @@ do while !EOF()
             _fill_sifk( "PARTN", _id_partn )
 	endif
      endif
- 
+
     // i konta, naravno
 
     // prvo M_KONTO
     select konto
-    hseek _m_konto 
+    hseek _m_konto
     if FOUND() .and. _export_sif == "D"
         Scatter()
         select e_konto
@@ -359,7 +358,7 @@ do while !EOF()
 
     // zatim P_KONTO
     select konto
-    hseek _p_konto 
+    hseek _p_konto
     if FOUND() .and. _export_sif == "D"
         Scatter()
         select e_konto
@@ -389,7 +388,7 @@ return _ret
 // kreiranje tabela razmjene
 // ----------------------------------------
 static function _cre_exp_tbls( use_path )
-local _cre 
+local _cre
 
 if use_path == NIL
     use_path := PRIVPATH
@@ -519,7 +518,7 @@ return
 // vraca listu fajlova koji se koriste kod prenosa
 // ----------------------------------------------------
 static function _file_list( use_path )
-local _a_files := {} 
+local _a_files := {}
 
 AADD( _a_files, use_path + "e_kalk.dbf" )
 AADD( _a_files, use_path + "e_doks.dbf" )
@@ -547,7 +546,7 @@ MsgO( "Brisem tmp fajlove ..." )
 
 for _i := 1 TO LEN( _files )
     _file := _files[ _i ]
-    if FILE( _file )
+    if File2( _file )
         // pobrisi dbf fajl
         FERASE( _file )
         // cdx takodjer ?
@@ -567,21 +566,21 @@ return
 // vraca naziv zip fajla
 // --------------------------------------------
 static function zip_name()
-local _file 
+local _file
 local _ext := ".zip"
 local _count := 1
 local _exist := .t.
 
-_file := __e_dbf_path + "kalk_e" + PADL( ALLTRIM(STR( _count )), 2, "0" ) + _ext 
-if FILE( _file )
-    
+_file := __e_dbf_path + "kalk_e" + PADL( ALLTRIM(STR( _count )), 2, "0" ) + _ext
+if File2( _file )
+
     // generisi nove nazive fajlova
-    do while _exist 
+    do while _exist
 
         ++ _count
-        _file := __e_dbf_path + "kalk_e" + PADL( ALLTRIM(STR( _count )), 2, "0" ) + _ext 
+        _file := __e_dbf_path + "kalk_e" + PADL( ALLTRIM(STR( _count )), 2, "0" ) + _ext
 
-        if !FILE( _file )
+        if !File2( _file )
             _exist := .f.
             exit
         endif
@@ -595,7 +594,7 @@ return _file
 
 
 // ------------------------------------------
-// kompresuj fajlove i vrati path 
+// kompresuj fajlove i vrati path
 // ------------------------------------------
 static function _compress()
 local _error := 0
@@ -608,13 +607,13 @@ private _cmd
 _files := _file_list( __e_dbf_path )
 _zip_f := zip_name()
 
-_cmd := _7zip 
-_cmd += " a -tzip " 
-_cmd += _zip_f 
-_cmd += " " 
+_cmd := _7zip
+_cmd += " a -tzip "
+_cmd += _zip_f
+_cmd += " "
 _cmd += "@" + PRIVPATH + "zip_lst.txt"
 
-if !FILE( _7zip )
+if !File2( _7zip )
 	MsgBeep("Ne postoji podesen 7-zip !????")
 	return _error
 endif
@@ -654,7 +653,7 @@ set console off
 for i := 1 to LEN( a_files )
 	? a_files[i]
 next
-   
+
 // Zatvori file
 set printer to
 set printer off
@@ -672,7 +671,7 @@ PushWa()
 
 select e_sifk
 
-if reccount2() == 0  
+if reccount2() == 0
 	// karakteristike upisi samo jednom i to sve
 	// za svaki slucaj !
 	select sifk
@@ -687,7 +686,7 @@ if reccount2() == 0
    		select sifk
    		skip
 	enddo
-endif 
+endif
 
 // uzmi iz sifv sve one kod kojih je ID=ROBA, idsif=2MON0002
 select sifv
@@ -708,5 +707,3 @@ enddo
 PopWa()
 
 return
-
-

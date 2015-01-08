@@ -110,7 +110,7 @@ select 99
 use
 
 
-OEdit()
+kalk_oedit()
 
 private gVarijanta:="2"
 private PicV:="99999999.9"
@@ -152,10 +152,10 @@ for i:=1 to LEN(ImeKol)
 next
 
 Box(,20,77)
-	@ m_x+17,m_y+2 SAY "<c-N>  Nove Stavke      �<ENT> Ispravi stavku    �<c-T>  Brisi Stavku   "
-	@ m_x+18,m_y+2 SAY "<c-A>  Ispravka Naloga  �<c-P> Stampa Kalkulacije�<a-A> Azuriranje      "
-	@ m_x+19,m_y+2 SAY "<a-K>  Rekap+Kontiranje �<c-F9> Brisi pripremu   �<a-P> Stampa pripreme "
-	@ m_x+20,m_y+2 SAY "<c-F8> Raspored troskova�<a-F10> asistent        �<F10>,<F11> Ost.opcije"
+	@ m_x+17,m_y+2 SAY "<c-N>  Nove Stavke      "+BOX_CHAR_USPRAVNO+"<ENT> Ispravi stavku    "+BOX_CHAR_USPRAVNO+"<c-T>  Brisi Stavku   "
+	@ m_x+18,m_y+2 SAY "<c-A>  Ispravka Naloga  "+BOX_CHAR_USPRAVNO+"<c-P> Stampa Kalkulacije"+BOX_CHAR_USPRAVNO+"<a-A> Azuriranje      "
+	@ m_x+19,m_y+2 SAY "<a-K>  Rekap+Kontiranje "+BOX_CHAR_USPRAVNO+"<c-F9> Brisi pripremu   "+BOX_CHAR_USPRAVNO+"<a-P> Stampa pripreme "
+	@ m_x+20,m_y+2 SAY "<c-F8> Raspored troskova"+BOX_CHAR_USPRAVNO+"<a-F10> asistent        "+BOX_CHAR_USPRAVNO+"<F10>,<F11> Ost.opcije"
 	IF gCijene=="1" .and. gMetodaNC==" "
   		Soboslikar({{m_x+17,m_y+1,m_x+20,m_y+77}},23,14)
 	ENDIF
@@ -171,11 +171,11 @@ return
 
 
 
-/*  OEdit()
+/*  kalk_oedit()
  *   Otvara sve potrebne baze za pripremu dokumenata
  */
 
-function OEdit()
+function kalk_oedit()
 
 O_DOKS
 O_PRIPR
@@ -228,24 +228,24 @@ do case
        		if Pitanje(,"Zelite li izvrsiti kontiranje ?","D")=="D"
          		kalk_kontiranje_naloga()
        		endif
-     		Oedit()
+     		kalk_oedit()
      		return DE_REFRESH
   	case Ch==K_ALT_P
      		close all
      		IzbDokOLPP()
      		// StPripr()
-     		Oedit()
+     		kalk_oedit()
      		return DE_REFRESH
   	case Ch==K_ALT_L
 		close all
      		label_bkod()
-   		OEdit()
+   		kalk_oedit()
      		return DE_REFRESH
 	case Ch==K_ALT_Q
 		if Pitanje(,"Stampa naljepnica(labela) za robu ?","D")=="D"
   			CLOSE ALL
 			RLabele()
-			OEdit()
+			kalk_oedit()
 			return DE_REFRESH
 		endif
 		return DE_CONT
@@ -255,14 +255,14 @@ do case
 		endif
 		close all
 		kalk_Azur()
-		Oedit()
+		kalk_oedit()
 		if PRIPR->(RECCOUNT())==0 .and. IzFMKINI("Indikatori","ImaU_KALK","N",PRIVPATH)=="D"
 			O__KALK
 			SELECT PRIPR
 			APPEND FROM _KALK
 			UzmiIzINI(PRIVPATH+"FMK.INI","Indikatori","ImaU_KALK","N","WRITE")
 			close all
-			Oedit()
+			kalk_oedit()
 			MsgBeep("Stavke koje su bile privremeno sklonjene sada su vracene! Obradite ih!")
 		endif
 		return DE_REFRESH
@@ -272,7 +272,7 @@ do case
 		endif
 		close all
 		StKalk()
-		Oedit()
+		kalk_oedit()
 		return DE_REFRESH
 	case Ch==K_CTRL_T
      		if Pitanje(,"Zelite izbrisati ovu stavku ?","D")=="D"
@@ -758,7 +758,7 @@ do while .t.
                 ENDIF
 
             case izbor == 10 .and. cIdVDTek=="19"
-                OEdit()
+                kalk_oedit()
                 select pripr
                 go top
                 cidfirma:=idfirma
@@ -809,7 +809,7 @@ do while .t.
             endcase
 enddo
 m_x:=am_x; m_y:=am_y
-OEdit()
+kalk_oedit()
 return DE_REFRESH
 
 
@@ -844,7 +844,7 @@ private am_x:=m_x,am_y:=m_y
 private Izbor:=1
 Menu_SC("osop2")
 m_x:=am_x; m_y:=am_y
-OEdit()
+kalk_oedit()
 return DE_REFRESH
 
 
@@ -1237,7 +1237,7 @@ if fsilent .or.  Pitanje(,"Rasporediti troskove ??","N")=="D"
        if TSpedTr=="R"; RTSpedTr:=.t.;RSpedTr:=SpedTr; endif
        if TZavTr =="R"; RTZavTr :=.t.;RZavTr :=ZavTr ; endif
 
-       UBankTr:=0   // do sada utro�eno na bank tr itd, radi "sitni�a"
+       UBankTr:=0   // do sada utrošeno na bank tr itd
        UPrevoz:=0
        UZavTr:=0
        USpedTr:=0
@@ -1256,7 +1256,7 @@ if fsilent .or.  Pitanje(,"Rasporediti troskove ??","N")=="D"
              else
               _Prevoz:=round( _fcj*(1-_Rabat/100)*_kolicina/nUkIzF*RPrevoz ,gZaokr)
               UPrevoz+=_Prevoz
-              if abs(RPrevoz-UPrevoz)< 0.1 // sitni�, baci ga na zadnju st.
+              if abs(RPrevoz-UPrevoz)< 0.1 // sitniš, baci ga na zadnju st.
                    skip
                    if .not. ( !eof() .and. cidfirma==idfirma .and. cidvd==idvd .and. cBrDok==BrDok )
                      _Prevoz+=(RPrevoz-UPrevoz)
@@ -1272,7 +1272,7 @@ if fsilent .or.  Pitanje(,"Rasporediti troskove ??","N")=="D"
              else
               _CarDaz:=round( _fcj*(1-_Rabat/100)*_kolicina/nUkIzF*RCarDaz ,gZaokr)
               UCardaz+=_Cardaz
-              if abs(RCardaz-UCardaz)< 0.1 // sitni�, baci ga na zadnju st.
+              if abs(RCardaz-UCardaz)< 0.1 // sitniš, baci ga na zadnju st.
                    skip
                    if .not. ( !eof() .and. cidfirma==idfirma .and. cidvd==idvd .and. cBrDok==BrDok )
                      _Cardaz+=(RCardaz-UCardaz)
@@ -1288,7 +1288,7 @@ if fsilent .or.  Pitanje(,"Rasporediti troskove ??","N")=="D"
              else
               _BankTr:=round( _fcj*(1-_Rabat/100)*_kolicina/nUkIzF*RBankTr ,gZaokr)
               UBankTr+=_BankTr
-              if abs(RBankTr-UBankTr)< 0.1 // sitni�, baci ga na zadnju st.
+              if abs(RBankTr-UBankTr)< 0.1 // sitno baci ga na zadnju st.
                    skip
                    if .not. ( !eof() .and. cidfirma==idfirma .and. cidvd==idvd .and. cBrDok==BrDok )
                      _BankTr+=(RBankTr-UBankTr)
@@ -1304,7 +1304,7 @@ if fsilent .or.  Pitanje(,"Rasporediti troskove ??","N")=="D"
              else
               _SpedTr:=round(_fcj*(1-_Rabat/100)*_kolicina/nUkIzF*RSpedTr,gZaokr)
               USpedTr+=_SpedTr
-              if abs(RSpedTr-USpedTr)< 0.1 // sitni�, baci ga na zadnju st.
+              if abs(RSpedTr-USpedTr)< 0.1 // sitno baci ga na zadnju st.
                    skip
                    if .not. ( !eof() .and. cidfirma==idfirma .and. cidvd==idvd .and. cBrDok==BrDok )
                      _SpedTr+=(RSpedTr-USpedTr)
@@ -1320,7 +1320,7 @@ if fsilent .or.  Pitanje(,"Rasporediti troskove ??","N")=="D"
              else
               _ZavTr:=round( _fcj*(1-_Rabat/100)*_kolicina/nUkIzF*RZavTr ,gZaokr)
               UZavTR+=_ZavTR
-              if abs(RZavTR-UZavTR)< 0.1 // sitni�, baci ga na zadnju st.
+              if abs(RZavTR-UZavTR)< 0.1 // sitnio, baci ga na zadnju st.
                    skip
                    if .not. ( !eof() .and. cidfirma==idfirma .and. cidvd==idvd .and. cBrDok==BrDok )
                      _ZavTR+=(RZavTR-UZavTR)
@@ -1627,7 +1627,7 @@ return
 
 function PlusMinusKol()
 
-  OEdit()
+  kalk_oedit()
   SELECT PRIPR
   GO TOP
   DO WHILE !EOF()
@@ -1653,7 +1653,7 @@ return
 
 function UzmiTarIzSif()
 
-  OEdit()
+  kalk_oedit()
   SELECT PRIPR
   GO TOP
   DO WHILE !EOF()
@@ -1680,7 +1680,7 @@ return
 function DiskMPCSAPP()
 
 aPorezi:={}
-OEdit()
+kalk_oedit()
 SELECT PRIPR
 GO TOP
 DO WHILE !EOF()
@@ -1713,7 +1713,7 @@ return
 
 function MPCSAPPuSif()
 
-  OEdit()
+  kalk_oedit()
   SELECT PRIPR
   GO TOP
   DO WHILE !EOF()
@@ -1741,7 +1741,7 @@ return
 
 function MPCSAPPiz80uSif()
 
-  OEdit()
+  kalk_oedit()
 
   cIdFirma := gFirma
   cIdVdU   := "80"
@@ -1782,7 +1782,7 @@ return
 
 function VPCSifUDok()
 
-  OEdit()
+  kalk_oedit()
   SELECT PRIPR
   GO TOP
   DO WHILE !EOF()
@@ -2129,7 +2129,7 @@ endif
 
 if (fFaktD .and. !fstara .and. gFakt!="0 ")
 	start print cret
-	OEdit()
+	kalk_oedit()
 	select PRIPR
 	set order to 1
 	go top
@@ -2170,7 +2170,7 @@ function PopustKaoNivelacijaMP()
 
 local lImaPromjena
 lImaPromjena:=.f.
-OEdit()
+kalk_oedit()
 select pripr
 go top
 do while !eof()

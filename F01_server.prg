@@ -28,9 +28,12 @@ REQUEST DBFCDX
 REQUEST hb_DirExists
 REQUEST hb_DirCreate
 
+
 PROCEDURE Main()
 
    LOCAL pSockSrv, lExists
+
+   OutStd( "ver 0.3.0" + hb_eol() )
 
    f01_gvars_init()
 
@@ -38,6 +41,7 @@ PROCEDURE Main()
    rddSetDefault( "DBFCDX" )
 
    pSockSrv := netio_MTServer( DBPORT,,, /* RPC */ .T., DBPASSWD )
+
    IF Empty( pSockSrv )
       ? "Cannot start NETIO server !!!"
       WAIT "Press any key to exit..."
@@ -100,9 +104,15 @@ PROCEDURE Main()
    RETURN
 
 
+FUNCTION  HELLO_NETIO()
+   RETURN "HELLO NETIO"
+
+
 PROCEDURE createdb( cName )
 
    LOCAL n
+
+   srv_add( 10, 20 )
 
    dbCreate( cName, { ;
       { "F1", "C", 20, 0 }, ;
@@ -110,16 +120,22 @@ PROCEDURE createdb( cName )
       { "F3", "N", 10, 2 }, ;
       { "F4", "T",  8, 0 } } )
    ? "create neterr:", NetErr(), hb_osError()
+
    USE ( cName )
    ? "use neterr:", NetErr(), hb_osError()
-   WHILE LastRec() < 100
+
+
+   WHILE LastRec() < 100000000000
       dbAppend()
       n := RecNo() - 1
+      ? Recno()
+
       field->F1 := Chr( n % 26 + Asc( "A" ) ) + " " + Time()
       field->F2 := field->F1
       field->F3 := n / 100
       field->F4 := hb_DateTime()
    ENDDO
+
    INDEX ON field->F1 TAG T1
    INDEX ON field->F3 TAG T3
    INDEX ON field->F4 TAG T4
@@ -169,4 +185,13 @@ RETURN .T.
 
 function f01_gvars_init()
 
-public gReadOnly := .f.
+   public gReadOnly := .f.
+   RETURN .T.
+
+
+function SRV_ADD( n1, n2 )
+ 
+  ? n1, "+", n2, "=", n1 + n2
+ 
+  RETURN n1 + n2
+

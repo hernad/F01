@@ -50,7 +50,7 @@ if goModul:oDatabase:cRadimUSezona<>"RADP"
 	return 0
 endif
 
-if !file(ToUnix(cPom+ SLASH + "SQLPAR.DBF"))
+if !File2(ToUnix(cPom+ SLASH + "SQLPAR.DBF"))
  //sql parametri
  aDbf := {}
  AADD (aDbf, {"_OID_POC",   "N", 12, 0})

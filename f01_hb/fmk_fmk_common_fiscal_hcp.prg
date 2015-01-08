@@ -1001,7 +1001,7 @@ do while nTime > 0
 
 	-- nTime
 
-	if FILE( cTmp )
+	if File2( cTmp )
 		// fajl se pojavio - izadji iz petlje !
 		exit
 	endif
@@ -1014,7 +1014,7 @@ enddo
 
 BoxC()
 
-if !FILE(cTmp)
+if !File2(cTmp)
 	lOk := .f.
 else
 	// obrisi fajl "OK"
@@ -1108,7 +1108,7 @@ do while nTime > 0
 
 	-- nTime
 
-	if FILE( cF_name )
+	if File2( cF_name )
 		// fajl se pojavio - izadji iz petlje !
 		exit
 	endif
@@ -1121,7 +1121,7 @@ enddo
 
 BoxC()
 
-if !FILE( cF_name )
+if !File2( cF_name )
 	msgbeep("Fajl " + cF_name + " ne postoji !!!")
 	nErr := -9
 	return nErr
@@ -1222,7 +1222,7 @@ do while nTime > 0
 
 	-- nTime
 
-	if FILE( cF_name )
+	if File2( cF_name )
 		// fajl se pojavio - izadji iz petlje !
 		exit
 	endif
@@ -1235,7 +1235,7 @@ enddo
 
 BoxC()
 
-if !FILE( cF_name )
+if !File2( cF_name )
 	msgbeep("Fajl " + cF_name + " ne postoji !!!")
 	nErr := -9
 	return nErr

@@ -572,7 +572,7 @@ close all
 CreTemp(aDbf)
 O_TEMP
 
-if !File(PRIVPATH + SLASH + "TEMP.DBF")
+if !File2(PRIVPATH + SLASH + "TEMP.DBF")
 	MsgBeep("Ne mogu kreirati fajl TEMP.DBF!")
 	return
 endif
@@ -1844,7 +1844,7 @@ if lAsPokreni
 	// pozovi asistenta
 	KUnos(.t.)
 else
-	OEdit()
+	kalk_oedit()
 endif
 
 if lStampaj == .t.
@@ -1855,7 +1855,7 @@ endif
 
 kalk_Azur( .t. )
 
-OEdit()
+kalk_oedit()
 
 // ako postoje zavisni dokumenti non stop ponavljaj proceduru obrade
 private nRslt
@@ -1869,7 +1869,7 @@ do while (ChkKPripr(cIdVd, @nRslt) <> 0)
 			// otvori pripremu
 			KUnos(.t.)
 		else
-			OEdit()
+			kalk_oedit()
 		endif
 
 		if lStampaj == .t.
@@ -1877,7 +1877,7 @@ do while (ChkKPripr(cIdVd, @nRslt) <> 0)
 		endif
 
 		kalk_Azur( .t. )
-		OEdit()
+		kalk_oedit()
 
 	endif
 
@@ -1888,7 +1888,7 @@ do while (ChkKPripr(cIdVd, @nRslt) <> 0)
 
 		MsgBeep("Postoji dokument u pripremi koji je sumljiv!!!#Radi se o veznom dokumentu ili nekoj drugoj gresci...#Obradite ovaj dokument i autoimport ce nastaviti dalje sa radom !")
 		KUnos()
-		OEdit()
+		kalk_oedit()
 
 	endif
 enddo

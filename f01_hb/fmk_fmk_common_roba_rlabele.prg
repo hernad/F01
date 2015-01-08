@@ -121,11 +121,11 @@ local cPom, aDbf
 
 SELECT(F_RLABELE)
 cPom:=PRIVPATH+"rLabele"
-if (FILE(cPom+".dbf") .and. FERASE(cPom+".dbf")==-1)
+if (File2(cPom+".dbf") .and. FERASE(cPom+".dbf")==-1)
 	MsgBeep("Ne mogu izbrisati"+cPom+".dbf !")
 	ShowFError()
 endif
-if (FILE(cPom+".cdx") .and. FERASE(cPom+".cdx")==-1)
+if (File2(cPom+".cdx") .and. FERASE(cPom+".cdx")==-1)
 	MsgBeep("Ne mogu izbrisati"+cPom+".cdx !")
 	ShowFError()
 endif

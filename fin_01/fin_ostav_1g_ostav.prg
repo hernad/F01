@@ -1402,7 +1402,7 @@ ENDIF
 
 private picBHD:=FormPicL(gPicBHD,14)
 
-IF lIzgen .or. !FILE("TEMP12.DBF")
+IF lIzgen .or. !File2("TEMP12.DBF")
   aTmp := {}
   AADD( aTmp , { "BRDOK"    , "C" , 10 , 0 } )
   AADD( aTmp , { "IZNOSBHD" , "N" , 17 , 2 } )
@@ -1415,7 +1415,7 @@ USE_EXCLUSIVE ("TEMP12") ALIAS TEMP12
 index on brisano tag "BRISAN"
 //ZAP
 
-IF lIzgen .or. !FILE("TEMP60.DBF")
+IF lIzgen .or. !File2("TEMP60.DBF")
   aTmp := {}
   AADD( aTmp , { "BRDOK"    , "C" , 10 , 0 } )
   AADD( aTmp , { "IZNOSBHD" , "N" , 17 , 2 } )

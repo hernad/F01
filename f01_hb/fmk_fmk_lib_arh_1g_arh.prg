@@ -29,8 +29,8 @@ gArhdir:=trim(gArhDir)
 cDbfKontr:=ToUnix(gArhDir+SLASH+OtkUredj(cDirRad) + SLASH + "_podar_.dbf")
 cPomD:=ToUnix(gArhDir+SLASH+OtkUredj(cDirRad))
 
-if !file(cDbfKontr)
-    if !file(cPomD)
+if !File2(cDbfKontr)
+    if !File2(cPomD)
        if !DIRMAK2(cPomD)
           Beep(2)
           Msg("ne mogu kreirati dir "+cPomD)
@@ -433,7 +433,7 @@ function NapraviCRC(cFajl,n1,n2)
 
  LOCAL nH:=0
   IF cFajl==NIL; cFajl:="CRC.CRC"; ENDIF
-  IF FILE( cFajl )
+  IF File2( cFajl )
     FERASE( cFajl )
   ENDIF
   nH := FCREATE( cFajl , 0 )

@@ -277,11 +277,9 @@ if (lSamoKesiraj==nil)
 	lSamoKesiraj:=.f.
 endif
 
-#ifdef CLIP
-? "Privpath =", PRIVPATH, ";", goModul:oDatabase:cDirPriv, ";", cDirPriv
-#endif
 
 O_PARAMS
+
 public gMeniSif:=.f.
 private cSection:="1"
 private cHistory:=" "
@@ -335,11 +333,6 @@ return
 function IniPrinter()
 
 
-*
-* procitaj gprinter, gpini, itd..
-* postavi shift F2 kao hotkey
-
-
 if gModul $ "EPDV"
 	public gPrinter:="R"
 elseif gModul $ "TOPS#HOPS"
@@ -351,7 +344,7 @@ endif
 InigEpson()
 public gMeniSif:=.f., gValIz:="280 ", gValU:="000 ", gKurs:="1"
 
-if file(ToUnix( SLASH + "GPARAMS.DBF"))
+if file( ToUnix( SLASH + "GPARAMS.DBF"))
 
 O_GPARAMS
 O_PARAMS

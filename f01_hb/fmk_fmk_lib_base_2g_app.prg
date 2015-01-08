@@ -323,7 +323,7 @@ Box(, 20, 70)
  	select params
 	use
  	if cPosebno=="D"
-   		if !file(PRIVPATH+"gparams.dbf")
+   		if !File2(PRIVPATH+"gparams.dbf")
 			cScr:=""
       			save screen to cscr
       			CopySve("gpara*.*", SLASH, PRIVPATH)
@@ -614,7 +614,7 @@ if nScan > 0
 
 endif
 
-if !EMPTY(cViewer) .and. !FILE( cViewer )
+if !EMPTY(cViewer) .and. !File2( cViewer )
 	msgbeep("Ne mogu naci Acrobat Reader!#Podesite rucno lokaciju preglednika...")
 endif
 

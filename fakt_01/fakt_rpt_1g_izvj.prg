@@ -2090,7 +2090,7 @@ RETURN cVrati
 
 function TmpFakt()
 
-RETURN TEMPFILE(KUMPATH,"CDX",0)
+RETURN TempFile(KUMPATH,"CDX",0)
 
 
 

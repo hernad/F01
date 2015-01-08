@@ -163,7 +163,7 @@ endif
 AddBs(@cTKumPath)
 
 // provjeri da li postoje fajloci na destinaciji
-if (!FILE(cTKumPath+"POS.DBF") .or. !FILE(cTKumPath+"POS.CDX"))
+if (!File2(cTKumPath+"POS.DBF") .or. !File2(cTKumPath+"POS.CDX"))
 	MsgBeep("Na zadatim lokacijama ne postoje tabele!")
 	return
 endif

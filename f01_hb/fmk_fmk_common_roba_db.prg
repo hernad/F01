@@ -77,11 +77,11 @@ AADD(aDBf,{ 'Opis'                , 'M' ,  10 ,  0 })
 // omoguciti editovanje opisa
 AADD(aDBf,{ 'BARKOD'                , 'C' ,  13 ,  0 })
 
-if !file(SIFPATH+"ROBA.dbf")
+if !File2( SIFPATH+"ROBA.dbf" )
         dbcreate2(SIFPATH+'ROBA.DBF',aDbf)
 endif
 
-if !file(PRIVPATH+"_ROBA.dbf")
+if !File2( PRIVPATH+"_ROBA.dbf" )
         dbcreate2(PRIVPATH+'_ROBA.DBF',aDbf)
 endif
 
@@ -136,7 +136,7 @@ endif
 
 
 // TARIFA
-if !file(SIFPATH+"TARIFA.dbf")
+if !File2(SIFPATH+"TARIFA.dbf")
         aDbf:={}
         AADD(aDBf,{ 'ID'                  , 'C' ,   6 ,  0 })
         add_f_mcode(@aDbf)
@@ -154,7 +154,7 @@ CREATE_INDEX("naz","naz", SIFPATH+"TARIFA")
 index_mcode(SIFPATH, "TARIFA")
 
 // KONCIJ
-if !file(SIFPATH+"KONCIJ.dbf")
+if !File2(SIFPATH+"KONCIJ.dbf")
    aDbf:={}
    AADD(aDBf,{ 'ID'                  , 'C' ,   7 ,  0 })
    add_f_mcode(@aDbf)
@@ -168,7 +168,7 @@ CREATE_INDEX("ID","id",SIFPATH+"KONCIJ") // konta
 index_mcode(SIFPATH, "KONCIJ")
 
 // TRFP
-if !file(SIFPATH+"trfp.dbf")
+if !File2(SIFPATH+"trfp.dbf")
         aDbf:={}
         AADD(aDBf,{ 'ID'                  , 'C' ,  60 ,  0 })
         add_f_mcode(@aDbf)
@@ -189,7 +189,7 @@ index_mcode(SIFPATH, "TRFP")
 
 
 // SAST
-if !file(SIFPATH+"SAST.DBF")
+if !File2(SIFPATH+"SAST.DBF")
    aDBf:={}
    AADD(aDBf,{ 'ID'                  , 'C' ,   10 ,  0 })
    AADD(aDBf,{ 'R_BR'                , 'N' ,    4 ,  0 })
@@ -211,7 +211,7 @@ use
 CREATE_INDEX("NAZ", "ID2+ID", SIFPATH + "SAST")
 
 
-if !file(PRIVPATH+"BARKOD.DBF")
+if !File2(PRIVPATH+"BARKOD.DBF")
    aDBf:={}
    AADD(aDBf,{ 'ID'                  , 'C' ,   10 ,  0 })
    AADD(aDBf,{ 'BARKOD'              , 'C' ,   13 ,  0 })

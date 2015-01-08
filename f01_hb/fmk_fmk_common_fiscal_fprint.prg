@@ -1600,7 +1600,7 @@ if EMPTY( ALLTRIM( gFc_answ ) )
 endif
 
 // ako postoji fajl obrisi ga
-if FILE( cF_name )
+if File2( cF_name )
 	if FERASE( cF_name ) = -1
 		msgbeep("Greska sa brisanjem fajla odgovora !")
 	endif
@@ -1614,7 +1614,7 @@ return
 // ----------------------------------------------
 function fp_d_out( cFile )
 
-if FILE( cFile )
+if File2( cFile )
  if FERASE( cFile ) = -1
 	msgbeep("Greska sa brisanjem izlaznog fajla !")
  endif
@@ -1667,7 +1667,7 @@ do while nTime > 0
 
 	-- nTime
 
-	if FILE( cF_name )
+	if File2( cF_name )
 		// fajl se pojavio - izadji iz petlje !
 		exit
 	endif
@@ -1680,7 +1680,7 @@ enddo
 
 BoxC()
 
-if !FILE( cF_name )
+if !File2( cF_name )
 	msgbeep("Fajl " + cF_name + " ne postoji !!!")
 	nFisc_no := 0
 	nErr := -9

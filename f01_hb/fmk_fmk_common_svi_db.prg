@@ -45,7 +45,7 @@ if (IsRamaGlas().or.gModul=="FAKT".and.glRadNal)
 	O_RNAL
 endif
 
-if FILE(SIFPATH + "RULES.DBF")
+if File2(SIFPATH + "RULES.DBF")
 	O_RULES
 endif
 
@@ -101,7 +101,7 @@ return
 function CreFmkSvi()
 
 // RJ
-if !file(KUMPATH+"RJ.DBF")
+if !File2(KUMPATH+"RJ.DBF")
    	aDBf:={}
    	if goModul:oDataBase:cName $ "LD#PORLD"
    		AADD(aDBf,{ 'ID'                  , 'C' ,   2 ,  0 })
@@ -137,10 +137,10 @@ AADD(aDBf,{ 'DZIROR'              , 'C' ,  22 ,  0 })
 AADD(aDBf,{ 'TELEFON'             , 'C' ,  12 ,  0 })
 AADD(aDBf,{ 'FAX'                 , 'C' ,  12 ,  0 })
 AADD(aDBf,{ 'MOBTEL'              , 'C' ,  20 ,  0 })
-if !file(SIFPATH+"PARTN.dbf")
+if !File2(SIFPATH+"PARTN.dbf")
         dbcreate2(SIFPATH+'PARTN.DBF',aDbf)
 endif
-if !file(PRIVPATH+"_PARTN.dbf")
+if !File2(PRIVPATH+"_PARTN.dbf")
         dbcreate2(PRIVPATH+'_PARTN.DBF',aDbf)
 endif
 CREATE_INDEX("ID","id",SIFPATH+"PARTN") // firme
@@ -149,7 +149,7 @@ CREATE_INDEX("ID","id",PRIVPATH+"_PARTN")
 index_mcode(SIFPATH, "PARTN")
 
 // KONTO
-if !file(SIFPATH+"KONTO.dbf")
+if !File2(SIFPATH+"KONTO.dbf")
    aDbf:={}
    AADD(aDBf,{ 'ID'                  , 'C' ,   7 ,  0 })
    add_f_mcode(@aDbf)
@@ -162,7 +162,7 @@ CREATE_INDEX("NAZ","naz",SIFPATH+"KONTO")
 index_mcode(SIFPATH, "KONTO")
 
 // VALUTE
-if !file(SIFPATH+"VALUTE.DBF")
+if !File2(SIFPATH+"VALUTE.DBF")
         aDbf:={}
         AADD(aDBf,{ 'ID'                  , 'C' ,   4 ,  0 })
         add_f_mcode(@aDbf)
@@ -191,7 +191,7 @@ CREATE_INDEX("ID2","id+dtos(datum)", SIFPATH+"VALUTE")
 index_mcode(SIFPATH, "VALUTE")
 
 // TOKVAL
-if !file(SIFPATH+'TOKVAL.dbf')
+if !File2(SIFPATH+'TOKVAL.dbf')
         aDbf:={}
         AADD(aDBf,{ 'ID'                  , 'C' ,  8  ,  2 })
 	AADD(aDBf,{ 'NAZ'                 , 'N' ,  8 ,   2 })
@@ -201,7 +201,7 @@ endif
 CREATE_INDEX("ID","id",SIFPATH+"tokval")
 
 // SIFK
-if !file(SIFPATH+"SIFK.dbf")
+if !File2(SIFPATH+"SIFK.dbf")
    aDbf:={}
    AADD(aDBf,{ 'ID'                  , 'C' ,   8 ,  0 })
    AADD(aDBf,{ 'SORT'                , 'C' ,   2 ,  0 })
@@ -243,7 +243,7 @@ CREATE_INDEX("ID2","id+oznaka",SIFPATH+"SIFK")
 CREATE_INDEX("NAZ","naz",SIFPATH+"SIFK")
 
 // SIFV
-if !file(SIFPATH+"SIFV.dbf")  // sifrarnici - vrijednosti karakteristika
+if !File2(SIFPATH+"SIFV.dbf")  // sifrarnici - vrijednosti karakteristika
    aDbf:={}
    AADD(aDBf,{ 'ID'                  , 'C' ,   8 ,  0 })
    AADD(aDBf,{ 'Oznaka'              , 'C' ,   4 ,  0 })
@@ -263,7 +263,7 @@ CREATE_INDEX("NAZ","id+oznaka+naz",SIFPATH+"SIFV")
 
 
 // TNAL
-if !file(SIFPATH+"TNAL.dbf")
+if !File2(SIFPATH+"TNAL.dbf")
         aDbf:={}
         AADD(aDBf,{ 'ID'                  , 'C' ,   2 ,  0 })
         add_f_mcode(@aDbf)
@@ -275,7 +275,7 @@ CREATE_INDEX("NAZ","naz",SIFPATH+"TNAL")
 index_mcode(SIFPATH, "TNAL")
 
 // TDOK
-if !file(SIFPATH+"TDOK.dbf")
+if !File2(SIFPATH+"TDOK.dbf")
         aDbf:={}
         AADD(aDBf,{ 'ID'                  , 'C' ,   2 ,  0 })
         add_f_mcode(@aDbf)
@@ -288,7 +288,7 @@ index_mcode(SIFPATH, "TDOK")
 
 
 // REFER
-if !file(SIFPATH+"REFER.DBF")
+if !File2(SIFPATH+"REFER.DBF")
    aDBf:={}
    AADD(aDBf,{ 'ID'                  , 'C' ,  10 ,  0 })
    AADD(aDBf,{ 'IDOPS'               , 'C' ,   4 ,  0 })
@@ -301,7 +301,7 @@ CREATE_INDEX("NAZ","naz",SIFPATH+"REFER")
 
 
 // OPS
-if !file(SIFPATH+"OPS.DBF")
+if !File2(SIFPATH+"OPS.DBF")
    aDBf:={}
    AADD(aDBf,{ 'ID'                  , 'C' ,   4 ,  0 })
    AADD(aDBf,{ 'IDJ'                 , 'C' ,   3 ,  0 })
@@ -329,7 +329,7 @@ CREATE_INDEX("NAZ","naz",SIFPATH+"OPS")
 index_mcode(SIFPATH, "OPS")
 
 // BANKE
-if !file(SIFPATH+"BANKE.DBF")
+if !File2(SIFPATH+"BANKE.DBF")
         aDbf:={}
         AADD(aDBf,{ 'ID'                  , 'C' ,   3 ,  0 })
         add_f_mcode(@aDbf)
@@ -343,7 +343,7 @@ CREATE_INDEX("NAZ","naz", SIFPATH+"BANKE")
 index_mcode(SIFPATH, "BANKE")
 
 // RNAL
-if !file(SIFPATH+"RNAL.DBF")
+if !File2(SIFPATH+"RNAL.DBF")
    aDBf:={}
    AADD(aDBf,{ 'ID'                  , 'C' ,  10 ,  0 })
    add_f_mcode(@aDbf)

@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -76,11 +76,11 @@ static function set_f_tbl(cFirma, cIdVd, dDatOd, dDatDo, ;
 local cFilter := ".t."
 
 if !EMPTY(cFirma)
-	cFilter += " .and. idfirma == " + cm2str(cFirma) 
+	cFilter += " .and. idfirma == " + cm2str(cFirma)
 endif
 
 if !EMPTY(cIdVd)
-	cFilter += " .and. " + cIdVd 
+	cFilter += " .and. " + cIdVd
 endif
 
 if !EMPTY(DTOS(dDatOd))
@@ -92,15 +92,15 @@ if !EMPTY(DTOS(dDatDo))
 endif
 
 if !EMPTY(cMagKto)
-	cFilter += " .and. " + cMagKto 
+	cFilter += " .and. " + cMagKto
 endif
 
 if !EMPTY(cProdKto)
-	cFilter += " .and. " + cProdKto 
+	cFilter += " .and. " + cProdKto
 endif
 
 if !EMPTY(cPartner)
-	cFilter += " .and. idpartner == " + cm2str(cPartner) 
+	cFilter += " .and. idpartner == " + cm2str(cPartner)
 endif
 
 MsgO("pripremam pregled ... sacekajte trenutak !")
@@ -158,7 +158,7 @@ select (nTArea)
 return cStatus
 
 // ----------------------------------------
-// key handler za browse_dok 
+// key handler za browse_dok
 // ----------------------------------------
 static function brow_keyhandler(Ch)
 
@@ -166,9 +166,9 @@ do case
 	case UPPER(CHR(Ch)) ==  "I"
 
 		scatter()
-			
+
 		Box(, 3, 65 )
-			@ m_x + 1, m_y + 2 SAY "Ispravke na dokumentu ***"	
+			@ m_x + 1, m_y + 2 SAY "Ispravke na dokumentu ***"
 			@ m_x + 3, m_y + 2 SAY "Dokument:" GET _brfaktp
 			read
 		BoxC()
@@ -184,7 +184,7 @@ do case
 	case Ch == K_CTRL_P
 		// stampa dokumenta
 		return DE_CONT
-		
+
 	case UPPER(CHR(Ch)) ==  "P"
 		// povrat dokumenta u pripremu
 		return DE_CONT
@@ -202,33 +202,33 @@ local nX := 1
 private GetList:={}
 
 Box(, 10, 65)
-	
+
 	set cursor on
-	
+
 	@ nX + m_x, 2 + m_y SAY "Firma" GET cFirma
-	
+
 	++ nX
-	
-	@ nX + m_x, 2 + m_y SAY "Datumski period od" GET dDatOd 
-	
+
+	@ nX + m_x, 2 + m_y SAY "Datumski period od" GET dDatOd
+
 	@ nX + m_x, col() + 1 SAY "do" GET dDatDo
 
 	nX := nX + 2
-	
+
 	@ nX + m_x, 2 + m_y SAY "Vrsta dokumenta (prazno-svi)" GET cIdVd PICT "@S30"
 
 	++ nX
 
 	@ nX + m_x, 2 + m_y SAY "Magacinski konto (prazno-svi)" GET cMagKto PICT "@S30"
-	
+
 	++ nX
 
 	@ nX + m_x, 2 + m_y SAY "Prodavnicki konto (prazno-svi)" GET cProdKto PICT "@S30"
 
 	nX := nX + 2
-	
+
 	@ nX + m_x, 2 + m_y SAY "Partner:" GET cPartner VALID EMPTY(cPartner) .or. p_firma(@cPartner)
-	
+
 	read
 BoxC()
 
@@ -247,6 +247,10 @@ return 1
 // browse dokumenata hronoloski
 // --------------------------------------------
 function BrowseHron()
+
+
+altd()
+
 O_ROBA
 O_KONCIJ
 O_KALK
@@ -258,7 +262,6 @@ O_DOKS
 select kalk
 select doks
 set order to 3
-//CREATE_INDEX("DOKSi3","IdFirma+dtos(datdok)+podbr","DOKS")
 
 Box(,19,77)
 
@@ -272,6 +275,7 @@ AADD(ImeKol,{ "P.Konto",    {|| pkonto}                    })
 AADD(ImeKol,{ "Nab.Vr",     {|| transform(nv,gpicdem)}                          })
 AADD(ImeKol,{ "VPV",        {|| transform(vpv,gpicdem)}                          })
 AADD(ImeKol,{ "MPV",        {|| transform(mpv,gpicdem)}                          })
+
 Kol:={}
 for i:=1 to len(ImeKol); AADD(Kol,i); next
 
@@ -289,16 +293,21 @@ return
 // key handler za hronoloski pregled
 // ---------------------------------------------
 function EdHron(Ch)
+
 local cDn:="N",nTrecDok:=0,nRet:=DE_CONT
+
 do case
   CASE Ch==K_CTRL_PGUP
      Tb:GoTop()
     nRet:=DE_REFRESH
+
   CASE Ch==K_CTRL_PGDN
      Tb:GoBottom()
     nRet:=DE_REFRESH
+
   case Ch==K_ESC
     nRet:=DE_ABORT
+
   case Ch==ASC(" ")
 
      select doks
@@ -312,6 +321,7 @@ do case
         Msgbeep("Dokument je prvi unutar zadatog datuma")
         go nTrecDok; return DE_CONT
      endif
+
      cGPodbr:=PodBr
      cGIdvd:=idvd
      cGBrdok:=brdok
@@ -341,12 +351,14 @@ do case
      seek cidfirma+cgidvd+cgbrdok
      replace podbr with cPodbr
 
-     select kalk; set order to 1
+     select kalk
+		 set order to 1
      seek cidfirma+cidvd+cbrdok
      do while !eof() .and. cIdFirma+cidvd+cbrdok=idfirma+idvd+brdok
        replace podbr with cGPodbr
        skip
      enddo
+
      seek cidfirma+cgidvd+cgbrdok
      do while !eof() .and. cIdFirma+cgidvd+cgbrdok=idfirma+idvd+brdok
        replace podbr with cPodbr
@@ -429,7 +441,7 @@ return nRet
 
 
 /*  BrowseKart()
- *   Browse prikaz kartice artikla 
+ *   Browse prikaz kartice artikla
  */
 
 function BrowseKart()
@@ -755,6 +767,3 @@ do case
      nRet:=DE_REFRESH
 endcase
 return nRet
-
-
-

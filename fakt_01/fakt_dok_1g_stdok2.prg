@@ -518,7 +518,7 @@ if fDelphiRB
 
    nSek0 := SECONDS()
    nSekW := VAL( IzFMKIni("FAKT","CekanjeNaSljedeciPozivDRB","6",KUMPATH) )
-   DO WHILE FILE(PRIVPATH+"POM.DBF")
+   DO WHILE File2(PRIVPATH+"POM.DBF")
      FERASE(PRIVPATH+"POM.DBF")
      IF SECONDS()-nSek0 > nSekW
        IF Pitanje(,"Zauzet POM.DBF (112). Pokusati ponovo? (D/N)","D")=="D"
@@ -1598,7 +1598,7 @@ static function UgRabTXT()
 
 local cPom:=""
 local cFajl:=PRIVPATH+gFUgRab
-if FILE(cFajl)
+if File2(cFajl)
 	cPom:=FILESTR(cFajl)
 endif
 return cPom

@@ -328,7 +328,7 @@ close all
 CreTemp(aDbf, .f.)
 O_TEMP
 
-if !File(PRIVPATH + SLASH + "TEMP.DBF")
+if !File2(PRIVPATH + SLASH + "TEMP.DBF")
 	MsgBeep("Ne mogu kreirati fajl TEMP.DBF!")
 	return
 endif
@@ -454,7 +454,7 @@ close all
 CreTemp(aDbf)
 O_TEMP
 
-if !File(PRIVPATH + SLASH + "TEMP.DBF")
+if !File2(PRIVPATH + SLASH + "TEMP.DBF")
 	MsgBeep("Ne mogu kreirati fajl TEMP.DBF!")
 	return
 endif
@@ -780,8 +780,6 @@ nUvecaj:=1
 cFakt := ALLTRIM(temp->brdok)
 cTDok := GetKTipDok( ALLTRIM(temp->idtipdok) )
 
-altd()
-
 cBrojKalk := SljBrKalk( cTDok, gFirma, cSufix )
 
 do while !EOF()
@@ -882,12 +880,12 @@ if lAsPokreni
 	KUnos(.t.)
     if __trosk == .t.
 		// otvori tabele
-		OEdit()
+		kalk_oedit()
 		// fSilent = .t.
 		RaspTrosk( .t. )
 	endif
 else
-	OEdit()
+	kalk_oedit()
 endif
 
 if lStampaj == .t.
@@ -898,6 +896,6 @@ endif
 
 kalk_Azur( .t. )
 
-OEdit()
+kalk_oedit()
 
 return

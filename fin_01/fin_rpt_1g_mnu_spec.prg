@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -12,7 +12,7 @@
 
 #include "fin01.ch"
 
- 
+
 function MnuSpecif()
 private opc:={}
 private opcexe:={}
@@ -27,7 +27,7 @@ AADD(opcexe, {|| SpecPop()})
 AADD(opc, "4. po analitickim kontima")
 AADD(opcexe, {|| SpecPoK()})
 AADD(opc, "5. po subanalitickim kontima")
-AADD(opcexe, {|| SpecPoKP()})
+AADD(opcexe, {|| fin_specif_suban_konta()})
 AADD(opc, "6. za subanaliticki konto / 2")
 AADD(opcexe, {|| SpecSubPro()})
 AADD(opc, "7. za subanaliticki konto/konto2")
@@ -75,5 +75,3 @@ AADD(opcexe, {|| spec_sub()})
 
 Menu_SC("spg")
 return
-
-

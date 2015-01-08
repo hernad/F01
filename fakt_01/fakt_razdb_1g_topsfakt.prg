@@ -39,7 +39,7 @@ Box("#PREUZIMANJE TOPS->FAKT",6,70)
 		return
 	endif
 	cTopsFakt:=trim(cLokacija)+"TOPSFAKT.DBF"
-	if !file(cTopsFakt)
+	if !File2(cTopsFakt)
 		MsgBeep("Na zadanoj lokaciji ne postoji datoteka TOPSFAKT.DBF")
 		BoxC()
 		return

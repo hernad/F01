@@ -44,7 +44,7 @@ return
 function if_cache()
 local lRet := .f.
 
-if FILE(PRIVPATH + SLASH + "CACHE.DBF")
+if File2(PRIVPATH + SLASH + "CACHE.DBF")
 	lRet := .t.
 endif
 

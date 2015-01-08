@@ -665,7 +665,7 @@ LOCAL nArr:=SELECT(), aUlazi:={}, GetList:={}, cIdPartner:=_idpartner
   ELSE
     cPKalk:=gDirKalk+cSezona+ SLASH + "KALK"
   ENDIF
-  IF FILE(cPKalk+".DBF")
+  IF File2(cPKalk+".DBF")
     USE (cPKalk)
   ELSE
     MsgBeep("Baza '"+cPKalk+".DBF' ne postoji !")

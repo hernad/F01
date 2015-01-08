@@ -37,7 +37,7 @@ AADD(aDbf,{"_DATAZ_","D",8,0})
 AADD(aDbf,{"_TIMEAZ_","C",8,0})  
 AADD(aDbf,{"_COMMIT_","C",1,0})  
 
-if !file((KUMPATH+"message.dbf"))
+if !File2((KUMPATH+"message.dbf"))
 	DBCREATE2(KUMPATH+"message.dbf",aDbf)
 endif
 CREATE_INDEX("1","FROMHOST",KUMPATH+"message.dbf",.t.)
@@ -62,7 +62,7 @@ AADD(aDbf,{"READ","D",8,0})
 AADD(aDbf,{"PRIORITY","C",1,0})  
 AADD(aDbf,{"TO","C",10,0})  
 
-if !file((EXEPATH+"amessage.dbf"))
+if !File2((EXEPATH+"amessage.dbf"))
 	DBCREATE2(EXEPATH+"amessage.dbf",aDbf)
 endif
 CREATE_INDEX("1","FROMHOST",EXEPATH+"amessage.dbf",.t.)
@@ -92,11 +92,11 @@ AADD(aDbf, {"read", "D", 8, 0})
 AADD(aDbf, {"priority", "C", 1, 0})
 AADD(aDbf, {"to", "C", 10, 0})
 
-if !FILE(EXEPATH + "tmpmsg.dbf")
+if !File2(EXEPATH + "tmpmsg.dbf")
 	DBCreate2(EXEPATH + "tmpmsg", aDbf)
 endif
 
-if !FILE(EXEPATH + "tmpmsg.cdx")
+if !File2(EXEPATH + "tmpmsg.cdx")
 	CREATE_INDEX("1","idmsg",EXEPATH+"tmpmsg.dbf",.t.)
 endif
 return

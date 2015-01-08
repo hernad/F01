@@ -234,7 +234,7 @@ if lEnter == nil
  	lEnter := .t.
 endif
 
-IF !FILE(SIFPATH+"VALUTE.DBF")
+IF !File2(SIFPATH+"VALUTE.DBF")
 	RETURN
 ENDIF
 

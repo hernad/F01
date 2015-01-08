@@ -55,7 +55,7 @@ return
  
 function Iz12u97()
 
-  OEdit()
+  kalk_oedit()
 
   cIdFirma    := gFirma
   cIdVdU      := "12"
@@ -666,7 +666,7 @@ return
  
 function Iz96u16()
 
-  OEdit()
+  kalk_oedit()
   cIdFirma    := gFirma
   cIdVdU      := "96"
   cIdVdI      := "16"
@@ -736,7 +736,7 @@ return
  
 function Iz16u14()
 
-  OEdit()
+  kalk_oedit()
 
   cIdFirma    := gFirma
   cIdVdU      := "16"

@@ -5,12 +5,12 @@
 
 {F18_GT_QTC}-DF18_GT_QTC
 
-F01_fin.prg
+F01_kalk.prg
 init_f01.prg
 fin_01/*.prg
 kalk_01/*.prg
 fakt_01/*.prg
-fmk_hb/*.prg
+f01_hb/*.prg
 dummy.prg
 
 hbct.hbc

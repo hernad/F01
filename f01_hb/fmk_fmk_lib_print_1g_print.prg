@@ -41,6 +41,7 @@ static cFName:="OUTF.TXT"
 //  * FmkIni/ExePath/Printeri_DirektnoOUTFTXT
 // --------------------------------------------------------------
 function StartPrint(lUFajl, cF, cDocumentName)
+
 local cDirekt
 local cLpt
 local cDDir
@@ -91,8 +92,8 @@ if !(lUFajl)
 		PtxtSekvence()
 	endif
 
-        // transformisi cKom varijablu za portove > 4
-        GPPortTransform(@cKom)
+  // transformisi cKom varijablu za portove > 4
+  GPPortTransform(@cKom)
 
 	set confirm on
 
@@ -136,7 +137,7 @@ else
 	set console off
 
 	if gKesiraj $ "CD"
-		cPom:=strtran(PRIVPATH,LEFT(PRIVPATH,3), gKesiraj+DRVPATH)
+		cPom:=strtran(PRIVPATH, LEFT(PRIVPATH,3), gKesiraj + DRVPATH)
 		DirMak2(cpom)
 		cKom:=cPom+cFName
 		elseif gKesiraj == "X"
@@ -165,26 +166,32 @@ if cKom="LPT1" .and. gPPort<>"8"
 elseif ckom == "LPT2" .and. gPPort<>"9"
 	Set( 24, "lpt2", .F. )
 else
-        // radi se o fajlu
+
+	// radi se o fajlu
 	if DRVPATH $ cKom
+
 		bErr:=ERRORBLOCK({|o| MyErrH(o)})
 		begin sequence
-		set printer to (ckom)
+
+		  set printer to ( ToUnix(cKom) )
+
 		recover
 		bErr:=ERRORBLOCK(bErr)
-		cKom:=ToUnix("C"+DRVPATH+"sigma"+SLASH+cFName)
+
+		cKom:= ToUnix( DATA_ROOT + SLASH + cFName)
 		if gnDebug>=5
 			MsgBeep("Radi se o fajlu !##set printer to (cKom)##var cKom=" + AllTrim(cKom))
 		endif
 
-		set printer to (cKom)
+		set printer to ( ToUnix(cKom) )
 		END SEQUENCE
 		bErr:=ERRORBLOCK(bErr)
+
 	else
 		if gnDebug>=5
 			MsgBeep("set printer to (cKom)##var cKom=" + AllTrim(cKom))
 		endif
-		set printer to (ckom)
+		set printer to ( ToUnix(cKom) )
 	endif
 
 endif
@@ -193,7 +200,7 @@ set printer on
 
 nSekundi:=seconds()
 
-SET(_SET_DEFAULT,cDDir)
+SET(_SET_DEFAULT, cDDir)
 GpIni(cDocumentName)
 
 return .t.
@@ -1229,7 +1236,7 @@ PushWa()
  O_PARAMS
  RPar("p?",@cPosebno)
  select params; use
- if cPosebno=="D" .and. !file(PRIVPATH+"gparams.dbf")
+ if cPosebno=="D" .and. !File2(PRIVPATH+"gparams.dbf")
    cScr:=""; save screen to cscr
    CopySve("gpara*.*",SLASH,PRIVPATH); restore screen from cScr
  endif

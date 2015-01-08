@@ -23,7 +23,7 @@ local cTbl := "FMKRULES.DBF"
 // uzmi def.polja
 aDbf := g_rule_tbl()
 
-if !FILE( SIFPATH + cTbl )
+if !File2( SIFPATH + cTbl )
 	DBCREATE2( SIFPATH + cTbl, aDbf )
 endif
 

@@ -93,7 +93,6 @@ if mpar37("/INSTALL", oApp)
 	CreGParam()
 endif
 
-altd()
 
 IniGparams()
 
@@ -158,12 +157,10 @@ SET EXCLUSIVE OFF
 //Setuj globalne varijable varijable modula
 oApp:setGVars()
 
-altd()
-
 /*
 
 cImeDbf:=KUMPATH+"SECUR.DBF"
-if !FILE(cImeDbf)
+if !File2(cImeDbf)
 	oApp:oDatabase:kreiraj(F_SECUR)
 endif
 */
@@ -423,7 +420,6 @@ if !PostDir(cFile)
 endif
 
 if lPitaj
-  altd()
 	if Pitanje(,"Pokrenuti instalacijsku proceduru ?","D")=="D"
 		oApp:oDatabase:install()
 	endif
@@ -661,7 +657,7 @@ if lScreen==nil
 	lScreen:=.t.
 endif
 
-if FILE(EXEPATH + 'scshell.ini')
+if File2(EXEPATH + 'scshell.ini')
         ScShellIni()
 endif
 
@@ -788,8 +784,6 @@ else
 	ImeKorisn:=korisn->ime
 	SifraKorisn:=korisn->sif
 
-  altd()
-	
 	oApp:oDatabase:setDirKum( ToUnix( korisn->dirRad ) )
 	oApp:oDatabase:setDirSif( ToUnix( korisn->dirSif ) )
 	oApp:oDatabase:setDirPriv( ToUnix( korisn->dirPriv) )
@@ -890,8 +884,6 @@ static function GetSifra(oApp, m_ime, m_sif)
 @ 10,20 SAY ""
 m_ime:=Space(10)
 m_sif:=Space(6)
-
-altd()
 
 Box("pas",3,30,.F.)
 

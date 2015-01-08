@@ -429,11 +429,11 @@ static function kalk_Cre_Pom()
   select 0
   // idi na slobodno podrucje
   cPom:=PRIVPATH+"POM"
-  IF FILE(cPom+".DBF") .and. ferase(PRIVPATH+"POM.DBF")==-1
+  IF File2(cPom+".DBF") .and. ferase(PRIVPATH+"POM.DBF")==-1
     MsgBeep("Ne mogu izbrisati POM.DBF!")
     ShowFError()
   ENDIF
-  IF FILE(cPom+".CDX") .and. ferase(PRIVPATH+"POM.CDX")==-1
+  IF File2(cPom+".CDX") .and. ferase(PRIVPATH+"POM.CDX")==-1
     MsgBeep("Ne mogu izbrisati POM.CDX!")
     ShowFError()
   ENDIF

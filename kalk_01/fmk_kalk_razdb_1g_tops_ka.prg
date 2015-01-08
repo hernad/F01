@@ -399,7 +399,7 @@ return
 // X - nije obradjen
 
 static function UChkPostoji(cFullFileName)
-if FILE(STRTRAN(cFullFileName,":" + SLASH, ":" + SLASH + "chk" + SLASH))
+if File2(STRTRAN(cFullFileName,":" + SLASH, ":" + SLASH + "chk" + SLASH))
 	return "R"
 else
    	return "X"

@@ -196,7 +196,7 @@ LOCAL cPom:="170771.POM", cStari:=SIFPATH+"TRFP.ST", cTekuci:=SIFPATH+"TRFP.DBF"
     O_TRFP
     PopWA()
   ELSE
-    IF FILE(cStari).and.FILE(cStari2)
+    IF File2(cStari).and.File2(cStari2)
       SELECT TRFP
       PushWA()
       USE
@@ -212,8 +212,8 @@ RETURN
 FUNCTION PostTRFP(cDirSa)
 
 LOCAL lVrati:=.f.
- IF FILE(TRIM(cDirSa)+"TRFP.DBF")
-   IF FILE(TRIM(cDirSa)+"TRFP.CDX")
+ IF File2(TRIM(cDirSa)+"TRFP.DBF")
+   IF File2(TRIM(cDirSa)+"TRFP.CDX")
      lVrati:=.t.
    ELSE
      Msg("Na zadanoj poziciji ne postoji fajl TRFP.CDX !")

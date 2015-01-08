@@ -109,7 +109,7 @@ else
 endif
 //MsgBeep(cFull)
 
-if fDa .or. !fInverse .and. (!File(cFull) .or. Pitanje(,cPath+cIme+" je vec pohranjen u "+cSezona+". Spremiti D/N ?"," ")="D") .or. fInverse .and. (!File(cFull) .or. Pitanje(,cPath+cIme+" iz RP prekriti sadrzajem iz "+cSezona+" ?"," ")="D")
+if fDa .or. !fInverse .and. (!File2(cFull) .or. Pitanje(,cPath+cIme+" je vec pohranjen u "+cSezona+". Spremiti D/N ?"," ")="D") .or. fInverse .and. (!File2(cFull) .or. Pitanje(,cPath+cIme+" iz RP prekriti sadrzajem iz "+cSezona+" ?"," ")="D")
 	Otkljucaj(cPath+cIme)
    	if fInverse
 		// preimenuj ciljni fajl radi sigurnosti

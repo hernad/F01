@@ -1405,7 +1405,7 @@ endif
            cPath:=left(SIFPATH, nP2) + "SIF0" + SLASH
            cDBF:=ALIAS()+".DBF"   // TROBA.DBF
            // c:/sigma/sif1/trfp.dbf -> c:/sigma/sif0/trfp.dbf
-           if !file(cPath+cDBF)
+           if !File2(cPath+cDBF)
                MsgBeep( "U clipboardu tabela "+cPath+cDBF+" ne postoji !")
                loop
            else

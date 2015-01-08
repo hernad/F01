@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -23,12 +23,14 @@ if fBrisiDBF
      ? "BRISEM :",cpath+left(cdbf,npos)+"FPT"
      fBrisiDBF:=.f.
      return
+
 endif
+
 if fRenameDBF
      nPos:=at(".",cDbf)
      nPos2:=at(".",cImeP)
-     c1:=cpath+left(cdbf,npos)+"DBF"
-     c2:=cpath+left(cImeP,npos2)+"DBF"
+     c1:=cpath+left(cdbf, nPos) + "DBF"
+     c2:=cpath+left(cImeP,nPos2) + "DBF"
      select olddbf; use
      if frename(c1,c2) = 0
       ? "PREIMENOVAO :",c1," U ",c2
@@ -36,13 +38,13 @@ if fRenameDBF
      c1:=cpath+left(cdbf,npos)+"FPT"
      c2:=cpath+left(cImeP,npos2)+"FPT"
      if frename(c1,c2) = 0
-      ? "PREIMENOVAO :",c1," U ",c2
+      ? "PREIMENOVAO :",c1," U ", c2
      endif
      fRenameDBF:=.f.
      return
 endif
 
-if fProm 
+if fProm
      nPos:=RAT(SLASH,cDbf)
      if nPos<>0
        cPath2:=substr(cDbf,1,nPos)
@@ -50,17 +52,19 @@ if fProm
        cPath2:=""
      endif
      cCDX:=strtran(cDBF,"."+DBFEXT,"."+INDEXEXT)
-     if right(cCDX,4)="."+INDEXEXT // izbrisi cdx
+     if right(cCDX,4)="."+INDEXEXT
        ferase(cPath+cCDX)
      endif
 
-     ferase(cpath+cPath2+"tmp.fpt")
-     ferase(cpath+cPath2+"tmp.tmp")
-     ferase(cpath+cPath2+"tmp.cdx")
-     dbcreate(cpath+cPath2+"tmp.tmp",aNStru)
+     ferase( ToUnix( cPath+cPath2+"tmp.fpt" ) )
+     ferase( ToUnix( cPath+cPath2+"tmp.tmp" ) )
+     ferase( ToUnix( cPath+cPath2+"tmp.cdx" ) )
+     dbcreate( ToUnix( cPath+cPath2 + "TMP_TMP.DBF" ) , aNStru)
+
      select 2
-     USE_EXCLUSIVE(cpath+cPath2+"tmp.tmp") alias tmp
-     select olddbf  //5.2
+     USE_EXCLUSIVE( ToUnix( cPath + cPath2 + "TMP_TMP" ) ) alias tmp
+     select olddbf
+
      ?
      nRow:=row()
      @ nrow,20 SAY "/"; ?? reccount()
@@ -68,7 +72,6 @@ if fProm
      do while !eof()
         @ nrow,1  SAY recno()
         select tmp
-        //append blank
         dbappend()
 
         for i:=1 to Len(aStru)
@@ -114,5 +117,3 @@ if fProm
 endif  // fprom
 
 return
-
-

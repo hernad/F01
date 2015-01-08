@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,11 +14,11 @@
 
 static dDatMax
 
- 
+
 // -----------------------------------------------------------------------
-// kontiranje naloga 
+// kontiranje naloga
 //
-// fAuto - .t. automatski se odrjedjuje broj naloga koji se formira, 
+// fAuto - .t. automatski se odrjedjuje broj naloga koji se formira,
 //         .f. getuje se broj formiranog naloga - default vrijednost
 // lAGen - automatsko generisanje
 // lViseKalk - vise kalkulacija
@@ -98,13 +98,13 @@ lAFin:=(fauto .and. gAFin=="D")
 
 if lafin
 	Beep(1)
-	
+
 	if !lAGen
 		lafin:=Pitanje(,"Formirati FIN nalog?","D")=="D"
-	else 
+	else
 		lafin := .t.
 	endif
-	
+
 endif
 
 lAFin2 := (!fAuto .and. gAFin <> "0")
@@ -128,23 +128,23 @@ if lAFin .or. lAFin2
 		use (SezRad(gDirFIN)+"pripr") alias fpripr
 	endif
 	set order to 1
-	
+
 	SELECT F_NALOG
 	if !used()
 		use (SezRad(gDirFIK)+"nalog") alias fnalog
 	endif
-	
+
 	set order to 1
-	
+
 endif
 
 if lAMat .or. lAMat2
 	use (SezRad(gDirMAT)+"pripr") new alias mpripr
 	set order to tag "1"
-	
+
 	use (SezRad(gDirMAK)+"nalog") new alias mnalog
 	set order to tag "1"
-	
+
 endif
 
 select FINMAT
@@ -168,7 +168,7 @@ if KONCIJ->(FIELDPOS("FN14"))<>0 .and. !EMPTY(KONCIJ->FN14) .and. FINMAT->IDVD==
 endif
 
 if lAFin .or. lAFin2
-	if EMPTY( cNalog ) 
+	if EMPTY( cNalog )
 		select fnalog
 		seek finmat->idfirma+cidvn+chr(254)
 		skip -1
@@ -216,7 +216,7 @@ dDatNal := datdok
 if lAGen == .f.
 
 	Box("brn?",5,55)
-	
+
 	set cursor on
 
 	if fAuto
@@ -225,7 +225,7 @@ if lAGen == .f.
 		else
 			@ m_x+1,m_y+2  SAY "Broj naloga u FIN  "+finmat->idfirma+" - "+cidvn+" - "+cBrNalF
 		endif
-	
+
 		if !lAMat
 			cBrBalM:=""
 		else
@@ -233,20 +233,20 @@ if lAGen == .f.
 				@ m_x+2,m_y+2 SAY "Broj naloga u MAT  "+finmat->idfirma+" - "+cidvn+" - "+cBrNalM
 			endif
 		endif
-	
+
 		@ m_x+4,m_y+2 SAY "Datum naloga: "
-		
+
 		?? dDatNal
-	
+
 		if lAFin .or. lAMat
 			inkey(0)
 		endif
-		
+
 	else
 		if laFin2
 			@ m_x+1,m_y+2 SAY "Broj naloga u FIN  "+finmat->idfirma+" - "+cidvn+" -" GET cBrNalF
 		endif
-	
+
 		if idvd<>"24" .and. laMat2
 			@ m_x+2,m_y+2 SAY "Broj naloga u MAT  "+finmat->idfirma+" - "+cidvn+" -" GET cBrNalM
 		endif
@@ -268,7 +268,7 @@ MsgO("Prenos KALK -> FIN")
 select finmat
 private cKonto1:=NIL
 
-do while !eof()    
+do while !eof()
 // datoteka finmat
 
  cIDVD:=IdVD
@@ -287,8 +287,8 @@ do while !eof()
  private cIdVrsteP:="  "    // i vrstu placanja
 
  do while cIdVD==IdVD .and. cBrDok==BrDok .and. !eof()
-    lDatFakt:=.f.	
-     
+    lDatFakt:=.f.
+
      if finmat->idvd $ "14#94#96#95"
           select koncij; hseek finmat->idkonto2
      else
@@ -300,7 +300,7 @@ do while !eof()
          select trfp
          seek cIdVD+koncij->shema
          do while !empty(cBrNalF) .and. idvd==cIDVD  .and. shema=koncij->shema .and. !eof()
-     	  
+
 	  lDatFakt:=.f.
 	  cStavka:=Id
           select finmat
@@ -314,7 +314,7 @@ do while !eof()
             // roba tipa u,t
             nIz:=0
           endif
-	 
+
 	  // iskoristeno u slucaju RN, gdje se za kontiranje stavke
           // 901-999 koriste sa tarifom XXXXXX
           if finmat->idtarifa=="XXXXXX" .and. trfp->idtarifa<>finmat->idtarifa
@@ -338,17 +338,17 @@ do while !eof()
             if trfp->znak=="-"
             	nIz:=-nIz
             endif
-	     
+
 	    if "#DF#" $ (trfp->naz)
 	  	lDatFakt:=.t.
 	    endif
-          
+
 	    if lDatFakt
 	    	dDFDok:=FINMAT->DatFaktP
 	    else
 		dDFDok:=FINMAT->DatKurs
 	    endif
-	  
+
             if gBaznaV=="P"
                nIz:=Round7(nIz,RIGHT(TRFP->naz,2))  //DEM - pomocna valuta
                nIz2:=Round7(nIz*Kurs(dDFDok,"P","D"),RIGHT(TRFP->naz,2))
@@ -418,25 +418,25 @@ do while !eof()
 
 
             if trfp->Dokument=="R"  // radni nalog
-	    
+
                    cBrDok:=FINMAT->idZaduz2
-		   
+
             elseif trfp->Dokument=="1"
-	    
+
                    cBrDok:=FINMAT->brdok
-		   
+
             elseif trfp->Dokument=="2"
-	    
+
                    cBrDok:=FINMAT->brfaktp
                    dDatDok:=FINMAT->datfaktp
-		   
+
             elseif trfp->Dokument=="3"
                    dDatDok:=dDatNal
-		   
+
             elseif trfp->Dokument=="9"
 	    	   // koristi se za vise kalkulacija
 		   dDatDok:= dDatMax
-		   
+
             endif
 
             cIdPartner:=space(6)
@@ -509,21 +509,21 @@ do while !eof()
             endif
 
             replace iznosDEM with iznosDEM+nIz
-	    
+
             replace iznosBHD with iznosBHD+nIz2
-	    
+
             replace idKonto  with cIdKonto
-	    
+
             replace IdPartner  with cIdPartner
-	    
+
             replace D_P      with trfp->d_P
-	    
+
             replace idFirma  with FINMAT->idfirma,;
                     IdVN     with cIdVN,;
                     BrNal    with cBrNalF,;
                     IdTipDok with FINMAT->IdVD,;
                     BrDok    with cBrDok
-		   
+
             replace DatDok   with dDatDok
             replace opis     with trfp->naz
 
@@ -653,7 +653,7 @@ do while !eof()
 enddo
 
 select finmat
-skip -1  
+skip -1
 
 if lAFin .or. lAFin2
   select fpripr
@@ -674,14 +674,14 @@ if lAFin .or. lAFin2
 				replace iznosbhd with round(iznosbhd,MIN(val(cPom),2))
 				replace iznosdem with round(iznosdem,MIN(val(cPom),2))
 			endif
-		endif 
+		endif
 		// cPom
 		skip
-	enddo 
+	enddo
 	//fpripr
   endif
 
-endif 
+endif
 // lafin , lafin2
 
 MsgC()
@@ -708,9 +708,9 @@ cTmp := RIGHT( cNalog, 4 )
 
 // vidi jesu li sve brojevi
 for i := 1 to LEN( cTmp )
-	
+
 	cChar := SUBSTR( cTmp, i, 1 )
-	
+
 	if cChar $ "0123456789"
 		loop
 	else
@@ -780,7 +780,7 @@ endif
     else
     	cPom := cFalse
     endif
-    
+
     if nBroj==1
       cKonto1:=cPom
     elseif nBroj==2
@@ -1050,7 +1050,6 @@ local lViseKalk := .f.
 private aPorezi
 aPorezi:={}
 
-altd()
 
 dummy()
 
@@ -1067,7 +1066,7 @@ lVoSaTa := .f.
 
 // prvi prolaz
 
-fprvi:=.t.  
+fprvi:=.t.
 do while  .t.
 
 O_FINMAT
@@ -1082,7 +1081,7 @@ if fStara
 	// otvara se KALK sa aliasom priprema
 	SELECT F_KALK
 	if !used()
-		O_SKALK  
+		O_SKALK
 	endif
 else
 	SELECT F_PRIPR
@@ -1096,12 +1095,12 @@ zap
 
 select PRIPR
 // idfirma+ idvd + brdok+rbr
-set order to tag "1" 
+set order to tag "1"
 
 if fPrvi
 	// nisu prosljedjeni parametri
 	if cIdFirma == nil
-	
+
 		cIdFirma:=IdFirma
 		cIdVD:=IdVD
 		cBrdok:=brdok
@@ -1109,13 +1108,13 @@ if fPrvi
    			cIdFirma:=gFirma
 	 	endif
 		lViseKalk := .f.
-		
+
 	else
 		// parametri su prosljedjeni RekapK funkciji
 		lViseKalk := .t.
 	endif
 	fPrvi:=.f.
-		
+
 endif
 
 if fStara
@@ -1136,7 +1135,7 @@ if fStara
 		ESC_BCR
  		BoxC()
 	endif
- 	
+
 	HSEEK cIdFirma+cIdVd+cBrDok
 else
 	go top
@@ -1148,11 +1147,11 @@ endif
 EOF CRET
 
 if fStara .and. lAuto == .f.
-	
+
 	// - info o izabranom dokumentu -
   	Box("#DOKUMENT "+cIdFirma+"-"+cIdVd+"-"+cBrDok,8,77)
    	cDalje:="D"
-	
+
 	cAutoRav := gAutoRavn
 
    	SELECT PARTN
@@ -1173,7 +1172,7 @@ if fStara .and. lAuto == .f.
    	@ m_x+5, col()+1 SAY PKONTO+"-"+PADR(KONTO->naz,49) COLOR "N/W"
    	@ m_x+7, m_y+2 SAY "Automatski uravnotezi dokument? (D/N)" GET cAutoRav VALID cAutoRav$"DN" PICT "@!"
    	@ m_x+8, m_y+2 SAY "Zelite li kontirati dokument? (D/N)" GET cDalje VALID cDalje$"DN" PICT "@!"
-   	
+
 	READ
   	BoxC()
   	IF LASTKEY()==K_ESC .or. cDalje<>"D"
@@ -1201,7 +1200,7 @@ do whilesc !eof() .and. cIdFirma==idfirma .and. cidvd==idvd
    	dDatKurs:=DatKurs
 	cIdKonto:=IdKonto
 	cIdKonto2:=IdKonto2
-	
+
 	if cIdVd=="24" .and. (prow()==0 .or. prow()>55)
      		if prow()-gPStranica>55
 			FF
@@ -1256,7 +1255,7 @@ do whilesc !eof() .and. cIdFirma==idfirma .and. cidvd==idvd
 				loop
 			endif
 		endif
-			
+
 		if gMagacin<>"1" .and. ( !lVoSaTa .and. idpartner+brfaktp+idkonto+idkonto2<>cidd .or. lVoSaTa .and. idpartner+idkonto+idkonto2<>cidd )
       			set device to screen
       			if ! ( (idvd $ "16#80" )  .and. !empty(idkonto2)  )
@@ -1296,7 +1295,7 @@ do whilesc !eof() .and. cIdFirma==idfirma .and. cidvd==idvd
 		else
 			Tarifa(pkonto, idroba, @aPorezi)
 		endif
-		
+
         	KTroskovi()
 
         	if cidvd=="24"
@@ -1311,13 +1310,13 @@ do whilesc !eof() .and. cIdFirma==idfirma .and. cidvd==idvd
          		@ prow(),pcol()+5 SAY n4:=cardaz    pict picdem
          		@ prow(),pcol()+5 SAY n5:=zavtr     pict picdem
          		@ prow(),pcol()+1 SAY n6:=fcj       pict picdem
-			
+
 			if IsPDV()
 				@ prow(),pcol()+1 SAY tarifa->opp   pict picproc
 			else
 				@ prow(),pcol()+1 SAY tarifa->vpp   pict picproc
 			endif
-			
+
          		@ prow(),pcol()+1 SAY n7:=nc-fcj    pict picdem
          		@ prow(),pcol()+1 SAY n8:=nc        pict picdem
          		@ prow(),pcol()+1 SAY n9:=marza     pict picdem
@@ -1330,12 +1329,12 @@ do whilesc !eof() .and. cIdFirma==idfirma .and. cidvd==idvd
         	endif
 
         	VtPorezi()
-	
+
 		aIPor:=RacPorezeMP(aPorezi, mpc, mpcSaPP, nc)
 
         	select FINMAT
         	append blank
-	
+
         replace IdFirma   with PRIPR->IdFirma,;
                 IdKonto   with PRIPR->IdKonto,;
                 IdKonto2  with PRIPR->IdKonto2,;
@@ -1351,7 +1350,7 @@ do whilesc !eof() .and. cIdFirma==idfirma .and. cidvd==idvd
                 DatKurs   with PRIPR->DatKurs,;
                 GKV       with round(PRIPR->(GKolicina*FCJ2),gZaokr),;   // vrijednost transp.kala
                 GKV2      with round(PRIPR->(GKolicin2*FCJ2),gZaokr)   // vrijednost ostalog kala
-	
+
         replace Prevoz    with round(PRIPR->(nPrevoz*SKol),gZaokr) ,;
                 CarDaz    with round(PRIPR->(nCarDaz*SKol),gZaokr) ,;
                 BankTr    with round(PRIPR->(nBankTr*SKol),gZaokr) ,;
@@ -1360,8 +1359,8 @@ do whilesc !eof() .and. cIdFirma==idfirma .and. cidvd==idvd
                 NV        with round(PRIPR->(NC*(Kolicina-GKolicina-GKolicin2)),gZaokr)  ,;
                 Marza     with round(PRIPR->(nMarza*(Kolicina-GKolicina-GKolicin2)),gZaokr)  ,;           // marza se ostvaruje nad stvarnom kolicinom
                 VPV       with round(PRIPR->(VPC*(Kolicina-GKolicina-GKolicin2)),gZaokr)        // vpv se formira nad stvarnom kolicinom
-		
-           
+
+
 	   nPom := PRIPR->(RabatV/100*VPC*Kolicina)
 	   nPom := round(nPom, gZaokr)
 	   replace RABATV  with nPom
@@ -1375,46 +1374,46 @@ do whilesc !eof() .and. cIdFirma==idfirma .and. cidvd==idvd
 	     nPom := round(nPom, gZaokr)
              replace VPVSAP with  nPom
 	   endif
-	   
+
 	   nPom := PRIPR->(nMarza2*(Kolicina-GKolicina-GKolicin2))
 	   nPom := round(nPom, gZaokr)
            replace Marza2 with nPom
 
-	   if pripr->idvd $ "14#94" 
+	   if pripr->idvd $ "14#94"
 		nPom := Pripr->(VPC*(1-RabatV/100)*MPC/100*Kolicina)
 	   else
 		nPom := PRIPR->(MPC*(Kolicina-GKolicina-GKolicin2))
 	   endif
 	   nPom := round(nPom, gZaokr)
 	   replace MPV with nPom
-		
+
 	  // PDV
 
 	  nPom := PRIPR->(aIPor[1]*(Kolicina-GKolicina-GKolicin2))
 	  nPom := round(nPom, gZaokr)
-          replace Porez with nPom 
-	
+          replace Porez with nPom
+
 	  // ugostiteljstvo porez na potr
-          replace Porez2    with round(PRIPR->(aIPor[3]*(Kolicina-GKolicina-GKolicin2)),gZaokr)  
-	
+          replace Porez2    with round(PRIPR->(aIPor[3]*(Kolicina-GKolicina-GKolicin2)),gZaokr)
+
 
 	  nPom := PRIPR->(MPCSaPP*(Kolicina-GKolicina-GKolicin2))
 	  nPom := round(nPom, gZaokr)
           replace MPVSaPP with nPom
-		
+
           // porezv je aIPor[2] koji se ne koristi
 	  nPom := PRIPR->(aIPor[2]*(Kolicina-GKolicina-GKolicin2))
 	  nPom := round(nPom, gZaokr)
-          replace Porezv with nPom 
-	  
-	  
+          replace Porezv with nPom
+
+
           replace idroba    with PRIPR->idroba
           replace  Kolicina  with PRIPR->(Kolicina-GKolicina-GKolicin2)
 
 
-	  
+
           if !(pripr->IdVD $ "IM#IP")
-             replace   FV        with round(nFV,gZaokr) 
+             replace   FV        with round(nFV,gZaokr)
              replace   Rabat     with round(PRIPR->(nFV*Rabat/100),gZaokr)
           endif
 
@@ -1426,7 +1425,7 @@ do whilesc !eof() .and. cIdFirma==idfirma .and. cidvd==idvd
           if  idvd $ "14#94"
                replace  MPVSaPP   with  Pripr->( VPC*(1-RabatV/100)*(Kolicina-GKolicina-GKolicin2) )
           endif
-	  
+
           if  !empty(pripr->mu_i)
                select tarifa
 	       hseek roba->idtarifa
@@ -1482,10 +1481,10 @@ do whilesc !eof() .and. cIdFirma==idfirma .and. cidvd==idvd
                  endif
 	       endif
           endif
-	 
-	 
+
+
 	  // ------------- azuriraj NC,VPC,MPC
-          select ROBA  
+          select ROBA
 
           HSEEK PRIPR->idroba
           if found()
@@ -1508,7 +1507,7 @@ do whilesc !eof() .and. cIdFirma==idfirma .and. cidvd==idvd
    endif
 
  enddo // idfirma,idvd
- 
+
  if cidvd=="24" .and. prow()>60
  	FF
 	@ prow(),125 SAY "Str:"+str(++nStr,3)
@@ -1561,7 +1560,7 @@ else
 	endif
 
 	kalk_kontiranje_naloga(.f., nil, lViseKalk)
-	
+
 	// automatska ravnoteza naloga
 	if cAutoRav == "D"
 		KZbira( .t. )
@@ -1589,7 +1588,7 @@ return
 
 
 static function dummy()
-  
+
 if (1==2)
 	IsPdvObveznik("XYZ")
 endif
@@ -1622,19 +1621,19 @@ Box(, 6, 60)
   @ m_x+1,m_y+2 SAY  "Vrsta kalkulacije " GET cVrsta ;
         PICT "@!" ;
 	VALID !empty(cVrsta)
-	
+
   @ m_x+3,m_y+2 SAY  "Magacinski konto (prazno svi) " GET cMKonto ;
-        PICT "@!" 
+        PICT "@!"
 
   @ m_x+4, m_y+2 SAY "Prodavnicki kto (prazno svi)  " GET cPKonto ;
-        PICT "@!" 
+        PICT "@!"
 
 
   @ m_x+6,m_y+2 SAY  "Kontirati za period od " GET dDatOd
   @ m_x+6, col()+2  SAY  " do " GET dDatDo
-  
+
   READ
-  
+
 BoxC()
 
 // koristi se kao datum kontiranja za trfp.dokument = "9"
@@ -1671,9 +1670,9 @@ do while !eof()
 	cIdFirma := idFirma
 	cIdVd := idvd
 	cBrDok := brdok
-	
+
 	RekapK(.t., cIdFirma, cIdVd, cBrDok)
-	
+
 	SELECT DOKS
 	SKIP
 enddo
@@ -1700,7 +1699,7 @@ if nDay < 10
 	dDatDo := nFDom - 1
 	// prvi dan u proslom mjesecu
 	dDatOd := BOM(dDatDo)
-	
+
 else
 	dDatOd := nFDom
 	dDatDo := dToday
@@ -1708,4 +1707,3 @@ endif
 
 
 return { dDatOd, dDatDo }
-

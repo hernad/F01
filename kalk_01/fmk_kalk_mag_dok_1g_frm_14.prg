@@ -330,7 +330,7 @@ function KM2()
   nR3:=recno()
   close all
   Karticam(_IdFirma,_idroba,_IdKonto2)
-  OEdit()
+  kalk_oedit()
   select roba
   go nR1
   select pripr

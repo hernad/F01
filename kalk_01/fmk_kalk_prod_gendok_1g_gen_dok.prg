@@ -907,7 +907,7 @@ return .t.
 
 function Iz11u412()
 
-  OEdit()
+  kalk_oedit()
   cIdFirma := gFirma
   cIdVdU   := "11"
   cIdVdI   := "4"
@@ -1015,7 +1015,7 @@ return
 
 function Iz10u11()
 
-  OEdit()
+  kalk_oedit()
   cIdFirma := gFirma
   cIdVdU   := "10"
   cIdVdI   := "11"

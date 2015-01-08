@@ -245,7 +245,7 @@ local _time := 30
 _file := STRTRAN( xml_file, ".tmp", _ext )
 
 // provjeri da li postoji fajl koji treba da napravim ?
-if FILE( _file )
+if File2( _file )
 
 	Box(, 1, 70 )
 
@@ -257,7 +257,7 @@ if FILE( _file )
 		@ m_x + 1, m_y + 2 SAY "Cekam na rename fajla... " + ;
 				PADL( ALLTRIM( STR( _time ) ), 3, "" ) + ;
 				" pritisni ESC za prekid"
-		if !FILE( _file )
+		if !File2( _file )
 			exit
 		endif
 
@@ -821,7 +821,7 @@ do while nTime > 0
 		endif
 	endif
 
-	if FILE( cTmp )
+	if File2( cTmp )
 		// fajl se pojavio - izadji iz petlje !
 		exit
 	endif
@@ -834,7 +834,7 @@ enddo
 
 BoxC()
 
-if !FILE( cTmp )
+if !File2( cTmp )
 	msgbeep("Ne postoji fajl odgovora#" + cTmp )
 	lOut := .f.
 endif

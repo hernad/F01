@@ -77,7 +77,7 @@ return PADR(cSeek, 100)
 // da li se koriste pravila
 // -----------------------------------------------
 function is_fmkrules()
-if !FILE(SIFPATH + "FMKRULES.DBF")
+if !File2(SIFPATH + "FMKRULES.DBF")
 	return .f.
 endif
 return .t.

@@ -148,7 +148,7 @@ endif
 
 if fnulirati; fnul:=.t.; else; fnul:=.f.; endif  // kumulativ datoteke
 Skloni(KUMPATH,"KALK.DBF",cSezona,finverse,fda,fnul)
-if FILE(KUMPATH+"KALKS.DBF")
+if File2(KUMPATH+"KALKS.DBF")
   Skloni(KUMPATH,"KALKS.DBF",cSezona,finverse,fda,fnul)
 endif
 Skloni(KUMPATH,"DOKS.DBF",cSezona,finverse,fda,fnul)
@@ -302,7 +302,7 @@ CreFMKPI()
    		AADD(aDbf,{"K3",     "C",2,0})
    		AADD(aDbf,{"N1",     "N",10,2})
 
-		if !FILE(KUMPATH+"LOGK.DBF")
+		if !File2(KUMPATH+"LOGK.DBF")
    			DBcreate2(KUMPATH+'LOGK.DBF',aDbf)
 		endif
 
@@ -382,7 +382,7 @@ AADD(aDBf,{ 'PODBR'               , 'C' ,   2 ,  0 })
 if (nArea==-1 .or. nArea==(F_PRIPR))
 	//PRIPR.DBF
 
-	if !FILE(PRIVPATH+"PRIPR.dbf")
+	if !File2(PRIVPATH+"PRIPR.dbf")
   		DBcreate2(PRIVPATH+'PRIPR.DBF',aDbf)
 	endif
 
@@ -396,7 +396,7 @@ endif
 if (nArea==-1 .or. nArea==(F_PRIPR2))
 	//PRIPR2
 
-	if !FILE(PRIVPATH+"PRIPR2.DBF")
+	if !File2(PRIVPATH+"PRIPR2.DBF")
   		dbcreate2(PRIVPATH+'PRIPR2.DBF',aDbf)
 	endif
 
@@ -407,7 +407,7 @@ endif
 if (nArea==-1 .or. nArea==(F_PRIPR9))
 	//PRIPR9.DBF
 
-	if !FILE(PRIVPATH+"PRIPR9.DBF")
+	if !File2(PRIVPATH+"PRIPR9.DBF")
   		DBcreate2(PRIVPATH+'PRIPR9.DBF',aDbf)
 	endif
 
@@ -419,7 +419,7 @@ endif
 if (nArea==-1 .or. nArea==(F__KALK))
 	//_KALK.DBF
 
-	if !FILE(PRIVPATH+"_KALK.DBF")
+	if !File2(PRIVPATH+"_KALK.DBF")
   		DBcreate2(PRIVPATH+'_KALK.DBF',aDbf)
 	endif
 
@@ -430,7 +430,7 @@ endif
 if (nArea==-1 .or. nArea==(F_KALK))
 	//KALK.DBF
 
-	if !FILE(KUMPATH+"KALK.dbf")
+	if !File2(KUMPATH+"KALK.dbf")
   		DBcreate2(KUMPATH+'KALK.DBF',aDbf)
 	endif
 
@@ -494,7 +494,7 @@ if (nArea==-1 .or. nArea==(F_DOKS))
 	AADD(aDBf,{ 'MPV'                 , 'N' ,  12 ,  2 })
 	AADD(aDBf,{ 'PODBR'               , 'C' ,   2 ,  0 })
 
-	if !FILE(KUMPATH+'DOKS.DBF')
+	if !File2(KUMPATH+'DOKS.DBF')
         	DBcreate2(KUMPATH+'DOKS.DBF',aDbf)
 	endif
 
@@ -523,7 +523,7 @@ if (nArea==-1 .or. nArea==(F_DOKS2))
 	AADD(aDBf,{ 'K1'                , 'C' ,  1 ,  0 })
 	AADD(aDBf,{ 'K2'                , 'C' ,  2 ,  0 })
 	AADD(aDBf,{ 'K3'                , 'C' ,  3 ,  0 })
-	if !FILE(KUMPATH+'DOKS2.DBF')
+	if !File2(KUMPATH+'DOKS2.DBF')
        		DBcreate2(KUMPATH+'DOKS2.DBF',aDbf)
 	endif
 
@@ -578,7 +578,7 @@ AADD(aDBf,{ 'PORPOT'              , 'N' ,  20 ,  8 })
 if (nArea==-1 .or. nArea==(F_FINMAT))
 	//FINMAT.DBF
 
-	if !FILE(PRIVPATH+"FINMAT.dbf")
+	if !File2(PRIVPATH+"FINMAT.dbf")
     		DBcreate2(PRIVPATH+'FINMAT.DBF',aDbf)
 	endif
 
@@ -594,7 +594,7 @@ if (nArea==-1 .or. nArea==(F_OBJEKTI))
 	AADD(aDbf, {"naz","C",10,0})
 	AADD(aDbf, {"IdObj","C", 7,0})
 
-	if !FILE(cImeTbl)
+	if !File2(cImeTbl)
 		DBCREATE2(cImeTbl, aDbf)
 	endif
 
@@ -610,7 +610,7 @@ if (nArea==-1 .or. nArea==(F_K1))
 	AADD(aDbf, {"id","C",4,0})
 	AADD(aDbf, {"naz","C",20,0})
 	cImeTbl:=KUMPATH+"K1.DBF"
-	if !FILE(cImeTbl)
+	if !File2(cImeTbl)
 		DBCREATE2(KUMPATH+"K1",aDbf)
 	endif
 	CREATE_INDEX("ID", "ID", cImeTbl)
@@ -636,7 +636,7 @@ AADD(aDBf,{ 'KOLICINA'           , 'N' ,  12 ,  2 })
 
 
 if (nArea==-1 .or. nArea==(F_PRODNC))
-	if !FILE(KUMPATH+"PRODNC.dbf")
+	if !File2(KUMPATH+"PRODNC.dbf")
     		DBcreate2(KUMPATH+'PRODNC.DBF',aDbf)
 	endif
 
@@ -648,7 +648,7 @@ aDbf:={}
 AADD(aDBf,{ 'ID'              , 'C' ,  1 ,  0 })
 AADD(aDBf,{ 'NAZ'             , 'C' , 30 ,  0 })
 if (nArea==-1 .or. nArea==(F_RVRSTA))
-	if !FILE(SIFPATH+"RVRSTA.dbf")
+	if !File2(SIFPATH+"RVRSTA.dbf")
     		DBcreate2(SIFPATH+'RVRSTA.DBF',aDbf)
 	endif
 
@@ -729,7 +729,7 @@ if lIdiDalje
 	cDbfName:=DBFName(i,.t.)
 	if gAppSrv
 		? "OPEN: " + cDbfName + ".DBF"
-		if !File(cDbfName + ".DBF")
+		if !File2(cDbfName + ".DBF")
 			? "Fajl " + cDbfName + ".dbf ne postoji!!!"
 			use
 			return
@@ -796,7 +796,7 @@ if Pitanje(,"KALKS vec postoji, nulirati je ?","N")=="D"
     ferase(KUMPATH+'KALKS.DBF')
 endif
 
-if !file(KUMPATH+'KALKS.DBF')
+if !File2(KUMPATH+'KALKS.DBF')
  ferase(KUMPATH+'KALKS.CDX')
  dbcreate2(KUMPATH+'KALKS.DBF',aDbf)
 endif

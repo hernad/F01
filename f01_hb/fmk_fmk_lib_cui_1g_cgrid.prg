@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -39,7 +39,7 @@
 
 /* var ImeKol
   Privatna Varijabla koja se inicijalizira prije "ulaska" u ObjDBedit
-  - [ 1] Zalavlje kolone 
+  - [ 1] Zalavlje kolone
   - [ 2] kodni blok za prikaz kolone {|| id}
   - [ 3] izraz koji se edituje (string), obradjuje sa & operatorom
   - [ 4] kodni blok When
@@ -136,14 +136,14 @@ ELSE
 ENDIF
 
 DO WHILE .T.
-   Ch:=0   
+   Ch:=0
     if deleted()  // nalazim se na brisanom slogu
        skip
        if eof()
          Tb:Down()
        else
          Tb:Up()
-       endif	 
+       endif
        Tb:RefreshCurrent()
     endif
 
@@ -164,7 +164,7 @@ DO WHILE .T.
            CekaHandler(@nBroji2)
          ENDDO
          Ch := INKEY()
-         
+
    END
 
    if bUserF<>NIL
@@ -344,7 +344,7 @@ RETURN
 
 
 function DaTBDirektni(lIzOBJDB)
- 
+
 LOCAL i,j,k
  IF lIzOBJDB==NIL; lIzOBJDB:=.f.; ENDIF
 
@@ -399,7 +399,7 @@ RETURN
 
 static function DoGet()
 
-/* 
+/*
  *Izvrsi GET za tekucu kolonu u browse-u
  */
 
@@ -490,7 +490,7 @@ RETURN
 
 
 static function EditPolja(nX,nY,xIni,cNazPolja,bWhen,bValid,cBoje)
-  
+
   local i
   local cStaraVr:=gTBDir
   local cPict
@@ -887,7 +887,7 @@ endif
 
 
 function EvEr(cExpr,cmes,cT)
- 
+
  LOCAL lVrati:=.t.
  IF cmes==nil; cmes:="Greska!"; ENDIF
  IF cT==nil; cT:="L"; ENDIF
@@ -900,11 +900,10 @@ RETURN lVrati
 
 
 
-function BrowseKey(y1,x1,y2,x2,;
-                   ImeKol,bfunk,uslov,traz,brkol,;
-                   dx,dy,bPodvuci)
+function BrowseKey(y1,x1,y2,x2,ImeKol,bfunk,uslov,traz,brkol,dx,dy,bPodvuci)
 
 static poziv:=0
+
 local lk, REKORD,TCol
 local nCurRec:=1,nRecCnt:=0
 
@@ -914,16 +913,26 @@ private usl
 usl='USL'+alltrim(str(POZIV,2))
 POZIV++
 &usl=uslov
+
 TB:=tbrowsedb(y1,x1,y2,x2)
 TB:headsep='��'
 TB:colsep ='�'
+
 if eof(); skip -1; endif
+
+
+altd()
+//count to nRecCnt FOR uslov
+
+/*
 seek traz           //
 do while  &(&usl)
    nRecCnt ++
    skip
 enddo
-seek traz          
+*/
+
+seek traz
 if !found()
    nCurRec:=0
 endif
@@ -935,6 +944,7 @@ for i:=1 to len(ImeKol)
     endif
     TB:addcolumn(TCol)
 next
+
 if !empty(brkol) .and. valtype(brkol)='N'
   TB:freeze :=brkol
 endif
@@ -1046,4 +1056,3 @@ if dx<>NIL .and. dy<>NIL
   @ m_x+dx,m_y+dy say STR(nRecCnt,4)
 endif
 return (nCount)
-

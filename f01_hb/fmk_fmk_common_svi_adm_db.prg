@@ -48,7 +48,7 @@ IF SELECT("PART2")!=0
 	SELECT PART2
 	USE
 ENDIF
-IF !(FILE(cPom))
+IF !(File2(cPom))
 	Msg("Na zadanom direktoriju druge firme ne postoji baza za poredjenje !",6)
 RETURN
 ENDIF

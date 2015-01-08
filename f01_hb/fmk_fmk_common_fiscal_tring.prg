@@ -636,7 +636,7 @@ function trg_d_out( nTrigger )
 local cTrig := trg_trig( nTrigger ) 
 cF_path := ALLTRIM( gFc_path ) + trg_filename( cTrig )
 
-if FILE( cF_path )
+if File2( cF_path )
 	if FERASE( cF_path ) <> 0
 	endif
 endif
@@ -653,7 +653,7 @@ local cTrig := trg_trig( nTrigger )
 cF_path := ALLTRIM( gFc_path ) + ;
 	_d_answer + SLASH + trg_filename( cTrig )
 
-if FILE( cF_path )
+if File2( cF_path )
 	if FERASE( cF_path ) <> 0
 	endif
 endif
@@ -831,7 +831,7 @@ do while nTime > 0
 	
 	-- nTime
 
-	if FILE( cF_name )
+	if File2( cF_name )
 		// fajl se pojavio - izadji iz petlje !
 		exit
 	endif
@@ -844,7 +844,7 @@ enddo
 
 BoxC()
 
-if !FILE( cF_name )
+if !File2( cF_name )
 	msgbeep("Fajl " + cF_name + " ne postoji !!!")
 	nFisc_no := 0
 	nErr := -9

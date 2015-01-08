@@ -642,7 +642,7 @@ LOCAL aNiz:={}
  SET ORDER TO 2
  O_SUBAN
 
- IF !FILE("TEMP77.DBF")
+ IF !File2("TEMP77.DBF")
    aTmp:=DBSTRUCT()
    AADD(aTmp,{"KONTO2","C",7,0})
    AADD(aTmp,{"PART2", "C",6,0})

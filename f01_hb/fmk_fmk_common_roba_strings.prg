@@ -967,7 +967,7 @@ function cre_strings()
 local aDbf
 
 // STRINGS.DBF
-if !File( SIFPATH + "STRINGS.DBF" )
+if !File2( SIFPATH + "STRINGS.DBF" )
 	aDBf := g_str_fields()
    	DbCreate2( SIFPATH + "STRINGS.DBF", aDbf)
 endif

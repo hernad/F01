@@ -7,7 +7,6 @@
 #define F_F_PARAMS	246
 
 #xcommand O_OSTAV => SELECT (F_STOSTAV); USE (KUMPATH+"OSTAV"); set order to tag "ID"
-#xcommand O_PARAMS => SELECT (F_STPARAMS); USE (KUMPATH+"PARAMS"); set order to tag "ID"
+// n#xcommand O_PARAMS => SELECT (F_STPARAMS); USE (KUMPATH+"PARAMS"); set order to tag "ID"
 #xcommand O_PARTN => SELECT (F_STPARTN); USE (KUMPATH+"PARTN"); set order to tag "ID"
 #xcommand O_KONCIJ => SELECT (F_F_KONCIJ); USE (SIFPATH+"KONCIJ"); set order to tag "ID"
-

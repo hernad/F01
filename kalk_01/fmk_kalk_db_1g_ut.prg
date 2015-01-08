@@ -1606,7 +1606,7 @@ AddBS(@cTKPath)
 AddBS(@cTSPath)
 
 // otvori DOKSRC i DOKS
-if FILE(cTKPath + "DOKSRC.DBF")
+if File2(cTKPath + "DOKSRC.DBF")
 	select (248)
 	use (cTKPath + "DOKSRC") alias TDOKSRC
 	set order to tag "2"
@@ -1614,7 +1614,7 @@ else
 	select (nTArea)
 	return -1
 endif
-if FILE(cTKPath + "DOKS.DBF")
+if File2(cTKPath + "DOKS.DBF")
 	select (249)
 	use (cTKPath + "DOKS") alias TDOKS
 	set order to tag "2"

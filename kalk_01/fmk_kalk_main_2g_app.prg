@@ -12,7 +12,6 @@
 
 #include "kalk01.ch"
 
-
 function TKalkModNew()
 local oObj
 
@@ -35,9 +34,9 @@ CREATE CLASS TKalkMod INHERIT TAppMod
 	method srv
 ENDCLASS
 
+
 method TKalkMod:dummy()
 return
-
 
 
 method TKalkMod:initdb()
@@ -56,20 +55,21 @@ say_fmk_ver()
 SETKEY(K_SH_F1,{|| Calc()})
 Izbor:=1
 
-
 O_DOKS
 select doks
-TrebaRegistrovati(10)
-gDuzKonto:=LEN(mkonto)
+
+gDuzKonto := LEN(mkonto)
+
 select doks
 
 // skeniranje prodavnica automatsko...
-pl_scan_automatic()
+// pl_scan_automatic()
 
 use
 
 
 gRobaBlock:={|Ch| RobaBlock(Ch)}
+
 //KalksInit()
 @ 1,2 SAY padc(gTS+": "+gNFirma,50,"*")
 
@@ -83,6 +83,7 @@ method TKalkMod:mMenuStandard
 
 private opc:={}
 private opcexe:={}
+
 
 
 AADD(opc,   "1. unos/ispravka dokumenata                ")

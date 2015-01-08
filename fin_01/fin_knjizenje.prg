@@ -382,7 +382,6 @@ set key K_ALT_O to
 _k3:=K3U256(_k3)
 _Rbr:=STR(nRbr,4)
 
-altd()
 
 return 1
 

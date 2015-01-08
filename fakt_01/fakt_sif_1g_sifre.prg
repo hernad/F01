@@ -1590,7 +1590,7 @@ RETURN lVrati
 
 function UpisiURF(cTekst,cFajl,lNoviRed,lNoviFajl)
 
-STRFILE(IF(lNoviRed,CHR(13)+CHR(10),"")+cTekst,cFajl,!lNoviFajl)
+STRFile( IF(lNoviRed,CHR(13)+CHR(10),"") + cTekst,cFajl,!lNoviFajl)
 RETURN
 
 

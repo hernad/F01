@@ -4,7 +4,7 @@
 
 #include "f01.ch"
 
-#define DBSERVER  "192.168.45.149"
+#define DBSERVER  "127.0.0.1"
 #define DBPORT    2941
 #define DBPASSWD  "f01"
 #define DBDIR     "/data"
@@ -31,6 +31,10 @@ alert( "mkdir" )
 FUNCTION tekuci_direktorij()
  RETURN "." + SLASH
 
+FUNCTION modul_dir()
+
+ // npr. SIGMA/KALK/
+ RETURN MODULE_ROOT + SLASH + gModul + SLASH
 
 
 FUNCTION mnu_narudzbenica()
@@ -75,8 +79,6 @@ function f01_server()
       RETURN ""
   ENDIF
 
-  connect_to_f01_server()
-
   RETURN 'net:' + DBSERVER + ':' +   hb_ntos( DBPORT ) + ':' + DBPASSWD + ':'
 
 
@@ -100,7 +102,7 @@ FUNCTION connect_to_f01_server()
 
 FUNCTION my_dbUseArea( lNew, xRdd, cDb, cAlias, lShared, lReadOnly )
 
-   cDb := f01_server() + cDb
+   cDb := f01_server() + ChangeEXT(cDb, DBFEXT, "DBF")
    RETURN dbUseArea( lNew, xRdd, cDb, cAlias, lShared , lReadOnly )                                               ;
 
 
@@ -117,4 +119,4 @@ FUNCTION run_ext_command( cCommand )
 
 FUNCTION OL_YIELD()
 
-  RETURN .T.
+  RETURN hb_idleSleep()

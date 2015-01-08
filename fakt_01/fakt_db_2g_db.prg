@@ -328,7 +328,7 @@ if (nArea==-1 .or. nArea==(F_UPL))
    	AADD(aDBf,{'IDPARTNER'  ,'C', 6,0})
    	AADD(aDBf,{'OPIS'       ,'C',30,0})
    	AADD(aDBf,{'IZNOS'      ,'N',12,2})
-   	if !FILE(KUMPATH+"UPL.DBF")
+   	if !File2(KUMPATH+"UPL.DBF")
 		DBcreate2(KUMPATH+"UPL.DBF",aDbf)
 	endif
 
@@ -343,7 +343,7 @@ if (nArea==-1 .or. nArea==(F_FTXT))
 	aDbf:={}
         AADD(aDBf,{'ID'  ,'C',  2 ,0})
         AADD(aDBf,{'NAZ' ,'C',340 ,0})
-	if !FILE(SIFPATH+"FTXT.DBF")
+	if !File2(SIFPATH+"FTXT.DBF")
         	DBcreate2(SIFPATH+'FTXT.DBF',aDbf)
 	endif
 
@@ -384,7 +384,7 @@ endif
 if (nArea==-1 .or. nArea==(F_FAKT))
 	//FAKT.DBF
 
-	if !FILE(KUMPATH+'FAKT.DBF')
+	if !File2(KUMPATH+'FAKT.DBF')
         	DBcreate2(KUMPATH+'FAKT.DBF',aDbf)
 	endif
 
@@ -418,7 +418,7 @@ if (nArea==-1 .or. nArea==(F_PRIPR))
 		AADD(aDBf,{ 'TIPRABAT'    , 'C' ,  10 ,  0 })
 	endif
 
-	if !FILE(PRIVPATH+'PRIPR.DBF')
+	if !File2(PRIVPATH+'PRIPR.DBF')
         	DBcreate2(PRIVPATH+'PRIPR.DBF',aDbf)
 	endif
 
@@ -438,7 +438,7 @@ if (nArea==-1 .or. nArea==(F_PRIPR9))
 		AADD(aDBf,{ 'TIPRABAT'    , 'C' ,  10 ,  0 })
 	endif
 
-	if !FILE(PRIVPATH+'PRIPR9.DBF')
+	if !File2(PRIVPATH+'PRIPR9.DBF')
         	DBcreate2(PRIVPATH+'PRIPR9.DBF',aDbf)
 	endif
 
@@ -453,7 +453,7 @@ endif
 if (nArea==-1 .or. nArea==(F__FAKT))
 	//_FAKT.DBF
 
-	if !FILE(PRIVPATH+'_FAKT.DBF')
+	if !File2(PRIVPATH+'_FAKT.DBF')
         	DBcreate2(PRIVPATH+'_FAKT.DBF',aDbf)
 	endif
 
@@ -491,7 +491,7 @@ if (nArea==-1 .or. nArea==(F_DOKS))
 		AADD(aDBf,{ 'TIPRABAT'            , 'C' ,  10 ,  0 })
 	endif
 
-	if !FILE(KUMPATH+"DOKS.DBF")
+	if !File2(KUMPATH+"DOKS.DBF")
         	DBcreate2(KUMPATH+'DOKS.DBF',aDbf)
 	endif
 
@@ -519,7 +519,7 @@ if (nArea==-1 .or. nArea==(F_DOKS2))
 	AADD(aDBf,{ "N1"           , "N" ,  15 ,  2 })
 	AADD(aDBf,{ "N2"           , "N" ,  15 ,  2 })
 
-	if !FILE(KUMPATH+"DOKS2.DBF")
+	if !File2(KUMPATH+"DOKS2.DBF")
         	DBcreate2(KUMPATH+"DOKS2.DBF",aDbf)
 	endif
 
@@ -534,7 +534,7 @@ if (nArea==-1 .or. nArea==(F_VRSTEP))
 	AADD(aDbf,{"ID" ,"C", 2,0})
 	AADD(aDbf,{"NAZ","C",20,0})
 
-	if !FILE(SIFPATH+"VRSTEP.DBF")
+	if !File2(SIFPATH+"VRSTEP.DBF")
 		DBcreate2(SIFPATH+"VRSTEP.DBF",aDbf)
 	endif
 
@@ -552,7 +552,7 @@ if glDistrib
      		AADD(aDBf,{ "IDPARTNER"           , "C" ,   6 ,  0 })
      		AADD(aDBf,{ "IDPM"                , "C" ,  15 ,  0 })
 
-  		if !FILE(SIFPATH+"RELAC.DBF")
+  		if !File2(SIFPATH+"RELAC.DBF")
      			DBcreate2(SIFPATH+"RELAC.DBF",aDbf)
   		endif
 
@@ -568,7 +568,7 @@ if glDistrib
      		AADD(aDBf,{ "NAZ"                 , "C" ,  25 ,  0 })
      		AADD(aDBf,{ "TABLICE"             , "C" ,  15 ,  0 })
 
-		if !FILE(SIFPATH+"VOZILA.DBF")
+		if !File2(SIFPATH+"VOZILA.DBF")
      			DBcreate2(SIFPATH+"VOZILA.DBF",aDbf)
   		endif
 
@@ -585,7 +585,7 @@ if glDistrib
      		AADD(aDBf,{ "IDVOZILA"           , "C" ,   4 ,  0 })
      		AADD(aDBf,{ "REALIZ"             , "C" ,   1 ,  0 })
 
-		if !file(KUMPATH+"KALPOS.DBF")
+		if !File2(KUMPATH+"KALPOS.DBF")
      			DBcreate2(KUMPATH+"KALPOS.DBF",aDbf)
   		endif
 
@@ -647,7 +647,7 @@ if lIdiDalje
 	cDbfName:=DBFName(i,.t.)
 	if gAppSrv
 		? "OPEN: " + cDbfName + ".DBF"
-		if !File(cDbfName + ".DBF")
+		if !File2(cDbfName + ".DBF")
 			? "Fajl " + cDbfName + ".dbf ne postoji!!!"
 			use
 			return

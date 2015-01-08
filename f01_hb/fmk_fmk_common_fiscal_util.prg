@@ -282,7 +282,7 @@ AADD( aDbf, { "D_PAR_4", "C", 10, 0 } )
 AADD( aDbf, { "D_PAR_5", "C", 10, 0 } )
 AADD( aDbf, { "AKTIVAN", "C", 1, 0 } )
 
-if !file((PRIVPATH+"FDEVICE.DBF"))
+if !File2((PRIVPATH+"FDEVICE.DBF"))
 	DBCREATE2(PRIVPATH+"FDEVICE.DBF",aDbf)
 endif
 

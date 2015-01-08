@@ -124,7 +124,7 @@ cSPath := ALLTRIM(cSPath)
 AddBS(@cSPath)
 
 // da li postoji fajl
-if !FILE(cKPath + "POS.DBF")
+if !File2(cKPath + "POS.DBF")
 	return
 endif
 

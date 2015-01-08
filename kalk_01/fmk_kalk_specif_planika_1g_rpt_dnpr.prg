@@ -198,13 +198,13 @@ do while (!EOF())
 	AddBs(@cTKumP)
 	AddBs(@cTSifP)
 	
-	if (!FILE(cTKumP+"POS.DBF") .or. !FILE(cTKumP+"POS.CDX"))
+	if (!File2(cTKumP+"POS.DBF") .or. !File2(cTKumP+"POS.CDX"))
 		SKIP 1
 		loop
 	endif
 	
 	SELECT 0
-	if !FILE(cTSifP+"ROBA.DBF") .or. !FILE(cTSifP+"ROBA.CDX")
+	if !File2(cTSifP+"ROBA.DBF") .or. !File2(cTSifP+"ROBA.CDX")
 		use (SIFPATH+"ROBA")
 		set order to tag "ID"
 	else
@@ -423,7 +423,7 @@ cPom:="copy "+PRIVPATH+"OUTF.TXT "+cLokS+cNf
 RUN &cPom
 
 RESTORE SCREEN FROM cS
-if FILE(cLokS+cNf)
+if File2(cLokS+cNf)
 	MsgBeep("Kopiranje dokumenta zavrseno!")
 else
 	MsgBeep("KOPIRANJE FAJLA-IZVJESTAJA NIJE USPJELO!")

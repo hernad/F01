@@ -22,12 +22,9 @@ endif
 
 if (nArea==-1 .or. nArea==F_KORISN)
 
-	 cImeDBF:=ToUnix("." + SLASH + "KORISN.dbf")
+	 cImeDBF:=ToUnix( modul_dir() + "KORISN.dbf")
 
-	 altd()
-
-
-	 IF !FILE(cImeDBF)
+	 IF !File2(cImeDBF)
 	  aDbf:={}
 	  AADD(aDbf,{"ime","C",10,0})
 	  AADD(aDbf,{"sif","C",6,0})
@@ -97,6 +94,11 @@ return
 
 function CreParams(nArea)
 
+LOCAL cParams := ToUnix( PRIVPATH + "PARAMS.DBF")
+LOCAL cGParams := ToUnix( PRIVPATH + "GPARAMS.DBF")
+LOCAL cMParams := ToUnix( modul_dir() + "MPARAMS.DBF")
+LOCAL cKParams := ToUnix( KUMPATH + "KPARAMS.DBF")
+
 close all
 
 if gReadOnly
@@ -117,34 +119,34 @@ AADD(aDbf, {"Fv","C",15,0}  ) // sadrzaj
 
 if (nArea==-1 .or. nArea==F_PARAMS)
 
-	if !file(ToUnix(PRIVPATH+"params.dbf"))
-		DBCREATE2(PRIVPATH+"params.dbf",aDbf)
+	if !File2( cParams )
+		DBCREATE2( cParams ,aDbf)
 	endif
-	CREATE_INDEX("ID","fsec+fh+fvar+rbr",PRIVPATH+"params.dbf",.t.)
+	CREATE_INDEX("ID","fsec+fh+fvar+rbr", cParams,.t.)
 
 endif
 
 
 
 if (nArea==-1 .or. nArea==F_GPARAMS)
-	if !file(ToUnix(PRIVPATH+"gparams.dbf"))
-	 DBCREATE2(PRIVPATH+"gparams.dbf",aDbf)
+	if !File2( cGParams )
+	 DBCREATE2( cGParams, aDbf)
 	endif
-	CREATE_INDEX("ID","fsec+fh+fvar+rbr",PRIVPATH + "gparams.dbf", .t.)
+	CREATE_INDEX("ID","fsec+fh+fvar+rbr", cGParams, .t.)
 endif
 
 if (nArea==-1 .or. nArea==F_MPARAMS)
-	if !file(ToUnix("." + SLASH + "mparams.dbf"))
-	 DBCREATE2(TRUENAME( "." + SLASH + "mparams.dbf"),aDbf)
+	if !File2(ToUnix( cMParams ))
+	 DBCREATE2( cMParams, aDbf)
 	endif
-	CREATE_INDEX("ID","fsec+fh+fvar+rbr",  "." + SLASH + "mparams", .t.)
+	CREATE_INDEX("ID","fsec+fh+fvar+rbr", cMParams, .t.)
 endif
 
 if (nArea==-1 .or. nArea==F_KPARAMS)
-	if !file(ToUnix(KUMPATH+"KPARAMS.dbf"))
-	 DBCREATE2(KUMPATH+"KPARAMS.dbf",aDbf)
+	if !File2( cKParams )
+	 DBCREATE2 ( cKParams, aDbf)
 	endif
-	CREATE_INDEX("ID","fsec+fh+fvar+rbr",KUMPATH+"kparams.dbf",.t.)
+	CREATE_INDEX("ID","fsec+fh+fvar+rbr", cKParams ,.t.)
 endif
 
 
@@ -159,7 +161,7 @@ AADD(aDbf, {"Fv","C",15,0}  ) // sadrzaj
 
 if (nArea==-1 .or. nArea==F_SECUR)
 	cImeDBf:=ToUnix(KUMPATH+"secur.dbf")
-	if !file(cImeDBF)
+	if !File2(cImeDBF)
 	 DBCREATE2(cImeDBF,aDbf)
 	endif
 	CREATE_INDEX("ID","fsec+fh+fvar+rbr", cImeDBF, .t.)
@@ -177,7 +179,7 @@ if (nArea==nil)
 endif
 
 if (nArea==-1 .or. nArea==F_KPARAMS)
-	if !file(ToUnix(SIFPATH+"ADRES.DBF"))
+	if !File2(ToUnix(SIFPATH+"ADRES.DBF"))
 	  aDBF:={}
 	  AADD(aDBf,{ 'ID'    , 'C' ,  50 ,   0 })
 	  AADD(aDBf,{ 'RJ'    , 'C' ,  30 ,   0 })
@@ -226,7 +228,7 @@ AADD(aDbf, {"Fv","C",15,0}  ) // sadrzaj
 
 if (nArea==-1 .or. nArea==F_GPARAMS)
 	cImeDBf:=ToUnix( SLASH + "GPARAMS.DBF")
-	if !file(cImeDbf)
+	if !File2(cImeDbf)
 		DBCREATE2(cImeDbf,aDbf)
 	endif
 	CREATE_INDEX("ID","fsec+fh+fvar+rbr", cImeDBF )

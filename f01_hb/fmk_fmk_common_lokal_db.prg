@@ -37,7 +37,7 @@ if (nArea==-1 .or. nArea == F_LOKAL)
 	aDbf := g_lokal_fields()
 	cTbl := "LOKAL"
 
-	if !FILE( SIFPATH+ cTbl + '.DBF' )
+	if !File2( SIFPATH+ cTbl + '.DBF' )
 		dbcreate2(SIFPATH+ cTbl + '.DBF', aDbf)
 	endif
 	

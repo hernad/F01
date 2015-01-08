@@ -69,14 +69,19 @@ local nErr
 
  if objErr:genCode =EG_PRINT
      MsgO(objErr:description+':Greska sa stampacem !!!!')
+
  elseif ObjErr:genCode =EG_CREATE
      MsgO(ObjErr:description+':Ne mogu kreirati fajl !!!!')
+
  elseif objErr:genCode =EG_OPEN
      MsgO(ObjErr:description+':Ne mogu otvoriti fajl !!!!')
+
  elseif objErr:genCode =EG_CLOSE
      MsgO(objErr:description+':Ne mogu zatvoriti fajl !!!!')
+
  elseif objErr:genCode =EG_READ
      MsgO(objErr:description+':Ne mogu procitati fajl !!!!')
+
  elseif objErr:genCode =EG_WRITE
      MsgO(objErr:description+':Ne mogu zapisati u fajl !!!!')
  else
@@ -88,7 +93,7 @@ local nErr
  INKEY()
  MsgC()
 
-Odg:=Pitanje(,'Zelite li pokusati ponovo (D/N) ?',' ')=="D"
+Odg := Pitanje(,'Zelite li pokusati ponovo (D/N) ?',' ')=="D"
 
 
 if (Odg=='D')
@@ -200,12 +205,6 @@ do case
      MsgO(ObjErr:description+' Ne mogu otvoriti fajl '+ObjErr:filename)
      lInstallDB:=.t.
 
-  //if file(strtran(objerr:filename,gSezonDir,"")) .and. !file(ObjErr:Filename) // ako se radi sa sezonskim podacima
-    //    filecopy(strtran(objerr:filename,gSezonDir,""),ObjErr:fileName)
-        // primjer :\sigma\fin\kum1\params.dbf
-        // primjer :\sigma\fin\kum1\1997\params.dbf
-   //  endif
-
    CASE objErr:genCode=EG_CLOSE
      MsgO(objErr:description+':Ne mogu zatvoriti fajl '+ObjErr:filename)
    CASE objErr:genCode=EG_READ
@@ -307,7 +306,9 @@ do while .t.
   next
   ?
   ? "Trenutno radno podrucje:",alias(),", na zapisu broj:",recno()
-  ?
+  ? "PrivPath :", PRIVPATH
+  ? "KumPath  :", KUMPATH
+  ? "SifPath  :", SIFPATH
   ?
 
   if cStampaj=="D"

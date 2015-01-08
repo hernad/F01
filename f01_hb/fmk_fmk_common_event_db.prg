@@ -53,7 +53,7 @@ AADD(aDbf,{"SECURITY3","N",3,0})
 AADD(aDbf,{"OPIS","C",40,0})
 
 if (nArea==-1 .or. nArea==F_EVENTS)
-	if !file((cPath+"events.dbf"))
+	if !File2((cPath+"events.dbf"))
 		DBCREATE2(cPath+"events.dbf",aDbf)
 	endif
 	CREATE_INDEX("ID","id",cPath+"events.dbf",.t.)
@@ -88,7 +88,7 @@ AADD(aDbf,{"LOGIRATI","C",1,0})
 AADD(aDbf,{"OPIS","C",60,0})
 
 if (nArea==-1 .or. nArea==F_EVENTLOG)
-	if !file((cPath+"eventlog.dbf"))
+	if !File2((cPath+"eventlog.dbf"))
 		DBCREATE2(cPath+"eventlog.dbf",aDbf)
 	endif
 	CREATE_INDEX("ID","id",cPath+"eventlog.dbf",.t.)

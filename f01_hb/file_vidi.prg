@@ -275,7 +275,7 @@ do while .t.
          ccPom:=PADR(SUBSTR(cImeF,nPom+1),12)
          if VarEdit({{"Fajl","ccPom",,"@!",}},10,20,14,59, "NAZIV FAJLA ZA PREGLED",gShemaVF)
            ccPom:=ALLTRIM(LEFT(cImeF,nPom)+ccPom)
-           if FILE(ccPom)
+           if File2(ccPom)
              cImeF:=ccPom
              nPom:=RAT(SLASH,cImeF)
              nDF:=VelFajla(cImeF,0); nKol:=1; nOf1l:=0; lNevazna:=.f.
@@ -357,7 +357,7 @@ do while .t.
          ccPom:=PADR(SUBSTR(cImeF,nPom+1),12)
          if VarEdit({{"Fajl","ccPom",,"@!",}},10,20,14,59, "PROMJENA NAZIVA FAJLA",gShemaVF)
            ccPom:=ALLTRIM(LEFT(cImeF,nPom)+ccPom)
-           if RENAMEFILE(cImeF,ccPom)==0
+           if RenameFile(cImeF,ccPom)==0
              cImeF:=ccPom
              nPom:=RAT(SLASH,cImeF)
              exit
@@ -411,7 +411,7 @@ do while .t.
          cFajlPRN:=ALLTRIM(cImeF)
        else
          cFajlPRN:="PRN777.TXT"
-         if FILE( cFajlPRN )
+         if File2( cFajlPRN )
            FERASE( cFajlPRN )
          endif
          nOfPoc := IIF( cVStamp=="2" , MIN(nOfM1,nOfM2) ,;
@@ -465,7 +465,7 @@ do while .t.
        endif
 
        cFajlPRN:="PRN777.TXT"
-       if FILE( cFajlPRN )
+       if File2( cFajlPRN )
          FERASE( cFajlPRN )
        endif
 

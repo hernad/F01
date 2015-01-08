@@ -63,7 +63,7 @@ if gKesiraj $ "CD"
   DirMak2(cPath)  // napravi odredisni direktorij
 
   if cDefault!="0"
-    if !file( cPath+cIme+".DBF") .or. Pitanje(,"Osvjeziti podatke za "+cIme, cDefault )=="D"
+    if !File2( cPath+cIme+".DBF") .or. Pitanje(,"Osvjeziti podatke za "+cIme, cDefault )=="D"
      save screen to cScr
      cls
      ? "Molim sacekajte prenos podataka na vas racunar "

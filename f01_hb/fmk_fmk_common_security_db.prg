@@ -44,7 +44,7 @@ AADD(aDbf,{"IDGRUPA2","N",3,0})
 AADD(aDbf,{"IDGRUPA3","N",3,0})  
 
 if (nArea==-1 .or. nArea==F_USERS)
-	if !file((cSecurPath+"users.dbf"))
+	if !File2((cSecurPath+"users.dbf"))
 		DBCREATE2(cSecurPath+"users.dbf",aDbf)
 	endif
 	CREATE_INDEX("ID","STR(id,3)",cSecurPath+"users.dbf",.t.)
@@ -74,7 +74,7 @@ AADD(aDbf,{"ID","N",3,0})
 AADD(aDbf,{"NAZ","C",15,0})  
 
 if (nArea==-1 .or. nArea==F_GROUPS)
-	if !file((cSecurPath+"groups.dbf"))
+	if !File2((cSecurPath+"groups.dbf"))
 		DBCREATE2(cSecurPath+"groups.dbf",aDbf)
 	endif
 	CREATE_INDEX("ID","STR(id,3)",cSecurPath+"groups.dbf",.t.)
@@ -105,7 +105,7 @@ AADD(aDbf,{"DOZVOLA","C",1,0})
 AADD(aDbf,{"LOG","C",1,0})  
 
 if (nArea==-1 .or. nArea==F_RULES)
-	if !file((cSecurPath+"rules.dbf"))
+	if !File2((cSecurPath+"rules.dbf"))
 		DBCREATE2(cSecurPath+"rules.dbf",aDbf)
 	endif
 	CREATE_INDEX("ID2","STR(id2,3)",cSecurPath+"rules.dbf",.t.)

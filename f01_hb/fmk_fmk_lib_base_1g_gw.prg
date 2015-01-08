@@ -674,7 +674,7 @@ static function OpenLog(cLogName)
 
 local nHLog
 
-if !FILE(cLogName)
+if !File2(cLogName)
 	do while .t.
 		nHLog:=FCREATE(cLogName)
 		if nHLog>0

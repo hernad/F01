@@ -46,7 +46,7 @@ function PP_Sast()
     IF SELECT("ROBA2")!=0
       SELECT ROBA2; USE
     ENDIF
-    IF ! ( FILE(cPom) ) .OR. ! ( FILE(cPom2) )
+    IF ! ( File2(cPom) ) .OR. ! ( File2(cPom2) )
       Msg("Na zadanom direktoriju druge firme ne postoji baza za poredjenje !",6)
       RETURN
     ENDIF

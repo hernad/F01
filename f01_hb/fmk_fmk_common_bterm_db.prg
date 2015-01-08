@@ -52,7 +52,7 @@ _creTemp( aDbf, .t. )
 O_ROBA
 O_TEMP
 
-if !File(PRIVPATH + SLASH + "TEMP.DBF")
+if !File2(PRIVPATH + SLASH + "TEMP.DBF")
 	MsgBeep("Ne mogu kreirati fajl TEMP.DBF!")
 	return
 endif

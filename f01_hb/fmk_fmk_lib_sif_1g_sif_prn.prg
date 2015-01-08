@@ -359,7 +359,7 @@ ACOPY(Kol,Kl)
 #endif
 
 
-if FILE(cImef+MEMOEXT)
+if File2(cImef+MEMOEXT)
  RESTORE FROM &cImeF ADDITIVE // u~itavanje string kolona
  for i:=1 to LEN(Kl)
    if valtype(cKolona)=="C"

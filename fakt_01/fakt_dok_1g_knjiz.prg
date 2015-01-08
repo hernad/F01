@@ -724,7 +724,7 @@ lJos:=.t.
 
 if lSSIP99
 	if IzFMKIni('FAKT','DelphiRB','N')=='D'
-    		UzmiIzIni(EXEPATH+"FMK.INI",'DELPHIRB','Aktivan',"0",'WRITE')
+    		UzmiIzIni( EXEPATH+ "FMK.INI",'DELPHIRB','Aktivan',"0",'WRITE')
   	else
     		StartPrint(.t.)
   	endif

@@ -661,6 +661,7 @@
       => __dbJoin( <(alias)>, <(file)>, { <(fields)> }, <{for}> )
 
 
+/*
 #command COUNT [TO <var>]                                               ;
          [FOR <for>]                                                    ;
          [WHILE <while>]                                                ;
@@ -674,6 +675,15 @@
                  {|| <var> := <var> + 1},                               ;
                  <{for}>, <{while}>, <next>, <rec>, <.rest.>            ;
                )
+
+*/
+
+#command COUNT [TO <v>] ;
+      [FOR <for>] [WHILE <while>] [NEXT <next>] ;
+      [RECORD <rec>] [<rest:REST>] [ALL] => ;
+      <v> := 0 ; DBEval( {|| <v> := <v> + 1}, ;
+      <{for}>, <{while}>, <next>, <rec>, <.rest.> )
+
 
 
 #command SUM [ <x1> [, <xn>]  TO  <v1> [, <vn>] ]                       ;

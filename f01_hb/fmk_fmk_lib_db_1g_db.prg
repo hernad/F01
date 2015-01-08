@@ -1024,31 +1024,31 @@ endif
 // ne dozvoli rekurziju funkcije
 nPreuseLevel:=1
 
-cOnlyName:=ChangeEXT(ExFileName(cImeDbf),"DBF","")
+cOnlyName:= ChangeEXT(ExFileName(cImeDbf),"DBF","")
 
 cImeGwu:=ChangeEXT(cImeDbf, DBFEXT, "gwu")
 cImeCdx:=ChangeEXT(cImeDbf, DBFEXT, INDEXEXT)
 
-cImeDbf:=LOWER(cImeDbf)
+//cImeDbf:=LOWER(cImeDbf)
 cImeDbf:=STRTRAN(cImeDbf, ".korisn","korisn")
+
 cImeGw:=ChangeEXT(cImeDbf, DBFEXT, "gwu")
 
-if gReadOnly
-	nPreuseLevel:=0
-	return cImeDbf
-endif
 
 
-if (GW_STATUS="-" .and. FILE(cImeGwu))
+if (GW_STATUS="-" .and. File2(cImeGwu))
 
 	nArea:=DbfArea(UPPER(cOnlyName))
+
 	FERASE(cImeCdx)
 	goModul:oDatabase:kreiraj(nArea)
+
 	FERASE(cImeGwu)
 
 endif
 
 nPreuseLevel:=0
+
 return cImeDbf
 
 
@@ -1066,7 +1066,7 @@ for i:=1 to 250
 	MsgO("ScanDb "+STR(i))
 	cDbfName:=DbfName(i,.t.)
 	if !EMPTY(cDbfName)
-		if FILE(cDbfName+"."+DBFEXT)
+		if File2(cDbfName+"."+DBFEXT)
 			USE_EXCLUSIVE(cDbfName)
 			if (RECCOUNT()<>RecCount2())
 				MsgO("Pakujem "+cDbfName)

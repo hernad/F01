@@ -80,7 +80,7 @@ if fSMark==nil
 	fSMark:=.f.
 endif
 
-if cKesiraj=="D" .and. ( !FILE(GSCTEMP+iif(gKalks,"kalks.dbf","kalk.dbf")) .or. Pitanje(,"Osvjeziti lokalnu kopiju "+cPom+" ?","N")=="D")
+if cKesiraj=="D" .and. ( !File2(GSCTEMP+iif(gKalks,"kalks.dbf","kalk.dbf")) .or. Pitanje(,"Osvjeziti lokalnu kopiju "+cPom+" ?","N")=="D")
 
 	Dirmak2(GSCTEMP)
 	O_KALKREP

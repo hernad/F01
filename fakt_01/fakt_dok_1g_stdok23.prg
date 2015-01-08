@@ -600,7 +600,7 @@ if fDelphiRB
    	AADD(aDBf,{ 'CijenaMR'            , 'C' ,  12 ,  0 })  // cijena-rabat
 	nSek0 := SECONDS()
    	nSekW := VAL( IzFMKIni("FAKT","CekanjeNaSljedeciPozivDRB","6",KUMPATH) )
-   	DO WHILE FILE(PRIVPATH+"POM.DBF")
+   	DO WHILE File2(PRIVPATH+"POM.DBF")
      		FERASE(PRIVPATH+"POM.DBF")
      		IF SECONDS()-nSek0 > nSekW
        			IF Pitanje(,"Zauzet POM.DBF. Pokusati ponovo? (D/N)","D")=="D"

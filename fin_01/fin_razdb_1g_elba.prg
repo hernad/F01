@@ -149,7 +149,7 @@ if EMPTY(cFile)
 	MsgBeep("Lokacija i ime fajla moraju biti popunjeni !")
 	lRet := .f.
 else
-	if !FILE(cFile)
+	if !File2(cFile)
 		MsgBeep("Ovaj fajl ne postoji !!!")
 		lRet := .f.
 	endif

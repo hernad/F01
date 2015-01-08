@@ -1,12 +1,12 @@
 
 
-#xcommand O_KORISN    => select (F_KORISN);  use (ToUnix("." + SLASH + "KORISN")); set order to tag "IME"
-#xcommand O_PARAMS    => select (F_PARAMS);  use (ToUnix(PRIVPATH+"params")) ; set order to tag  "ID"
-#xcommand O_GPARAMS   => altd(); select (F_GPARAMS); use (ToUnix( SLASH + "gparams")) ;   set order to tag  "ID"
-#xcommand O_GPARAMSP  => select (F_GPARAMSP); use (ToUnix(PRIVPATH+"gparams")) ; set order to tag  "ID"
-#xcommand O_MPARAMS   => select (F_MPARAMS); use (ToUnix("." + SLASH + "mparams"))  ; set order  to tag  "ID"
-#xcommand O_KPARAMS   => select (F_KPARAMS); use (ToUnix(KUMPATH+"kparams")); set order to tag  "ID"
-#xcommand O_SECUR     => select (F_SECUR); use (ToUnix(KUMPATH+"secur")) ; set order to tag "ID"
+#xcommand O_KORISN    => select (F_KORISN);  use (ToUnix( modul_dir() + "KORISN")); set order to tag "IME"
+#xcommand O_PARAMS    => select (F_PARAMS);  use (ToUnix(PRIVPATH+"PARAMS")) ; set order to tag  "ID"
+#xcommand O_GPARAMS   => select (F_GPARAMS); use (ToUnix( SLASH + "GPARAMS")) ;   set order to tag  "ID"
+#xcommand O_GPARAMSP  => select (F_GPARAMSP); use (ToUnix(PRIVPATH+"GPARAMS")) ; set order to tag  "ID"
+#xcommand O_MPARAMS   => select (F_MPARAMS); use (ToUnix(modul_dir() + "MPARAMS"))  ; set order  to tag  "ID"
+#xcommand O_KPARAMS   => select (F_KPARAMS); use (ToUnix(KUMPATH + "KPARAMS")); set order to tag  "ID"
+#xcommand O_SECUR     => select (F_SECUR); use (ToUnix(KUMPATH + "secur")) ; set order to tag "ID"
 
 #xcommand O_SQLPAR    => select (F_SQLPAR); use (ToUnix(KUMPATH+"SQL" + SLASH + "SQLPAR"))
 

@@ -38,7 +38,7 @@
 
 function StornoDok()
 
-  OEdit()
+  kalk_oedit()
   cIdFirma := gFirma
   cIdVdU   := "  "
   cBrDokU  := SPACE(LEN(PRIPR->brdok))

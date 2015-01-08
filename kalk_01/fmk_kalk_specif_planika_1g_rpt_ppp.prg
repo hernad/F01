@@ -382,13 +382,13 @@ do while (!EOF())
 	AddBs(@cTKumPath)
 	AddBs(@cTSifPath)
 	
-	if (!FILE(cTKumPath+"POS.DBF") .or. !FILE(cTKumPath+"POS.CDX"))
+	if (!File2(cTKumPath+"POS.DBF") .or. !File2(cTKumPath+"POS.CDX"))
 		SKIP 1
 		loop
 	endif
 	
 	SELECT(F_ROBA)
-	//if !FILE(cTSifPath+"ROBA.DBF") .or. !FILE(cTSifPath+"ROBA.CDX")
+	//if !File2(cTSifPath+"ROBA.DBF") .or. !File2(cTSifPath+"ROBA.CDX")
 	USE (SIFPATH+"ROBA")
 	SET ORDER TO TAG "ID"
 	//else

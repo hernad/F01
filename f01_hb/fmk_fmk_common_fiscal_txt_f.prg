@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -29,7 +29,7 @@ return
 
 
 // -------------------------------------------------
-// vraca strukturu za generisanje fajlova 
+// vraca strukturu za generisanje fajlova
 // -------------------------------------------------
 function _g_f_struct( cFileName )
 local aRet := {}
@@ -39,7 +39,7 @@ local aRet := {}
 do case
 
 	case cFileName == "RACUN_TXT"
-		
+
 		// fiskalni racun broj (1-5)
 		AADD( aRet, { "N", 5, 0 } )
 		// tip racuna (6)
@@ -77,7 +77,7 @@ do case
 		AADD( aRet, { "N", 12, 2 } )
 
 	case cFileName == "RACUN_MEM"
-		
+
 		// slobodan red teksta
 		AADD( aRet, { "C", 32, 0 })
 
@@ -95,7 +95,7 @@ do case
 		AADD( aRet, { "N", 5, 0 })
 		// broj reklamnog racuna (26-31)
 		AADD( aRet, { "N", 5, 0 })
-	
+
 	case cFileName == "NIVELACIJA"
 
 		// redni broj nivelacije (1-5)
@@ -114,7 +114,7 @@ do case
 		AADD( aRet, { "N", 12, 2 })
 
 	case cFileName == "POREZI"
-	
+
 		// sifra stope (1)
 		AADD( aRet, { "N", 1, 0 })
 		// naziv poreske stope u pravilniku (2-17)
@@ -123,7 +123,7 @@ do case
 		AADD( aRet, { "N", 5, 2 })
 
 	case cFileName == "ROBA"
-		
+
 		// sifra robe (1-5)
 		AADD( aRet, { "N", 5, 0 })
 		// naziv robe (6-37)
@@ -136,16 +136,16 @@ do case
 		AADD( aRet, { "N", 1, 0 })
 		// cijena robe (55-67)
 		AADD( aRet, { "N", 12, 2 })
-	
+
 	case cFileName == "ROBAGRUPE"
-	
+
 		// sifra  (1-2)
 		AADD( aRet, { "N", 2, 0 })
 		// naziv  (3-19)
 		AADD( aRet, { "C", 17, 0 })
 
 	case cFileName == "PARTNERI"
-	
+
 		// sifra  (1-5)
 		AADD( aRet, { "N", 5, 0 })
 		// naziv  (6-36)
@@ -160,7 +160,7 @@ do case
 		AADD( aRet, { "C", 21, 2 })
 
 	case cFileName == "OPERATERI"
-		
+
 		// sifra operatera (1-2)
 		AADD( aRet, { "N", 2, 0 })
 		// naziv operatera (3-18)
@@ -169,7 +169,7 @@ do case
 		AADD( aRet, { "C", 20, 0 })
 
 	case cFileName == "OBJEKTI"
-		
+
 		// sifra  (1-5)
 		AADD( aRet, { "N", 5, 0 })
 		// naziv  (6-36)
@@ -184,10 +184,10 @@ do case
 		AADD( aRet, { "C", 31, 0 })
 
 	case cFileName == "POS_RN"
-		
+
 		// pos racun - stavke
 		AADD( aRet, { "C", 100, 0 } )
-		
+
 endcase
 
 return aRet
@@ -199,7 +199,7 @@ return aRet
 // ----------------------------------------------------------
 function _a_to_file( cFilePath, cFileName, aStruct, aData, ;
 	cSeparator, lTrim, lLastSep )
-local i 
+local i
 local ii
 local cLine := ""
 local nCount := 0
@@ -225,13 +225,13 @@ set console off
 
 // prodji kroz podatke u aData
 for i := 1 to LEN( aData )
-	
+
 	cLine := ""
 
 	// prodji kroz strukturu jednog zapisa u matrici
 	// i napuni liniju...
 	for ii := 1 to LEN( aStruct )
-		
+
 		cType := aStruct[ii, 1]
 		nLen := aStruct[ii, 2]
 		nDec := aStruct[ii, 3]
@@ -239,14 +239,14 @@ for i := 1 to LEN( aData )
 		if cType == "C"
 			xVal := PADR( aData[i, ii], nLen )
 		elseif cType == "N"
-			
+
 			if nDec > 0
 				xVal := ALLTRIM(STR(aData[i, ii], nLen, nDec))
 			else
 				xVal := ALLTRIM(STR(aData[i, ii]))
 			endif
-		
-			if lTrim == .f.	
+
+			if lTrim == .f.
 				xVal := PADL( xVal, nLen, cNumFill )
 			endif
 
@@ -260,7 +260,7 @@ for i := 1 to LEN( aData )
 		if lTrim == .t.
 			xVal := ALLTRIM( xVal )
 		endif
-		
+
 		if ii = LEN( aStruct ) .and. lLastSep == .f.
 			cLine += xVal
 		else
@@ -270,8 +270,8 @@ for i := 1 to LEN( aData )
 	next
 
 	?? cLine
-	? 
-	
+	?
+
 	++ nCount
 
 next
@@ -288,7 +288,7 @@ return
 // ----------------------------------------------------------
 function _dbf_to_file( cFilePath, cFileName, aStruct, cDBF, ;
 	cSeparator, lTrim, lLastSep )
-local i 
+local i
 local ii
 local cLine := ""
 local nCount := 0
@@ -324,7 +324,7 @@ do while !EOF()
 	// prodji kroz strukturu jednog zapisa u matrici
 	// i napuni liniju...
 	for ii := 1 to LEN( aStruct )
-		
+
 		cType := aStruct[ii, 1]
 		nLen := aStruct[ii, 2]
 		nDec := aStruct[ii, 3]
@@ -332,14 +332,14 @@ do while !EOF()
 		if cType == "C"
 			xVal := PADR( &(exp->(fieldname(ii))), nLen )
 		elseif cType == "N"
-			
+
 			if nDec > 0
 				xVal := ALLTRIM(STR( &(exp->(fieldname(ii))), nLen, nDec))
 			else
 				xVal := ALLTRIM(STR( &(exp->(fieldname(ii)))))
 			endif
-		
-			if lTrim == .f.	
+
+			if lTrim == .f.
 				xVal := PADL( xVal, nLen, cNumFill )
 			endif
 
@@ -353,7 +353,7 @@ do while !EOF()
 		if lTrim == .t.
 			xVal := ALLTRIM( xVal )
 		endif
-		
+
 		if ii = LEN( aStruct ) .and. lLastSep == .f.
 			cLine += xVal
 		else
@@ -363,8 +363,8 @@ do while !EOF()
 	next
 
 	?? cLine
-	? 
-	
+	?
+
 	++ nCount
 
 	skip
@@ -379,4 +379,3 @@ select (249)
 use
 
 return
-

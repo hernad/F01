@@ -123,7 +123,7 @@ if !fPostoji
 	return
 endif
 
-if !FILE(cImeCdx)  .or. nOrder==0  .or. UPPER(cOrdKey)<>UPPER(cKljuc)
+if !File2(cImeCdx)  .or. nOrder==0  .or. UPPER(cOrdKey)<>UPPER(cKljuc)
 
 
      cFulDbf:=cImeDbf
@@ -544,7 +544,6 @@ else
 	cCHSFile:=(EXEPATH + cCHSName + ".CHS")
 endif
 
-altd()
 
 ? "Modifikacija struktura " + cCHSFile
 ? "Pricekajte koji trenutak ..."
@@ -656,8 +655,6 @@ parameters cImeF,cPath, fString
 set deleted on  // ne kopiraj izbrisane zapise
 close all
 
-altd()
-
 cmxAutoOpen(.f.)  // ne otvaraj CDX-ove
 
 if pcount()==0
@@ -703,8 +700,6 @@ private fRenameDBF:=.f.
 
 fprom:=.f.
 nProlaza:=0
-
-altd()
 
 do while fString .or. !FEOF(nH)
 	++nLinija

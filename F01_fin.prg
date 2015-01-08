@@ -1,9 +1,6 @@
 
 PROCEDURE MainX( ... )
 
-  altd()
-  ? "hello"
-  inkey(0)
 
   //f18_init_harbour()
 

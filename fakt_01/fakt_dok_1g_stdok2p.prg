@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -12,13 +12,6 @@
 
 #include "fakt01.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
- * ----------------------------------------------------------------
- */
-
- 
 function StDok2P_rb( c1, c2, c3)
 
 private cIdFirma := c1
@@ -55,7 +48,7 @@ else
 endif
 
 // neka divlja varijabla
-if "U" $ TYPE("lSSIP99") .or. !VALTYPE(lSSIP99)=="L" 
+if "U" $ TYPE("lSSIP99") .or. !VALTYPE(lSSIP99)=="L"
 	lSSIP99:= .f.
 endif
 
@@ -127,14 +120,14 @@ ELSE
 ENDIF
 
 
-aDbf:={ ; 
+aDbf:={ ;
           {"POR","C",10,0},;
           {"IZNOS","N",18, 8} ;
       }
 dbcreate2(PRIVPATH+"por",aDbf)
 O_POR   // select 95
 index  on BRISANO TAG "BRISAN"
-index  on POR  TAG "1" 
+index  on POR  TAG "1"
 set order to tag "1"
 select pripr
 
@@ -256,12 +249,12 @@ if fDelphiRB
    AADD(aDBf,{ 'UKUPNO'              , 'C' ,  12 ,  0 })
    AADD(aDBf,{ 'UKUPNO2'             , 'C' ,  12 ,  0 })
    AADD(aDBf,{ 'IDTARIFA'            , 'C' ,   6 ,  0 })
-   AADD(aDBf,{ 'Cijena2'             , 'C' ,  12 ,  0 }) 
+   AADD(aDBf,{ 'Cijena2'             , 'C' ,  12 ,  0 })
 
 
    nSek0 := SECONDS()
    nSekW := VAL( IzFMKIni("FAKT","CekanjeNaSljedeciPozivDRB","6",KUMPATH) )
-   DO WHILE FILE(PRIVPATH+"POM.DBF")
+   DO WHILE File2(PRIVPATH+"POM.DBF")
      FERASE(PRIVPATH+"POM.DBF")
      IF SECONDS()-nSek0 > nSekW
        IF Pitanje(,"Zauzet POM.DBF (112). Pokusati ponovo? (D/N)","D")=="D"
@@ -296,29 +289,29 @@ do while idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==cBrDok .and. !
 
 	SELECT ROBA
 	seek pripr->idroba
-	
+
 	SELECT TARIFA
 	seek roba->idtarifa
 
 	SELECT pripr
 
 	cIdPartner := pripr->idpartner
-	
+
 	if alltrim(podbr)=="." .or. roba->tip="U"
      		aMemo:=ParsMemo(txt)
       		cTxt1:=padr(aMemo[1],40)
    	endif
-	
+
    	if roba->tip="U"
       		cTxtR:=aMemo[1]
    	endif
-	
+
        	select tarifa
 	hseek roba->idtarifa
 	select pripr
-		
+
 	aSbr:=Sjecistr(serbr,10)
-    		
+
 	if roba->tip="U"
      			aTxtR:=SjeciStr(aMemo[1],iif(gVarF=="1".and.!idtipdok$"11#27",51,if(IsTvin(),if(idtipdok$"11#27",22,31),40)))   // duzina naziva + serijski broj
        			select pom
@@ -326,15 +319,15 @@ do while idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==cBrDok .and. !
        			replace naziv with pripr->(aMemo[1])
        			select pripr
     	else
-			
+
 			cK1:=""
      			cK2:=""
-     			
-			if pripr->(fieldpos("k1"))<>0 
+
+			if pripr->(fieldpos("k1"))<>0
      				cK1:=k1
 				cK2:=k2
 			endif
-     			
+
 			aTxtR:=SjeciStr(trim(roba->naz)+iif(!empty(ck1+ck2)," "+ck1+" "+ck2,"")+Katbr()+IspisiPoNar(),if(IsTvin(),if(idtipdok$"11#27",22,31),40))
        			select pom
        			append blank // prvo se stavlja naziv!!
@@ -343,9 +336,9 @@ do while idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==cBrDok .and. !
        			replace idtarifa with roba->idtarifa
 			select pripr
 	endif
-			
-			
-	    
+
+
+
 	nStopa := tarifa->opp
 	cIdTarifa := tarifa->id
 	if IsIno(cIdPartner)
@@ -354,7 +347,7 @@ do while idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==cBrDok .and. !
 	else
 	       	cPDV:= STR(tarifa->opp, 2, 0)+"%"
 	endif
-	
+
 
       	select pom
       	replace rbr with pripr->(RBr()) ,;
@@ -364,7 +357,7 @@ do while idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==cBrDok .and. !
        	select pom
        	replace POREZ1 with transform(nStopa, "9999.9%")
        	select pripr
-     	
+
 	select pom
       	replace kolicina with transform(pripr->(kolicina()),pickol)
         replace jmj with lower(ROBA->jmj)
@@ -379,13 +372,13 @@ do while idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==cBrDok .and. !
         else
              cRab:=str(rabat,5,0)
         endif
-	   
+
              if gRabProc=="D"
                 select pom
                 replace Rabat with pripr->(cRab+"%")
                 select pripr
              endif
-	     
+
              select pom
 	     nCijena2 := pripr->cijena * (1- pripr->rabat/100) * Koef(cDinDem)
 
@@ -403,32 +396,32 @@ do while idfirma==cIdFirma .and. idtipdok==cIdTipDok .and. brdok==cBrDok .and. !
 
 	        select pom
                 replace POR with pripr->(cPDV)
-               
+
                 replace UKUPNO with pripr->(transform(round(kolicina()* cijena * Koef(cDinDem), nZaokr), picdem))
                 replace UKUPNO2 with pripr->(transform(round(kolicina()*nCijena2*Koef(cDinDem), nZaokr), picdem))
               select pripr
-           
+
 	        nPDV:=ROUND(kolicina()* Koef(cDinDem)* nCijena2, nZaokr) * nStopa/100
 
              	// napuni tabelu poreza
 	        select por
-	     
+
                 seek cPDV
-               
+
 	        if !found()
          	  ++nPorZaIspis
 	      	  append blank
 	      	  replace por with cPDV
 	        endif
-	       
+
                 replace iznos with iznos+nPDV
                 select pripr
-	      
+
        if fPBarKod
          select pom
          replace BARKOD with roba->barkod
        endif
-       
+
        select pripr
        nUk+=round(kolicina()*cijena*Koef(cDinDem),nZaokr)
        nUk2+=round(kolicina()*nCijena2*Koef(cDinDem),nZaokr)
@@ -441,7 +434,7 @@ nUk:= round(nUk, nZaokr)
 nUk2:= round(nUk2, nZaokr)
 
 // treba mi iznos poreza da bih vidio da li cu stampati red "Ukupno"
-nPDV:=0 
+nPDV:=0
 select por
 go top
 do while !eof()
@@ -485,7 +478,7 @@ select por
 
 nFZaokr:=round(nUk-nRab+nPDV, nZaokr) - round2(round(nUk-nRab+nPDV, nZaokr), gFZaok)
 
-if gFZaok<>9 .and. round(nFzaokr,4)<>0 
+if gFZaok<>9 .and. round(nFzaokr,4)<>0
    UzmiIzIni(cIniName,'Varijable','Zaokruzenje',transform(nFZaokr,picdem),'WRITE')
 endif
 
@@ -510,7 +503,7 @@ next
 for i:=1 to numtoken(cTxt2, Chr(200) )
 	UzmiIzIni(cIniName,'Varijable','KrajTxt'+alltrim(str(i)), token(KonvZnWin(@cTxt2, gKonvZnWin), Chr(200), i) ,'WRITE')
 next
-  
+
 
 PrStr2T(cIdTipDok)
 
@@ -560,7 +553,7 @@ CLOSERET
 
 /*  StKupac()
  */
- 
+
 static function StKupac()
 
 local cMjesto:=padl(Mjesto(cIdFirma)+", "+dtoc(ddatdok),iif(gFPZag=99,gnTMarg3,0)+39)
@@ -635,5 +628,3 @@ if !(cIdTipDok == "10")
 endif
 
 return
-
-
