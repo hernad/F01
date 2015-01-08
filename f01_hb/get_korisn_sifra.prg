@@ -425,6 +425,7 @@ FUNCTION PokreniInstall( oApp )
   ulazni parametri aplikacije
 
   poziv: ./F01_kalk 11 11 /FN_ON_STARTUP:Alert\(\'hello\'\)
+         ./F01_kalk 11 11 /FN_ON_STARTUP:vindija_import_txt_dokument\(\)
 
   mpar37( "/FN_ON_STARTUP:", oApp ) => .T.
 */
