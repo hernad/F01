@@ -471,26 +471,6 @@ f01_reindex(.t.)
 return
 
 
-
-
-function f01_rjec(cLin)
-
-local cOp,nPos
-
-nPos:=aT(" ",cLin)
-if nPos==0 .and. !empty(cLin) // zadnje polje
-	cOp:=alltrim(clin)
-	cLin:=""
-	return cOp
-endif
-
-cOp:=alltrim(left(cLin,nPos-1))
-cLin:=right(cLin,len(cLin)-nPos)
-cLin:=alltrim(cLin)
-return cOp
-
-
-
 function f01_prepakuj(aNStru)
 
 local i,aPom

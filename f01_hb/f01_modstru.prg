@@ -289,3 +289,22 @@ FUNCTION f01_add_field_brisano( cImeDbf )
    USE_EXCLUSIVE( cImeDbf )
 
    RETURN
+
+
+
+FUNCTION f01_rjec( cLin )
+
+   LOCAL cOp, nPos
+
+   nPos := At( " ", cLin )
+   IF nPos == 0 .AND. !Empty( cLin ) // zadnje polje
+      cOp := AllTrim( clin )
+      cLin := ""
+      RETURN cOp
+   ENDIF
+
+   cOp := AllTrim( Left( cLin, nPos - 1 ) )
+   cLin := Right( cLin, Len( cLin ) -nPos )
+   cLin := AllTrim( cLin )
+
+   RETURN cOp
