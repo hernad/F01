@@ -210,7 +210,7 @@ public KLevel:="9"
 
 public gPTKONV:="0 "
 public gPicSif:="V", gcDirekt:="V", gShemaVF:="B5", gSKSif:="D"
-public gArhDir:=padr(ToUnix("C:\SIGARH"),20)
+public gArhDir:=padr(ToUnix("C:" + SLASH + "SIGARH"),20)
 public gPFont:="Arial CE"
 public gKodnaS:="8"
 public gWord97:="N"
