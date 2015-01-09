@@ -239,7 +239,7 @@ ENDIF
 
 cFileName := STRTRAN( cFileName, BACKSLASH, SLASH )
 
-IF is_install()
+//IF is_install()
 
   IF LEFT( cFileName, 8 ) == "/GPARAMS"
     cFileName := STRTRAN( cFileName, "/GPARAMS", DATA_ROOT + "GPARAMS" )
@@ -251,7 +251,7 @@ IF is_install()
   ENDIF
   */
 
-ENDIF
+//ENDIF
 
 //#endif
 
