@@ -1108,7 +1108,7 @@ function AMFILL(aNiz,nElem)
 return rNiz
 
 
-function KonvZnakova(cTekst)
+function f01_konv_zn_baza(cTekst)
 
 
  // jedan par: { 7-bit znak, 852 znak }

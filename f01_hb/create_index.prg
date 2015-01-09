@@ -647,7 +647,7 @@ endif
 /*  f01_modstru(cImeF, cPath, fString)
  *   procedura modifikacija struktura
  */
-function ModStru
+function f01_ModStru
 
 parameters cImeF,cPath, fString
 
