@@ -128,7 +128,6 @@ endif
 
 if !File( cImeCdx )  .or. nOrder==0  .or. UPPER(cOrdKey)<>UPPER(cKljuc)
 
-     altd()
 
      cFulDbf:=cImeDbf
      if right(cFulDbf,4)<>"."+DBFEXT

@@ -22,7 +22,7 @@ private ImeKol:={}
 private Kol:={}
 private cLastOznaka:=" "
 private cIdTek:=cPartId
-private nArr:=SELECT()
+private nArr := SELECT()
 
 SELECT DEST
 SET ORDER TO TAG "1"

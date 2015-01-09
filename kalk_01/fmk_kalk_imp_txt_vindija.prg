@@ -775,7 +775,6 @@ LOCAL lSifDob := .t.
 aPomPart := ParExist()  // partneri
 aPomArt  := TempArtExist( lSifDob ) // artikli po sifri dobavljaca
 
-altd()
 
 if (LEN(aPomPart) > 0 .or. LEN(aPomArt) > 0)
 
@@ -958,8 +957,6 @@ endif
 
 aRet:={}
 
-altd()
-
 do while !EOF()
 
 	select partn
@@ -967,7 +964,6 @@ do while !EOF()
 	seek temp->idpartner
 
 	if !Found()
-	  altd()
 		if lPartNaz
 			AADD(aRet, {temp->idpartner, temp->naz})
 		else
@@ -1114,7 +1110,6 @@ do while !EOF()
 		cBrFakt := PADR( cBrFakt, LEN(cBrFakt) - nRight )
 	endif
 
-  altd()
 	cTDok := GetKTipDok( ALLTRIM(temp->idtipdok), temp->idpm )
 
 	if cBrFakt == cDok
@@ -1277,10 +1272,12 @@ do while !EOF()
 
 
 	if cFakt <> cPFakt
-	  altd()
+
 		++ nUvecaj
-		//cBrojKalk := GetNextKalkDoc(gFirma, cTDok, nUvecaj)
-		cBrojKalk := kalk_novi_broj( gFirma, cTDok, cIdKonto, nUvecaj )
+		// hernad: ovaj broj je bitan samo radi kasnije obrade, on je privremen
+
+		cBrojKalk := GetNextKalkDoc(gFirma, cTDok, nUvecaj)
+
 
 		nRbr := 0
 		AADD(aPom, { cTDok, cBrojKalk, cFakt })
@@ -1340,7 +1337,6 @@ do while !EOF()
 
 	// uzmi pravilan tip dokumenta za kalk
 	replace idvd with cTDok
-altd()
 	replace brdok with cBrojKalk
 	replace datdok with temp->datdok
 	replace idpartner with temp->idpartner
@@ -1736,7 +1732,7 @@ Box(,10, 70)
 @ 1+m_x, 2+m_y SAY "Obrada dokumenata iz pomocne tabele:" COLOR "I"
 @ 2+m_x, 2+m_y SAY "===================================="
 
-nUvecaj := 0
+nUvecaj := 1
 
 do while !EOF()
 
@@ -1761,8 +1757,8 @@ do while !EOF()
 
 	// daj novi broj dokumenta kalk
 	nT_area := SELECT()
-	//cN_kalk_dok := GetNextKalkDoc(cFirma, cIdVd, 1)
-	cN_kalk_dok := kalk_novi_broj( cFirma, cIdVd, cIdKonto, nUvecaj )
+
+	cN_kalk_dok := kalk_novi_broj( cFirma, cIdVd, cIdKonto, 1 )
 
 	select (nT_area)
 

@@ -915,13 +915,13 @@ POZIV++
 &usl=uslov
 
 TB:=tbrowsedb(y1,x1,y2,x2)
-TB:headsep='��'
-TB:colsep ='�'
+TB:headsep := BOX_CHAR_HORIZONT + BOX_CHAR_HORIZONT_2
+TB:colsep := BOX_CHAR_USPRAVNO
 
 if eof(); skip -1; endif
 
 
-altd()
+
 //count to nRecCnt FOR uslov
 
 /*

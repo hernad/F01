@@ -73,11 +73,9 @@ SET ORDER TO TAG "7"   // idroba+idvd
 GO TOP
 
 DO WHILE !EOF()
+
 	cIdRoba:=idroba
-    	// #DEBUG
-	if ALLTRIM(cIdRoba) == "K12820"
-		altd()
-	endif
+
 	cG:=cPG:=""
     	SELECT ROBA
 	HSEEK cIdRoba

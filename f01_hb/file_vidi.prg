@@ -56,7 +56,7 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
    init_file_content()
 
    nURed := BrLinFajla( cImeF )
-   
+
    CSetAtMupa( .T. )
 
    IF aLinFiks != nil
@@ -522,7 +522,6 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
 FUNCTION init_file_content()
 
    s_cFileContent := NIL
-   altd()
 
    RETURN .T.
 
@@ -603,7 +602,6 @@ FUNCTION BrLinFajla( cImeF )
       nVrati := 1
    ENDIF
 
-   altd()
    DO WHILE Len( cPom ) >= nSlobMem
 
       // nSlobMem:=MEMORY(1)*1024-100

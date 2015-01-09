@@ -27,6 +27,8 @@
 
 #define BOX_CHAR_USPRAVNO "|"
 #define BOX_CHAR_HORIZONT "-"
+#define BOX_CHAR_HORIZONT_2 "_"
+
 
 #define  MEMOEXTENS  "FPT"
 #DEFINE INDEXEXTENS "CDX"

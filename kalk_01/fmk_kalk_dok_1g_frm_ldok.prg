@@ -249,8 +249,6 @@ return 1
 function BrowseHron()
 
 
-altd()
-
 O_ROBA
 O_KONCIJ
 O_KALK
