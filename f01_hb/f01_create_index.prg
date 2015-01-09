@@ -10,6 +10,7 @@
  */
 
 #include "f01.ch"
+
 #include "fileio.ch"
 
 static OID_ASK:="0"
@@ -647,9 +648,7 @@ endif
 /*  f01_modstru(cImeF, cPath, fString)
  *   procedura modifikacija struktura
  */
-function f01_ModStru
-
-parameters cImeF,cPath, fString
+function f01_modStru( cImeF, cPath, fString )
 
 
 ? SPACE(40),"bring.out, 10.99, ver 02.33 CDX"
