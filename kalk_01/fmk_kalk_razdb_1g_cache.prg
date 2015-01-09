@@ -32,7 +32,7 @@ AADD( aFld, { "odst", "N", 18, 8 } )
 
 if !if_cache()
 	DBCreate2( cTbl, aFld )
-	create_index("1","idkonto+idroba", cTbl )
+	f01_create_index("1","idkonto+idroba", cTbl )
 endif
 
 return 

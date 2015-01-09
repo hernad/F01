@@ -129,8 +129,8 @@ get_uio_fields(@aArr)
 dbcreate2(PRIVPATH + cUioTbl, aArr)
 
 // kreiraj indexe
-CREATE_INDEX("ROB", "idRoba", PRIVPATH +  cUioTbl, .t.)
-CREATE_INDEX("TAR", "idTarifa+idRoba", PRIVPATH +  cUioTbl, .t.)
+f01_create_index("ROB", "idRoba", PRIVPATH +  cUioTbl, .t.)
+f01_create_index("TAR", "idTarifa+idRoba", PRIVPATH +  cUioTbl, .t.)
 
 return
 

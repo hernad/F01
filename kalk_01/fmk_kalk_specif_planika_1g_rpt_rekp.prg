@@ -96,7 +96,7 @@ endif
 
 select kalk
 set order to 4
-//CREATE_INDEX("4","idFirma+Pkonto+idroba+dtos(datdok)+PU_I+IdVD","KALK")
+//f01_create_index("4","idFirma+Pkonto+idroba+dtos(datdok)+PU_I+IdVD","KALK")
 HSEEK cIdFirma+cIdKonto
 EOF CRET
 

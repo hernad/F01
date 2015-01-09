@@ -685,14 +685,14 @@ DbCreate2(cTmpTbl, aDbf)
 // provjeri jesu li partneri ili dokumenti ili je roba
 if aDbf[1,1] == "idpartner"
 	// partner
-	create_index("1","idpartner", cTmpTbl)
+	f01_create_index("1","idpartner", cTmpTbl)
 elseif aDbf[1,1] == "idpm"
 	// roba
-	create_index("1", "sifradob", cTmpTbl)
+	f01_create_index("1", "sifradob", cTmpTbl)
 else
 	// dokumenti
-	create_index("1","idfirma+idtipdok+brdok+rbr", cTmpTbl)
-	create_index("2","dtype+idfirma+idtipdok+brdok+rbr", cTmpTbl)
+	f01_create_index("1","idfirma+idtipdok+brdok+rbr", cTmpTbl)
+	f01_create_index("2","dtype+idfirma+idtipdok+brdok+rbr", cTmpTbl)
 endif
 
 return
@@ -715,8 +715,8 @@ select pripr
 copy structure to (PRIVPATH+"struct")
 
 create (PRIVPATH + "pript") from (PRIVPATH + "struct")
-create_index("1","idfirma+idvd+brdok", PRIVPATH+"pript")
-create_index("2","idfirma+idvd+brdok+idroba", PRIVPATH+"pript")
+f01_create_index("1","idfirma+idvd+brdok", PRIVPATH+"pript")
+f01_create_index("2","idfirma+idvd+brdok+idroba", PRIVPATH+"pript")
 
 return
 

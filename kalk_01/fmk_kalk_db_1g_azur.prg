@@ -957,7 +957,7 @@ endif
 O_PRIPR9
 O_PRIPR
 
-//CREATE_INDEX(PRIVPATH+"PRIPR9i3","dtos(datdok)+mu_i+pu_i",PRIVPATH+"PRIPR9")
+//f01_create_index(PRIVPATH+"PRIPR9i3","dtos(datdok)+mu_i+pu_i",PRIVPATH+"PRIPR9")
 SELECT PRIPR9; set order to 3  // str(datdok)
 cidfirma:=gfirma
 cIdVD:=space(2)
@@ -982,7 +982,7 @@ do while !eof() .and. cIdFirma==IdFirma .and. cIdVD==IdVD .and. cBrDok==BrDok
   select PRIPR9
   skip
 enddo
-//CREATE_INDEX(PRIVPATH+"PRIPR9i1","idFirma+IdVD+BrDok+RBr",PRIVPATH+"PRIPR9")
+//f01_create_index(PRIVPATH+"PRIPR9i1","idFirma+IdVD+BrDok+RBr",PRIVPATH+"PRIPR9")
 
 set order to 1
 select PRIPR9

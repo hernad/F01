@@ -105,7 +105,7 @@ aDbf:={ {"id","C",2,0}   ,;
        }
 // uvijek kreiraj
 DBCREATE2(cTbl, aDbf)
-CREATE_INDEX("ID","id", cTbl)
+f01_create_index("ID","id", cTbl)
 
 CLOSE ALL
 
@@ -323,7 +323,7 @@ AADD(aTblCols,{"polog11","N",12,2})
 AADD(aTblCols,{"polog12","N",12,2})
 
 DBCREATE2(cTblName, aTblCols)
-CREATE_INDEX("konto","idKonto", cTblName, .t.)
+f01_create_index("konto","idKonto", cTblName, .t.)
 
 return
 

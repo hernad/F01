@@ -75,12 +75,12 @@ if !File2(PRIVPATH + cDRTxtName)
 endif
 
 // kreiraj indexe
-CREATE_INDEX("1", "brdok+DToS(datdok)", PRIVPATH + "DRN")
+f01_create_index("1", "brdok+DToS(datdok)", PRIVPATH + "DRN")
 
-CREATE_INDEX("1", "brdok+rbr+podbr", PRIVPATH + "RN")
-CREATE_INDEX("IDROBA", "idroba", PRIVPATH + "RN")
+f01_create_index("1", "brdok+rbr+podbr", PRIVPATH + "RN")
+f01_create_index("IDROBA", "idroba", PRIVPATH + "RN")
 
-CREATE_INDEX("1", "tip", PRIVPATH + "DRNTEXT")
+f01_create_index("1", "tip", PRIVPATH + "DRNTEXT")
 
 return
 
@@ -106,8 +106,8 @@ if !File2(KUMPATH + "\DOKSPF.DBF")
 	DbCreate2(KUMPATH + "\DOKSPF.DBF", aDbf)
 endif
 
-CREATE_INDEX("1", "idpos+idvd+DToS(datum)+brdok", KUMPATH + "DOKSPF")
-CREATE_INDEX("2", "knaz", KUMPATH + "DOKSPF")
+f01_create_index("1", "idpos+idvd+DToS(datum)+brdok", KUMPATH + "DOKSPF")
+f01_create_index("2", "knaz", KUMPATH + "DOKSPF")
 
 return
 

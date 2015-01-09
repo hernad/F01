@@ -62,7 +62,7 @@ cIdFirma:=left(cIdFirma,2)
 O_DOKS
 
 select doks; set order to 2
-//CREATE_INDEX("DOKSi2","IdFirma+MKONTO+idzaduz2+idvd+brdok","DOKS")
+//f01_create_index("DOKSi2","IdFirma+MKONTO+idzaduz2+idvd+brdok","DOKS")
 
 Box(,19,77)
 

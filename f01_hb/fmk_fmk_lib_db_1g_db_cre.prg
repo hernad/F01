@@ -55,7 +55,7 @@ if (nArea==-1 .or. nArea==F_KORISN)
 	 ENDIF
 
 
-	 CREATE_INDEX("IME","ime", ToUnix("." + SLASH + "korisn.dbf"),.t.)
+	 f01_create_index("IME","ime", ToUnix("." + SLASH + "korisn.dbf"),.t.)
 endif
 
 return
@@ -122,7 +122,7 @@ if (nArea==-1 .or. nArea==F_PARAMS)
 	if !File2( cParams )
 		DBCREATE2( cParams ,aDbf)
 	endif
-	CREATE_INDEX("ID","fsec+fh+fvar+rbr", cParams,.t.)
+	f01_create_index("ID","fsec+fh+fvar+rbr", cParams,.t.)
 
 endif
 
@@ -132,21 +132,21 @@ if (nArea==-1 .or. nArea==F_GPARAMS)
 	if !File2( cGParams )
 	 DBCREATE2( cGParams, aDbf)
 	endif
-	CREATE_INDEX("ID","fsec+fh+fvar+rbr", cGParams, .t.)
+	f01_create_index("ID","fsec+fh+fvar+rbr", cGParams, .t.)
 endif
 
 if (nArea==-1 .or. nArea==F_MPARAMS)
 	if !File2(ToUnix( cMParams ))
 	 DBCREATE2( cMParams, aDbf)
 	endif
-	CREATE_INDEX("ID","fsec+fh+fvar+rbr", cMParams, .t.)
+	f01_create_index("ID","fsec+fh+fvar+rbr", cMParams, .t.)
 endif
 
 if (nArea==-1 .or. nArea==F_KPARAMS)
 	if !File2( cKParams )
 	 DBCREATE2 ( cKParams, aDbf)
 	endif
-	CREATE_INDEX("ID","fsec+fh+fvar+rbr", cKParams ,.t.)
+	f01_create_index("ID","fsec+fh+fvar+rbr", cKParams ,.t.)
 endif
 
 
@@ -164,7 +164,7 @@ if (nArea==-1 .or. nArea==F_SECUR)
 	if !File2(cImeDBF)
 	 DBCREATE2(cImeDBF,aDbf)
 	endif
-	CREATE_INDEX("ID","fsec+fh+fvar+rbr", cImeDBF, .t.)
+	f01_create_index("ID","fsec+fh+fvar+rbr", cImeDBF, .t.)
 endif
 
 return NIL
@@ -198,7 +198,7 @@ if (nArea==-1 .or. nArea==F_KPARAMS)
 	  AADD(aDBf,{ 'K9'     , 'C' ,  3 ,   0 })
 	  DBCREATE2(SIFPATH+"ADRES.DBF",aDBf)
 	endif
-	CREATE_INDEX("ID","id+naz",SIFPATH+"ADRES.DBF")
+	f01_create_index("ID","id+naz",SIFPATH+"ADRES.DBF")
 endif
 
 return
@@ -231,7 +231,7 @@ if (nArea==-1 .or. nArea==F_GPARAMS)
 	if !File2(cImeDbf)
 		DBCREATE2(cImeDbf,aDbf)
 	endif
-	CREATE_INDEX("ID","fsec+fh+fvar+rbr", cImeDBF )
+	f01_create_index("ID","fsec+fh+fvar+rbr", cImeDBF )
 endif
 
 return

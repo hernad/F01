@@ -56,25 +56,25 @@ endif
 // indexi
 do case
 	case cTbl == "UGOV"
-		CREATE_INDEX("ID"      ,"Id+idpartner" ,cPath+"UGOV")
-		CREATE_INDEX("NAZ"     ,"idpartner+Id" ,cPath+"UGOV")
-		CREATE_INDEX("NAZ2"    ,"naz"          ,cPath+"UGOV")
-		CREATE_INDEX("PARTNER" ,"IDPARTNER"    ,cPath+"UGOV")
-		CREATE_INDEX("AKTIVAN" ,"AKTIVAN"      ,cPath+"UGOV")
+		f01_create_index("ID"      ,"Id+idpartner" ,cPath+"UGOV")
+		f01_create_index("NAZ"     ,"idpartner+Id" ,cPath+"UGOV")
+		f01_create_index("NAZ2"    ,"naz"          ,cPath+"UGOV")
+		f01_create_index("PARTNER" ,"IDPARTNER"    ,cPath+"UGOV")
+		f01_create_index("AKTIVAN" ,"AKTIVAN"      ,cPath+"UGOV")
 
 	case cTbl == "RUGOV"
-		CREATE_INDEX("ID","id+IdRoba",cPath+"RUGOV")
-		CREATE_INDEX("IDROBA","IdRoba",cPath+"RUGOV")
+		f01_create_index("ID","id+IdRoba",cPath+"RUGOV")
+		f01_create_index("IDROBA","IdRoba",cPath+"RUGOV")
 
 	case cTbl == "GEN_UG"
-		CREATE_INDEX("DAT_OBR","DTOS(DAT_OBR)", cPath+"GEN_UG")
-		CREATE_INDEX("DAT_GEN","DTOS(DAT_GEN)", cPath+"GEN_UG")
+		f01_create_index("DAT_OBR","DTOS(DAT_OBR)", cPath+"GEN_UG")
+		f01_create_index("DAT_GEN","DTOS(DAT_GEN)", cPath+"GEN_UG")
 
 	case cTbl == "GEN_UG_P"
-		CREATE_INDEX("DAT_OBR","DTOS(DAT_OBR)+ID_UGOV+IDPARTNER", cPath+"GEN_UG_P")
+		f01_create_index("DAT_OBR","DTOS(DAT_OBR)+ID_UGOV+IDPARTNER", cPath+"GEN_UG_P")
 	case cTbl == "DEST"
-		CREATE_INDEX("ID","IDPARTNER+ID", cPath+"DEST")
-		CREATE_INDEX("IDDEST","ID", cPath+"DEST")
+		f01_create_index("ID","IDPARTNER+ID", cPath+"DEST")
+		f01_create_index("IDDEST","ID", cPath+"DEST")
 endcase 
 
 return

@@ -18,9 +18,9 @@
 // -------------------------------------------
 function cre_rule_cdx()
 
-CREATE_INDEX( "FINKNJ1", "MODUL_NAME+RULE_OBJ+STR(RULE_NO,5)", SIFPATH + "FMKRULES" )
+f01_create_index( "FINKNJ1", "MODUL_NAME+RULE_OBJ+STR(RULE_NO,5)", SIFPATH + "FMKRULES" )
 
-CREATE_INDEX( "ELBA1", "MODUL_NAME+RULE_OBJ+RULE_C3", SIFPATH + "FMKRULES" )
+f01_create_index( "ELBA1", "MODUL_NAME+RULE_OBJ+RULE_C3", SIFPATH + "FMKRULES" )
 return
 
 

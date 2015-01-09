@@ -40,7 +40,7 @@ GO TOP
 _IDVN:=idvn; cIdfirma:=idfirma; cBrdok:=brnal
 IF DABLAGAS
   cKontoBlag := PADR(IzFMKINI("BLAGAJNA","Konto","202000",PRIVPATH),7)
-  // CREATE_INDEX("2","idFirma+IdVN+BrNal+IdKonto",PRIVPATH+"PRIPR")
+  // f01_create_index("2","idFirma+IdVN+BrNal+IdKonto",PRIVPATH+"PRIPR")
   SET ORDER TO TAG "2"
   SEEK cidfirma+_idvn+cBrDok+cKontoBlag
   IF !FOUND() .or. Pitanje(,"Postoji knjizenje na kontu blagajne! Regenerisati knjizenje? (D/N)","N")=="D"
@@ -51,7 +51,7 @@ IF DABLAGAS
         GO (nRec)
       ENDDO
     ENDIF
-    // CREATE_INDEX("1","idFirma+IdVN+BrNal+Rbr",PRIVPATH+"PRIPR")
+    // f01_create_index("1","idFirma+IdVN+BrNal+Rbr",PRIVPATH+"PRIPR")
     SET ORDER TO TAG "1"
     GO TOP
     lEOF:=.f.
@@ -221,7 +221,7 @@ do while !eof()
   ENDIF
 enddo
 select anal
-//CREATE_INDEX("ANALi1","IdFirma+IdKonto+dtos(DatNal)","ANAL")
+//f01_create_index("ANALi1","IdFirma+IdKonto+dtos(DatNal)","ANAL")
 hseek cIdfirma+cIdkonto
 nDugSt:=nPotSt:=0
 do while !eof() .and. idfirma==cIdfirma .and. idkonto==cIdkonto .and. datnal<=dDatDok

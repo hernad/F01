@@ -51,7 +51,7 @@ if cOdg=="1"
   O_SUBAN
   select suban
 
-  //CREATE_INDEX("SUBANi2","IdFirma+IdPartner+IdKonto","SUBAN")
+  //f01_create_index("SUBANi2","IdFirma+IdPartner+IdKonto","SUBAN")
   set order to 2
   seek  gFirma+cNSif
   if !found() .or. Pitanje(,"Vec postoji u prometu sifra ?. Nastaviti ??","N")=="D"

@@ -51,16 +51,16 @@ if !File2(KUMPATH + cDokSrcName + ".DBF")
 	DBCREATE2(KUMPATH + cDokSrcName + ".DBF", aDbf)
 endif
 // indexi....
-CREATE_INDEX("1","idfirma+idvd+brdok+DTOS(datdok)+src_modul+src_idfirm+src_idvd+src_brdok+DTOS(src_datdok)", KUMPATH + cDokSrcName)
-CREATE_INDEX("2","src_modul+src_idfirm+src_idvd+src_brdok+DTOS(src_datdok)", KUMPATH + cDokSrcName)
+f01_create_index("1","idfirma+idvd+brdok+DTOS(datdok)+src_modul+src_idfirm+src_idvd+src_brdok+DTOS(src_datdok)", KUMPATH + cDokSrcName)
+f01_create_index("2","src_modul+src_idfirm+src_idvd+src_brdok+DTOS(src_datdok)", KUMPATH + cDokSrcName)
 
 // kreiraj u PRIVPATH
 if !File2(PRIVPATH + cPDokSrcName + ".DBF")
 	DBCREATE2(PRIVPATH + cPDokSrcName + ".DBF", aDbf)
 endif
 // indexi....
-CREATE_INDEX("1","idfirma+idvd+brdok+DTOS(datdok)+src_modul+src_idfirm+src_idvd+src_brdok+DTOS(src_datdok)", PRIVPATH + cPDokSrcName)
-CREATE_INDEX("2","src_modul+src_idfirm+src_idvd+src_brdok+DTOS(src_datdok)", PRIVPATH + cPDokSrcName)
+f01_create_index("1","idfirma+idvd+brdok+DTOS(datdok)+src_modul+src_idfirm+src_idvd+src_brdok+DTOS(src_datdok)", PRIVPATH + cPDokSrcName)
+f01_create_index("2","src_modul+src_idfirm+src_idvd+src_brdok+DTOS(src_datdok)", PRIVPATH + cPDokSrcName)
 
 cre_p_update()
 
@@ -453,7 +453,7 @@ if !File2(KUMPATH + cDbfName + ".DBF")
 	DBCREATE2(KUMPATH + cDbfName + ".DBF", aDbf)
 endif
 // indexi....
-CREATE_INDEX("1","modul+idkonto+p_updated", KUMPATH + cDbfName)
+f01_create_index("1","modul+idkonto+p_updated", KUMPATH + cDbfName)
 
 return
 

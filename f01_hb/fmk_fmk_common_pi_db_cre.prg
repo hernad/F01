@@ -34,7 +34,7 @@ if !File2(cImeDBF)
    AADD(aDBf,{ 'TIPTAB'  , 'C' ,   1 ,  0 })
    DBCREATE2(cImeDBF,aDbf)
 endif
-CREATE_INDEX("ID","id",cImeDBF)
+f01_create_index("ID","id",cImeDBF)
 
 cImeDBF:=ToUnix(KUMPATH+"koliz.dbf")
 if !File2(cImeDBF)
@@ -55,8 +55,8 @@ if !File2(cImeDBF)
    AADD(aDBf,{ 'SIZRAZ'  , 'C' , 100 ,  0 })
    DBCREATE2(cImeDBF,aDbf)
 endif
-CREATE_INDEX("ID","id"         ,cImeDBF)
-CREATE_INDEX("1" ,"STR(rbr,2)" ,cImeDBF)
+f01_create_index("ID","id"         ,cImeDBF)
+f01_create_index("1" ,"STR(rbr,2)" ,cImeDBF)
 
 cImeDBF:=ToUnix(KUMPATH+"zagli.dbf")
 if !File2(cImeDBF)
@@ -67,8 +67,8 @@ if !File2(cImeDBF)
    AADD(aDBf,{ 'IZRAZ'   , 'C' , 100 ,  0 })
    DBCREATE2(cImeDBF,aDbf)
 endif
-CREATE_INDEX( "ID", "id"                  , cImeDBF)
-CREATE_INDEX( "1" , "STR(x1,3)+STR(y1,3)" , cImeDBF)
+f01_create_index( "ID", "id"                  , cImeDBF)
+f01_create_index( "1" , "STR(x1,3)+STR(y1,3)" , cImeDBF)
 cImeDBF:=ToUnix(KUMPATH+"koniz.dbf")
 if !File2(cImeDBF)
    aDBf:={}
@@ -88,7 +88,7 @@ if !File2(cImeDBF)
    AADD(aDbf,{ "U1"      , "C" ,   3 ,  0 })          // npr. >0 ili <0
    DBCREATE2(cImeDBF,aDbf)
 endif
-CREATE_INDEX("ID","id", cImeDBF)
-CREATE_INDEX("1" ,"izv+STR(ri,4)" , cImeDBF)
+f01_create_index("ID","id", cImeDBF)
+f01_create_index("1" ,"izv+STR(ri,4)" , cImeDBF)
 
 return

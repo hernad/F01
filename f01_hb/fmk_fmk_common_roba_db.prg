@@ -86,37 +86,37 @@ if !File2( PRIVPATH+"_ROBA.dbf" )
 endif
 
 
-CREATE_INDEX("ID","id",SIFPATH+"ROBA")
+f01_create_index("ID","id",SIFPATH+"ROBA")
 index_mcode(SIFPATH, "ROBA")
-CREATE_INDEX("NAZ","LEFT(Naz,40)", SIFPATH+"ROBA")
-CREATE_INDEX("ID","id", PRIVPATH+"_ROBA")
+f01_create_index("NAZ","LEFT(Naz,40)", SIFPATH+"ROBA")
+f01_create_index("ID","id", PRIVPATH+"_ROBA")
 O_ROBA
 
 if fieldpos("KATBR")<>0
   select (F_ROBA)
   use
-  CREATE_INDEX("KATBR","KATBR",SIFPATH+"ROBA") // roba, artikli
+  f01_create_index("KATBR","KATBR",SIFPATH+"ROBA") // roba, artikli
 endif
 
 O_ROBA
 if fieldpos("BARKOD")<>0
   select (F_ROBA)
   use
-  CREATE_INDEX("BARKOD","BARKOD",SIFPATH+"ROBA") // roba, artikli
+  f01_create_index("BARKOD","BARKOD",SIFPATH+"ROBA") // roba, artikli
 endif
 
 O_ROBA
 if fieldpos("SIFRADOB")<>0
   select (F_ROBA)
   use
-  CREATE_INDEX("SIFRADOB","SIFRADOB",SIFPATH+"ROBA") // roba, artikli
+  f01_create_index("SIFRADOB","SIFRADOB",SIFPATH+"ROBA") // roba, artikli
 endif
 
 O_ROBA
 if fieldpos("FISC_PLU")<>0
   select (F_ROBA)
   use
-  CREATE_INDEX("PLU","str(fisc_plu,10)",SIFPATH+"ROBA") // roba, artikli
+  f01_create_index("PLU","str(fisc_plu,10)",SIFPATH+"ROBA") // roba, artikli
 endif
 
 
@@ -124,14 +124,14 @@ endif
 if IzFMKINI("ROBA","Planika","N",SIFPATH)=="D"
 	select (F_ROBA)
 	use
-  	CREATE_INDEX("BROBA", IzFMKINI("ROBA","Sort","K1+SUBSTR(id,7,3)",SIFPATH), SIFPATH+"ROBA")
+  	f01_create_index("BROBA", IzFMKINI("ROBA","Sort","K1+SUBSTR(id,7,3)",SIFPATH), SIFPATH+"ROBA")
 	// roba, artikli
 endif
 
 if IsVindija()
 	select (F_ROBA)
   	use
-  	CREATE_INDEX("ID_VSD","SIFRADOB",SIFPATH+"ROBA") // sifra dobavljaca
+  	f01_create_index("ID_VSD","SIFRADOB",SIFPATH+"ROBA") // sifra dobavljaca
 endif
 
 
@@ -149,8 +149,8 @@ if !File2(SIFPATH+"TARIFA.dbf")
         AADD(aDBf,{ 'DLRUC'               , 'N' ,   6 ,  2 })  // donji limit RUC-a(%)
         dbcreate2(SIFPATH+'TARIFA.DBF',aDbf)
 endif
-CREATE_INDEX("ID","id", SIFPATH+"TARIFA")
-CREATE_INDEX("naz","naz", SIFPATH+"TARIFA")
+f01_create_index("ID","id", SIFPATH+"TARIFA")
+f01_create_index("naz","naz", SIFPATH+"TARIFA")
 index_mcode(SIFPATH, "TARIFA")
 
 // KONCIJ
@@ -164,7 +164,7 @@ if !File2(SIFPATH+"KONCIJ.dbf")
    AADD(aDBf,{ 'REGION'              , 'C' ,   2 ,  0 })
    dbcreate2(SIFPATH+'KONCIJ.DBF',aDbf)
 endif
-CREATE_INDEX("ID","id",SIFPATH+"KONCIJ") // konta
+f01_create_index("ID","id",SIFPATH+"KONCIJ") // konta
 index_mcode(SIFPATH, "KONCIJ")
 
 // TRFP
@@ -184,7 +184,7 @@ if !File2(SIFPATH+"trfp.dbf")
         AADD(aDBf,{ 'IDTARIFA'            , 'C' ,   6 ,  0 })
         dbcreate2(SIFPATH+"trfp.dbf",aDbf)
 endif
-CREATE_INDEX("ID","idvd+shema+Idkonto",SIFPATH+"trfp")
+f01_create_index("ID","idvd+shema+Idkonto",SIFPATH+"trfp")
 index_mcode(SIFPATH, "TRFP")
 
 
@@ -201,14 +201,14 @@ if !File2(SIFPATH+"SAST.DBF")
    AADD(aDBf,{ 'N2'                  , 'N' ,   20 ,  5 })
    dbcreate2(SIFPATH+'SAST.DBF',aDbf)
 endif
-CREATE_INDEX("ID", "ID+ID2", SIFPATH + "SAST")
+f01_create_index("ID", "ID+ID2", SIFPATH + "SAST")
 O_SAST
 if sast->(fieldpos("R_BR"))<>0
 	use
-	CREATE_INDEX("IDRBR", "ID+STR(R_BR,4,0)+ID2", SIFPATH + "SAST")
+	f01_create_index("IDRBR", "ID+STR(R_BR,4,0)+ID2", SIFPATH + "SAST")
 endif
 use
-CREATE_INDEX("NAZ", "ID2+ID", SIFPATH + "SAST")
+f01_create_index("NAZ", "ID2+ID", SIFPATH + "SAST")
 
 
 if !File2(PRIVPATH+"BARKOD.DBF")
@@ -223,9 +223,9 @@ if !File2(PRIVPATH+"BARKOD.DBF")
    AADD(aDBf,{ 'MPC'                 , 'N' ,   12 ,  2 })
    dbcreate2(PRIVPATH+'BARKOD.DBF',aDbf)
 endif
-CREATE_INDEX("1","barkod+id",PRIVPATH+"BARKOD")
-CREATE_INDEX("ID","id+LEFT(naziv,40)",PRIVPATH+"BARKOD")
-CREATE_INDEX("Naziv","LEFT(Naziv,40)+id",PRIVPATH+"BARKOD")
+f01_create_index("1","barkod+id",PRIVPATH+"BARKOD")
+f01_create_index("ID","id+LEFT(naziv,40)",PRIVPATH+"BARKOD")
+f01_create_index("Naziv","LEFT(Naziv,40)+id",PRIVPATH+"BARKOD")
 
 // kreiranje tabele strings
 cre_strings()

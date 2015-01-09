@@ -56,8 +56,8 @@ if (nArea==-1 .or. nArea==F_EVENTS)
 	if !File2((cPath+"events.dbf"))
 		DBCREATE2(cPath+"events.dbf",aDbf)
 	endif
-	CREATE_INDEX("ID","id",cPath+"events.dbf",.t.)
-	CREATE_INDEX("1","objekat+komponenta+funkcija",cPath+"events.dbf",.t.)
+	f01_create_index("ID","id",cPath+"events.dbf",.t.)
+	f01_create_index("1","objekat+komponenta+funkcija",cPath+"events.dbf",.t.)
 endif
 
 O_EVENTS
@@ -91,7 +91,7 @@ if (nArea==-1 .or. nArea==F_EVENTLOG)
 	if !File2((cPath+"eventlog.dbf"))
 		DBCREATE2(cPath+"eventlog.dbf",aDbf)
 	endif
-	CREATE_INDEX("ID","id",cPath+"eventlog.dbf",.t.)
+	f01_create_index("ID","id",cPath+"eventlog.dbf",.t.)
 endif
 
 return

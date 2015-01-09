@@ -873,7 +873,7 @@ AADD(aDbf, { "ID", "C", 10, 0})
 AADD(aDbf, { "kolicina", "N", 12, 2})
 AADD(aDbf, { "Mpv", "N", 10, 2})
 DBCREATE2( cTblKontrola , aDbf)
-CREATE_INDEX("id","id", cCdx) 
+f01_create_index("id","id", cCdx) 
 return
 
 // azuriranje kontrolne tabele

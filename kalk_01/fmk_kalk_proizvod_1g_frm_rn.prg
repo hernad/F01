@@ -73,7 +73,7 @@ if nRbr==1  .or. !fnovi .or. gMagacin=="1"
  enddo
 
  select doks; set order to 2
- //CREATE_INDEX("DOKSi2","IdFirma+MKONTO+idzaduz2+idvd+brdok","DOKS")
+ //f01_create_index("DOKSi2","IdFirma+MKONTO+idzaduz2+idvd+brdok","DOKS")
 
  seek _idfirma+_idkonto+_idzaduz2+"RN"
  // npr: 10 5100 564   RN
@@ -97,7 +97,7 @@ if nRbr==1  .or. !fnovi .or. gMagacin=="1"
     nKolicina:=0   ; nNabV:=0
     do while !eof() .and. doks->(idfirma+idvd+brdok) == (idfirma+idvd+brdok)
 
-          //CREATE_INDEX(PRIVPATH+"PRIPRi3","idFirma+idvd+brdok+idroba+rbr",PRIVPATH+"PRIPR")
+          //f01_create_index(PRIVPATH+"PRIPRi3","idFirma+idvd+brdok+idroba+rbr",PRIVPATH+"PRIPR")
           select pripr; SET ORDER TO 3
           seek _idfirma+_idvd+_brdok+kalk->idroba+"9"
           // nadji odgovoarajucu stavku iznad 900

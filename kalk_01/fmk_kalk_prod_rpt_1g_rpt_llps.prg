@@ -88,7 +88,7 @@ endif
 
 select kalk
 set order to 6
-//CREATE_INDEX("6","idFirma+IdTarifa+idroba",KUMPATH+"KALK")
+//f01_create_index("6","idFirma+IdTarifa+idroba",KUMPATH+"KALK")
 hseek cidfirma
 EOF CRET
 

@@ -47,8 +47,8 @@ if (nArea==-1 .or. nArea==F_USERS)
 	if !File2((cSecurPath+"users.dbf"))
 		DBCREATE2(cSecurPath+"users.dbf",aDbf)
 	endif
-	CREATE_INDEX("ID","STR(id,3)",cSecurPath+"users.dbf",.t.)
-	CREATE_INDEX("NAZ","naz",cSecurPath+"users.dbf",.t.)
+	f01_create_index("ID","STR(id,3)",cSecurPath+"users.dbf",.t.)
+	f01_create_index("NAZ","naz",cSecurPath+"users.dbf",.t.)
 endif
 
 O_USERS
@@ -77,7 +77,7 @@ if (nArea==-1 .or. nArea==F_GROUPS)
 	if !File2((cSecurPath+"groups.dbf"))
 		DBCREATE2(cSecurPath+"groups.dbf",aDbf)
 	endif
-	CREATE_INDEX("ID","STR(id,3)",cSecurPath+"groups.dbf",.t.)
+	f01_create_index("ID","STR(id,3)",cSecurPath+"groups.dbf",.t.)
 endif
 
 O_GROUPS
@@ -108,10 +108,10 @@ if (nArea==-1 .or. nArea==F_RULES)
 	if !File2((cSecurPath+"rules.dbf"))
 		DBCREATE2(cSecurPath+"rules.dbf",aDbf)
 	endif
-	CREATE_INDEX("ID2","STR(id2,3)",cSecurPath+"rules.dbf",.t.)
-	CREATE_INDEX("1","objekat+komponenta+funkcija+STR(id,3)+STR(id2,3)",cSecurPath+"rules.dbf",.t.)
-	CREATE_INDEX("2","objekat+komponenta+funkcija+STR(id2,3)+STR(id,3)",cSecurPath+"rules.dbf",.t.)
-	CREATE_INDEX("ID","STR(id,3)+objekat+komponenta+funkcija",cSecurPath+"rules.dbf",.t.)
+	f01_create_index("ID2","STR(id2,3)",cSecurPath+"rules.dbf",.t.)
+	f01_create_index("1","objekat+komponenta+funkcija+STR(id,3)+STR(id2,3)",cSecurPath+"rules.dbf",.t.)
+	f01_create_index("2","objekat+komponenta+funkcija+STR(id2,3)+STR(id,3)",cSecurPath+"rules.dbf",.t.)
+	f01_create_index("ID","STR(id,3)+objekat+komponenta+funkcija",cSecurPath+"rules.dbf",.t.)
 endif
 
 O_RULES

@@ -306,9 +306,9 @@ CreFMKPI()
    			DBcreate2(KUMPATH+'LOGK.DBF',aDbf)
 		endif
 
-		CREATE_INDEX("ID","id", KUMPATH+"LOGK")
-		CREATE_INDEX("NO","NO", KUMPATH+"LOGK")
-		CREATE_INDEX("Datum","Datum", KUMPATH+"LOGK")
+		f01_create_index("ID","id", KUMPATH+"LOGK")
+		f01_create_index("NO","NO", KUMPATH+"LOGK")
+		f01_create_index("Datum","Datum", KUMPATH+"LOGK")
 	endif
 #endif
 
@@ -386,11 +386,11 @@ if (nArea==-1 .or. nArea==(F_PRIPR))
   		DBcreate2(PRIVPATH+'PRIPR.DBF',aDbf)
 	endif
 
-	CREATE_INDEX("1","idFirma+IdVD+BrDok+RBr",PRIVPATH+"PRIPR")
-	CREATE_INDEX("2","idFirma+idvd+brdok+IDTarifa",PRIVPATH+"PRIPR")
-	CREATE_INDEX("3","idFirma+idvd+brdok+idroba+rbr",PRIVPATH+"PRIPR")
-	CREATE_INDEX("4","idFirma+idvd+idroba",PRIVPATH+"PRIPR")
-	CREATE_INDEX("5","idFirma+idvd+idroba+STR(mpcsapp,12,2)",PRIVPATH+"PRIPR")
+	f01_create_index("1","idFirma+IdVD+BrDok+RBr",PRIVPATH+"PRIPR")
+	f01_create_index("2","idFirma+idvd+brdok+IDTarifa",PRIVPATH+"PRIPR")
+	f01_create_index("3","idFirma+idvd+brdok+idroba+rbr",PRIVPATH+"PRIPR")
+	f01_create_index("4","idFirma+idvd+idroba",PRIVPATH+"PRIPR")
+	f01_create_index("5","idFirma+idvd+idroba+STR(mpcsapp,12,2)",PRIVPATH+"PRIPR")
 endif
 
 if (nArea==-1 .or. nArea==(F_PRIPR2))
@@ -400,8 +400,8 @@ if (nArea==-1 .or. nArea==(F_PRIPR2))
   		dbcreate2(PRIVPATH+'PRIPR2.DBF',aDbf)
 	endif
 
-	CREATE_INDEX("1","idFirma+IdVD+BrDok+RBr",PRIVPATH+"PRIPR2")
-	CREATE_INDEX("2","idFirma+idvd+brdok+IDTarifa",PRIVPATH+"PRIPR2")
+	f01_create_index("1","idFirma+IdVD+BrDok+RBr",PRIVPATH+"PRIPR2")
+	f01_create_index("2","idFirma+idvd+brdok+IDTarifa",PRIVPATH+"PRIPR2")
 endif
 
 if (nArea==-1 .or. nArea==(F_PRIPR9))
@@ -411,9 +411,9 @@ if (nArea==-1 .or. nArea==(F_PRIPR9))
   		DBcreate2(PRIVPATH+'PRIPR9.DBF',aDbf)
 	endif
 
-	CREATE_INDEX("1","idFirma+IdVD+BrDok+RBr",PRIVPATH+"PRIPR9")
-	CREATE_INDEX("2","idFirma+idvd+brdok+IDTarifa",PRIVPATH+"PRIPR9")
-	CREATE_INDEX("3","dtos(datdok)+mu_i+pu_i",PRIVPATH+"PRIPR9")
+	f01_create_index("1","idFirma+IdVD+BrDok+RBr",PRIVPATH+"PRIPR9")
+	f01_create_index("2","idFirma+idvd+brdok+IDTarifa",PRIVPATH+"PRIPR9")
+	f01_create_index("3","dtos(datdok)+mu_i+pu_i",PRIVPATH+"PRIPR9")
 endif
 
 if (nArea==-1 .or. nArea==(F__KALK))
@@ -423,7 +423,7 @@ if (nArea==-1 .or. nArea==(F__KALK))
   		DBcreate2(PRIVPATH+'_KALK.DBF',aDbf)
 	endif
 
-	CREATE_INDEX("1","idFirma+IdVD+BrDok+RBr",PRIVPATH+"_KALK")
+	f01_create_index("1","idFirma+IdVD+BrDok+RBr",PRIVPATH+"_KALK")
 endif
 
 
@@ -434,41 +434,41 @@ if (nArea==-1 .or. nArea==(F_KALK))
   		DBcreate2(KUMPATH+'KALK.DBF',aDbf)
 	endif
 
-	CREATE_INDEX("1","idFirma+IdVD+BrDok+RBr",KUMPATH+"KALK")
-	CREATE_INDEX("2","idFirma+idvd+brdok+IDTarifa",KUMPATH+"KALK")
+	f01_create_index("1","idFirma+IdVD+BrDok+RBr",KUMPATH+"KALK")
+	f01_create_index("2","idFirma+idvd+brdok+IDTarifa",KUMPATH+"KALK")
 	// 3 - vodjenje magacina
-	CREATE_INDEX("3","idFirma+mkonto+idroba+dtos(datdok)+podbr+MU_I+IdVD",KUMPATH+"KALK")
+	f01_create_index("3","idFirma+mkonto+idroba+dtos(datdok)+podbr+MU_I+IdVD",KUMPATH+"KALK")
 	// 4 - vodjenje prodavnice
-	CREATE_INDEX("4","idFirma+Pkonto+idroba+dtos(datdok)+podbr+PU_I+IdVD",KUMPATH+"KALK")
+	f01_create_index("4","idFirma+Pkonto+idroba+dtos(datdok)+podbr+PU_I+IdVD",KUMPATH+"KALK")
 
-	CREATE_INDEX("5","idFirma+dtos(datdok)+podbr+idvd+brdok",KUMPATH+"KALK")
+	f01_create_index("5","idFirma+dtos(datdok)+podbr+idvd+brdok",KUMPATH+"KALK")
 
-	CREATE_INDEX("6","idFirma+IdTarifa+idroba",KUMPATH+"KALK")
+	f01_create_index("6","idFirma+IdTarifa+idroba",KUMPATH+"KALK")
 
-	CREATE_INDEX("7","idroba+idvd",KUMPATH+"KALK")
-	CREATE_INDEX("8","mkonto",KUMPATH+"KALK")
-	CREATE_INDEX("9","pkonto",KUMPATH+"KALK")
+	f01_create_index("7","idroba+idvd",KUMPATH+"KALK")
+	f01_create_index("8","mkonto",KUMPATH+"KALK")
+	f01_create_index("9","pkonto",KUMPATH+"KALK")
 
-	CREATE_INDEX("MU_I","mu_i+mkonto+idfirma+idvd+brdok",KUMPATH+"KALK")
-	CREATE_INDEX("MU_I2","mu_i+idfirma+idvd+brdok",KUMPATH+"KALK")
-	CREATE_INDEX("PU_I","pu_i+pkonto+idfirma+idvd+brdok",KUMPATH+"KALK")
-	CREATE_INDEX("PU_I2","pu_i+idfirma+idvd+brdok",KUMPATH+"KALK")
+	f01_create_index("MU_I","mu_i+mkonto+idfirma+idvd+brdok",KUMPATH+"KALK")
+	f01_create_index("MU_I2","mu_i+idfirma+idvd+brdok",KUMPATH+"KALK")
+	f01_create_index("PU_I","pu_i+pkonto+idfirma+idvd+brdok",KUMPATH+"KALK")
+	f01_create_index("PU_I2","pu_i+idfirma+idvd+brdok",KUMPATH+"KALK")
 
-	CREATE_INDEX("PMAG","idfirma+mkonto+idpartner+idvd+dtos(datdok)",KUMPATH+"KALK")
+	f01_create_index("PMAG","idfirma+mkonto+idpartner+idvd+dtos(datdok)",KUMPATH+"KALK")
 
 	if is_uobrada()
 
-		CREATE_INDEX("UOBR","idfirma+mkonto+odobr_no+dtos(datdok)",KUMPATH+"KALK")
+		f01_create_index("UOBR","idfirma+mkonto+odobr_no+dtos(datdok)",KUMPATH+"KALK")
 	endif
 
-	CREATE_INDEX("BRFAKTP","idfirma+brfaktp+idvd+brdok+rbr+dtos(datdok)",KUMPATH+"KALK")
+	f01_create_index("BRFAKTP","idfirma+brfaktp+idvd+brdok+rbr+dtos(datdok)",KUMPATH+"KALK")
 	if lPoNarudzbi
-  		CREATE_INDEX("3N","idFirma+mkonto+idnar+idroba+dtos(datdok)+podbr+MU_I+IdVD",KUMPATH+"KALK")
-  		CREATE_INDEX("4N","idFirma+Pkonto+idnar+idroba+dtos(datdok)+podbr+PU_I+IdVD",KUMPATH+"KALK")
-  		CREATE_INDEX("6N","idFirma+IdTarifa+idnar+idroba",KUMPATH+"KALK")
+  		f01_create_index("3N","idFirma+mkonto+idnar+idroba+dtos(datdok)+podbr+MU_I+IdVD",KUMPATH+"KALK")
+  		f01_create_index("4N","idFirma+Pkonto+idnar+idroba+dtos(datdok)+podbr+PU_I+IdVD",KUMPATH+"KALK")
+  		f01_create_index("6N","idFirma+IdTarifa+idnar+idroba",KUMPATH+"KALK")
 	endif
 	if  gVodiSamoTarife=="D"
- 		CREATE_INDEX("PTARIFA","idFirma+pkonto+IdTarifa+idroba",KUMPATH+"KALK")
+ 		f01_create_index("PTARIFA","idFirma+pkonto+IdTarifa+idroba",KUMPATH+"KALK")
 	endif
 endif
 
@@ -498,16 +498,16 @@ if (nArea==-1 .or. nArea==(F_DOKS))
         	DBcreate2(KUMPATH+'DOKS.DBF',aDbf)
 	endif
 
-	CREATE_INDEX("1","IdFirma+idvd+brdok", KUMPATH+"DOKS")
-	CREATE_INDEX("2","IdFirma+MKONTO+idzaduz2+idvd+brdok", KUMPATH+"DOKS")
-	CREATE_INDEX("3","IdFirma+dtos(datdok)+podbr+idvd+brdok", KUMPATH+"DOKS")
+	f01_create_index("1","IdFirma+idvd+brdok", KUMPATH+"DOKS")
+	f01_create_index("2","IdFirma+MKONTO+idzaduz2+idvd+brdok", KUMPATH+"DOKS")
+	f01_create_index("3","IdFirma+dtos(datdok)+podbr+idvd+brdok", KUMPATH+"DOKS")
 
 	// 00001/T => /T00001
 	// 00001/X => /X00001
-	CREATE_INDEX("1S","IdFirma+idvd+SUBSTR(brdok,6)+LEFT(brdok,5)",KUMPATH+"DOKS")
+	f01_create_index("1S","IdFirma+idvd+SUBSTR(brdok,6)+LEFT(brdok,5)",KUMPATH+"DOKS")
 
-	CREATE_INDEX("V_BRF","brfaktp+idvd",KUMPATH+"DOKS")
-	CREATE_INDEX("V_BRF2","idvd+brfaktp",KUMPATH+"DOKS")
+	f01_create_index("V_BRF","brfaktp+idvd",KUMPATH+"DOKS")
+	f01_create_index("V_BRF2","idvd+brfaktp",KUMPATH+"DOKS")
 endif
 
 
@@ -527,7 +527,7 @@ if (nArea==-1 .or. nArea==(F_DOKS2))
        		DBcreate2(KUMPATH+'DOKS2.DBF',aDbf)
 	endif
 
-	CREATE_INDEX("1","IdFirma+idvd+brdok",KUMPATH+"DOKS2")
+	f01_create_index("1","IdFirma+idvd+brdok",KUMPATH+"DOKS2")
 endif
 
 
@@ -582,7 +582,7 @@ if (nArea==-1 .or. nArea==(F_FINMAT))
     		DBcreate2(PRIVPATH+'FINMAT.DBF',aDbf)
 	endif
 
-	CREATE_INDEX("1","idFirma+IdVD+BRDok",PRIVPATH+"FINMAT")
+	f01_create_index("1","idFirma+IdVD+BRDok",PRIVPATH+"FINMAT")
 endif
 
 
@@ -598,9 +598,9 @@ if (nArea==-1 .or. nArea==(F_OBJEKTI))
 		DBCREATE2(cImeTbl, aDbf)
 	endif
 
-	CREATE_INDEX("ID", "ID", cImeTbl)
-	CREATE_INDEX("NAZ", "NAZ", cImeTbl)
-	CREATE_INDEX("IdObj", "IdObj", cImeTbl)
+	f01_create_index("ID", "ID", cImeTbl)
+	f01_create_index("NAZ", "NAZ", cImeTbl)
+	f01_create_index("IdObj", "IdObj", cImeTbl)
 
 endif
 
@@ -613,8 +613,8 @@ if (nArea==-1 .or. nArea==(F_K1))
 	if !File2(cImeTbl)
 		DBCREATE2(KUMPATH+"K1",aDbf)
 	endif
-	CREATE_INDEX("ID", "ID", cImeTbl)
-	CREATE_INDEX("NAZ", "NAZ", cImeTbl)
+	f01_create_index("ID", "ID", cImeTbl)
+	f01_create_index("NAZ", "NAZ", cImeTbl)
 endif
 
 
@@ -640,7 +640,7 @@ if (nArea==-1 .or. nArea==(F_PRODNC))
     		DBcreate2(KUMPATH+'PRODNC.DBF',aDbf)
 	endif
 
-	CREATE_INDEX("PRODROBA","PKONTO+IDROBA",KUMPATH+"PRODNC")
+	f01_create_index("PRODROBA","PKONTO+IDROBA",KUMPATH+"PRODNC")
 endif
 
 //RVrsta.Dbf
@@ -652,8 +652,8 @@ if (nArea==-1 .or. nArea==(F_RVRSTA))
     		DBcreate2(SIFPATH+'RVRSTA.DBF',aDbf)
 	endif
 
-	CREATE_INDEX("ID","ID",SIFPATH+"RVRSTA")
-	CREATE_INDEX("NAZ", "NAZ", SIFPATH+"RVRSTA")
+	f01_create_index("ID","ID",SIFPATH+"RVRSTA")
+	f01_create_index("NAZ", "NAZ", SIFPATH+"RVRSTA")
 endif
 
 
@@ -757,7 +757,7 @@ return
 method ostalef()
 
 if pitanje(,"Formirati Bosanski sort","N")=="D"
-   CREATE_INDEX("NAZ_B","BTOEU(Naz)",SIFPATH+"ROBA")
+   f01_create_index("NAZ_B","BTOEU(Naz)",SIFPATH+"ROBA")
 endif
 
 if pitanje(,"Formirati KALKS ?","N")=="D"
@@ -801,18 +801,18 @@ if !File2(KUMPATH+'KALKS.DBF')
  dbcreate2(KUMPATH+'KALKS.DBF',aDbf)
 endif
 
-CREATE_INDEX("1","idFirma+IdVD+BrDok+RBr",KUMPATH+"KALKS")
-CREATE_INDEX("2","idFirma+idvd+brdok+IDTarifa",KUMPATH+"KALKS")
+f01_create_index("1","idFirma+IdVD+BrDok+RBr",KUMPATH+"KALKS")
+f01_create_index("2","idFirma+idvd+brdok+IDTarifa",KUMPATH+"KALKS")
 // 3 - vodjenje magacina
-CREATE_INDEX("3","idFirma+mkonto+idroba+dtos(datdok)+podbr+MU_I+IdVD",KUMPATH+"KALKS")
+f01_create_index("3","idFirma+mkonto+idroba+dtos(datdok)+podbr+MU_I+IdVD",KUMPATH+"KALKS")
 // 4 - vodjenje prodavnice
-CREATE_INDEX("4","idFirma+Pkonto+idroba+dtos(datdok)+podbr+PU_I+IdVD",KUMPATH+"KALKS")
-CREATE_INDEX("5","idFirma+dtos(datdok)+podbr+idvd+brdok",KUMPATH+"KALKS")
-CREATE_INDEX("6","idFirma+IdTarifa+idroba",KUMPATH+"KALKS")
-CREATE_INDEX("7","idroba",KUMPATH+"KALKS")
-CREATE_INDEX("8","mkonto",KUMPATH+"KALKS")
-CREATE_INDEX("9","pkonto",KUMPATH+"KALKS")
-CREATE_INDEX("D","datdok",KUMPATH+"KALKS")
+f01_create_index("4","idFirma+Pkonto+idroba+dtos(datdok)+podbr+PU_I+IdVD",KUMPATH+"KALKS")
+f01_create_index("5","idFirma+dtos(datdok)+podbr+idvd+brdok",KUMPATH+"KALKS")
+f01_create_index("6","idFirma+IdTarifa+idroba",KUMPATH+"KALKS")
+f01_create_index("7","idroba",KUMPATH+"KALKS")
+f01_create_index("8","mkonto",KUMPATH+"KALKS")
+f01_create_index("9","pkonto",KUMPATH+"KALKS")
+f01_create_index("D","datdok",KUMPATH+"KALKS")
 
 endif
 

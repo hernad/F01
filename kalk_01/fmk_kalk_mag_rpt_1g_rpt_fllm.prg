@@ -131,7 +131,7 @@ endif
 O_KALK    
 select kalk
 set order to tag "5"
-//CREATE_INDEX("KALKi5","idFirma+dtos(datdok)+idvd+brdok+rbr","KALK")
+//f01_create_index("KALKi5","idFirma+dtos(datdok)+idvd+brdok+rbr","KALK")
 
 hseek cIdFirma
 

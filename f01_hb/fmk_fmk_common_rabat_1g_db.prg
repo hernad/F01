@@ -37,8 +37,8 @@ if !File2((SIFPATH + "rabat.dbf"))
 	DbCreate2(SIFPATH + "rabat.dbf", aDbf)
 endif
 
-CREATE_INDEX("1", "IDRABAT+TIPRABAT+IDROBA", SIFPATH + "rabat.dbf", .t.)
-CREATE_INDEX("2", "IDRABAT+TIPRABAT+DTOS(DATUM)", SIFPATH + "rabat.dbf", .t.)
+f01_create_index("1", "IDRABAT+TIPRABAT+IDROBA", SIFPATH + "rabat.dbf", .t.)
+f01_create_index("2", "IDRABAT+TIPRABAT+DTOS(DATUM)", SIFPATH + "rabat.dbf", .t.)
 
 return
 

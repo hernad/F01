@@ -286,7 +286,7 @@ if !File2((PRIVPATH+"FDEVICE.DBF"))
 	DBCREATE2(PRIVPATH+"FDEVICE.DBF",aDbf)
 endif
 
-CREATE_INDEX("1","str(id)",PRIVPATH+"FDEVICE.DBF",.t.)
+f01_create_index("1","str(id)",PRIVPATH+"FDEVICE.DBF",.t.)
 
 O_FDEVICE
 

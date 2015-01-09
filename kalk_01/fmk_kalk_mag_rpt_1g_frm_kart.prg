@@ -65,7 +65,7 @@ if Pitanje(,"Prodji kroz neobradjene stavke","N")="D"
 endif
 
 set order to 3
-//CREATE_INDEX("3","idFirma+mkonto+idroba+dtos(datdok)+podbr+MU_I+IdVD",KUMPATH+"KALK")
+//f01_create_index("3","idFirma+mkonto+idroba+dtos(datdok)+podbr+MU_I+IdVD",KUMPATH+"KALK")
 go top
 aDbf:={}
 AADD(aDbf, {"ID", "C", 10, 0 } )     // roba
@@ -159,7 +159,7 @@ local cDn:="N",nTrecDok:=0,nRet:=DE_CONT
 do case
   case Ch==K_ENTER
          select kalk; set order to 3
-         //CREATE_INDEX("3","idFirma+mkonto+idroba+dtos(datdok)+podbr+MU_I+IdVD",KUMPATH+"KALK")
+         //f01_create_index("3","idFirma+mkonto+idroba+dtos(datdok)+podbr+MU_I+IdVD",KUMPATH+"KALK")
          go llm->recno
          BrowseKart()
          select llm

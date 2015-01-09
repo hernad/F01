@@ -332,8 +332,8 @@ if (nArea==-1 .or. nArea==(F_UPL))
 		DBcreate2(KUMPATH+"UPL.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("1","IDPARTNER+DTOS(DATUPL)",KUMPATH+"UPL")
-	CREATE_INDEX("2","IDPARTNER",KUMPATH+"UPL")
+	f01_create_index("1","IDPARTNER+DTOS(DATUPL)",KUMPATH+"UPL")
+	f01_create_index("2","IDPARTNER",KUMPATH+"UPL")
 endif
 
 
@@ -347,7 +347,7 @@ if (nArea==-1 .or. nArea==(F_FTXT))
         	DBcreate2(SIFPATH+'FTXT.DBF',aDbf)
 	endif
 
-	CREATE_INDEX("ID","ID",SIFPATH+"FTXT")
+	f01_create_index("ID","ID",SIFPATH+"FTXT")
 endif
 
 
@@ -388,25 +388,25 @@ if (nArea==-1 .or. nArea==(F_FAKT))
         	DBcreate2(KUMPATH+'FAKT.DBF',aDbf)
 	endif
 
-	CREATE_INDEX("1","IdFirma+idtipdok+brdok+rbr+podbr",KUMPATH+"FAKT")
-	CREATE_INDEX("2","IdFirma+dtos(datDok)+idtipdok+brdok+rbr",KUMPATH+"FAKT")
-	CREATE_INDEX("3","idroba+dtos(datDok)",KUMPATH+"FAKT")
+	f01_create_index("1","IdFirma+idtipdok+brdok+rbr+podbr",KUMPATH+"FAKT")
+	f01_create_index("2","IdFirma+dtos(datDok)+idtipdok+brdok+rbr",KUMPATH+"FAKT")
+	f01_create_index("3","idroba+dtos(datDok)",KUMPATH+"FAKT")
 	if lPoNarudzbi
  		// sifru gradi IDNAR + idroba !!!!!!!!!!
-  		CREATE_INDEX("3N","idnar+idroba+dtos(datDok)",KUMPATH+"FAKT")
+  		f01_create_index("3N","idnar+idroba+dtos(datDok)",KUMPATH+"FAKT")
 	endif
 	if izfmkini("SifRoba","ID_J")=="D"
  		// sifru gradi IDROBA_J + idroba !!!!!!!!!!
- 		CREATE_INDEX("3J","idroba_j+idroba+dtos(datDok)",KUMPATH+"FAKT")
+ 		f01_create_index("3J","idroba_j+idroba+dtos(datDok)",KUMPATH+"FAKT")
 	endif
 	// ako se koristi varijanta DITRIBUCIJA ukljuci i ove indexe
 	if glDistrib
-		CREATE_INDEX("4","idfirma+idtipdok+dtos(datdok)+idrelac+marsruta+brdok+rbr",KUMPATH+"FAKT")
-  		CREATE_INDEX("5","idfirma+idtipdok+dtos(datdok)+idrelac+iddist+idvozila+idroba",KUMPATH+"FAKT")
+		f01_create_index("4","idfirma+idtipdok+dtos(datdok)+idrelac+marsruta+brdok+rbr",KUMPATH+"FAKT")
+  		f01_create_index("5","idfirma+idtipdok+dtos(datdok)+idrelac+iddist+idvozila+idroba",KUMPATH+"FAKT")
 	endif
 
-  	CREATE_INDEX("6","idfirma+idpartner+idroba+idtipdok+dtos(datdok)",KUMPATH+"FAKT")
-  	CREATE_INDEX("7","idfirma+idpartner+idroba+dtos(datdok)",KUMPATH+"FAKT")
+  	f01_create_index("6","idfirma+idpartner+idroba+idtipdok+dtos(datdok)",KUMPATH+"FAKT")
+  	f01_create_index("7","idfirma+idpartner+idroba+dtos(datdok)",KUMPATH+"FAKT")
 
 endif
 
@@ -422,11 +422,11 @@ if (nArea==-1 .or. nArea==(F_PRIPR))
         	DBcreate2(PRIVPATH+'PRIPR.DBF',aDbf)
 	endif
 
-	CREATE_INDEX("1","IdFirma+idtipdok+brdok+rbr+podbr",PRIVPATH+"PRIPR")
-	CREATE_INDEX("2","IdFirma+dtos(datdok)",PRIVPATH+"PRIPR")
-	CREATE_INDEX("3","IdFirma+idroba+rbr",PRIVPATH+"PRIPR")
+	f01_create_index("1","IdFirma+idtipdok+brdok+rbr+podbr",PRIVPATH+"PRIPR")
+	f01_create_index("2","IdFirma+dtos(datdok)",PRIVPATH+"PRIPR")
+	f01_create_index("3","IdFirma+idroba+rbr",PRIVPATH+"PRIPR")
 	if IsRabati()
-		CREATE_INDEX("4","IdFirma+idtipdok+rbr",PRIVPATH+"PRIPR")
+		f01_create_index("4","IdFirma+idtipdok+rbr",PRIVPATH+"PRIPR")
 	endif
 endif
 
@@ -442,11 +442,11 @@ if (nArea==-1 .or. nArea==(F_PRIPR9))
         	DBcreate2(PRIVPATH+'PRIPR9.DBF',aDbf)
 	endif
 
-	CREATE_INDEX("1","IdFirma+idtipdok+brdok+rbr+podbr",PRIVPATH+"PRIPR9")
-	CREATE_INDEX("2","IdFirma+dtos(datdok)",PRIVPATH+"PRIPR9")
-	CREATE_INDEX("3","IdFirma+idroba+rbr",PRIVPATH+"PRIPR9")
+	f01_create_index("1","IdFirma+idtipdok+brdok+rbr+podbr",PRIVPATH+"PRIPR9")
+	f01_create_index("2","IdFirma+dtos(datdok)",PRIVPATH+"PRIPR9")
+	f01_create_index("3","IdFirma+idroba+rbr",PRIVPATH+"PRIPR9")
 	if IsRabati()
-		CREATE_INDEX("4","IdFirma+idtipdok+rbr",PRIVPATH+"PRIPR9")
+		f01_create_index("4","IdFirma+idtipdok+rbr",PRIVPATH+"PRIPR9")
 	endif
 endif
 
@@ -457,7 +457,7 @@ if (nArea==-1 .or. nArea==(F__FAKT))
         	DBcreate2(PRIVPATH+'_FAKT.DBF',aDbf)
 	endif
 
-	CREATE_INDEX("1","IdFirma+idtipdok+brdok+rbr+podbr",PRIVPATH+"_FAKT")
+	f01_create_index("1","IdFirma+idtipdok+brdok+rbr+podbr",PRIVPATH+"_FAKT")
 endif
 
 
@@ -495,12 +495,12 @@ if (nArea==-1 .or. nArea==(F_DOKS))
         	DBcreate2(KUMPATH+'DOKS.DBF',aDbf)
 	endif
 
-	CREATE_INDEX("1","IdFirma+idtipdok+brdok",KUMPATH+"DOKS")
-	CREATE_INDEX("2","IdFirma+idtipdok+partner",KUMPATH+"DOKS")
-	CREATE_INDEX("3","partner",KUMPATH+"DOKS")
-	CREATE_INDEX("4","idtipdok",KUMPATH+"DOKS")
-	CREATE_INDEX("5","datdok",KUMPATH+"DOKS")
-	CREATE_INDEX("6","IdFirma+idpartner+idtipdok",KUMPATH+"DOKS")
+	f01_create_index("1","IdFirma+idtipdok+brdok",KUMPATH+"DOKS")
+	f01_create_index("2","IdFirma+idtipdok+partner",KUMPATH+"DOKS")
+	f01_create_index("3","partner",KUMPATH+"DOKS")
+	f01_create_index("4","idtipdok",KUMPATH+"DOKS")
+	f01_create_index("5","datdok",KUMPATH+"DOKS")
+	f01_create_index("6","IdFirma+idpartner+idtipdok",KUMPATH+"DOKS")
 endif
 
 
@@ -523,7 +523,7 @@ if (nArea==-1 .or. nArea==(F_DOKS2))
         	DBcreate2(KUMPATH+"DOKS2.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("1","IdFirma+idtipdok+brdok",KUMPATH+"DOKS2")
+	f01_create_index("1","IdFirma+idtipdok+brdok",KUMPATH+"DOKS2")
 endif
 
 
@@ -538,7 +538,7 @@ if (nArea==-1 .or. nArea==(F_VRSTEP))
 		DBcreate2(SIFPATH+"VRSTEP.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("ID","Id",SIFPATH+"VRSTEP.DBF")
+	f01_create_index("ID","Id",SIFPATH+"VRSTEP.DBF")
 endif
 
 
@@ -556,8 +556,8 @@ if glDistrib
      			DBcreate2(SIFPATH+"RELAC.DBF",aDbf)
   		endif
 
-		CREATE_INDEX("ID","id+naz"         ,SIFPATH+"RELAC")
-  		CREATE_INDEX("1" ,"idpartner+idpm" ,SIFPATH+"RELAC")
+		f01_create_index("ID","id+naz"         ,SIFPATH+"RELAC")
+  		f01_create_index("1" ,"idpartner+idpm" ,SIFPATH+"RELAC")
 	endif
 
 	if (nArea==-1 .or. nArea==(F_VOZILA))
@@ -572,7 +572,7 @@ if glDistrib
      			DBcreate2(SIFPATH+"VOZILA.DBF",aDbf)
   		endif
 
-		CREATE_INDEX("ID","id",SIFPATH+"VOZILA")
+		f01_create_index("ID","id",SIFPATH+"VOZILA")
 	endif
 
 	if (nArea==-1 .or. nArea==(F_KALPOS))
@@ -589,8 +589,8 @@ if glDistrib
      			DBcreate2(KUMPATH+"KALPOS.DBF",aDbf)
   		endif
 
-		CREATE_INDEX("1","DTOS(datum)",KUMPATH+"KALPOS")
-  		CREATE_INDEX("2","IDRELAC+DTOS(datum)",KUMPATH+"KALPOS")
+		f01_create_index("1","DTOS(datum)",KUMPATH+"KALPOS")
+  		f01_create_index("2","IDRELAC+DTOS(datum)",KUMPATH+"KALPOS")
 	endif
 endif
 

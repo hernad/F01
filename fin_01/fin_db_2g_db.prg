@@ -256,8 +256,8 @@ if (nArea==-1 .or. nArea==(F_FUNK))
    		DBcreate2(KUMPATH+"FUNK.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("ID","id",KUMPATH+"FUNK")
-	CREATE_INDEX("NAZ","NAZ",KUMPATH+"FUNK")
+	f01_create_index("ID","id",KUMPATH+"FUNK")
+	f01_create_index("NAZ","NAZ",KUMPATH+"FUNK")
 endif
 
 
@@ -272,8 +272,8 @@ if (nArea==-1 .or. nArea==(F_FOND))
 		DBcreate2(KUMPATH+"FOND.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("ID","id",KUMPATH+"FOND")
-	CREATE_INDEX("NAZ","NAZ",KUMPATH+"FOND")
+	f01_create_index("ID","id",KUMPATH+"FOND")
+	f01_create_index("NAZ","NAZ",KUMPATH+"FOND")
 endif
 
 
@@ -305,8 +305,8 @@ if (nArea==-1 .or. nArea==(F_BUDZET))
 	SELECT F_BUDZET
 	USE
 
-	CREATE_INDEX("1","IdRj+Idkonto",KUMPATH+"BUDZET")
-	CREATE_INDEX("2","Idkonto",KUMPATH+"BUDZET")
+	f01_create_index("1","IdRj+Idkonto",KUMPATH+"BUDZET")
+	f01_create_index("2","Idkonto",KUMPATH+"BUDZET")
 endif
 
 
@@ -321,7 +321,7 @@ if (nArea==-1 .or. nArea==(F_PAREK))
 		DBcreate2(KUMPATH+"PAREK",aDbf)
 	endif
 
-	CREATE_INDEX("1","IdPartija",KUMPATH+"PAREK")
+	f01_create_index("1","IdPartija",KUMPATH+"PAREK")
 endif
 
 
@@ -336,8 +336,8 @@ if (nArea==-1 .or. nArea==(F_BUIZ))
 		DBcreate2(KUMPATH+"BUIZ",aDbf)
 	endif
 
-	CREATE_INDEX( "ID"  , "ID"  , KUMPATH+"BUIZ" )
-	CREATE_INDEX( "NAZ" , "NAZ" , KUMPATH+"BUIZ" )
+	f01_create_index( "ID"  , "ID"  , KUMPATH+"BUIZ" )
+	f01_create_index( "NAZ" , "NAZ" , KUMPATH+"BUIZ" )
 endif
 
 
@@ -356,8 +356,8 @@ if (nArea==-1 .or. nArea==(F_KONTO))
    		DBcreate2(SIFPATH+"KONTO.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("ID","id",SIFPATH+"KONTO") // konta
-	CREATE_INDEX("NAZ","naz",SIFPATH+"KONTO")
+	f01_create_index("ID","id",SIFPATH+"KONTO") // konta
+	f01_create_index("NAZ","naz",SIFPATH+"KONTO")
 endif
 
 if (nArea==-1 .or. nArea==(F_RJ))
@@ -370,8 +370,8 @@ if (nArea==-1 .or. nArea==(F_RJ))
    		DBcreate2(KUMPATH+"RJ.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("ID","id",KUMPATH+"RJ")
-	CREATE_INDEX("NAZ","NAZ",KUMPATH+"RJ")
+	f01_create_index("ID","id",KUMPATH+"RJ")
+	f01_create_index("NAZ","NAZ",KUMPATH+"RJ")
 
 endif
 
@@ -406,8 +406,8 @@ if (nArea==-1 .or. nArea==(F_PARTN))
         	DBcreate2(SIFPATH+"PARTN.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("ID","id",SIFPATH+"PARTN") // firme
-	CREATE_INDEX("NAZ","LEFT(naz,25)",SIFPATH+"PARTN")
+	f01_create_index("ID","id",SIFPATH+"PARTN") // firme
+	f01_create_index("NAZ","LEFT(naz,25)",SIFPATH+"PARTN")
 endif
 
 
@@ -430,8 +430,8 @@ if (nArea==-1 .or. nArea==(F_TNAL))
         	DBcreate2(SIFPATH+"TNAL.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("ID","id",SIFPATH+"TNAL")  // vrste naloga
-	CREATE_INDEX("NAZ","naz",SIFPATH+"TNAL")
+	f01_create_index("ID","id",SIFPATH+"TNAL")  // vrste naloga
+	f01_create_index("NAZ","naz",SIFPATH+"TNAL")
 endif
 
 
@@ -446,8 +446,8 @@ if (nArea==-1 .or. nArea==(F_TDOK))
 		DBCREATE2(SIFPATH+"TDOK.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("ID","id",SIFPATH+"TDOK")  // Tip dokumenta
-	CREATE_INDEX("NAZ","naz",SIFPATH+"TDOK")
+	f01_create_index("ID","id",SIFPATH+"TDOK")  // Tip dokumenta
+	f01_create_index("NAZ","naz",SIFPATH+"TDOK")
 endif
 
 
@@ -468,9 +468,9 @@ if (nArea==-1 .or. nArea==(F_NALOG))
         	DBcreate2(KUMPATH+"NALOG.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("1","IdFirma+IdVn+BrNal",KUMPATH+"NALOG")
-	CREATE_INDEX("2","IdFirma+str(val(BrNal),8)+idvn",KUMPATH+"NALOG")
-	CREATE_INDEX("3","dtos(datnal)+IdFirma+idvn+brnal",KUMPATH+"NALOG")
+	f01_create_index("1","IdFirma+IdVn+BrNal",KUMPATH+"NALOG")
+	f01_create_index("2","IdFirma+str(val(BrNal),8)+idvn",KUMPATH+"NALOG")
+	f01_create_index("3","dtos(datnal)+IdFirma+idvn+brnal",KUMPATH+"NALOG")
 
 endif
 
@@ -482,7 +482,7 @@ if (nArea==-1 .or. nArea==(F_PNALOG))
         	DBcreate2(PRIVPATH+"PNALOG.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("1","IdFirma+IdVn+BrNal",PRIVPATH+"PNALOG")
+	f01_create_index("1","IdFirma+IdVn+BrNal",PRIVPATH+"PNALOG")
 endif
 
 
@@ -517,19 +517,19 @@ if (nArea==-1 .or. nArea==(F_SUBAN))
         	DBCREATE2(KUMPATH+"SUBAN.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("1","IdFirma+IdKonto+IdPartner+dtos(DatDok)+BrNal+RBr",KUMPATH+"SUBAN")
-	CREATE_INDEX("2","IdFirma+IdPartner+IdKonto",KUMPATH+"SUBAN")
-	CREATE_INDEX("3","IdFirma+IdKonto+IdPartner+BrDok+dtos(DatDok)",KUMPATH+"SUBAN")
-	CREATE_INDEX("4","idFirma+IdVN+BrNal+Rbr",KUMPATH+"SUBAN")
-	CREATE_INDEX("5","idFirma+IdKonto+dtos(DatDok)+idpartner",KUMPATH+"SUBAN")
-	CREATE_INDEX("6","IdKonto",KUMPATH+"SUBAN")
-	CREATE_INDEX("7","Idpartner",KUMPATH+"SUBAN")
-	CREATE_INDEX("8","Datdok",KUMPATH+"SUBAN")
+	f01_create_index("1","IdFirma+IdKonto+IdPartner+dtos(DatDok)+BrNal+RBr",KUMPATH+"SUBAN")
+	f01_create_index("2","IdFirma+IdPartner+IdKonto",KUMPATH+"SUBAN")
+	f01_create_index("3","IdFirma+IdKonto+IdPartner+BrDok+dtos(DatDok)",KUMPATH+"SUBAN")
+	f01_create_index("4","idFirma+IdVN+BrNal+Rbr",KUMPATH+"SUBAN")
+	f01_create_index("5","idFirma+IdKonto+dtos(DatDok)+idpartner",KUMPATH+"SUBAN")
+	f01_create_index("6","IdKonto",KUMPATH+"SUBAN")
+	f01_create_index("7","Idpartner",KUMPATH+"SUBAN")
+	f01_create_index("8","Datdok",KUMPATH+"SUBAN")
 
-	CREATE_INDEX("10","idFirma+IdVN+BrNal+idkonto+DTOS(datdok)",KUMPATH+"SUBAN")
+	f01_create_index("10","idFirma+IdVN+BrNal+idkonto+DTOS(datdok)",KUMPATH+"SUBAN")
 
 	if gRJ=="D"
-		CREATE_INDEX("9","idfirma+idkonto+idrj+idpartner+DTOS(datdok)+brnal+rbr",KUMPATH+"SUBAN")
+		f01_create_index("9","idfirma+idkonto+idrj+idpartner+DTOS(datdok)+brnal+rbr",KUMPATH+"SUBAN")
 	endif
 endif
 
@@ -541,8 +541,8 @@ if (nArea==-1 .or. nArea==(F_PSUBAN))
         	DBcreate2(PRIVPATH+"PSUBAN.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("1","IdFirma+IdVn+BrNal",PRIVPATH+"PSUBAN")
-	CREATE_INDEX("2","idFirma+IdVN+BrNal+IdKonto",PRIVPATH+"PSUBAN")
+	f01_create_index("1","IdFirma+IdVn+BrNal",PRIVPATH+"PSUBAN")
+	f01_create_index("2","idFirma+IdVN+BrNal+IdKonto",PRIVPATH+"PSUBAN")
 endif
 
 
@@ -553,8 +553,8 @@ if (nArea==-1 .or. nArea==(F_PRIPR))
         	DBcreate2(PRIVPATH+"PRIPR.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("1","idFirma+IdVN+BrNal+Rbr", PRIVPATH+"PRIPR")
-	CREATE_INDEX("2","idFirma+IdVN+BrNal+IdKonto", PRIVPATH+"PRIPR")
+	f01_create_index("1","idFirma+IdVN+BrNal+Rbr", PRIVPATH+"PRIPR")
+	f01_create_index("2","idFirma+IdVN+BrNal+IdKonto", PRIVPATH+"PRIPR")
 endif
 
 
@@ -578,11 +578,11 @@ if (nArea==-1 .or. nArea==(F_ANAL))
  		DBcreate2(KUMPATH+"ANAL.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("1","IdFirma+IdKonto+dtos(DatNal)",KUMPATH+"ANAL")  //analiti
-	CREATE_INDEX("2","idFirma+IdVN+BrNal+Rbr",KUMPATH+"ANAL")  //analiti
-	CREATE_INDEX("3","idFirma+dtos(DatNal)",KUMPATH+"ANAL")  //analiti
-	CREATE_INDEX("4","Idkonto",KUMPATH+"ANAL")  //analiti
-	CREATE_INDEX("5","DatNal",KUMPATH+"ANAL")  //analiti
+	f01_create_index("1","IdFirma+IdKonto+dtos(DatNal)",KUMPATH+"ANAL")  //analiti
+	f01_create_index("2","idFirma+IdVN+BrNal+Rbr",KUMPATH+"ANAL")  //analiti
+	f01_create_index("3","idFirma+dtos(DatNal)",KUMPATH+"ANAL")  //analiti
+	f01_create_index("4","Idkonto",KUMPATH+"ANAL")  //analiti
+	f01_create_index("5","DatNal",KUMPATH+"ANAL")  //analiti
 
 endif
 
@@ -594,7 +594,7 @@ if (nArea==-1 .or. nArea==(F_PANAL))
         	DBCREATE2(PRIVPATH+"PANAL.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("1","IdFirma+IdVn+BrNal+idkonto",PRIVPATH+"PANAL")
+	f01_create_index("1","IdFirma+IdVn+BrNal+idkonto",PRIVPATH+"PANAL")
 endif
 
 
@@ -618,8 +618,8 @@ if (nArea==-1 .or. nArea==(F_SINT))
         	DBcreate2(KUMPATH+"SINT.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("1","IdFirma+IdKonto+dtos(DatNal)",KUMPATH+"SINT")  // sinteti
-	CREATE_INDEX("2","idFirma+IdVN+BrNal+Rbr",KUMPATH+"SINT")
+	f01_create_index("1","IdFirma+IdKonto+dtos(DatNal)",KUMPATH+"SINT")  // sinteti
+	f01_create_index("2","idFirma+IdVN+BrNal+Rbr",KUMPATH+"SINT")
 
 endif
 
@@ -631,7 +631,7 @@ if (nArea==-1 .or. nArea==(F_PSINT))
         	DBCREATE2(PRIVPATH+"PSINT.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("1","IdFirma+IdVn+BrNal+idkonto",PRIVPATH+"PSINT")
+	f01_create_index("1","IdFirma+IdVn+BrNal+idkonto",PRIVPATH+"PSINT")
 endif
 
 
@@ -653,7 +653,7 @@ if (nArea==-1 .or. nArea==(F_BBKLAS))
         	DBcreate2(PRIVPATH+"BBKLAS.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("1","IdKlasa", PRIVPATH+"BBKLAS")
+	f01_create_index("1","IdKlasa", PRIVPATH+"BBKLAS")
 endif
 
 
@@ -671,7 +671,7 @@ if (nArea==-1 .or. nArea==(F_IOS))
         	DBcreate2(PRIVPATH+"IOS",aDbf)
 	endif
 
-	CREATE_INDEX("1","IdFirma+IdKonto+IdPartner",PRIVPATH+"IOS") // IOS
+	f01_create_index("1","IdFirma+IdKonto+IdPartner",PRIVPATH+"IOS") // IOS
 endif
 
 
@@ -687,8 +687,8 @@ if (nArea==-1 .or. nArea==(F_PKONTO))
         	DBcreate2(SIFPATH+"PKONTO.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("ID","ID",SIFPATH+"PKONTO")
-	CREATE_INDEX("NAZ","TIP",SIFPATH+"PKONTO")
+	f01_create_index("ID","ID",SIFPATH+"PKONTO")
+	f01_create_index("NAZ","TIP",SIFPATH+"PKONTO")
 endif
 
 if (nArea==-1 .or. nArea==(F_VALUTE))
@@ -717,9 +717,9 @@ if (nArea==-1 .or. nArea==(F_VALUTE))
         	CLOSE ALL
 	endif
 
-	CREATE_INDEX("ID","id", SIFPATH+"VALUTE")
-	CREATE_INDEX("NAZ","tip+id", SIFPATH+"VALUTE")
-	CREATE_INDEX("ID2","id+dtos(datum)", SIFPATH+"VALUTE")
+	f01_create_index("ID","id", SIFPATH+"VALUTE")
+	f01_create_index("NAZ","tip+id", SIFPATH+"VALUTE")
+	f01_create_index("ID2","id+dtos(datum)", SIFPATH+"VALUTE")
 endif
 
 
@@ -769,7 +769,7 @@ if (nArea==-1 .or. nArea==(F_FINMAT))
     		DBcreate2(PRIVPATH+"FINMAT.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("1","idFirma+IdVD+BRDok",PRIVPATH+"FINMAT")
+	f01_create_index("1","idFirma+IdVD+BRDok",PRIVPATH+"FINMAT")
 endif
 
 
@@ -793,7 +793,7 @@ if (nArea==-1 .or. nArea==(F_TRFP2))
         	DBcreate2(SIFPATH+"TRFP2.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("ID","idvd+shema+Idkonto",SIFPATH+"TRFP2")
+	f01_create_index("ID","idvd+shema+Idkonto",SIFPATH+"TRFP2")
 endif
 
 if (nArea==-1 .or. nArea==(F_TRFP3))
@@ -812,7 +812,7 @@ if (nArea==-1 .or. nArea==(F_TRFP3))
         	DBcreate2(SIFPATH+"TRFP3.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("ID","shema+Idkonto",SIFPATH+"TRFP3")
+	f01_create_index("ID","shema+Idkonto",SIFPATH+"TRFP3")
 endif
 
 
@@ -829,7 +829,7 @@ if (nArea==-1 .or. nArea==(F_KONCIJ))
       		DBcreate2(SIFPATH+"KONCIJ.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("ID","id",SIFPATH+"KONCIJ") // konta
+	f01_create_index("ID","id",SIFPATH+"KONCIJ") // konta
 endif
 
 if (nArea==-1 .or. nArea==(F_VKSG))
@@ -844,7 +844,7 @@ if (nArea==-1 .or. nArea==(F_VKSG))
    		DBcreate2(SIFPATH+"VKSG.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("1","id+DESCEND(godina)",SIFPATH+"VKSG")
+	f01_create_index("1","id+DESCEND(godina)",SIFPATH+"VKSG")
 endif
 
 
@@ -868,9 +868,9 @@ if (nArea==-1 .or. nArea==(F_KUF))
    		DBcreate2(KUMPATH+"KUF.DBF",aDbf)
 	endif
 
-	CREATE_INDEX( "ID" , "id"     , KUMPATH+"KUF" )
-	CREATE_INDEX( "ID2", "idrj+id", KUMPATH+"KUF" )
-	CREATE_INDEX( "NAZ", "naz"    , KUMPATH+"KUF" )
+	f01_create_index( "ID" , "id"     , KUMPATH+"KUF" )
+	f01_create_index( "ID2", "idrj+id", KUMPATH+"KUF" )
+	f01_create_index( "NAZ", "naz"    , KUMPATH+"KUF" )
 endif
 
 if (nArea==-1 .or. nArea==(F_KIF))
@@ -894,9 +894,9 @@ if (nArea==-1 .or. nArea==(F_KIF))
    		DBcreate2(KUMPATH+"KIF.DBF",aDbf)
 	endif
 
-	CREATE_INDEX( "ID" , "id"     , KUMPATH+"KIF" )
-	CREATE_INDEX( "ID2", "idrj+id", KUMPATH+"KIF" )
-	CREATE_INDEX( "NAZ", "naz"    , KUMPATH+"KIF" )
+	f01_create_index( "ID" , "id"     , KUMPATH+"KIF" )
+	f01_create_index( "ID2", "idrj+id", KUMPATH+"KIF" )
+	f01_create_index( "NAZ", "naz"    , KUMPATH+"KIF" )
 endif
 
 
@@ -909,7 +909,7 @@ if (nArea==-1 .or. nArea==(F_TNAL))
    		DBcreate2(SIFPATH+"VRSTEP.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("ID","Id",SIFPATH+"VRSTEP.DBF")
+	f01_create_index("ID","Id",SIFPATH+"VRSTEP.DBF")
 endif
 
 
@@ -936,8 +936,8 @@ if (nArea==-1 .or. nArea==(F_ULIMIT))
    		DBcreate2(SIFPATH+"ULIMIT.DBF",aDbf)
 	endif
 
-	CREATE_INDEX("ID","Id"          , SIFPATH+"ULIMIT.DBF")
-	CREATE_INDEX("2" ,"Id+idpartner", SIFPATH+"ULIMIT.DBF")
+	f01_create_index("ID","Id"          , SIFPATH+"ULIMIT.DBF")
+	f01_create_index("2" ,"Id+idpartner", SIFPATH+"ULIMIT.DBF")
 endif
 
 // kreiraj indexe tabele FMKRULES

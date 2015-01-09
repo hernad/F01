@@ -40,12 +40,12 @@ AADD(aDbf,{"_COMMIT_","C",1,0})
 if !File2((KUMPATH+"message.dbf"))
 	DBCREATE2(KUMPATH+"message.dbf",aDbf)
 endif
-CREATE_INDEX("1","FROMHOST",KUMPATH+"message.dbf",.t.)
-CREATE_INDEX("2","FROMHOST+FROMUSER+STR(ROW)",KUMPATH+"message.dbf",.t.)
-CREATE_INDEX("3","DTOS(READ)",KUMPATH+"message.dbf",.t.)
-CREATE_INDEX("4","FROMHOST+FROMUSER+STR(ROW)+DTOS(CREATED)+DTOS(SENT)+TO",KUMPATH+"message.dbf",.t.)
-CREATE_INDEX("5","FROMHOST+FROMUSER+PADR(TEXT,40)+DTOS(CREATED)+DTOS(SENT)+TO",KUMPATH+"message.dbf",.t.)
-CREATE_INDEX("6","DTOS(CREATED)+FROMHOST+FROMUSER+STR(ROW)",KUMPATH+"message.dbf",.t.)
+f01_create_index("1","FROMHOST",KUMPATH+"message.dbf",.t.)
+f01_create_index("2","FROMHOST+FROMUSER+STR(ROW)",KUMPATH+"message.dbf",.t.)
+f01_create_index("3","DTOS(READ)",KUMPATH+"message.dbf",.t.)
+f01_create_index("4","FROMHOST+FROMUSER+STR(ROW)+DTOS(CREATED)+DTOS(SENT)+TO",KUMPATH+"message.dbf",.t.)
+f01_create_index("5","FROMHOST+FROMUSER+PADR(TEXT,40)+DTOS(CREATED)+DTOS(SENT)+TO",KUMPATH+"message.dbf",.t.)
+f01_create_index("6","DTOS(CREATED)+FROMHOST+FROMUSER+STR(ROW)",KUMPATH+"message.dbf",.t.)
 
 if gSamoProdaja=="D"
 	return
@@ -65,11 +65,11 @@ AADD(aDbf,{"TO","C",10,0})
 if !File2((EXEPATH+"amessage.dbf"))
 	DBCREATE2(EXEPATH+"amessage.dbf",aDbf)
 endif
-CREATE_INDEX("1","FROMHOST",EXEPATH+"amessage.dbf",.t.)
-CREATE_INDEX("2","FROMHOST+FROMUSER+STR(ROW)",EXEPATH+"amessage.dbf",.t.)
-CREATE_INDEX("3","DTOS(READ)",EXEPATH+"amessage.dbf",.t.)
-CREATE_INDEX("4","FROMHOST+FROMUSER+STR(ROW)+DTOS(CREATED)+DTOS(SENT)+TO",EXEPATH+"amessage.dbf",.t.)
-CREATE_INDEX("6","DTOS(CREATED)+FROMHOST+FROMUSER+STR(ROW)",EXEPATH+"amessage.dbf",.t.)
+f01_create_index("1","FROMHOST",EXEPATH+"amessage.dbf",.t.)
+f01_create_index("2","FROMHOST+FROMUSER+STR(ROW)",EXEPATH+"amessage.dbf",.t.)
+f01_create_index("3","DTOS(READ)",EXEPATH+"amessage.dbf",.t.)
+f01_create_index("4","FROMHOST+FROMUSER+STR(ROW)+DTOS(CREATED)+DTOS(SENT)+TO",EXEPATH+"amessage.dbf",.t.)
+f01_create_index("6","DTOS(CREATED)+FROMHOST+FROMUSER+STR(ROW)",EXEPATH+"amessage.dbf",.t.)
 
 
 return
@@ -97,7 +97,7 @@ if !File2(EXEPATH + "tmpmsg.dbf")
 endif
 
 if !File2(EXEPATH + "tmpmsg.cdx")
-	CREATE_INDEX("1","idmsg",EXEPATH+"tmpmsg.dbf",.t.)
+	f01_create_index("1","idmsg",EXEPATH+"tmpmsg.dbf",.t.)
 endif
 return
 

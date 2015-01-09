@@ -614,7 +614,7 @@ endif
 DbCreate2(cTmpTbl, aDbf)
 
 if lIndex
-	create_index("1","idfirma+idtipdok+brdok+rbr", cTmpTbl)
+	f01_create_index("1","idfirma+idtipdok+brdok+rbr", cTmpTbl)
 endif
 
 return

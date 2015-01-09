@@ -119,9 +119,9 @@ CREATE_INDEX ("1", "STR(ID)+IDROBA", KUMPATH+"INTEG2")
 CREATE_INDEX ("2", "ID", KUMPATH+"INTEG2")
 
 // OID indexi
-CREATE_INDEX("OID","_oid_",KUMPATH+"DOKS")
-CREATE_INDEX("OID","_oid_",KUMPATH+"POS")
-CREATE_INDEX("OID","_oid_",SIFPATH+"ROBA")
+f01_create_index("OID","_oid_",KUMPATH+"DOKS")
+f01_create_index("OID","_oid_",KUMPATH+"POS")
+f01_create_index("OID","_oid_",SIFPATH+"ROBA")
 
 return
 

@@ -382,11 +382,11 @@ AADD(aTbl, { "izlazF",  "N", 16, 4})
 AADD(aTbl, { "rabatF",  "N", 16, 4})
 
 DBCREATE2(cTbl, aTbl)
-CREATE_INDEX("idRoba", "idRoba+idTarifa", cTbl, .f.)
-CREATE_INDEX("RobaNaz", "LEFT(RobaNaz,40)+idTarifa", cTbl, .f.)
-CREATE_INDEX("idTarifa", "idTarifa+idRoba", cTbl, .f.)
-CREATE_INDEX("jmj", "jmj+idRoba+idTarifa", cTbl, .f.)
-CREATE_INDEX("idPartner", "idPartner+idroba+idTarifa", cTbl, .f.)
+f01_create_index("idRoba", "idRoba+idTarifa", cTbl, .f.)
+f01_create_index("RobaNaz", "LEFT(RobaNaz,40)+idTarifa", cTbl, .f.)
+f01_create_index("idTarifa", "idTarifa+idRoba", cTbl, .f.)
+f01_create_index("jmj", "jmj+idRoba+idTarifa", cTbl, .f.)
+f01_create_index("idPartner", "idPartner+idroba+idTarifa", cTbl, .f.)
 
 CLOSE ALL
 

@@ -45,15 +45,15 @@ AADD(aDbf, { "IZNOSZ3",  "N", 15, 2})
 AADD(aDbf, { "IZNOSZ4",  "N", 15, 2})
 AADD(aDbf, { "IZNOSZ5",  "N", 15, 2})
 DBcreate2(KUMPATH+"OSTAV.DBF",aDbf)
-CREATE_INDEX("ID", "id", KUMPATH+"OSTAV")
+f01_create_index("ID", "id", KUMPATH+"OSTAV")
 
 aDbf:={} 
 AADD(aDbf, { "ID",       "N",  6, 0})
 AADD(aDbf, { "OZNAKA",   "C",  8, 0})
 AADD(aDbf, { "NAZIV",    "C", 30, 0})
 DBcreate2(KUMPATH+"PARTN.DBF",aDbf)
-CREATE_INDEX("ID", "id", KUMPATH+"PARTN")
-CREATE_INDEX("OZNAKA", "oznaka", KUMPATH+"PARTN")
+f01_create_index("ID", "id", KUMPATH+"PARTN")
+f01_create_index("OZNAKA", "oznaka", KUMPATH+"PARTN")
 
 
 aDbf:={}
@@ -61,7 +61,7 @@ AADD(aDbf, { "ID",   "C",  3, 0} )
 AADD(aDbf, { "NAZ",  "C", 20, 0} )
 AADD(aDbf, { "OPIS", "C", 40, 0} )
 DBcreate2(KUMPATH+"PARAMS.DBF",aDbf)
-CREATE_INDEX("ID", "ID", KUMPATH+"PARAMS")
+f01_create_index("ID", "ID", KUMPATH+"PARAMS")
 
 return
 

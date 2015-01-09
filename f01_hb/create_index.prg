@@ -17,7 +17,7 @@ static OID_ASK:="0"
 static nSlogova:=0
 
 
-function CREATE_INDEX(cImeInd, cKljuc, cImeDbf, fSilent)
+function f01_create_index(cImeInd, cKljuc, cImeDbf, fSilent)
 
 local bErr
 local cFulDbf

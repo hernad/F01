@@ -27,16 +27,16 @@ if !File2( SIFPATH + cTbl )
 	DBCREATE2( SIFPATH + cTbl, aDbf )
 endif
 
-CREATE_INDEX( "1", "STR(RULE_ID,10)", ; 
+f01_create_index( "1", "STR(RULE_ID,10)", ; 
 	SIFPATH + cTbl, .t. )
 
-CREATE_INDEX( "2", "MODUL_NAME+RULE_OBJ+STR(RULE_NO,10)", ; 
+f01_create_index( "2", "MODUL_NAME+RULE_OBJ+STR(RULE_NO,10)", ; 
 	SIFPATH + cTbl, .t. )
 
-CREATE_INDEX( "3", "MODUL_NAME+RULE_OBJ+STR(RULE_LEVEL,2)+STR(RULE_NO,10)", ; 
+f01_create_index( "3", "MODUL_NAME+RULE_OBJ+STR(RULE_LEVEL,2)+STR(RULE_NO,10)", ; 
 	SIFPATH + cTbl, .t. )
 
-CREATE_INDEX( "4", "MODUL_NAME+RULE_OBJ+RULE_C1+RULE_C2", ; 
+f01_create_index( "4", "MODUL_NAME+RULE_OBJ+RULE_C1+RULE_C2", ; 
 	SIFPATH + cTbl, .t. )
 
 return

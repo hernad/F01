@@ -204,8 +204,8 @@ get_exp_fields(@aArr, cIdVd, lVpcCij, lMpcCij)
 dbcreate2(PRIVPATH + cExpTbl, aArr)
 
 // kreiraj indexe
-//CREATE_INDEX("ROB", "idRoba", PRIVPATH +  cExpTbl, .t.)
-//CREATE_INDEX("TAR", "idTarifa+idRoba", PRIVPATH +  cExpTbl, .t.)
+//f01_create_index("ROB", "idRoba", PRIVPATH +  cExpTbl, .t.)
+//f01_create_index("TAR", "idTarifa+idRoba", PRIVPATH +  cExpTbl, .t.)
 
 return
 
