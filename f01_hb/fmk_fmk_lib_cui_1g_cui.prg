@@ -1107,7 +1107,7 @@ function AMFILL(aNiz,nElem)
  NEXT
 return rNiz
 
-
+/*
 function f01_konv_zn_baza(cTekst)
 
 
@@ -1124,6 +1124,7 @@ function f01_konv_zn_baza(cTekst)
  AEVAL(aNiz,{|x| cTekst:=STRTRAN(cTekst,x[i],x[j])})
 return cTekst
 
+*/
 
 function Zvuk(nTip)
 
