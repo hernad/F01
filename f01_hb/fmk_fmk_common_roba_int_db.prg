@@ -105,18 +105,18 @@ if !File2(KUMPATH + "INTEG2.DBF")
 endif
 
 // kreiraj index za tabelu DINTEG1/2
-CREATE_INDEX ("1", "DTOS(DATUM)+VRIJEME+STR(ID)", KUMPATH+"DINTEG1")
-CREATE_INDEX ("2", "ID", KUMPATH+"DINTEG1")
-CREATE_INDEX ("1", "DTOS(DATUM)+VRIJEME+STR(ID)", KUMPATH+"DINTEG2")
-CREATE_INDEX ("2", "ID", KUMPATH+"DINTEG2")
+f01_create_index("1", "DTOS(DATUM)+VRIJEME+STR(ID)", KUMPATH+"DINTEG1")
+f01_create_index("2", "ID", KUMPATH+"DINTEG1")
+f01_create_index("1", "DTOS(DATUM)+VRIJEME+STR(ID)", KUMPATH+"DINTEG2")
+f01_create_index("2", "ID", KUMPATH+"DINTEG2")
 
 // kreiraj index za tabelu INTEG1
-CREATE_INDEX ("1", "STR(ID)+IDROBA", KUMPATH+"INTEG1")
-CREATE_INDEX ("2", "ID", KUMPATH+"INTEG1")
+f01_create_index("1", "STR(ID)+IDROBA", KUMPATH+"INTEG1")
+f01_create_index("2", "ID", KUMPATH+"INTEG1")
 
 // kreiraj index za tabelu INTEG2
-CREATE_INDEX ("1", "STR(ID)+IDROBA", KUMPATH+"INTEG2")
-CREATE_INDEX ("2", "ID", KUMPATH+"INTEG2")
+f01_create_index("1", "STR(ID)+IDROBA", KUMPATH+"INTEG2")
+f01_create_index("2", "ID", KUMPATH+"INTEG2")
 
 // OID indexi
 f01_create_index("OID","_oid_",KUMPATH+"DOKS")
@@ -140,7 +140,7 @@ if !File2(PRIVPATH+"ERRORS.DBF")
 endif
 
 // kreiraj index za tabelu ERRORS
-CREATE_INDEX ("1", "IDROBA+TYPE", PRIVPATH+"ERRORS")
+f01_create_index("1", "IDROBA+TYPE", PRIVPATH+"ERRORS")
 
 return
 

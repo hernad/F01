@@ -922,7 +922,7 @@ if (nArea==-1 .or. nArea==(F_VPRIH))
    		DBcreate2(SIFPATH+"VPRIH.DBF",aDbf)
 	endif
 
-	CREATE_INDEX ("ID", "Id", SIFPATH+"VPRIH.DBF")
+	f01_create_index("ID", "Id", SIFPATH+"VPRIH.DBF")
 endif
 
 
