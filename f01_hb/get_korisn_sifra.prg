@@ -274,7 +274,7 @@ FUNCTION IBatchRun( oApp )
    ENDIF
 
    IF mpar37( "/B", oApp )
-      BrisipaK( .T. )
+      f01_brisi_index_pakuj_dbf( .T. )
       CreKorisn()
       CreSystemDb()
       oApp:oDatabase:kreiraj()
@@ -285,7 +285,7 @@ FUNCTION IBatchRun( oApp )
    ENDIF
 
    IF mpar37( "/R", oApp )
-      REINDEX( .T. )
+      f01_reindex( .T. )
    ENDIF
 
    IF mpar37( "/P", oApp )

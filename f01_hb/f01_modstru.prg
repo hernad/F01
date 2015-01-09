@@ -47,7 +47,7 @@ FUNCTION f01_runmods( fDa )
       RESTORE SCREEN FROM cScr
       CLOSE ALL
       goModul:oDatabase:kreiraj()
-      REINDEX( .T. )
+      f01_reindex( .T. )
    ENDIF
 
    RETURN
@@ -179,18 +179,18 @@ FUNCTION f01_modStru( cImeF, cPath, fString )
             LOOP // preskoci
          ENDIF
 
-         cOp := Rjec( @cLin )
+         cOp := f01_rjec( @cLin )
 
          IF AllTrim( cOp ) == "IZBRISIDBF"
             fBrisiDbf := .T.
          ELSEIF AllTrim( cOp ) == "IMEDBF"
             fRenameDBF := .T.
-            cImeP := Rjec( @cLin )
+            cImeP := f01_rjec( @cLin )
          ELSEIF AllTrim( cOp ) == "A"
-            cImeP := Rjec( @cLin )
-            cTip := Rjec( @cLin )
-            cLen := Rjec( @cLin ); nLen := Val( cLen )
-            cDec := Rjec( @cLin ); nDec := Val( cDec )
+            cImeP := f01_rjec( @cLin )
+            cTip := f01_rjec( @cLin )
+            cLen := f01_rjec( @cLin ); nLen := Val( cLen )
+            cDec := f01_rjec( @cLin ); nDec := Val( cDec )
             IF !( nLen > 0 .AND. nLen > nDec ) .OR. ( cTip = "C" .AND. nDec > 0 ) .OR. !( cTip $ "CNDM" )
                ? "Greska: Dodavanje polja, linija:", nLinija
                LOOP
@@ -205,31 +205,31 @@ FUNCTION f01_modStru( cImeF, cPath, fString )
             fProm := .T.
 
          ELSEIF AllTrim( cOp ) == "D"
-            cImeP := Upper( Rjec( @cLin ) )
+            cImeP := Upper( f01_rjec( @cLin ) )
             nPos := AScan( aNStru, {| x| x[ 1 ] == cImeP } )
             IF nPos <> 0
                ? "Brisem polje:", cImeP
                ADel( aNStru, nPos )
-               Prepakuj( @aNstru )  // prepakuj array
+               f01_prepakuj( @aNstru )  // prepakuj array
                fProm := .T.
             ELSE
                ? "Greska: Brisanje nepostojeceg polja, linija:", nLinija
             ENDIF
 
          ELSEIF AllTrim( cOp ) == "C"
-            cImeP1 := Upper( Rjec( @cLin ) )
-            cTip1 := Rjec( @cLin )
-            cLen := Rjec( @cLin ); nLen1 := Val( cLen )
-            cDec := Rjec( @cLin ); nDec1 := Val( cDec )
+            cImeP1 := Upper( f01_rjec( @cLin ) )
+            cTip1 := f01_rjec( @cLin )
+            cLen := f01_rjec( @cLin ); nLen1 := Val( cLen )
+            cDec := f01_rjec( @cLin ); nDec1 := Val( cDec )
             nPos := AScan( aStru, {| x| x[ 1 ] == cImeP1 .AND. x[ 2 ] == cTip1 .AND. x[ 3 ] == nLen1 .AND. x[ 4 ] == nDec1 } )
             IF nPos == 0
                ? "Greska: zadana je promjena nepostojeceg polja, linija:", nLinija
                LOOP
             ENDIF
-            cImeP2 := Upper( Rjec( @cLin ) )
-            cTip2 := Rjec( @cLin )
-            cLen := Rjec( @cLin ); nLen2 := Val( cLen )
-            cDec := Rjec( @cLin ); nDec2 := Val( cDec )
+            cImeP2 := Upper( f01_rjec( @cLin ) )
+            cTip2 := f01_rjec( @cLin )
+            cLen := f01_rjec( @cLin ); nLen2 := Val( cLen )
+            cDec := f01_rjec( @cLin ); nDec2 := Val( cDec )
 
             nPos2 := AScan( aStru, {| x| x[ 1 ] == cImep2 } )
             IF nPos2 <> 0 .AND. cImeP1 <> cImeP2

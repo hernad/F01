@@ -600,7 +600,7 @@ close all
 
 Box(,2,40)
           @ m_X+1,m_y+2 SAY "Reindeksiram podatke:"
-          goModul:oDatabase:reindex()        
+          goModul:oDatabase:f01_reindex()        
 BoxC()
 Beep(10)
 

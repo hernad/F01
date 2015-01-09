@@ -77,10 +77,10 @@ FUNCTION f01_konv_zn_baza( aPriv, aKum, aSif, cIz, cU, cSamoId )
    ENDIF
    SET EXCLUSIVE OFF
    IF !gAppSrv
-      BrisiPaK()
+      f01_brisi_index_pakuj_dbf()
    ELSE
       ? "Baze konvertovane!!!"
-      BrisiPaK()
+      f01_brisi_index_pakuj_dbf()
    ENDIF
 
    RETURN
