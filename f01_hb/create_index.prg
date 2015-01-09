@@ -573,7 +573,7 @@ return
 
 
 
-/*  f01_runmods(fDa)
+/*
  *   fDa - True -> Batch obrada (neinteraktivno)
  */
 

@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,14 +14,14 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
- 
+
 /* file sc2g/db/db.prg
  *   Bazni Database objekat
  *
- * Bazni Database objekat 
+ * Bazni Database objekat
  */
 
 function TDBNew(oDesktop, cDirPriv, cDirKum, cDirSif)
@@ -92,30 +92,30 @@ return oObj
  *   Bazni Database objekat
  */
 
-class TDB 
+class TDB
 {
 	public:
 	TDesktop oDesktop;
 	TApp oApp;
 	string cName;
-	
+
 	string cSezona;
 	string cRadimUSezona;
-	
+
 	string cSezonDir;
 	string cBase;
-	
+
 	string cDirPriv;
 	string cDirKum;
 	string cDirSif;
 	string cSigmaBD;
-	
+
 	string cUser;
 	integer nPassword;
 	integer nGroup1;
 	integer nGroup2;
 	integer nGroup3;
-	
+
 	bool lAdmin;
 	*void radiUSezonskomPodrucju(bool lForceRadno);
 	*void logAgain(string cSezona, bool lSilent, bool lWriteKParam);
@@ -139,8 +139,8 @@ class TDB
 }
 
 #endif
-       
-     
+
+
 #ifndef CPP
 #ifndef CLIP
 
@@ -150,10 +150,10 @@ CREATE CLASS TDB
 	VAR oDesktop
 	VAR oApp
 	VAR cName
-	
+
 	VAR cSezona
 	VAR cRadimUSezona
-	
+
 	VAR cSezonDir
 	VAR cBase
 	VAR cDirPriv
@@ -185,14 +185,14 @@ CREATE CLASS TDB
 	method vratiSez
 	method setIfNil
 	method scan
-	
+
 END CLASS
 
 #endif
 #endif
 
 /* var TDB:lAdmin
- *   True - admin rezim, False - normalni pristup podacima 
+ *   True - admin rezim, False - normalni pristup podacima
  */
 
 
@@ -201,7 +201,7 @@ END CLASS
  *   cSezona
  *   lSilent
  */
- 
+
 *void TDB::logAgain(string cSezona, bool lSilent, bool lWriteKParam)
 
 
@@ -265,18 +265,18 @@ if !lsilent
 	BoxC()
 
 	// pristup sezonskim podacima tek godine
-	if ( ::cSezona==cSezona  .or. cSezona=="RADP") 
+	if ( ::cSezona==cSezona  .or. cSezona=="RADP")
    		if Pitanje(,"Pristup radnom podrucju ?","D")=="D"
        			fURP:=.t.
    		endif
 	endif
 else
-	
-	if ( ::cSezona==cSezona .or. cSezona=="RADP") 
+
+	if ( ::cSezona==cSezona .or. cSezona=="RADP")
 		fURP := .t.
 	endif
 
-endif 
+endif
 
 // novi radni direktoriji
 if !EMPTY(::cSezondir)
@@ -322,8 +322,8 @@ else
 	::setDirKum(trim(::cDirKum)+SLASH+::cRadimUSezona)
 	::setDirSif(trim(::cDirSif)+SLASH+::cRadimUSezona)
 	::setDirPriv(trim(::cDirPriv)+SLASH+::cRadimUSezona)
- 
-	::oDesktop:showSezona(::cRadimUSezona) 
+
+	::oDesktop:showSezona(::cRadimUSezona)
 
 	StandardBoje()  // vrati standardne boje
 endif
@@ -331,7 +331,7 @@ endif
 
 if !PostDir(::cDirKum) .and. Pitanje(,"Formirati sezonske direktorije","N")=="D"
 	// kreiraj sezonske direktorije
-	dirmake(::cDirKum)      
+	dirmake(::cDirKum)
 	dirmake(::cDirSif)
 	dirmake(::cDirPriv)
 endif
@@ -357,13 +357,13 @@ f01_runmods(.t.)
 
 FOR i:=1 TO LEN(aSezone)
 	CreParams()
-	::LogAgain(aSezone[i,1],.t.)   
+	::LogAgain(aSezone[i,1],.t.)
 	CreParams()
 	f01_runmods(.t.)
 NEXT
 
 ::cRadimUSezona:="RADP"
- 
+
 private cSection:="1"
 private cHistory:=" "
 private aHistory:={}
@@ -527,7 +527,7 @@ return nPom
  *   meni install database funkcija
  *  biljeska: bivsa funkcija Sistem
  */
- 
+
 *void TDB::mInstall()
 
 method mInstall()
@@ -573,13 +573,13 @@ AADD(opcexe, {|| StaviUArj() })
 AADD(opc,"Y. konverzija znakova u bazama")
 #ifdef CLIP
 	AADD(opcexe, {|| self:konvZn() })
-#else	
+#else
 	AADD(opcexe, {|| ::konvZn() })
 #endif
 AADD(opc,"F. ostale funkcije")
 #ifdef CLIP
 	AADD(opcexe, {|| self:ostalef() })
-#else	
+#else
 	AADD(opcexe, {|| ::ostalef() })
 #endif
 AADD(opc,"-------------------")
@@ -606,7 +606,7 @@ return
 /*  TDB::vratiSez()
  *   vrati stanje podataka iz sezone u radno podrucje
  */
- 
+
 *void TDB::vratiSez()
 method vratiSez(oDatabase)
 
@@ -660,7 +660,7 @@ endif
 cOldSezona:=goModul:oDataBase:cSezona
 
 // ako je "0000" ne pravi backup backupa
-if cSezona<>"0000"   
+if cSezona<>"0000"
  ::skloniSezonu("0000",.f.,.t.)   // backup
  // jos jednom za svaki slucaj bezuvjetno
  // .t. - bez price
@@ -682,7 +682,7 @@ if Pitanje(,"Prenos: SEZONA "+cSezona+" -> RADNO PODRUCJE ?","D")=="D"
      Otkljucaj(KUMPATH+"KPARAMS.DBF")
      O_KPARAMS
      private cSection:="1",cHistory:=" "; aHistory:={}
-     if cSezona=="0000" 
+     if cSezona=="0000"
      	// iz backupa vracam, pa cu ja odrediti sezonu
          gSezona:=goModul:oDataBase:cSezona
          Box(,4,60)
@@ -729,7 +729,7 @@ return
 /*  TDB::loadSezonaRadimUSezona()
  *   ucitaj ::cSezona, ::cRadimUSezona iz tabele parametara
  */
- 
+
 *void TDB::loadSezonaRadimUSezona()
 method loadSezonaRadimUSezona()
 local cPom
@@ -802,10 +802,10 @@ O_KPARAMS
 private cSection:="1"
 private cHistory:=" "
 private aHistory:={}
-if gSql != "D" 
+if gSql != "D"
 	Wpar("rp", cValue, .f.)
 else
-	if TYPE("gSQLSite")=="N" .and. VALTYPE(goModul:cSqlLogBase)=="C"  
+	if TYPE("gSQLSite")=="N" .and. VALTYPE(goModul:cSqlLogBase)=="C"
 		Wpar("rp", cValue, .t.)
 	endif
 	//if gSQL=="D"
@@ -867,6 +867,3 @@ return
 method scan()
 
 return
-
-
-
