@@ -235,14 +235,16 @@ IF !is_install()
 
 ENDIF
 
-//#ifdef __PLATFORM__UNIX
+#ifdef __PLATFORM__UNIX
 
 cFileName := STRTRAN( cFileName, BACKSLASH, SLASH )
 
-//IF is_install()
+#endif
 
-  IF LEFT( cFileName, 8 ) == "/GPARAMS"
-    cFileName := STRTRAN( cFileName, "/GPARAMS", DATA_ROOT + "GPARAMS" )
+IF is_install()
+
+  IF LEFT( cFileName, 8 ) == SLASH + "GPARAMS"
+    cFileName := STRTRAN( cFileName, SLASH + "GPARAMS", DATA_ROOT + "GPARAMS" )
   ENDIF
 
   /*
@@ -251,7 +253,7 @@ cFileName := STRTRAN( cFileName, BACKSLASH, SLASH )
   ENDIF
   */
 
-//ENDIF
+ENDIF
 
 //#endif
 
