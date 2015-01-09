@@ -200,24 +200,6 @@ FCLOSE(nH)
 return .t.
 
 
-function f01_add_field_brisano(cImeDbf)
-
-use
-save screen to cScr
-CLS
-       f01_modstru(cImeDbf,"C H C 1 0  FH  C 1 0",.t.)
-       f01_modstru(cImeDbf,"C SEC C 1 0  FSEC C 1 0",.t.)
-       f01_modstru(cImeDbf,"C VAR C 2 0 FVAR C 2 0",.t.)
-       f01_modstru(cImeDbf,"C VAR C 15 0 FVAR C 15 0",.t.)
-       f01_modstru(cImeDbf,"C  V C 15 0  FV C 15 0",.t.)
-       f01_modstru(cImeDbf,"A BRISANO C 1 0",.t.)  // dodaj polje "BRISANO"
-inkey(3)
-restore screen from cScr
-
-select (F_TMP)
-USE_EXCLUSIVE(cImeDbf)
-return
-
 
 function MyErrHt(o)
 
@@ -574,56 +556,6 @@ PUBLIC gaSDBFs:={ ;
  {F_TMP      , "TMP"     , P_PRIVPATH},;
  {F_SQLPAR   , "SQLPAR"  , P_KUMSQLPATH};
 }
-return
-
-
-
-
-function f01_fill_oid(cImeDbf, cImeCDX)
-
-private cPomKey
-
-if FIELDPOS("_OID_")==0
-  return 0
-endif
-
-
-cImeCDX:=STRTRAN(cImeCDX,"."+INDEXEXT,"")
-
-nOrder:=ORDNUMBER("_OID_")
-cOrdKey:=ORDKEY("_OID_")
-if !( nOrder==0  .or. !(LEFT(cOrdKey,5)="_OID_") )
-  return
-endif
-
-if (field->_OID_==0 .and. RecCount2()<>0)
-
-   Msgbeep("OID "+ALIAS()+" nepopunjen ")
-
-   if OID_ASK=="0"
-            // OID nije inicijaliziran
-            if sifra_za_koristenje_opcije("OIDFILL")
-               OID_ASK:="D"
-            endif
-   endif
-
-   if  (OID_ASK=="D") .and. Pitanje(,"Popuniti OID u tabeli "+ALIAS()+" ?"," ")=="D"
-         MsgO("Popunjavam OID , tabela "+ALIAS())
-	 cPomKey:="_OID_"
-	 index on &cPomKey TAG "_OID_"  TO (cImeCDX)
-         go top
-         if field->_OID_=0
-           set order to 0
-           go top
-           do while !eof()
-             replace _OID_ with New_Oid()
-             skip
-           enddo
-         endif
-         MsgC()
-   endif
-endif
-
 return
 
 

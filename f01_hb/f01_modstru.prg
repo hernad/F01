@@ -2,270 +2,290 @@
 
 #include "fileio.ch"
 
-static OID_ASK:="0"
+STATIC OID_ASK := "0"
 
-static nSlogova:=0
+STATIC nSlogova := 0
 
 /*
 *   fDa - True -> Batch obrada (neinteraktivno)
 */
 
-function f01_runmods(fDa)
+FUNCTION f01_runmods( fDa )
+
+   IF fda == nil
+      fda := .F.
+   ENDIF
+
+   cImeCHS := EXEPATH + gModul + ".CHS"
+
+   IF fda .OR. PitMstru( @cImeCHS )
+      cScr := ""
+      SAVE SCREEN TO cScr
+      cEXT := SLASH + "*." + INDEXEXT
+      cls
+      IF fda .OR. Pitanje(, "Modifikacija u Priv dir ?", "D" ) == "D"
+         CLOSE ALL
+         f01_modstru( Trim( cImeCHS ), Trim( goModul:oDataBase:cDirPriv ) )
+      ENDIF
+
+      IF fda .OR. Pitanje(, "Modifikacija u SIF dir ?", "N" ) == "D"
+         CLOSE ALL
+         f01_modstru( Trim( cImeCHS ), Trim( goModul:oDataBase:cDirSif ) )
+      ENDIF
+
+      IF fda .OR. Pitanje(, "Modifikacija u KUM dir ?", "N" ) == "D"
+         CLOSE ALL
+         f01_modstru( Trim( cImeCHS ), Trim( goModul:oDataBase:cDirKum ) )
+      ENDIF
+
+      IF fda .OR. Pitanje(, "Modifikacija u tekucem dir ?", "N" ) == "D"
+         CLOSE ALL
+         f01_modstru( Trim( cImeCHS ), "." )
+      ENDIF
+
+      Beep( 1 )
+      RESTORE SCREEN FROM cScr
+      CLOSE ALL
+      goModul:oDatabase:kreiraj()
+      REINDEX( .T. )
+   ENDIF
+
+   RETURN
 
 
-if fda==nil
-fda:=.f.
-endif
+STATIC FUNCTION PitMstru( cImeChs )
 
-cImeCHS:=EXEPATH+gModul+".CHS"
+   LOCAL cDN := "N"
 
-if fda .or. PitMstru(@cImeCHS)
-cScr:=""
-save screen to cScr
-cEXT:=SLASH+"*."+INDEXEXT
-cls
-if fda .or. Pitanje(,"Modifikacija u Priv dir ?","D")=="D"
-close all
-f01_modstru(TRIM(cImeCHS),trim(goModul:oDataBase:cDirPriv))
-endif
+   cImeChs := PadR( cImeChs, 200 )
 
-if fda .or. Pitanje(,"Modifikacija u SIF dir ?","N")=="D"
-close all
-f01_modstru(TRIM(cImeCHS),trim(goModul:oDataBase:cDirSif))
-endif
-
-if fda .or. Pitanje(,"Modifikacija u KUM dir ?","N")=="D"
-close all
-f01_modstru(TRIM(cImeCHS),trim(goModul:oDataBase:cDirKum))
-endif
-
-if fda .or. Pitanje(,"Modifikacija u tekucem dir ?","N")=="D"
-close all
-f01_modstru(TRIM(cImeCHS),".")
-endif
-
-Beep(1)
-restore screen from cScr
-close all
-goModul:oDatabase:kreiraj()
-Reindex(.t.)
-endif
-
-return
-
-
-static function PitMstru(cImeChs)
-
-local cDN:="N"
-
-cImeChs:=padr(cImeChs,200)
-
-Box(,3,50)
-@ m_x+1,m_y+2 SAY "Izvrsiti modifikaciju struktura D/N" GET cDN pict "@!" valid cdn $ "DN"
-read
-if cDN=="D"
-@ m_x+3,m_y+2 SAY "CHS Skript:" GET cImeCHS PICT "@S30"
-read
-cImeCHS:=trim(cImeChs)
-endif
-BoxC()
-if cdn=="D"
-return .t.
-else
-return .f.
-endif
+   Box(, 3, 50 )
+   @ m_x + 1, m_y + 2 SAY "Izvrsiti modifikaciju struktura D/N" GET cDN PICT "@!" VALID cdn $ "DN"
+   READ
+   IF cDN == "D"
+      @ m_x + 3, m_y + 2 SAY "CHS Skript:" GET cImeCHS PICT "@S30"
+      READ
+      cImeCHS := Trim( cImeChs )
+   ENDIF
+   BoxC()
+   IF cdn == "D"
+      RETURN .T.
+   ELSE
+      RETURN .F.
+   ENDIF
 
 
 
 /*  f01_modstru(cImeF, cPath, fString)
 *   procedura modifikacija struktura
 */
-function f01_modStru( cImeF, cPath, fString )
+
+FUNCTION f01_modStru( cImeF, cPath, fString )
+
+   ? Space( 40 ), "bring.out, 10.99, ver 02.33 CDX"
+   ? Space( 40 ), "-------------------------------"
+   ?
+   SET DELETED ON  // ne kopiraj izbrisane zapise
+   CLOSE ALL
+
+   cmxAutoOpen( .F. )  // ne otvaraj CDX-ove
+
+   IF PCount() == 0
+      ?
+      ? "Sintaksa:   MODSTRU  <ImeKomandnog_fajla>  <direktorij_sa_DBF_fajlovima>"
+      ? "     npr:   MODSTRU  ver0155.chs    C:/EM/FIN/1"
+      ?
+      QUIT
+   ENDIF
+
+   IF fstring == nil
+      fString = .F.
+   ENDIF
+
+   IF cPath == nil
+      cPath := ""
+   ENDIF
+
+   IF !fString
+
+      IF Right( cPath, 1 ) <> SLASH
+         cPath := cPath + SLASH
+      ENDIF
+
+      nH := FOpen( ToUnix( cImeF ) )
+      IF nH == -1
+         nH := FOpen( ".." + SLASH + cImeF )
+      ENDIF
+
+   ELSE
+      IF Right( cImeF, 4 ) <> "." + DBFEXT
+         cImeF := cImeF + "." + DBFEXT
+      ENDIF
+      cKomanda := cPath
+      cPath := ""
+   ENDIF
+
+   nLinija := 0
+   cDBF := ""
+
+   PRIVATE fBrisiDBF := .F.
+   PRIVATE fRenameDBF := .F.
+
+   fprom := .F.
+   nProlaza := 0
+
+   DO WHILE fString .OR. !FEOF( nH )
+      ++nLinija
+      IF fString
+         IF nProlaza = 0
+            cLin := "*" + cImeF
+            nProlaza++
+         ELSEIF nProlaza = 1
+            cLin := cKomanda
+            nProlaza++
+         ELSE
+            EXIT
+         ENDIF
+      ELSE
+         cLin := FReadLN( nH, 1, 200 )
+         cLin := Left( cLin, Len( cLin ) -2 )
+      ENDIF
+
+      IF Empty( cLin ) .OR.  Left( cLin, 1 ) == ";"
+         LOOP
+      ENDIF
+
+      IF Left( cLin, 1 ) = "*"
+         kopi( fProm )
+         cLin := SubStr( cLin, 2, Len( Trim( clin ) ) -1 )
+         cDbf := AllTrim( cLin )
+         ? cPath + cDbf
+         cDbf := Upper( cDbf + iif( At( ".", cDbf ) <> 0, "", ".DBF" ) )
+         IF File( cPath + cDbf )
+            SELECT 1
+            USE_EXCLUSIVE( cPath + cDbf ) ALIAS olddbf
+         ELSE
+            cDbf := "*"
+            ?? "  Ne nalazi se u direktorijumu"
+         ENDIF
+         fProm := .F.   // flag za postojanje promjena u strukturi dbf-a
+         aStru := dbStruct()
+         aNStru := AClone( aStru )      // nova struktura
+      ELSE  // funkcije za promjenu polja
+         IF Empty( cDBF )
+            ? "Nije zadat DBF fajl nad kojim se vrsi modifikacija strukture !"
+            QUIT
+         ELSEIF cDbf == "*"
+            LOOP // preskoci
+         ENDIF
+
+         cOp := Rjec( @cLin )
+
+         IF AllTrim( cOp ) == "IZBRISIDBF"
+            fBrisiDbf := .T.
+         ELSEIF AllTrim( cOp ) == "IMEDBF"
+            fRenameDBF := .T.
+            cImeP := Rjec( @cLin )
+         ELSEIF AllTrim( cOp ) == "A"
+            cImeP := Rjec( @cLin )
+            cTip := Rjec( @cLin )
+            cLen := Rjec( @cLin ); nLen := Val( cLen )
+            cDec := Rjec( @cLin ); nDec := Val( cDec )
+            IF !( nLen > 0 .AND. nLen > nDec ) .OR. ( cTip = "C" .AND. nDec > 0 ) .OR. !( cTip $ "CNDM" )
+               ? "Greska: Dodavanje polja, linija:", nLinija
+               LOOP
+            ENDIF
+            nPos = AScan( aStru, {| x| x[ 1 ] == cImep } )
+            IF npos <> 0
+               ? "Greska: Polje " + cImeP + " vec postoji u DBF-u, linija:", nlinija
+               LOOP
+            ENDIF
+            ? "Dodajem polje:", cImeP, cTip, nLen, nDec
+            AAdd( aNStru, { cImeP, cTip, nLen, nDec } )
+            fProm := .T.
+
+         ELSEIF AllTrim( cOp ) == "D"
+            cImeP := Upper( Rjec( @cLin ) )
+            nPos := AScan( aNStru, {| x| x[ 1 ] == cImeP } )
+            IF nPos <> 0
+               ? "Brisem polje:", cImeP
+               ADel( aNStru, nPos )
+               Prepakuj( @aNstru )  // prepakuj array
+               fProm := .T.
+            ELSE
+               ? "Greska: Brisanje nepostojeceg polja, linija:", nLinija
+            ENDIF
+
+         ELSEIF AllTrim( cOp ) == "C"
+            cImeP1 := Upper( Rjec( @cLin ) )
+            cTip1 := Rjec( @cLin )
+            cLen := Rjec( @cLin ); nLen1 := Val( cLen )
+            cDec := Rjec( @cLin ); nDec1 := Val( cDec )
+            nPos := AScan( aStru, {| x| x[ 1 ] == cImeP1 .AND. x[ 2 ] == cTip1 .AND. x[ 3 ] == nLen1 .AND. x[ 4 ] == nDec1 } )
+            IF nPos == 0
+               ? "Greska: zadana je promjena nepostojeceg polja, linija:", nLinija
+               LOOP
+            ENDIF
+            cImeP2 := Upper( Rjec( @cLin ) )
+            cTip2 := Rjec( @cLin )
+            cLen := Rjec( @cLin ); nLen2 := Val( cLen )
+            cDec := Rjec( @cLin ); nDec2 := Val( cDec )
+
+            nPos2 := AScan( aStru, {| x| x[ 1 ] == cImep2 } )
+            IF nPos2 <> 0 .AND. cImeP1 <> cImeP2
+               ? "Greska: zadana je promjena u postojece polje, linija:", nLinija
+               LOOP
+            ENDIF
+            fIspr := .F.
+            IF cTip1 == cTip2
+               fispr := .T.
+            ENDIF
+            IF ( cTip1 == "N" .AND. cTip2 == "C" )   ;  fispr := .T. ; ENDIF
+            IF ( cTip1 == "C" .AND. cTip2 == "N" )   ;  fispr := .T. ; ENDIF
+            IF ( cTip1 == "C" .AND. cTip2 == "D" )   ;  fispr := .T. ; ENDIF
+            IF !fispr; ? "Greska: Neispravna konverzija, linija:", nLinija; loop; ENDIF
+
+            AAdd( aStru[ nPos ], cImeP2 )
+            AAdd( aStru[ nPos ], cTip2 )
+            AAdd( aStru[ nPos ], nLen2 )
+            AAdd( aStru[ nPos ], nDec2 )
+
+            nPos := AScan( aNStru, {| x| x[ 1 ] == cImeP1 .AND. x[ 2 ] == cTip1 .AND. x[ 3 ] == nLen1 .AND. x[ 4 ] == nDec1 } )
+            aNStru[ nPos ] := { cImeP2, cTip2, nLen2, nDec2 }
+
+            ? "Vrsim promjenu:", cImep1, cTip1, nLen1, nDec1, " -> ", cImep2, cTip2, nLen2, nDec2
+            // npr {"POLJE1", "C", 10, 0} =>
+            // {"POLJE1", "C", 10, 0,"POLJE1NEW", "C", "15", 0}
+
+            fProm := .T.
+         ELSE
+            ? "Greska: Nepostojeca operacija, linija:", nLinija
+         ENDIF
+      ENDIF // fje za promjenu polja
+
+   ENDDO
+   kopi( fProm )
+
+   cmxAutoOpen( .T. )
+
+   RETURN
 
 
-? SPACE(40),"bring.out, 10.99, ver 02.33 CDX"
-? SPACE(40),"-------------------------------"
-?
-set deleted on  // ne kopiraj izbrisane zapise
-close all
+FUNCTION f01_add_field_brisano( cImeDbf )
 
-cmxAutoOpen(.f.)  // ne otvaraj CDX-ove
+   USE
+   SAVE SCREEN TO cScr
+   CLS
+   f01_modstru( cImeDbf, "C H C 1 0  FH  C 1 0", .T. )
+   f01_modstru( cImeDbf, "C SEC C 1 0  FSEC C 1 0", .T. )
+   f01_modstru( cImeDbf, "C VAR C 2 0 FVAR C 2 0", .T. )
+   f01_modstru( cImeDbf, "C VAR C 15 0 FVAR C 15 0", .T. )
+   f01_modstru( cImeDbf, "C  V C 15 0  FV C 15 0", .T. )
+   f01_modstru( cImeDbf, "A BRISANO C 1 0", .T. )  // dodaj polje "BRISANO"
+   Inkey( 3 )
+   RESTORE SCREEN FROM cScr
 
-if pcount()==0
-?
-? "Sintaksa:   MODSTRU  <ImeKomandnog_fajla>  <direktorij_sa_DBF_fajlovima>"
-? "     npr:   MODSTRU  ver0155.chs    C:/EM/FIN/1"
-?
-quit
-endif
+   SELECT ( F_TMP )
+   USE_EXCLUSIVE( cImeDbf )
 
-if fstring == nil
-fString=.f.
-endif
-
-if cPath==nil
-cPath:=""
-endif
-
-if !fString
-
-if RIGHT(cPath,1)<>SLASH
-cPath:=cPath+SLASH
-endif
-
-nH:=FOPEN(ToUnix(cImeF))
-if nH==-1
-nH:=FOPEN(".."+SLASH+cImeF)
-endif
-
-else
-if right(cImeF,4)<>"."+DBFEXT
-cImeF:=cImeF+"."+DBFEXT
-endif
-cKomanda:=cPath
-cPath:=""
-endif
-
-nLinija:=0
-cDBF:=""
-
-private fBrisiDBF:=.f.
-private fRenameDBF:=.f.
-
-fprom:=.f.
-nProlaza:=0
-
-do while fString .or. !FEOF(nH)
-++nLinija
-if fString
-if nProlaza=0
-cLin:="*"+cImeF
-nProlaza++
-elseif nProlaza=1
-cLin:=cKomanda
-nProlaza++
-else
-exit
-endif
-else
-cLin:=FReadLN( nH, 1, 200)
-cLin:=left(cLin,len(cLin)-2)
-endif
-
-if empty(cLin) .or.  left(cLin,1)==";"
-loop
-endif
-
-if left(cLin,1)="*"
-kopi(fProm)
-cLin:=substr(cLin,2,len(trim(clin))-1)
-cDbf:=alltrim(cLin)
-? cPath+cDbf
-cDbf:=UPPER(cDbf+iif(at(".",cDbf)<>0,"",".DBF"))
-if file(cPath+cDbf)
-select 1
-USE_EXCLUSIVE(cPath+cDbf) alias olddbf
-else
-cDbf:="*"
-?? "  Ne nalazi se u direktorijumu"
-endif
-fProm:=.f.   // flag za postojanje promjena u strukturi dbf-a
-aStru:=DBSTRUCT()
-aNStru:=aclone(aStru)      // nova struktura
-else  // funkcije za promjenu polja
-if empty(cDBF)
-? "Nije zadat DBF fajl nad kojim se vrsi modifikacija strukture !"
-quit
-elseif cDbf=="*"
-loop // preskoci
-endif
-
-cOp:=Rjec(@cLin)
-
-if alltrim(cOp)=="IZBRISIDBF"
-fBrisiDbf:=.t.
-elseif alltrim(cOp)=="IMEDBF"
-fRenameDBF:=.t.
-cImeP:=Rjec(@cLin)
-elseif alltrim(cOp)=="A"
-cImeP:=Rjec(@cLin)
-cTip:=Rjec(@cLin)
-cLen:=Rjec(@cLin); nLen:=VAL(cLen)
-cDec:=Rjec(@cLin); nDec:=VAL(cDec)
-if !(nLen>0 .and. nLen>nDec) .or. (cTip="C" .and. nDec>0) .or. !(cTip $ "CNDM")
-? "Greska: Dodavanje polja, linija:",nLinija
-loop
-endif
-nPos=ascan(aStru,{|x| x[1]==cImep})
-if npos<>0
-? "Greska: Polje "+cImeP+" vec postoji u DBF-u, linija:",nlinija
-loop
-endif
-? "Dodajem polje:",cImeP,cTip,nLen,nDec
-AADD(aNStru,{cImeP,cTip,nLen,nDec})
-fProm:=.t.
-
-elseif alltrim(cOp)=="D"
-cImeP:=upper(Rjec(@cLin))
-nPos:=ASCAN(aNStru,{|x| x[1]==cImeP})
-if nPos<>0
-? "Brisem polje:",cImeP
-ADEL(aNStru,nPos)
-Prepakuj(@aNstru)  // prepakuj array
-fProm:=.t.
-else
-? "Greska: Brisanje nepostojeceg polja, linija:",nLinija
-endif
-
-elseif alltrim(cOp)=="C"
-cImeP1:=upper(Rjec(@cLin))
-cTip1:=Rjec(@cLin)
-cLen:=Rjec(@cLin); nLen1:=VAL(cLen)
-cDec:=Rjec(@cLin); nDec1:=VAL(cDec)
-nPos:=ASCAN(aStru,{|x| x[1]==cImeP1 .and. x[2]==cTip1 .and. x[3]==nLen1 .and. x[4]==nDec1})
-if nPos==0
-? "Greska: zadana je promjena nepostojeceg polja, linija:",nLinija
-loop
-endif
-cImeP2:=upper(Rjec(@cLin))
-cTip2:=Rjec(@cLin)
-cLen:=Rjec(@cLin); nLen2:=VAL(cLen)
-cDec:=Rjec(@cLin); nDec2:=VAL(cDec)
-
-nPos2:=ASCAN(aStru,{|x| x[1]==cImep2})
-if nPos2<>0 .and. cImeP1<>cImeP2
-? "Greska: zadana je promjena u postojece polje, linija:",nLinija
-loop
-endif
-fIspr:=.f.
-if cTip1==cTip2
-fispr:=.t.
-endif
-if (cTip1=="N" .and. cTip2=="C")   ;  fispr:=.t.; endif
-if (cTip1=="C" .and. cTip2=="N")   ;  fispr:=.t.; endif
-if (cTip1=="C" .and. cTip2=="D")   ;  fispr:=.t.; endif
-if !fispr; ? "Greska: Neispravna konverzija, linija:",nLinija; loop; endif
-
-AADD(aStru[nPos],cImeP2)
-AADD(aStru[nPos],cTip2)
-AADD(aStru[nPos],nLen2)
-AADD(aStru[nPos],nDec2)
-
-nPos:=ASCAN(aNStru,{|x| x[1]==cImeP1 .and. x[2]==cTip1 .and. x[3]==nLen1 .and. x[4]==nDec1})
-aNStru[nPos]:={ cImeP2, cTip2, nLen2, nDec2}
-
-? "Vrsim promjenu:",cImep1,cTip1,nLen1,nDec1," -> ",cImep2,cTip2,nLen2,nDec2
-// npr {"POLJE1", "C", 10, 0} =>
-//     {"POLJE1", "C", 10, 0,"POLJE1NEW", "C", "15", 0}
-
-fProm:=.t.
-else
-? "Greska: Nepostojeca operacija, linija:",nLinija
-endif
-endif // fje za promjenu polja
-
-enddo
-kopi(fProm)
-
-cmxAutoOpen(.t.)
-return
+   RETURN
