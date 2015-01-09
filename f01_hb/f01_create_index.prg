@@ -208,7 +208,7 @@ return .t.
 
 
 
-function Reindex(ff)
+function f01_reindex(ff)
 
 
 *  REINDEXiranje DBF-ova
@@ -362,7 +362,7 @@ return
 
 
 
-function BrisiPAk(fSilent)
+function f01_brisi_index_pakuj_dbf(fSilent)
 
 if fSilent==nil
   fSilent:=.f.
@@ -466,14 +466,14 @@ f01_modstru(TRIM(cCHSFile),trim(goModul:oDataBase:cDirKum))
 // kreiraj, reindex
 close all
 goModul:oDatabase:kreiraj()
-Reindex(.t.)
+f01_reindex(.t.)
 
 return
 
 
 
 
-function Rjec(cLin)
+function f01_rjec(cLin)
 
 local cOp,nPos
 
@@ -491,7 +491,7 @@ return cOp
 
 
 
-function Prepakuj(aNStru)
+function f01_prepakuj(aNStru)
 
 local i,aPom
 aPom:={}
@@ -558,22 +558,6 @@ PUBLIC gaSDBFs:={ ;
 }
 return
 
-
-/*  ImdDBFCDX(cIme)
- *   Mjenja DBF u indeksnu extenziju
-
- *  suban     -> suban.CDX
- *  suban.DBF -> suban.CDX
-
- */
-
-function f01_ime_dbf_cdx(cIme)
-
-cIme:=trim(strtran(ToUnix(cIme),"."+DBFEXT,"."+INDEXEXT))
-if right(cIme,4)<>"."+INDEXEXT
-	cIme:=cIme+"."+INDEXEXT
-endif
-return  cIme
 
 
 static function Every()
