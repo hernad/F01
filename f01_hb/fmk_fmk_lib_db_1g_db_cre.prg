@@ -247,11 +247,11 @@ use (cImeDbf)
 if fieldpos("VAR")<>0  // stara varijanta parametara
        save screen to cScr
        cls
-       Modstru(cImeDbf,"C H C 1 0  FH  C 1 0",.t.)
-       Modstru(cImeDbf,"C SEC C 1 0  FSEC C 1 0",.t.)
-       Modstru(cImeDbf,"C VAR C 2 0 FVAR C 2 0",.t.)
-       Modstru(cImeDbf,"C  V C 15 0  FV C 15 0",.t.)
-       Modstru(cImeDbf,"A BRISANO C 1 0",.t.)  // dodaj polje "BRISANO"
+       f01_modstru(cImeDbf,"C H C 1 0  FH  C 1 0",.t.)
+       f01_modstru(cImeDbf,"C SEC C 1 0  FSEC C 1 0",.t.)
+       f01_modstru(cImeDbf,"C VAR C 2 0 FVAR C 2 0",.t.)
+       f01_modstru(cImeDbf,"C  V C 15 0  FV C 15 0",.t.)
+       f01_modstru(cImeDbf,"A BRISANO C 1 0",.t.)  // dodaj polje "BRISANO"
        inkey(2)
        restore screen from cScr
 endif

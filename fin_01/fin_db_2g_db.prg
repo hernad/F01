@@ -299,7 +299,7 @@ if (nArea==-1 .or. nArea==(F_BUDZET))
   		save screen to cScr
   		cls
   		FERASE(KUMPATH+"BUDZET.CDX")
-  		Modstru(KUMPATH+"BUDZET.DBF","C EKKATEG C 5 0  IDKONTO C 7 0",.t.)
+  		f01_modstru(KUMPATH+"BUDZET.DBF","C EKKATEG C 5 0  IDKONTO C 7 0",.t.)
   		restore screen from cScr
 	endif
 	SELECT F_BUDZET
@@ -1097,7 +1097,7 @@ aSif  := { F_KONTO, F_PARTN, F_TNAL, F_TDOK, F_PKONTO, F_VALUTE, F_TRFP2,;
  IF cKum  == "N"; aKum  := {}; ENDIF
  IF cPriv == "N"; aPriv := {}; ENDIF
 
-KZNbaza(aPriv,aKum,aSif,cIz,cU)
+f01_konv_zn_baza(aPriv,aKum,aSif,cIz,cU)
 
 return
 

@@ -293,7 +293,7 @@ FUNCTION IBatchRun( oApp )
    ENDIF
 
    IF mpar37( "/M", oApp )
-      RunMods( .T. )
+      f01_runmods( .T. )
    ENDIF
 
    RETURN

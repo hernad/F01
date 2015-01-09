@@ -204,12 +204,12 @@ function AddFldBrisano(cImeDbf)
 use
 save screen to cScr
 CLS
-       Modstru(cImeDbf,"C H C 1 0  FH  C 1 0",.t.)
-       Modstru(cImeDbf,"C SEC C 1 0  FSEC C 1 0",.t.)
-       Modstru(cImeDbf,"C VAR C 2 0 FVAR C 2 0",.t.)
-       Modstru(cImeDbf,"C VAR C 15 0 FVAR C 15 0",.t.)
-       Modstru(cImeDbf,"C  V C 15 0  FV C 15 0",.t.)
-       Modstru(cImeDbf,"A BRISANO C 1 0",.t.)  // dodaj polje "BRISANO"
+       f01_modstru(cImeDbf,"C H C 1 0  FH  C 1 0",.t.)
+       f01_modstru(cImeDbf,"C SEC C 1 0  FSEC C 1 0",.t.)
+       f01_modstru(cImeDbf,"C VAR C 2 0 FVAR C 2 0",.t.)
+       f01_modstru(cImeDbf,"C VAR C 15 0 FVAR C 15 0",.t.)
+       f01_modstru(cImeDbf,"C  V C 15 0  FV C 15 0",.t.)
+       f01_modstru(cImeDbf,"A BRISANO C 1 0",.t.)  // dodaj polje "BRISANO"
 inkey(3)
 restore screen from cScr
 
@@ -218,7 +218,7 @@ USE_EXCLUSIVE(cImeDbf)
 return
 
 
-function KZNbaza(aPriv,aKum,aSif,cIz,cU, cSamoId)
+function f01_konv_zn_baza(aPriv,aKum,aSif,cIz,cU, cSamoId)
 
 
 // cSamoId  "1"- konvertuj samo polja koja pocinju sa id
@@ -554,13 +554,13 @@ endif
 cEXT:=SLASH + "*." + INDEXEXT
 
 ? "Modifikacija u privatnom direktoriju ..."
-Modstru(TRIM(cCHSFile), trim(goModul:oDataBase:cDirPriv))
+f01_modstru(TRIM(cCHSFile), trim(goModul:oDataBase:cDirPriv))
 
 ? "Modifikacija u direktoriju sifrarnika ..."
-Modstru(TRIM(cCHSFile),trim(goModul:oDataBase:cDirSif))
+f01_modstru(TRIM(cCHSFile),trim(goModul:oDataBase:cDirSif))
 
 ? "Modifikacija u direktoriju kumulativa ..."
-Modstru(TRIM(cCHSFile),trim(goModul:oDataBase:cDirKum))
+f01_modstru(TRIM(cCHSFile),trim(goModul:oDataBase:cDirKum))
 
 
 // kreiraj, reindex
@@ -573,11 +573,11 @@ return
 
 
 
-/*  RunModS(fDa)
+/*  f01_runmods(fDa)
  *   fDa - True -> Batch obrada (neinteraktivno)
  */
 
-function RunModS(fDa)
+function f01_runmods(fDa)
 
 
 if fda==nil
@@ -593,22 +593,22 @@ if fda .or. PitMstru(@cImeCHS)
        	cls
        	if fda .or. Pitanje(,"Modifikacija u Priv dir ?","D")=="D"
         	close all
-         	Modstru(TRIM(cImeCHS),trim(goModul:oDataBase:cDirPriv))
+         	f01_modstru(TRIM(cImeCHS),trim(goModul:oDataBase:cDirPriv))
        	endif
 
        	if fda .or. Pitanje(,"Modifikacija u SIF dir ?","N")=="D"
         	close all
-        	Modstru(TRIM(cImeCHS),trim(goModul:oDataBase:cDirSif))
+        	f01_modstru(TRIM(cImeCHS),trim(goModul:oDataBase:cDirSif))
        	endif
 
        	if fda .or. Pitanje(,"Modifikacija u KUM dir ?","N")=="D"
         	close all
-         	Modstru(TRIM(cImeCHS),trim(goModul:oDataBase:cDirKum))
+         	f01_modstru(TRIM(cImeCHS),trim(goModul:oDataBase:cDirKum))
        	endif
 
        	if fda .or. Pitanje(,"Modifikacija u tekucem dir ?","N")=="D"
         	close all
-         	Modstru(TRIM(cImeCHS),".")
+         	f01_modstru(TRIM(cImeCHS),".")
        	endif
 
        	Beep(1)
@@ -644,7 +644,7 @@ endif
 
 
 
-/*  ModStru(cImeF, cPath, fString)
+/*  f01_modstru(cImeF, cPath, fString)
  *   procedura modifikacija struktura
  */
 function ModStru

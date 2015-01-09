@@ -353,13 +353,13 @@ local i
 ::lAdmin:=.t.
 
 aSezone:=ASezona(::cDirKum)
-RunMods(.t.)
+f01_runmods(.t.)
 
 FOR i:=1 TO LEN(aSezone)
 	CreParams()
 	::LogAgain(aSezone[i,1],.t.)   
 	CreParams()
-	RunMods(.t.)
+	f01_runmods(.t.)
 NEXT
 
 ::cRadimUSezona:="RADP"
@@ -551,7 +551,7 @@ AADD(opcexe, {|| Pakuj() })
 AADD(opc,"5. brisi pa ponovo kreiraj indekse")
 AADD(opcexe, {|| BrisiPaK()})
 AADD(opc,"6. modifikacija struktura")
-AADD(opcexe, {|| RunMods()})
+AADD(opcexe, {|| f01_runmods()})
 AADD(opc,"7. instalacija fajlova")
 #ifdef CLIP
 	AADD(opcexe, {|| CreParams(), self:kreiraj()  })

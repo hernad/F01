@@ -891,7 +891,7 @@ IF cPriv == "N"
 	aPriv := {}
 ENDIF
 
-KZNbaza(aPriv,aKum,aSif,cIz,cU)
+f01_konv_zn_baza(aPriv,aKum,aSif,cIz,cU)
 
 return
 

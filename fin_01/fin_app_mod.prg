@@ -202,7 +202,7 @@ if (MPar37("/MODSTRU", goModul))
 	if LEFT(self:cP6,3)=="/M="
 		cMSFile:=SUBSTR(self:cP6,4)
 	endif
-	runmods(.t.)
+	f01_runmods(.t.)
 	goModul:quit(.f.)
 endif
 
