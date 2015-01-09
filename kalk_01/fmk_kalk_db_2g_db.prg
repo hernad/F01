@@ -56,9 +56,7 @@ CLASS TDbKalk FROM TDB
 END CLASS
 
 
-/*  *void TDbKalk::dummy()
- */
-*void TDbKalk::dummy()
+
 
 method dummy
 return
@@ -268,13 +266,10 @@ return
  *   kreirane baze podataka POS
  */
 
-*void TDbKalk::kreiraj(int nArea)
+method TDbKalk:kreiraj(nArea)
 
-method kreiraj(nArea)
 
-#ifdef CAX
-  SET EXCLUSIVE ON
-#endif
+altd()
 
 if (nArea==nil)
 	nArea:=-1

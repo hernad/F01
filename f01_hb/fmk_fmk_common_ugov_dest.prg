@@ -29,7 +29,7 @@ SET ORDER TO TAG "1"
 HSEEK cIdTek+cId
 
 Alert ("SET SCOPE TO cIdTek ?!")
-altd()
+
 
 ImeKol:={ ;
           { "OZNAKA"  , {|| OZNAKA },  "OZNAKA"  },;

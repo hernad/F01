@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -34,7 +34,7 @@ endif
 
 // ako je rekapitulacija onda pitaj da ne prolazis sve iz pocetka
 if cRekap == "N" .or. Pitanje(,"Generisati stavke izvjestaja (D/N", "D") == "D"
-	
+
 	// generisi report u tmp
 	_gen_rpt( cBrFakt, cValuta, dDatOd, dDatDo, cRekap )
 
@@ -42,22 +42,22 @@ endif
 
 
 if cExpDbf == "D"
-	
+
 	// exportuj podatke za dbf
-	
+
 	if cRekap == "D"
-	
+
 		msgbeep( "Moguce exportovati samo specifikacija !")
-		
+
 		return
-	
+
 	endif
-	
+
 	// exportuj tabelu
 	cLaunch := exp_report()
 	tbl_export( cLaunch )
 
-	
+
 	return
 
 endif
@@ -69,7 +69,7 @@ if cRekap == "D"
 
 	// prikaz rekapitulacije
 	_show_rekap( cValuta, cBrFakt )
-	
+
 	return
 
 endif
@@ -96,19 +96,19 @@ cRekap := "N"
 cExpDbf := "N"
 
 Box(, 8, 60)
-	
+
 	@ m_x + 1, m_y + 2 SAY "Broj fakture dokumenta 'PR':" GET cBrFakt VALID !EMPTY(cBrFakt)
-	
+
 	@ m_x + 2, m_y + 2 SAY "Izvjestaj pravi u valuti (KM/EUR):" GET cValuta VALID !EMPTY(cValuta)
-	
-	@ m_x + 3, m_y + 2 SAY "Datum od:" GET dDOd 
-	
-	@ m_x + 4, m_y + 2 SAY "Datum do:" GET dDDo 
-	
+
+	@ m_x + 3, m_y + 2 SAY "Datum od:" GET dDOd
+
+	@ m_x + 4, m_y + 2 SAY "Datum do:" GET dDDo
+
 	@ m_x + 6, m_y + 2 SAY "Napravi samo rekapitulaciju po tarifama:" GET cRekap VALID cRekap $ "DN" PICT "@!"
-	
+
 	@ m_x + 8, m_y + 2 SAY "Exportovati tabelu u dbf ?" GET cExpDbf VALID cExpDbf $ "DN" PICT "@!"
-	
+
 	read
 BoxC()
 
@@ -124,7 +124,7 @@ return 1
 // generisi report u pomocnu tabelu
 // ---------------------------------------------
 static function _gen_rpt( cBrFakt, cValuta, dDatOd, dDatDo, cRekap )
-local aFields 
+local aFields
 local nKolPrim
 local nKolSec
 local cJmjPrim
@@ -149,91 +149,90 @@ go top
 
 seek gFirma + cBrFakt
 
-altd()
 
 do while !EOF() .and. field->brfaktp == cBrFakt
 
 	// ako nije dokument PR, preskoci
 	// gledaju se samo PR dokumenti
 	if field->idvd <> "PR"
-		skip 
+		skip
 		loop
 	endif
 
 	// redni broj > 900 su sastavnice
 	// a sve do toga je proizvod
-	
+
 	if VAL(field->rbr) >= 900
-	
+
 		// ovo je sastavnica, uzmi ID
 		cSastId := field->idroba
-		
+
 		select roba
 		set order to tag "ID"
 		seek cSastId
-		
+
 		// naziv sastavnice
 		cSastNaz := field->naz
 		// jedinica mjere - primarna (KOM, MET)
-		cJmjPrim := field->jmj 
+		cJmjPrim := field->jmj
 
-		
+
 		select kalk
 	else
-		
+
 		// ovo je proizvod, uzmi samo id
-		
+
 		cRobaId := field->idroba
-		
+
 		skip
 		loop
-	
+
 	endif
-	
+
 	select r_export
 	append blank
 
 	// id proizvoda
 	replace field->idroba with cRobaId
-	
+
 	// id sastavnice
 	replace field->idsast with cSastId
-	
+
 	// naziv sastavnice
 	replace field->sastnaz with cSastNaz
-	
+
 	// carinski tarifni broj
 	// uzmi iz sifk ("ROBA", "TARB")
 	replace field->ctarbr with IzSifK( "ROBA", "TARB", cSastId , .f. )
-	
+
 	// primarna jedinica mjere sastavnice
 	replace field->jmjprim with cJmjPrim
-	
+
 	// kolicina iz kalk-a, u primarnoj jedinici mjere
 	nKolPrim := kalk->kolicina
-	replace field->kolprim with nKolPrim 
+	replace field->kolprim with nKolPrim
 
 	// sekundarna jedinica mjere
 	// sracunaj odmah sve za upis u tabelu
 	cJmjSec := ""
 	nKolSec := SJMJ( 1, cSastId, @cJmjSec )
 	replace field->jmjsec with cJmjSec
-	
+
 	// kolicina u sekundarnoj jmj po 1 komadu
 	replace field->kolseck with nKolSec
 
 	// kolicina u drugoj jedinici mjere
 	replace field->kolsec with ROUND( nKolPrim * nKolSec, 4 )
-	
+
 	// cijena sastavnice
 	replace field->cijena with kalk->nc
 
 	if cValuta <> "KM "
-		field->cijena := field->cijena * KURS( DATE(), "D", "P" )	
+		field->cijena := field->cijena * KURS( DATE(), "D", "P" )
 	endif
-		
+
 	// cijena po komadu kg
-	replace field->izn1 with ROUND( field->cijena / nKolSec, 4 ) 
+	replace field->izn1 with ROUND( field->cijena / nKolSec, 4 )
 
 	// ukupno u kg
 	replace field->izn2 with ROUND( field->kolprim * field->cijena, 4 )
@@ -304,33 +303,33 @@ nTKSec := 0
 nTIznU := 0
 
 do while !EOF()
-	
+
 	cRobaId := field->idroba
-	
+
 	// RBR + ROBA
-	if cRobaId <> cXRoba 
-		? STR(++ nCnt, 3) + "." 
+	if cRobaId <> cXRoba
+		? STR(++ nCnt, 3) + "."
 		@ prow(), pcol() + 1 SAY cRobaId
 	else
 		// ako je ista roba - ne prikazuj je...
-		? SPACE(4) 
+		? SPACE(4)
 		@ prow(), pcol() + 1 SAY SPACE(10)
 	endif
-	
+
 	// ID sastavnica
 	@ prow(), pcol()+1 SAY field->idsast
-	
+
 	// naziv sastavnice
 	@ prow(), pcol()+1 SAY field->sastnaz
-	
+
 	// carinski tarifni broj
 	@ prow(), pcol()+1 SAY field->ctarbr
-	
+
 	// kolicina primarna  (komadi ili metri)
 	@ prow(), pcol()+1 SAY STR( field->kolprim, 12, 2 )
 
 	nTKPrim += field->kolprim
-	
+
 	// kolicina sekundarna SIFK (kg po komadu)
 	@ prow(), pcol()+1 SAY STR( field->kolseck, 12, 2 )
 
@@ -346,14 +345,14 @@ do while !EOF()
 	@ prow(), pcol()+1 SAY STR( field->izn2, 12, 2 )
 
 	nTIznU += field->izn2
-	
+
 	if _nstr()
 		FF
 	endif
 
 	// setuj pom.varijablu za robu
 	cXRoba := cRobaId
-	
+
 	skip
 enddo
 
@@ -563,7 +562,7 @@ return
 // prikazi rekapitulaciju
 // ---------------------------------------------------
 static function _show_rekap( cValuta, cFaktBr )
-local cLine 
+local cLine
 local aTmp
 local i
 
@@ -590,13 +589,13 @@ nUTIznU := 0
 do while !EOF()
 
 	cCTarBr := field->ctarbr
-	
+
 	nTKPrim := 0
 	nTKSek := 0
 	nTIznU := 0
-	
+
 	do while !EOF() .and. field->ctarbr == cCTarBr
- 
+
 		// ukupno primarna jmj (kom, met)
 		nTKPrim += field->kolprim
 		// oznaka primarne jedinice
@@ -605,18 +604,18 @@ do while !EOF()
 		nTKSek += field->kolsec
 		// ukupna vrijednost
 		nTIznU += field->kolprim * field->cijena
-		
+
 		skip
 	enddo
 
 	nUTKPrim += nTKPrim
 	nUTKSek += nTKSek
 	nUTIznU += nTIznU
-	
+
 	++ nCnt
-	
+
 	// ispisi ove sume...
-	
+
 	? STR( nCnt, 3 ) + "."
 
 	@ prow(), pcol() + 1 SAY cCTarBr
@@ -627,7 +626,7 @@ do while !EOF()
 	aTmp := SjeciStr( cCTarOpis, 40 )
 
 	@ prow(), pcol() + 1 SAY PADR( aTmp[1], 40 )
-	
+
 	@ prow(), pcol() + 1 SAY STR( nTKPrim, 12, 2 )
 
 	@ prow(), pcol() + 1 SAY cJmjPrim
@@ -635,20 +634,20 @@ do while !EOF()
 	@ prow(), pcol() + 1 SAY STR( nTKSek, 12, 2 )
 
 	@ prow(), pcol() + 1 SAY STR( nTIznU, 12, 2 )
-	
+
 	// ostatak opisa tarife stavi u druge redove
 	if LEN( aTmp ) > 1
-	
+
 		for i := 2 to LEN( aTmp )
-			
+
 			? SPACE(25)
-			
+
 			@ prow(), pcol()+1 SAY PADR( aTmp[i], 40 )
-			
+
 		next
-		
+
 	endif
-	
+
 enddo
 
 ? cLine
@@ -662,6 +661,3 @@ FF
 END PRINT
 
 return
-
-
-
