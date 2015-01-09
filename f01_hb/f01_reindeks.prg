@@ -218,3 +218,20 @@ FUNCTION f01_brisi_index_pakuj_dbf( fSilent )
    ENDIF
 
    RETURN
+
+
+
+
+FUNCTION f01_prepakuj( aNStru )
+
+   LOCAL i, aPom
+
+   aPom := {}
+   FOR i := 1 TO Len( aNStru )
+      IF aNStru[ i ] <> nil
+         AAdd( aPom, aNStru[ i ] )
+      ENDIF
+   NEXT
+   aNStru := AClone( aPom )
+
+   RETURN NIL

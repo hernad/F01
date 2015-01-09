@@ -106,9 +106,9 @@ FUNCTION f01_start( oApp, lSezone )
 
    IF mpar37( "/FN_ON_STARTUP:", oApp )
 
-     oApp:setGVars()
-     cStartFn := param_desni_dio()
-     &cStartFn
+      oApp:setGVars()
+      cStartFn := param_desni_dio()
+      &cStartFn
    ENDIF
 
    IF lSezone
@@ -435,19 +435,19 @@ FUNCTION mpar37( x, oApp )
    lp7 := oApp:cP7
 
    RETURN ( compare_param_start_with( x, lp3 ) .OR. ;
-            compare_param_start_with( x, lp4 ) .OR. ;
-            compare_param_start_with( x, lp5 ) .OR. ;
-            compare_param_start_with( x, lp6 ) .OR. ;
-            compare_param_start_with( x, lp7 ) )
+      compare_param_start_with( x, lp4 ) .OR. ;
+      compare_param_start_with( x, lp5 ) .OR. ;
+      compare_param_start_with( x, lp6 ) .OR. ;
+      compare_param_start_with( x, lp7 ) )
 
 
 FUNCTION param_desni_dio( xVal )
 
-  IF xVal != NIL
-    s_cParamDesniDio := xVal
-  ENDIF
+   IF xVal != NIL
+      s_cParamDesniDio := xVal
+   ENDIF
 
-  RETURN s_cParamDesniDio
+   RETURN s_cParamDesniDio
 
 /*
    primjer:
@@ -457,24 +457,24 @@ FUNCTION param_desni_dio( xVal )
 */
 STATIC FUNCTION compare_param_start_with( x, y )
 
-  LOCAL nLen
+   LOCAL nLen
 
-  IF y == NIL
-     RETURN .F.
-  ENDIF
+   IF y == NIL
+      RETURN .F.
+   ENDIF
 
-  nLen := LEN( x )
+   nLen := Len( x )
 
-  IF nLen == 0
-     RETURN .F.
-  ENDIF
+   IF nLen == 0
+      RETURN .F.
+   ENDIF
 
-  IF LEFT( y, nLen ) == x
-     param_desni_dio( SUBSTR( y, nLen + 1 ) )
-     RETURN .T.
-  ENDIF
+   IF Left( y, nLen ) == x
+      param_desni_dio( SubStr( y, nLen + 1 ) )
+      RETURN .T.
+   ENDIF
 
-  RETURN .F.
+   RETURN .F.
 
 FUNCTION mpar37cnt( oApp )
 
@@ -1124,3 +1124,24 @@ FUNCTION IzvrsenIn( p3, fImodul, cModul, fsilent )
    IF fsilent == NIL; fSilent := .F. ; ENDIF
 
    RETURN .T.
+
+
+
+STATIC FUNCTION SetgaSDBFs
+
+   PUBLIC gaSDBFs := { ;
+      { F_GPARAMS, "GPARAMS",  P_ROOTPATH }, ;
+      { F_GPARAMSP, "GPARAMS",  P_PRIVPATH }, ;
+      { F_PARAMS, "PARAMS", P_PRIVPATH }, ;
+      { F_KORISN, "KORISN", P_TEKPATH }, ;
+      { F_MPARAMS, "MPARAMS", P_TEKPATH }, ;
+      { F_KPARAMS, "KPARAMS", P_KUMPATH }, ;
+      { F_SECUR, "SECUR", P_KUMPATH }, ;
+      { F_ADRES, "ADRES", P_SIFPATH }, ;
+      { F_SIFK, "SIFK", P_SIFPATH }, ;
+      { F_SIFV, "SIFV", P_SIFPATH  }, ;
+      { F_TMP, "TMP", P_PRIVPATH }, ;
+      { F_SQLPAR, "SQLPAR", P_KUMSQLPATH };
+      }
+
+   RETURN
