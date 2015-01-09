@@ -344,10 +344,11 @@ endif
 InigEpson()
 public gMeniSif:=.f., gValIz:="280 ", gValU:="000 ", gKurs:="1"
 
-if file( ToUnix( SLASH + "GPARAMS.DBF"))
+if file( ToUnix( DATA_ROOT + "GPARAMS.DBF"))
 
 O_GPARAMS
 O_PARAMS
+
 private cSection:="1",cHistory:=" "; aHistory:={}
 RPar("px",@gPrinter)
 RPar("vi",@gValIz)

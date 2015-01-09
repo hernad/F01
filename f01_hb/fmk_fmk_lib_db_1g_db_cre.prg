@@ -224,7 +224,7 @@ altd()
 
    IF ( nArea == -1 .OR. nArea == F_GPARAMS )
 
-      cImeDBf := ToUnix( SLASH + "GPARAMS.DBF" )
+      cImeDBf := ToUnix( DATA_ROOT + "GPARAMS.DBF" )
       IF !File2( cImeDbf )
          DBCREATE2( cImeDbf, aDbf )
       ENDIF

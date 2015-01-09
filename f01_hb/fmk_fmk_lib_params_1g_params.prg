@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -17,10 +17,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/sclib/params/1g/params.prg,v $
- * $Author: ernad $ 
+ * $Author: ernad $
  * $Revision: 1.7 $
  * $Log: params.prg,v $
  * Revision 1.7  2003/01/21 13:36:00  ernad
@@ -48,15 +48,15 @@
  *
  *
  */
- 
+
 /****f* SC_PAR/RPar ***
- 
+
 *AUTOR
-   ernad.h 
+   ernad.h
 
 *IME
   RPar
-  
+
 *OPIS
    Citanje, pisanje parametara u DBF fajlove
 
@@ -72,9 +72,10 @@ function RPar(cImeVar,xArg)
 
 local cPom, clTip
 
+altd()
 SEEK cSection+cHistory+cImeVar+"1"
 
-if found() 
+if found()
   cPom:=""
   clTip:=tip
 
@@ -96,7 +97,7 @@ if found()
 
 endif
 
-if clTip=="C" .and. gKonvertPath=="D" .and. ( ":\" $ xArg ) 
+if clTip=="C" .and. gKonvertPath=="D" .and. ( ":\" $ xArg )
     // konvertuj lokacije npr C:\SIGMA -> I:var:\DATA1\SIGMA
     KonvertPath(@xArg)
 endif
@@ -115,7 +116,7 @@ RETURN NIL
 *OPIS
  Pravila promjene direktorija koji su definisu lokacije
  podataka
- 
+
 *PRIMJER
  [KonvertPath]
  kNum=3
@@ -178,7 +179,7 @@ if (cAkcija==nil)
 endif
 if (gSql=="D") .and. (goModul:lSqlDirektno)
 	cAkcija:="L"
-endif	
+endif
 
 seek cSection+cHistory+cImeVar
 
@@ -193,7 +194,7 @@ seek cSection+cHistory+cImeVar
     enddo
     if fSQL
       cSQL:="update "+ALIAS()+" SET BRISANO='1' where Fh="+sqlvalue(Fh)+" and FSec="+sqlvalue(FSec)+" and FVar="+sqlvalue(FVar)
-	
+
 	if (goModul:lSqlDirektno)
 		GwDirektno(cSql)
 	else
@@ -205,11 +206,11 @@ seek cSection+cHistory+cImeVar
 	       		Gw(cSQL, @GW_HANDLE,"D")
 	      	endif
 	endif
-	
+
       cSQL:="delete from "+ALIAS()+" where Fsec="+sqlvalue(cSection)+" and Fh="+sqlvalue(cHistory)+" and FVar="+sqlvalue(cImeVar)
-     
+
      	NextAkcija(cAkcija)
-	
+
         if (goModul:lSqlDirektno)
        		GwDirektno(cSql)
 	else
@@ -220,7 +221,7 @@ seek cSection+cHistory+cImeVar
 	      	elseif cAkcija=="Z"
 	       		Gw(cSQL, @GW_HANDLE,"D")
 	      	endif
-	endif	   
+	endif
 
     endif
   else
@@ -246,7 +247,7 @@ cRbr:="0"
 do while len(cPom)<>0
 	append blank
 	if fSQL
-		
+
 		if goModul:lSqlDirektno
 			sql_append(@GW_HANDLE,"L")
 		elseif cAkcija=="A"
@@ -306,7 +307,7 @@ function Params1()
 
 local ncx,ncy,nOldc
 
-if cHistory=="*" 
+if cHistory=="*"
 
   seek cSection
   do while !eof() .and. cSection==Fsec
@@ -366,4 +367,3 @@ do case
 endcase
 
 return nil
-

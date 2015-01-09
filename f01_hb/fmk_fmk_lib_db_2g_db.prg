@@ -548,16 +548,14 @@ AADD(opc,"3. reindex")
 AADD(opcexe, {|| f01_reindex() })
 AADD(opc,"4. pakovanje")
 AADD(opcexe, {|| Pakuj() })
+
 AADD(opc,"5. brisi pa ponovo kreiraj indekse")
 AADD(opcexe, {|| f01_brisi_index_pakuj_dbf()})
+
 AADD(opc,"6. modifikacija struktura")
 AADD(opcexe, {|| f01_runmods()})
 AADD(opc,"7. instalacija fajlova")
-#ifdef CLIP
-	AADD(opcexe, {|| CreParams(), self:kreiraj()  })
-#else
-	AADD(opcexe, {|| CreParams(), ::kreiraj()  })
-#endif
+AADD(opcexe, {|| CreParams(), ::kreiraj()  })
 AADD(opc,"8. registracija modula")
 AADD(opcexe, {|| cCurDir:=curdir(), goModul:sregg(), goModul:quit() } )
 AADD(opc,"9. promjena oznake sezone u radnom podrucju")
