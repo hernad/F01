@@ -39,9 +39,9 @@ if fSilent==nil
 endif
 
 if AT(SLASH,cImeDbf)==0  // onda se radi o kumulativnoj datoteci
-     cImeCdx :=  alltrim(cDirRad) + SLASH + ImeDBFCDX( cImeDbf )
+     cImeCdx :=  alltrim(cDirRad) + SLASH + f01_ime_dbf_cdx( cImeDbf )
 else
-     cImeCdx := ImeDbfCdx(cImeDbf)
+     cImeCdx := f01_ime_dbf_cdx(cImeDbf)
 endif
 
 nPom:=RAT(SLASH,cImeInd)
@@ -68,7 +68,7 @@ fPostoji:=.t.
 		//nPos == nil ako nije otvoren DBF
 
 		if nPos==0
-			AddFldBrisano(cImeDbf)
+			f01_add_field_brisano(cImeDbf)
 		endif
 
 		nOrder:=ORDNUMBER("BRISAN")
@@ -81,7 +81,7 @@ fPostoji:=.t.
 		endif
 
 		if (gSQL=="D")
-			FillOid(cImeDbf, cImeCDX)
+			f01_fill_oid(cImeDbf, cImeCDX)
 			if (fieldpos("_OID_")<>0)
 				//tabela ima _OID_ polje
 				nOrder:=ORDNUMBER("_OID_")
@@ -200,7 +200,7 @@ FCLOSE(nH)
 return .t.
 
 
-function AddFldBrisano(cImeDbf)
+function f01_add_field_brisano(cImeDbf)
 
 use
 save screen to cScr
@@ -216,89 +216,6 @@ restore screen from cScr
 
 select (F_TMP)
 USE_EXCLUSIVE(cImeDbf)
-return
-
-
-function f01_konv_zn_baza(aPriv,aKum,aSif,cIz,cU, cSamoId)
-
-
-// cSamoId  "1"- konvertuj samo polja koja pocinju sa id
-//          "2"- konvertuj samo polja koja ne pocinju sa id
-//          "3" ili nil - konvertuj sva polja
-//	    "B" - konvertuj samo IDRADN polja iz LD-a
-
- LOCAL i:=0, j:=0, k:=0, aPom:={}, xVar:="", anPolja:={}
- CLOSE ALL
- SET EXCLUSIVE ON
- IF aPriv==nil; aPriv:={}; ENDIF
- IF aKum==nil ; aKum:={} ; ENDIF
- IF aSif==nil ; aSif:={} ; ENDIF
- if cSamoid==nil; cSamoid:="3"; endif
-private cPocStanjeSif
-private cKrajnjeStanjeSif
- if !gAppSrv
- 	Box("xx",1,50,.f.,"Vrsi se konverzija znakova u bazama podataka")
- 	@ m_x+1,m_y+1 say "Konvertujem:"
- else
- 	? "Vrsi se konverzija znakova u tabelama"
- endif
- FOR j:=1 TO 3
-   DO CASE
-     CASE j==1
-       aPom:=aPriv
-     CASE j==2
-       aPom:=aKum
-     CASE j==3
-       aPom:=aSif
-   ENDCASE
-   FOR i:=1 TO LEN(aPom)
-     nDbf:=aPom[i]
-     goModul:oDatabase:obaza(nDbf)
-     DBSELECTArea (nDbf)
-     if !gAppSrv
-     	@ m_x+1,m_y+25 SAY SPACE(12)
-     	@ m_x+1,m_y+25 SAY ALIAS(nDBF)
-     else
-        ? "Konvertujem: " + ALIAS(nDBF)
-     endif
-     if used()
-       beep(1)
-       ordsetfocus(0)
-       GO TOP
-       anPolja:={}
-       FOR k:=1 TO FCOUNT()
-        if (cSamoId=="3") .or. (cSamoId=="1" .and. upper(fieldname(k)) = "ID") .or. (cSamoId=="2"  .and. !(upper(fieldname(k)) = "ID")) .or. (cSamoId=="B" .and. ((UPPER(FieldName(k)) = "IDRADN") .or. ((UPPER(FieldName(k)) = "ID") .and. ALIAS(nDbf)=="RADN")))
-         xVar:=FIELDGET(k)
-         IF VALTYPE(xVar)$"CM"
-           AADD(anPolja,k)
-         ENDIF
-        endif  // csamoid
-       NEXT
-       DO WHILE !EOF()
-         FOR k:=1 TO LEN(anPolja)
-           xVar:=FIELDGET(anPolja[k])
-           FIELDPUT(anPolja[k],StrKZN(xVar,cIz,cU))
-           // uzmi za radnika ime i prezime
-	   if (cSamoId=="B") .and. UPPER(FIELDNAME(1)) = "ID" .and. ALIAS(nDbf)=="RADN"
-		//AADD(aSifRev, {FIELDGET(4)+" "+FIELDGET(5), cPocStanjeSif, cKrajnjeStanjeSif})
-	   endif
-	 NEXT
-         SKIP 1
-       ENDDO
-       use
-     endif
-   NEXT
- NEXT
- if !gAppSrv
- 	BoxC()
- endif
- SET EXCLUSIVE OFF
- if !gAppSrv
- 	BrisiPaK()
- else
-     ? "Baze konvertovane!!!"
-     BrisiPaK()
- endif
 return
 
 
@@ -662,7 +579,7 @@ return
 
 
 
-function FillOid(cImeDbf, cImeCDX)
+function f01_fill_oid(cImeDbf, cImeCDX)
 
 private cPomKey
 
@@ -718,7 +635,7 @@ return
 
  */
 
-function ImeDBFCDX(cIme)
+function f01_ime_dbf_cdx(cIme)
 
 cIme:=trim(strtran(ToUnix(cIme),"."+DBFEXT,"."+INDEXEXT))
 if right(cIme,4)<>"."+INDEXEXT
