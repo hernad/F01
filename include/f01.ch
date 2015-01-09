@@ -14,7 +14,7 @@
 
 #else
   #define DRIVE_ROOT_PATH "C:" + SLASH
-  #define DATA_ROOT DRIVE_ROOT_PATH+"SIGMA"+SLASH
+  #define DATA_ROOT DRIVE_ROOT_PATH+"F01"+SLASH
 #endif
 
 #define D_VERZIJA "CDX"
