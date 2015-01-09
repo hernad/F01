@@ -235,7 +235,7 @@ IF !is_install()
 
 ENDIF
 
-#ifdef __PLATFORM__UNIX
+//#ifdef __PLATFORM__UNIX
 
 cFileName := STRTRAN( cFileName, BACKSLASH, SLASH )
 
@@ -250,10 +250,10 @@ IF is_install()
    cFileName := STRTRAN( cFileName, "SIGMA/", DATA_ROOT + "BRINGOUT" + SLASH )
   ENDIF
   */
-  
+
 ENDIF
 
-#endif
+//#endif
 
 RETURN cFileName
 
