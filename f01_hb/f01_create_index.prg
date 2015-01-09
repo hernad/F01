@@ -201,13 +201,6 @@ return .t.
 
 
 
-function MyErrHt(o)
-
-BREAK o
-return .t.
-
-
-
 
 /*  AppModS(cCHSName)
  *   Modifikacija struktura APPSRV rezim rada
@@ -253,19 +246,6 @@ f01_reindex(.t.)
 return
 
 
-function f01_prepakuj(aNStru)
-
-local i,aPom
-aPom:={}
-for i:=1 to len(aNStru)
-  if aNStru[i]<>nil
-   aadd(aPom,aNStru[i])
-  endif
-next
-aNStru:=aClone(aPom)
-return nil
-
-
 /***
 *  FGets( <nHandle>, [<nLines>], [<nLineLength>], [<cDelim>] ) --> cBuffer
 *  Read one or more lines from a text file
@@ -299,26 +279,6 @@ function FileBottom(nHandle)
 
 return FSEEK(nHandle, 0, FS_END)
 
-
-
-
-function SetgaSDBFs
-
-PUBLIC gaSDBFs:={ ;
- {F_GPARAMS  , "GPARAMS",  P_ROOTPATH },;
- {F_GPARAMSP , "GPARAMS",  P_PRIVPATH},;
- {F_PARAMS   , "PARAMS"  , P_PRIVPATH},;
- {F_KORISN   , "KORISN"  , P_TEKPATH },;
- {F_MPARAMS  , "MPARAMS" , P_TEKPATH },;
- {F_KPARAMS  , "KPARAMS" , P_KUMPATH },;
- {F_SECUR    , "SECUR"   , P_KUMPATH },;
- {F_ADRES    , "ADRES"   , P_SIFPATH },;
- {F_SIFK     , "SIFK"    , P_SIFPATH },;
- {F_SIFV     , "SIFV"    , P_SIFPATH  },;
- {F_TMP      , "TMP"     , P_PRIVPATH},;
- {F_SQLPAR   , "SQLPAR"  , P_KUMSQLPATH};
-}
-return
 
 
 
