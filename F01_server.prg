@@ -17,11 +17,13 @@
 #define DBSERVER  "127.0.0.1"
 #define DBPORT    2941
 #define DBPASSWD  "f01"
-#define DBDIR     "/data"
-#define DBFILE    "_tst_"
+#define DBDIR     "data"
+#define DBFILE    "_tst_.dbf"
 
 #define DBNAME    "net:" + DBSERVER + ":" + hb_ntos( DBPORT ) + ":" + ;
                   DBPASSWD + ":" + DBDIR + "/" + DBFILE
+
+#define LOCAL_DBNAME DBDIR + "/" + DBFILE
 
 REQUEST DBFCDX
 
@@ -56,29 +58,30 @@ PROCEDURE Main()
    ? "netio_Connect():", netio_Connect( DBSERVER, DBPORT, , DBPASSWD )
    ?
 
-   lExists := netio_FuncExec( "HB_DirExists", "./data" )
-   ? "Directory './data'", iif( ! lExists, "not exists", "exists" )
+   lExists := netio_FuncExec( "HB_DirExists", "data" )
+   ? "Directory 'data'", iif( ! lExists, "not exists", "exists" )
    IF ! lExists
-      ? "Creating directory './data' ->", ;
-         iif( netio_FuncExec( "hb_DirCreate", "./data" ) == -1, "error", "OK" )
+      ? "Creating directory 'data' ->", ;
+         iif( netio_FuncExec( "hb_DirCreate", "data" ) == -1, "error", "OK" )
    ENDIF
 
-/*
    ? "'" + DBNAME + "'"
-   createdb( DBNAME )
-   testdb( DBNAME )
+   createdb( LOCAL_DBNAME, DBNAME )
+   testdb( LOCAL_DBNAME )
    WAIT
 
    ?
    ? "table exists:", dbExists( DBNAME )
    WAIT
+
+/*
+   dbDrop, dbExists
 
    ?
    ? "delete table with indexes:", dbDrop( DBNAME )
    ? "table exists:", dbExists( DBNAME )
    WAIT
 */
-
 
    DO while .T.
      ? " 'ex' za izlazak"
@@ -110,24 +113,37 @@ FUNCTION  HELLO_NETIO()
    RETURN "HELLO NETIO"
 
 
-PROCEDURE createdb( cName )
+PROCEDURE createdb( cLocalName, cName )
 
-   LOCAL n
+   LOCAL n, lCreated := .F.
 
    srv_add( 10, 20 )
 
-   dbCreate( cName, { ;
+   IF ! File( cLocalName )
+     ? "Fajl ne postoji", cLocalName
+     ? "local:", cLocalName, "netio name", cName
+     inkey(0)
+
+     dbCreate( cName, { ;
       { "F1", "C", 20, 0 }, ;
       { "F2", "M",  4, 0 }, ;
       { "F3", "N", 10, 2 }, ;
       { "F4", "T",  8, 0 } } )
+   
    ? "create neterr:", NetErr(), hb_osError()
+     lCreated := .T.
+   ELSE
+      ? "vec postoji tabela:", cLocalName
+   ENDIF
 
-   USE ( cName )
+   inkey(0)
+
+   USE ( cLocalName )
    ? "use neterr:", NetErr(), hb_osError()
 
 
-   WHILE LastRec() < 100000000000
+   IF lCreated
+   WHILE LastRec() < 1000
       dbAppend()
       n := RecNo() - 1
       ? Recno()
@@ -137,12 +153,24 @@ PROCEDURE createdb( cName )
       field->F3 := n / 100
       field->F4 := hb_DateTime()
    ENDDO
+   ENDIF
 
-   INDEX ON field->F1 TAG T1
-   INDEX ON field->F3 TAG T3
-   INDEX ON field->F4 TAG T4
-   CLOSE
-   ?
+   ? "reccount:", reccount()
+
+   IF ordNum() == 3
+     ? "indeksi vec postoje"
+   ELSE
+
+     ? "creating indexes:"
+     ? "index F1"
+     INDEX ON field->F1 TAG T1
+     ? "index F3"
+     INDEX ON field->F3 TAG T3
+     ? "index F4"
+     INDEX ON field->F4 TAG T4
+     CLOSE
+     ?
+   ENDIF
 
    RETURN
 
@@ -150,7 +178,7 @@ PROCEDURE testdb( cName )
 
    LOCAL i, j
 
-   USE ( cName )
+   USE ( cLocalName )
    ? "used:", Used()
    ? "nterr:", NetErr()
    ? "alias:", Alias()

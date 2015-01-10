@@ -3,7 +3,7 @@
 
 #{F18_GT_QTC}-DF18_GT_QTC
 
-F01_server.prg
+F01_client.prg
 hbnetio.hbc
 hbct.hbc
 xhb.hbc

@@ -1,3 +1,17 @@
+*.R??
+*.DBF
+*.dbf
+*.cdx
+*.CDX
+SIGMA
+KORISN.*
+fmk_*.tar.gz
+F01_client
+F01_server
+F01_exe
+F01_fin
+F01_kalk
+bin
 *.bak
 *.diff
 GPARAMS.*
@@ -12,3 +26,4 @@ hb_out.log
 *~
 .h
 .r
+*.swp
