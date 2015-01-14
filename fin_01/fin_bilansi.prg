@@ -12,6 +12,7 @@
 
 #include "fin01.ch"
 
+STATIC s_nProgres := 0
 
 static __par_len
 
@@ -259,6 +260,8 @@ if lExpRpt
 	cLaunch := exp_report()
 endif
 
+init_progres()
+
 O_KONTO
 O_PARTN
 O_SUBAN
@@ -386,6 +389,8 @@ DO WHILESC !EOF() .AND. IdFirma=cIdFirma   // idfirma
 
               SKIP
             ENDDO // partner
+
+            show_progres()
 
             IF prow()>61+gpStranica
 	    	FF
@@ -1789,3 +1794,24 @@ LOCAL nArr:=SELECT()
   ENDIF
  SELECT (nArr)
 RETURN
+
+
+static function init_progres()
+
+s_nProgres := 0
+RETURN .T.
+
+
+static function show_progres()
+
+
+++s_nProgres
+
+if s_nProgres % 100 == 0
+
+   OutStd( "Bilans: " + STR(s_nProgres, 6) + hb_eol() )
+
+endif
+
+RETURN .T.
+

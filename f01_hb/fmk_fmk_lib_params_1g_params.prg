@@ -72,7 +72,6 @@ function RPar(cImeVar,xArg)
 
 local cPom, clTip
 
-altd()
 SEEK cSection+cHistory+cImeVar+"1"
 
 if found()

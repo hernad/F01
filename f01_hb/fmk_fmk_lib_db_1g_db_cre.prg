@@ -207,8 +207,6 @@ FUNCTION CreGparam( nArea )
 
    LOCAL aDbf
 
-altd()
-
    IF ( nArea == nil )
       nArea := -1
    ENDIF

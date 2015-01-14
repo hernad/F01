@@ -269,8 +269,6 @@ return
 method TDbKalk:kreiraj(nArea)
 
 
-altd()
-
 if (nArea==nil)
 	nArea:=-1
 endif

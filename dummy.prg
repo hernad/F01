@@ -79,7 +79,8 @@ function f01_server()
       RETURN ""
   ENDIF
 
-  RETURN 'net:' + DBSERVER + ':' +   hb_ntos( DBPORT ) + ':' + DBPASSWD + ':'
+  RETURN ""
+  //RETURN 'net:' + DBSERVER + ':' +   hb_ntos( DBPORT ) + ':' + DBPASSWD + ':'
 
 
 FUNCTION connect_to_f01_server()
