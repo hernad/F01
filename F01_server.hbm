@@ -1,0 +1,17 @@
+-shared
+-n
+-inc
+#-uinclude/std.ch
+
+-ifmk_lib
+-iinclude
+
+-ifmk_lib/base/1g/
+-i.
+-ifmk_lib
+-ifmk_common/cdx
+
+-ifmk_common/partnst
+-ifmk_common/rabat/1g
+-ifmk_lib/base/1g
+-ifmk_lib/pdf

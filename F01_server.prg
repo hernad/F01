@@ -38,6 +38,8 @@ PROCEDURE Main()
    OutStd( "ver 0.3.0" + hb_eol() )
 
    f01_gvars_init()
+//   f01_init_harbour()
+
 
    SET EXCLUSIVE OFF
    rddSetDefault( "DBFCDX" )
@@ -157,7 +159,8 @@ PROCEDURE createdb( cLocalName, cName )
 
    ? "reccount:", reccount()
 
-   IF ordNum() == 3
+/*
+   IF OrdNum() == 3
      ? "indeksi vec postoje"
    ELSE
 
@@ -171,6 +174,7 @@ PROCEDURE createdb( cLocalName, cName )
      CLOSE
      ?
    ENDIF
+*/
 
    RETURN
 
@@ -178,11 +182,12 @@ PROCEDURE testdb( cName )
 
    LOCAL i, j
 
-   USE ( cLocalName )
+   USE ( cName )
    ? "used:", Used()
    ? "nterr:", NetErr()
    ? "alias:", Alias()
    ? "lastrec:", LastRec()
+/*
    ? "ordCount:", ordCount()
    FOR i := 1 TO ordCount()
       ordSetFocus( i )
@@ -203,6 +208,8 @@ PROCEDURE testdb( cName )
    dbGoTop()
    Browse()
    SetPos( i, j )
+*/
+
    CLOSE
 
    RETURN

@@ -1,9 +1,10 @@
 -o${hb_name}
--shared
+#-shared
 
 #{F18_GT_QTC}-DF18_GT_QTC
 
 F01_server.prg
+#dummy.prg
 hbnetio.hbc
 hbct.hbc
 xhb.hbc
@@ -19,7 +20,8 @@ hbtip.hbc
 #{F18_GT_QTC}gtqtc.hbc
 -workdir=.h
 
--gtstd
+{!darwin}-gtstd
+{darwin}gtqtc.hbc
 
 {darwin}-L./darwin
 {!LX_64&linux}-L./linux_32
@@ -30,3 +32,4 @@ hbtip.hbc
 -lmy_hbuddall
 {allwin}-ldebugiraj_dll
 
+F01_server.hbm

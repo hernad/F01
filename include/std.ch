@@ -931,7 +931,7 @@
       [; cmxSetRelation( <(aliasn)>, <{keyn}>, <"keyn"> )]
 
 
-//#command REQUEST <vars,...>             => EXTERNAL <vars>
+#command REQUEST <vars,...>             => EXTERNAL <vars>
 
 
 #command SET ORDER TO TAG <(cOrder)>                                                 ;
