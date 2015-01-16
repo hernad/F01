@@ -91,19 +91,19 @@ EOF CRET
 
 nStr:=0
 START PRINT CRET
-do whileSC !eof()
+DO WHILE not_key_esc() .AND. !eof()
       nSD1DEM:=nSP1DEM:=nSD1BHD:=nSP1BHD:=0
 
       cIdKonto:=IdKonto
       If prow()<>0; FF; ZaglDPK(); endif
 
       nUkDugBHD:=nUkPotBHD:=nUkDugDEM:=nUkPotDEM:=0
-      do WHILESC !EOF() .AND. cIdKonto=IdKonto // konto
+      DO WHILE not_key_esc() .AND. !EOF() .AND. cIdKonto=IdKonto // konto
 
            cIdPartner:=IdPartner
 
            nDugBHD:=nPotBHD:=nDugDEM:=nPotDEM:=0
-           DO WHILESC  !EOF() .AND. cIdKonto=IdKonto .and. cIdPartner==IdPartner
+           DO WHILE not_key_esc() .AND.  !EOF() .AND. cIdKonto=IdKonto .and. cIdPartner==IdPartner
               IF D_P="1"
                  nDugBHD+=IznosBHD; nDugDEM+=IznosDEM
               ELSE
@@ -420,11 +420,11 @@ endif
 
 
 KDIN:=KDEM:=0   // ukupno za konto BHD,DEM
-do whileSC !eof() .and. cIdKonto==IdKonto
+DO WHILE not_key_esc() .AND. !eof() .and. cIdKonto==IdKonto
 
   cIdPartner:=Idpartner
   nDinP:=nDemP:=0
-  do whileSC !eof() .and. cIdKonto==IdKonto .and. idpartner==cidpartner
+  DO WHILE not_key_esc() .AND. !eof() .and. cIdKonto==IdKonto .and. idpartner==cidpartner
 
      dDatDok:=ctod("")
      cBrdok:=field->brdok
@@ -753,14 +753,14 @@ m:="------ --------------------------------------------------------- -----------
 nStr:=0
 
 nud:=nup:=0
-do whileSC !eof()
+DO WHILE not_key_esc() .AND. !eof()
  cSin:=left(idkonto,3)
  nkd:=nkp:=0
- do whileSC !eof() .and.  cSin==left(idkonto,3)
+ DO WHILE not_key_esc() .AND. !eof() .and.  cSin==left(idkonto,3)
      cIdKonto:=IdKonto
      nd:=np:=0
      if prow()==0; zagl5(); endif
-     do whileSC !eof() .and. cIdKonto==IdKonto
+     DO WHILE not_key_esc() .AND. !eof() .and. cIdKonto==IdKonto
        if cTip == "1"
          nd+=dugbhd; np+=potbhd
        else
@@ -1183,7 +1183,7 @@ nud:=0
 nup:=0      // DIN
 nud2:=0
 nup2:=0    // DEM
-do whileSC !eof()
+DO WHILE not_key_esc() .AND. !eof()
 
 	cSin:=left(idkonto,3)
  	nKd:=0
@@ -1191,7 +1191,7 @@ do whileSC !eof()
  	nKd2:=0
 	nKp2:=0
 
- 	do whileSC !EOF() .and.  cSin==left(idkonto,3)
+ 	DO WHILE not_key_esc() .AND. !EOF() .and.  cSin==left(idkonto,3)
 
 		nTArea := SELECT()
 
@@ -1231,7 +1231,7 @@ do whileSC !eof()
 			nDugujeBHD:=0
 			nPotrazujeBHD:=0
 		endif
-   		do whileSC !eof() .and. cIdKonto==IdKonto .and. IdPartner==cIdPartner .and. RasclanRJ()
+   		DO WHILE not_key_esc() .AND. !eof() .and. cIdKonto==IdKonto .and. IdPartner==cIdPartner .and. RasclanRJ()
 
 			if cRascFunkFond=="D"
 				cGetFunkFond:=idrj+funk+fond
@@ -1568,7 +1568,7 @@ nStr:=0
 nud:=nup:=0      // DIN
 nud2:=nup2:=0    // DEM
 
-do whileSC !eof()
+DO WHILE not_key_esc() .AND. !eof()
  select suban
  nkd:=nkp:=0
  nkd2:=nkp2:=0
@@ -1578,12 +1578,12 @@ do whileSC !eof()
      bUslov:={|| cbrtel==partn->telefon}
      cNaslov:=partn->telefon+"-"+partn->mjesto
  endif
- do whilesc !eof() .and. idfirma==cidfirma .and. idkonto==cidkonto .and. eval(bUslov)
+ DO WHILE not_key_esc() .AND. !eof() .and. idfirma==cidfirma .and. idkonto==cidkonto .and. eval(bUslov)
      nd:=np:=0;nd2:=np2:=0
      if prow()==0; zagl6(cSkVar); endif
      cIdPartner:=IdPartner
      cNazPartn:=PADR(partn->naz, 25)
-     do whileSC !eof() .and. idfirma==cidfirma .and. idkonto==cidkonto .and. eval(bUslov) .and. IdPartner==cIdPartner
+     DO WHILE not_key_esc() .AND. !eof() .and. idfirma==cidfirma .and. idkonto==cidkonto .and. eval(bUslov) .and. IdPartner==cIdPartner
          if d_P=="1"
            nd+=iznosbhd; nd2+=iznosdem
          else
@@ -1869,7 +1869,7 @@ if nStr==0; Zagl7(); endif
 
 
 nDugBHD:=nPotBHD:=nDugDEM:=nPotDEM:=0
-do whilesc !eof() .and. IdFirma==cIdFirma
+DO WHILE not_key_esc() .AND. !eof() .and. IdFirma==cIdFirma
 
 
 
@@ -1884,7 +1884,7 @@ do whilesc !eof() .and. IdFirma==cIdFirma
      endif
     endif
 
-    do whilesc !eof() .and. IdFirma==cIdFirma .and. cIdpartner==idpartner
+    DO WHILE not_key_esc() .AND. !eof() .and. IdFirma==cIdFirma .and. cIdpartner==idpartner
            if idkonto==qqkonto
                 IF D_P=="1"
                   nDBHD+=iznosbhd
@@ -2092,12 +2092,12 @@ do while cIdFirma==IdFirma .and. !eof()
    B:=0
    nUkDugBHD:=nUkPotBHD:=0
    nUKDugDEM:=nUkPotDEM:=0
-   DO WHILESC cIdFirma==IdFirma .and. !EOF() .and. cIdPartner=IdPartner
+   DO WHILE not_key_esc() .AND. cIdFirma==IdFirma .and. !EOF() .and. cIdPartner=IdPartner
       cIdKonto:=IdKonto
       if prow()==0; ZglSpSifK(); endif
       nDugBHD:=nPotBHD:=0
       nDugDEM:=nPotDEM:=0
-      DO WHILESC cIdFirma==IdFirma .and.  !EOF() .and. cIdPartner==IdPartner .and. cIdKonto==IdKonto
+      DO WHILE not_key_esc() .AND. cIdFirma==IdFirma .and.  !EOF() .and. cIdPartner==IdPartner .and. cIdKonto==IdKonto
          IF D_P="1"
             nDugBHD+=IznosBHD; nUkDugBHD+=IznosBHD
             nDugDEM+=IznosDEM; nUkDugDEM+=IznosDEM
@@ -2262,12 +2262,12 @@ do while cIdFirma==IdFirma .and. !eof()
    B:=0
    nUkDugBHD:=nUkPotBHD:=0
    nUKDugDEM:=nUkPotDEM:=0
-   DO WHILESC cIdFirma==IdFirma .and. !EOF() .and. cIdPartner=IdPartner
+   DO WHILE not_key_esc() .AND. cIdFirma==IdFirma .and. !EOF() .and. cIdPartner=IdPartner
       cIdKonto:=IdKonto
       if prow()==0; ZglSpOstP(); endif
       nDugBHD:=nPotBHD:=0
       nDugDEM:=nPotDEM:=0
-      DO WHILESC cIdFirma==IdFirma .and.  !EOF() .and. cIdPartner==IdPartner .and. cIdKonto==IdKonto
+      DO WHILE not_key_esc() .AND. cIdFirma==IdFirma .and.  !EOF() .and. cIdPartner==IdPartner .and. cIdKonto==IdKonto
          IF D_P="1"
             nDugBHD+=IznosBHD; nUkDugBHD+=IznosBHD
             nDugDEM+=IznosDEM; nUkDugDEM+=IznosDEM
@@ -3165,7 +3165,7 @@ else
  	seek cIdFirma + cIdKonto + cIdPartner
 endif
 
-DO WHILESC !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto
+DO WHILE not_key_esc() .AND. !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto
 
 	cIdPartner:=idpartner
 	nUDug2:=0
@@ -3175,7 +3175,7 @@ DO WHILESC !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto
 
 	fPrviprolaz:=.t.
 
-	DO WHILESC !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner
+	DO WHILE not_key_esc() .AND. !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner
 
 		cBrDok:=BrDok
 		cOtvSt:=otvst
@@ -3183,7 +3183,7 @@ DO WHILESC !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto
           	nDug:=nPot:=0
           	aFaktura:={CTOD(""),CTOD(""),CTOD("")}
 
-		DO WHILESC !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner .and. brdok==cBrDok
+		DO WHILE not_key_esc() .AND. !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner .and. brdok==cBrDok
 
 			IF D_P=="1"
                 		nDug+=IznosBHD
@@ -3344,7 +3344,7 @@ DO WHILE !EOF()
 
     	select pom
 
-	DO WHILESC !EOF() .and. cIdPartner==IdPartner
+	DO WHILE not_key_esc() .AND. !EOF() .and. cIdPartner==IdPartner
 
 		IF cPoRn=="D"
       			? datdok, datval, PADR(brdok,10)

@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -12,76 +12,58 @@
 
 #include "f01.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
- * ----------------------------------------------------------------
- */
+
+FUNCTION f01_set_gvars_10()
+
+   PUBLIC gUVarPP
+   PUBLIC glProvNazRobe
+   PUBLIC gRobaBlock
+   PUBLIC gPicCDem
+   PUBLIC PicDem
+   PUBLIC gPicProc
+   PUBLIC gPicDEM
+   PUBLIC gPickol
+   PUBLIC gFPicCDem
+   PUBLIC gFPicDem
+   PUBLIC gFPicKol
+
+   PUBLIC glAutoFillBK
+   PUBLIC gDuzSifIni
+
+   PUBLIC glPoreziLegacy
+   PUBLIC glUgost
+   PUBLIC gUgostVarijanta
+
+   // R - Obracun porez na RUC
+   // D - starija varijanta ???
+   // N - obicno robno knjigovodstvo
 
 
-
-/* ingroup ini
-  * var: *string FmkIni_ExePath_ROBA_BezIstihNaziva
-  *  Da li ce se zabraniti unos istog naziva robe pod razlicitom sifrom?
-  *  N - ne, default vrijednost
-  *  D - onemogucava unos istog naziva pod drugom sifrom robe
-  */
-*string FmkIni_ExePath_ROBA_BezIstihNaziva;
+   glPoreziLegacy := ( IzFmkIni( "POREZI", "Legacy", "D", EXEPATH ) == "D" )
 
 
+   glUgost := ( IzFmkIni( "UGOSTITELJSTVO", "Obracun", "N", KUMPATH ) == "D" )
 
-function SetFmkRGVars()
+   // RMarza_DLimit - osnovica realizovana marza ili donji limit
+   // MpcSaPor - Maloprodajna cijena sa porezom
+   gUgostVarijanta := Upper( IzFmkIni( "UGOSTITELJSTVO", "Varijanta", "Rmarza_DLimit", KUMPATH ) )
 
-public gUVarPP
-public glProvNazRobe
-public gRobaBlock
-public gPicCDem
-public PicDem
-public gPicProc
-public gPicDEM
-public gPickol
-public gFPicCDem
-public gFPicDem
-public gFPicKol
+   gUVarPP := IzFMKINI( "POREZI", "PPUgostKaoPPU", "N", KUMPATH )
 
-public glAutoFillBK
-public gDuzSifIni
+   glProvNazRobe := ( IzFmkIni( "ROBA", "BezIstihNaziva", "N" ) == "D" )
 
-public glPoreziLegacy
-public glUgost
-public gUgostVarijanta
+   glAutoFillBK := ( IzFmkIni( "ROBA", "AutoFillBarKod", "N", SIFPATH ) == "D" )
 
-// R - Obracun porez na RUC
-// D - starija varijanta ???
-// N - obicno robno knjigovodstvo
+   gRobaBlock := nil
 
+   gPicCDEM := "999999.999"
+   gPicProc := "999999.99%"
+   gPicDEM := "9999999.99"
+   gPickol := "999999.999"
+   gFPicCDem := "0"
+   gFPicDem := "0"
+   gFPicKol := "0"
 
-glPoreziLegacy:=(IzFmkIni("POREZI","Legacy","D", EXEPATH) == "D")
+   gDuzSifINI := IzFmkIni( 'Sifroba', 'DuzSifra', '10', SIFPATH )
 
-
-glUgost:=(IzFmkIni("UGOSTITELJSTVO","Obracun","N", KUMPATH) == "D")
-
-//RMarza_DLimit - osnovica realizovana marza ili donji limit
-//MpcSaPor - Maloprodajna cijena sa porezom
-gUgostVarijanta:=UPPER(IzFmkIni("UGOSTITELJSTVO","Varijanta","Rmarza_DLimit", KUMPATH))
-
-gUVarPP:=IzFMKINI("POREZI","PPUgostKaoPPU","N", KUMPATH)
-
-glProvNazRobe:=(IzFmkIni("ROBA","BezIstihNaziva","N")=="D")
-
-glAutoFillBK:=(IzFmkIni("ROBA","AutoFillBarKod","N",SIFPATH)=="D")
-
-gRobaBlock:=nil
-
-gPicCDEM:="999999.999"
-gPicProc:="999999.99%"
-gPicDEM:="9999999.99"
-gPickol:="999999.999"
-gFPicCDem:="0"
-gFPicDem:="0"
-gFPicKol:="0"
-
-gDuzSifINI:=IzFmkIni('Sifroba','DuzSifra','10',SIFPATH)
-return
-
-
+   RETURN

@@ -426,7 +426,7 @@ nSviP:=0
 nSviD2:=0
 nSviP2:=0
 
-do whilesc !eof() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.) // firma
+DO WHILE not_key_esc() .AND. !eof() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.) // firma
 	nKonD:=0
 	nKonP:=0
 	nKonD2:=0
@@ -452,7 +452,7 @@ do whilesc !eof() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.) // firma
   		endif
 	endif
 
-	do whilesc !eof() .and. cIdKonto==IdKonto .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.)
+	DO WHILE not_key_esc() .AND. !eof() .and. cIdKonto==IdKonto .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.)
 
     		__p_naz := ""
 		__k_naz := ""
@@ -540,7 +540,7 @@ do whilesc !eof() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.) // firma
     		endif
     		fPrviPr:=.t.  // prvi prolaz
 
-		do whilesc !eof() .and. cIdKonto==IdKonto .and. (cIdPartner==IdPartner .or. (cBrza=="D" .and. RTRIM(qqPartner)==";")) .and. Rasclan() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.)
+		DO WHILE not_key_esc() .AND. !eof() .and. cIdKonto==IdKonto .and. (cIdPartner==IdPartner .or. (cBrza=="D" .and. RTRIM(qqPartner)==";")) .and. Rasclan() .and. IF(gDUFRJ!="D",IdFirma=cIdFirma,.t.)
 
 			// incijalizuj varijable za izvjestaj
 			__vr_nal := ""
@@ -1515,7 +1515,7 @@ endif
 
     fZaglavlje:=.f.
     fProsao:=.f.
-    do whilesc !eof() .and. IdFirma==cIdFirma .and. cIdPartner==idpartner .and. (idkonto==qqkonto .or. idkonto==qqkonto2)
+    DO WHILE not_key_esc() .AND. !eof() .and. IdFirma==cIdFirma .and. cIdPartner==idpartner .and. (idkonto==qqkonto .or. idkonto==qqkonto2)
 
           cIdKonto:=idkonto
           cOtvSt:=OtvSt
@@ -1568,7 +1568,7 @@ endif
           nDBHD:=nPBHD:=nDDEM:=nPDEM:=0
           if cPovezi=="D"
              cBrDok:=brdok
-             do whilesc !eof() .and. IdFirma==cIdFirma .and. cIdpartner==idpartner .and. (idkonto==qqkonto .or. idkonto==qqkonto2) .and. brdok==cBrdok
+             DO WHILE not_key_esc() .AND. !eof() .and. IdFirma==cIdFirma .and. cIdpartner==idpartner .and. (idkonto==qqkonto .or. idkonto==qqkonto2) .and. brdok==cBrdok
                 IF D_P=="1"
                   nDBHD+=iznosbhd
                   nDDEM+=iznosdem

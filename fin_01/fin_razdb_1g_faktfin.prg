@@ -132,7 +132,7 @@ go top
 
 
 nTot1:=nTot2:=nTot3:=nTot4:=nTot5:=nTot6:=nTot7:=nTot8:=nTot9:=nTota:=nTotb:=0
-do whilesc !eof()
+DO WHILE not_key_esc() .AND. !eof()
 
    cIdFirma:=IdFirma
    cBrDok:=BrDok

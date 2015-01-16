@@ -1192,7 +1192,7 @@ endif
 nStr:=0
 nTot1:=nTot2:=nTot3:=nTot4:=nTot5:=nTot6:=nTot7:=nTot8:=nTot9:=nTota:=nTotb:=nTotC:=0
 
-do whilesc !eof() .and. cIdFirma==idfirma .and. cidvd==idvd
+DO WHILE not_key_esc() .AND. !eof() .and. cIdFirma==idfirma .and. cidvd==idvd
 	cBrDok:=BrDok
    	cIdPartner:=IdPartner
 	cBrFaktP:=BrFaktP
@@ -1247,7 +1247,7 @@ do whilesc !eof() .and. cIdFirma==idfirma .and. cidvd==idvd
    	ELSE
      		cIdd:=idpartner+brfaktp+idkonto+idkonto2
    	ENDIF
-   	do whilesc !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
+   	DO WHILE not_key_esc() .AND. !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
 
      		if cIdVd == "97"
 			if field->tbanktr == "X"

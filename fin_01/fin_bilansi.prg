@@ -19,7 +19,32 @@ static __par_len
 // --------------------------------------
 // bilansni izvjestaji
 // --------------------------------------
-function Bilans()
+function Bilans( nVarijanta, hParams )
+
+IF hParams != NIL
+
+  switch_thread_window()
+  altd()
+
+  OutStd( "FIN server start " + hb_eol() )
+  PUBLIC gModul := "FIN"
+  MainFin( hParams[ 'user' ], hParams[ 'password' ], "SERVER" )
+
+  PUBLIC cDirRad := hParams[ 'kumpath' ]
+  PUBLIC cDirSif := hParams[ 'sifpath' ]
+  PUBLIC cDirPriv := hParams[ 'privpath' ]
+
+  OutStd( " kumpath: " + hParams[ 'kumpath' ] + hb_eol() )
+  OutStd( "privpath: " + hParams[ 'privpath' ] + hb_eol() )
+
+
+  PUBLIC gFirma := hParams[ 'gFirma' ]
+  gReadOnly := .F.
+  f01_set_global_vars()
+  IniGparams()
+  gOModul:setGVars()
+
+ENDIF
 
 IF gVar1=="0"
 	private opc[5],Izbor
@@ -27,7 +52,11 @@ ELSE
 	private opc[4],Izbor
 ENDIF
 
-cTip:=ValDomaca()
+IF nVarijanta == NIL
+  nVarijanta := 0
+ENDIF
+
+cTip := ValDomaca()
 
 M6:= "--------- --------------- --------------- --------------- --------------- --------------- --------------- --------------- ---------------"
 M7:= "*        *          POCETNO STANJE       *         TEKUCI PROMET         *        KUMULATIVNI PROMET     *            SALDO             *"
@@ -44,28 +73,43 @@ h[1]:=h[2]:=h[3]:=h[4]:=""
 
 
 Izbor:=1
-private PicD:=FormPicL(gPicBHD,15)
+
+private PicD:=FormPicL(gPicBHD, 15)
 DO WHILE .T.
-   Izbor:=Menu("bb",opc,Izbor,.f.)
+
+   IF nVarijanta == 0
+      Izbor:=Menu("bb",opc,Izbor,.f.)
+	 ELSE
+	    Izbor := nVarijanta
+	 ENDIF
+
    DO CASE
       CASE Izbor==0
          EXIT
 
       CASE izbor=1
-         cBBV:=cTip; nBBK:=1
+
+         cBBV:=cTip
+				 nBBK:=1
          GrupBB()
 
-      CASE izbor=2
-         cBBV:=cTip; nBBK:=1
+      CASE izbor == 2
+         cBBV:=cTip
+				 nBBK:=1
          SintBB()
 
-      CASE izbor=3
-         cBBV:=cTip; nBBK:=1
+      CASE izbor== 3
+
+         cBBV:=cTip
+				 nBBK:=1
          AnalBB()
 
       CASE izbor=4
-         cBBV:=cTip; nBBK:=1
-         SubAnBB()
+
+         cBBV:=cTip
+				 nBBK:=1
+         SubAnBB( hParams )
+
 
       CASE izbor=5
          if cTip==ValDomaca()
@@ -80,6 +124,10 @@ DO WHILE .T.
       CASE izbor=5
          Izbor:=0
    ENDCASE
+
+   IF nVarijanta != 0
+	   EXIT
+	 ENDIF
 ENDDO
 
 
@@ -166,11 +214,31 @@ endif
 return aFields
 
 
+
+
 // -----------------------------------------------
 // Subanaliticki bruto bilans
 // -----------------------------------------------
-function SubAnBB()
-cIdFirma:=gFirma
+
+function SubAnBB( hParams )
+
+
+IF hParams == NIL
+
+  hParams := hb_hash()
+
+  hParams[ 'user' ] := "11"
+  hParams[ 'password' ] := "11"
+  hParams[ 'kumpath' ] := cDirRad
+  hParams[ 'sifpath' ] := cDirSif
+  hParams[ 'privpath' ]  := cDirPriv
+  hParams[ 'gFirma' ]  := gFirma
+
+  RETURN netio_funcexec( "Bilans", 4, hParams )
+
+ENDIF
+
+cIdFirma := gFirma
 
 O_KONTO
 O_PARTN
@@ -186,10 +254,16 @@ private cExpRptDN:="N"
 private cBBSkrDN:="N"
 private cPrikaz := "1"
 
+private cIdRj := ""
+
+
+IF hParams == NIL
+
 Box("sanb",13,60)
 set cursor on
 
 do while .t.
+
 	@ m_x+1,m_y+2 SAY "SUBANALITICKI BRUTO BILANS"
  	if gNW=="D"
    		@ m_x+2,m_y+2 SAY "Firma "; ?? gFirma,"-",gNFirma
@@ -202,7 +276,9 @@ do while .t.
  	@ m_x+6,m_y+2 SAY "Format izvjestaja A3/A4/A4L (1/2/3)" GET cFormat
  	@ m_x+7,m_y+2 SAY "Klase unutar glavnog izvjestaja (D/N)" GET cPodKlas VALID cPodKlas$"DN" PICT "@!"
  	@ m_x+8,m_y+2 SAY "Prikaz stavki sa saldom 0 D/N " GET cNule valid cnule $"DN" pict "@!"
+
  	cIdRJ:=""
+
  	IF gRJ=="D"
    		cIdRJ:="999999"
    		@ m_x+9,m_y+2 SAY "Radna jedinica (999999-sve): " GET cIdRj
@@ -217,6 +293,7 @@ do while .t.
 	ESC_BCR
 
 	aUsl1:=Parsiraj(qqKonto,"IdKonto")
+
  	if aUsl1<>NIL
 		exit
 	endif
@@ -224,6 +301,11 @@ enddo
 
 BoxC()
 
+
+ENDIF
+
+
+aUsl1 := Parsiraj(qqKonto, "IdKonto")
 cIdFirma:=trim(cIdFirma)
 
 if cIdRj=="999999"
@@ -231,8 +313,9 @@ if cIdRj=="999999"
 endif
 
 if gRJ=="D" .and. "." $ cIdRj
-	cIdRj:=trim(strtran(cIdRj,".",""))
+	cIdRj := trim(strtran(cIdRj,".",""))
   	// odsjeci ako je tacka. prakticno "01. " -> sve koje pocinju sa  "01"
+
 endif
 
 IF cFormat $ "1#3"
@@ -282,8 +365,9 @@ endif
 if aUsl1<>".t."
  cFilter+=iif(empty(cFilter),"",".and.")+ aUsl1
 endif
+
 if !(empty(dDatOd) .and. empty(dDatDo))
- cFilter+=iif(empty(cFilter),"",".and.")+"DATDOK>=CTOD('"+dtoc(dDatOd)+"') .and. DATDOK<=CTOD('"+dtoc(dDatDo)+"')"
+ cFilter += iif(empty(cFilter),"",".and.")+"DATDOK>=CTOD('"+dtoc(dDatOd)+"') .and. DATDOK<=CTOD('"+dtoc(dDatDo)+"')"
 endif
 
 if !empty(cFilter) .and. LEN(cIdFirma)==2
@@ -294,7 +378,7 @@ if LEN(cIdFirma)<2
   SELECT SUBAN
   Box(,2,30)
   nSlog:=0; nUkupno:=RECCOUNT2()
-  cFilt := IF( EMPTY(cFilter) , "IDFIRMA="+cm2str(cIdFirma) , cFilter+".and.IDFIRMA="+cm2str(cIdFirma) )
+  cFilt := IIF( EMPTY(cFilter) , "IDFIRMA="+cm2str(cIdFirma) , cFilter+".and.IDFIRMA="+cm2str(cIdFirma) )
   cSort1:="IdKonto+IdPartner+dtos(DatDok)+BrNal+RBr"
   INDEX ON &cSort1 TO "SUBTMP" FOR &cFilt EVAL(TekRec2()) EVERY 1
   GO TOP
@@ -321,7 +405,7 @@ P1S:=P2S:=P3S:=P4S:=0
 
 D4PS:=P4PS:=D4TP:=P4TP:=D4KP:=P4KP:=0
 nCol1:=50
-DO WHILESC !EOF() .AND. IdFirma=cIdFirma   // idfirma
+DO WHILE not_key_esc() .AND. !EOF() .AND. IdFirma=cIdFirma   // idfirma
 
    IF prow() == 0
    	ZaglSan( cFormat )
@@ -335,26 +419,26 @@ DO WHILESC !EOF() .AND. IdFirma=cIdFirma   // idfirma
    D3PS:=P3PS:=D3TP:=P3TP:=D3KP:=P3KP:=D3S:=P3S:=0
    cKlKonto:=left(IdKonto,1)
 
-   DO WHILESC !EOF() .AND. IdFirma=cIdFirma .AND. cKlKonto==left(IdKonto,1)
+   DO WHILE not_key_esc() .AND. !EOF() .AND. IdFirma=cIdFirma .AND. cKlKonto==left(IdKonto,1)
 
       // klasa konto
 
       cSinKonto:=left(IdKonto,3)
       D2PS:=P2PS:=D2TP:=P2TP:=D2KP:=P2KP:=D2S:=P2S:=0
 
-      DO WHILESC !EOF() .AND. IdFirma=cIdFirma .AND. cSinKonto==left(IdKonto,3)
+      DO WHILE not_key_esc() .AND. !EOF() .AND. IdFirma=cIdFirma .AND. cSinKonto==left(IdKonto,3)
          // sint. konto
 
          cIdKonto:=IdKonto
          D1PS:=P1PS:=D1TP:=P1TP:=D1KP:=P1KP:=D1S:=P1S:=0
-         DO WHILESC !EOF() .AND. IdFirma=cIdFirma .AND. cIdKonto==IdKonto
+         DO WHILE not_key_esc() .AND. !EOF() .AND. IdFirma=cIdFirma .AND. cIdKonto==IdKonto
 
 	    // konto
 
             cIdPartner:=IdPartner
             D0PS:=P0PS:=D0TP:=P0TP:=D0KP:=P0KP:=D0S:=P0S:=0
 
-	    DO WHILESC !EOF() .AND. IdFirma=cIdFirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner
+	    DO WHILE not_key_esc() .AND. !EOF() .AND. IdFirma=cIdFirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner
 
 	      // partner
 
@@ -640,7 +724,7 @@ SELECT BBKLAS
 GO TOP
 nPocDug:=nPocPot:=nTekPDug:=nTekPPot:=nKumPDug:=nKumPPot:=nSalPDug:=nSalPPot:=0
 
-DO WHILESC !EOF()
+DO WHILE not_key_esc() .AND. !EOF()
    if prow()>63+gpStranica; FF; endif
    @ prow()+1,4      SAY IdKlasa
    @ prow(),10       SAY PocDug               PICTURE PicD
@@ -782,7 +866,7 @@ BoxC()
 
 cidfirma:=trim(cidfirma)
 
-if cIdRj=="999999"; cidrj:=""; endif
+if cIdRj=="999999"; cIdrj:=""; endif
 if gRJ=="D" .and. gSAKrIz=="D" .and. "." $ cidrj
   cidrj:=trim(strtran(cidrj,".",""))
   // odsjeci ako je tacka. prakticno "01. " -> sve koje pocinju sa  "01"
@@ -857,22 +941,22 @@ D4PS:=P4PS:=D4TP:=P4TP:=D4KP:=P4KP:=D4S:=P4S:=0
 
 nCol1:=50
 
-DO WHILESC !EOF() .AND. IdFirma=cIdFirma
+DO WHILE not_key_esc() .AND. !EOF() .AND. IdFirma=cIdFirma
 
    IF prow()==0; BrBil_21(); ENDIF
 
    cKlKonto:=left(IdKonto,1)
    D3PS:=P3PS:=D3TP:=P3TP:=D3KP:=P3KP:=D3S:=P3S:=0
-   DO WHILESC !EOF() .AND. IdFirma=cIdFirma .AND. cKlKonto==left(IdKonto,1) // kl konto
+   DO WHILE not_key_esc() .AND. !EOF() .AND. IdFirma=cIdFirma .AND. cKlKonto==left(IdKonto,1) // kl konto
 
       cSinKonto:=LEFT(idkonto,3)
       D2PS:=P2PS:=D2TP:=P2TP:=D2KP:=P2KP:=D2S:=P2S:=0
-      DO WHILESC !EOF() .AND. IdFirma=cIdFirma .AND. cSinKonto==LEFT(idkonto,3) // sin konto
+      DO WHILE not_key_esc() .AND. !EOF() .AND. IdFirma=cIdFirma .AND. cSinKonto==LEFT(idkonto,3) // sin konto
 
          cIdKonto:=IdKonto
 
          D1PS:=P1PS:=D1TP:=P1TP:=D1KP:=P1KP:=D1S:=P1S:=0
-         DO WHILESC !EOF() .AND. IdFirma=cIdFirma .AND. cIdKonto==IdKonto // konto
+         DO WHILE not_key_esc() .AND. !EOF() .AND. IdFirma=cIdFirma .AND. cIdKonto==IdKonto // konto
             if cTip==ValDomaca(); Dug:=DugBHD*nBBK; Pot:=PotBHD*nBBK; else; Dug:=DUGDEM; Pot:=POTDEM; endif
             D1KP=D1KP+Dug
             P1KP=P1KP+Pot
@@ -1012,7 +1096,7 @@ select BBKLAS; go top
 
 nPocDug:=nPocPot:=nTekPDug:=nTekPPot:=nKumPDug:=nKumPPot:=nSalPDug:=nSalPPot:=0
 
-DO WHILESC !EOF()
+DO WHILE not_key_esc() .AND. !EOF()
    @ prow()+1,4   SAY IdKlasa
    @ prow(),10       SAY PocDug               PICTURE PicD
    @ PROW(),pcol()+1 SAY PocPot               PICTURE PicD
@@ -1212,18 +1296,18 @@ nStr:=0
 
 nCol1:=50
 
-DO WHILESC !EOF() .AND. IdFirma=cIdFirma
+DO WHILE not_key_esc() .AND. !EOF() .AND. IdFirma=cIdFirma
 
    IF prow()==0; BrBil_31(); ENDIF
 
    cKlKonto:=left(IdKonto,1)
 
    D3PS:=P3PS:=D3TP:=P3TP:=D3KP:=P3KP:=D3S:=P3S:=0
-   DO WHILESC !eof() .and. IdFirma=cIdFirma .AND. cKlKonto==left(IdKonto,1)
+   DO WHILE not_key_esc() .AND. !eof() .and. IdFirma=cIdFirma .AND. cKlKonto==left(IdKonto,1)
 
       cIdKonto:=IdKonto
       D1PS:=P1PS:=D1TP:=P1TP:=D1KP:=P1KP:=D1S:=P1S:=0
-      DO WHILESC !eof() .and. IdFirma=cIdFirma .AND. cIdKonto==left(IdKonto,3)
+      DO WHILE not_key_esc() .AND. !eof() .and. IdFirma=cIdFirma .AND. cIdKonto==left(IdKonto,3)
          if cTip==ValDomaca(); Dug:=DugBHD*nBBK; Pot:=PotBHD*nBBK; else; Dug:=DUGDEM; Pot:=POTDEM; endif
          D1KP+=Dug
          P1KP+=Pot
@@ -1376,7 +1460,7 @@ select BBKLAS; go top
 
 nPocDug:=nPocPot:=nTekPDug:=nTekPPot:=nKumPDug:=nKumPPot:=nSalPDug:=nSalPPot:=0
 
-DO WHILESC !EOF()
+DO WHILE not_key_esc() .AND. !EOF()
    @ prow()+1,4      SAY IdKlasa
    @ prow(),10       SAY PocDug               PICTURE PicD
    @ PROW(),pcol()+1 SAY PocPot               PICTURE PicD
@@ -1570,18 +1654,18 @@ nStr:=0
 
 nCol1:=50
 
-DO WHILESC !EOF() .AND. IdFirma=cIdFirma
+DO WHILE not_key_esc() .AND. !EOF() .AND. IdFirma=cIdFirma
 
    IF prow()==0; BrBil_41(); ENDIF
 
    cKlKonto:=left(IdKonto,1)
 
    D3PS:=P3PS:=D3TP:=P3TP:=D3KP:=P3KP:=D3S:=P3S:=0
-   DO WHILESC !eof() .and. IdFirma=cIdFirma .AND. cKlKonto==left(IdKonto,1)
+   DO WHILE not_key_esc() .AND. !eof() .and. IdFirma=cIdFirma .AND. cKlKonto==left(IdKonto,1)
 
       cIdKonto:=LEFT(IdKonto,2)
       D1PS:=P1PS:=D1TP:=P1TP:=D1KP:=P1KP:=D1S:=P1S:=0
-      DO WHILESC !eof() .and. IdFirma=cIdFirma .AND. cIdKonto==LEFT(IdKonto,2)
+      DO WHILE not_key_esc() .AND. !eof() .and. IdFirma=cIdFirma .AND. cIdKonto==LEFT(IdKonto,2)
          if cTip==ValDomaca(); Dug:=DugBHD*nBBK; Pot:=PotBHD*nBBK; else; Dug:=DUGDEM; Pot:=POTDEM; endif
          D1KP+=Dug
          P1KP+=Pot
@@ -1696,7 +1780,7 @@ select BBKLAS; go top
 
 nPocDug:=nPocPot:=nTekPDug:=nTekPPot:=nKumPDug:=nKumPPot:=nSalPDug:=nSalPPot:=0
 
-DO WHILESC !EOF()
+DO WHILE not_key_esc() .AND. !EOF()
    @ prow()+1,4      SAY IdKlasa
    @ prow(),10       SAY PocDug               PICTURE PicD
    @ PROW(),pcol()+1 SAY PocPot               PICTURE PicD
@@ -1814,4 +1898,3 @@ if s_nProgres % 100 == 0
 endif
 
 RETURN .T.
-

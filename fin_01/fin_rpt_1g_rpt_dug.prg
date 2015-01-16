@@ -122,14 +122,14 @@ set order to 3
 
 seek cIdFirma+cIdKonto+cIdPartner
 
-DO WHILESC !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto
+DO WHILE not_key_esc() .AND. !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto
 	cIdPartner:=idpartner
 	nUDug2:=0
 	nUPot2:=0
     	nUDug:=0
 	nUPot:=0
     	fPrviProlaz:=.t.
-    	DO WHILESC !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner
+    	DO WHILE not_key_esc() .AND. !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner
 		cBrDok:=BrDok
 		cOtvSt:=otvst
           	nDug2:=0
@@ -137,7 +137,7 @@ DO WHILESC !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto
           	nDug:=0
 		nPot:=0
           	aFaktura:={CTOD(""),CTOD(""),CTOD("")}
-          	DO WHILESC !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner .and. brdok==cBrDok
+          	DO WHILE not_key_esc() .AND. !EOF() .and. idfirma==cIdfirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner .and. brdok==cBrDok
              		IF D_P=="1"
                 		nDug+=IznosBHD
                 		nDug2+=IznosDEM
@@ -261,7 +261,7 @@ do while !EOF()
    	
 	nFaza:=RRocnost()
 	
-	DO WHILESC !EOF() .and. cIdPartner==IdPartner
+	DO WHILE not_key_esc() .AND. !EOF() .and. cIdPartner==IdPartner
     		if fPrviProlaz
        			ZaglDuznici()
        			fPrviProlaz:=.f.

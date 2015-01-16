@@ -37,10 +37,27 @@ PROCEDURE Main()
 
    OutStd( "ver 0.3.0" + hb_eol() )
 
+
+   PUBLIC gModul := "SERVER"
+   is_server_run( .T. )
+
+
+
    f01_gvars_init()
-//   f01_init_harbour()
+   f01_init_harbour()
 
+   main_thread( hb_threadSelf() )
+   ? "- F01 serverstart -"
 
+   create_main_window()
+   switch_main_window()
+   ? "- F01 main window -"
+
+   switch_thread_window()
+   ? "- thread window -"
+
+   switch_main_window()
+   ? "- back to main window-"
    SET EXCLUSIVE OFF
    rddSetDefault( "DBFCDX" )
 
@@ -131,7 +148,7 @@ PROCEDURE createdb( cLocalName, cName )
       { "F2", "M",  4, 0 }, ;
       { "F3", "N", 10, 2 }, ;
       { "F4", "T",  8, 0 } } )
-   
+
    ? "create neterr:", NetErr(), hb_osError()
      lCreated := .T.
    ELSE
@@ -215,11 +232,6 @@ PROCEDURE testdb( cName )
    RETURN
 
 
-function PreUseEvent()
-
-RETURN .T.
-
-
 function f01_gvars_init()
 
    public gReadOnly := .f.
@@ -227,8 +239,7 @@ function f01_gvars_init()
 
 
 function SRV_ADD( n1, n2 )
- 
-  ? n1, "+", n2, "=", n1 + n2
- 
-  RETURN n1 + n2
 
+  ? n1, "+", n2, "=", n1 + n2
+
+  RETURN n1 + n2

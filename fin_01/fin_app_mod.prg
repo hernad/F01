@@ -198,7 +198,8 @@ if (MPar37("/MODSTRU", goModul))
  			goModul:oDataBase:setDirPriv(trim(goModul:oDataBase:cDirPriv)+SLASH+cSez)
 		endif
 	endif
-	cMsFile:=goModul:oDataBase:cName
+
+	cMsFile := goModul:oDataBase:cName
 	if LEFT(self:cP6,3)=="/M="
 		cMSFile:=SUBSTR(self:cP6,4)
 	endif
@@ -213,8 +214,8 @@ return
 
 method TFinMod:setGVars()
 
-SetFmkSGVars()
-SetFmkRGVars()
+//f01_set_gvars_20()
+//f01_set_gvars_10()
 
 private cSection:="1"
 private cHistory:=" "

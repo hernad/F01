@@ -187,8 +187,8 @@ local cOdradjeno
 local cSekcija
 local cVar,cVal
 
-SetFmkRGVars()
-SetFmkSGVars()
+f01_set_gvars_10()
+f01_set_gvars_20()
 
 PUBLIC KursLis:="1"
 PUBLIC gMetodaNC:="2"

@@ -1009,7 +1009,11 @@ local cImeGwu
 local nArea
 local cOnlyName
 
-if (goModul:oDatabase<>nil)
+IF gModul == "SERVER"
+   RETURN .T.
+ENDIF
+
+if (goModul:oDatabase <> NIL)
 	if (goModul:oDatabase:lAdmin)
 		return 0
 	endif

@@ -129,7 +129,7 @@ START PRINT CRET
 
 if nStr==0; SinkZagl();endif
 nSviD:=nSviP:=nSviD2:=nSviP2:=0
-do whilesc !eof() .and. idfirma==cIdFirma
+DO WHILE not_key_esc() .AND. !eof() .and. idfirma==cIdFirma
 
 if cBrza=="D"
   if qqKonto<>IdKonto; exit; endif
@@ -148,7 +148,7 @@ select SINT
 ? m
 nDugBHD:=nPotBHD:=nDugDEM:=nPotDEM:=0
 fPProm:=.t.
-do whilesc !eof() .and. idfirma==cIdFirma .and. cIdKonto==IdKonto
+DO WHILE not_key_esc() .AND. !eof() .and. idfirma==cIdFirma .and. cIdKonto==IdKonto
 
   //********* prethodni promet *********************************
   if cPredh=="2"
@@ -386,7 +386,7 @@ START PRINT CRET
 if nStr==0; ZaglSink2();endif
 nSviD:=nSviP:=nSviD2:=nSviP2:=0
 
-do whilesc idfirma==cidfirma .and. !eof()
+DO WHILE not_key_esc() .AND. idfirma==cidfirma .and. !eof()
 cIdkonto:=IdKonto
 nDugBHD:=nPotBHD:=nDugDEM:=nPotDEM:=0
 
@@ -401,7 +401,7 @@ select SINT
 ? m
 
 nDugBHD:=nPotBHD:=nDugDEM:=nPotDEM:=0
-do whilesc !eof() .and. idfirma==cidfirma .and. cIdKonto==IdKonto
+DO WHILE not_key_esc() .AND. !eof() .and. idfirma==cidfirma .and. cIdKonto==IdKonto
   IF prow()>63+gPStranica; FF; ZaglSink2();ENDIF
   nMonth:=month(DatNal)
   nDBHD:=nPBHD:=nDDEM:=nPDEM:=0
@@ -684,7 +684,7 @@ START PRINT CRET
 if nStr==0; AnalKZagl(); endif
 
 nSviD:=nSviP:=nSviD2:=nSviP2:=0
-do whilesc !eof() .and. IdFirma=cIdFirma
+DO WHILE not_key_esc() .AND. !eof() .and. IdFirma=cIdFirma
 
 if cBrza=="D"
   if qqKonto<>IdKonto; exit; endif
@@ -705,7 +705,7 @@ endif
 
 nDugBHD:=nPotBHD:=DugDEM:=nPotDEM:=0
 fPProm:=.t.
-do whilesc !eof() .and. IdFirma=cIdFirma .and. (cIdKonto==IdKonto .or. cBrza=="S")
+DO WHILE not_key_esc() .AND. !eof() .and. IdFirma=cIdFirma .and. (cIdKonto==IdKonto .or. cBrza=="S")
   //********* prethodni promet *********************************
   if cPredh=="2"
    if dDatOd>datnal .and. fPProm==.t.

@@ -11,25 +11,26 @@
 
 #include "fin01.ch"
 
-function MainFin(cKorisn, cSifra, p3, p4, p5, p6, p7)
+FUNCTION MainFin( cKorisn, cSifra, p3, p4, p5, p6, p7 )
 
-local oPos
-local cModul
+   LOCAL oPos
+   LOCAL cModul
 
-//SET LOGLEVEL TO 5
-//SET LOGFILE TO pos.log
-//cPom:=SET(_SET_DEVICE)
 
-PUBLIC gKonvertPath:="D"
+   PUBLIC gKonvertPath := "D"
 
-oFin:=TFinModNew()
-cModul:="FIN"
+   oFin := TFinModNew()
+   cModul := "FIN"
 
-PUBLIC goModul
+   PUBLIC goModul
 
-goModul:=oFin
-oFin:init(NIL, cModul, D_FI_VERZIJA, D_FI_PERIOD , cKorisn, cSifra, p3,p4,p5,p6,p7)
+   goModul := oFin
+   oFin:init( NIL, cModul, D_FI_VERZIJA, D_FI_PERIOD, cKorisn, cSifra, p3, p4, p5, p6, p7 )
 
-oFin:run()
+   IF p3 != NIL .AND. p3 == "SERVER"
+      RETURN .T.
+   ENDIF
 
-return
+   oFin:run()
+
+   RETURN

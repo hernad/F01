@@ -397,7 +397,7 @@ for i := nYearFrom to nYearTo
 
 	// prodji kroz podatke
 	
-	do whileSC !EOF()
+	DO WHILE not_key_esc() .AND. !EOF()
 	
 		cIdKonto := field->idkonto
    		cIdPartner := field->idpartner
@@ -434,7 +434,7 @@ for i := nYearFrom to nYearTo
    		nD2 := 0
 		nP2 := 0
 
-   		do whileSC !eof() .and. cIdKonto == field->idkonto ;
+   		DO WHILE not_key_esc() .AND. !eof() .and. cIdKonto == field->idkonto ;
 			.and. field->idpartner == cIdPartner ;
 			.and. RasclanRJ()
 		
@@ -582,7 +582,7 @@ select r_export
 set order to tag "1"
 go top
 
-do whileSC !EOF()
+DO WHILE not_key_esc() .AND. !EOF()
 	
 	cSin := LEFT( field->idkonto, 3 )
  	
@@ -591,7 +591,7 @@ do whileSC !EOF()
  	nKd2 := 0
 	nKp2 := 0
 
- 	do whileSC !EOF() .and.  cSin == LEFT( field->idkonto, 3 )
+ 	DO WHILE not_key_esc() .AND. !EOF() .and.  cSin == LEFT( field->idkonto, 3 )
    		
 		cIdKonto := field->idkonto
    		cIdPartner := field->idpartner

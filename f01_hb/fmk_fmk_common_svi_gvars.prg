@@ -1,4 +1,4 @@
-/* 
+/*
  * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
@@ -12,150 +12,146 @@
 
 #include "f01.ch"
 
-function SetFmkSGVars()
+FUNCTION f01_set_gvars_20()
+
+   SetSpecifVars()
+   SetValuta()
+
+   PUBLIC gFirma := "10"
+   PUBLIC gTS := "Preduzece"
+   PRIVATE cSection := "K", cHistory := " "; aHistory := {}
+   PUBLIC gNFirma := Space( 20 )  // naziv firme
+   PUBLIC gZaokr := 2
+   PUBLIC gTabela := 0
+   PUBLIC gPDV := ""
+
+   IF gModul == "FAKT" .OR. gModul == "FIN"
+      cSection := "1"
+   ENDIF
+
+   SELECT ( F_PARAMS )
+   IF !Used()
+      O_PARAMS
+   ENDIF
+
+   RPar( "za", @gZaokr )
+   Rpar( "fn", @gNFirma )
+   Rpar( "ts", @gTS )
+   Rpar( "tt", @gTabela )
+
+   IF gModul == "FAKT"
+      Rpar( "fi", @gFirma )
+   ELSE
+      Rpar( "ff", @gFirma )
+   ENDIF
+
+   IF !is_server_run() .AND. ( gModul <> "POS" .AND. gModul <> "TOPS" .AND. gModul <> "HOPS" )
+      IF Empty( gNFirma )
+         Box(, 1, 50 )
+         Beep( 1 )
+         @ m_x + 1, m_y + 2 SAY "Unesi naziv firme:" GET gNFirma PICT "@!"
+         READ
+         BoxC()
+         WPar( "fn", gNFirma )
+      ENDIF
+   ENDIF
+
+   // u sekciji 1 je pdv parametar
+   cSection := "1"
+
+   IF gModul <> "TOPS"
+      RPar( "PD", @gPDV )
+      ParPDV()
+      WPar( "PD", gPDV )
+   ENDIF
+
+   SELECT ( F_PARAMS )
+   USE
+
+   PUBLIC gPartnBlock
+   gPartnBlock := NIL
+
+   PUBLIC gSecurity
+   gSecurity := IzFmkIni( "Svi", "Security", "N", EXEPATH )
+
+   PUBLIC gnDebug
+   gnDebug := Val( IzFmkIni( "Svi", "Debug", "0", EXEPATH ) )
+
+   PUBLIC gNoReg
+   IF IzFmkIni( "Svi", "NoReg", "N", EXEPATH ) == "D"
+      gNoReg := .T.
+   ELSEIF IzFmkIni( "Svi", "NoReg", "N", EXEPATH ) == "N"
+      gNoReg := .F.
+   ELSE
+      gNoReg := .F.
+   ENDIF
+
+   PUBLIC gOpSist
+   gOpSist := IzFmkIni( "Svi", "OS", "-", EXEPATH )
+
+   PUBLIC cZabrana := "Opcija nedostupna za ovaj nivo !!!"
+
+   PUBLIC gNovine
+   gNovine := IzFmkIni( "STAMPA", "Opresa", "N", KUMPATH )
+
+   if is_server_run()
+	     RETURN .T.
+	 ENDIF
+
+   IF gModul <> "TOPS"
+      IF goModul:oDataBase:cRadimUSezona == "RADP"
+         SetPDVBoje()
+      ENDIF
+   ENDIF
+
+   RETURN .T.
 
 
-SetSpecifVars()
-SetValuta()
+FUNCTION SetPDVBoje()
 
-public gFirma:="10"
-public gTS:="Preduzece"
-private cSection:="K",cHistory:=" "; aHistory:={}
-public gNFirma:=space(20)  // naziv firme
-public gZaokr:=2
-public gTabela:=0
-public gPDV:=""
+   IF IsPDV()
+      PDVBoje()
+      goModul:oDesktop:showMainScreen()
+      StandardBoje()
+   ELSE
+      StandardBoje()
+      goModul:oDesktop:showMainScreen()
+      StandardBoje()
+   ENDIF
 
-if gModul=="FAKT" .or. gModul=="FIN"
-	cSection:="1"
-endif
-
-select (F_PARAMS)
-if !used()
-	O_PARAMS
-endif
-
-RPar("za",@gZaokr)
-Rpar("fn",@gNFirma)
-Rpar("ts",@gTS)
-Rpar("tt",@gTabela)
-
-if gModul=="FAKT"
-	Rpar("fi",@gFirma)
-else
-	Rpar("ff",@gFirma)
-endif
-
-if (gModul<>"POS" .and. gModul<>"TOPS" .and. gModul<>"HOPS")
-	if empty(gNFirma)
-	  Box(,1,50)
-	    Beep(1)
-	    @ m_x+1,m_y+2 SAY "Unesi naziv firme:" GET gNFirma pict "@!"
-	    read
-	  BoxC()
-	  WPar("fn",gNFirma)
-	endif
-endif
-
-// u sekciji 1 je pdv parametar
-cSection := "1"
-
-if gModul <> "TOPS"
-	RPar("PD",@gPDV)
-	ParPDV()
-	// odjavi gSql
-	//lSql:=.f.
-	//if gModul=="TOPS" .and. gSql=="D"
-	//	lSql:=.t.
-	//	gSql:="N"
-	//endif
-	WPar("PD",gPDV)
-	//if lSql
-	//	gSql:="D"
-	//endif
-endif
-
-select (F_PARAMS)
-use
-
-public gPartnBlock
-gPartnBlock:=NIL
-
-public gSecurity
-gSecurity:=IzFmkIni("Svi","Security","N",EXEPATH)
-
-public gnDebug
-gnDebug:=VAL(IzFmkIni("Svi","Debug","0",EXEPATH))
-
-public gNoReg
-if IzFmkIni("Svi","NoReg","N",EXEPATH)=="D"
-	gNoReg:=.t.
-elseif IzFmkIni("Svi","NoReg","N",EXEPATH)=="N"
-	gNoReg:=.f.
-else
-	gNoReg:=.f.
-endif
-
-public gOpSist
-gOpSist:=IzFmkIni("Svi","OS","-",EXEPATH)
-
-public cZabrana:="Opcija nedostupna za ovaj nivo !!!"
-
-public gNovine
-gNovine:=IzFmkIni("STAMPA","Opresa","N",KUMPATH)
-
-if gModul<>"TOPS"
-	if goModul:oDataBase:cRadimUSezona == "RADP"
-		SetPDVBoje()
-	endif
-endif
-
-return
-
-
-function SetPDVBoje()
-
-if IsPDV()
-	PDVBoje()
-	goModul:oDesktop:showMainScreen()
-	StandardBoje()
-else
-	StandardBoje()
-	goModul:oDesktop:showMainScreen()
-	StandardBoje()
-endif
-return
+   RETURN
 
 
 
-function SetValuta()
+FUNCTION SetValuta()
 
-// ako se radi o planici Novi Sad onda je naziv valute DIN
-public gOznVal
-if IsPlNS()
-	gOznVal:="DIN"
-else
-	gOznVal:="KM"
-endif
+   // ako se radi o planici Novi Sad onda je naziv valute DIN
+   PUBLIC gOznVal
+   IF IsPlNS()
+      gOznVal := "DIN"
+   ELSE
+      gOznVal := "KM"
+   ENDIF
 
-return
+   RETURN
 
 
 
 /*  ParPDV()
  *   Provjeri parametar pdv
  */
-function ParPDV()
+FUNCTION ParPDV()
 
-if (gPDV == "") .or. (gPDV $ "ND" .and. gModul=="TOPS")
-	// ako je tekuci datum >= 01.01.2006
-	if DATE() >= CToD("01.01.2006")
-		gPDV := "D"
-	else
-		gPDV := "N"
-	endif
-endif
-return
+   IF ( gPDV == "" ) .OR. ( gPDV $ "ND" .AND. gModul == "TOPS" )
+      // ako je tekuci datum >= 01.01.2006
+      IF Date() >= CToD( "01.01.2006" )
+         gPDV := "D"
+      ELSE
+         gPDV := "N"
+      ENDIF
+   ENDIF
+
+   RETURN
 
 
 
@@ -163,9 +159,10 @@ return
  *   Da li je pdv rezim rada ili ne
  *  \ret .t. or .f.
  */
-function IsPDV()
+FUNCTION IsPDV()
 
-if gPDV=="D"
-	return .t.
-endif
-return .f.
+   IF gPDV == "D"
+      RETURN .T.
+   ENDIF
+
+   RETURN .F.

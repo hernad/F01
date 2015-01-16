@@ -175,14 +175,14 @@ for i := nYearFrom to nYearTo
 	set filter to &cFilt1
 	go top
 
-	do whileSC !EOF()
+	DO WHILE not_key_esc() .AND. !EOF()
  		
 		cIdKonto := field->idkonto
      		
 		nd := 0
 		np := 0
 
-		do whileSC !eof() .and. cIdKonto == field->idkonto
+		DO WHILE not_key_esc() .AND. !eof() .and. cIdKonto == field->idkonto
        			
 			if lInSez = .t.
 				
@@ -257,14 +257,14 @@ select r_export
 set order to tag "1"
 go top
 
-do whileSC !eof()
+DO WHILE not_key_esc() .AND. !eof()
 	
 	cSin := left( field->idkonto, 3 )
 
  	nkd := 0
 	nkp := 0
  	
-	do whileSC !eof() .and. cSin == left( field->idkonto, 3 )
+	DO WHILE not_key_esc() .AND. !eof() .and. cSin == left( field->idkonto, 3 )
      		
 		cIdKonto := field->idkonto
 

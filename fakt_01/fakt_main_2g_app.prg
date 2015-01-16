@@ -224,14 +224,14 @@ return
  */
 
 method TFaktMod:setGVars()
+
 local cSekcija
 local cVar
 local cVal
 
 
-SetFmkRGVars()
-
-SetFmkSGVars()
+//f01_set_gvars_10()
+//f01_set_gvars_20()
 
 SetSpecifVars()
 

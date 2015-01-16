@@ -214,7 +214,7 @@ DO WHILE !EOF() .and. idfirma==cidfirma .AND. cIdKonto==IdKonto .and. cIdPartner
       nDug2:=nPot2:=0
       nDug:=nPot:=0
       aFaktura:={CTOD(""),CTOD(""),CTOD("")}
-      DO WHILESC !EOF() .and. idfirma==cidfirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner ;
+      DO WHILE not_key_esc() .AND. !EOF() .and. idfirma==cidfirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner ;
                  .and. brdok==cBrDok
          dDatDok:=min(max(datval,datdok),dDatDok)
          IF D_P=="1"

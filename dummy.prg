@@ -1,6 +1,6 @@
 /* net:127.0.0.1:2941:topsecret:data/_tst_ */
 
-//#define DBSERVER  "f01-srv"
+// #define DBSERVER  "f01-srv"
 
 #include "f01.ch"
 
@@ -11,128 +11,160 @@
 #define DBFILE    "_tst_"
 
 STATIC s_lConnected := NIL
+STATIC s_lServer := .F.
 
-function initfw()
+FUNCTION initfw()
 
-  //to nesto rtf koristili
-  RETURN
+   // to nesto rtf koristili
 
-function wwsjecistr()
+   RETURN
 
-  //to nesto koristeno za rtf
-  RETURN
+FUNCTION wwsjecistr()
+
+   // to nesto koristeno za rtf
+
+   RETURN
 
 
-function mkdir()
+FUNCTION mkdir()
 
-alert( "mkdir" )
-
+   Alert( "mkdir" )
 
 FUNCTION tekuci_direktorij()
- RETURN "." + SLASH
+   RETURN "." + SLASH
 
 FUNCTION modul_dir()
 
- // npr. SIGMA/KALK/
- RETURN MODULE_ROOT + SLASH + gModul + SLASH
+   // npr. SIGMA/KALK/
+
+   RETURN MODULE_ROOT + SLASH + gModul + SLASH
 
 
 FUNCTION mnu_narudzbenica()
-  return mnu_narudzba()
+   RETURN mnu_narudzba()
 
 FUNCTION rloptlevel()
-  RETURN 0
+   RETURN 0
 
 
-function cm2Str( xVal )
+FUNCTION cm2Str( xVal )
 
-  cType = VALTYPE( xVal )
-  cVal := hb_ValToStr( xVal )
+   cType = ValType( xVal )
+   cVal := hb_ValToStr( xVal )
 
-  IF cType == 'C'
-     cVal := "'" + cVal + "'"
-  ENDIF
+   IF cType == 'C'
+      cVal := "'" + cVal + "'"
+   ENDIF
 
-  IF cType == 'D'
-     cVal := "STOD('" + DTOS( xVal ) + "')"
-  ENDIF
+   IF cType == 'D'
+      cVal := "STOD('" + DToS( xVal ) + "')"
+   ENDIF
 
-  RETURN cVal
-
-
-function cmxAutoOpen ( lAuto )
-
-  return  Set( _SET_AUTOPEN, lAuto )
+   RETURN cVal
 
 
-function  SETPXLAT( xVal )
- return xVal
+FUNCTION cmxAutoOpen ( lAuto )
+
+   RETURN  SET( _SET_AUTOPEN, lAuto )
 
 
-function hb_symbol_unused()
+FUNCTION  SETPXLAT( xVal )
+   RETURN xVal
 
 
-function f01_server()
+FUNCTION hb_symbol_unused()
 
-  IF is_install()
+FUNCTION f01_server()
+
+   IF is_install() .OR. is_server_run()
       // lokalno pristupiti
       RETURN ""
-  ENDIF
+   ENDIF
 
-  RETURN ""
-  //RETURN 'net:' + DBSERVER + ':' +   hb_ntos( DBPORT ) + ':' + DBPASSWD + ':'
+   RETURN 'net:' + DBSERVER + ':' +   hb_ntos( DBPORT ) + ':' + DBPASSWD + ':'
 
 
 FUNCTION connect_to_f01_server()
 
+   IF is_server_run()
+      RETURN .T.
+   ENDIF
 
-  IF s_lConnected != NIL
-    RETURN .T.
-  ENDIF
+   IF s_lConnected != NIL
+      RETURN .T.
+   ENDIF
 
-  s_lConnected := netio_Connect( DBSERVER, DBPORT,, DBPASSWD )
+   s_lConnected := netio_Connect( DBSERVER, DBPORT,, DBPASSWD )
 
-  IF !s_lConnected
-    ? "Cannot connect to NETIO server !!!"
-    WAIT "Press any key to exit..."
-    QUIT
-  ENDIF
+   IF !s_lConnected
+      ? "Cannot connect to NETIO server !!!"
+      WAIT "Press any key to exit..."
+      QUIT
+   ENDIF
 
-  RETURN .T.
+   RETURN .T.
 
 
 FUNCTION my_dbUseArea( lNew, xRdd, cDb, cAlias, lShared, lReadOnly )
 
-   cDb := f01_server() + ChangeEXT(cDb, DBFEXT, "DBF")
-   RETURN dbUseArea( lNew, xRdd, cDb, cAlias, lShared , lReadOnly )                                               ;
+   cDb := f01_server() + ChangeEXT( cDb, DBFEXT, "DBF" )
+
+   RETURN dbUseArea( lNew, xRdd, cDb, cAlias, lShared, lReadOnly )                                               ;
 
 
-FUNCTION testMain()
+      FUNCTION testMain()
 
-   ? "hello world"
-   inkey(0)
+? "hello world"
+Inkey( 0 )
+
    RETURN .T.
 
 FUNCTION run_ext_command( cCommand )
 
- RUN cCommand
+   RUN cCommand
 
+FUNCTION OL_Yield()
 
-FUNCTION OL_YIELD()
-
-  RETURN hb_idleSleep()
+   RETURN hb_idleSleep()
 
 
 PROCEDURE f01_init_harbour()
 
-  SET CENTURY OFF
-  SET EPOCH TO 1960
-  SET DATE TO GERMAN
+   SET CENTURY OFF
+   SET EPOCH TO 1960
+   SET DATE TO GERMAN
 
-  SET DELETED ON
+   SET DELETED ON
 
-  hb_cdpSelect( "SL852" )
-  hb_SetTermCP( "SLISO" )
+   hb_cdpSelect( "SL852" )
+   hb_SetTermCP( "SLISO" )
+
+   RETURN
 
 
-  RETURN
+FUNCTION is_server_run( xVal )
+
+   IF xVal != NIL
+      s_lServer := xVal
+   ENDIF
+
+   RETURN s_lServer
+
+
+/*
+   DO WHILE not_key_esc()
+*/
+
+FUNCTION not_key_esc()
+
+   IF Inkey() == 27
+      dbCloseAll()
+      SET( _SET_DEVICE, "SCREEN" )
+      SET( _SET_CONSOLE, "ON" )
+      SET( _SET_PRINTER, "" )
+      SET( _SET_PRINTFILE, "" )
+      MsgC()
+      RETURN     .F.
+   ENDIF
+
+   RETURN .T.

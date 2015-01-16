@@ -158,9 +158,9 @@ START PRINT  CRET
 nDugBHD:=nPotBHD:=0
 
 
-DO WHILESC !EOF() .and. cIDFirma==idfirma .AND. cIdKonto=IdKonto
+DO WHILE not_key_esc() .AND. !EOF() .and. cIDFirma==idfirma .AND. cIdKonto=IdKonto
    cIdPartner:=IdPartner
-   DO WHILESC  !EOF() .and. cIDFirma==idfirma .AND. cIdKonto=IdKonto .and. cIdPartner=IdPartner
+   DO WHILE not_key_esc() .AND.  !EOF() .and. cIDFirma==idfirma .AND. cIdKonto=IdKonto .and. cIdPartner=IdPartner
 
 
          if prow()==0; ZaglSpK(); endif
@@ -168,7 +168,7 @@ DO WHILESC !EOF() .and. cIDFirma==idfirma .AND. cIdKonto=IdKonto
 
          cBrDok:=BrDok
          nIznD:=0; nIznP:=0
-         do WHILESC  !EOF() .AND. cIdKonto=IdKonto .and. cIdPartner=IdPartner ;
+         DO WHILE not_key_esc() .AND.  !EOF() .AND. cIdKonto=IdKonto .and. cIdPartner=IdPartner ;
                   .and. cBrDok==BrDok
             if D_P=="1"; nIznD+=IznosBHD; else; nIznP+=IznosBHD; endif
             SKIP
@@ -373,7 +373,7 @@ EOF CRET
 
 if cPobSt=="D" .and. Pitanje(,"Zelite li zaista pobrisati markere ??","N")=="D"
 	MsgO("Brisem markere ...")
-	DO WHILESC !eof() .AND. idfirma==cidfirma .and. cIdKonto=IdKonto // konto
+	DO WHILE not_key_esc() .AND. !eof() .AND. idfirma==cidfirma .and. cIdKonto=IdKonto // konto
 	    if !Empty(cIdPart)
 	    	if (cIdPart <> idpartner)
 			skip
@@ -393,7 +393,7 @@ nC:=0
 
 seek cidfirma+cidkonto
 EOF CRET
-DO WHILESC !eof() .AND. idfirma==cidfirma .and. cIdKonto=IdKonto // konto
+DO WHILE not_key_esc() .AND. !eof() .AND. idfirma==cidfirma .and. cIdKonto=IdKonto // konto
 
    if !Empty(cIdPart)
    	if (cIdPart <> idpartner)
@@ -405,7 +405,7 @@ DO WHILESC !eof() .AND. idfirma==cidfirma .and. cIdKonto=IdKonto // konto
    cBrDok=BrDok
    cOtvSt:=" "
    nDugBHD:=nPotBHD:=0
-   DO WHILESC !eof() .AND. idfirma==cidfirma .AND. cIdKonto=IdKonto .AND. cIdPartner=IdPartner .AND. cBrDok==BrDok
+   DO WHILE not_key_esc() .AND. !eof() .AND. idfirma==cidfirma .AND. cIdKonto=IdKonto .AND. cIdPartner=IdPartner .AND. cBrDok==BrDok
    // partner, brdok
       IF D_P="1"
          nDugBHD+=IznosBHD
@@ -420,7 +420,7 @@ DO WHILESC !eof() .AND. idfirma==cidfirma .and. cIdKonto=IdKonto // konto
    IF ABS(round(nDugBHD-nPotBHD,3)) <= gnLOSt .AND. cOtvSt=="1"
       SEEK cIdFirma+cIdKonto+cIdPartner+cBrDok
       @ m_x+1,m_y+12 SAY ++nC  // brojac zatvaranja
-      DO WHILESC !eof() .AND. cIdKonto=IdKonto .and. cIdPartner == IdPartner .and. cBrDok=BrDok
+      DO WHILE not_key_esc() .AND. !eof() .AND. cIdKonto=IdKonto .and. cIdPartner == IdPartner .and. cBrDok=BrDok
             REPLACE OtvSt WITH "9"
             SKIP
       ENDDO
@@ -822,7 +822,7 @@ else
  seek cidfirma+cidkonto+cidpartner
 endif
 
-DO WHILESC !EOF() .and. idfirma==cidfirma .AND. cIdKonto==IdKonto
+DO WHILE not_key_esc() .AND. !EOF() .and. idfirma==cidfirma .AND. cIdKonto==IdKonto
 
     if bFilter<>NIL
       if ! eval(bFilter) ; skip; loop; endif
@@ -834,7 +834,7 @@ DO WHILESC !EOF() .and. idfirma==cidfirma .AND. cIdKonto==IdKonto
     nUDug2:=nUPot2:=0
     nUDug:=nUPot:=0
     fPrviprolaz:=.t.
-    DO WHILESC !EOF() .and. idfirma==cidfirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner
+    DO WHILE not_key_esc() .AND. !EOF() .and. idfirma==cidfirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner
 
           if bFilter<>NIL
             if ! eval(bFilter) ; skip; loop; endif
@@ -843,7 +843,7 @@ DO WHILESC !EOF() .and. idfirma==cidfirma .AND. cIdKonto==IdKonto
           nDug2:=nPot2:=0
           nDug:=nPot:=0
           aFaktura:={CTOD(""),CTOD(""),CTOD("")}
-          DO WHILESC !EOF() .and. idfirma==cidfirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner ;
+          DO WHILE not_key_esc() .AND. !EOF() .and. idfirma==cidfirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner ;
                      .and. brdok==cBrDok
              IF D_P=="1"
                 nDug+=IznosBHD
@@ -1002,7 +1002,7 @@ IF !fTiho .and. lEx   // ako je EXCLUSIVE, sada tek stampaj
     fPrviProlaz:=.t.
     cIdPartner:=IDPARTNER
     nUDug:=nUPot:=nUDug2:=nUPot2:=0
-    DO WHILESC !EOF() .and. cIdPartner==IdPartner
+    DO WHILE not_key_esc() .AND. !EOF() .and. cIdPartner==IdPartner
       IF prow()>52+gPStranica; FF; ZagKStSif(.t.,lEx); fPrviProlaz:=.f.; ENDIF
       if fPrviProlaz
          ZagkStSif(,lEx)
@@ -1217,7 +1217,7 @@ seek cidfirma+cidkonto+cidpartner+cBrDok
 nDug2:=nPot2:=0
 nDug:=nPot:=0
 ZagBRVeze()
-DO WHILESC !EOF() .and. idfirma==cidfirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner ;
+DO WHILE not_key_esc() .AND. !EOF() .and. idfirma==cidfirma .AND. cIdKonto==IdKonto .and. cIdPartner==IdPartner ;
         .and. brdok==cBrDok
 
          IF prow()>63+gPStranica; FF; ZagBRVeze(); ENDIF
@@ -1492,7 +1492,7 @@ do while .t.
     cIdPartner:=IdPartner
 
     fProsao:=.f.
-    do whilesc !eof() .and. IdFirma==cIdFirma .and. cIdPartner==idpartner .and. (idkonto==qqkonto .or. idkonto==qqkonto2)
+    DO WHILE not_key_esc() .AND. !eof() .and. IdFirma==cIdFirma .and. cIdPartner==idpartner .and. (idkonto==qqkonto .or. idkonto==qqkonto2)
 
           cIdKonto:=idkonto
           cOtvSt:=OtvSt
@@ -1513,7 +1513,7 @@ do while .t.
           nDBHD:=nPBHD:=nDDEM:=nPDEM:=0
           if cPovezi=="D"
              cBrDok:=brdok
-             do whilesc !eof() .and. IdFirma==cIdFirma .and. cIdpartner==idpartner .and. (idkonto==qqkonto .or. idkonto==qqkonto2) .and. brdok==cBrdok
+             DO WHILE not_key_esc() .AND. !eof() .and. IdFirma==cIdFirma .and. cIdpartner==idpartner .and. (idkonto==qqkonto .or. idkonto==qqkonto2) .and. brdok==cBrdok
                 IF D_P=="1"
                   nDBHD+=iznosbhd
                   nDDEM+=iznosdem

@@ -62,7 +62,15 @@ FUNCTION f01_start( oApp, lSezone )
    ENDIF
 
    SetgaSDbfs()
-   SetScGVars()
+   f01_set_global_vars()
+
+   if !goModul:lStarted
+
+     cDirPriv:=""
+     cDirRad:=""
+     cDirSif:=""
+
+   endif
 
    gModul := oApp:cName
    gVerzija := oApp:cVerzija
@@ -75,7 +83,6 @@ FUNCTION f01_start( oApp, lSezone )
    ENDIF
 
    SetNaslov( oApp )
-
 
    IF mpar37( "/INSTALL", oApp )
       oApp:oDatabase:lAdmin := .T.
@@ -105,7 +112,6 @@ FUNCTION f01_start( oApp, lSezone )
    ENDIF
 
    IF mpar37( "/FN_ON_STARTUP:", oApp )
-
       oApp:setGVars()
       cStartFn := param_desni_dio()
       &cStartFn
@@ -141,7 +147,7 @@ FUNCTION f01_start( oApp, lSezone )
       SetOznNoGod()
    ENDIF
 
-   gReadOnly := ( IzFmkIni( "FMK", "ReadOnly", "N" ) == "D" )
+   gReadOnly := .F.
 
    SET EXCLUSIVE OFF
 
@@ -835,6 +841,8 @@ FUNCTION Prijava( oApp, lScreen )
    USE
 
    // silent
+   altd()
+
    SetDirs( oApp, .F. )
 
    CLOSERET
@@ -990,6 +998,8 @@ FUNCTION SetDirs( oApp, lScreen )
    IF lScreen == nil
       lScreen := .T.
    ENDIF
+
+   altd()
 
    SELECT ( F_KORISN )
    USE

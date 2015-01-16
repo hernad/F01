@@ -556,14 +556,14 @@ go bottom
 nRbr:=VAL(rbr)
 select suban
 
-do whileSC !eof()
+DO WHILE not_key_esc() .AND. !eof()
 	cSin:=LEFT(idkonto, 3)
  	nKd:=0
  	nKp:=0
  	nKd2:=0
  	nKp2:=0
 
- 	do whileSC !eof() .and.  cSin==LEFT(idkonto, 3)
+ 	DO WHILE not_key_esc() .AND. !eof() .and.  cSin==LEFT(idkonto, 3)
      		cIdKonto:=IdKonto
      		cIdPartner:=IdPartner
 		if gRj=="D"
@@ -580,7 +580,7 @@ do whileSC !eof()
 			bCond := {|| cIdKonto==IdKonto .and. IdPartner==cIdPartner}
      		endif
 
-		do whileSC !eof() .and. EVAL(bCond)
+		DO WHILE not_key_esc() .AND. !eof() .and. EVAL(bCond)
          		if d_P=="1"
            			nD+=iznosbhd
            			nD2+=iznosdem

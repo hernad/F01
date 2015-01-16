@@ -11,48 +11,9 @@
 
 
 #include "f01.ch"
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software
- * ----------------------------------------------------------------
- */
 
 
-/****v SC_BASE/gVeryBusyInterval ***
-
-*AUTOR
- Ernad Husremovic ernad@sigma-com.net
-
-*IME
- gVeryBusyInterval
-
-*OPIS
- gVeryBusyInterval:=IzFmkINI('Gateway','VeryBusyInterval','70', EXEPATH )
-
- Broj sekundi nakon kojih ce se provjeravati da li je gateway
- zauzet.
- Preporuceno:
- 70 - na kasama
- 20 - u knjigovodstvu
-
-****/
-
-/****v SC_BASE/gKonvertPath ***
-
-*AUTOR
- Ernad Husremovic ernad@sigma-com.net
-
-*IME
- gKonvertPath
-
-*OPIS
- IzFmkINI('FMK','KonvertPath','N', EXEPATH )
- D - konvertovati vrijednost varijabli koje predstavljaju lokacije
-     podataka
-
-****/
-
-function SetScGVars()
+function f01_set_global_vars()
 
 
 public ZGwPoruka:=""
@@ -121,12 +82,6 @@ gPFont:="Arial"
 public gKodnaS:="8"
 public gWord97:="N"
 public g50f:=" "
-
-if !goModul:lStarted
-	public cDirPriv:=""
-	public cDirRad:=""
-	public cDirSif:=""
-endif
 
 PUBLIC StaraBoja
 StarBoja:=SETCOLOR()

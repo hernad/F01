@@ -12,71 +12,12 @@
 
 #include "f01.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software
- * ----------------------------------------------------------------
- */
-
-/* file sc2g/db/db.prg
- *   Bazni Database objekat
- *
- * Bazni Database objekat
- */
 
 function TDBNew(oDesktop, cDirPriv, cDirKum, cDirSif)
 
 local oObj
 
-#ifdef CLIP
-
-oObj:=map()
-
-oObj:oDesktop:=nil
-oObj:oApp:=nil
-oObj:cName:=nil
-
-oObj:cSezona:=nil
-oObj:cRadimUSezona:=nil
-
-oObj:cSezonDir:=""
-
-oObj:cBase:=nil
-oObj:cSigmaBD:=nil
-
-oObj:cUser:=nil
-oObj:nPassword:=nil
-oObj:nGroup1:=nil
-oObj:nGroup2:=nil
-oObj:nGroup3:=nil
-
-oObj:cDirPriv:=nil
-oObj:cDirKum:=nil
-oObj:cDirSif:=nil
-oObj:lAdmin:=nil
-oObj:radiUSezonskomPodrucju:=@radiUSezonskomPodrucju()
-oObj:loadSezonaRadimUSezona:=@loadSezonaRadimUSezona()
-oObj:saveSezona:=@saveSezona()
-oObj:saveRadimUSezona:=@saveRadimUSezona()
-oObj:logAgain:=@logAgain()
-oObj:modstruAll:=@modstruAll()
-oObj:setDirPriv:=@setDirPriv()
-oObj:setDirSif:=@setDirSif()
-oObj:setDirKum:=@setDirKum()
-oObj:setSigmaBD:=@setSigmaBD()
-oObj:setUser:=@setUser()
-oObj:setPassword:=@setPassword()
-oObj:setGroup1:=@setGroup1()
-oObj:setGroup2:=@setGroup2()
-oObj:setGroup3:=@setGroup3()
-oObj:mInstall:=@mInstall()
-oObj:vratiSez:=@vratiSez()
-oObj:setIfNil:=@setIfNil()
-oObj:scan:=@scan()
-oObj:self:=oObj
-#else
-  oObj:=TDB():new()
-#endif
+oObj:=TDB():new()
 
 oObj:oDesktop:=oDesktop
 oObj:cDirPriv:=cDirPriv
@@ -86,63 +27,7 @@ oObj:lAdmin:=.f.
 return oObj
 
 
-#ifdef CPP
 
-/* class TDB
- *   Bazni Database objekat
- */
-
-class TDB
-{
-	public:
-	TDesktop oDesktop;
-	TApp oApp;
-	string cName;
-
-	string cSezona;
-	string cRadimUSezona;
-
-	string cSezonDir;
-	string cBase;
-
-	string cDirPriv;
-	string cDirKum;
-	string cDirSif;
-	string cSigmaBD;
-
-	string cUser;
-	integer nPassword;
-	integer nGroup1;
-	integer nGroup2;
-	integer nGroup3;
-
-	bool lAdmin;
-	*void radiUSezonskomPodrucju(bool lForceRadno);
-	*void logAgain(string cSezona, bool lSilent, bool lWriteKParam);
-	*void vratiSez();
-	*void loadSezonaRadimUSezona();
-	*void saveSezona(string cValue);
-	*void saveRadimUSezona(string cValue);
-	*void modstruAll();
-	*string setDirKum(string cDir);
-	*string setSigmaBD(string cDir);
-	*string setUser(string cUser);
-	*integer setPassword(integer nPassword);
-	*integer setGroup1(integer nGroup);
-	*integer setGroup2(integer nGroup);
-	*integer setGroup3(integer nGroup);
-	*string setDirSif(string cDir);
-	*string setDirPriv(string cDir);
-	*void mInstall();
-	*void setIfNil();
-	*void scan();
-}
-
-#endif
-
-
-#ifndef CPP
-#ifndef CLIP
 
 #include "class(y).ch"
 CREATE CLASS TDB
@@ -188,8 +73,6 @@ CREATE CLASS TDB
 
 END CLASS
 
-#endif
-#endif
 
 /* var TDB:lAdmin
  *   True - admin rezim, False - normalni pristup podacima
@@ -220,14 +103,8 @@ if ::lAdmin
 endif
 
 CLOSE ALL
-//#ifdef CAX
-//	close all
-//#else
-//
-//if !UGlavnomMeniju()
-//		return
-//	endif
-//#endif
+
+
 
 ::setIfNil()
 
@@ -344,10 +221,6 @@ JelReadOnly()
 return
 
 
-
-*void TDB::modstruAll()
-
-
 method modstruAll()
 local i
 ::lAdmin:=.t.
@@ -377,10 +250,6 @@ use
 return
 
 
-
-
-*string TDB::setDirPriv(string cDir)
-
 method setDirPriv(cDir)
 local cPom
 
@@ -400,10 +269,7 @@ cDirPriv:=::cDirPriv
 return cPom
 
 
-
-*string TDB::setDirSif(string cDir)
-
-method setDirSif(cDir)
+method TDb:setDirSif(cDir)
 local cPom
 
 // dosadasnja vrijednost varijable
@@ -415,16 +281,13 @@ if (gKonvertPath=="D")
 endif
 ::cDirSif:=ToUnix(cDir)
 
-// setuj i globalnu varijablu dok ne eliminisemo sve pozive na tu varijablu
-cDirSif:=::cDirSif
+
+cDirSif := ::cDirSif
 
 return cPom
 
 
-
-*string TDB::setDirKum(string cDir)
-
-method setDirKum(cDir)
+method TDb:setDirKum(cDir)
 local cPom
 
 // dosadasnja vrijednost varijable
@@ -435,25 +298,17 @@ if (gKonvertPath=="D")
 endif
 ::cDirKum:=ToUnix(cDir)
 
-// setuj i globalnu varijablu dok ne eliminisemo sve pozive na tu varijablu
 
-/* todo Eliminsati ovu nepotrebnu dvojnost cDirRad, cDirKum -> sve prebaciti na cDirKum !
- */
-
-#ifndef CLIP
 cDirKum:=::cDirKum
 cDirRad:=::cDirKum
-#endif
+
 
 SET(_SET_DEFAULT,trim(cDir))
 
 return cPom
 
 
-
-*string TDB::setSigmaBD(string cDir)
-
-method setSigmaBD(cDir)
+method TDb:setSigmaBD(cDir)
 local cPom
 // dosadasnja vrijednost varijable
 cPom:=::cSigmaBD
@@ -466,9 +321,7 @@ return cPom
 
 
 
-*string TDB::setUser(string cUser)
-
-method setUser(cUser)
+method TDb:setUser(cUser)
 local cPom
 // dosadasnja vrijednost varijable
 cPom:=::cUser
@@ -476,21 +329,14 @@ cPom:=::cUser
 return cPom
 
 
-
-*string TDB::setPassword(integer nPassword)
-
-method setPassword(nPassword)
+method TDb:setPassword(nPassword)
 local nPom
 // dosadasnja vrijednost varijable
 nPom:=::nPassword
 ::nPassword:=nPassword
 return nPom
 
-
-
-*string TDB::setGroup1(integer nGroup)
-
-method setGroup1(nGroup)
+method TDb:setGroup1(nGroup)
 local nPom
 // dosadasnja vrijednost varijable
 nPom:=::nGroup1
@@ -498,10 +344,7 @@ nPom:=::nGroup1
 return nPom
 
 
-
-*string TDB::setGroup2(integer nGroup)
-
-method setGroup2(nGroup)
+method TDb:setGroup2(nGroup)
 local nPom
 // dosadasnja vrijednost varijable
 nPom:=::nGroup2
@@ -509,10 +352,7 @@ nPom:=::nGroup2
 return nPom
 
 
-
-*string TDB::setGroup3(integer nGroup)
-
-method setGroup3(nGroup)
+method TDb:setGroup3(nGroup)
 local nPom
 // dosadasnja vrijednost varijable
 nPom:=::nGroup3
@@ -521,16 +361,8 @@ return nPom
 
 
 
+method TDb:mInstall()
 
-
-/*  TDB::mInstall()
- *   meni install database funkcija
- *  biljeska: bivsa funkcija Sistem
- */
-
-*void TDB::mInstall()
-
-method mInstall()
 local i, cPom, aLst
 private nOldIzbor
 private opc:={}
@@ -569,17 +401,13 @@ AADD(opcexe, nil)
 AADD(opc,"X. arhiviraj na diskete")
 AADD(opcexe, {|| StaviUArj() })
 AADD(opc,"Y. konverzija znakova u bazama")
-#ifdef CLIP
-	AADD(opcexe, {|| self:konvZn() })
-#else
+
 	AADD(opcexe, {|| ::konvZn() })
-#endif
+
 AADD(opc,"F. ostale funkcije")
-#ifdef CLIP
-	AADD(opcexe, {|| self:ostalef() })
-#else
+
 	AADD(opcexe, {|| ::ostalef() })
-#endif
+
 AADD(opc,"-------------------")
 AADD(opcexe, nil)
 
@@ -613,9 +441,6 @@ if ::oApp:limitKLicence(AL_GOLD)
 	return
 endif
 
-//if !UGlavnomMeniju()
-//   return
-//endif
 
 ::lAdmin:=.t.
 

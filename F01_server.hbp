@@ -1,9 +1,16 @@
 -o${hb_name}
-#-shared
 
 #{F18_GT_QTC}-DF18_GT_QTC
 
 F01_server.prg
+init_f01.prg
+fin_01/*.prg
+kalk_01/*.prg
+fakt_01/*.prg
+f01_hb/*.prg
+dummy.prg
+
+
 #dummy.prg
 hbnetio.hbc
 hbct.hbc

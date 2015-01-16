@@ -1,7 +1,7 @@
 -shared
 -n
 -inc
-#-uinclude/std.ch
+-uinclude/std.ch
 
 -ifmk_lib
 -iinclude
