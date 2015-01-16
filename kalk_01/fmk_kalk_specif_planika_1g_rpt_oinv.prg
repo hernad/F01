@@ -703,7 +703,7 @@ IF XXX=1
 		//if gPrinter<>"R"
 		// ?? chr(27)+"2"
 		//endif
-		end print
+		ENDPRINT
 		if cObrnivelacije=="N" .and. xxx=1
    			exit
 		endif

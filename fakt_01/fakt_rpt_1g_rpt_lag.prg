@@ -738,7 +738,7 @@ if cPoTar=="D"
 endif
 
 FF
-END PRINT
+ENDPRINT
 
 
 CLOSE ALL

@@ -578,7 +578,7 @@ for i := 1 to LEN( aError )
 next
 
 FF
-END PRINT
+ENDPRINT
 
 return
 
@@ -700,7 +700,7 @@ for i := 1 to LEN( aError )
 next
 
 FF
-END PRINT
+ENDPRINT
 
 return
 
@@ -846,7 +846,7 @@ for i := 1 to LEN( aError )
 next
 
 FF
-END PRINT
+ENDPRINT
 
 
 return
@@ -1065,7 +1065,7 @@ for i := 1 to LEN( aError )
 next
 
 FF
-END PRINT
+ENDPRINT
 
 
 return

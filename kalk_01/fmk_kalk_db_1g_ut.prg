@@ -1571,7 +1571,7 @@ next
 ?
 
 FF
-END PRINT
+ENDPRINT
 
 return
 

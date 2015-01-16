@@ -1544,7 +1544,7 @@ if cIdVd=="24"
 endif
 
 if cIdVd=="24"
-	END PRINT
+	ENDPRINT
 endif
 
 if !fStara .or. lAuto == .t.

@@ -276,7 +276,7 @@ endif
 set filter to  // ukini filter
 
 FF
-END PRINT
+ENDPRINT
 
 return
 

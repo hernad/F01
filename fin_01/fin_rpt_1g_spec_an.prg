@@ -337,7 +337,7 @@ endif
 ? m
 
 FF
-END PRINT
+ENDPRINT
 
 closeret
 

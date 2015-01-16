@@ -808,7 +808,7 @@ ENDIF
 ?
 enddo
 FF
-end print
+ENDPRINT
 
 closeret
 return

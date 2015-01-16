@@ -1080,7 +1080,7 @@ if (IsPlanika())
 endif
 
 FF
-end print
+ENDPRINT
 
 if fimagresaka
   MsgBeep("Pogledajte artikle za koje je u izvjestaju stavljena oznaka ERR - GRESKA")

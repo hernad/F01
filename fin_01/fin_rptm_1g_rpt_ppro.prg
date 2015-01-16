@@ -161,7 +161,7 @@ ENDDO
 ? m
 
 FF
-END PRINT
+ENDPRINT
 
 CLOSERET
 return

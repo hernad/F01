@@ -97,7 +97,7 @@ P_10CPI
 @ prow(), pcol()+1 SAY STR( nT_uk, _NUM, _DEC ) PICT PIC_IZN
 
 FF
-END PRINT
+ENDPRINT
 
 return
 

@@ -918,7 +918,7 @@ if ci4=="D"
 endif
 
 
-END PRINT
+ENDPRINT
 CLOSERET
 return
 
@@ -1408,7 +1408,7 @@ EndIF
 B_OFF
 ? m1
 FF
-END PRINT
+ENDPRINT
 return
 
 

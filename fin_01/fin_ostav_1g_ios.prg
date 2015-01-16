@@ -241,7 +241,7 @@ ENDIF
 @ prow()+1,0 SAY M
 
 FF
-END PRINT
+ENDPRINT
 closeret
 return
 
@@ -354,7 +354,7 @@ DO WHILE !eof()
 ENDDO
 
 FF
-end print
+ENDPRINT
 
 // lansiraj report....
 if lExpDbf == .t.
@@ -425,7 +425,7 @@ DO WHILE !eof()
 ENDDO
 
 FF
-END PRINT
+ENDPRINT
 closeret
 return
 
@@ -492,7 +492,7 @@ DO WHILE !eof() .AND. cIdFirma=IdFirma .AND. cIdKonto=IdKonto .AND. cIdPartner=I
 ENDDO
 
 //FF
-end print
+ENDPRINT
 closeret
 return
 

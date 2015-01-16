@@ -646,7 +646,7 @@ if LEN(aPomFakt) > 0
 	?
 
 	FF
-	END PRINT
+	ENDPRINT
 
 	aFakt := aPomFakt
 	return 0
@@ -684,7 +684,7 @@ if (LEN(aPomArt) > 0 )
 	endif
 
 	FF
-	END PRINT
+	ENDPRINT
 
 	return .f.
 endif

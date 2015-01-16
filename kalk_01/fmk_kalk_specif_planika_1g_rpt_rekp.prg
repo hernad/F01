@@ -284,7 +284,7 @@ if cpnab=="D"
 endif
 ? m
 FF
-end print
+ENDPRINT
 
 #ifdef CAX
  if gKalks

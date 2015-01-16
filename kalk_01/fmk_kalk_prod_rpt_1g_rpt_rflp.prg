@@ -381,7 +381,7 @@ if IsPlanika()
 endif
 
 FF
-end print
+ENDPRINT
 
 closeret
 return

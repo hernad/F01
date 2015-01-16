@@ -231,7 +231,7 @@ if lImaUkSt
 endif
 
 FF
-END PRINT
+ENDPRINT
 
 closeret
 return

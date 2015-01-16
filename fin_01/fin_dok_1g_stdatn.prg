@@ -201,7 +201,7 @@ ENDIF
 ? m
 
 FF
-END PRINT
+ENDPRINT
 
 #ifndef CAX
 closeret
@@ -315,7 +315,7 @@ LOCAL cMjGod:=""
     PrenosDNal()
   ENDIF
 
-  END PRINT
+  ENDPRINT
 
 CLOSERET
 return

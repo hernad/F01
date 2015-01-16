@@ -104,7 +104,7 @@ START PRINT CRET
 
 StSubNal("2")
 
-END PRINT
+ENDPRINT
 closeret
 return
 
@@ -257,7 +257,7 @@ nCol1:=70
 
 FF
 
-END PRINT
+ENDPRINT
 
 if fkum
 #ifdef CAX

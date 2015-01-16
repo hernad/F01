@@ -1051,7 +1051,7 @@ for i:=1 to LEN(aStrings)
 
 next
 
-END PRINT
+ENDPRINT
 FF
 
 return

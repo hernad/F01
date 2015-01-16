@@ -157,7 +157,7 @@ do while !EOF()
 enddo
 
 FF
-END PRINT
+ENDPRINT
 
 select (nTArea)
 

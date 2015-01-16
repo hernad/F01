@@ -283,7 +283,7 @@ if IsPlanika()
 endif
 
 FF
-END PRINT
+ENDPRINT
 
 closeret
 return

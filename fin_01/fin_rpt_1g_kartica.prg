@@ -1022,7 +1022,7 @@ endif
 endif
 
 FF
-END PRINT
+ENDPRINT
 
 // export podataka, dbf
 if cExpDbf == "D"
@@ -1775,7 +1775,7 @@ endif
   ?
 enddo
 FF
-END PRINT
+ENDPRINT
 #ifndef CAX
 closeret
 #endif

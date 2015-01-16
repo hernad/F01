@@ -557,7 +557,7 @@ FF
 
 gvim_end()
 
-//end print
+//ENDPRINT
 
 #ifdef CAX
 close all

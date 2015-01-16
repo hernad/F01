@@ -259,7 +259,7 @@ nCol1:=pcol()+1
 
 ? m
 FF
-END PRINT
+ENDPRINT
 
 #ifdef CAX
  if gKalks; select kalk; use; endif

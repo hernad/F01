@@ -1173,7 +1173,7 @@ for i:=1 to LEN( aCtrl )
 next
 
 FF
-END PRINT
+ENDPRINT
 
 select (nTArea)
 return

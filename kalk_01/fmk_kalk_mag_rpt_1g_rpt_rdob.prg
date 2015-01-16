@@ -94,7 +94,7 @@ function PRobDob()
         ,,;
                                 {|| FForPRD1()},IF(gOstr=="D",,-1),,,,,)
    FF
-   END PRINT
+   ENDPRINT
  ELSE
    // kao kartica
    // -----------
@@ -123,7 +123,7 @@ function PRobDob()
         ,,;
                                 {|| FForPRD2()},IF(gOstr=="D",,-1),,,,,)
    FF
-   END PRINT
+   ENDPRINT
  ENDIF
 
 CLOSERET

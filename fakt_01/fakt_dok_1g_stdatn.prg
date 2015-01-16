@@ -590,7 +590,7 @@ if cRTarifa=="D" .and. empty(cImeKup) .and. qqTipDok $ "11#13#27"  // racun malo
 endif
 
 FF
-END PRINT
+ENDPRINT
 
 closeret
 return
@@ -1737,7 +1737,7 @@ endif
 set filter to  // ukini filter
 
 FF
-END PRINT
+ENDPRINT
 
 return
 

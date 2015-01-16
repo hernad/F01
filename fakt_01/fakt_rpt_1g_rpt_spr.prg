@@ -652,7 +652,7 @@ if lExpRpt
 endif
 
 FF
-END PRINT
+ENDPRINT
 
 // lansiraj export....
 if lExpRpt

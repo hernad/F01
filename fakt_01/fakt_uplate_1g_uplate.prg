@@ -326,7 +326,7 @@ enddo
 go (nRec)
 
 FF
-END PRINT
+ENDPRINT
 
 return nil
 
@@ -463,7 +463,7 @@ enddo
 ?
 ? " "+PADC(ALLTRIM(STR(nStrana))+". i posljednja strana",78)
 FF
-END PRINT
+ENDPRINT
 
 CLOSERET
 return nil

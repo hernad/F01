@@ -285,7 +285,7 @@ DO WHILE !EOF()
       @ prow()+1,55 SAY "Kontirao   "; ?? replicate("_",20)
     endif
     FF
-    END PRINT
+    ENDPRINT
 
 ENDDO   // eof()
 
@@ -916,7 +916,7 @@ nCol1:=70
 
 FF
 
-END PRINT
+ENDPRINT
 
 if fkum
  closeret2

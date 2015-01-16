@@ -104,7 +104,7 @@ DokNovaStrana(125,@nStr,4)
 
 PrnClanoviKomisije()
 
-END PRINT
+ENDPRINT
 
 SELECT pripr
 GO nRecNo

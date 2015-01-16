@@ -314,7 +314,7 @@ do while .t.
   if cStampaj=="D"
    ?
    ?
-   end print
+   ENDPRINT
    exit
   else
    ?

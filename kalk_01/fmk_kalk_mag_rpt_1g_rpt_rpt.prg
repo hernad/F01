@@ -187,7 +187,7 @@ endif
 ?
 FF
 
-END PRINT
+ENDPRINT
 
 set softseek on
 closeret

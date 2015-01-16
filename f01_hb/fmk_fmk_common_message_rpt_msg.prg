@@ -62,7 +62,7 @@ go nTRec
 
 
 FF
-END PRINT
+ENDPRINT
 
 return
 

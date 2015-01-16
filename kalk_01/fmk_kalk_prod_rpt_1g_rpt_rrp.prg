@@ -418,7 +418,7 @@ ELSE
   NEXT
 ENDIF
 
-END PRINT
+ENDPRINT
 
 closeret
 return

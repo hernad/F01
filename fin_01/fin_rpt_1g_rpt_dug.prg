@@ -383,7 +383,7 @@ endif
 ? BOX_CHAR_USPRAVNO + REPL(BOX_CHAR_USPRAVNO, __par_len) + "�����������������������������������������������������������������������������������������������������������������������������"
 
 FF
-END PRINT
+ENDPRINT
 
 select (F_POM)
 use

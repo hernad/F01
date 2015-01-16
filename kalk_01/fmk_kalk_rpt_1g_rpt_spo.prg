@@ -236,7 +236,7 @@ if (PROW()>cStrRedova2)
 endif
 
 FF
-end print
+ENDPRINT
 closeret
 return
 

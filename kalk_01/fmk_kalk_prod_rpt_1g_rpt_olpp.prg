@@ -221,7 +221,7 @@ for ik:=1 to 2
 
 	select (nArr)
 	FF
-	END PRINT
+	ENDPRINT
 	if cIdVd<>"80"
 		// ako nije 80-ka samo jednom prodji
 		exit

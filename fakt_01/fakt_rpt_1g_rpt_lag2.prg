@@ -436,7 +436,7 @@ endif
 ? space(gnLMarg); ?? m
 FF
 
-END PRINT
+ENDPRINT
 CLOSE ALL
 MyFERASE(cTMPFAKT)
 

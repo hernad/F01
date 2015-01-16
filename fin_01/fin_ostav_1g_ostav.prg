@@ -236,7 +236,7 @@ endif
 nDugBHD:=nPotBHD:=0
 
 FF
-END PRINT
+ENDPRINT
 closeret
 return
 
@@ -1050,7 +1050,7 @@ endif
 
 FF
 
-END PRINT
+ENDPRINT
 
 select (F_POM); use
 
@@ -1268,7 +1268,7 @@ ENDIF
 ? m
 
 FF
-END PRINT
+ENDPRINT
 
 
 
@@ -1911,7 +1911,7 @@ LOCAL a1:={}, a2:={}, GetList:={}
     NEXT
   endif
   FF
-  END PRINT
+  ENDPRINT
  PopWA()
 RETURN (NIL)
 
@@ -2566,7 +2566,7 @@ START PRINT CRET
 
 StampaTabele(aKol,,,0,,;
     ,"Rezultati asistenta otvorenih stavki za: "+idkonto+"/"+idpartner+" na datum:"+dtoc(Date()))
-END PRINT
+ENDPRINT
 return .t.
 
 

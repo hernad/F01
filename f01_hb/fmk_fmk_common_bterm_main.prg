@@ -103,7 +103,7 @@ for i:=1 to LEN( aErr )
 next
 
 FF
-END PRINT
+ENDPRINT
 
 return aErr
 

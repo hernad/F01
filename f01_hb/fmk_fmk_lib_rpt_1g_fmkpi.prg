@@ -997,7 +997,7 @@ PROCEDURE StTabPI()
   ENDIF
 
 //  FF
-  END PRINT
+  ENDPRINT
   // -------------------------
   // KRAJ STAMPANJA IZVJESTAJA
   // -------------------------

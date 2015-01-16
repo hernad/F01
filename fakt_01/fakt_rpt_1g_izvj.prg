@@ -225,7 +225,7 @@ StampaTabele(aKol,{|| FSvaki1()},,gTabela,,;
                              {|| FFor1()},IF(gOstr=="D",,-1),,cProsCij=="D",,,)
 
 FF
-END PRINT
+ENDPRINT
 CLOSE ALL; MyFERASE(cTMPFAKT)
 
 CLOSERET
@@ -423,7 +423,7 @@ StampaTabele(aKol,{|| FSvaki2()},,gTabela,,;
      ,"Isporuceni asortiman - pregled po fakturama za period od "+DTOC(ddatod)+" do "+DTOC(ddatdo),;
                              {|| FFor2()},IF(gOstr=="D",,-1),,,,,)
 FF
-END PRINT
+ENDPRINT
 CLOSE ALL; MyFERASE(cTMPFAKT)
 
 CLOSERET
@@ -620,7 +620,7 @@ StampaTabele(aKol,{|| FSvaki3()},,gTabela,,;
      ,"Isporuceni asortiman - pregled za kupca po pogonima od "+DTOC(ddatod)+" do "+DTOC(ddatdo),;
                              {|| FFor3()},IF(gOstr=="D",,-1),,cProsCij=="D",,,)
 FF
-END PRINT
+ENDPRINT
 CLOSE ALL; MyFERASE(cTMPFAKT)
 
 CLOSERET
@@ -773,7 +773,7 @@ StampaTabele(aKol,{|| FSvaki4()},,gTabela,,;
      ,"Fakture usluga - pregled za kupca za period od "+DTOC(ddatod)+" do "+DTOC(ddatdo),;
                              {|| FFor4()},IF(gOstr=="D",,-1),,,,,)
 FF
-END PRINT
+ENDPRINT
 CLOSE ALL; MyFERASE(cTMPFAKT)
 
 CLOSERET
@@ -946,7 +946,7 @@ StampaTabele(aKol,{|| FSvaki5()},,gTabela,,;
      ,"Pregled poreza po fakturama za period od "+DTOC(ddatod)+" do "+DTOC(ddatdo),;
                              {|| FFor5()},IF(gOstr=="D",,-1),,,,,)
 FF
-END PRINT
+ENDPRINT
 CLOSE ALL; MyFERASE(cTMPFAKT)
 
 CLOSERET
@@ -1128,7 +1128,7 @@ aKol:={ { "SIFRA"        , {|| cIdPartner             }, .f., "C", 6, 0, 1, 1},;
                                {|| fakt_ffor6()},IF(gOstr=="D",,-1),,,{|| fakt_subtot6()},,)
 
   FF
-  END PRINT
+  ENDPRINT
 CLOSE ALL; MyFERASE(cTMPFAKT)
 CLOSERET
 return
@@ -1322,7 +1322,7 @@ aKol:={ { "SIFRA"        , {|| cIdRoba                }, .f., "C",10, 0, 1, 1},;
                                {|| FFor7()},IF(gOstr=="D",,-1),,,{|| SubTot7()},,)
 
   FF
-  END PRINT
+  ENDPRINT
 CLOSE ALL; MyFERASE(cTMPFAKT)
 CLOSERET
 return
@@ -1603,7 +1603,7 @@ aKol:={ { "OPSTINA"      , {|| ops                 }, .f., "C",10, 0, 1, 1},;
        ,"Porezi po tarifama i opstinama za period od "+DTOC(ddatod)+" do "+DTOC(ddatdo),;
                                {|| FFor8()},IF(gOstr=="D",,-1),,,,,)
 
-  END PRINT
+  ENDPRINT
 CLOSE ALL; MyFERASE(cTMPFAKT)
 CLOSERET
 return
@@ -1999,7 +1999,7 @@ if cOstran!="D"
   FF
 endif
 
-END PRINT
+ENDPRINT
 closeret
 return
 

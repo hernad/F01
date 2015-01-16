@@ -148,7 +148,7 @@ dDo:=DATE()
    ? cPom , BOX_CHAR_USPRAVNO, cPom
 
    FF
-  END PRINT
+  ENDPRINT
 CLOSERET
 return
 
@@ -285,6 +285,6 @@ dDo:=DATE()
    ? cPom , BOX_CHAR_USPRAVNO, cPom
 
    FF
-  END PRINT
+  ENDPRINT
 CLOSERET
 return

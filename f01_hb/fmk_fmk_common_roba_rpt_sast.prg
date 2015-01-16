@@ -217,7 +217,7 @@ else
 endif
 
 FF
-END PRINT
+ENDPRINT
 select (nArr)
 PopWA()
 return

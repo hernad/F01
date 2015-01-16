@@ -2085,7 +2085,7 @@ do while .t.
 	?
 
 	FF
-	END PRINT
+	ENDPRINT
 
 	if (cidvd $ "80#11#81#12#13#IP#19")
 		fTopsD:=.t.
@@ -2122,7 +2122,7 @@ if (fTopsD .and. !fstara .and. gTops!="0 ")
 	endif
 	close all
 	FF
-	END PRINT
+	ENDPRINT
 
 	GenTops()
 endif
@@ -2145,7 +2145,7 @@ if (fFaktD .and. !fstara .and. gFakt!="0 ")
 	endif
 	close all
 	FF
-	END PRINT
+	ENDPRINT
 
 	kalk_prenos_modem(.t.)
 endif

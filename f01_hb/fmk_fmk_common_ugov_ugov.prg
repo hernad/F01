@@ -1033,7 +1033,7 @@ StampaTabele(aKol,{|| ZaOdgovarajuci()},,gTabela,,,;
                 "PREGLED UGOVORA ZA "+cFiltTrz,;
                 {|| OdgovaraLi()}, IIF( gOstr=="D",,-1),, lLin,,,)
 
-END PRINT
+ENDPRINT
 
 SELECT RUGOV
 PopWA()

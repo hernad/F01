@@ -550,7 +550,7 @@ if cOstran!="D"
   FF
 endif
 
-END PRINT
+ENDPRINT
 CLOSE ALL; MyFERASE(cTMPFAKT)
 closeret
 

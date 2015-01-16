@@ -220,7 +220,7 @@ enddo
 ? Replicate("-", 100)
 
 FF
-END PRINT
+ENDPRINT
 
 return
 

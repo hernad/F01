@@ -179,7 +179,7 @@ for i:=1 to LEN(aIzvj)
 	FF
 next
 
-END PRINT
+ENDPRINT
 
 closeret
 return

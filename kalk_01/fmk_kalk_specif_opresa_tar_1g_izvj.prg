@@ -244,7 +244,7 @@ local PicCDEM:=gPicCDEM
 
  ENDDO
  FF
- END PRINT
+ ENDPRINT
 CLOSERET
 
 
@@ -488,7 +488,7 @@ local PicCDEM:=gPicCDEM
 
  enddo
  FF
- END PRINT
+ ENDPRINT
 CLOSERET
 
 

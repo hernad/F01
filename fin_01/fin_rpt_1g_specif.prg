@@ -238,7 +238,7 @@ DO WHILE not_key_esc() .AND. !eof()
 enddo // eof()
 
 FF
-END PRINT
+ENDPRINT
 
 closeret
 return
@@ -577,7 +577,7 @@ endif
 
 
 FF
-END PRINT
+ENDPRINT
 
 closeret
 return
@@ -798,7 +798,7 @@ if prow()>61+gPStranica; FF; zagl5(); endif
 @ prow(),pcol()+1 SAY nUd-nUp pict pic
 ? m
 FF
-END PRINT
+ENDPRINT
 closeret
 return
 
@@ -1425,7 +1425,7 @@ endif
 
 ? m
 FF
-END PRINT
+ENDPRINT
 
 if lExpRpt
 	tbl_export(cLaunch)
@@ -1655,7 +1655,7 @@ else
 endif
 ? m
 FF
-END PRINT
+ENDPRINT
 closeret
 return
 
@@ -1979,7 +1979,7 @@ endif
 ? m
 
 FF
-END PRINT
+ENDPRINT
 closeret
 return
 
@@ -2156,7 +2156,7 @@ enddo
 
 FF
 
-END PRINT
+ENDPRINT
 CLOSERET
 return
 
@@ -2326,7 +2326,7 @@ enddo
 
 FF
 
-END PRINT
+ENDPRINT
 CLOSERET
 return
 
@@ -2614,7 +2614,7 @@ else
 endif
 ? m
 FF
-END PRINT
+ENDPRINT
 return
 
 
@@ -2966,7 +2966,7 @@ private cIdKonto := SPACE (7), cIdFirma := SPACE (LEN (gFirma)), ;
   ? SPACE (5)+ "Ukupno izlistano", Alltrim (Str (nBrPartn)), ;
     "partnera bez prometa"
   EJECT
-  END PRINT
+  ENDPRINT
 CLOSERET
 return
 
@@ -3780,7 +3780,7 @@ ENDIF
 
 FF
 
-END PRINT
+ENDPRINT
 
 if lExpRpt == .t.
 	tbl_export( cStart )
@@ -4396,7 +4396,7 @@ LOCAL GetList:={}
 
   FF
 
-  END PRINT
+  ENDPRINT
 
 CLOSERET
 

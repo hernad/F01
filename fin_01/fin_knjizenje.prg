@@ -974,7 +974,7 @@ DO WHILE !EOF()
    StSubNal("1",lAuto)
 
    if !fizgenerisi
-     END PRINT
+     ENDPRINT
    endif
 
    IF ASCAN(aNalozi,cIdFirma+cIdVN+cBrNal)==0

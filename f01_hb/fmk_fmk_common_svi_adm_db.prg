@@ -89,7 +89,7 @@ StampaTabele(aKol,{|| FSvaki2()},,gTabela,,;
 ,"REZULTAT UPOREDJIVANJA SIFRARNIKA PARTNERA",;
 		       {|| FFor3()},IF(gOstr=="D",,-1),,,,,)
 FF
-END PRINT
+ENDPRINT
 
 RETURN
 

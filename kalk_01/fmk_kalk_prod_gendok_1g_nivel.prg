@@ -924,7 +924,7 @@ nstr(cLine)
 
 FF
 
-END PRINT
+ENDPRINT
 
 return
 
@@ -1175,6 +1175,6 @@ P_10CPI
 
 PrnClanoviKomisije()
 
-END PRINT
+ENDPRINT
 
 return

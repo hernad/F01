@@ -443,7 +443,7 @@ if (nRbr>0)
 	? SPACE(2) + "Broj prenesenih stavki: " + ALLTRIM(STR(nRbr))
 	? SPACE(2) + "Saldo: " + ALLTRIM(STR(nIznos, 10, 2))
 	?
-	END PRINT
+	ENDPRINT
 endif
 
 select katops

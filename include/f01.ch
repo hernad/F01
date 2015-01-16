@@ -289,17 +289,6 @@
        ; @ Row(), Col()+1 GETB <var> [<getClauses>]
 
 
-#xcommand DO WHILE not_key_esc() .AND. <exp>      => while <exp>                     ;
-                                   ;if inkey()==27                 ;
-                                   ; dbcloseall()                  ;
-                                   ;   SET(_SET_DEVICE,"SCREEN")   ;
-                                   ;   SET(_SET_CONSOLE,"ON")      ;
-                                   ;   SET(_SET_PRINTER,"")        ;
-                                   ;   SET(_SET_PRINTFILE,"")      ;
-                                   ;   MsgC()                      ;
-                                   ;   return                      ;
-                                   ;endif
-
 #command KRESI <x> NA <len> =>  <x>:=left(<x>,<len>)
 
 #command START PRINT CRET <x> =>  if !StartPrint()       ;
@@ -345,7 +334,7 @@
 
 #command END PRN2     => Eprint2()
 
-#command END PRINT => EndPrint()
+#command ENDPRINT => EndPrint()
 
 #command EOF CRET <x> =>  if EofFndret(.t.,.t.)       ;
                           ;return <x>                 ;

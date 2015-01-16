@@ -69,7 +69,7 @@ endif
 ?
 
 FF
-END PRINT
+ENDPRINT
 
 return
 

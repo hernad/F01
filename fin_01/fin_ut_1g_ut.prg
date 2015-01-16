@@ -405,7 +405,7 @@ if dGrDate <> nil .and. nGrSaldo <> 0
 endif
 
 ff
-end print
+ENDPRINT
 
 close all
 

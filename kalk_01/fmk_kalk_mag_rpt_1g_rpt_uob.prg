@@ -349,7 +349,7 @@ endif
 ? cLine
 
 FF
-END PRINT
+ENDPRINT
 
 return
 

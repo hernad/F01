@@ -253,7 +253,7 @@ if LEN( aTest ) > 0
 	next
 
 	FF
-	END PRINT
+	ENDPRINT
 endif
 
 return
@@ -690,7 +690,7 @@ if LEN( aPartn ) > 0
 		@ prow(), pcol()+1 SAY aPartn[i, 3]
 	next
 
-	END PRINT
+	ENDPRINT
 endif
 
 return

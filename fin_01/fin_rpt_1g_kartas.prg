@@ -485,7 +485,7 @@ ENDIF
 ? M
 
 FF
-END PRINT
+ENDPRINT
 
 #ifndef CAX
 closeret
@@ -823,7 +823,7 @@ endif
 
 FF
 
-END PRINT
+ENDPRINT
 
 #ifndef CAX
 closeret

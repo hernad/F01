@@ -299,7 +299,7 @@ IF PROW()>56+gPStranica-LEN(aGr); FF; endif
    	endif
 
 	FF
-	END PRINT
+	ENDPRINT
 	CLOSERET
 return
 

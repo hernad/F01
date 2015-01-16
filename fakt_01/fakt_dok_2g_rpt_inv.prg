@@ -171,7 +171,7 @@ DokNovaStrana(125,@nStr,3)
 @ PROW(),PCOL()+1 SAY nTotd PICTURE PicDem
 ? cLin
 
-END PRINT
+ENDPRINT
 
 SELECT pripr
 GO nRecNo

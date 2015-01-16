@@ -401,7 +401,7 @@ endif
 ?
 enddo
 FF
-end print
+ENDPRINT
 closeret
 return
 
@@ -712,7 +712,7 @@ function NPArtikli()
 
     FF
 
-  END PRINT
+  ENDPRINT
 
 CLOSERET
 return

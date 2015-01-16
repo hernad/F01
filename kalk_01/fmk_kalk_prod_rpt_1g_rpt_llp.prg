@@ -633,7 +633,7 @@ endif
 ? __line
 
 FF
-END PRINT
+ENDPRINT
 
 if lImaGresaka
 	MsgBeep("Pogledajte artikle za koje je u izvjestaju stavljena oznaka ERR - GRESKA")

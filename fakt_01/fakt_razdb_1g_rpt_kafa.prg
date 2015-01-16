@@ -582,7 +582,7 @@ else
 endif
 
 FF
-END PRINT
+ENDPRINT
 
 #ifdef CAX
 if lfaktfakt

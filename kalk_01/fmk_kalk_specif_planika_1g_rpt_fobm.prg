@@ -567,7 +567,7 @@ if (cLegenda=="D")
 	Legenda()
 endif
 
-end print
+ENDPRINT
 
 #ifdef CAX
   close all

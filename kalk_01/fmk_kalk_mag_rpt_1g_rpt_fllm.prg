@@ -376,7 +376,7 @@ if _export
 endif
 
 FF
-END PRINT
+ENDPRINT
 
 // pregled izvjestaja nakon generisanja u spreadsheet aplikaciji
 if _export

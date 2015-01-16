@@ -271,7 +271,7 @@ FF
 
 gRPL_Normal()
 
-END PRINT
+ENDPRINT
 return
 
 

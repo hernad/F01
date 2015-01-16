@@ -517,7 +517,7 @@ DO WHILE ! EOF()
 ENDDO
 
 FF
-END PRINT
+ENDPRINT
 
 SET FILTER TO
 
@@ -1151,7 +1151,7 @@ LOCAL nRec:=RECNO()
 
    FF
 
-  END PRINT
+  ENDPRINT
   GO nRec
 return DE_CONT
 
@@ -1284,7 +1284,7 @@ LOCAL nRec:=RECNO()
 
    FF
 
-  END PRINT
+  ENDPRINT
   GO nRec
 return DE_CONT
 

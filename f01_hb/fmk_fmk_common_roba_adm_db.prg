@@ -88,7 +88,7 @@ function PP_Sast()
                                {|| FFor2()},IF(gOstr=="D",,-1),,,,,)
 
   FF
-  END PRINT
+  ENDPRINT
 
 RETURN
 
