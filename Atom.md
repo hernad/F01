@@ -1,5 +1,3 @@
-
-
 emacs.json izbaciti alt+ shortcutove:
 
     "alt-b": "editor:move-to-beginning-of-word",
