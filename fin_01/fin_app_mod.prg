@@ -14,308 +14,311 @@
 #include "hbclass.ch"
 
 
-function TFinModNew()
-local oObj
+FUNCTION TFinModNew()
 
-oObj:=TFinMod():new()
+   LOCAL oObj
 
-oObj:self:=oObj
-return oObj
+   oObj := TFinMod():new()
+
+   oObj:self := oObj
+
+   RETURN oObj
 
 CREATE CLASS TFinMod INHERIT TAppMod
-	var oSqlLog
-	method dummy
-	method setGVars
-	method mMenu
-	method mMenuStandard
-	method sRegg
-	method initdb
-	method srv
+
+   VAR oSqlLog
+   METHOD dummy
+   METHOD setGVars
+   METHOD mMenu
+   METHOD mMenuStandard
+   METHOD sRegg
+   METHOD initdb
+   METHOD srv
+
 END CLASS
 
-method dummy()
-return
+METHOD dummy()
+   RETURN
 
 
-method TFinMod:initdb()
+METHOD TFinMod:initdb()
 
-::oDatabase:=TDBFinNew()
+   ::oDatabase := TDBFinNew()
 
-return NIL
-
-
-
-method TFinMod:mMenu()
-
-::oSqlLog:=TSqlLogNew()
-
-PID("START")
-if gSql=="D"
-	::oSqlLog:open()
-	::oDatabase:scan()
-endif
-
-close all
-
-SETKEY(K_SH_F1,{|| Calc()})
-
-close all
-
-@ 1,2 SAY padc(gTS+": "+gNFirma,50,"*")
-@ 4,5 SAY ""
-
-::mMenuStandard()
-
-::quit()
-
-return nil
+   RETURN NIL
 
 
 
-method TFinMod:mMenuStandard()
+METHOD TFinMod:mMenu()
 
-private Izbor:=1
-private opc:={}
-private opcexe:={}
+   ::oSqlLog := TSqlLogNew()
 
-say_fmk_ver()
+   PID( "START" )
+   IF gSql == "D"
+      ::oSqlLog:open()
+      ::oDatabase:scan()
+   ENDIF
 
-AADD(opc, "1. unos/ispravka dokumenta                   ")
-if (ImaPravoPristupa(goModul:oDataBase:cName,"DOK","KNJIZNALOGA"))
-	AADD(opcexe, {|| fin_Knjiz()})
-else
-	AADD(opcexe, {|| MsgBeep(cZabrana)})
-endif
-AADD(opc, "2. izvjestaji")
-AADD(opcexe, {|| Izvjestaji()})
+   CLOSE ALL
 
-AADD(opc, "3. pregled dokumenata")
-AADD(opcexe, {|| MnuPregledDokumenata()})
+   SetKey( K_SH_F1, {|| Calc() } )
 
-AADD(opc, "4. generacija dokumenata")
-if (ImaPravoPristupa(goModul:oDataBase:cName,"DOK","GENDOK"))
-	AADD(opcexe, {|| MnuGenDok()})
-else
-	AADD(opcexe, {|| MsgBeep(cZabrana)})
-endif
+   CLOSE ALL
 
-AADD(opc, "5. moduli - razmjena podataka")
-if (ImaPravoPristupa(goModul:oDataBase:cName,"RAZDB","MODULIRAZMJENA"))
-	AADD(opcexe, {|| MnuRazmjenaPodataka()})
-else
-	AADD(opcexe, {|| MsgBeep(cZabrana)})
-endif
+   @ 1, 2 SAY PadC( gTS + ": " + gNFirma, 50, "*" )
+   @ 4, 5 SAY ""
 
-AADD(opc, "6. ostale operacije nad dokumentima")
-AADD(opcexe, {|| MnuOstOperacije()})
+   ::mMenuStandard()
 
-AADD(opc, "7. udaljene lokacije - razmjena podataka ")
-if (ImaPravoPristupa(goModul:oDataBase:cName,"RAZDB","UDLOKRAZMJENA"))
-	AADD(opcexe, {|| MnuUdaljeneLokacije()})
-else
-	AADD(opcexe, {|| MsgBeep(cZabrana)})
-endif
+   ::quit()
 
-AADD(opc, "------------------------------------")
-AADD(opcexe, {|| nil})
-
-AADD(opc, "8. sifrarnici")
-AADD(opcexe, {|| MnuSifrarnik()})
-
-AADD(opc, "9. administracija baze podataka")
-if (ImaPravoPristupa(goModul:oDataBase:cName,"MAIN","DBADMIN"))
-	AADD(opcexe, {|| MnuAdminDB()})
-else
-	AADD(opcexe, {|| MsgBeep(cZabrana)})
-endif
-
-AADD(opc, "------------------------------------")
-AADD(opcexe, {|| nil})
-
-AADD(opc, "K. kontrola zbira datoteka")
-AADD(opcexe, {|| kontrola_zbira_fin()})
-
-AADD(opc, "P. povrat dokumenta u pripremu")
-if (ImaPravoPristupa(goModul:oDatabase:cName,"UT","POVRATNALOGA"))
-	AADD(opcexe, {|| PovratNaloga()})
-else
-	AADD(opcexe, {|| MsgBeep(cZabrana)})
-endif
-
-AADD(opc, "------------------------------------")
-AADD(opcexe, {|| nil})
-
-AADD(opc, "X. parametri")
-if (ImaPravoPristupa(goModul:oDataBase:cName,"PARAM","PARAMETRI"))
-	AADD(opcexe, {|| fin_menu_params()})
-else
-	AADD(opcexe, {|| MsgBeep(cZabrana)})
-endif
-
-
-lPodBugom:=.f.
-
-Menu_SC("gfin",.t.,lPodBugom)
-
-return
-
-
-method TFinMod:sRegg()
-
-return
-
-method TFinMod:srv()
-
-? "Pokrecem FIN aplikacijski server"
-
-// konverzija baza
-if (MPar37("/KONVERT", goModul))
-	if LEFT(self:cP5,3)=="/S="
-		cKonvSez:=SUBSTR(self:cP5,4)
-		? "Radim sezonu: " + cKonvSez
-		if cKonvSez<>"RADP"
-			// prebaci se u sezonu cKonvSez
-			goModul:oDataBase:cSezonDir:=SLASH+cKonvSez
- 			goModul:oDataBase:setDirKum(trim(goModul:oDataBase:cDirKum)+SLASH+cKonvSez)
- 			goModul:oDataBase:setDirSif(trim(goModul:oDataBase:cDirSif)+SLASH+cKonvSez)
- 			goModul:oDataBase:setDirPriv(trim(goModul:oDataBase:cDirPriv)+SLASH+cKonvSez)
-		endif
-	endif
-	goModul:oDataBase:KonvZN()
-	goModul:quit(.f.)
-endif
-
-// modifikacija struktura
-if (MPar37("/MODSTRU", goModul))
-	if LEFT(self:cP5,3)=="/S="
-		cKonvSez:=SUBSTR(self:cP5,4)
-		? "Radim sezonu: " + cKonvSez
-		if cKonvSez<>"RADP"
-			// prebaci se u sezonu cKonvSez
-			goModul:oDataBase:cSezonDir:=SLASH+cKonvSez
- 			goModul:oDataBase:setDirKum(trim(goModul:oDataBase:cDirKum)+SLASH+cSez)
- 			goModul:oDataBase:setDirSif(trim(goModul:oDataBase:cDirSif)+SLASH+cSez)
- 			goModul:oDataBase:setDirPriv(trim(goModul:oDataBase:cDirPriv)+SLASH+cSez)
-		endif
-	endif
-
-	cMsFile := goModul:oDataBase:cName
-	if LEFT(self:cP6,3)=="/M="
-		cMSFile:=SUBSTR(self:cP6,4)
-	endif
-	f01_runmods(.t.)
-	goModul:quit(.f.)
-endif
-
-
-return
+   RETURN NIL
 
 
 
-method TFinMod:setGVars()
+METHOD TFinMod:mMenuStandard()
 
-//f01_set_gvars_20()
-//f01_set_gvars_10()
+   PRIVATE Izbor := 1
+   PRIVATE opc := {}
+   PRIVATE opcexe := {}
 
-private cSection:="1"
-private cHistory:=" "
-private aHistory:={}
+   say_fmk_ver()
 
-public gFirma:="10"
-public gTS:="Preduzece"
-public gNFirma:=space(20)  // naziv firme
-public gRavnot:="D"
-public gDatNal:="N"
-public gSAKrIz:="N"
-public gNW:="D"  // new wave
-public gBezVracanja:="N"  // parametar zabrane povrata naloga u pripremu
-public gBuIz:="N"  // koristenje konta-izuzetaka u FIN-BUDZET-u
-public gPicDEM:= "9999999.99"
-public gPicBHD:= "999999999999.99"
-public gVar1:="0"
-public gRj:="N"
-public gTroskovi:="N"
-public gnRazRed:=3
-public gVSubOp:="N"
-public gnLMONI:=120
-public gKtoLimit:="N"
-public gnKtoLimit:=3
-public gFKomp:=PADR("KOMP.TXT",13)
-public gDUFRJ:="N"
-public gBrojac:="1"
-public gK1:="N"
-public gK2:="N"
-public gK3:="N"
-public gK4:="N"
-public gDatVal:="N"
-public gnLOSt:=0
-public gPotpis:="N"
-public gnKZBDana:=0
-public gOAsDuPartn:="N"
-public gAzurTimeOut := 120
-public gMjRj := "N"
+   AAdd( opc, "1. unos/ispravka dokumenta                   " )
+   IF ( ImaPravoPristupa( goModul:oDataBase:cName, "DOK", "KNJIZNALOGA" ) )
+      AAdd( opcexe, {|| fin_Knjiz() } )
+   ELSE
+      AAdd( opcexe, {|| MsgBeep( cZabrana ) } )
+   ENDIF
+   AAdd( opc, "2. izvjestaji" )
+   AAdd( opcexe, {|| Izvjestaji() } )
 
-public aRuleCols := g_rule_cols()
-public bRuleBlock := g_rule_block()
+   AAdd( opc, "3. pregled dokumenata" )
+   AAdd( opcexe, {|| MnuPregledDokumenata() } )
 
-O_PARAMS
-Rpar("br",@gBrojac)
-Rpar("ff",@gFirma)
-Rpar("ts",@gTS)
-RPar("du",@gDUFRJ)
-Rpar("fk",@gFKomp)
-Rpar("fn",@gNFirma)
-Rpar("Ra",@gRavnot)
-Rpar("dn",@gDatNal)
-Rpar("nw",@gNW)
-Rpar("bv",@gBezVracanja)
-Rpar("bi",@gBuIz)
-Rpar("p1",@gPicDEM)
-Rpar("p2",@gPicBHD)
-Rpar("v1",@gVar1)
-Rpar("tr",@gTroskovi)
-Rpar("rj",@gRj)
-Rpar("rr",@gnRazRed)
-Rpar("so",@gVSubOp)
-Rpar("lm",@gnLMONI)
-Rpar("si",@gSAKrIz)
-Rpar("zx",@gKtoLimit)
-Rpar("zy",@gnKtoLimit)
-Rpar("OA",@gOAsDuPartn)
+   AAdd( opc, "4. generacija dokumenata" )
+   IF ( ImaPravoPristupa( goModul:oDataBase:cName, "DOK", "GENDOK" ) )
+      AAdd( opcexe, {|| MnuGenDok() } )
+   ELSE
+      AAdd( opcexe, {|| MsgBeep( cZabrana ) } )
+   ENDIF
 
-Rpar("k1",@gK1)
-Rpar("k2",@gK2)
-Rpar("k3",@gK3)
-Rpar("k4",@gK4)
-Rpar("dv",@gDatVal)
-Rpar("li",@gnLOSt)
-Rpar("po",@gPotpis)
-Rpar("az",@gnKZBdana)
-Rpar("aT",@gAzurTimeout)
+   AAdd( opc, "5. moduli - razmjena podataka" )
+   IF ( ImaPravoPristupa( goModul:oDataBase:cName, "RAZDB", "MODULIRAZMJENA" ) )
+      AAdd( opcexe, {|| MnuRazmjenaPodataka() } )
+   ELSE
+      AAdd( opcexe, {|| MsgBeep( cZabrana ) } )
+   ENDIF
 
-if empty(gNFirma)
-	Beep(1)
-  	Box(,1,50)
-    		@ m_x+1,m_y+2 SAY "Unesi naziv firme:" GET gNFirma pict "@!"
-    		read
-  	BoxC()
-  	WPar("fn",gNFirma)
-endif
-select (F_PARAMS)
+   AAdd( opc, "6. ostale operacije nad dokumentima" )
+   AAdd( opcexe, {|| MnuOstOperacije() } )
+
+   AAdd( opc, "7. udaljene lokacije - razmjena podataka " )
+   IF ( ImaPravoPristupa( goModul:oDataBase:cName, "RAZDB", "UDLOKRAZMJENA" ) )
+      AAdd( opcexe, {|| MnuUdaljeneLokacije() } )
+   ELSE
+      AAdd( opcexe, {|| MsgBeep( cZabrana ) } )
+   ENDIF
+
+   AAdd( opc, "------------------------------------" )
+   AAdd( opcexe, {|| nil } )
+
+   AAdd( opc, "8. sifrarnici" )
+   AAdd( opcexe, {|| MnuSifrarnik() } )
+
+   AAdd( opc, "9. administracija baze podataka" )
+   IF ( ImaPravoPristupa( goModul:oDataBase:cName, "MAIN", "DBADMIN" ) )
+      AAdd( opcexe, {|| MnuAdminDB() } )
+   ELSE
+      AAdd( opcexe, {|| MsgBeep( cZabrana ) } )
+   ENDIF
+
+   AAdd( opc, "------------------------------------" )
+   AAdd( opcexe, {|| nil } )
+
+   AAdd( opc, "K. kontrola zbira datoteka" )
+   AAdd( opcexe, {|| kontrola_zbira_fin() } )
+
+   AAdd( opc, "P. povrat dokumenta u pripremu" )
+   IF ( ImaPravoPristupa( goModul:oDatabase:cName, "UT", "POVRATNALOGA" ) )
+      AAdd( opcexe, {|| PovratNaloga() } )
+   ELSE
+      AAdd( opcexe, {|| MsgBeep( cZabrana ) } )
+   ENDIF
+
+   AAdd( opc, "------------------------------------" )
+   AAdd( opcexe, {|| nil } )
+
+   AAdd( opc, "X. parametri" )
+   IF ( ImaPravoPristupa( goModul:oDataBase:cName, "PARAM", "PARAMETRI" ) )
+      AAdd( opcexe, {|| fin_menu_params() } )
+   ELSE
+      AAdd( opcexe, {|| MsgBeep( cZabrana ) } )
+   ENDIF
+
+
+   lPodBugom := .F.
+
+   Menu_SC( "gfin", .T., lPodBugom )
+
+   RETURN
+
+
+METHOD TFinMod:sRegg()
+
+   RETURN
+
+METHOD TFinMod:srv()
+
+   ? "Pokrecem FIN aplikacijski server"
+
+   // konverzija baza
+   IF ( MPar37( "/KONVERT", goModul ) )
+      IF Left( self:cP5, 3 ) == "/S="
+         cKonvSez := SubStr( self:cP5, 4 )
+         ? "Radim sezonu: " + cKonvSez
+         IF cKonvSez <> "RADP"
+            // prebaci se u sezonu cKonvSez
+            goModul:oDataBase:cSezonDir := SLASH + cKonvSez
+            goModul:oDataBase:setDirKum( Trim( goModul:oDataBase:cDirKum ) + SLASH + cKonvSez )
+            goModul:oDataBase:setDirSif( Trim( goModul:oDataBase:cDirSif ) + SLASH + cKonvSez )
+            goModul:oDataBase:setDirPriv( Trim( goModul:oDataBase:cDirPriv ) + SLASH + cKonvSez )
+         ENDIF
+      ENDIF
+      goModul:oDataBase:KonvZN()
+      goModul:quit( .F. )
+   ENDIF
+
+   // modifikacija struktura
+   IF ( MPar37( "/MODSTRU", goModul ) )
+      IF Left( self:cP5, 3 ) == "/S="
+         cKonvSez := SubStr( self:cP5, 4 )
+         ? "Radim sezonu: " + cKonvSez
+         IF cKonvSez <> "RADP"
+            // prebaci se u sezonu cKonvSez
+            goModul:oDataBase:cSezonDir := SLASH + cKonvSez
+            goModul:oDataBase:setDirKum( Trim( goModul:oDataBase:cDirKum ) + SLASH + cSez )
+            goModul:oDataBase:setDirSif( Trim( goModul:oDataBase:cDirSif ) + SLASH + cSez )
+            goModul:oDataBase:setDirPriv( Trim( goModul:oDataBase:cDirPriv ) + SLASH + cSez )
+         ENDIF
+      ENDIF
+
+      cMsFile := goModul:oDataBase:cName
+      IF Left( self:cP6, 3 ) == "/M="
+         cMSFile := SubStr( self:cP6, 4 )
+      ENDIF
+      f01_runmods( .T. )
+      goModul:quit( .F. )
+   ENDIF
+
+   RETURN
+
+
+
+METHOD TFinMod:setGVars()
+
+   // f01_set_gvars_20()
+   // f01_set_gvars_10()
+
+   PRIVATE cSection := "1"
+   PRIVATE cHistory := " "
+   PRIVATE aHistory := {}
+
+   PUBLIC gFirma := "10"
+   PUBLIC gTS := "Preduzece"
+   PUBLIC gNFirma := Space( 20 )  // naziv firme
+   PUBLIC gRavnot := "D"
+   PUBLIC gDatNal := "N"
+   PUBLIC gSAKrIz := "N"
+   PUBLIC gNW := "D"  // new wave
+   PUBLIC gBezVracanja := "N"  // parametar zabrane povrata naloga u pripremu
+   PUBLIC gBuIz := "N"  // koristenje konta-izuzetaka u FIN-BUDZET-u
+   PUBLIC gPicDEM := "9999999.99"
+   PUBLIC gPicBHD := "999999999999.99"
+   PUBLIC gVar1 := "0"
+   PUBLIC gRj := "N"
+   PUBLIC gTroskovi := "N"
+   PUBLIC gnRazRed := 3
+   PUBLIC gVSubOp := "N"
+   PUBLIC gnLMONI := 120
+   PUBLIC gKtoLimit := "N"
+   PUBLIC gnKtoLimit := 3
+   PUBLIC gFKomp := PadR( "KOMP.TXT", 13 )
+   PUBLIC gDUFRJ := "N"
+   PUBLIC gBrojac := "1"
+   PUBLIC gK1 := "N"
+   PUBLIC gK2 := "N"
+   PUBLIC gK3 := "N"
+   PUBLIC gK4 := "N"
+   PUBLIC gDatVal := "N"
+   PUBLIC gnLOSt := 0
+   PUBLIC gPotpis := "N"
+   PUBLIC gnKZBDana := 0
+   PUBLIC gOAsDuPartn := "N"
+   PUBLIC gAzurTimeOut := 120
+   PUBLIC gMjRj := "N"
+
+   PUBLIC aRuleCols := g_rule_cols()
+   PUBLIC bRuleBlock := g_rule_block()
+
+   O_PARAMS
+   Rpar( "br", @gBrojac )
+   Rpar( "ff", @gFirma )
+   Rpar( "ts", @gTS )
+   RPar( "du", @gDUFRJ )
+   Rpar( "fk", @gFKomp )
+   Rpar( "fn", @gNFirma )
+   Rpar( "Ra", @gRavnot )
+   Rpar( "dn", @gDatNal )
+   Rpar( "nw", @gNW )
+   Rpar( "bv", @gBezVracanja )
+   Rpar( "bi", @gBuIz )
+   Rpar( "p1", @gPicDEM )
+   Rpar( "p2", @gPicBHD )
+   Rpar( "v1", @gVar1 )
+   Rpar( "tr", @gTroskovi )
+   Rpar( "rj", @gRj )
+   Rpar( "rr", @gnRazRed )
+   Rpar( "so", @gVSubOp )
+   Rpar( "lm", @gnLMONI )
+   Rpar( "si", @gSAKrIz )
+   Rpar( "zx", @gKtoLimit )
+   Rpar( "zy", @gnKtoLimit )
+   Rpar( "OA", @gOAsDuPartn )
+
+   Rpar( "k1", @gK1 )
+   Rpar( "k2", @gK2 )
+   Rpar( "k3", @gK3 )
+   Rpar( "k4", @gK4 )
+   Rpar( "dv", @gDatVal )
+   Rpar( "li", @gnLOSt )
+   Rpar( "po", @gPotpis )
+   Rpar( "az", @gnKZBdana )
+   Rpar( "aT", @gAzurTimeout )
+
+   IF Empty( gNFirma )
+      Beep( 1 )
+      Box(, 1, 50 )
+      @ m_x + 1, m_y + 2 SAY "Unesi naziv firme:" GET gNFirma PICT "@!"
+      READ
+      BoxC()
+      WPar( "fn", gNFirma )
+   ENDIF
+   SELECT ( F_PARAMS )
 
 #ifndef CAX
-	use
+   USE
 #endif
 
-public gModul
-public gTema
-public gGlBaza
+   PUBLIC gModul
+   PUBLIC gTema
+   PUBLIC gGlBaza
 
-gModul:="FIN"
-gTema:="OSN_MENI"
-gGlBaza:="SUBAN.DBF"
+   gModul := "FIN"
+   gTema := "OSN_MENI"
+   gGlBaza := "SUBAN.DBF"
 
 
-::super:setGvars()
+   ::super:setGvars()
 
-return
+   RETURN

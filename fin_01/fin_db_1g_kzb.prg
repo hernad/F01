@@ -17,267 +17,270 @@
 // bDat = datumski uslov
 // lSilent - ne prikazuj box
 // vraca lRet - .t. ako je sve ok,
-//              .f. ako nije
+// .f. ako nije
 // --------------------------------
 
-function kontrola_zbira_fin(bDat, lSilent)
-local lRet := .t.
-local nSaldo := 0
-local nSintD := 0
-local nSintP := 0
-local nSubD := 0
-local nSubP := 0
-local nNalD := 0
-local nNalP := 0
-local nAnalP := 0
-local nAnalD := 0
+FUNCTION kontrola_zbira_fin( bDat, lSilent )
 
-if (bDat == nil)
-	bDat := .f.
-endif
+   LOCAL lRet := .T.
+   LOCAL nSaldo := 0
+   LOCAL nSintD := 0
+   LOCAL nSintP := 0
+   LOCAL nSubD := 0
+   LOCAL nSubP := 0
+   LOCAL nNalD := 0
+   LOCAL nNalP := 0
+   LOCAL nAnalP := 0
+   LOCAL nAnalD := 0
 
-if (lSilent == nil)
-	lSilent := .f.
-endif
+   IF ( bDat == nil )
+      bDat := .F.
+   ENDIF
 
-if (bDat)
-	dDOd := CToD("")
-	dDDo := DATE()
-	Box(, 1, 40)
-		@ 1+m_x, 2+m_y SAY "Datum od" GET dDOd
-		@ 1+m_x, 25+m_y SAY "do" GET dDDo
-		read
-	BoxC()
-endif
+   IF ( lSilent == nil )
+      lSilent := .F.
+   ENDIF
 
-if lSilent
-	MsgO("Provjeravam kontrolu zbira datoteka...")
-endif
+   IF ( bDat )
+      dDOd := CToD( "" )
+      dDDo := Date()
+      Box(, 1, 40 )
+      @ 1 + m_x, 2 + m_y SAY "Datum od" GET dDOd
+      @ 1 + m_x, 25 + m_y SAY "do" GET dDDo
+      READ
+      BoxC()
+   ENDIF
 
-O_NALOG
+   IF lSilent
+      MsgO( "Provjeravam kontrolu zbira datoteka..." )
+   ENDIF
 
-set order to
+   O_NALOG
 
-O_SUBAN
-set order to
+   SET ORDER TO
 
-O_ANAL
-set order to
+   O_SUBAN
+   SET ORDER TO
 
-
-O_SINT
-set order to
-
-if !lSilent
- Box("KZD",9,77,.f.)
- set cursor off
-	@ m_x+1,m_y+11 say BOX_CHAR_USPRAVNO+PADC("NALOZI",16)+BOX_CHAR_USPRAVNO+PADC("SINTETIKA",16)+BOX_CHAR_USPRAVNO+PADC("ANALITIKA",16)+BOX_CHAR_USPRAVNO+PADC("SUBANALITIKA",16)
-	@ m_x+2,m_y+1  say REPLICATE(BOX_CHAR_USPRAVNO,10)+BOX_CHAR_USPRAVNO+REPLICATE(BOX_CHAR_USPRAVNO,16)+BOX_CHAR_USPRAVNO+REPLICATE(BOX_CHAR_USPRAVNO,16)+BOX_CHAR_USPRAVNO+REPLICATE(BOX_CHAR_USPRAVNO,16)+BOX_CHAR_USPRAVNO+REPLICATE(BOX_CHAR_USPRAVNO,16)
-	@ m_x+3,m_y+1 say "duguje "+ValDomaca()
-	@ m_x+4,m_y+1 say "potraz."+ValDomaca()
-	@ m_x+5,m_y+1 say "saldo  "+ValDomaca()
-	@ m_x+7,m_y+1 say "duguje "+ValPomocna()
-	@ m_x+8,m_y+1 say "potraz."+ValPomocna()
-	@ m_x+9,m_y+1 say "saldo  "+ValPomocna()
-	FOR i:=11 TO 65 STEP 17
-  		FOR j:=3 TO 9
-    			@ m_x+j,m_y+i SAY BOX_CHAR_USPRAVNO
-  		NEXT
-	NEXT
-
-	picBHD:=FormPicL("9 "+gPicBHD,16)
-	picDEM:=FormPicL("9 "+gPicDEM,16)
-endif
-
-select NALOG
-go top
-
-nDug:=nPot:=nDu2:=nPo2:=0
-DO WHILE !EOF() .and. INKEY()!=27
-	if (bDat)
-		if (field->datnal < dDOd .or. field->datnal > dDDo)
-			skip
-			loop
-		endif
-	endif
-	nDug+=DugBHD
-   	nPot+=PotBHD
-   	nDu2+=DugDEM
-   	nPo2+=PotDEM
-   	SKIP
-ENDDO
-
-nSaldo += nDug - nPot
-nNalD := nDug
-nNalP := nPot
-
-if !lSilent
-	if LASTKEY()==K_ESC
-		BoxC()
-		CLOSERET
-	endif
-	@ m_x+3,m_y+12 SAY nDug PICTURE picBHD
-	@ m_x+4,m_y+12 SAY nPot PICTURE picBHD
-	@ m_x+5,m_y+12 SAY nDug-nPot PICTURE picBHD
-	@ m_x+7,m_y+12 SAY nDu2 PICTURE picDEM
-	@ m_x+8,m_y+12 SAY nPo2 PICTURE picDEM
-	@ m_x+9,m_y+12 SAY nDu2-nPo2 PICTURE picDEM
-endif
-
-select SINT
-go top
-nDug:=nPot:=nDu2:=nPo2:=0
-go top
-DO WHILE !EOF() .and. INKEY()!=27
-	if (bDat)
- 		if (field->datnal < dDOd .or. field->datnal > dDDo)
-			skip
-			loop
-		endif
-	endif
-	nDug+=Dugbhd
-	nPot+=Potbhd
-   	nDu2+=Dugdem
-	nPo2+=Potdem
- 	SKIP
-ENDDO
-
-nSaldo += nDug - nPot
-nSintD := nDug
-nSintP := nPot
-
-if !lSilent
-	ESC_BCR
-	@ m_x+3,m_y+29 SAY nDug PICTURE picBHD
-	@ m_x+4,m_y+29 SAY nPot PICTURE picBHD
-	@ m_x+5,m_y+29 SAY nDug-nPot PICTURE picBHD
-	@ m_x+7,m_y+29 SAY nDu2 PICTURE picDEM
-	@ m_x+8,m_y+29 SAY nPo2 PICTURE picDEM
-	@ m_x+9,m_y+29 SAY nDu2-nPo2 PICTURE picDEM
-endif
-
-select ANAL
-go top
-nDug:=nPot:=nDu2:=nPo2:=0
-DO WHILE !EOF() .and. INKEY()!=27
-	if (bDat)
-		if (field->datnal < dDOd .or. field->datnal > dDDo)
-			skip
-			loop
-		endif
-	endif
-	nDug+=Dugbhd
-	nPot+=Potbhd
-	nDu2+=Dugdem
-	nPo2+=Potdem
-	SKIP
-ENDDO
-
-nSaldo += nDug - nPot
-nAnalD := nDug
-nAnalP := nPot
-
-if !lSilent
-	ESC_BCR
-	@ m_x+3,m_y+46 SAY nDug PICTURE picBHD
-	@ m_x+4,m_y+46 SAY nPot PICTURE picBHD
-	@ m_x+5,m_y+46 SAY nDug-nPot PICTURE picBHD
-	@ m_x+7,m_y+46 SAY nDu2 PICTURE picDEM
-	@ m_x+8,m_y+46 SAY nPo2 PICTURE picDEM
-	@ m_x+9,m_y+46 SAY nDu2-nPo2 PICTURE picDEM
-endif
-
-select SUBAN
-nDug:=nPot:=nDu2:=nPo2:=0
-go top
-
-DO WHILE !EOF() .and. INKEY()!=27
-	if (bDat)
-		if (field->datdok < dDOd .or. field->datdok > dDDo)
-			skip
-			loop
-		endif
-	endif
-
-	if D_P=="1"
-		nDug+=Iznosbhd
-		nDu2+=Iznosdem
-  	else
-   		nPot+=Iznosbhd
-		nPo2+=Iznosdem
-  	endif
-  	SKIP
-ENDDO
-
-nSaldo += nDug - nPot
-nSubD := nDug
-nSubP := nPot
-
-if !lSilent
-	ESC_BCR
-	@ m_x+3,m_y+63 SAY nDug PICTURE picBHD
-	@ m_x+4,m_y+63 SAY nPot PICTURE picBHD
-	@ m_x+5,m_y+63 SAY nDug-nPot PICTURE picBHD
-	@ m_x+7,m_y+63 SAY nDu2 PICTURE picDEM
-	@ m_x+8,m_y+63 SAY nPo2 PICTURE picDEM
-	@ m_x+9,m_y+63 SAY nDu2-nPo2 PICTURE picDEM
-	InkeySc(0)
-	BoxC()
-endif
+   O_ANAL
+   SET ORDER TO
 
 
-// provjeri da li su podaci tacni !
-if (ROUND(nSaldo, 2) > 0) .or. ( ROUND(nSubD + nNalD + nAnalD + nSintD, 2) <> ROUND(nSubP + nNalP + nAnalP + nSintP, 2) )
-	lRet := .f.
-endif
+   O_SINT
+   SET ORDER TO
 
-// upisi u params podatak o datumu povlacenja...
-private cSection:="9"
-private cHistory:=" "
-private aHistory:={}
+   IF !lSilent
+      Box( "KZD", 9, 77, .F. )
+      SET CURSOR OFF
+      @ m_x + 1, m_y + 11 SAY BOX_CHAR_USPRAVNO + PadC( "NALOZI", 16 ) + BOX_CHAR_USPRAVNO + PadC( "SINTETIKA", 16 ) + BOX_CHAR_USPRAVNO + PadC( "ANALITIKA", 16 ) + BOX_CHAR_USPRAVNO + PadC( "SUBANALITIKA", 16 )
+      @ m_x + 2, m_y + 1  SAY Replicate( BOX_CHAR_USPRAVNO, 10 ) + BOX_CHAR_USPRAVNO + Replicate( BOX_CHAR_USPRAVNO, 16 ) + BOX_CHAR_USPRAVNO + Replicate( BOX_CHAR_USPRAVNO, 16 ) + BOX_CHAR_USPRAVNO + Replicate( BOX_CHAR_USPRAVNO, 16 ) + BOX_CHAR_USPRAVNO + Replicate( BOX_CHAR_USPRAVNO, 16 )
+      @ m_x + 3, m_y + 1 SAY "duguje " + ValDomaca()
+      @ m_x + 4, m_y + 1 SAY "potraz." + ValDomaca()
+      @ m_x + 5, m_y + 1 SAY "saldo  " + ValDomaca()
+      @ m_x + 7, m_y + 1 SAY "duguje " + ValPomocna()
+      @ m_x + 8, m_y + 1 SAY "potraz." + ValPomocna()
+      @ m_x + 9, m_y + 1 SAY "saldo  " + ValPomocna()
+      FOR i := 11 TO 65 STEP 17
+         FOR j := 3 TO 9
+            @ m_x + j, m_y + i SAY BOX_CHAR_USPRAVNO
+         NEXT
+      NEXT
 
-O_PARAMS
-WPar("kd", DATE())
-use
+      picBHD := FormPicL( "9 " + gPicBHD, 16 )
+      picDEM := FormPicL( "9 " + gPicDEM, 16 )
+   ENDIF
 
-if lSilent
-	MsgC()
-endif
+   SELECT NALOG
+   GO TOP
 
-return lRet
+   nDug := nPot := nDu2 := nPo2 := 0
+   DO WHILE !Eof() .AND. Inkey() != 27
+      IF ( bDat )
+         IF ( field->datnal < dDOd .OR. field->datnal > dDDo )
+            SKIP
+            LOOP
+         ENDIF
+      ENDIF
+      nDug += DugBHD
+      nPot += PotBHD
+      nDu2 += DugDEM
+      nPo2 += PotDEM
+      SKIP
+   ENDDO
+
+   nSaldo += nDug - nPot
+   nNalD := nDug
+   nNalP := nPot
+
+   IF !lSilent
+      IF LastKey() == K_ESC
+         BoxC()
+         CLOSERET
+      ENDIF
+      @ m_x + 3, m_y + 12 SAY nDug PICTURE picBHD
+      @ m_x + 4, m_y + 12 SAY nPot PICTURE picBHD
+      @ m_x + 5, m_y + 12 SAY nDug - nPot PICTURE picBHD
+      @ m_x + 7, m_y + 12 SAY nDu2 PICTURE picDEM
+      @ m_x + 8, m_y + 12 SAY nPo2 PICTURE picDEM
+      @ m_x + 9, m_y + 12 SAY nDu2 - nPo2 PICTURE picDEM
+   ENDIF
+
+   SELECT SINT
+   GO TOP
+   nDug := nPot := nDu2 := nPo2 := 0
+   GO TOP
+   DO WHILE !Eof() .AND. Inkey() != 27
+      IF ( bDat )
+         IF ( field->datnal < dDOd .OR. field->datnal > dDDo )
+            SKIP
+            LOOP
+         ENDIF
+      ENDIF
+      nDug += Dugbhd
+      nPot += Potbhd
+      nDu2 += Dugdem
+      nPo2 += Potdem
+      SKIP
+   ENDDO
+
+   nSaldo += nDug - nPot
+   nSintD := nDug
+   nSintP := nPot
+
+   IF !lSilent
+      ESC_BCR
+      @ m_x + 3, m_y + 29 SAY nDug PICTURE picBHD
+      @ m_x + 4, m_y + 29 SAY nPot PICTURE picBHD
+      @ m_x + 5, m_y + 29 SAY nDug - nPot PICTURE picBHD
+      @ m_x + 7, m_y + 29 SAY nDu2 PICTURE picDEM
+      @ m_x + 8, m_y + 29 SAY nPo2 PICTURE picDEM
+      @ m_x + 9, m_y + 29 SAY nDu2 - nPo2 PICTURE picDEM
+   ENDIF
+
+   SELECT ANAL
+   GO TOP
+   nDug := nPot := nDu2 := nPo2 := 0
+   DO WHILE !Eof() .AND. Inkey() != 27
+      IF ( bDat )
+         IF ( field->datnal < dDOd .OR. field->datnal > dDDo )
+            SKIP
+            LOOP
+         ENDIF
+      ENDIF
+      nDug += Dugbhd
+      nPot += Potbhd
+      nDu2 += Dugdem
+      nPo2 += Potdem
+      SKIP
+   ENDDO
+
+   nSaldo += nDug - nPot
+   nAnalD := nDug
+   nAnalP := nPot
+
+   IF !lSilent
+      ESC_BCR
+      @ m_x + 3, m_y + 46 SAY nDug PICTURE picBHD
+      @ m_x + 4, m_y + 46 SAY nPot PICTURE picBHD
+      @ m_x + 5, m_y + 46 SAY nDug - nPot PICTURE picBHD
+      @ m_x + 7, m_y + 46 SAY nDu2 PICTURE picDEM
+      @ m_x + 8, m_y + 46 SAY nPo2 PICTURE picDEM
+      @ m_x + 9, m_y + 46 SAY nDu2 - nPo2 PICTURE picDEM
+   ENDIF
+
+   SELECT SUBAN
+   nDug := nPot := nDu2 := nPo2 := 0
+   GO TOP
+
+   DO WHILE !Eof() .AND. Inkey() != 27
+      IF ( bDat )
+         IF ( field->datdok < dDOd .OR. field->datdok > dDDo )
+            SKIP
+            LOOP
+         ENDIF
+      ENDIF
+
+      IF D_P == "1"
+         nDug += Iznosbhd
+         nDu2 += Iznosdem
+      ELSE
+         nPot += Iznosbhd
+         nPo2 += Iznosdem
+      ENDIF
+      SKIP
+   ENDDO
+
+   nSaldo += nDug - nPot
+   nSubD := nDug
+   nSubP := nPot
+
+   IF !lSilent
+      ESC_BCR
+      @ m_x + 3, m_y + 63 SAY nDug PICTURE picBHD
+      @ m_x + 4, m_y + 63 SAY nPot PICTURE picBHD
+      @ m_x + 5, m_y + 63 SAY nDug - nPot PICTURE picBHD
+      @ m_x + 7, m_y + 63 SAY nDu2 PICTURE picDEM
+      @ m_x + 8, m_y + 63 SAY nPo2 PICTURE picDEM
+      @ m_x + 9, m_y + 63 SAY nDu2 - nPo2 PICTURE picDEM
+      InkeySc( 0 )
+      BoxC()
+   ENDIF
+
+
+   // provjeri da li su podaci tacni !
+   IF ( Round( nSaldo, 2 ) > 0 ) .OR. ( Round( nSubD + nNalD + nAnalD + nSintD, 2 ) <> Round( nSubP + nNalP + nAnalP + nSintP, 2 ) )
+      lRet := .F.
+   ENDIF
+
+   // upisi u params podatak o datumu povlacenja...
+   PRIVATE cSection := "9"
+   PRIVATE cHistory := " "
+   PRIVATE aHistory := {}
+
+   O_PARAMS
+   WPar( "kd", Date() )
+   USE
+
+   IF lSilent
+      MsgC()
+   ENDIF
+
+   RETURN lRet
 
 
 // -------------------------------------------------
 // automatsko pokretanje kontrole zbira datoteka
 // -------------------------------------------------
-function auto_kzb()
-local dDate := DATE()
-local nTArea := SELECT()
-local lKzbOk
-local dLastDate:=DATE()
-private cSection:="9"
-private cHistory:=" "
-private aHistory:={}
+FUNCTION auto_kzb()
 
-if gnKZBdana == 0
-	return
-endif
+   LOCAL dDate := Date()
+   LOCAL nTArea := Select()
+   LOCAL lKzbOk
+   LOCAL dLastDate := Date()
+   PRIVATE cSection := "9"
+   PRIVATE cHistory := " "
+   PRIVATE aHistory := {}
 
-O_PARAMS
-RPar("kd", @dLastDate)
+   IF gnKZBdana == 0
+      RETURN
+   ENDIF
 
-// ako je manje od KZBdana ne pozivaj opciju...
-if (dDate - dLastDate) <= gnKZBdana
-	select (nTArea)
-	return
-endif
+   O_PARAMS
+   RPar( "kd", @dLastDate )
 
-lKzbOk := kontrola_zbira_fin(nil, .t.)
+   // ako je manje od KZBdana ne pozivaj opciju...
+   IF ( dDate - dLastDate ) <= gnKZBdana
+      SELECT ( nTArea )
+      RETURN
+   ENDIF
 
-if !lKzbOk
-	MsgBeep("Kontrola zbira datoteka je uocila greske!#Pregledajte greske...")
-	kontrola_zbira_fin()
-endif
+   lKzbOk := kontrola_zbira_fin( nil, .T. )
 
-select (nTArea)
-return
+   IF !lKzbOk
+      MsgBeep( "Kontrola zbira datoteka je uocila greske!#Pregledajte greske..." )
+      kontrola_zbira_fin()
+   ENDIF
+
+   SELECT ( nTArea )
+
+   RETURN

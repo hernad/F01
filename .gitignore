@@ -32,3 +32,5 @@ hb_out.log
 OUTF.TXT
 DATA
 data
+*.BAK
+*.bak

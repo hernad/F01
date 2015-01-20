@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -16,12 +16,13 @@
 // -------------------------------------------
 // kreiraj index FIN rules....
 // -------------------------------------------
-function cre_rule_cdx()
+FUNCTION cre_rule_cdx()
 
-f01_create_index( "FINKNJ1", "MODUL_NAME+RULE_OBJ+STR(RULE_NO,5)", SIFPATH + "FMKRULES" )
+   f01_create_index( "FINKNJ1", "MODUL_NAME+RULE_OBJ+STR(RULE_NO,5)", SIFPATH + "FMKRULES" )
 
-f01_create_index( "ELBA1", "MODUL_NAME+RULE_OBJ+RULE_C3", SIFPATH + "FMKRULES" )
-return
+   f01_create_index( "ELBA1", "MODUL_NAME+RULE_OBJ+RULE_C3", SIFPATH + "FMKRULES" )
+
+   RETURN
 
 
 
@@ -29,37 +30,40 @@ return
 // --------------------------------------------
 // rule - kolone specificne
 // --------------------------------------------
-function g_rule_cols()
-local aKols := {}
+FUNCTION g_rule_cols()
 
-//rule_c1 = 1
-//rule_c2 = 5
-//rule_c3 = 10
-//rule_c4 = 10
-//rule_c5 = 50
-//rule_c6 = 50
-//rule_c7 = 100
+   LOCAL aKols := {}
 
-AADD(aKols, { "tip nal", {|| PADR(rule_c3, 10) }, "rule_c3", {|| .t.}, {|| .t. } })
-AADD(aKols, { "partner", {|| PADR(rule_c5, 20) }, "rule_c5", {|| .t.}, {|| .t. } })
-AADD(aKols, { "konto", {|| PADR(rule_c6, 20) }, "rule_c6", {|| .t.}, {|| .t. } })
-AADD(aKols, { "d_p", {|| rule_c1 }, "rule_c1", {|| .t.}, {|| .t. } })
+   // rule_c1 = 1
+   // rule_c2 = 5
+   // rule_c3 = 10
+   // rule_c4 = 10
+   // rule_c5 = 50
+   // rule_c6 = 50
+   // rule_c7 = 100
 
-return aKols
+   AAdd( aKols, { "tip nal", {|| PadR( rule_c3, 10 ) }, "rule_c3", {|| .T. }, {|| .T. } } )
+   AAdd( aKols, { "partner", {|| PadR( rule_c5, 20 ) }, "rule_c5", {|| .T. }, {|| .T. } } )
+   AAdd( aKols, { "konto", {|| PadR( rule_c6, 20 ) }, "rule_c6", {|| .T. }, {|| .T. } } )
+   AAdd( aKols, { "d_p", {|| rule_c1 }, "rule_c1", {|| .T. }, {|| .T. } } )
+
+   RETURN aKols
 
 
 // -------------------------------------
 // rule - block tabele rule
 // -------------------------------------
-function g_rule_block()
-local bBlock := {|| ed_rule_bl() }
-return bBlock
+FUNCTION g_rule_block()
+
+   LOCAL bBlock := {|| ed_rule_bl() }
+
+   RETURN bBlock
 
 // ------------------------------------
 // edit rule key handler
 // ------------------------------------
-static function ed_rule_bl()
-return DE_CONT
+STATIC FUNCTION ed_rule_bl()
+   RETURN DE_CONT
 
 
 
@@ -70,24 +74,25 @@ return DE_CONT
 // ---------------------------------------
 
 
-static function err_validate( nLevel )
-local lRet := .f.
+STATIC FUNCTION err_validate( nLevel )
 
-if nLevel <= 3
+   LOCAL lRet := .F.
 
-	lRet := .t.
-	
-elseif nLevel == 4
-	
-	if Pitanje(, "Zanemariti ovo pravilo (D/N) ?", "N" ) == "D"
-	
-		lRet := .t.
-	
-	endif
+   IF nLevel <= 3
 
-endif
+      lRet := .T.
 
-return lRet
+   ELSEIF nLevel == 4
+
+      IF Pitanje(, "Zanemariti ovo pravilo (D/N) ?", "N" ) == "D"
+
+         lRet := .T.
+
+      ENDIF
+
+   ENDIF
+
+   RETURN lRet
 
 
 
@@ -95,103 +100,107 @@ return lRet
 // -------------------------------------
 // ispitivanje pravila o kontima
 // -------------------------------------
-function _rule_kto_()
-local nErrLevel := 0
+FUNCTION _rule_kto_()
 
-// ako se koriste pravila ? uopste
-if is_fmkrules()
-	
-	nErrLevel := _rule_kto1_()
+   LOCAL nErrLevel := 0
 
-endif
+   // ako se koriste pravila ? uopste
+   IF is_fmkrules()
 
-return err_validate( nErrLevel )
+      nErrLevel := _rule_kto1_()
+
+   ENDIF
+
+   RETURN err_validate( nErrLevel )
 
 
 
 // -------------------------------------------
 // dozvoljen konto na nalogu
 // -------------------------------------------
-function _rule_kto1_()
-local nReturn := 0
-local nTArea := SELECT()
+FUNCTION _rule_kto1_()
 
-local cObj := "KNJIZ_KONTO"
-local cMod := goModul:oDataBase:cName
+   LOCAL nReturn := 0
+   LOCAL nTArea := Select()
 
-local nErrLevel
-local cKtoList
-local cNalog
+   LOCAL cObj := "KNJIZ_KONTO"
+   LOCAL cMod := goModul:oDataBase:cName
 
-O_FMKRULES
-select fmkrules
-set order to tag "FINKNJ1"
-go top
+   LOCAL nErrLevel
+   LOCAL cKtoList
+   LOCAL cNalog
 
-seek g_rulemod( cMod ) + g_ruleobj( cObj )
+   O_FMKRULES
+   SELECT fmkrules
+   SET ORDER TO TAG "FINKNJ1"
+   GO TOP
 
-do while !EOF() .and. field->modul_name == g_rulemod( cMod ) ;
-		.and. field->rule_obj == g_ruleobj( cObj )
-	
-	// B4 ili B* ili *
-	cNalog := ALLTRIM( fmkrules->rule_c3 )
-	// 132 ili 132;1333;2311;....
-	cKtoList := ALLTRIM( fmkrules->rule_c6 )
-	// nivo pravila
-	nErrLevel := fmkrules->rule_level
-	
-	// ima li konta ???
-	if nErrLevel <> 0 .and. ;
-		_nalog_cond( _idvn, cNalog ) .and. ;
-		_konto_cond( _idkonto, cKtoList )
-		
-		nReturn := nErrLevel
-		
-		sh_rule_err( fmkrules->rule_ermsg, nErrLevel )
-		
-		exit
-	
-	endif
+   SEEK g_rulemod( cMod ) + g_ruleobj( cObj )
 
-	
-	skip
-	
-enddo
+   DO WHILE !Eof() .AND. field->modul_name == g_rulemod( cMod ) ;
+         .AND. field->rule_obj == g_ruleobj( cObj )
 
-select (nTArea)
-return nReturn
+      // B4 ili B* ili *
+      cNalog := AllTrim( fmkrules->rule_c3 )
+      // 132 ili 132;1333;2311;....
+      cKtoList := AllTrim( fmkrules->rule_c6 )
+      // nivo pravila
+      nErrLevel := fmkrules->rule_level
+
+      // ima li konta ???
+      IF nErrLevel <> 0 .AND. ;
+            _nalog_cond( _idvn, cNalog ) .AND. ;
+            _konto_cond( _idkonto, cKtoList )
+
+         nReturn := nErrLevel
+
+         sh_rule_err( fmkrules->rule_ermsg, nErrLevel )
+
+         EXIT
+
+      ENDIF
+
+
+      SKIP
+
+   ENDDO
+
+   SELECT ( nTArea )
+
+   RETURN nReturn
 
 
 
 // ---------------------------------------------------
 // da li vrsta naloga zadovoljava....
 // ---------------------------------------------------
-static function _nalog_cond( cFinNalog, cRuleNalog )
-local lRet := .f.
+STATIC FUNCTION _nalog_cond( cFinNalog, cRuleNalog )
 
-if cRuleNalog == "*"
-	
-	// odnosi se na sve naloge svi nalozi
-	
-	lRet := .t.
+   LOCAL lRet := .F.
 
-elseif LEFT( cRuleNalog, 1 ) <> "*" .and. "*" $ cRuleNalog
+   IF cRuleNalog == "*"
 
-	// odnosi se na pravilo "B*" recimo
-	
-	if LEFT( cRuleNalog, 1 ) == LEFT( cFinNalog, 1 )
-		lRet := .t.
-	endif
+      // odnosi se na sve naloge svi nalozi
 
-elseif cRuleNalog == cFinNalog
+      lRet := .T.
 
-	// odnosi se na uslov "B4"
-	
-	lRet := .t.
-	
-endif
+   ELSEIF Left( cRuleNalog, 1 ) <> "*" .AND. "*" $ cRuleNalog
 
-return lRet
+      // odnosi se na pravilo "B*" recimo
+
+      IF Left( cRuleNalog, 1 ) == Left( cFinNalog, 1 )
+         lRet := .T.
+      ENDIF
+
+   ELSEIF cRuleNalog == cFinNalog
+
+      // odnosi se na uslov "B4"
+
+      lRet := .T.
+
+   ENDIF
+
+   RETURN lRet
 
 
 
@@ -199,358 +208,370 @@ return lRet
 // -------------------------------------
 // ispitivanje pravila o partneru
 // -------------------------------------
-function _rule_partn_()
-local nErrLevel := 0
+FUNCTION _rule_partn_()
 
-// ako se koriste pravila ? uopste
-if is_fmkrules()
-	
-	nErrLevel := _rule_pt1_()
+   LOCAL nErrLevel := 0
 
-endif
+   // ako se koriste pravila ? uopste
+   IF is_fmkrules()
 
-return err_validate( nErrLevel )
+      nErrLevel := _rule_pt1_()
+
+   ENDIF
+
+   RETURN err_validate( nErrLevel )
 
 
 
 // -------------------------------------------
 // koji partner na kontu ???
 // -------------------------------------------
-function _rule_pt1_()
-local nReturn := 0
-local nTArea := SELECT()
+FUNCTION _rule_pt1_()
 
-local cObj := "KNJIZ_PARTNER_KONTO"
-local cMod := goModul:oDataBase:cName
+   LOCAL nReturn := 0
+   LOCAL nTArea := Select()
 
-local nErrLevel
-local cKtoList
-local cNalog
-local cPartn
+   LOCAL cObj := "KNJIZ_PARTNER_KONTO"
+   LOCAL cMod := goModul:oDataBase:cName
 
-O_FMKRULES
-select fmkrules
-set order to tag "FINKNJ1"
-go top
+   LOCAL nErrLevel
+   LOCAL cKtoList
+   LOCAL cNalog
+   LOCAL cPartn
 
-seek g_rulemod( cMod ) + g_ruleobj( cObj )
+   O_FMKRULES
+   SELECT fmkrules
+   SET ORDER TO TAG "FINKNJ1"
+   GO TOP
 
-do while !EOF() .and. field->modul_name == g_rulemod( cMod ) ;
-		.and. field->rule_obj == g_ruleobj( cObj )
-	
-	// B4 ili B* ili *
-	cNalog := ALLTRIM( fmkrules->rule_c3 )
-	
-	// 132 ili 132;1333;2311;....
-	cKtoList := ALLTRIM( fmkrules->rule_c6 )
+   SEEK g_rulemod( cMod ) + g_ruleobj( cObj )
 
-	// SC_SV1 - sifra partnera
-	cPartn := ALLTRIM( fmkrules->rule_c5 )
+   DO WHILE !Eof() .AND. field->modul_name == g_rulemod( cMod ) ;
+         .AND. field->rule_obj == g_ruleobj( cObj )
 
-	// nivo pravila
-	nErrLevel := fmkrules->rule_level
+      // B4 ili B* ili *
+      cNalog := AllTrim( fmkrules->rule_c3 )
 
-	// ima li konta ???
-	if nErrLevel <> 0 .and. ;
-		_nalog_cond( _idvn, cNalog ) .and. ;
-		_konto_cond( _idkonto, cKtoList ) .and. ;
-		_partn_cond( _idpartner, cPartn ) == .f.
-	
-		nReturn := nErrLevel
-		
-		sh_rule_err( fmkrules->rule_ermsg, nErrLevel )
-		
-		exit
-	
-	endif
+      // 132 ili 132;1333;2311;....
+      cKtoList := AllTrim( fmkrules->rule_c6 )
 
-	
-	skip
-	
-enddo
+      // SC_SV1 - sifra partnera
+      cPartn := AllTrim( fmkrules->rule_c5 )
 
-select (nTArea)
-return nReturn
+      // nivo pravila
+      nErrLevel := fmkrules->rule_level
+
+      // ima li konta ???
+      IF nErrLevel <> 0 .AND. ;
+            _nalog_cond( _idvn, cNalog ) .AND. ;
+            _konto_cond( _idkonto, cKtoList ) .AND. ;
+            _partn_cond( _idpartner, cPartn ) == .F.
+
+         nReturn := nErrLevel
+
+         sh_rule_err( fmkrules->rule_ermsg, nErrLevel )
+
+         EXIT
+
+      ENDIF
+
+
+      SKIP
+
+   ENDDO
+
+   SELECT ( nTArea )
+
+   RETURN nReturn
 
 
 
 // -------------------------------------
 // ispitivanje dugovne/potrazne strane
 // -------------------------------------
-function _rule_d_p_()
-local nErrLevel := 0
+FUNCTION _rule_d_p_()
 
-// ako se koriste pravila ? uopste
-if is_fmkrules()
-	
-	nErrLevel := _rule_dp1_()
+   LOCAL nErrLevel := 0
 
-endif
+   // ako se koriste pravila ? uopste
+   IF is_fmkrules()
 
-return err_validate( nErrLevel )
+      nErrLevel := _rule_dp1_()
+
+   ENDIF
+
+   RETURN err_validate( nErrLevel )
 
 
 
 // -------------------------------------------
 // duguje / potrazuje / partner / konto ????
 // -------------------------------------------
-function _rule_dp1_()
-local nReturn := 0
-local nTArea := SELECT()
+FUNCTION _rule_dp1_()
 
-local cObj := "KNJIZ_DP_PARTNER_KONTO"
-local cMod := goModul:oDataBase:cName
+   LOCAL nReturn := 0
+   LOCAL nTArea := Select()
 
-local nErrLevel
-local cKtoList
-local cDugPot
-local cPartn
-local cNalog
+   LOCAL cObj := "KNJIZ_DP_PARTNER_KONTO"
+   LOCAL cMod := goModul:oDataBase:cName
 
-O_FMKRULES
-select fmkrules
-set order to tag "FINKNJ1"
-go top
+   LOCAL nErrLevel
+   LOCAL cKtoList
+   LOCAL cDugPot
+   LOCAL cPartn
+   LOCAL cNalog
 
-seek g_rulemod( cMod ) + g_ruleobj( cObj )
+   O_FMKRULES
+   SELECT fmkrules
+   SET ORDER TO TAG "FINKNJ1"
+   GO TOP
 
-do while !EOF() .and. field->modul_name == g_rulemod( cMod ) ;
-		.and. field->rule_obj == g_ruleobj( cObj )
-	
-	// B4 ili B* ili *
-	cNalog := ALLTRIM( fmkrules->rule_c3 )
-	
-	// 132 ili 132;1333;2311;....
-	cKtoList := ALLTRIM( fmkrules->rule_c6 )
+   SEEK g_rulemod( cMod ) + g_ruleobj( cObj )
 
-	// SC_SV1 - sifra partnera
-	cPartn := ALLTRIM( fmkrules->rule_c5 )
+   DO WHILE !Eof() .AND. field->modul_name == g_rulemod( cMod ) ;
+         .AND. field->rule_obj == g_ruleobj( cObj )
 
-	// duguje ili potrazuje (1 ili 2)
-	cDugPot := ALLTRIM( fmkrules->rule_c1 )
+      // B4 ili B* ili *
+      cNalog := AllTrim( fmkrules->rule_c3 )
 
-	// nivo pravila
-	nErrLevel := fmkrules->rule_level
+      // 132 ili 132;1333;2311;....
+      cKtoList := AllTrim( fmkrules->rule_c6 )
 
-	// ima li konta ???
-	if nErrLevel <> 0 .and. ;
-		_nalog_cond( _idvn, cNalog ) .and. ;
-		_konto_cond( _idkonto, cKtoList ) .and. ;
-		( _partn_cond( _idpartner, cPartn) == .f. .or. ;
-		_dp_cond( _d_p , cDugPot ) == .f. )
-			
-		nReturn := nErrLevel
-		
-		sh_rule_err( fmkrules->rule_ermsg, nErrLevel )
-		
-		exit
-	
-		
-	endif
-	
-	skip
-	
-enddo
+      // SC_SV1 - sifra partnera
+      cPartn := AllTrim( fmkrules->rule_c5 )
 
-select (nTArea)
-return nReturn
+      // duguje ili potrazuje (1 ili 2)
+      cDugPot := AllTrim( fmkrules->rule_c1 )
+
+      // nivo pravila
+      nErrLevel := fmkrules->rule_level
+
+      // ima li konta ???
+      IF nErrLevel <> 0 .AND. ;
+            _nalog_cond( _idvn, cNalog ) .AND. ;
+            _konto_cond( _idkonto, cKtoList ) .AND. ;
+            ( _partn_cond( _idpartner, cPartn ) == .F. .OR. ;
+            _dp_cond( _d_p, cDugPot ) == .F. )
+
+         nReturn := nErrLevel
+
+         sh_rule_err( fmkrules->rule_ermsg, nErrLevel )
+
+         EXIT
+
+
+      ENDIF
+
+      SKIP
+
+   ENDDO
+
+   SELECT ( nTArea )
+
+   RETURN nReturn
 
 
 
 // ---------------------------------------------------
 // da li kupac zadovoljava kriterij ????
 // ---------------------------------------------------
-static function _partn_cond( cNalPartn, cRulePartn, lEmpty )
-local lRet := .f.
+STATIC FUNCTION _partn_cond( cNalPartn, cRulePartn, lEmpty )
 
-if lEmpty == nil
-	lEmpty := .f.
-endif
+   LOCAL lRet := .F.
 
-cNalPartn := ALLTRIM( cNalPartn ) 
+   IF lEmpty == nil
+      lEmpty := .F.
+   ENDIF
 
-if lEmpty == .t. .and. EMPTY( cRulePartn )
+   cNalPartn := AllTrim( cNalPartn )
 
-	lRet := .t.
+   IF lEmpty == .T. .AND. Empty( cRulePartn )
 
-elseif cRulePartn == "*"
+      lRet := .T.
 
-	// svi partneri
-	lRet := .t.
+   ELSEIF cRulePartn == "*"
 
-elseif cRulePartn == "#KUPAC#"
-	
-	// provjeri da li je partner kupac?
-	
-	lRet := is_kupac( cNalPartn )
+      // svi partneri
+      lRet := .T.
 
-elseif cRulePartn == "#DOBAVLJAC#"
+   ELSEIF cRulePartn == "#KUPAC#"
 
-	// provjeri da li je partner dobavljac?
-	
-	lRet := is_dobavljac( cNalPartn )
+      // provjeri da li je partner kupac?
 
-elseif cRulePartn == "#BANKA#"
+      lRet := is_kupac( cNalPartn )
 
-	// provjeri da li je partner banka?
+   ELSEIF cRulePartn == "#DOBAVLJAC#"
 
-	lRet := is_banka( cNalPartn )
+      // provjeri da li je partner dobavljac?
 
-elseif cRulePartn == "#RADNIK#"
+      lRet := is_dobavljac( cNalPartn )
 
-	// provjeri da li je partner radnik?
+   ELSEIF cRulePartn == "#BANKA#"
 
-	lRet := is_radnik( cNalPartn )
+      // provjeri da li je partner banka?
 
-elseif cRulePartn == cNalPartn
+      lRet := is_banka( cNalPartn )
 
-	// odnosi se na uslov "01CZ02", konkretnu sifru
-	
-	lRet := .t.
-	
-endif
+   ELSEIF cRulePartn == "#RADNIK#"
 
-return lRet
+      // provjeri da li je partner radnik?
+
+      lRet := is_radnik( cNalPartn )
+
+   ELSEIF cRulePartn == cNalPartn
+
+      // odnosi se na uslov "01CZ02", konkretnu sifru
+
+      lRet := .T.
+
+   ENDIF
+
+   RETURN lRet
 
 
 
 // ---------------------------------------------------
 // da li konto kriterij zadovoljava ????
 // ---------------------------------------------------
-static function _konto_cond( cNalKonto, cRuleKtoList, lEmpty )
-local lRet := .f.
+STATIC FUNCTION _konto_cond( cNalKonto, cRuleKtoList, lEmpty )
 
-cNalKonto := ALLTRIM( cNalKonto )
+   LOCAL lRet := .F.
 
-if lEmpty == nil
-	lEmpty := .f.
-endif
+   cNalKonto := AllTrim( cNalKonto )
 
-if lEmpty == .t. .and. EMPTY( cRuleKtoList )
-	
-	lRet := .t.
+   IF lEmpty == nil
+      lEmpty := .F.
+   ENDIF
 
-elseif cRuleKtoList == "*"
+   IF lEmpty == .T. .AND. Empty( cRuleKtoList )
 
-	// sva konta
-	lRet := .t.
+      lRet := .T.
 
-elseif cNalKonto $ cRuleKtoList
-	
-	lRet := .t.
-	
-endif
+   ELSEIF cRuleKtoList == "*"
 
-return lRet
+      // sva konta
+      lRet := .T.
+
+   ELSEIF cNalKonto $ cRuleKtoList
+
+      lRet := .T.
+
+   ENDIF
+
+   RETURN lRet
 
 
 
 // ---------------------------------------------------
 // da li DP kriterij zadovoljava ????
 // ---------------------------------------------------
-static function _dp_cond( cNalDP, cRuleDP, lEmpty )
-local lRet := .f.
+STATIC FUNCTION _dp_cond( cNalDP, cRuleDP, lEmpty )
 
-cNalDP := ALLTRIM( cNalDP )
+   LOCAL lRet := .F.
 
-if lEmpty == nil
-	lEmpty := .f.
-endif
+   cNalDP := AllTrim( cNalDP )
 
-if lEmpty == .t. .and. EMPTY( cRuleDP )
-	
-	lRet := .t.
+   IF lEmpty == nil
+      lEmpty := .F.
+   ENDIF
 
-elseif cNalDP == cRuleDP
-	
-	lRet := .t.
-	
-endif
+   IF lEmpty == .T. .AND. Empty( cRuleDP )
 
-return lRet
+      lRet := .T.
+
+   ELSEIF cNalDP == cRuleDP
+
+      lRet := .T.
+
+   ENDIF
+
+   RETURN lRet
 
 
 // -------------------------------------
 // ispitivanje broja veze naloga
 // -------------------------------------
-function _rule_veza_()
-local nErrLevel := 0
+FUNCTION _rule_veza_()
 
-// ako se koriste pravila ? uopste
-if is_fmkrules()
-	
-	nErrLevel := _rule_bv1_()
+   LOCAL nErrLevel := 0
 
-endif
+   // ako se koriste pravila ? uopste
+   IF is_fmkrules()
 
-return err_validate( nErrLevel )
+      nErrLevel := _rule_bv1_()
+
+   ENDIF
+
+   RETURN err_validate( nErrLevel )
 
 
 
 // -------------------------------------------
 // broj veze pravilo 1 ????
 // -------------------------------------------
-function _rule_bv1_()
-local nReturn := 0
-local nTArea := SELECT()
+FUNCTION _rule_bv1_()
 
-local cObj := "KNJIZ_BROJ_VEZE"
-local cMod := goModul:oDataBase:cName
+   LOCAL nReturn := 0
+   LOCAL nTArea := Select()
 
-local nErrLevel
-local cKtoList
-local cNalog
-local cPartn
-local cDugPot
+   LOCAL cObj := "KNJIZ_BROJ_VEZE"
+   LOCAL cMod := goModul:oDataBase:cName
 
-O_FMKRULES
-select fmkrules
-set order to tag "FINKNJ1"
-go top
+   LOCAL nErrLevel
+   LOCAL cKtoList
+   LOCAL cNalog
+   LOCAL cPartn
+   LOCAL cDugPot
 
-seek g_rulemod( cMod ) + g_ruleobj( cObj )
+   O_FMKRULES
+   SELECT fmkrules
+   SET ORDER TO TAG "FINKNJ1"
+   GO TOP
 
-do while !EOF() .and. field->modul_name == g_rulemod( cMod ) ;
-		.and. field->rule_obj == g_ruleobj( cObj )
-	
-	// B4 ili B* ili *
-	cNalog := ALLTRIM( fmkrules->rule_c3 )
-	
-	// 132 ili 132;1333;2311;....
-	cKtoList := ALLTRIM( fmkrules->rule_c6 )
+   SEEK g_rulemod( cMod ) + g_ruleobj( cObj )
 
-	// partner
-	cPartn := ALLTRIM( fmkrules->rule_c5 )
+   DO WHILE !Eof() .AND. field->modul_name == g_rulemod( cMod ) ;
+         .AND. field->rule_obj == g_ruleobj( cObj )
 
-	// duguje / potrazuje
-	cDugPot := ALLTRIM( fmkrules->rule_c1 )
-	
-	// nivo pravila
-	nErrLevel := fmkrules->rule_level
+      // B4 ili B* ili *
+      cNalog := AllTrim( fmkrules->rule_c3 )
 
-	// ima li konto/nalog/opis ???
-	if nErrLevel <> 0 .and. ;
-		_nalog_cond( _idvn, cNalog ) .and. ;
-		_konto_cond( _idkonto, cKtoList, .t. ) .and. ;
-		_partn_cond( _idpartner, cPartn, .t. ) .and. ;
-		_dp_cond( _d_p, cDugPot, .t. ) .and. ;
-		EMPTY( _brdok )
-		
-		nReturn := nErrLevel
-		
-		sh_rule_err( fmkrules->rule_ermsg, nErrLevel )
-		
-		exit
-	
-		
-	endif
-	
-	skip
-	
-enddo
+      // 132 ili 132;1333;2311;....
+      cKtoList := AllTrim( fmkrules->rule_c6 )
 
-select (nTArea)
-return nReturn
+      // partner
+      cPartn := AllTrim( fmkrules->rule_c5 )
+
+      // duguje / potrazuje
+      cDugPot := AllTrim( fmkrules->rule_c1 )
+
+      // nivo pravila
+      nErrLevel := fmkrules->rule_level
+
+      // ima li konto/nalog/opis ???
+      IF nErrLevel <> 0 .AND. ;
+            _nalog_cond( _idvn, cNalog ) .AND. ;
+            _konto_cond( _idkonto, cKtoList, .T. ) .AND. ;
+            _partn_cond( _idpartner, cPartn, .T. ) .AND. ;
+            _dp_cond( _d_p, cDugPot, .T. ) .AND. ;
+            Empty( _brdok )
+
+         nReturn := nErrLevel
+
+         sh_rule_err( fmkrules->rule_ermsg, nErrLevel )
+
+         EXIT
+
+
+      ENDIF
+
+      SKIP
+
+   ENDDO
+
+   SELECT ( nTArea )
+
+   RETURN nReturn
 
 
 
@@ -559,88 +580,87 @@ return nReturn
 // ----------------------------------------
 
 // vraca konto po uslovu rule_c3
-function r_get_konto( cCond, cPartner )
-local nTArea := SELECT()
+FUNCTION r_get_konto( cCond, cPartner )
 
-local cObj := "ELBA_IMPORT"
-local cMod := goModul:oDataBase:cName
-local cKonto := "XX"
+   LOCAL nTArea := Select()
 
-O_FMKRULES
-select fmkrules
-set order to tag "ELBA1"
-go top
+   LOCAL cObj := "ELBA_IMPORT"
+   LOCAL cMod := goModul:oDataBase:cName
+   LOCAL cKonto := "XX"
 
-seek g_rulemod( cMod ) + g_ruleobj( cObj ) + g_rule_c3( cCond )
+   O_FMKRULES
+   SELECT fmkrules
+   SET ORDER TO TAG "ELBA1"
+   GO TOP
 
-if cPartner == nil
-	cPartner := ""
-endif
+   SEEK g_rulemod( cMod ) + g_ruleobj( cObj ) + g_rule_c3( cCond )
 
-do while !EOF() .and. field->modul_name == g_rulemod(cMod) ;
-		.and. field->rule_obj == g_ruleobj(cObj) ;
-		.and. field->rule_c3 == g_rule_c3( cCond )
-		
-	if EMPTY(cPartner)
+   IF cPartner == nil
+      cPartner := ""
+   ENDIF
 
-		if EMPTY(field->rule_c5)
-			cKonto := PADR( field->rule_c6, 7 )
-			exit
-		endif
-			
-	else
-		
-		if ALLTRIM(cPartner) == ALLTRIM( field->rule_c5 )
-			cKonto := PADR( field->rule_c6, 7 )
-			exit
-		endif
-			
-	endif
-	
-	skip
-enddo
+   DO WHILE !Eof() .AND. field->modul_name == g_rulemod( cMod ) ;
+         .AND. field->rule_obj == g_ruleobj( cObj ) ;
+         .AND. field->rule_c3 == g_rule_c3( cCond )
 
-select (nTArea)
+      IF Empty( cPartner )
 
-return cKonto
+         IF Empty( field->rule_c5 )
+            cKonto := PadR( field->rule_c6, 7 )
+            EXIT
+         ENDIF
+
+      ELSE
+
+         IF AllTrim( cPartner ) == AllTrim( field->rule_c5 )
+            cKonto := PadR( field->rule_c6, 7 )
+            EXIT
+         ENDIF
+
+      ENDIF
+
+      SKIP
+   ENDDO
+
+   SELECT ( nTArea )
+
+   RETURN cKonto
 
 
 
 // vraca partnera po uslovu konta
-function r_get_kpartn( cKonto )
-local nTArea := SELECT()
+FUNCTION r_get_kpartn( cKonto )
 
-local cObj := "ELBA_IMPORT"
-local cMod := goModul:oDataBase:cName
-local cCond := "KTO_PARTN"
-local cPartn := ""
+   LOCAL nTArea := Select()
 
-O_FMKRULES
-select fmkrules
-set order to tag "ELBA1"
-go top
+   LOCAL cObj := "ELBA_IMPORT"
+   LOCAL cMod := goModul:oDataBase:cName
+   LOCAL cCond := "KTO_PARTN"
+   LOCAL cPartn := ""
 
-seek g_rulemod( cMod ) + g_ruleobj( cObj ) + g_rule_c3( cCond )
+   O_FMKRULES
+   SELECT fmkrules
+   SET ORDER TO TAG "ELBA1"
+   GO TOP
 
-do while !EOF() .and. field->modul_name == g_rulemod(cMod) .and. ;
-		field->rule_obj == g_ruleobj(cObj) .and. ;
-		field->rule_c3 == g_rule_c3(cCond)
-	
-	if ALLTRIM(cKonto) == ALLTRIM( field->rule_c6 )
-		
-		cPartn := PADR( field->rule_c5, 6 )
-		
-		exit
-	
-	endif
-	
-	skip
+   SEEK g_rulemod( cMod ) + g_ruleobj( cObj ) + g_rule_c3( cCond )
 
-enddo
+   DO WHILE !Eof() .AND. field->modul_name == g_rulemod( cMod ) .AND. ;
+         field->rule_obj == g_ruleobj( cObj ) .AND. ;
+         field->rule_c3 == g_rule_c3( cCond )
 
-select (nTArea)
+      IF AllTrim( cKonto ) == AllTrim( field->rule_c6 )
 
-return cPartn
+         cPartn := PadR( field->rule_c5, 6 )
 
+         EXIT
 
+      ENDIF
 
+      SKIP
+
+   ENDDO
+
+   SELECT ( nTArea )
+
+   RETURN cPartn
