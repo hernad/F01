@@ -13,9 +13,12 @@ PROCEDURE usage()
 
    ? "Poziv:"
    ?
-   ? "          $ ./F01_check"
+   ? "unix:     $ ./F01_check"
    ? "          $ ./F01_check  --findir SIGMA/FIN/KUM1"
    ?
+   ? "windows   > F01.exe"
+   ? "          > F01.exe --findir C:\SIGMA\FIN\KUM1"
+ 
    ?
 
    RETURN
