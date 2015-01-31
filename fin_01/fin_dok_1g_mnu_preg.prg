@@ -19,7 +19,7 @@ private opcexe:={}
 private Izbor:=1
 
 AADD(opc, "1. kontrola zbira datoteka                     ")
-AADD(opcexe, {|| kontrola_zbira_fin()})
+AADD(opcexe, {|| f01_kontrola_zbira_fin()})
 
 AADD(opc, "2. stampanje azuriranog dokumenta")
 if (ImaPravoPristupa(goModul:oDatabase:cName,"DOK","MNUSTAMPAAZURNALOGA"))
@@ -32,7 +32,7 @@ AADD(opc, "3. stampa liste dokumenata")
 AADD(opcexe, {|| fin_stdatn()})
 
 AADD(opc, "4. kontrola zbira datoteka za period - BETA")
-AADD(opcexe, {|| kontrola_zbira_fin(.t.)})
+AADD(opcexe, {|| f01_kontrola_zbira_fin(.t.)})
 
 Menu_SC("pgl")
 

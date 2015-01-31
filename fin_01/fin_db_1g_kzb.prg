@@ -20,7 +20,7 @@
 // .f. ako nije
 // --------------------------------
 
-FUNCTION kontrola_zbira_fin( bDat, lSilent )
+FUNCTION f01_kontrola_zbira_fin( bDat, lSilent )
 
    LOCAL lRet := .T.
    LOCAL nSaldo := 0
@@ -274,11 +274,11 @@ FUNCTION auto_kzb()
       RETURN
    ENDIF
 
-   lKzbOk := kontrola_zbira_fin( nil, .T. )
+   lKzbOk := f01_kontrola_zbira_fin( nil, .T. )
 
    IF !lKzbOk
       MsgBeep( "Kontrola zbira datoteka je uocila greske!#Pregledajte greske..." )
-      kontrola_zbira_fin()
+      f01_kontrola_zbira_fin()
    ENDIF
 
    SELECT ( nTArea )

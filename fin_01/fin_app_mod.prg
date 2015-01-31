@@ -137,7 +137,7 @@ METHOD TFinMod:mMenuStandard()
    AAdd( opcexe, {|| nil } )
 
    AAdd( opc, "K. kontrola zbira datoteka" )
-   AAdd( opcexe, {|| kontrola_zbira_fin() } )
+   AAdd( opcexe, {|| f01_kontrola_zbira_fin() } )
 
    AAdd( opc, "P. povrat dokumenta u pripremu" )
    IF ( ImaPravoPristupa( goModul:oDatabase:cName, "UT", "POVRATNALOGA" ) )
