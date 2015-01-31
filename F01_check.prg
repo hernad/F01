@@ -79,6 +79,9 @@ FUNCTION sum_tbl_nalog()
    LOCAL bNalogVars := {| cIdFirma, cIdvn, cBrNal | field->idfirma + field->idvn + field->brNal == cIdFirma + cIdVn + cBrNal }
    LOCAL bSum := {| nDug, nPot | nDug := nDug + field->dugBHD, nPot := nPot + field->potBHD }
 
+
+   ? "Keyboard <ESC> - prekid"
+
    FOR EACH cTabela IN { "n", "s", "a", "x" }
 
       SWITCH cTabela
@@ -128,20 +131,36 @@ FUNCTION analiza_nalozi()
 LOCAL cKey, aNalog
 
    ? "Broj finansijski naloga: ", Len( s_hNalozi )
+
+   ? "Fajl 'error.txt' sadrzi naloge sa greskama"
+
+    
+   SET ALTERNATE TO "error.txt"
+   ? "error.txt se formira ... sacekajte trenutak ... "
+   SET ALTERNATE ON
+   SET CONSOLE OFF
+   ? "---- F01_check - ERROR report  -------" 
+   ? DATE(), TIME()
+
    hb_hEval( s_hNalozi, { | cNalog, aNalog, nPos|
-     IF (aNalog[1][1] != aNalog[2][1]) .OR. ;
-        (aNalog[1][1] != aNalog[3][1]) .OR. ;
-        (aNalog[1][1] != aNalog[4][1]) .OR. ;
-        (aNalog[1][2] != aNalog[2][2]) .OR. ;
-        (aNalog[1][2] != aNalog[3][2]) .OR. ;
-        (aNalog[1][2] != aNalog[4][2])
-         print_nalog( cNalog, aNalog )
+     IF (ROUND(aNalog[1][1] - aNalog[2][1], 3) != 0) .OR. ;
+        (ROUND(aNalog[1][1] - aNalog[3][1], 3) != 0) .OR. ;
+        (ROUND(aNalog[1][1] - aNalog[4][1], 3) != 0) .OR. ;
+        (ROUND(aNalog[1][2] - aNalog[2][2], 3) != 0) .OR. ;
+        (ROUND(aNalog[1][2] - aNalog[3][2], 3) != 0) .OR. ;
+        (ROUND(aNalog[1][2] - aNalog[4][2], 3) != 0)
+         print_error_nalog( cNalog, aNalog )
      ENDIF
    } )
+   ? 
+   ? "------ ERROR REPORT END ---------------"
+   SET ALTERNATE OFF
+   SET CONSOLE ON
+   ? "error txt napravljen !"
    RETURN .T.
 
 
-FUNCTION print_nalog(cNalog, aNalog)
+FUNCTION print_error_nalog(cNalog, aNalog)
 
   ? "ERROR", cNalog
   ? "nalog:", transform( aNalog[1,1], format_iznos()), transform( aNalog[1,2], format_iznos() )

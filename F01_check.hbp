@@ -6,7 +6,7 @@
 F01_check.prg
 init_f01.prg
 
-#-gtstd
+-gtstd
 
 #F18_base.hbc
 #hbnetio.hbc
