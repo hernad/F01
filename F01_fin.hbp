@@ -20,6 +20,9 @@ gtqtc.hbc
 -gtqtc
 
 F18_base.hbc
+F18_string.hbc
+F18_sql.hbc
+F18_sql_data_access.hbc
 hbnetio.hbc
 
 F01_exe.hbm

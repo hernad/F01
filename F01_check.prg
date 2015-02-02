@@ -87,24 +87,27 @@ FUNCTION sum_tbl_nalog()
       SWITCH cTabela
       CASE 'n'
          USE ( fin_dir() + SLASH + "NALOG" )
-         SET ORDER TO TAG "1"
+         //SET ORDER TO TAG "1"
          EXIT
       CASE 's'
          USE ( fin_dir() + SLASH + "SINT" )
-         SET ORDER TO TAG "2"
+         //SET ORDER TO TAG "2"
          EXIT
       CASE 'a'
          USE ( fin_dir() + SLASH + "ANAL" )
-         SET ORDER TO TAG "2"
+         //SET ORDER TO TAG "2"
          EXIT
       CASE 'x'
          USE ( fin_dir() + SLASH + "SUBAN" )
-         SET ORDER TO TAG "4"
-         bSum := {| nDug, nPot | IIF( field->d_p == "1", nDug := nDug + field->iznosBHD, nPot := nPot + field->iznosBHD ) }
+         //SET ORDER TO TAG "4"
+         bSum := { |nDug, nPot| suban_d_p( @nDug, @nPot ) }
 
          EXIT
       ENDSWITCH
 
+      ? "kreiram index: " + cTabela
+      index on idfirma+idvn+brnal to (cTabela)
+      ? "end index"
 
       GO TOP
       DO WHILE !Eof() .AND. !keyboard_esc()
@@ -125,6 +128,20 @@ FUNCTION sum_tbl_nalog()
    NEXT
 
    RETURN .T.
+
+FUNCTION suban_d_p( nDug, nPot)
+
+  IF field->d_p == "1"
+       nDug := nDug + field->iznosBHD
+  ELSE
+       IF field->d_p == "2"
+           nPot := nPot + field->iznosBHD
+       ELSE
+           nPot := 99999999
+       ENDIF
+  ENDIF
+
+RETURN .T.
 
 FUNCTION analiza_nalozi()
 
@@ -162,7 +179,7 @@ LOCAL cKey, aNalog
 
 FUNCTION print_error_nalog(cNalog, aNalog)
 
-  ? "ERROR", cNalog
+  ? "ERROR:", cNalog
   ? "nalog:", transform( aNalog[1,1], format_iznos()), transform( aNalog[1,2], format_iznos() )
   ? " sint:", transform( aNalog[2,1], format_iznos()), transform( aNalog[2,2], format_iznos() )
   ? " anal:", transform( aNalog[3,1], format_iznos()), transform( aNalog[3,2], format_iznos() )
