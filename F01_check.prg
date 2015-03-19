@@ -6,6 +6,14 @@ STATIC s_cFinDir := "."
 
 STATIC s_lEsc := .F.
 
+/* fix datum valute: command line parametri */
+
+STATIC s_cDatumOd := "01.01.15"
+STATIC s_cDatumDo := "31.12.15"
+STATIC s_cKontoId := "2110   "
+STATIC s_cPartnerId := "XXXXXX"
+STATIC s_cTipDokumenta := "14"
+
 REQUEST DBFCDX
 
 
@@ -13,12 +21,13 @@ PROCEDURE usage()
 
    ? "Poziv:"
    ?
-   ? "unix:     $ ./F01_check"
-   ? "          $ ./F01_check  --findir SIGMA/FIN/KUM1"
-   ?
-   ? "windows   > F01.exe"
-   ? "          > F01.exe --findir C:\SIGMA\FIN\KUM1"
- 
+   ? "unix:    $ ./F01_check"
+   ? "         $ ./F01_check --kontrola-zbira --findir SIGMA/FIN/KUM1"
+   ? "         $ ./F01_check --fix-datum-valute --findir SIGMA/FIN/KUM1 --datum-od 01.01.15 --datum-do 31.03.15 --konto-id 2110 --tip-dokumenta 14 --partner-id 128026"
+
+   ? "windows  > F01.exe"
+   ? "         > F01.exe --findir C:\SIGMA\FIN\KUM1"
+
    ?
 
    RETURN
@@ -29,26 +38,106 @@ FUNCTION fin_dir()
 PROCEDURE Main( ... )
 
    LOCAL lFinDirNext := .F.
+   LOCAL lPartnerIdNext := .F.
+   LOCAL lKontoIdNext := .F.
+   LOCAL lTipDokumentaNext := .F.
+   LOCAL lDatumOdNext := .F., lDatumDoNext := .F.
    LOCAL cParam
+   LOCAL cOperacija := "kontrola_zbira"
+
 
    FOR EACH cParam IN hb_AParams()
+
       IF lFinDirNext
          s_cFinDir := cParam
       ENDIF
+
+      IF lDatumOdNext
+         s_cDatumOd := cParam
+      ENDIF
+
+      IF lDatumDoNext
+         s_cDatumDo := cParam
+      ENDIF
+
+      IF lPartnerIdNext
+         s_cPartnerId := cParam
+      ENDIF
+
+      IF lTipDokumentaNext
+         s_cTipDokumenta := cParam
+      ENDIF
+
+      IF lKontoIdNext
+         s_cKontoId := cParam
+      ENDIF
+
+
       IF cParam == "--fin-dir"
          lFinDirNext := .T.
       ELSE
          lFinDirNext := .F.
       ENDIF
 
+      IF cParam == "--datum-od"
+         lDatumOdNext := .T.
+      ELSE
+         lDatumOdNext := .F.
+      ENDIF
+
+      IF cParam == "--datum-do"
+         lDatumDoNext := .T.
+      ELSE
+         lDatumDoNext := .F.
+      ENDIF
+
+      IF cParam == "--partner-id"
+         lPartnerIdNext := .T.
+      ELSE
+         lPartnerIdNext := .F.
+      ENDIF
+
+
+      IF cParam == "--konto-id"
+          lKontoIdNext := .T.
+      ELSE
+          lKontoIdNext := .F.
+      ENDIF
+
+
+      IF cParam == "--tip-dokumenta"
+          lTipDokumentaNext := .T.
+      ELSE
+          lTipDokumentaNext := .F.
+      ENDIF
+
+
+      IF cParam == "--kontrola-zbira"
+          cOperacija := "kontrola_zbira"
+      ENDIF
+
+      IF cParam == "--fix-datum-valute"
+          cOperacija := "fix_datum_valute"
+      ENDIF
+
       IF cParam == "--help"
          usage()
          QUIT
       ENDIF
+
    NEXT
 
    f01_init_harbour()
-   f01_check_fin()
+
+   SWITCH cOperacija
+      CASE "kontrola_zbira"
+      f01_check_fin()
+      EXIT
+   CASE "fix_datum_valute"
+      fix_datum_valute( s_cKontoId, s_cTipDokumenta, s_cPartnerId, s_cDatumOd, s_cDatumDo )
+      EXIT
+   ENDSWITCH
+
 
    RETURN
 
@@ -62,6 +151,13 @@ FUNCTION f01_check_fin()
    analiza_nalozi()
 
    RETURN .T.
+
+
+FUNCTION fix_datum_valute( cKontoId, cTipDokumenta, cPartnerId, cDatumOd, cDatumDo )
+
+  ? "Ulazni parametri: KONTO", cKontoId, "TIP DOK:", cTipDokumenta, "PARTNER:", cPartnerId, "Dat od:", cDatumOd, "Dat do:", cDatumDo
+
+  RETURN .T.
 
 FUNCTION keyboard_esc()
 
@@ -151,12 +247,12 @@ LOCAL cKey, aNalog
 
    ? "Fajl 'error.txt' sadrzi naloge sa greskama"
 
-    
+
    SET ALTERNATE TO "error.txt"
    ? "error.txt se formira ... sacekajte trenutak ... "
    SET ALTERNATE ON
    SET CONSOLE OFF
-   ? "---- F01_check - ERROR report  -------" 
+   ? "---- F01_check - ERROR report  -------"
    ? DATE(), TIME()
 
    hb_hEval( s_hNalozi, { | cNalog, aNalog, nPos|
@@ -169,7 +265,7 @@ LOCAL cKey, aNalog
          print_error_nalog( cNalog, aNalog )
      ENDIF
    } )
-   ? 
+   ?
    ? "------ ERROR REPORT END ---------------"
    SET ALTERNATE OFF
    SET CONSOLE ON
