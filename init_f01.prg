@@ -1,3 +1,6 @@
+REQUEST DBFCDX
+REQUEST LOGRDD
+
 INIT PROCEDURE f01_init()
 
   OutStd( "init f01" )
@@ -25,3 +28,9 @@ INIT PROCEDURE f01_init()
 */
 
   RETURN
+
+
+FUNCTION hb_LogRddInherit()
+
+   RETURN "DBFCDX"
+

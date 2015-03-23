@@ -23,3 +23,13 @@ F18_base.hbc
 hbnetio.hbc
 
 F01_exe.hbm
+
+{darwin}-L./darwin
+{!LX_64&linux}-L./linux_32
+{LX_64&linux}-L./linux_64
+{win}-L./win32
+{LX_64&linux}-lz
+
+-lmy_hbuddall
+{allwin}-ldebugiraj_dll
+
