@@ -261,7 +261,7 @@ cDir:=ALLTRIM(cDir)
 if (gKonvertPath=="D")
 	KonvertPath(@cDir)
 endif
-::cDirPriv:=ToUnix(cDir)
+::cDirPriv:=f01_transform_dbf_name(cDir)
 
 // setuj i globalnu varijablu dok ne eliminisemo sve pozive na tu varijablu
 cDirPriv:=::cDirPriv
@@ -279,7 +279,7 @@ cDir:=alltrim(cDir)
 if (gKonvertPath=="D")
 	KonvertPath(@cDir)
 endif
-::cDirSif:=ToUnix(cDir)
+::cDirSif:=f01_transform_dbf_name(cDir)
 
 
 cDirSif := ::cDirSif
@@ -296,7 +296,7 @@ cDir:=alltrim(cDir)
 if (gKonvertPath=="D")
 	KonvertPath(@cDir)
 endif
-::cDirKum:=ToUnix(cDir)
+::cDirKum:=f01_transform_dbf_name(cDir)
 
 
 cDirKum:=::cDirKum
@@ -316,7 +316,7 @@ cDir:=alltrim(cDir)
 if (gKonvertPath=="D")
 	KonvertPath(@cDir)
 endif
-::cSigmaBD:=ToUnix(cDir)
+::cSigmaBD:=f01_transform_dbf_name(cDir)
 return cPom
 
 

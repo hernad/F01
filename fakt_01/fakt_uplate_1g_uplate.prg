@@ -93,7 +93,7 @@ do while .t.
 	@ m_x+ 4,m_y+ 1 SAY REPL(CHR(22),70)
 
 	seek cIdPartner  // pozicioniraj se na pocetak !!
-	ObjDbEdit("EvUpl",20,70,{|| EdUplata()} ,"","<c-N> nova uplata  <F2> ispravka  <c-T> brisanje  <c-P> stampanje",.f. , NIL, 1, , 4, 3, NIL, {|nSkip| fakt_skipdb_blok(nSkip)} )
+	f01_db_edit("EvUpl",20,70,{|| EdUplata()} ,"","<c-N> nova uplata  <F2> ispravka  <c-T> brisanje  <c-P> stampanje",.f. , NIL, 1, , 4, 3, NIL, {|nSkip| fakt_skipdb_blok(nSkip)} )
 
 	//  BrowseKey(m_x+5,m_y+4,m_x+15,m_y+68,ImeKol,{|Ch| EdUplata(Ch)},"idpartner==cidpartner",cidpartner,2,,,{|| .f.})
 

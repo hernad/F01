@@ -297,7 +297,7 @@ function CrePPProd()
 local cTblName
 local aTblCols
 
-cTblName:=ToUnix(PRIVPATH+"PPPROD.DBF")
+cTblName:=f01_transform_dbf_name(PRIVPATH+"PPPROD.DBF")
 aTblCols:={}
 AADD(aTblCols,{"idKonto","C",7,0})
 AADD(aTblCols,{"pari1","N",10,0})

@@ -549,7 +549,7 @@ private cPomBrDok:=SPACE(10)
 seek eval(bBkUslov)  // pozicioniraj se na pocetak !!      ? MS 16.11.01 ?
 
 OSt_StatLin()
-ObjDbEdit("Ost",21,77,{|| EdRos()} ,"","",     ;
+f01_db_edit("Ost",21,77,{|| EdRos()} ,"","",     ;
            .f. ,NIL, 1, {|| otvst=="9"}, 6, 0, ;  // zadnji par: nGPrazno
             NIL, {|nSkip| fin_ostav_skipdb_blok(nSkip)} )
 
@@ -1654,7 +1654,7 @@ DO WHILE .t.
    m_y+=40
  ENDIF
 
- ObjDbedit("komp1",15,38,{|| EdKomp()},"", IF(ALIAS()=="TEMP12","DUGUJE "+qqKonto,"POTRAZUJE "+qqKonto2), , , , ,1)
+ f01_db_edit("komp1",15,38,{|| EdKomp()},"", IF(ALIAS()=="TEMP12","DUGUJE "+qqKonto,"POTRAZUJE "+qqKonto2), , , , ,1)
  IF LASTKEY()==K_ESC; EXIT; ENDIF
 
 ENDDO
@@ -2450,7 +2450,7 @@ set cursor on
 private cPomBrDok:=SPACE(10)
 
 seek EVAL(bBkTrazi)
-ObjDbEdit("Ost",21,77,{|| EdRos()} ,"","",     ;
+f01_db_edit("Ost",21,77,{|| EdRos()} ,"","",     ;
            .f. ,NIL, 1, {|| brdok<>_obrdok}, 6, 0, ;  // zadnji par: nGPrazno
             NIL, {|nSkip| fin_ostav_skipdb_blok(nSkip)} )
 

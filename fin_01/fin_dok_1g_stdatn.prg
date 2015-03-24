@@ -352,7 +352,7 @@ O_NALOG; SET ORDER TO TAG "3"; GO TOP
   Kol:={}; for i:=1 to len(ImeKol); AADD(Kol,i); next
 
   Box(,20,45)
-   ObjDbedit("Nal",20,45,{|| EdNal()},"<Enter> - ispravka","Nalozi...", , , , ,)
+   f01_db_edit("Nal",20,45,{|| EdNal()},"<Enter> - ispravka","Nalozi...", , , , ,)
   BoxC()
 CLOSERET
 return

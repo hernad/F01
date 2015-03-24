@@ -10,7 +10,7 @@
 
 FUNCTION f01_ime_dbf_cdx( cIme )
 
-   cIme := Trim( StrTran( ToUnix( cIme ), "." + DBFEXT, "." + INDEXEXT ) )
+   cIme := Trim( StrTran( f01_transform_dbf_name( cIme ), "." + DBFEXT, "." + INDEXEXT ) )
    IF Right( cIme, 4 ) <> "." + INDEXEXT
       cIme := cIme + "." + INDEXEXT
    ENDIF

@@ -43,7 +43,7 @@ END IF
 
 GO TOP
 
-ObjDbEdit ('ks',10,nSir,{|| EdKorisn() },"",iif(System .or. (KLevel='0' .and. Right(trim(ImeKorisn),1)='1'),"<F2> Edit, <c-N> Novi, <c-T> Brisi",""),.f.,"Pregled korisnika programa")
+f01_db_edit ('ks',10,nSir,{|| EdKorisn() },"",iif(System .or. (KLevel='0' .and. Right(trim(ImeKorisn),1)='1'),"<F2> Edit, <c-N> Novi, <c-T> Brisi",""),.f.,"Pregled korisnika programa")
 
 closeret
 return
@@ -171,7 +171,7 @@ AADD(ImeKol, {'Pristup' , {|| Fv}  } )
 
 Kol:={1,2,3}
 
-ObjDbEdit ('ks',10,50,{|| EdSecur() },"","",.f.,"Sistem pristupa opcijama programa")
+f01_db_edit ('ks',10,50,{|| EdSecur() },"","",.f.,"Sistem pristupa opcijama programa")
 closeret
 return
 

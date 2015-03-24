@@ -353,7 +353,7 @@ nPP:=aPorezi[POR_PP]/100
 nPPP:=aPorezi[POR_PPP]/100
 nPPU:=aPorezi[POR_PPU]/100
 
-if (!IsVindija()) .and. nMpcSaPP<>nil
+if (!.T.) .and. nMpcSaPP<>nil
 	nMpcSaPP:=nMpcSaPP-nRabat
 endif
 

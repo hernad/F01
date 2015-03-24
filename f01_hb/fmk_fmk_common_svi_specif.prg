@@ -163,11 +163,6 @@ lRobaGroup:=lValue
 
 
 
-function IsVindija()
-
-return .T.
-
-
 function SetVindija(lValue)
 
 lVindija:=lValue

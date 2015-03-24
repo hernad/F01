@@ -283,7 +283,7 @@ private cPomBrDok:=SPACE(10)
 
 select ostav
 go top
-ObjDbedit("KOStav",15,74,{|| EdKonsRos()},"","Otvorene stavke.", , , ,{|| m2='3'} ,3)
+f01_db_edit("KOStav",15,74,{|| EdKonsRos()},"","Otvorene stavke.", , , ,{|| m2='3'} ,3)
 // )
 Boxc()
 

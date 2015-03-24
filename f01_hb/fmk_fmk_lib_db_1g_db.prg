@@ -358,7 +358,7 @@ function AppFrom(cFDbf,fOtvori)
 local nArr
 nArr:=SELECT()
 
-cFDBF:=ToUnix(cFDBF)
+cFDBF:=f01_transform_dbf_name(cFDBF)
 
 do while .t.
  if !flock()
@@ -584,7 +584,7 @@ if right(upper(cImeDBF),4)<>"."+DBFEXT
   cImeDBF:=cImeDBf+"."+DBFEXT
 endif
 cImeCDX:=strtran(UPPER(cImeDBF),"."+DBFEXT,"."+INDEXEXT)
-cImeCDX:=ToUnix(cImeCDX)
+cImeCDX:=f01_transform_dbf_name(cImeCDX)
 
 
 USE_EXCLUSIVE(PRIVPATH+cImeDBF)
@@ -838,7 +838,7 @@ return
 function DbfArea(cImeDBF, nVarijanta)
 local nPos
 
-cImeDBF:=ToUnix(cImeDBF)
+cImeDBF:=f01_transform_dbf_name(cImeDBF)
 
 if (nVarijanta==nil)
   // vrati oznaku Working area-e

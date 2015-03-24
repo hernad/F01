@@ -143,7 +143,7 @@ do while .t.
  		@ m_x+15,m_y+2 SAY "Prikaz po tipu sredstva " GET cKalkTip PICT "@!"
 	endif
   	
-	if IsVindija()	
+	if .T.	
 		cGr := SPACE(10)
 		cPSPDN := "N"
  		@ m_x+16,m_y+2 SAY "Grupa " GET cGr
@@ -299,7 +299,7 @@ do while !eof() .and. cIdFirma+cIdKonto==idfirma+pkonto .and. IspitajPrekid()
 	select roba
 	hseek cIdRoba
 	
-	if IsVindija()
+	if .T.
 		if !EMPTY(cGr)
 			if ALLTRIM(cGr) <> ALLTRIM(IzSifK("ROBA", "GR1", cIdRoba, .f.))
 				select kalk
@@ -867,8 +867,8 @@ local aDbf
 local cCdx
 
 aDbf:={}
-cTblKontrola:=ToUnix("c:/sigma/kontrola.dbf")
-cCdx:=ToUnix("c:/sigma/kontrola")
+cTblKontrola:=f01_transform_dbf_name("c:/sigma/kontrola.dbf")
+cCdx:=f01_transform_dbf_name("c:/sigma/kontrola")
 AADD(aDbf, { "ID", "C", 10, 0})
 AADD(aDbf, { "kolicina", "N", 12, 2})
 AADD(aDbf, { "Mpv", "N", 10, 2})

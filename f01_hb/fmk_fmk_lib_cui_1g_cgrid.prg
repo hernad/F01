@@ -15,14 +15,9 @@
 #include "error.ch"
 #include "setcurs.ch"
 
-/* file cgrid.prg
- *
- *   Funkcije za prikaz i obradu tabelarnih podataka
- */
 
 
-
-/*  function ObjDBedit(cImeBoxa,  xw, yw, bUserF,  cMessTop, cMessBot, lInvert, aMessage, nFreeze, bPodvuci, nPrazno, nGPrazno, aPoredak, skipblock)
+/*  function f01_db_edit(cImeBoxa,  xw, yw, bUserF,  cMessTop, cMessBot, lInvert, aMessage, nFreeze, bPodvuci, nPrazno, nGPrazno, aPoredak, skipblock)
  *  Glavna funkcija tabelarnog prikaza podataka
  *  cImeBoxa - ime box-a
  *  xw - duzina
@@ -32,13 +27,13 @@
  * return: NIL
  * biljeska: grid - eng -> mreza
  *
- * Funkcija ObjDbedit koristi se za prikaz tabelarnih podataka. Koristi je sifarski sistem, tablela pripreme itd ...
+ * Funkcija f01_db_edit koristi se za prikaz tabelarnih podataka. Koristi je sifarski sistem, tablela pripreme itd ...
 */
 
 * array ImeKol;
 
 /* var ImeKol
-  Privatna Varijabla koja se inicijalizira prije "ulaska" u ObjDBedit
+  Privatna Varijabla koja se inicijalizira prije "ulaska" u f01_db_edit
   - [ 1] Zalavlje kolone
   - [ 2] kodni blok za prikaz kolone {|| id}
   - [ 3] izraz koji se edituje (string), obradjuje sa & operatorom
@@ -62,7 +57,7 @@
 
 */
 
-function ObjDBedit(cImeBoxa, xw, yw, bUserF, cMessTop, cMessBot, lInvert, aMessage, nFreeze, bPodvuci, nPrazno, nGPrazno, aPoredak, skipblock)
+function f01_db_edit(cImeBoxa, xw, yw, bUserF, cMessTop, cMessBot, lInvert, aMessage, nFreeze, bPodvuci, nPrazno, nGPrazno, aPoredak, skipblock)
 
 
 local nBroji2
@@ -258,7 +253,7 @@ DO WHILE .T.
 
 
 
-         nRez:=DE_REFRESH
+      nRez:=DE_REFRESH
        else
          if gTBDir=="D" .and. Ch<>0 // pomjeri se desno
            TB:Right()
@@ -301,10 +296,12 @@ LOCAL i,j,k
 IF lIzOBJDB==NIL; lIzOBJDB:=.f.; ENDIF
 
 if aParametri[9]==0
+
  IF !lIzOBJDB; BoxC(); ENDIF
  Box(aParametri[1],aParametri[2],aParametri[3],aParametri[4],aParametri[5])
+
 else
- @ m_x+aParametri[2]-aParametri[9],m_y+1 SAY replicate(BOX_CHAR_USPRAVNO,aParametri[3])
+ @ m_x+aParametri[2]-aParametri[9],m_y+1 SAY replicate(BOX_CHAR_HORIZONT, aParametri[3])
 endif
 
 IF !lIzOBJDB
@@ -312,10 +309,12 @@ IF !lIzOBJDB
   Kol:=azKol
 ENDIF
 
-  @ m_x,m_y+2 SAY aParametri[8]+IF(!lIzOBJDB,REPL(BOX_CHAR_USPRAVNO,42),"")
+  @ m_x,m_y+2 SAY aParametri[8]+ IIF(!lIzOBJDB, REPL(BOX_CHAR_HORIZONT, 42), "")
   @ m_x+aParametri[2]+1,m_y+2 SAY aParametri[7] COLOR "GR+/B"
-  @ m_x+aParametri[2]+1,col()+1 SAY IF(!lIzOBJDB,REPL(BOX_CHAR_USPRAVNO,42),"")
+  @ m_x+aParametri[2]+1,col()+1 SAY IIF(!lIzOBJDB, REPL(BOX_CHAR_HORIZONT, 42), "")
+
   @ m_x+1,m_y+aParametri[3]-6 SAY STR(RecCount2(),5)
+
   TB:=TBRowseDB(m_x+2+aParametri[10],m_y+1,m_x+aParametri[2]-aParametri[9]-iif(aParametri[9]<>0,1,0),m_y+aParametri[3])
 
   if TBSkipBlock<>NIL
@@ -384,9 +383,12 @@ LOCAL i,j,k
         TB:addColumn(TCol)
      END IF
    NEXT
+
    TB:headSep := CHR(220)
+
    //TB:colsep :=CHR(219)
-   TB:colsep :=BOX_CHAR_USPRAVNO
+   TB:colsep := BOX_CHAR_USPRAVNO
+
    if aParametri[6]==NIL
       TB:Freeze:=1
    else

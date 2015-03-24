@@ -262,8 +262,8 @@ FUNCTION PrenosFin()
 
                            // konto kupaca
                            IF ( Left( IdKonto, 1 ) == cKlDuguje ) .AND. ( d_p == "1" )
-                              IF IsVindija()
-                                 IF Empty( DatVal ) .AND. !( IsVindija() .AND. idvn == "09" )
+                              IF .T.
+                                 IF Empty( DatVal ) .AND. !( .T. .AND. idvn == "09" )
                                     dDatVal := datdok
                                  ELSE
                                     dDatVal := datval
@@ -712,7 +712,7 @@ FUNCTION PreKart()
       Box(, 20, 77 )
       @ m_x + 19, m_y + 2 SAY "                         �                        �                   "
       @ m_x + 20, m_y + 2 SAY " <c-T>  Brisi stavku     � <ENTER>  Ispravi konto � <a-A> Azuriraj    "
-      ObjDbedit( "PPK", 20, 77, {|| EPPK() }, "", "Priprema za prebacivanje stavki", , , , , 2 )
+      f01_db_edit( "PPK", 20, 77, {|| EPPK() }, "", "Priprema za prebacivanje stavki", , , , , 2 )
       BoxC()
       IF RECCOUNT2() > 0
          i := KudaDalje( "ZAVRSAVATE SA PRIPREMOM PODATAKA. STA RADITI SA URADJENIM?", ;

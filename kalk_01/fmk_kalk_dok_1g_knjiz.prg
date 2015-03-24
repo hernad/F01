@@ -162,7 +162,7 @@ Box(,20,77)
 
 	PRIVATE lAutoAsist:=.f.
 
-	ObjDbedit("PNal",20,77,{|| kalk_edpripr(lAutoObr)},"<F5>-kartica magacin, <F6>-kartica prodavnica","Priprema...", , , , ,4)
+	f01_db_edit("PNal",20,77,{|| kalk_edpripr(lAutoObr)},"<F5>-kartica magacin, <F6>-kartica prodavnica","Priprema...", , , , ,4)
 BoxC()
 
 CLOSERET
@@ -1193,7 +1193,7 @@ if fsilent .or.  Pitanje(,"Rasporediti troskove ??","N")=="D"
    seek trim(pripr->mkonto)
    select pripr
 
-   if IsVindija()
+   if .T.
 	PushWA()
 	if !EMPTY(qqTar)
 		aUslTar:=Parsiraj(qqTar,"idTarifa")
@@ -1391,7 +1391,7 @@ if fsilent .or.  Pitanje(,"Rasporediti troskove ??","N")=="D"
       endif //cidvd $ "11#12#13"
    enddo  // eof()
 
-   if IsVindija()
+   if .T.
    	select pripr
 	PopWA()
    endif

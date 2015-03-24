@@ -122,7 +122,7 @@ local cPom
 local cLogF
 
 
-cPom:=ToUnix(KUMPATH+SLASH+"SQL")
+cPom:=f01_transform_dbf_name(KUMPATH+SLASH+"SQL")
 DirMak2(cPom)
 
 cLogF:=cPom+SLASH+replicate("0",8)

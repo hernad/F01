@@ -242,7 +242,7 @@ do while .t.
 		        	replace kolicina with nkolicina
 		       	endif
 		endif
-       elseif (pripr->idvd=="16" .and. IsVindija())
+       elseif (pripr->idvd=="16" .and. .T.)
        	APPEND BLANK
        	replace kolicina with nkolicina
        else

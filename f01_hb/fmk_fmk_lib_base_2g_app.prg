@@ -171,7 +171,6 @@ METHOD setName()
 
 METHOD TAppMod:RUN()
 
-   altd()
    if ::oDesktop == nil
       ::oDesktop := TDesktopNew()
    ENDIF

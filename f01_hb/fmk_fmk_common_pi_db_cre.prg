@@ -19,7 +19,7 @@ function CreFmkPi()
 
 local cImeDBF
 
-cImeDBF:=ToUnix(KUMPATH+"izvje.dbf")
+cImeDBF:=f01_transform_dbf_name(KUMPATH+"izvje.dbf")
 
 if !File2(cImeDBF)
    aDBf:={}
@@ -36,7 +36,7 @@ if !File2(cImeDBF)
 endif
 f01_create_index("ID","id",cImeDBF)
 
-cImeDBF:=ToUnix(KUMPATH+"koliz.dbf")
+cImeDBF:=f01_transform_dbf_name(KUMPATH+"koliz.dbf")
 if !File2(cImeDBF)
    aDBf:={}
    AADD(aDBf,{ 'ID'      , 'C' ,   2 ,  0 })
@@ -58,7 +58,7 @@ endif
 f01_create_index("ID","id"         ,cImeDBF)
 f01_create_index("1" ,"STR(rbr,2)" ,cImeDBF)
 
-cImeDBF:=ToUnix(KUMPATH+"zagli.dbf")
+cImeDBF:=f01_transform_dbf_name(KUMPATH+"zagli.dbf")
 if !File2(cImeDBF)
    aDBf:={}
    AADD(aDBf,{ 'ID'      , 'C' ,   2 ,  0 })
@@ -69,7 +69,7 @@ if !File2(cImeDBF)
 endif
 f01_create_index( "ID", "id"                  , cImeDBF)
 f01_create_index( "1" , "STR(x1,3)+STR(y1,3)" , cImeDBF)
-cImeDBF:=ToUnix(KUMPATH+"koniz.dbf")
+cImeDBF:=f01_transform_dbf_name(KUMPATH+"koniz.dbf")
 if !File2(cImeDBF)
    aDBf:={}
    AADD(aDBf,{ 'IZV'     , 'C' ,   2 ,  0 })

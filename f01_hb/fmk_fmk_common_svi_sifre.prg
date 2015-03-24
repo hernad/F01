@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,10 +14,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
- 
+
 function SifFmkSvi()
 
 private Opc:={}
@@ -84,31 +84,18 @@ else
 	AADD(opcexe, {|| MsgBeep(cZabrana)})
 endif
 
-AADD(opc,"9. referenti")  
+AADD(opc,"9. referenti")
 if (ImaPravoPristupa("FMK","SIF","SIFKOPEN"))
 	AADD(opcexe, {|| p_refer() } )
 else
 	AADD(opcexe, {|| MsgBeep(cZabrana)})
 endif
 
-AADD(opc,"10. sifk - karakteristike")  
+AADD(opc,"A. sifk - karakteristike")
 if (ImaPravoPristupa("FMK","SIF","SIFKOPEN"))
 	AADD(opcexe, {|| P_SifK() } )
 else
 	AADD(opcexe, {|| MsgBeep(cZabrana)})
-endif
-
-
-if (IsRamaGlas() .or.  gModul=="FAKT".and. glRadNal )
-	AADD(opc, "R. radni nalozi")  
-	AADD(opcexe, {|| P_RNal() } )
-endif
-
-// lokalizacija
-gLokal := ALLTRIM(gLokal)
-if gLokal <> "0"
-	AADD(opc, "L. lokalizacija")
-	AADD(opcexe, {|| P_Lokal() } )
 endif
 
 
@@ -134,7 +121,7 @@ cIdBroj := IzSifK("PARTN", "REGB", cIdPartner, .f.)
 
 if !EMPTY(cIdBroj)
   if LEN(ALLTRIM(cIdBroj)) == 12
-     
+
      return .t.
   else
      return .f.
@@ -193,7 +180,7 @@ else
   return nUndefined
 endif
 
-// u ovo polje se stavlja clan zakona o pdv-u ako postoji 
+// u ovo polje se stavlja clan zakona o pdv-u ako postoji
 // osnova za oslobadjanje
 //
 function PdvOslobadjanje(cIdPartner)
@@ -217,7 +204,7 @@ return lRet
 
 
 // -------------------------------------------------------------------------
-// profili 
+// profili
 // primjer: Profil partnera = "KUP,KMS"
 //          KUP - kupac
 //          DOB - dobavljac
@@ -228,7 +215,7 @@ return lRet
 //                oporezivanje
 //          SPE - partner koji obavlja poslove spediciji kod uvoza robe
 //          TRA - obavlja transport
-//    
+//
 //  Napomena: partner moze biti i kupac i dobavljac - stavlja se KUP,DOB
 //            znaci moze imati vise funkcija
 //
@@ -250,4 +237,3 @@ endif
 function IsKomision(cIdPartner)
 
 return IsProfil(cIdPartner, "KMS")
-

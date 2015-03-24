@@ -147,7 +147,7 @@ Box(,20,77)
 @ m_x+19,m_y+2 SAY "<c-A>  Ispravka Naloga"+BOX_CHAR_USPRAVNO+" <c-P> Stampa Naloga    "+BOX_CHAR_USPRAVNO+" <a-A> Azuriranje       "
 @ m_x+20,m_y+2 SAY "<c-F9> Brisi pripremu "+BOX_CHAR_USPRAVNO+" <F5>  KZB, <a-F5> PrDat"+BOX_CHAR_USPRAVNO+" <a-B> Blag,<F10> Ostalo"
 
-ObjDbedit("PNal", 20, 77, {|| fin_edpripr()},"","Priprema...", , , , ,3)
+f01_db_edit("PNal", 20, 77, {|| fin_edpripr()},"","Priprema...", , , , ,3)
 BoxC()
 closeret
 return
@@ -543,7 +543,7 @@ AEVAL(GetList,{|o| o:display()})
 
 
 
-// poziva je ObjDbedit u KnjNal
+// poziva je f01_db_edit u KnjNal
 // c-T  -  Brisanje stavke,  F5 - kontrola zbira za jedan nalog
 // F6 -  Suma naloga, ENTER-edit stavke, c-A - ispravka naloga
 

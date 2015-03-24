@@ -56,14 +56,14 @@ FUNCTION kopi( fProm )
          FErase( cPath + cCDX )
       ENDIF
 
-      FErase( ToUnix( cPath + cPath2 + "TMP_TMP.FPT" ) )
-      FErase( ToUnix( cPath + cPath2 + "TMP_TMP.DBF" ) )
-      FErase( ToUnix( cPath + cPath2 + "TMP_TMP.CDX" ) )
+      FErase( f01_transform_dbf_name( cPath + cPath2 + "TMP_TMP.FPT" ) )
+      FErase( f01_transform_dbf_name( cPath + cPath2 + "TMP_TMP.DBF" ) )
+      FErase( f01_transform_dbf_name( cPath + cPath2 + "TMP_TMP.CDX" ) )
       
-      dbCreate( ToUnix( cPath + cPath2 + "TMP_TMP.DBF" ), aNStru )
+      dbCreate( f01_transform_dbf_name( cPath + cPath2 + "TMP_TMP.DBF" ), aNStru )
 
       SELECT 2
-      USE_EXCLUSIVE( ToUnix( cPath + cPath2 + "TMP_TMP" ) ) ALIAS tmp
+      USE_EXCLUSIVE( f01_transform_dbf_name( cPath + cPath2 + "TMP_TMP" ) ) ALIAS tmp
       SELECT olddbf
 
       ?

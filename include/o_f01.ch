@@ -103,19 +103,19 @@
 #xcommand O_KALPOS => SELECT (F_KALPOS); USE (KUMPATH+"KALPOS"); set order to tag "1"
 #xcommand O_CROBA  => SELECT (F_CROBA) ; USE (gCENTPATH+"CROBA"); set order to tag "IDROBA"
 
-#xcommand O_ADRES     => select (F_ADRES); use (ToUnix(SIFPATH+"adres")) ; set order to tag "ID"
+#xcommand O_ADRES     => select (F_ADRES); use (f01_transform_dbf_name(SIFPATH+"adres")) ; set order to tag "ID"
 
-#xcommand O_DOKSTXT  => select (F_DOKSTXT); use (ToUnix(SIFPATH+"dokstxt")) ; set order to tag "ID"
+#xcommand O_DOKSTXT  => select (F_DOKSTXT); use (f01_transform_dbf_name(SIFPATH+"dokstxt")) ; set order to tag "ID"
 
-#xcommand O_EVENTS  => select (F_EVENTS); use (ToUnix(goModul:oDatabase:cSigmaBD+SLASH+"security"+SLASH+"events")) ; set order to tag "ID"
+#xcommand O_EVENTS  => select (F_EVENTS); use (f01_transform_dbf_name(goModul:oDatabase:cSigmaBD+SLASH+"security"+SLASH+"events")) ; set order to tag "ID"
 
-#xcommand O_EVENTLOG  => select (F_EVENTLOG); use (ToUnix(goModul:oDatabase:cSigmaBD+SLASH+"security"+SLASH+"eventlog")) ; set order to tag "ID"
+#xcommand O_EVENTLOG  => select (F_EVENTLOG); use (f01_transform_dbf_name(goModul:oDatabase:cSigmaBD+SLASH+"security"+SLASH+"eventlog")) ; set order to tag "ID"
 
-#xcommand O_USERS  => select (F_USERS); use (ToUnix(goModul:oDatabase:cSigmaBD+SLASH+"security"+SLASH+"users")) ; set order to tag "ID"
+#xcommand O_USERS  => select (F_USERS); use (f01_transform_dbf_name(goModul:oDatabase:cSigmaBD+SLASH+"security"+SLASH+"users")) ; set order to tag "ID"
 
-#xcommand O_GROUPS  => select (F_GROUPS); use (ToUnix(goModul:oDatabase:cSigmaBD+SLASH+"security"+SLASH+"groups")) ; set order to tag "ID"
+#xcommand O_GROUPS  => select (F_GROUPS); use (f01_transform_dbf_name(goModul:oDatabase:cSigmaBD+SLASH+"security"+SLASH+"groups")) ; set order to tag "ID"
 
-#xcommand O_RULES  => select (F_RULES); use (ToUnix(goModul:oDatabase:cSigmaBD+SLASH+"security"+SLASH+"rules")) ; set order to tag "ID"
+#xcommand O_RULES  => select (F_RULES); use (f01_transform_dbf_name(goModul:oDatabase:cSigmaBD+SLASH+"security"+SLASH+"rules")) ; set order to tag "ID"
 
 #xcommand O_FMKRULES  => select (F_FMKRULES); use (SIFPATH+"FMKRULES") ; set order to tag "2"
 

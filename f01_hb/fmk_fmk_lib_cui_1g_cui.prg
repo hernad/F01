@@ -1486,7 +1486,7 @@ endif
 return fret
 
 
-function NaslEkran(fBox)
+function f01_naslovni_ekran(fBox)
 
 if fbox
 	clear
@@ -1496,10 +1496,11 @@ endif
 @ 0,COL()+2 SAY DATE()  COLOR INVERT
 @ 24,64  SAY ELIBVER()
 
-DISPBox(2,0,4,79,B_DOUBLE+' ',NORMAL)
+// hernad: ovdje umjesto "." staviti drugi znak
+DISPBox(2,0,4,79,B_DOUBLE + '.', NORMAL)
 
 if fbox
-	DISPBox(5,0,24,79,B_DOUBLE+BOX_CHAR_USPRAVNO,INVERT)
+	DISPBox(5,0,24,79, B_DOUBLE + "." , INVERT)
 endif
 
 @ 3,1 SAY PADC(gNaslov+' Ver.'+gVerzija,72) COLOR NORMAL

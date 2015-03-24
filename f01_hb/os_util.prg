@@ -130,7 +130,7 @@ cTacka:=""
 else
 cTacka:="."
 endif
-cImeF:=ToUnix(cImeF)
+cImeF:=f01_transform_dbf_name(cImeF)
 
 cImeF:=trim(STRTRAN(cImeF,"."+cEXT,cTacka+cExtNew))
 if !EMPTY(cTacka) .and.  RIGHT(cImeF,4)<>cTacka+cExtNew
@@ -146,7 +146,7 @@ function DirExists(cDir1)
 local nH
 
 cDir1:=trim(cDir1)
-if (nH:=fcreate(ToUnix(cdir1+'\X')))=-1
+if (nH:=fcreate(f01_transform_dbf_name(cdir1+'\X')))=-1
 beep(2)
 Msg("Nepostojeci direktorij ili niste prisutni na mrezi !",0)
 if Pitanje(,"Zelite li kreirati direktorij:"+trim(cDir1)+" ?","N")=="D"
@@ -160,7 +160,7 @@ endif
 return .f.
 else
 fclose(nH)
-ferase(ToUnix(cDir1+SLASH+'X'))
+ferase(f01_transform_dbf_name(cDir1+SLASH+'X'))
 return .t.
 endif
 
@@ -169,7 +169,7 @@ function PostDir(cDir1)
 
 local cDirTek, fPostoji
 
-cDir1:=ToUnix(cDir1)
+cDir1:=f01_transform_dbf_name(cDir1)
 
 cDirTek:=dirname()
 if dirchange(cDir1) <> 0
@@ -203,7 +203,7 @@ if nDana == nil
 nDana := D_STAROST_DANA
 endif
 
-cDir:=ToUnix(trim(cdir))
+cDir:=f01_transform_dbf_name(trim(cdir))
 cFile:=fileseek(trim(cDir)+"*.*")
 do while !empty(cFile)
 if date() - filedate() > nDana
@@ -220,7 +220,7 @@ function ShowMem()
 RETURN
 
 
-function ToUnix(cFileName)
+function f01_transform_dbf_name(cFileName)
 
 
 cFileName := UPPER(cFileName)
@@ -263,13 +263,13 @@ IF "GPARAMS" $ cFileName
     cFileName := DATA_ROOT + "GPARAMS." + DBFEXT
 ENDIF
 
-OutStd( "File :" + cFileName + hb_eol() )
+//OutStd( "File :" + cFileName + hb_eol() )
 
 RETURN cFileName
 
 
 FUNCTION File2( cFile )
-  RETURN File( ToUnix( cFile ) )
+  RETURN File( f01_transform_dbf_name( cFile ) )
 
 function ShowOsInfo(gsOsInfo)
 @ 24, 2 SAY gsOsInfo

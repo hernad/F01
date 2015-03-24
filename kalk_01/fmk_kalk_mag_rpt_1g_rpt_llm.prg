@@ -101,7 +101,7 @@ if IsRobaGroup()
 	private qqRGr2:=SPACE(40)
 endif
 
-if IsVindija()
+if .T.
 	cOpcine:=SPACE(50)
 endif
 
@@ -197,7 +197,7 @@ Box(,21+IF(lPoNarudzbi,2,0)+IF(IsTvin(),1,0),60)
 		endif
 
 		@ m_x+14,m_y+2 SAY "Prikaz samo kriticnih zaliha (D/N/O) ?" GET cMinK pict "@!" valid cMink$"DNO"
- 		if IsVindija()
+ 		if .T.
 			cGr:=SPACE(10)
 			cPSPDN := "N"
  			@ m_x+15,m_y+2 SAY "Grupa:" GET cGr
@@ -219,7 +219,7 @@ Box(,21+IF(lPoNarudzbi,2,0)+IF(IsTvin(),1,0),60)
  			@ m_x+17,m_y+2 SAY "Prikaz po K9" GET cK9 PICT "@!"
  			@ m_x+17,m_y+20 SAY "Prikaz po K1" GET cK1 PICT "@!"
  		endif
- 		if IsVindija()
+ 		if .T.
  			@ m_x+17,m_y+2 SAY "Uslov po opcinama:" GET cOpcine PICT "@!S40"
  		endif
 		if IsDomZdr()
@@ -535,7 +535,7 @@ do while !eof() .and. IIF(fSint .and. lSabKon, idfirma, idfirma+mkonto ) = ;
 	 endif
 	endif
 	// Vindija - uslov po opcinama
-	if (IsVindija() .and. !EMPTY(cOpcine))
+	if (.T. .and. !EMPTY(cOpcine))
 	 select partn
 	 set order to tag "ID"
 	 hseek kalk->idpartner
@@ -547,7 +547,7 @@ do while !eof() .and. IIF(fSint .and. lSabKon, idfirma, idfirma+mkonto ) = ;
 	 select roba
 	endif
 	// po vindija GRUPA
-	if IsVindija()
+	if .T.
 	 if !Empty(cGr)
 		if ALLTRIM(cGr) <> IzSifK("ROBA", "GR1", cIdRoba, .f.)
 			select kalk

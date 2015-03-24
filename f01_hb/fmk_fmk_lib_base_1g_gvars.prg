@@ -25,7 +25,7 @@ public gModul:=""
 public gVerzija:=""
 public gAppSrv:=.f.
 public gSQL:="N"
-public gSQLLogBase:=ToUnix("c:"+SLASH+"sigma")
+public gSQLLogBase:=f01_transform_dbf_name("c:"+SLASH+"sigma")
 public ZGwPoruka:=""
 public GW_STATUS:="-"
 public GW_HANDLE:=0
@@ -74,7 +74,7 @@ public SifraKorisn:=""
 public KLevel:="9"
 
 public gArhDir
-gArhDir:=ToUnix("C:"+SLASH+"SIGARH")
+gArhDir:=f01_transform_dbf_name("C:"+SLASH+"SIGARH")
 
 public gPFont
 gPFont:="Arial"
@@ -165,7 +165,7 @@ public KLevel:="9"
 
 public gPTKONV:="0 "
 public gPicSif:="V", gcDirekt:="V", gShemaVF:="B5", gSKSif:="D"
-public gArhDir:=padr(ToUnix("C:" + SLASH + "SIGARH"),20)
+public gArhDir:=padr(f01_transform_dbf_name("C:" + SLASH + "SIGARH"),20)
 public gPFont:="Arial CE"
 public gKodnaS:="8"
 public gWord97:="N"
@@ -299,7 +299,7 @@ endif
 InigEpson()
 public gMeniSif:=.f., gValIz:="280 ", gValU:="000 ", gKurs:="1"
 
-if file( ToUnix( DATA_ROOT + "GPARAMS.DBF"))
+if file( f01_transform_dbf_name( DATA_ROOT + "GPARAMS.DBF"))
 
 O_GPARAMS
 O_PARAMS

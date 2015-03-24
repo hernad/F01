@@ -63,7 +63,7 @@ if fRS==nil
 endif
 
 if fRS // radna stanica
-  if file(ToUnix( PRIVPATH + cSezona + SLASH + "PRIPR.DBF"))
+  if file(f01_transform_dbf_name( PRIVPATH + cSezona + SLASH + "PRIPR.DBF"))
       // nema se sta raditi ......., pripr.dbf u sezoni postoji !
       return
   endif

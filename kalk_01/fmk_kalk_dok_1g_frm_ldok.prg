@@ -60,7 +60,7 @@ endif
 
 set_a_kol(@ImeKol, @Kol)
 
-ObjDbedit("pregl", 20, 77, {|| brow_keyhandler(Ch) }, cFooter, cHeader,,,,, 3)
+f01_db_edit("pregl", 20, 77, {|| brow_keyhandler(Ch) }, cFooter, cHeader,,,,, 3)
 
 BoxC()
 

@@ -416,7 +416,7 @@ endif
 SAVE SCREEN TO cS
 CLS
 
-cDirDest:=ToUnix("C:"+SLASH+"SIGMA"+SLASH+"SALJI"+SLASH)
+cDirDest:=f01_transform_dbf_name("C:"+SLASH+"SIGMA"+SLASH+"SALJI"+SLASH)
 cLokS:=IzFMKIni("FMK", "LokacijaZaSlanje", cDirDest , EXEPATH)
 cPom:="copy "+PRIVPATH+"OUTF.TXT "+cLokS+cNf
 

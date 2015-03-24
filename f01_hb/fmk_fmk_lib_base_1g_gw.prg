@@ -117,7 +117,7 @@ if gSQL=="N"
 	return
 endif
 
-cBazaInOut:=ToUnix("C:"+SLASH+"SIGMA")
+cBazaInOut:=f01_transform_dbf_name("C:"+SLASH+"SIGMA")
 
 cBaza:=goModul:cSqlLogBase
 
@@ -309,7 +309,7 @@ if (SECONDS()-nGwSec)> 60 + iif(gAppSrv, 60, 0)
 			goModul:quit()
 			return .t.
 		otherwise
-			cKom:="start"+" "+ToUnix("c:\tops\gateway.exe")
+			cKom:="start"+" "+f01_transform_dbf_name("c:\tops\gateway.exe")
 			RUN &cKom
 			Sleep(5)
 			//ponovo inicijalizirati gateway

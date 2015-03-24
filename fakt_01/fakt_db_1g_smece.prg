@@ -61,7 +61,7 @@ Box(,20,77)
 @ m_x+19,m_y+2 SAY "<P> Povrat dokumenta u pripremu "
 @ m_x+20,m_y+2 SAY "               "
 
-ObjDbedit("PRIPR9",20,77,{|| EdPr9()},"<P>-povrat dokumenta u pripremu","Pregled smeca...", , , , ,4)
+f01_db_edit("PRIPR9",20,77,{|| EdPr9()},"<P>-povrat dokumenta u pripremu","Pregled smeca...", , , , ,4)
 BoxC()
 
 return

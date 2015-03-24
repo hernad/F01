@@ -124,7 +124,7 @@ if IzFMKINI("ROBA","Planika","N",SIFPATH)=="D"
 	// roba, artikli
 endif
 
-if IsVindija()
+if .T.
 	select (F_ROBA)
   	use
   	f01_create_index("ID_VSD","SIFRADOB",SIFPATH+"ROBA") // sifra dobavljaca

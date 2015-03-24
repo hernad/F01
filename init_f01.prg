@@ -6,8 +6,6 @@ INIT PROCEDURE f01_init()
   OutStd( "init f01" )
   OutStd( hb_eol() )
 
-altd()
-
   connect_to_f01_server()
 
   OutStd( netio_funcexec( "DATE" ) )
@@ -33,4 +31,3 @@ altd()
 FUNCTION hb_LogRddInherit()
 
    RETURN "DBFCDX"
-

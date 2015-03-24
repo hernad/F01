@@ -45,7 +45,7 @@ set cursor on
 __partn := ugov->idpartner
 
 
-ObjDbedit("", nLenTbl,nWidthTbl,{|| key_handler( cIdUgov )},"","",,,,,2)
+f01_db_edit("", nLenTbl,nWidthTbl,{|| key_handler( cIdUgov )},"","",,,,,2)
 
 // izbacen brkey... bezveze
 

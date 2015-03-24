@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,7 +14,7 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
 
@@ -140,7 +140,7 @@
 
 /* ingroup ini
   * var: *string FmkIni_KumPath_FAKT_CekanjeNaSljedeciPozivDRB
-  *  Broj sekundi cekanja na provjeru da li je Delphi RB zavrsio posljednji zadani posao 
+  *  Broj sekundi cekanja na provjeru da li je Delphi RB zavrsio posljednji zadani posao
   *  6 - default vrijednost
   */
 *string FmkIni_KumPath_FAKT_CekanjeNaSljedeciPozivDRB;
@@ -191,7 +191,7 @@
 
 /* ingroup ini
   * var: *string FmkIni_ExePath_FAKT_PozivDelphiRB
-  *  Komanda za poziv Delphi RB-a za operativni sistem Windows 2000 
+  *  Komanda za poziv Delphi RB-a za operativni sistem Windows 2000
   *  DelphiRB - default vrijednost
   */
 *string FmkIni_ExePath_FAKT_PozivDelphiRB;
@@ -431,7 +431,7 @@ if fDelphiRB
 endif
 
 if cIdtipdok$"11#27"
-	if IsVindija()
+	if .T.
   		private m:="------ --------- ---------- ---------------------------------------- ------ ------- ----------- --- ----------- ------ -----------"
  	else
  		private m:="------ --------- ---------- ---------------------------------------- ------ ------- ----------- --- ----------- -----------"
@@ -611,7 +611,7 @@ if fDelphiRB
        			ENDIF
      		ENDIF
    	ENDDO
-	
+
 	dbcreate2(PRIVPATH+'POM.DBF',aDbf)
    	select (F_POM)
 	USE_EXCLUSIVE(PRIVPATH+'POM')
@@ -756,7 +756,7 @@ do while idfirma==cidfirma .and. idtipdok==cidtipdok .and. brdok==cbrdok .and. !
            			seek cPor
            			if !found()
 					append blank
-					replace por with cPor 
+					replace por with cPor
 				endif
              			replace iznos with iznos+nPor2
              			select pripr
@@ -776,7 +776,7 @@ do while idfirma==cidfirma .and. idtipdok==cidtipdok .and. brdok==cbrdok .and. !
          			seek "PPP "+str(tarifa->opp,6,2)
          			if !found()
 					append blank
-					replace por with "PPP "+str(tarifa->opp,6,2) 
+					replace por with "PPP "+str(tarifa->opp,6,2)
 				endif
          			replace iznos with iznos+nMPVBP*tarifa->opp/100
        			endif
@@ -804,7 +804,7 @@ do while idfirma==cidfirma .and. idtipdok==cidtipdok .and. brdok==cbrdok .and. !
        			endif
        			select pripr
      		endif
-		
+
 		aSBr := Sjecistr( IF(glDistrib, "",IF(BK_SB,ROBA->barkod,serbr)) , IF(cIdTipDok=="16".or.BK_SB.and.!glDistrib,13,10) )
 		if roba->tip="U"
      			aTxtR:=SjeciStr(aMemo[1],iif(gVarF $ "13".and.!idtipdok$"11#27",51,40-IF(gNW=="R".and.idtipdok$"11#27",6,0)))   // duzina naziva + serijski broj
@@ -825,11 +825,11 @@ do while idfirma==cidfirma .and. idtipdok==cidtipdok .and. brdok==cbrdok .and. !
        				select pripr
       			endif
     		endif
-		
+
 		if prow()>gERedova+48-len(aSbr)-nLTxt2  // prelaz na sljedecu stranicu ?
         		NStr0({|| Zagl2()},(nStavkiDok-nTekStavka)>0)
     		endif
-		
+
 		if porez-int(porez)<>0
         		cPor:=str(porez,3,1)
     		else
@@ -879,7 +879,7 @@ do while idfirma==cidfirma .and. idtipdok==cidtipdok .and. brdok==cbrdok .and. !
       				select pripr
      			endif
     		endif
-		
+
 		if fDelphiRB
       			select pom
       			replace kolicina with transform(pripr->(kolicina()),pickol),;
@@ -891,7 +891,7 @@ do while idfirma==cidfirma .and. idtipdok==cidtipdok .and. brdok==cbrdok .and. !
       			IF glDistrib .and. cIdTipDok $ "10#21"
         			IspisiAmbalazu()
       			ENDIF
-    		endif	
+    		endif
 
     		if empty(podbr) .or. (!empty(podbr) .and. cTI=="1")
          		if fDelphiRB
@@ -906,13 +906,13 @@ do while idfirma==cidfirma .and. idtipdok==cidtipdok .and. brdok==cbrdok .and. !
          		else
              			cRab:=str(rabat,5,0)
          		endif
-           
-			if cIdTipDok $ "11" .and. IsVindija()
+
+			if cIdTipDok $ "11" .and. .T.
          			if (gVarF=="3" .or. gVarF=="2")
                				@ prow(),pcol()+1 SAY cRab+"%"
              			endif
 			endif
-	   
+
 			if !cidtipdok$"11#27"
              			if !(gVarF=="3" .and. cidtipdok=="12")
                				if fDelphiRB
@@ -933,7 +933,7 @@ do while idfirma==cidfirma .and. idtipdok==cidtipdok .and. brdok==cbrdok .and. !
                				endif
              			endif
              		endif
-			
+
 	     		if !cIdTipDok $ "11#27"
 	     			if porez-int(porez)<>0
                				cPor:=str(porez,3,1)
@@ -950,7 +950,7 @@ do while idfirma==cidfirma .and. idtipdok==cidtipdok .and. brdok==cbrdok .and. !
                				endif
              			endif
            		endif
-			
+
 			nCol1:=pcol()+1
 
            		if fDelphiRB
@@ -978,17 +978,17 @@ do while idfirma==cidfirma .and. idtipdok==cidtipdok .and. brdok==cbrdok .and. !
               			seek cPor
               			if !found()
 					append blank
-					replace por with cPor 
+					replace por with cPor
 				endif
               			replace iznos with iznos+nPor2
               			select pripr
            		endif
     		endif
-		
+
 		nUk+=round(PrerCij()*kolicina()*cijena*nKurs,nZaokr)
     		//nRab+=round(PrerCij()*kolicina()*cijena*nKurs*rabat/100,nZaokr)
-    
-    		if IsVindija()
+
+    		if .T.
    			// rabat racunaju po mpcbezporeza*rabat
 			nRab+=round(nMPVBP*Rabat/100 , nZaokr)
     		else
@@ -997,12 +997,12 @@ do while idfirma==cidfirma .and. idtipdok==cidtipdok .and. brdok==cbrdok .and. !
 				nSkto += round(((round(PrerCij()*kolicina()*cijena*nKurs,nZaokr)) - (round(Cijena*Kolicina()*PrerCij()*Rabat/100,nZaokr))) * Skonto/100, nZaokr)
 			endif
 		endif
-    
+
    	endif
-   	
+
 	cCTSB:=serbr
    	skip
-   	
+
 	IF !EOF() .and. cIdTipDok=="16" .and. cCTSB<>serbr
      		 // podvuci kolonu polja SERBR (car.tarifa u racunu konsign.)
       		? space(gnLMarg)
@@ -1047,18 +1047,18 @@ if !(cidtipdok $ "11#12#27") .and. (nRab<>0  .or. nPor2<>0)
   endif
 endif
 
-if (cIdTipDok=="11" .and. IsVindija())
+if (cIdTipDok=="11" .and. .T.)
   if !fDelphiRB
-    
+
     ? space(gnLMarg)
     ?? PADL("Ukupno ("+cDinDem+") :",98)
     @ prow(),nCol1 SAY nUk pict picdem
-    
+
     ? space(gnLMarg)
     ?? PADL("Rabat  ("+cDinDem+") :",98)
     @ prow(),nCol1 SAY nRab pict picdem
-   
-    
+
+
   endif
 endif
 
@@ -1077,7 +1077,7 @@ if IsRabati() .and. lShowSk
 		@ prow(), nCol1 SAY nSkto pict picdem
 	endif
 endif
-   
+
 cPor:=""
 nPor2:=0
 if !cidtipdok$"11#27"
@@ -1158,7 +1158,7 @@ endif
 
 if !fDelphiRB
  if cidtipdok$"11#27"
- select por 
+ select por
  go top
  ? space(gnLMarg); ?? "- Od toga porez: ----------"
  nUkPorez:=0
@@ -1230,7 +1230,7 @@ CLOSERET
 /*  Zagl2()
  *   Ispis zaglavlja
  */
- 
+
 static function Zagl2()
 
 P_COND
@@ -1244,7 +1244,7 @@ if !fDelphiRB
 			?? " R.br " + cTarMp + " Sifra      Naziv                              KJ/KG     PPP    PPU     kolicina  jmj    Cijena       Ukupno"
   		else
    			? space(gnLMarg)
-   			if IsVindija()
+   			if .T.
    				?? " R.br " + cTarMp + " Sifra      Naziv                                      PPP    PPU     kolicina  jmj    Cijena    Rab.     Ukupno"
    			else
    				?? " R.br " + cTarMp + " Sifra      Naziv                                      PPP    PPU     kolicina  jmj    Cijena       Ukupno"
@@ -1283,7 +1283,7 @@ return
  *   bZagl
  *   fPrenos
  */
- 
+
 static function NStr0(bZagl, fPrenos)
 
 if fPrenos=NIL
@@ -1323,10 +1323,10 @@ endif
 
 
 /*  StKupac(fDelphiRB)
- *   
+ *
  *   fDelphiRB
  */
- 
+
 static function StKupac(fDelphiRB)
 
 local cMjesto:=padl(Mjesto(cIdFirma)+", "+dtoc(ddatdok),iif(gFPZag=99,gnTMarg3,0)+39)
@@ -1449,7 +1449,7 @@ elseif cIdTipDok=="01"
 elseif cIdTipDok=="00"
   cStr := "POCETNO STANJE " + cStr
 elseif (lTrebovanje .and. !Empty(pripr->idRNal))
-  cStr:="IZLAZ MATERIJALA br. " + cStr		
+  cStr:="IZLAZ MATERIJALA br. " + cStr
   cStrRN:=TRIM("PO RADNOM NALOGU br. "+pripr->idRNal)
 endif
 
@@ -1591,7 +1591,7 @@ return
  *   Priprema liste dodatnih podataka
  *  return: aVrati
  */
- 
+
 function ListDodP()
 
 LOCAL aVrati:={}, nArr:=SELECT(), aPom:={}, cPom:=""
@@ -1664,4 +1664,3 @@ else
 endif
 
 return
-

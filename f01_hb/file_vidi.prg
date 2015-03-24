@@ -698,7 +698,7 @@ STATIC FUNCTION SendFile( cImeF )
    IF Pitanje(, "Izvrsiti snimanje izvjestaja - dokumenta ?", "D" ) == "N"
       RETURN
    ENDIF
-   cLokacija := IzFmkIni( "FMK", "SendLokacija", ToUnix( "c:" + SLASH + "sigma" + SLASH + "send" ) )
+   cLokacija := IzFmkIni( "FMK", "SendLokacija", f01_transform_dbf_name( "c:" + SLASH + "sigma" + SLASH + "send" ) )
    DirMak2( cLokacija )
 
    Box(, 3, 60 )

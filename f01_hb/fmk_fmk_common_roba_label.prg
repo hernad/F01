@@ -56,7 +56,7 @@ cBoxHead := "<SPACE> markiranje � <ESC> kraj"
 cBoxFoot := "Priprema za labeliranje bar-kodova..."
 
 Box(,20,50)
-ObjDbedit("PLBK", 20, 50, {|| key_handler()}, cBoxHead, cBoxFoot, .t. , , , ,0)
+f01_db_edit("PLBK", 20, 50, {|| key_handler()}, cBoxHead, cBoxFoot, .t. , , , ,0)
 BoxC()
 
 if lStrings

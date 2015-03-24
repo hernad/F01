@@ -53,7 +53,7 @@ if nRbr==1 .or. !fnovi .or. gMagacin=="1"
    
    @ m_x+9,m_y+2   SAY "Konto zaduzuje            " GET _IdKonto valid  empty(_IdKonto) .or. P_Konto(@_IdKonto,24) pict "@!"
    
-   if (_idvd=="95" .and. IsVindija())
+   if (_idvd=="95" .and. .T.)
        
        @ m_x+9,m_y+40 SAY "Sifra veze otpisa:" GET _IdPartner  valid empty(_idPartner) .or.P_Firma(@_IdPartner,24) pict "@!"
    
@@ -393,7 +393,7 @@ elseif cidvd=="95"
  P_10CPI; B_ON
  ?
  ? space(nLijevo),"OTPIS MAGACIN"
- if (!EMPTY(cIdPartner) .and. IsVindija())
+ if (!EMPTY(cIdPartner) .and. .T.)
  	B_OFF
  	?? " -", RTRIM(cIdPartner), "("+RTRIM(partn->naz)+")"
 	B_ON

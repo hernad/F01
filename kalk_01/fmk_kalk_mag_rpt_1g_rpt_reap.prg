@@ -36,7 +36,7 @@ private dDat1:=dDat2:=ctod("")
 cIdFirma:=gFirma
 cIdKonto:=padr("1310",7)
 
-if IsVindija()
+if .T.
 	cOpcine:=SPACE(50)
 endif
 
@@ -57,7 +57,7 @@ Box(,8,70)
 
   @ m_x+6,m_y+2 SAY "Partneri:" GET qqPartn pict "@!S40"
 
-  if IsVindija()
+  if .T.
   	@ m_x+8,m_y+2 SAY "Opcine:" GET cOpcine pict "@!S40"
   endif
 
@@ -124,7 +124,7 @@ DO WHILE !EOF() .and. idfirma==cidfirma .and. cidkonto=mkonto .and. IspitajPreki
   	cIdPartner:=idpartner
 
   	//Vindija - ispitaj opcine za partnera
-  	if IsVindija() .and. !Empty(cOpcine)
+  	if .T. .and. !Empty(cOpcine)
   		select partn
 		hseek cIdPartner
 		if AT(ALLTRIM(partn->idops), cOpcine)==0

@@ -75,7 +75,7 @@ if IsPlanika()
 	AADD(opcexe, {|| ObrazInv()})
 endif
 
-if IsVindija()
+if .T.
 	AADD(opc, "V. pregled prodaje")
 	AADD(opcexe, {|| PregProdaje()})
 endif

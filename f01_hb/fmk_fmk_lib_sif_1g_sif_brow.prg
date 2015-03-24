@@ -274,7 +274,7 @@ if (fPonaz .and. (cNazSrch=="" .or. !trim(cNazSrch)==trim(naz))) .or.;
    go top
   endif
 
-   ObjDbedit(, nVisina,nSirina, ;
+   f01_db_edit(, nVisina,nSirina, ;
        {|| EdSif(nDbf, cNaslov, bBlok, aZabrane, aZabIsp)}, ;
        cNaslov, "", finvert,;
        {"<c-N> Novi","<F2>  Ispravka","<ENT> Odabir","<c-T> Brisi",;

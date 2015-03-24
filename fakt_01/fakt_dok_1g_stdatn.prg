@@ -374,7 +374,7 @@ if cTabela=="D"
                    {|| .t.}, {|| P_Firma(@widpartner)}, "V" }
    adKol:={}; for i:=1 to len(adImeKol); AADD(adKol,i); next
 
-   ObjDbedit("",19,72,{|| EdDatn()},"","", , , ,{ || if(gFC_use == "D", .f., .f. ) } ,2)
+   f01_db_edit("",19,72,{|| EdDatn()},"","", , , ,{ || if(gFC_use == "D", .f., .f. ) } ,2)
    BoxC()
    if fupripremu
      close all

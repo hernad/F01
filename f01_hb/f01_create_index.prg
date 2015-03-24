@@ -21,9 +21,8 @@ static nSlogova:=0
 function f01_use_gparams()
 
   select (F_GPARAMS)
-  altd()
-  SET( _SET_AUTOPEN, .T. )
-  use (ToUnix("GPARAMS"))
+  //SET( _SET_AUTOPEN, .T. )
+  use (f01_transform_dbf_name("GPARAMS"))
   set order to tag  "ID"
   RETURN .T.
 
@@ -42,7 +41,7 @@ private cKljuciz
 
 close all
 
-cImeDbf:=ToUnix(cImeDbf)
+cImeDbf:=f01_transform_dbf_name(cImeDbf)
 if fSilent==nil
     fSilent:=.f.
 endif

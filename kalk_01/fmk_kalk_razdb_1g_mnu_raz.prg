@@ -34,7 +34,7 @@ if IsPlanika()
 	AADD(opcexe, {|| scan_dok_u_procesu() })
 endif
 
-if IsVindija()
+if .T.
 	AADD(opc,"7. import vindija računi iz txt")
 	AADD(opcexe, {|| meni_import_vindija_racuni()} )
 endif

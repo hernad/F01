@@ -87,7 +87,6 @@ FUNCTION f01_start( oApp, lSezone )
    IF mpar37( "/INSTALL", oApp )
       oApp:oDatabase:lAdmin := .T.
       is_install( .T. )
-      altd()
       f01_cre_gparams()
    ENDIF
 
@@ -103,7 +102,6 @@ FUNCTION f01_start( oApp, lSezone )
       RETURN
    ENDIF
 
-   altd()
    oApp:oDatabase:setgaDbfs()
 
    IF mpar37( "/INSTALL", oApp )
@@ -235,7 +233,7 @@ FUNCTION If01_start( oApp, lSezone )
    gPicSif := "V"
    gcDirekt := "V"
    gSKSif := "D"
-   gArhDir := ToUnix( "C:" + SLASH + "SIGARH" )
+   gArhDir := f01_transform_dbf_name( "C:" + SLASH + "SIGARH" )
    gPFont := "Arial"
 
    PRIVATE cSection := "1", cHistory := " "; aHistory := {}
@@ -363,7 +361,7 @@ FUNCTION InitE( oApp )
       RETURN
    ENDIF
 
-   NaslEkran( .T. )
+   f01_naslovni_ekran( .T. )
    ToggleIns()
    ToggleIns()
 
@@ -650,7 +648,7 @@ FUNCTION PID( cStart )
 
    cPid := IzFmkIni( "PID", cPom, cDefault, EXEPATH )
 
-   cPidFile := ToUnix( EXEPATH + cPid + ".pid" )
+   cPidFile := f01_transform_dbf_name( EXEPATH + cPid + ".pid" )
 
    IF cStart = "STOP"
       // zatvori PID
@@ -824,9 +822,9 @@ FUNCTION Prijava( oApp, lScreen )
       ImeKorisn := korisn->ime
       SifraKorisn := korisn->sif
 
-      oApp:oDatabase:setDirKum( ToUnix( korisn->dirRad ) )
-      oApp:oDatabase:setDirSif( ToUnix( korisn->dirSif ) )
-      oApp:oDatabase:setDirPriv( ToUnix( korisn->dirPriv ) )
+      oApp:oDatabase:setDirKum( f01_transform_dbf_name( korisn->dirRad ) )
+      oApp:oDatabase:setDirSif( f01_transform_dbf_name( korisn->dirSif ) )
+      oApp:oDatabase:setDirPriv( f01_transform_dbf_name( korisn->dirPriv ) )
 
       // KLevel ... ubaciti u TAppMod klasu
       KLevel := level
@@ -843,7 +841,6 @@ FUNCTION Prijava( oApp, lScreen )
    USE
 
    // silent
-   altd()
 
    SetDirs( oApp, .F. )
 
@@ -1000,8 +997,6 @@ FUNCTION SetDirs( oApp, lScreen )
    IF lScreen == nil
       lScreen := .T.
    ENDIF
-
-   altd()
 
    SELECT ( F_KORISN )
    USE

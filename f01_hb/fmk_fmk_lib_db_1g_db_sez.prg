@@ -83,7 +83,7 @@ return .t.
 
 
 *PRIMJER
- function Skloni(KUMPATH, ToUnix("SUBAN.DBF"), "1998" , .f. , .f. , .f. )
+ function Skloni(KUMPATH, f01_transform_dbf_name("SUBAN.DBF"), "1998" , .f. , .f. , .f. )
 
 *BILJESKE
 
@@ -463,7 +463,7 @@ PUBLIC goModul:oDatabase:cSezonDir:=""
 SET(_SET_DEFAULT,cDirRad)
 
 StandardBoje()  // vrati standardne boje
-NaslEkran(.f.)
+f01_naslovni_ekran(.f.)
 
 @ 0,24 SAY PADR(trim(ImeKorisn)+":"+cDirPriv,25) COLOR INVERT
 @ 3,70 SAY "Sez."+goModul:oDatabase:cSezona COLOR INVERT

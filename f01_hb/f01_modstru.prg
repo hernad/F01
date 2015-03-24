@@ -112,7 +112,7 @@ FUNCTION f01_modStru( cImeF, cPath, fString )
          cPath := cPath + SLASH
       ENDIF
 
-      nH := FOpen( ToUnix( cImeF ) )
+      nH := FOpen( f01_transform_dbf_name( cImeF ) )
       IF nH == -1
          nH := FOpen( ".." + SLASH + cImeF )
       ENDIF

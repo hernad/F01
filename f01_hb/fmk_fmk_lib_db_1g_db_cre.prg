@@ -22,7 +22,7 @@ FUNCTION CreKorisn( nArea )
 
    IF ( nArea == -1 .OR. nArea == F_KORISN )
 
-      cImeDBF := ToUnix( modul_dir() + "KORISN.dbf" )
+      cImeDBF := f01_transform_dbf_name( modul_dir() + "KORISN.dbf" )
 
       IF !File2( cImeDBF )
          aDbf := {}
@@ -55,7 +55,7 @@ FUNCTION CreKorisn( nArea )
       ENDIF
 
 
-      f01_create_index( "IME", "ime", ToUnix( "." + SLASH + "korisn.dbf" ), .T. )
+      f01_create_index( "IME", "ime", f01_transform_dbf_name( "." + SLASH + "korisn.dbf" ), .T. )
    ENDIF
 
    RETURN
@@ -94,10 +94,10 @@ FUNCTION CreSystemDb( nArea )
 
 FUNCTION f01_cre_params( nArea )
 
-   LOCAL cParams := ToUnix( PRIVPATH + "PARAMS.DBF" )
-   LOCAL cGParams := ToUnix( PRIVPATH + "GPARAMS.DBF" )
-   LOCAL cMParams := ToUnix( modul_dir() + "MPARAMS.DBF" )
-   LOCAL cKParams := ToUnix( KUMPATH + "KPARAMS.DBF" )
+   LOCAL cParams := f01_transform_dbf_name( PRIVPATH + "PARAMS.DBF" )
+   LOCAL cGParams := f01_transform_dbf_name( PRIVPATH + "GPARAMS.DBF" )
+   LOCAL cMParams := f01_transform_dbf_name( modul_dir() + "MPARAMS.DBF" )
+   LOCAL cKParams := f01_transform_dbf_name( KUMPATH + "KPARAMS.DBF" )
 
    CLOSE ALL
 
@@ -136,7 +136,7 @@ FUNCTION f01_cre_params( nArea )
    ENDIF
 
    IF ( nArea == -1 .OR. nArea == F_MPARAMS )
-      IF !File2( ToUnix( cMParams ) )
+      IF !File2( f01_transform_dbf_name( cMParams ) )
          DBCREATE2( cMParams, aDbf )
       ENDIF
       f01_create_index( "ID", "fsec+fh+fvar+rbr", cMParams, .T. )
@@ -160,7 +160,7 @@ FUNCTION f01_cre_params( nArea )
 
 
    IF ( nArea == -1 .OR. nArea == F_SECUR )
-      cImeDBf := ToUnix( KUMPATH + "secur.dbf" )
+      cImeDBf := f01_transform_dbf_name( KUMPATH + "secur.dbf" )
       IF !File2( cImeDBF )
          DBCREATE2( cImeDBF, aDbf )
       ENDIF
@@ -178,7 +178,7 @@ FUNCTION CreAdres( nArea )
    ENDIF
 
    IF ( nArea == -1 .OR. nArea == F_KPARAMS )
-      IF !File2( ToUnix( SIFPATH + "ADRES.DBF" ) )
+      IF !File2( f01_transform_dbf_name( SIFPATH + "ADRES.DBF" ) )
          aDBF := {}
          AAdd( aDBf, { 'ID', 'C',  50,   0 } )
          AAdd( aDBf, { 'RJ', 'C',  30,   0 } )
@@ -222,11 +222,10 @@ FUNCTION f01_cre_gparams( nArea )
 
    IF ( nArea == -1 .OR. nArea == F_GPARAMS )
 
-      cImeDBf := ToUnix( "GPARAMS." + DBFEXT )
+      cImeDBf := f01_transform_dbf_name( "GPARAMS." + DBFEXT )
       IF !File2( cImeDbf )
          DBCREATE2( cImeDbf, aDbf )
       ENDIF
-      altd()
       f01_create_index( "ID", "fsec+fh+fvar+rbr", cImeDBF )
 
    ENDIF
@@ -237,7 +236,7 @@ FUNCTION f01_cre_gparams( nArea )
 
 FUNCTION KonvParams( cImeDBF )
 
-   cImeDBF := ToUnix( cImeDBF )
+   cImeDBF := f01_transform_dbf_name( cImeDBF )
    CLOSE  ALL
    IF File( cImeDBF ) // ako postoji
       USE ( cImeDbf )
@@ -263,7 +262,7 @@ FUNCTION DBCREATE2( cIme, aDbf, cDriver )
    LOCAL nPos
    LOCAL cCDX
 
-   cIme := ToUnix( cIme )
+   cIme := f01_transform_dbf_name( cIme )
    nPos := AScan( aDbf,  {| x| x[ 1 ] == "BRISANO" } )
    IF nPos == 0
       AAdd( aDBf, { 'BRISANO', 'C',  1,  0 } )

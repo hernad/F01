@@ -173,17 +173,17 @@ else
 		bErr:=ERRORBLOCK({|o| MyErrH(o)})
 		begin sequence
 
-		  set printer to ( ToUnix(cKom) )
+		  set printer to ( f01_transform_dbf_name(cKom) )
 
 		recover
 		bErr:=ERRORBLOCK(bErr)
 
-		cKom:= ToUnix( DATA_ROOT + cFName)
+		cKom:= f01_transform_dbf_name( DATA_ROOT + cFName)
 		if gnDebug>=5
 			MsgBeep("Radi se o fajlu !##set printer to (cKom)##var cKom=" + AllTrim(cKom))
 		endif
 
-		set printer to ( ToUnix(cKom) )
+		set printer to ( f01_transform_dbf_name(cKom) )
 		END SEQUENCE
 		bErr:=ERRORBLOCK(bErr)
 
@@ -191,7 +191,7 @@ else
 		if gnDebug>=5
 			MsgBeep("set printer to (cKom)##var cKom=" + AllTrim(cKom))
 		endif
-		set printer to ( ToUnix(cKom) )
+		set printer to ( f01_transform_dbf_name(cKom) )
 	endif
 
 endif

@@ -26,8 +26,8 @@ endif
 
 gArhdir:=trim(gArhDir)
 
-cDbfKontr:=ToUnix(gArhDir+SLASH+OtkUredj(cDirRad) + SLASH + "_podar_.dbf")
-cPomD:=ToUnix(gArhDir+SLASH+OtkUredj(cDirRad))
+cDbfKontr:=f01_transform_dbf_name(gArhDir+SLASH+OtkUredj(cDirRad) + SLASH + "_podar_.dbf")
+cPomD:=f01_transform_dbf_name(gArhDir+SLASH+OtkUredj(cDirRad))
 
 if !File2(cDbfKontr)
     if !File2(cPomD)

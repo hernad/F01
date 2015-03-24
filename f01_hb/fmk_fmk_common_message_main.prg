@@ -213,7 +213,7 @@ go top
 
 aOpc:={"<Enter> - Odabir","<ESC> - Izlaz","<c+P> - Stampa"}
 
-ObjDBedit(,19,77,{|| ShowMessage()},"     Pregled poruka     ","",.f.,aOpc)
+f01_db_edit(,19,77,{|| ShowMessage()},"     Pregled poruka     ","",.f.,aOpc)
 
 CLOSERET
 return

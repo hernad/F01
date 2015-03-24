@@ -102,7 +102,7 @@ TekDokument()
 @ m_x+19,m_y+2 SAY " <c-A> Ispravka Dokumenta�<c-P> Stampa (TXT)        �<a-F10> Asistent  "
 @ m_x+20,m_y+2 SAY " <a-A> Azuriranje dok.   �<c-F9> Brisi pripremu     �<F5>  Kontrola zbira  "
 @ m_x+21,m_y+2 SAY " <R> Rezerv  <X> Prekid R�<F10>  Ostale opcije      �<F9> 20,12->10; 27->11"
-ObjDbedit("PNal",21,77,{|| EdPripr()},"","Priprema..."+"����<a-N> narudzb.kupca"+"����<a-U> ugov.o rabatu", , , , ,4)
+f01_db_edit("PNal",21,77,{|| EdPripr()},"","Priprema..."+"����<a-N> narudzb.kupca"+"����<a-U> ugov.o rabatu", , , , ,4)
 BoxC()
 
 closeret
@@ -229,7 +229,7 @@ return IIF(nBrStavki==1, .t., .f.)
 
 function EdPripr()
 
-// poziva je ObjDbedit u KnjNal
+// poziva je f01_db_edit u KnjNal
 local nTr2
 local cPom
 local cENTER:=chr(K_ENTER)+chr(K_ENTER)+chr(K_ENTER)
