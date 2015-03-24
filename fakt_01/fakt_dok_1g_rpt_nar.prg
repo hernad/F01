@@ -148,7 +148,7 @@ else
 		cxPNazOrg := " - "
     	endif
     	dNarudzbe:=datdok
-    	nLin:=BrLinFajla(PRIVPATH+TRIM(gFNar))
+    	nLin:=f01_br_linija_fajla(PRIVPATH+TRIM(gFNar))
     	nPocetak:=0
     	nPreskociRedova:=0
     	for i:=1 to nLin

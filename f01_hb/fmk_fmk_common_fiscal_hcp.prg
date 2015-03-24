@@ -1128,7 +1128,7 @@ if !File2( cF_name )
 endif
 
 nFisc_no := 0
-nBrLin := BrLinFajla( cF_name )
+nBrLin := f01_br_linija_fajla( cF_name )
 nStart := 0
 
 // prodji kroz svaku liniju i procitaj zapise
@@ -1242,7 +1242,7 @@ if !File2( cF_name )
 endif
 
 nFisc_no := 0
-nBrLin := BrLinFajla( cF_name )
+nBrLin := f01_br_linija_fajla( cF_name )
 nStart := 0
 
 cFisc_txt := ""

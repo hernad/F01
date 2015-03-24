@@ -13,8 +13,8 @@
   #define DATA_ROOT "/F01/"
 
 #else
-  #define DRIVE_ROOT_PATH "C:" + SLASH
-  #define DATA_ROOT DRIVE_ROOT_PATH+"F01"+SLASH
+  #define DRIVE_ROOT_PATH "." + SLASH
+  #define DATA_ROOT "." + SLASH
 #endif
 
 #define D_VERZIJA "CDX"
@@ -30,9 +30,11 @@
 #define BOX_CHAR_HORIZONT_2 "_"
 
 
-#define  MEMOEXTENS  "FPT"
+#define MEMOEXTENS  "FPT"
+
 #DEFINE INDEXEXTENS "cdx"
 #DEFINE INDEXEXT "cdx"
+
 #DEFINE DBFEXT "DBF"
 #DEFINE MEMOEXT "FPT"
 #DEFINE RDDENGINE "DBFCDX"

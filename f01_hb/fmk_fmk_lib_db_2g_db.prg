@@ -229,9 +229,9 @@ aSezone:=ASezona(::cDirKum)
 f01_runmods(.t.)
 
 FOR i:=1 TO LEN(aSezone)
-	CreParams()
+	f01_cre_params()
 	::LogAgain(aSezone[i,1],.t.)
-	CreParams()
+	f01_cre_params()
 	f01_runmods(.t.)
 NEXT
 
@@ -387,7 +387,7 @@ AADD(opcexe, {|| f01_brisi_index_pakuj_dbf()})
 AADD(opc,"6. modifikacija struktura")
 AADD(opcexe, {|| f01_runmods()})
 AADD(opc,"7. instalacija fajlova")
-AADD(opcexe, {|| CreParams(), ::kreiraj()  })
+AADD(opcexe, {|| f01_cre_params(), ::kreiraj()  })
 AADD(opc,"8. registracija modula")
 AADD(opcexe, {|| cCurDir:=curdir(), goModul:sregg(), goModul:quit() } )
 AADD(opc,"9. promjena oznake sezone u radnom podrucju")
@@ -663,7 +663,7 @@ if ::cRadimUSezona<>"RADP"
 		::cSezonDir:=""
 
 	else
-       		CreParams()
+       		f01_cre_params()
 		::logAgain(::cRadimUSezona,.t.)
 	endif
 else

@@ -336,7 +336,7 @@ endif
 // zatim iscitaj fajl i ubaci podatke u tabelu
 
 // broj linija fajla
-nBrLin:=BrLinFajla(cTxtFile)
+nBrLin:=f01_br_linija_fajla(cTxtFile)
 nStart:=0
 
 // prodji kroz svaku liniju i insertuj zapise u temp.dbf
@@ -462,7 +462,7 @@ endif
 // zatim iscitaj fajl i ubaci podatke u tabelu
 
 // broj linija fajla
-nBrLin:=BrLinFajla(cTxtFile)
+nBrLin:=f01_br_linija_fajla(cTxtFile)
 nStart:=0
 
 

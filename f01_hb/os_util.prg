@@ -236,18 +236,19 @@ IF !is_install()
 ENDIF
 
 #ifdef __PLATFORM__UNIX
-
-cFileName := STRTRAN( cFileName, BACKSLASH, SLASH )
-
+  cFileName := STRTRAN( cFileName, BACKSLASH, SLASH )
 #endif
 
 IF is_install()
 
+/*
   IF LEFT( cFileName, 8 ) == SLASH + "GPARAMS"
     cFileName := STRTRAN( cFileName, SLASH + "GPARAMS", DATA_ROOT + "GPARAMS" )
   ENDIF
+*/
 
-  /*
+
+    /*
   IF LEFT( cFileName, 6) == "SIGMA/"
    cFileName := STRTRAN( cFileName, "SIGMA/", DATA_ROOT + "BRINGOUT" + SLASH )
   ENDIF
@@ -256,6 +257,13 @@ IF is_install()
 ENDIF
 
 //#endif
+
+
+IF "GPARAMS" $ cFileName
+    cFileName := DATA_ROOT + "GPARAMS." + DBFEXT
+ENDIF
+
+OutStd( "File :" + cFileName + hb_eol() )
 
 RETURN cFileName
 

@@ -82,8 +82,8 @@ FUNCTION CreSystemDb( nArea )
    IF lShowMsg
       MsgO( "Kreiram systemske tabele" )
    ENDIF
-   CreGParam( nArea )
-   CreParams( nArea )
+   f01_cre_gparams( nArea )
+   f01_cre_params( nArea )
    CreAdres( nArea )
    IF lShowMsg
       MsgC()
@@ -92,7 +92,7 @@ FUNCTION CreSystemDb( nArea )
    RETURN
 
 
-FUNCTION CreParams( nArea )
+FUNCTION f01_cre_params( nArea )
 
    LOCAL cParams := ToUnix( PRIVPATH + "PARAMS.DBF" )
    LOCAL cGParams := ToUnix( PRIVPATH + "GPARAMS.DBF" )
@@ -203,7 +203,7 @@ FUNCTION CreAdres( nArea )
    RETURN
 
 
-FUNCTION CreGparam( nArea )
+FUNCTION f01_cre_gparams( nArea )
 
    LOCAL aDbf
 
@@ -222,10 +222,11 @@ FUNCTION CreGparam( nArea )
 
    IF ( nArea == -1 .OR. nArea == F_GPARAMS )
 
-      cImeDBf := ToUnix( DATA_ROOT + "GPARAMS.DBF" )
+      cImeDBf := ToUnix( "GPARAMS." + DBFEXT )
       IF !File2( cImeDbf )
          DBCREATE2( cImeDbf, aDbf )
       ENDIF
+      altd()
       f01_create_index( "ID", "fsec+fh+fvar+rbr", cImeDBF )
 
    ENDIF

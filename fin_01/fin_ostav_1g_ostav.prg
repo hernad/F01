@@ -1807,7 +1807,7 @@ LOCAL a1:={}, a2:={}, GetList:={}
   if empty(gFKomp)
     for i:=1 to gnTMarg; QOUT(); next
   else
-    nLin:=BrLinFajla(PRIVPATH+TRIM(gFKomp))
+    nLin:=f01_br_linija_fajla(PRIVPATH+TRIM(gFKomp))
     nPocetak:=0; nPreskociRedova:=0
     FOR i:=1 TO nLin
       aPom:=SljedLin(PRIVPATH+TRIM(gFKomp),nPocetak)

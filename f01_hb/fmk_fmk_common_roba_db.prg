@@ -12,11 +12,6 @@
 
 #include "f01.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software
- * ----------------------------------------------------------------
- */
 
 
 function OFmkRoba()
@@ -31,7 +26,7 @@ O_SAST
 return
 
 
-function CreRoba()
+function f01_cre_roba()
 
 aDbf:={}
 AADD(aDBf,{ 'ID'                  , 'C' ,  10 ,  0 })
@@ -46,8 +41,7 @@ AADD(aDBf,{ 'NC'                  , 'N' ,  18 ,  8 })
 AADD(aDBf,{ 'VPC'                 , 'N' ,  18 ,  8 })
 AADD(aDBf,{ 'VPC2'                , 'N' ,  18 ,  8 })
 AADD(aDBf,{ 'PLC'                 , 'N' ,  18 ,  8 })
-// plc - mislim da ni ovo bas niko ne koristi treba analizirati
-//       vidjeti kod korisnika
+
 
 AADD(aDBf,{ 'MPC'                 , 'N' ,  18 ,  8 })
 AADD(aDBf,{ 'MPC2'                , 'N' ,  18 ,  8 })
@@ -76,6 +70,8 @@ AADD(aDBf,{ 'Opis'                , 'M' ,  10 ,  0 })
 // napraviti opciju u ikalk za brisanje opisa !!! a u kodu uslovno
 // omoguciti editovanje opisa
 AADD(aDBf,{ 'BARKOD'                , 'C' ,  13 ,  0 })
+
+AADD(aDbf,{"sifradob", "C", 10, 0})
 
 if !File2( SIFPATH+"ROBA.dbf" )
         dbcreate2(SIFPATH+'ROBA.DBF',aDbf)

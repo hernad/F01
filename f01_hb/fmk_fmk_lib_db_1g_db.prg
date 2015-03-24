@@ -992,6 +992,11 @@ endif
 return
 
 
+function PreUseEvent()
+
+RETURN .T.
+
+
 /*   PreUseEvent(cImeDbf, fShared)
  *   Poziva se prije svako otvaranje DBF-a komanom USE
  *
@@ -1002,7 +1007,7 @@ return
  *
  */
 
-function PreUseEvent(cImeDbf, fShared)
+function PreUseEvent_fmk(cImeDbf, fShared)
 
 local cImeCdx
 local cImeGwu

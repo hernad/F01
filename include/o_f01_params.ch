@@ -2,7 +2,7 @@
 
 #xcommand O_KORISN    => select (F_KORISN);  use (ToUnix( modul_dir() + "KORISN")); set order to tag "IME"
 #xcommand O_PARAMS    => select (F_PARAMS);  use (ToUnix(PRIVPATH+"PARAMS")) ; set order to tag  "ID"
-#xcommand O_GPARAMS   => select (F_GPARAMS); use (ToUnix(DATA_ROOT + "GPARAMS") ) ; set order to tag  "ID"
+#xcommand O_GPARAMS   => f01_use_gparams()
 #xcommand O_GPARAMSP  => select (F_GPARAMSP); use (ToUnix(PRIVPATH+"GPARAMS")) ; set order to tag  "ID"
 #xcommand O_MPARAMS   => select (F_MPARAMS); use (ToUnix(modul_dir() + "MPARAMS"))  ; set order  to tag  "ID"
 #xcommand O_KPARAMS   => select (F_KPARAMS); use (ToUnix(KUMPATH + "KPARAMS")); set order to tag  "ID"

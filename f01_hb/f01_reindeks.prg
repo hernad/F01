@@ -205,7 +205,7 @@ FUNCTION f01_brisi_index_pakuj_dbf( fSilent )
       IF !gAppSrv
          RESTORE SCREEN FROM cScr
       ENDIF
-      CreParams()
+      f01_cre_params()
       CLOSE ALL
       IF gAppSrv
          ? "Kreiram sve indexe ...."

@@ -87,8 +87,8 @@ FUNCTION f01_start( oApp, lSezone )
    IF mpar37( "/INSTALL", oApp )
       oApp:oDatabase:lAdmin := .T.
       is_install( .T. )
-
-      CreGParam()
+      altd()
+      f01_cre_gparams()
    ENDIF
 
 
@@ -103,9 +103,11 @@ FUNCTION f01_start( oApp, lSezone )
       RETURN
    ENDIF
 
+   altd()
    oApp:oDatabase:setgaDbfs()
 
    IF mpar37( "/INSTALL", oApp )
+      f01_cre_params()
       is_install( .T. )
       oApp:setGVars()
       oApp:oDatabase:install()

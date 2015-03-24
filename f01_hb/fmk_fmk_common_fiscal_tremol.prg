@@ -875,7 +875,7 @@ cF_name := cFPath + STRTRAN( ALLTRIM( cFName ), "xml", "out" )
 // prikaza greske tipa OUT fajlovi...
 
 nFisc_no := 0
-nBrLin := BrLinFajla( cF_name )
+nBrLin := f01_br_linija_fajla( cF_name )
 nStart := 0
 
 cFisc_txt := ""

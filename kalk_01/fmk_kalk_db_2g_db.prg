@@ -12,12 +12,6 @@
 
 #include "kalk01.ch"
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software
- * ----------------------------------------------------------------
- */
-
 function TDbKalkNew()
 
 local oObj
@@ -28,17 +22,6 @@ oObj:lAdmin:=.f.
 return oObj
 
 
-/* file fmk/kalk/db/2g/db.prg
- *   KALK Database
- *
- * TDbKalk Database objekat
- */
-
-
-/* class TDbKalk
- *   Database objekat
- */
-
 
 #include "class(y).ch"
 CLASS TDbKalk FROM TDB
@@ -47,13 +30,14 @@ CLASS TDbKalk FROM TDB
 	var    cName
 	method skloniSezonu()
 	method install()
+
 	method setgaDBFs()
 	method ostalef()
 	method obaza()
 	method kreiraj()
 	method konvZn()
 
-END CLASS
+ENDCLASS
 
 
 
@@ -74,7 +58,7 @@ return
 *void TDbKalk::skloniSezonu(string cSezona, bool finverse,bool fda,bool fnulirati,bool fRS)
 
 
-method skloniSezonu(cSezona,finverse,fda,fnulirati, fRS)
+method TDbKalk:skloniSezonu(cSezona,finverse,fda,fnulirati, fRS)
 save screen to cScr
 
 if (fda==nil)
@@ -199,12 +183,7 @@ restore screen from cScr
 return
 
 
-/*  *void TDbKalk::setgaDbfs()
- *   Setuje matricu gaDbfs
- */
-*void TDbKalk::setgaDbfs()
-
-method setgaDBFs()
+method TDBKalk:setgaDBFs()
 
 PUBLIC gaDbfs := {;
 { F_PRIPR  ,"PRIPR"   , P_PRIVPATH    },;
@@ -278,7 +257,7 @@ if (nArea<>-1)
 endif
 
 CreFMKSvi()
-CreRoba()
+f01_cre_roba()
 CreFMKPI()
 
 #IFDEF SR

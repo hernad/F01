@@ -187,7 +187,7 @@ __nalbr := ""
 __rbr := 0
 
 // broj linija fajla....
-nFLines := brlinfajla( cTxt )
+nFLines := f01_br_linija_fajla( cTxt )
 
 Box( , 22, 70)
 

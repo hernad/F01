@@ -108,7 +108,9 @@ FUNCTION connect_to_f01_server()
 FUNCTION my_dbUseArea( lNew, xRdd, cDb, cAlias, lShared, lReadOnly )
 
    cDb := f01_server() + ChangeEXT( cDb, DBFEXT, "DBF" )
+   //cDb := STRTRAN( cDb, "." + BACKSLASH , "")
 
+   OutStd( "my db use: " + cDb + hb_eol() )
    RETURN dbUseArea( lNew, xRdd, cDb, cAlias, lShared, lReadOnly )                                               ;
 
 
@@ -168,5 +170,3 @@ FUNCTION not_key_esc()
    ENDIF
 
    RETURN .T.
-
-

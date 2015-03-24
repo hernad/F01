@@ -585,7 +585,7 @@ endif
 init_file_content()
 
 // broj linija fajla
-nBrLin:=BrLinFajla(cTxtFile)
+nBrLin:=f01_br_linija_fajla(cTxtFile)
 
 nStart:=0
 
@@ -657,7 +657,7 @@ return
  */
 function CheckFile(cTxtFile)
 
-nBrLin:=BrLinFajla(cTxtFile)
+nBrLin:=f01_br_linija_fajla(cTxtFile)
 return nBrLin
 
 

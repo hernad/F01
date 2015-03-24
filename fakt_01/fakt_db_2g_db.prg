@@ -304,7 +304,7 @@ SET EXCLUSIVE ON
 
 
 CreFMKSvi()
-CreRoba()
+f01_cre_roba()
 if IsRabati()
 	CreRabDB()
 endif

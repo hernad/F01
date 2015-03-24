@@ -18,6 +18,15 @@ static OID_ASK:="0"
 static nSlogova:=0
 
 
+function f01_use_gparams()
+
+  select (F_GPARAMS)
+  altd()
+  SET( _SET_AUTOPEN, .T. )
+  use (ToUnix("GPARAMS"))
+  set order to tag  "ID"
+  RETURN .T.
+
 function f01_create_index(cImeInd, cKljuc, cImeDbf, fSilent)
 
 local bErr
@@ -55,10 +64,9 @@ endif
 
 fPostoji:=.t.
 
-#ifndef PROBA
- bErr:=ERRORBLOCK({|o| MyErrH(o)})
- BEGIN SEQUENCE
-#endif
+bErr:=ERRORBLOCK({|o| MyErrH(o)})
+BEGIN SEQUENCE
+
 
 	select (F_TMP)
 	USE_EXCLUSIVE (cImeDbf)
@@ -112,12 +120,13 @@ fPostoji:=.t.
 		fPostoji:=.f.
 	endif
 
-#ifndef PROBA
-RECOVER
+RECOVER USING oErr
+  OutStd( "Error: ", oErr:description )
 	fPostoji:=.f.
-END SEQUENCE
+ENDSEQUENCE
+
 bErr:=ERRORBLOCK(bErr)
-#endif
+
 
 if !fPostoji
 	// nisam uspio otvoriti, znaci ne mogu ni kreirati indexs ..
@@ -126,6 +135,7 @@ endif
 
 #ifdef __PLATFORM__UNIX
    cImeCdx := ChangeExt( cImeCdx, "CDX", "cdx" )
+#endif
 
 if !File( cImeCdx )  .or. nOrder==0  .or. UPPER(cOrdKey)<>UPPER(cKljuc)
 
@@ -271,7 +281,8 @@ return FSEEK(nHandle, 0)
 
 /*  FileBottom(nHandle)
  *  Position the file pointer to the last byte in a binary file and return the new file position
- *  nHandle - handle fajla
+ *  nHandle - handle faj
+ la
  * return: nPos - lokacija
  */
 

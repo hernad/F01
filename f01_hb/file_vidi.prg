@@ -55,7 +55,7 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
 
    init_file_content()
 
-   nURed := BrLinFajla( cImeF )
+   nURed := f01_br_linija_fajla( cImeF )
 
    CSetAtMupa( .T. )
 
@@ -280,7 +280,7 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
                   cImeF := ccPom
                   nPom := RAt( SLASH, cImeF )
                   nDF := VelFajla( cImeF, 0 ); nKol := 1; nOf1l := 0; lNevazna := .F.
-                  nRed := 1; lSkrol := .F. ; nURed := BrLinFajla( cImeF )
+                  nRed := 1; lSkrol := .F. ; nURed := f01_br_linija_fajla( cImeF )
                   aRedovi := Array( nLin + 1 -nPrviRed, 2 )
                   EXIT
                ELSE
@@ -594,11 +594,11 @@ FUNCTION PrethLin( cFajl, nKraj )
    RETURN
 
 
-FUNCTION BrLinFajla( cImeF )
+FUNCTION f01_br_linija_fajla( cImeF )
 
    LOCAL nOfset := 0, nSlobMem := 0, cPom := "", nVrati := 0
 
-   IF get_file_content( cImeF, LEN( _n_red() ), VelFajla( cImeF ) - _n_red() ) != _n_red()
+   IF get_file_content( cImeF, LEN( _n_red() ), VelFajla( cImeF ) - LEN(_n_red()) ) != _n_red()
       nVrati := 1
    ENDIF
 
@@ -644,7 +644,7 @@ FUNCTION DioFajlaUNiz( cImeF, nPocRed, nUkRedova, nUkRedUF )
    LOCAL aVrati := {}, nTekRed := 0, nOfset := 0, aPom := {}
 
    IF nUkRedUF == nil
-      nUkRedUF := BrLinFajla( cImeF )
+      nUkRedUF := f01_br_linija_fajla( cImeF )
    ENDIF
 
    FOR nTekRed := 1 TO nUkRedUF
