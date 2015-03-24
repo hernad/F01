@@ -287,6 +287,12 @@ do while .t.
    ENDPRINT
    exit
   else
+
+   ? "ERROR !"
+   INKEY()
+   QUIT
+
+/*
    ?
    ? "Odstampati gornje podatke na stampac D/N ?"
    DO WHILE NEXTKEY()==0; OL_YIELD(); ENDDO
@@ -298,6 +304,8 @@ do while .t.
    else
     QUIT
    endif
+*/
+
   endif
 
 enddo //.t.
