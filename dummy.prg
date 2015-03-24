@@ -19,8 +19,7 @@ STATIC s_lServer := .F.
 FUNCTION server_host()
 
    IF s_cServerHost == NIL
-      s_cServerHost := IzFmkIni
-      s_lVrstePlacanja :=  IzFmkIni("Server", "Host", "127.0.0.1")
+      s_cServerHost :=  IzFmkIni("Server", "Host", "127.0.0.1")
    ENDIF
 
    RETURN s_cServerHost
