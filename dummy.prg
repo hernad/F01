@@ -2,16 +2,29 @@
 
 // #define DBSERVER  "f01-srv"
 
+
 #include "f01.ch"
 
-#define DBSERVER  "127.0.0.1"
+#define DBSERVER  server_host()
 #define DBPORT    2941
 #define DBPASSWD  "f01"
 #define DBDIR     "/data"
 #define DBFILE    "_tst_"
 
+STATIC s_cServerHost := NIL
 STATIC s_lConnected := NIL
 STATIC s_lServer := .F.
+
+
+FUNCTION server_host()
+
+   IF s_cServerHost == NIL
+      s_cServerHost := IzFmkIni
+      s_lVrstePlacanja :=  IzFmkIni("Server", "Host", "127.0.0.1")
+   ENDIF
+
+   RETURN s_cServerHost
+
 
 FUNCTION initfw()
 
