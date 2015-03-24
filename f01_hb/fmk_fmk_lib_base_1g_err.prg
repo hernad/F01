@@ -253,7 +253,7 @@ CLS
 
 cStampaj:="N"
 
-do while .t.
+//do while .t.
 
   if cStampaj=="D"
     start print cret
@@ -308,7 +308,7 @@ do while .t.
 
   endif
 
-enddo //.t.
+//enddo //.t.
 
 
 close all
