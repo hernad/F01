@@ -12,7 +12,7 @@
 
 #include "f01.ch"
 
-FUNCTION kopi( fProm )
+FUNCTION f01_kopi( cPath, fProm )
 
    IF fBrisiDBF
       nPos := At( ".", cDbf )
@@ -59,7 +59,7 @@ FUNCTION kopi( fProm )
       FErase( f01_transform_dbf_name( cPath + cPath2 + "TMP_TMP.FPT" ) )
       FErase( f01_transform_dbf_name( cPath + cPath2 + "TMP_TMP.DBF" ) )
       FErase( f01_transform_dbf_name( cPath + cPath2 + "TMP_TMP.CDX" ) )
-      
+
       dbCreate( f01_transform_dbf_name( cPath + cPath2 + "TMP_TMP.DBF" ), aNStru )
 
       SELECT 2

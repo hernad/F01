@@ -156,7 +156,7 @@ FUNCTION f01_modStru( cImeF, cPath, fString )
       ENDIF
 
       IF Left( cLin, 1 ) = "*"
-         kopi( fProm )
+         f01_kopi( cPath, fProm )
          cLin := SubStr( cLin, 2, Len( Trim( clin ) ) -1 )
          cDbf := AllTrim( cLin )
          ? cPath + cDbf
@@ -264,7 +264,7 @@ FUNCTION f01_modStru( cImeF, cPath, fString )
       ENDIF // fje za promjenu polja
 
    ENDDO
-   kopi( fProm )
+   f01_kopi( cPath, fProm )
 
    cmxAutoOpen( .T. )
 

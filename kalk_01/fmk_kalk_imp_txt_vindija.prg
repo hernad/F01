@@ -647,7 +647,7 @@ STATIC FUNCTION txt_to_temp_import_tabela( aDbf, aRules, cTxtFile )
 
    MsgBeep( "Import txt => temp - OK" )
 
-   RETURN
+   RETURN .T.
 
 
 
@@ -656,6 +656,8 @@ STATIC FUNCTION txt_to_temp_import_tabela( aDbf, aRules, cTxtFile )
  *   cTxtFile - txt fajl
  */
 FUNCTION CheckFile( cTxtFile )
+
+   LOCAL nBrLin
 
    nBrLin := f01_br_linija_fajla( cTxtFile )
 
@@ -668,6 +670,8 @@ FUNCTION CheckFile( cTxtFile )
  *   aDbf - def.polja
  */
 STATIC FUNCTION CreTemp( aDbf )
+
+   LOCAL cTmpTbl
 
    cTmpTbl := PRIVPATH + "TEMP"
 
@@ -696,7 +700,7 @@ STATIC FUNCTION CreTemp( aDbf )
       f01_create_index( "2", "dtype+idfirma+idtipdok+brdok+rbr", cTmpTbl )
    ENDIF
 
-   RETURN
+   RETURN .T.
 
 
 
@@ -1063,6 +1067,8 @@ STATIC FUNCTION GetVPr( cProd, cPoslovnica )
 // cPoslovnica -poslovnica vindije sarajevo, tuzla ili ...
 // -----------------------------------------------------------
 STATIC FUNCTION GetTdKonto( cTipDok, cTip, cPoslovnica )
+
+   LOCAL cRet
 
    cRet := IzFmkIni( "VINDIJA", "TD" + cTipDok + cTip + cPoslovnica, "xxxx", KUMPATH )
 
