@@ -25,7 +25,8 @@ hbmzip.hbc
 hbtip.hbc
 {!darwin|linux}sddpg.hbc
 
-#{F18_GT_QTC}gtqtc.hbc
+{F18_GT_QTC}gtqtc.hbc
+{win}gtqtc.hbc
 -workdir=.h
 
 {!darwin}-gtstd
