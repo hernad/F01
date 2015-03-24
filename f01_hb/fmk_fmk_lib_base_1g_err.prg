@@ -16,36 +16,6 @@
 #include "set.ch"
 
 
-/*
- * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software
- * ----------------------------------------------------------------
- * $Source: c:/cvsroot/cl/sigma/sclib/base/1g/err.prg,v $
- * $Author: ernad $
- * $Revision: 1.5 $
- * $Log: err.prg,v $
- * Revision 1.5  2003/01/18 14:26:01  ernad
- * izadji obezno pri zelite li pokusati ponovo = N
- *
- * Revision 1.4  2002/07/03 07:31:12  ernad
- *
- *
- * planika, debug na terenu
- *
- * Revision 1.3  2002/06/22 18:41:04  ernad
- *
- *
- * uklanjanje debug-poruka
- *
- * Revision 1.2  2002/06/20 14:28:23  ernad
- *
- *
- * sistemske funkcije tastature prebacene sclib/keyb/1g komponentu
- *
- *
- */
-
-
 function MyErrorHandler(objErr,lLocalHandler)
 
 local cOldDev
@@ -326,7 +296,7 @@ do while .t.
    if cstampaj=="D"
      loop
    else
-    exit
+    QUIT
    endif
   endif
 
