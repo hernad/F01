@@ -255,10 +255,12 @@ cStampaj:="N"
 
 //do while .t.
 
+/*
   if cStampaj=="D"
     start print cret
     P_10CPI
   endif
+*/
 
   ?
   ? "Verzija programa:", gVerzija ," verzija ELIB-a:",elibver()
@@ -281,14 +283,16 @@ cStampaj:="N"
   ? "SifPath  :", SIFPATH
   ?
 
+/*
   if cStampaj=="D"
    ?
    ?
    ENDPRINT
    exit
   else
+*/
 
-   ? "ERROR !"
+   ? "ERROR QUIT !"
    INKEY()
    QUIT
 
@@ -306,7 +310,7 @@ cStampaj:="N"
    endif
 */
 
-  endif
+//  endif
 
 //enddo //.t.
 
