@@ -72,8 +72,8 @@ FUNCTION f01_kontrola_zbira_fin( bDat, lSilent )
    IF !lSilent
       Box( "KZD", 9, 77, .F. )
       SET CURSOR OFF
-      @ m_x + 1, m_y + 11 SAY BOX_CHAR_USPRAVNO + PadC( "NALOZI", 16 ) + BOX_CHAR_USPRAVNO + PadC( "SINTETIKA", 16 ) + BOX_CHAR_USPRAVNO + PadC( "ANALITIKA", 16 ) + BOX_CHAR_USPRAVNO + PadC( "SUBANALITIKA", 16 )
-      @ m_x + 2, m_y + 1  SAY Replicate( BOX_CHAR_USPRAVNO, 10 ) + BOX_CHAR_USPRAVNO + Replicate( BOX_CHAR_USPRAVNO, 16 ) + BOX_CHAR_USPRAVNO + Replicate( BOX_CHAR_USPRAVNO, 16 ) + BOX_CHAR_USPRAVNO + Replicate( BOX_CHAR_USPRAVNO, 16 ) + BOX_CHAR_USPRAVNO + Replicate( BOX_CHAR_USPRAVNO, 16 )
+      @ m_x + 1, m_y + 11 SAY BOX_CHAR_HORIZONT + PadC( "NALOZI", 16 ) + BOX_CHAR_HORIZONT + PadC( "SINTETIKA", 16 ) + BOX_CHAR_USPRAVNO + PadC( "ANALITIKA", 16 ) + BOX_CHAR_USPRAVNO + PadC( "SUBANALITIKA", 16 )
+      @ m_x + 2, m_y + 1  SAY Replicate( BOX_CHAR_HORIZONT, 10 ) + BOX_CHAR_HORIZONT + Replicate( BOX_CHAR_HORIZONT, 16 ) + BOX_CHAR_HORIZONT + Replicate( BOX_CHAR_HORIZONT, 16 ) + BOX_CHAR_HORIZONT + Replicate( BOX_CHAR_HORIZONT, 16 ) + BOX_CHAR_HORIZONT + Replicate( BOX_CHAR_HORIZONT, 16 )
       @ m_x + 3, m_y + 1 SAY "duguje " + ValDomaca()
       @ m_x + 4, m_y + 1 SAY "potraz." + ValDomaca()
       @ m_x + 5, m_y + 1 SAY "saldo  " + ValDomaca()

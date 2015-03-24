@@ -26,7 +26,7 @@ endif
 if gafin=="D"
 
 	// kontrola zbira - uravnotezenje
- 	KZbira( lAuto )
+ 	f01_fin_kontrola_zbira( lAuto )
 
 	if lAuto == .f. .or. (lAuto == .t. .and. gAImpPrint == "D" )
 		// stampa fin naloga
@@ -951,7 +951,7 @@ return
 // -----------------------------------------------
 // kontrola zbira naloga prije azuriranja
 // -----------------------------------------------
-function KZbira( lAuto )
+function f01_fin_kontrola_zbira( lAuto )
 
 O_KONTO
 O_VALUTE

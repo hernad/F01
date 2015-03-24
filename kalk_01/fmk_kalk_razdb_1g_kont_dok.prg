@@ -1563,7 +1563,7 @@ else
 
 	// automatska ravnoteza naloga
 	if cAutoRav == "D"
-		KZbira( .t. )
+		f01_fin_kontrola_zbira( .t. )
 	endif
 
 	// ne vrti se ukrug u ovoj do wile petlji
