@@ -171,8 +171,8 @@ endif
 
 USE
 
-OutStd( netio_funcexec( "DATE" ) )
-OutStd( hb_eol() )
+MsgBeep( "server " + DTOS( netio_funcexec( "DATE" )) )
+
 
 if fURP
  	::cSezonDir:=""
