@@ -11,7 +11,7 @@
 
 
 #include "f01.ch"
-
+#include "hbclass.ch"
 
 FUNCTION TDBNew( oDesktop, cDirPriv, cDirKum, cDirSif )
 
@@ -27,8 +27,6 @@ FUNCTION TDBNew( oDesktop, cDirPriv, cDirKum, cDirSif )
 
 
 
-
-#include "class(y).ch"
 CREATE CLASS TDB
 	EXPORTED:
 	VAR oDesktop
@@ -78,11 +76,6 @@ END CLASS
  */
 
 
-/*  *void TDB::logAgain(string cSezona, bool lSilent, bool lWriteKParam)
- *   logiraj se ponovo, sa oznakom nove sezone
- *   cSezona
- *   lSilent
- */
 
 method TDb:logAgain(cSezona, lSilent, lWriteKParam)
 
@@ -99,8 +92,6 @@ if ::lAdmin
 endif
 
 CLOSE ALL
-
-
 
 ::setIfNil()
 
@@ -180,6 +171,9 @@ endif
 
 USE
 
+OutStd( netio_funcexec( "DATE" ) )
+OutStd( hb_eol() )
+
 if fURP
  	::cSezonDir:=""
  	::oDesktop:showSezona(::cRadimUSezona)
@@ -226,7 +220,7 @@ f01_runmods(.t.)
 
 FOR i:=1 TO LEN(aSezone)
 	f01_cre_params()
-	::LogAgain(aSezone[i,1],.t.)
+	::LogAgain(aSezone[i,1], .t.)
 	f01_cre_params()
 	f01_runmods(.t.)
 NEXT
@@ -365,14 +359,14 @@ private Izbor
 @ 4,5 SAY""
 AADD(opc,"1. pregled korisnika modula - sifre, prioriteti  ")
 AADD(opcexe,{|| KorPreg() })
-AADD(opc,"2. promjena sifre")
+AADD(opc,"2. promjena šifre")
 AADD(opcexe, {|| KorLoz() })
 AADD(opc,"3. reindex")
 AADD(opcexe, {|| f01_reindex() })
 AADD(opc,"4. pakovanje")
 AADD(opcexe, {|| Pakuj() })
 
-AADD(opc,"5. brisi pa ponovo kreiraj indekse")
+AADD(opc,"5. briši pa ponovo kreiraj indekse")
 AADD(opcexe, {|| f01_brisi_index_pakuj_dbf()})
 
 AADD(opc,"6. modifikacija struktura")

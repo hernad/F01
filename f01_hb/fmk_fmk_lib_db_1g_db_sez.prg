@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -15,7 +15,7 @@
 
 /*
  * ----------------------------------------------------------------
- *                          Copyright Sigma-com software 1996-2006 
+ *                          Copyright Sigma-com software 1996-2006
  * ----------------------------------------------------------------
  */
 
@@ -138,7 +138,7 @@ if fDa .or. !fInverse .and. (!File2(cFull) .or. Pitanje(,cPath+cIme+" je vec poh
      		cKom:="copy "+cPath+cIme+" "+cPath+cSezona+SLASH+cIme
 		CopySve(STRTRAN(cIme,".DBF","*."+INDEXEXT),cPath,cPath+cSezona+SLASH)
    	endif
-   	
+
 	if FileCOpen()
      		MsgBeep("Proces kopiranja nije dobro zavrsen !???##"+;
              		"PREKINUTI RAD - ZOVI SIGMA-COM SERVIS!"+cKom)
@@ -156,7 +156,7 @@ if fDa .or. !fInverse .and. (!File2(cFull) .or. Pitanje(,cPath+cIme+" je vec poh
 	//run &cKom
 
 	cKom:=STRTRAN(Upper(cKom),".DBF","*."+INDEXEXTENS)
-	
+
 	? cKom
 	?
 
@@ -301,7 +301,7 @@ if !Uglavnommeniju()
 endif
 
 if (goModul:oDatabase:cRadimUSezona=="RADP")
-	if VAL(goModul:oDatabase:cSezona)<>YEAR(DATE()) 
+	if VAL(goModul:oDatabase:cSezona)<>YEAR(DATE())
 	// sezona razlicita od godine
       		MsgBeep("Prema satu racunara tekuca sezona je "+STR(YEAR(Date()))+"##"+"Ukoliko vam je nejasno sta ciniti odgovorite sa 'N'##"+"i kontaktirajte servisera SIGMA-COMa ! ##"+"Ukoliko zelite zapoceti rad u novoj sezoni,#"+"na sljedece pitanje odgovorite sa 'D' ##"+"<Enter> nastavak")
       		if Pitanje(,"Pohraniti stanje iz radnog podrucja u sezonsko podrucje - sezona " + goModul:oDataBase:cSezona + " ?","N")=="D"
@@ -342,7 +342,7 @@ return
 
 *IME
  SetOznNoGod
- 
+
 *SYNOPSIS
  SetOznNoGod
 
@@ -421,7 +421,7 @@ if !empty(goModul:oDatabase:cSezonDir) // u sezoni sam
   if  right(cDir,5)==goModul:oDatabase:cSezonDir
      return cDir
   else
-    cPom:=cDir+right(goModul:oDatabase:cSezonDir,4) + "\"
+    cPom:=cDir+right(goModul:oDatabase:cSezonDir,4) + SLASH
     if PostDir(cPom)
      return cPom
     else
@@ -452,34 +452,6 @@ endif
 
 oDatabase:logAgain(STR(YEAR(DATE()),4),.t.)
 
-/*!
-cDirRad:= strtran(cDirRad ,goModul:oDatabase:cSezonDir,"")
-cDirSif:= strtran(cDirSif ,goModul:oDatabase:cSezonDir,"")
-cDirPriv:=strtran(cDirPriv,goModul:oDatabase:cSezonDir,"")
-
-// novi radni direktoriji
-PUBLIC goModul:oDatabase:cSezonDir:=""
-
-SET(_SET_DEFAULT,cDirRad)
-
-StandardBoje()  // vrati standardne boje
-f01_naslovni_ekran(.f.)
-
-@ 0,24 SAY PADR(trim(ImeKorisn)+":"+cDirPriv,25) COLOR INVERT
-@ 3,70 SAY "Sez."+goModul:oDatabase:cSezona COLOR INVERT
-
-private cSection:="1",cHistory:=" "; aHistory:={}
-
-if fset  // upisi u kparams
-O_KPARAMS
-gRadnoPodr:="RADP"
-Wpar("rp",gRadnoPodr)
-select kparams; use
-endif
-
-goModul:SetGVars()
-return
-*/
 
 
 
@@ -500,7 +472,7 @@ if (gRadnoPodr<>"RADP")
    return
 endif
 
-      
+
 oDatabase:loadSezonaRadimUSezona()
 
 Box(,2,60)
@@ -528,7 +500,7 @@ return
  *
  *  todo: Implementirati funkciju !
  */
- 
+
 function BrowseSezone()
 
 
@@ -544,4 +516,3 @@ Box("#PODACI O TRENUTNOM PODRUCJU PODATAKA",20,77)
 	InkeySC(0)
 BoxC()
 return nil
-
