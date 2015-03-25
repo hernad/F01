@@ -877,7 +877,7 @@ endif
 
 if lAsPokreni
 	// pozovi asistenta
-	KUnos(.t.)
+	f01_kalk_unos(.t.)
     if __trosk == .t.
 		// otvori tabele
 		kalk_oedit()

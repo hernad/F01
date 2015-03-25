@@ -41,7 +41,7 @@ FUNCTION meni_import_vindija_racuni()
    AAdd( opc, "6. podesenja importa " )
    AAdd( opcexe, {|| aimp_setup() } )
    AAdd( opc, "7. kreiraj pomoćnu tabelu stanja" )
-   AAdd( opcexe, {|| gen_cache() } )
+   AAdd( opcexe, {|| gen_() } )
    AAdd( opc, "8. pregled pomoćne tabele stanja" )
    AAdd( opcexe, {|| brow_cache() } )
 
@@ -1232,7 +1232,6 @@ STATIC FUNCTION temp_2_pript( aFExist, lFSkip, lNegative, cCtrl_art )
          SEEK PadR( cTmp_kto, 7 ) + PadR( cTmp_roba, 10 )
 
          IF Found() .AND. gNC_ctrl > 0 .AND. ( field->odst > gNC_ctrl )
-            // dodaj sporne u kontrolnu matricu
 
             nT_scan := AScan( aArr_ctrl, ;
                {| xVal| xVal[ 1 ] + PadR( xVal[ 2 ], 10 ) == ;
@@ -1305,25 +1304,6 @@ STATIC FUNCTION temp_2_pript( aFExist, lFSkip, lNegative, cCtrl_art )
       cTmpArt := PadL( AllTrim( temp->idroba ), 5, "0" )
       GO TOP
       SEEK cTmpArt
-
-      /*
-      IF cTDok == "14"
-
-
-         SELECT doks2
-         hseek gFirma + cTDok + cBrojKalk
-
-         IF !Found()
-            APPEND BLANK
-            REPLACE idvd WITH "14"
-            REPLACE brdok WITH cBrojKalk
-            REPLACE idfirma WITH gFirma
-         ENDIF
-
-         REPLACE DatVal WITH temp->datval
-
-      ENDIF
-      */
 
       // pozicioniraj se na koncij stavku
       SELECT koncij
@@ -1907,7 +1887,7 @@ STATIC FUNCTION ObradiDokument( cIdVd, lAsPokreni, lStampaj )
 
    IF lAsPokreni
       // pozovi asistenta
-      KUnos( .T. )
+      f01_kalk_unos( .T. )
    ELSE
       kalk_oedit()
    ENDIF
@@ -1932,7 +1912,7 @@ STATIC FUNCTION ObradiDokument( cIdVd, lAsPokreni, lStampaj )
 
          IF lAsPokreni
             // otvori pripremu
-            KUnos( .T. )
+            f01_kalk_unos( .T. )
          ELSE
             kalk_oedit()
          ENDIF
@@ -1952,7 +1932,7 @@ STATIC FUNCTION ObradiDokument( cIdVd, lAsPokreni, lStampaj )
       IF nRslt >= 2
 
          MsgBeep( "Postoji dokument u pripremi koji je sumljiv!!!#Radi se o veznom dokumentu ili nekoj drugoj gresci...#Obradite ovaj dokument i autoimport ce nastaviti dalje sa radom !" )
-         KUnos()
+         f01_kalk_unos()
          kalk_oedit()
 
       ENDIF

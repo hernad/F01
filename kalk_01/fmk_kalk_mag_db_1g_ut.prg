@@ -28,7 +28,7 @@
 
 function KalkNabP(cIdFirma, cIdroba, cIdkonto, nKolicina, nKolZN, nNC, nSNC, dDatNab)
 
-local npom,fproso
+local npom, fproso
 local nIzlNV
 local nIzlKol
 local nUlNV
@@ -40,11 +40,12 @@ nKolicina:=0
 
 if lAutoObr == .t.
 	// uzmi stanje iz cache tabele
-	if knab_cache( cIdKonto, cIdroba, @nUlKol, @nIzlKol, @nKolicina, ;
+	if f01_kalk_nab_cijene_iz_cache( cIdKonto, cIdroba, @nUlKol, @nIzlKol, @nKolicina, ;
 		@nUlNv, @nIzlNv, @nNc ) == 1
 		select pripr
 		return
 	endif
+
 endif
 
 select kalk
@@ -848,12 +849,13 @@ local nUKol_poz, nIKol_poz
 nKolicina := 0
 
 if lAutoObr == .t.
-	// uzmi stanje iz cache tabele
-	if knab_cache( cIdKonto, cIdroba, @nUlKol, @nIzlKol, @nKolicina, ;
-		@nUlNv, @nIzlNv, @nSNC ) == 1
+
+	if f01_kalk_nab_cijene_iz_cache( cIdKonto, cIdroba, @nUlKol, @nIzlKol, @nKolicina, @nUlNv, @nIzlNv, @nSNC ) == 1
+	  // uzmi stanje iz cache tabele
 		select pripr
 		return
 	endif
+
 endif
 
 select kalk

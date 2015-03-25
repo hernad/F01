@@ -17,10 +17,6 @@
  *   Unos i ispravka dokumenata
  */
 
-*static string
-static cENTER:=chr(K_ENTER)+chr(K_ENTER)+chr(K_ENTER)
-*;
-
 /*  Knjiz()
  *   Nudi meni za rad na dokumentu u staroj varijanti ili direktno poziva tabelu pripreme u novoj (default) varijanti
  */
@@ -53,7 +49,7 @@ do while .t.
      case Izbor==0
        EXIT
      case izbor == 1
-         KUnos()
+         f01_kalk_unos()
      case izbor == 2
          StKalk()
      case izbor == 3
@@ -74,7 +70,7 @@ do while .t.
 enddo
 
 else  // gnw=="D"
-   KUnos()
+   f01_kalk_unos()
 endif
 
 closeret
@@ -83,11 +79,11 @@ return
 
 
 
-/*  KUnos(lAutoObrada)
+/*  f01_kalk_unos(lAutoObrada)
  *   Tabela pripreme dokumenta
  */
 
-function KUnos(lAObrada)
+function f01_kalk_unos(lAObrada)
 
 O_PARAMS
 
@@ -140,10 +136,6 @@ ImeKol:={ ;
           { "E"         , {|| error                    }, "error"       } ;
         }
 
-IF lPoNarudzbi
-	AADD( ImeKol , { "Br.nar." , {|| brojnar   }, "brojnar"   } )
-  	AADD( ImeKol , { "Narucioc" , {|| idnar   }, "idnar"   } )
-ENDIF
 
 Kol:={}
 
@@ -152,6 +144,7 @@ for i:=1 to LEN(ImeKol)
 next
 
 Box(,20,77)
+
 	@ m_x+17,m_y+2 SAY "<c-N>  Nove Stavke      "+BOX_CHAR_USPRAVNO+"<ENT> Ispravi stavku    "+BOX_CHAR_USPRAVNO+"<c-T>  Brisi Stavku   "
 	@ m_x+18,m_y+2 SAY "<c-A>  Ispravka Naloga  "+BOX_CHAR_USPRAVNO+"<c-P> Stampa Kalkulacije"+BOX_CHAR_USPRAVNO+"<a-A> Azuriranje      "
 	@ m_x+19,m_y+2 SAY "<a-K>  Rekap+Kontiranje "+BOX_CHAR_USPRAVNO+"<c-F9> Brisi pripremu   "+BOX_CHAR_USPRAVNO+"<a-P> Stampa pripreme "
@@ -162,7 +155,7 @@ Box(,20,77)
 
 	PRIVATE lAutoAsist:=.f.
 
-	f01_db_edit("PNal",20,77,{|| kalk_edpripr(lAutoObr)},"<F5>-kartica magacin, <F6>-kartica prodavnica","Priprema...", , , , ,4)
+	f01_db_edit("PNal",20,77,{|| f01_kalk_edit_priprema_opcije(lAutoObr)},"<F5>-kartica magacin, <F6>-kartica prodavnica","Priprema...", , , , ,4)
 BoxC()
 
 CLOSERET
@@ -200,11 +193,11 @@ return
 
 
 
-/*  kalk_edpripr(lAObrada)
+/*  f01_kalk_edit_priprema_opcije(lAObrada)
  *   Obrada dostupnih opcija u tabeli pripreme
  */
 
-function kalk_edpripr()
+function f01_kalk_edit_priprema_opcije()
 
 local nTr2,cSekv,nkekk
 local isekv
@@ -241,6 +234,7 @@ do case
      		label_bkod()
    		kalk_oedit()
      		return DE_REFRESH
+
 	case Ch==K_ALT_Q
 		if Pitanje(,"Stampa naljepnica(labela) za robu ?","D")=="D"
   			CLOSE ALL
@@ -250,9 +244,7 @@ do case
 		endif
 		return DE_CONT
 	case Ch==K_ALT_A
-		if IsJerry()
-			JerryMP()
-		endif
+
 		close all
 		kalk_Azur()
 		kalk_oedit()
@@ -266,6 +258,7 @@ do case
 			MsgBeep("Stavke koje su bile privremeno sklonjene sada su vracene! Obradite ih!")
 		endif
 		return DE_REFRESH
+
 	case Ch==K_CTRL_P
   		if IsJerry()
 			JerryMP()
@@ -274,8 +267,9 @@ do case
 		StKalk()
 		kalk_oedit()
 		return DE_REFRESH
+
 	case Ch==K_CTRL_T
-     		if Pitanje(,"Zelite izbrisati ovu stavku ?","D")=="D"
+     if Pitanje(,"Zelite izbrisati ovu stavku ?","D")=="D"
 
 			cStavka := pripr->rbr
 			cArtikal := pripr->idroba
@@ -285,31 +279,10 @@ do case
 
 			delete
 
-      			if Logirati(goModul:oDataBase:cName,"DOK","BRISANJE")
-
-				cOpis := pripr->idfirma + "-" + ;
-					pripr->idvd + "-" + ;
-					pripr->brdok
-
-				EventLog(nUser,goModul:oDataBase:cName,;
-					"DOK","BRISANJE",;
-					nKolicina,;
-					nNc,;
-					nVpc,;
-					nil,;
-					cOpis,;
-					"artikal: " + cArtikal,;
-					"",;
-					pripr->datdok,;
-					Date(),;
-					"",;
-					"Brisanje stavke " + cStavka + " iz pripreme")
-
-			endif
-
       			return DE_REFRESH
-     		endif
-     		return DE_CONT
+     endif
+     return DE_CONT
+
 	case IsDigit(Chr(Ch))
       		Msg("Ako zelite zapoceti unos novog dokumenta: <Ctrl-N>")
       		return DE_CONT
@@ -322,6 +295,7 @@ do case
 	case Ch==K_CTRL_F8
       		RaspTrosk()
       		return DE_REFRESH
+
 	case Ch==K_CTRL_F9
       		if Pitanje(,"Zelite Izbrisati cijelu pripremu ??","N")=="D"
 
@@ -329,19 +303,10 @@ do case
 				pripr->idvd + "-" + ;
 				pripr->brdok
 
-	 		if Logirati(goModul:oDataBase:cName,"DOK","BRISIDOK")
-      				EventLog(nUser,goModul:oDataBase:cName,;
-				"DOK","BRISIDOK",;
-				nil,nil,nil,nil,;
-				cOpis,"","", ;
-				pripr->datdok,;
-				Date(),;
-				"",;
-				"Brisanje kompletne pripreme")
-      	 		endif
+
 
 			zapp()
-         		select p_doksrc
+      select p_doksrc
 			zapp()
 			select pripr
 			return DE_REFRESH
@@ -349,15 +314,21 @@ do case
       		endif
       		return DE_CONT
 	case Ch==K_ALT_F10 .or. lAutoAsist
+
                return KnjizAsistent()
+
      	case Ch==K_F10
        		return MeniF10()
+
 	case Ch==K_F11
        		return MeniF11()
+
 	case Ch==K_F5
         	Kmag()
          	return DE_CONT
+
 	case Ch==K_F6
+
         	KPro()
          	return DE_CONT
      	case lAutoObr .and. lAAsist
@@ -365,6 +336,7 @@ do case
 		// asistent
 		lAAsist := .f.
 		return KnjizAsistent()
+
 	case lAutoObr .and. !lAAsist
 		lAutoObr := .f.
 		keyboard CHR(K_ESC)
@@ -986,11 +958,9 @@ if _idvd=="10"
      			gVarijanta:="2"
    		endif
   	endif
-  	if IsPDV()
-		return if( gVarijanta=="1", Get1_10sPDV(), Get1_10PDV() )
-	else
-		return if( gVarijanta=="1", Get1_10s(), Get1_10() )
-	endif
+
+		return iif( gVarijanta=="1", Get1_10sPDV(), Get1_10PDV() )
+
 elseif _idvd=="11"
 	return GET1_11()
 elseif _idvd=="12"
@@ -998,17 +968,12 @@ elseif _idvd=="12"
 elseif _idvd=="13"
    	return GET1_12()
 elseif _idvd=="14"  //.or._idvd=="74"
-   	if IsPDV()
 		return Get1_14PDV()
-	else
-		return GET1_14()
-	endif
+
 elseif _idvd=="KO"   // vindija KO
-	if IsPDV()
+
 		return GET1_14PDV()
-	else
-		return GET1_14()
-	endif
+
 elseif _idvd=="15"
 	if !IsPDV()
 		return GET1_15()
