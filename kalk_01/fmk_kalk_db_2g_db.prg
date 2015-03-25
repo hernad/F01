@@ -288,9 +288,7 @@ AADD(aDBf,{ 'IDKONTO'             , 'C' ,   7 ,  0 })
 AADD(aDBf,{ 'IDKONTO2'            , 'C' ,   7 ,  0 })
 AADD(aDBf,{ 'IDZADUZ'             , 'C' ,   6 ,  0 })
 AADD(aDBf,{ 'IDZADUZ2'            , 'C' ,   6 ,  0 })
-// ova su polja prakticno tu samo radi kompat
-// istina, ona su ponegdje iskoristena za neke sasvim druge stvari
-// pa zato treba biti pazljiv sa njihovim diranjem
+
 AADD(aDBf,{ 'IDVD'                , 'C' ,   2 ,  0 })
 AADD(aDBf,{ 'BRDOK'               , 'C' ,   8 ,  0 })
 AADD(aDBf,{ 'DATDOK'              , 'D' ,   8 ,  0 })
@@ -298,9 +296,7 @@ AADD(aDBf,{ 'BRFAKTP'             , 'C' ,  10 ,  0 })
 AADD(aDBf,{ 'DATFAKTP'            , 'D' ,   8 ,  0 })
 AADD(aDBf,{ 'IDPARTNER'           , 'C' ,   6 ,  0 })
 AADD(aDBf,{ 'DATKURS'             , 'D' ,   8 ,  0 })
-// ovaj datkurs je sada skroz eliminisan iz upotrebe
-// vidjeti za njegovo uklanjanje  (paziti na modul FIN) jer se ovo i tamo
-// koristi
+
 AADD(aDBf,{ 'RBR'                 , 'C' ,   3 ,  0 })
 AADD(aDBf,{ 'KOLICINA'            , 'N' ,  12 ,  3 })
 AADD(aDBf,{ 'GKOLICINA'           , 'N' ,  12 ,  3 })

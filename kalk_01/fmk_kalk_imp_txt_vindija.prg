@@ -1308,11 +1308,9 @@ STATIC FUNCTION TTbl2Kalk( aFExist, lFSkip, lNegative, cCtrl_art )
       SEEK cTmpArt
 
 
-      // ovo dodaje datum valute itd...
-      // bitno kod kontiranja kalk->fin
-      // radi datuma valute
       IF cTDok == "14"
 
+/*
          SELECT doks2
          hseek gFirma + cTDok + cBrojKalk
 
@@ -1322,8 +1320,9 @@ STATIC FUNCTION TTbl2Kalk( aFExist, lFSkip, lNegative, cCtrl_art )
             REPLACE brdok WITH cBrojKalk
             REPLACE idfirma WITH gFirma
          ENDIF
-
-         REPLACE DatVal WITH temp->datval
+*/
+         SELECT PRIPRT
+         REPLACE field->DatVal WITH temp->datval
 
       ENDIF
 
