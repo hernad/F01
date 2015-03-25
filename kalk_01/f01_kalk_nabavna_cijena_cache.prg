@@ -9,21 +9,20 @@
  * By using this software, you agree to be bound by its terms.
  */
 
-
 STATIC s_cTranzitKontoId := NIL
 
 #include "kalk01.ch"
 
 FUNCTION magacin_tranzit_konto_id()
 
-   IF s_cTranzitniKontoId == NIL
+   IF ( s_cTranzitniKontoId == NIL )
 	    s_cTranzitniKontoId := IzFmkIni( "KALK", "Tranzit", "1322" )
 	 ENDIF
 
 	 RETURN PADR( s_cTranzitniKontoId, 7 )
 
 
-FUNCTION cre_cache()
+FUNCTION f01_cre_cache_dbf()
 
    LOCAL aFld := {}
    LOCAL cTbl := PRIVPATH + SLASH + "CACHE.DBF"
@@ -39,18 +38,16 @@ FUNCTION cre_cache()
    AAdd( aFld, { "z_nv", "N", 18, 8 } )
    AAdd( aFld, { "odst", "N", 18, 8 } )
 
-   IF !if_cache()
+   IF !f01_is_cache_dbf_exists()
       DBCreate2( cTbl, aFld )
       f01_create_index( "1", "idkonto+idroba", cTbl )
    ENDIF
 
-   RETURN
+   RETURN .T.
 
 
-// -------------------------------
-// ima li cache tabele
-// -------------------------------
-FUNCTION if_cache()
+
+FUNCTION f01_is_cache_dbf_exists()
 
    LOCAL lRet := .F.
 
@@ -67,7 +64,7 @@ FUNCTION f01_kalk_nab_cijene_iz_cache( cC_Kto, cC_Roba, nC_Ulaz, nC_Izlaz, nC_St
    LOCAL nTArea := Select()
    LOCAL nZC_nv := 0
 
-   IF !if_cache() .OR. gCache == "N"
+   IF !f01_is_cache_dbf_exists() .OR. gCache == "N"
       RETURN 0
    ENDIF
 
@@ -79,7 +76,6 @@ FUNCTION f01_kalk_nab_cijene_iz_cache( cC_Kto, cC_Roba, nC_Ulaz, nC_Izlaz, nC_St
 	    RETURN 0
 	 ENDIF
 
-   IF cC_Kto == PADR("", 7)
    nC_ulaz := 0
    nC_izlaz := 0
    nC_stanje := 0
@@ -104,45 +100,45 @@ FUNCTION f01_kalk_nab_cijene_iz_cache( cC_Kto, cC_Roba, nC_Ulaz, nC_Izlaz, nC_St
       nZC_nv := field->z_nv
    ENDIF
 
-   // ako se koristi kontrola NC
+   // 1
    IF gNC_ctrl > 0 .AND. nC_nv <> 0 .AND. nZC_nv <> 0
 
       nTmp := Round( nC_nv, 4 ) - Round( nZC_nv, 4 )
       nOdst := ( nTmp / Round( nZC_nv, 4 ) ) * 100
 
+      // 2
       IF Abs( nOdst ) > gNC_ctrl
 
          Beep( 4 )
          CLEAR TYPEAHEAD
 
-         msgbeep( "Odstupanje u odnosu na zadnji ulaz je#" + ;
+         MsgBeep( "Odstupanje u odnosu na zadnji ulaz je#" + ;
             AllTrim( Str( Abs( nOdst ) ) ) + " %" + "#" + ;
             "artikal: " + AllTrim( cC_roba ) + " " + ;
             PadR( roba->naz, 15 ) + " nc:" + ;
             AllTrim( Str( nC_nv, 12, 2 ) ) )
 
-         // a_nc_ctrl( @aNC_ctrl, field->idroba, field->stanje, ;
-         // field->nv, field->z_nv )
-
+         // 3
          IF Pitanje(, "Napraviti korekciju NC (D/N)?", "N" ) == "D"
-
             nTmp_n_stanje := ( nC_stanje - _kolicina )
             nTmp_n_nv := ( nTmp_n_stanje * nZC_nv )
             nTmp_s_nv := ( nC_stanje * nC_nv )
 
             nC_nv := ( ( nTmp_s_nv - nTmp_n_nv ) / _kolicina )
-
          ENDIF
 
+         // 3
          IF Pitanje(, "Upisati u CACHE novu NC (D/N)?", "D" ) == "D"
-
             REPLACE field->nv WITH field->z_nv
             REPLACE field->odst WITH 0
-
          ENDIF
 
+      // 2
       ENDIF
+
+   // 1
    ENDIF
+
 
    SELECT ( nTArea )
 
@@ -152,7 +148,7 @@ FUNCTION f01_kalk_nab_cijene_iz_cache( cC_Kto, cC_Roba, nC_Ulaz, nC_Izlaz, nC_St
 // ------------------------------------------------------------
 // lista konta
 // ------------------------------------------------------------
-STATIC FUNCTION _g_kto( cMList, cPList, dDatGen, cAppendSif, nT_kol, nT_ncproc )
+STATIC FUNCTION cache_get_konto( cMList, cPList, dDatGen, cAppendSif, nT_kol, nT_ncproc )
 
    LOCAL GetList := {}
    LOCAL nTArea := Select()
@@ -246,12 +242,11 @@ FUNCTION gen_cache()
    LOCAL nOdstup := 0
    LOCAL _dok_korek := .F.
 
-   IF _g_kto( @cMKtoLst, @cPKtoLst, @dDatGen, @cAppFSif, ;
-         @nT_kol, @nT_ncproc ) == 0
+   IF cache_get_konto( @cMKtoLst, @cPKtoLst, @dDatGen, @cAppFSif, @nT_kol, @nT_ncproc ) == 0
       RETURN
    ENDIF
 
-   cre_cache()
+   f01_cre_cache_dbf()
 
    O_CACHE
    SELECT cache
@@ -445,8 +440,7 @@ FUNCTION gen_cache()
 
       SEEK cIdFirma + cIdKonto
 
-      DO WHILE !Eof() .AND. cIdFirma == field->idfirma ;
-            .AND. cIdKonto == field->pkonto
+      DO WHILE !Eof() .AND. cIdFirma == field->idfirma .AND. cIdKonto == field->pkonto
 
 
          cIdRoba := field->idroba
