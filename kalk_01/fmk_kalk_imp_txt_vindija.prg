@@ -34,7 +34,7 @@ FUNCTION meni_import_vindija_racuni()
    AAdd( opcexe, {|| ImpTxtPartn() } )
    AAdd( opc, "3. import vindija roba               " )
    AAdd( opcexe, {|| ImpTxtRoba() } )
-   AAdd( opc, "4. popuna polja sifra dobavljaca " )
+   AAdd( opc, "4. popuna polja sifra dobavljača " )
    AAdd( opcexe, {|| FillDobSifra() } )
    AAdd( opc, "5. nastavak obrade dokumenata ... " )
    AAdd( opcexe, {|| RestoreObrada() } )
@@ -157,7 +157,7 @@ FUNCTION vindija_import_txt_dokument()
       lNegative := .T.
    ENDIF
 
-   IF TTbl2Kalk( aFaktEx, lFtSkip, lNegative, cCtrl_art ) == 0
+   IF temp_2_pript( aFaktEx, lFtSkip, lNegative, cCtrl_art ) == 0
       MsgBeep( "Operacija prekinuta!" )
       RETURN
    ENDIF
@@ -208,7 +208,7 @@ STATIC FUNCTION GetImpFilter()
 STATIC FUNCTION MnuObrDok()
 
    IF Pitanje(, "Obraditi dokumente iz pomocne tabele (D/N)?", "D" ) == "D"
-      ObradiImport( nil, nil, __stampaj )
+      import_kalk_pript_2_pripr( nil, nil, __stampaj )
    ELSE
       MsgBeep( "Dokumenti nisu obradjeni!#Obrada se moze uraditi i naknadno!" )
       CLOSE ALL
@@ -565,7 +565,7 @@ STATIC FUNCTION GetExpPath( cPath )
  *   aRules - pravila upisivanja jednog zapisa u tabelu, princip uzimanja zapisa iz linije text fajla
  *   cTxtFile - txt fajl za import
  */
-// /
+
 
 STATIC FUNCTION txt_to_temp_import_tabela( aDbf, aRules, cTxtFile )
 
@@ -1153,7 +1153,7 @@ STATIC FUNCTION FaktExist( nRight )
    RETURN aRet
 
 
-/*  TTbl2Kalk(aFExist, lFSkip)
+/*  temp_2_pript(aFExist, lFSkip)
  *   kopira podatke iz pomocne tabele u tabelu KALK->PRIPT
  *   aFExist matrica sa postojecim fakturama
  *   lFSkip preskaci postojece fakture
@@ -1161,7 +1161,7 @@ STATIC FUNCTION FaktExist( nRight )
  *   cCtrl_art - preskoci sporne artikle NC u hendeku ! na osnovu CACHE
  *         tabele
  */
-STATIC FUNCTION TTbl2Kalk( aFExist, lFSkip, lNegative, cCtrl_art )
+STATIC FUNCTION temp_2_pript( aFExist, lFSkip, lNegative, cCtrl_art )
 
    LOCAL cBrojKalk
    LOCAL cTipDok
@@ -1300,7 +1300,6 @@ STATIC FUNCTION TTbl2Kalk( aFExist, lFSkip, lNegative, cCtrl_art )
          ENDIF
       ENDIF
 
-      // pronadji robu
       SELECT roba
       SET ORDER TO TAG "ID_VSD"
       cTmpArt := PadL( AllTrim( temp->idroba ), 5, "0" )
@@ -1679,10 +1678,10 @@ STATIC FUNCTION GetKVars( dDatDok, cBrKalk, cTipDok, cIdKonto, cIdKonto2, cRazd 
 
 
 
-/*  ObradiImport()
+/*  import_kalk_pript_2_pripr()
  *   Obrada importovanih dokumenata
  */
-FUNCTION ObradiImport( nPocniOd, lAsPokreni, lStampaj )
+FUNCTION import_kalk_pript_2_pripr( nPocniOd, lAsPokreni, lStampaj )
 
    LOCAL cIdKonto
    LOCAL cN_kalk_dok := ""
@@ -1733,7 +1732,7 @@ FUNCTION ObradiImport( nPocniOd, lAsPokreni, lStampaj )
    // SetKey(K_F3,{|| SaveObrada(nPTRec)})
 
    Box(, 10, 70 )
-   @ 1 + m_x, 2 + m_y SAY "Obrada dokumenata iz pomocne tabele:" COLOR "I"
+   @ 1 + m_x, 2 + m_y SAY "Obrada dokumenata iz PRIPT tabele:" COLOR "I"
    @ 2 + m_x, 2 + m_y SAY "===================================="
 
    nUvecaj := 1
@@ -1774,9 +1773,12 @@ FUNCTION ObradiImport( nPocniOd, lAsPokreni, lStampaj )
          // jedan po jedan row azuriraj u pripr
          SELECT pripr
          APPEND BLANK
+
          Scatter()
+
          SELECT pript
          Scatter()
+
          SELECT pripr
          _brdok := cN_kalk_dok
          Gather()
@@ -1878,7 +1880,7 @@ STATIC FUNCTION RestoreObrada()
       RETURN
    ENDIF
 
-   ObradiImport( nDosaoDo, nil, __stampaj )
+   import_kalk_pript_2_pripr( nDosaoDo, nil, __stampaj )
 
    RETURN
 

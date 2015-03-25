@@ -416,7 +416,7 @@ select KALK
 
 if cPametno=="D"
 
- RekapK()
+ kalk_pripr_2_finmat()
 
  if (gafin=="D" .or. gamat=="D")
    	kalk_kontiranje_naloga( .t., lAuto )

@@ -17,7 +17,7 @@ function kalk_modem_razmjena()
 private Opc:={}
 private opcexe:={}
 AADD(opc,"1. generiši FIN,FAKT dokumente (kontiraj)      ")
-AADD(opcexe,{|| Rekapk(.t.)})
+AADD(opcexe,{|| kalk_pripr_2_finmat(.t.)})
 AADD(opc,"2. iz FAKT generisi KALK dokumente")
 AADD(opcexe, {|| Faktkalk()})
 AADD(opc,"3. iz TOPS generisi KALK dokumente")

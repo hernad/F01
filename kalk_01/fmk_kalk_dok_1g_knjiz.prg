@@ -57,7 +57,7 @@ do while .t.
      case izbor == 2
          StKalk()
      case izbor == 3
-         RekapK()
+         kalk_pripr_2_finmat()
      case izbor == 4
          kalk_kontiranje_naloga()
      case izbor == 5
@@ -224,7 +224,7 @@ do case
      		Savjetnik()
   	case Ch==K_ALT_K
      		close all
-       		RekapK()
+       		kalk_pripr_2_finmat()
        		if Pitanje(,"Zelite li izvrsiti kontiranje ?","D")=="D"
          		kalk_kontiranje_naloga()
        		endif

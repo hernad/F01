@@ -94,7 +94,7 @@ if lastkey()==K_ESC
 	closeret
 endif
 
-// ovo dole je ukradeno iz KALK/REKAPK
+// ovo dole je ukradeno iz KALK/kalk_pripr_2_finmat
 
 O_FINMAT
 O_KONTO

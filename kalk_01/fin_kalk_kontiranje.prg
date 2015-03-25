@@ -297,8 +297,10 @@ FUNCTION kalk_kontiranje_naloga( fAuto, lAGen, lViseKalk, cNalog )
             SELECT koncij
             hseek finmat->idkonto2
          ELSE
-            SELECT koncij; hseek finmat->idkonto
+            SELECT koncij
+            hseek finmat->idkonto
          ENDIF
+
          SELECT roba
          hseek finmat->idroba
 
@@ -1045,12 +1047,12 @@ FUNCTION IspitajRezim()
 
 
 
-/*  RekapK()
+/*  kalk_pripr_2_finmat()
  *   fstara - .f. znaci poziv iz tabele pripreme, .t. radi se o azuriranoj kalkulaciji pa se prvo getuje broj dokumenta (cIdFirma,cIdVD,cBrdok)
  *   Pravi rekapitulaciju kalkulacija a ako je ulazni parametar fstara==.t. poziva se i kontiranje dokumenta
  */
 
-FUNCTION RekapK()
+FUNCTION kalk_pripr_2_finmat()
 
    PARAMETERS fStara, cIdFirma, cIdVd, cBrDok, lAuto
 
@@ -1125,7 +1127,7 @@ FUNCTION RekapK()
             lViseKalk := .F.
 
          ELSE
-            // parametri su prosljedjeni RekapK funkciji
+            // parametri su prosljedjeni kalk_pripr_2_finmat funkciji
             lViseKalk := .T.
          ENDIF
          fPrvi := .F.
@@ -1207,14 +1209,16 @@ FUNCTION RekapK()
       nStr := 0
       nTot1 := nTot2 := nTot3 := nTot4 := nTot5 := nTot6 := nTot7 := nTot8 := nTot9 := nTota := nTotb := nTotC := 0
 
-      DO WHILE not_key_esc() .AND. !Eof() .AND. cIdFirma == idfirma .AND. cidvd == idvd
-         cBrDok := BrDok
-         cIdPartner := IdPartner
-         cBrFaktP := BrFaktP
-         dDatFaktP := DatFaktP
-         dDatKurs := DatKurs
-         cIdKonto := IdKonto
-         cIdKonto2 := IdKonto2
+      DO WHILE not_key_esc() .AND. !Eof() .AND. cIdFirma == field->idfirma .AND. cidvd == field->idvd
+
+         cBrDok := field->BrDok
+         cIdPartner := field->IdPartner
+         cBrFaktP := field->BrFaktP
+         dDatFaktP := field->DatFaktP
+         dDatKurs := field->DatKurs
+         dDatVal := field->DatVal
+         cIdKonto := field->IdKonto
+         cIdKonto2 := field->IdKonto2
 
          IF cIdVd == "24" .AND. ( PRow() == 0 .OR. PRow() > 55 )
             IF PRow() -gPStranica > 55
@@ -1363,6 +1367,7 @@ FUNCTION RekapK()
                BrDok     WITH PRIPR->BrDok, ;
                DatDok    WITH PRIPR->DatDok, ;
                DatKurs   WITH PRIPR->DatKurs, ;
+               DatVal    WITH PRIPR->DatVal, ;
                GKV       WITH Round( PRIPR->( GKolicina * FCJ2 ), gZaokr ), ;   // vrijednost transp.kala
             GKV2      WITH Round( PRIPR->( GKolicin2 * FCJ2 ), gZaokr )   // vrijednost ostalog kala
 
@@ -1403,7 +1408,6 @@ FUNCTION RekapK()
             REPLACE MPV WITH nPom
 
             // PDV
-
             nPom := PRIPR->( aIPor[ 1 ] * ( Kolicina - GKolicina - GKolicin2 ) )
             nPom := Round( nPom, gZaokr )
             REPLACE Porez WITH nPom
@@ -1480,22 +1484,6 @@ FUNCTION RekapK()
                ENDIF
             ENDIF
 
-
-            IF !IsPdv()
-
-               IF glUgost
-                  REPLACE prucmp WITH Round( PRIPR->( aIPor[ 2 ] * ( Kolicina - GKolicina - GKolicin2 ) ), gZaokr )
-                  REPLACE porpot WITH Round( PRIPR->( aIPor[ 3 ] * ( Kolicina - GKolicina - GKolicin2 ) ), gZaokr )
-               ENDIF
-
-
-               IF  idvd $ "14#94"
-                  // / ppp porezi
-                  IF  gVarVP == "2"  // unazad VPC - preracunata stopa
-                     REPLACE POREZV WITH Round( TARIFA->VPP / 100 / ( 1 + tarifa->vpp / 100 ) * iif( nMarza < 0, 0, nMarza ) * Kolicina, gZaokr )
-                  ENDIF
-               ENDIF
-            ENDIF
 
 
             // ------------- azuriraj NC,VPC,MPC
@@ -1688,7 +1676,7 @@ FUNCTION KontVise()
       cIdVd := idvd
       cBrDok := brdok
 
-      RekapK( .T., cIdFirma, cIdVd, cBrDok )
+      kalk_pripr_2_finmat( .T., cIdFirma, cIdVd, cBrDok )
 
       SELECT DOKS
       SKIP

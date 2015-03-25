@@ -114,7 +114,7 @@ do while !EOF()
 	cD_brdok := field->brdok
 
 	// napuni FINMAT
-	RekapK( .t., cD_firma, cD_tipd, cD_brdok, .t. )
+	kalk_pripr_2_finmat( .t., cD_firma, cD_tipd, cD_brdok, .t. )
 	
 	// uzmi drugi broj naloga
 	_br_nal( cChBrNal, cD_brdok, @cNalog )
