@@ -41,7 +41,7 @@ FUNCTION meni_import_vindija_racuni()
    AAdd( opc, "6. podesenja importa " )
    AAdd( opcexe, {|| aimp_setup() } )
    AAdd( opc, "7. kreiraj pomoćnu tabelu stanja" )
-   AAdd( opcexe, {|| gen_() } )
+   AAdd( opcexe, {|| f01_kalk_gen_cache_nc() } )
    AAdd( opc, "8. pregled pomoćne tabele stanja" )
    AAdd( opcexe, {|| brow_cache() } )
 
