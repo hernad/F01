@@ -152,8 +152,7 @@ FUNCTION f01_kalk_nab_cijene_iz_cache( cC_Kto, cC_Roba, nC_Ulaz, nC_Izlaz, nC_St
 // ------------------------------------------------------------
 // lista konta
 // ------------------------------------------------------------
-STATIC FUNCTION _g_kto( cMList, cPList, dDatGen, cAppendSif, ;
-      nT_kol, nT_ncproc )
+STATIC FUNCTION _g_kto( cMList, cPList, dDatGen, cAppendSif, nT_kol, nT_ncproc )
 
    LOCAL GetList := {}
    LOCAL nTArea := Select()
