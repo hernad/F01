@@ -13,11 +13,6 @@
 #include "f01.ch"
 #include "error.ch"
 
-/*
- * ----------------------------------------------------------------
- *                          Copyright Sigma-com software 1996-2006
- * ----------------------------------------------------------------
- */
 
 function PocSkSez()
 
@@ -268,7 +263,7 @@ return
 
 // -----------------------------------------------------------
 // vraca niz poddirektorija koji nemaju ekstenziju u nazivu
-// a nalaze se u direktoriju cPath (npr. "c:\sigma\fin\kum1\")
+// a nalaze se u direktoriju cPath (npr. "c:/sigma/fin/kum1/")
 // -----------------------------------------------------------
 FUNCTION ASezona(cPath)
 
@@ -372,7 +367,7 @@ IF OzNoGod() <> goModul:oDataBase:cSezona .and.;
 		// slijedi alt+F6
 		ProcPrenos()
 	else
-		// MsgBeep("Nije se radilo!")
+
 		O_KPARAMS
 		PUBLIC gSezona:="    "
 		private cSection:="1",cHistory:=" "; aHistory:={}
@@ -397,7 +392,6 @@ function JelSeRadilo()
     lVrati:=.t.
   ELSE
     select 0
-    // MsgBeep("Otvaram '"+KUMPATH+gGlBaza+"'")
     USE (KUMPATH+gGlBaza); GO TOP
     IF RECCOUNT()>0
       lVrati:=.t.

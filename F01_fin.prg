@@ -1,5 +1,5 @@
 
-PROCEDURE MainX( ... )
+PROCEDURE Main( ... )
 
 
   gModul := "FIN"

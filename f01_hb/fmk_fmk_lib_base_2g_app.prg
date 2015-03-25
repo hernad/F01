@@ -269,9 +269,6 @@ METHOD QUIT( lVratiseURP )
       lVratiseURP := .T.
    ENDIF
 
-#ifdef CLIP
-   ? "quit metod."
-#endif
 
    O_KORISN
    LOCATE FOR ( AllTrim( ImeKorisn ) == AllTrim( korisn->ime ) .AND. SifraKorisn == korisn->sif )
@@ -492,19 +489,15 @@ STATIC FUNCTION win_box()
    @ m_x + nX, m_y + 2 SAY "Podesavanje windows parametara *******"
 
    nX += 2
-
    @ m_x + nX, m_y + 2 SAY "OO lokacija:" GET gOOPath PICT "@S56"
 
    nX += 1
-
    @ m_x + nX, m_y + 2 SAY "OO Writer pokretac:" GET gOOWriter PICT "@S30"
 
    nX += 1
-
    @ m_x + nX, m_y + 2 SAY "OO Spread pokretac:" GET gOOSpread PICT "@S30"
 
    nX += 2
-
    @ m_x + nX, m_y + 2 SAY "Java bin path:" GET gJavaPath PICT "@S56"
 
    nX += 1
