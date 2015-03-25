@@ -211,11 +211,7 @@ STATIC FUNCTION cache_get_konto( cMList, cPList, dDatGen, cAppendSif, nT_kol, nT
    RETURN 1
 
 
-
-// --------------------------------------------------
-// generisi cache tabelu
-// --------------------------------------------------
-FUNCTION gen_cache()
+FUNCTION f01_kalk_gen_cache_nc()
 
    LOCAL nIzlNV
    LOCAL nIzlKol
