@@ -2,6 +2,7 @@
 -shared
 
 #{F18_GT_QTC}-DF18_GT_QTC
+-DF01_CLIENT
 
 F01_client.prg
 hbnetio.hbc

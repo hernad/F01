@@ -3,7 +3,8 @@ REQUEST LOGRDD
 
 INIT PROCEDURE f01_init()
 
-  OutStd( "init f01" )
+  OutStd( "init f01 client" )
+
   OutStd( hb_eol() )
 
   connect_to_f01_server()

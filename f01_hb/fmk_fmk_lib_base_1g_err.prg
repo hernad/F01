@@ -36,7 +36,6 @@ FUNCTION f01_error_handler( objErr, lLocalHandler )
       Break objErr
    ENDIF
 
-/*
    cOldDev := Set( _SET_DEVICE, "SCREEN" )
    cOldCon := Set( _SET_CONSOLE, "ON" )
    cOldPrn := Set( _SET_PRINTER, "" )
@@ -151,10 +150,10 @@ FUNCTION f01_error_handler( objErr, lLocalHandler )
    SetColor( StaraBoja )
 
    CLS
-*/
 
    //START PRINT RET .F.
-   SET( _SET_PRINTER, "f01_error.txt" )
+
+   SET( _SET_PRINTFILE, "f01_error.txt")
    SET PRINTER ON
 
    ?
@@ -173,14 +172,12 @@ FUNCTION f01_error_handler( objErr, lLocalHandler )
       ENDIF
    NEXT
 
-/*
    ?
    ? "Trenutno radno podrucje:", Alias(), ", na zapisu broj:", RecNo()
    ? "PrivPath :", PRIVPATH
    ? "KumPath  :", KUMPATH
    ? "SifPath  :", SIFPATH
    ?
-*/
 
    //ENDPRINT
    SET PRINTER OFF

@@ -2,7 +2,7 @@
 -shared
 -workdir=.h
 -n
-
+-DF01_CLIENT
 {F18_GT_QTC}-DF18_GT_QTC
 
 F01_fin.prg

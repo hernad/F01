@@ -1,9 +1,9 @@
 -o${hb_name}
 
-#{F18_GT_QTC}-DF18_GT_QTC
+{F18_GT_QTC}-DF18_GT_QTC
 
 F01_server.prg
-init_f01.prg
+init_f01_server.prg
 fin_01/*.prg
 kalk_01/*.prg
 fakt_01/*.prg

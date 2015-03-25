@@ -197,7 +197,6 @@ else
 	StandardBoje()  // vrati standardne boje
 endif
 
-/*
 
 if !PostDir(::cDirKum) .and. Pitanje(,"Formirati sezonske direktorije","N")=="D"
 	// kreiraj sezonske direktorije
@@ -211,7 +210,7 @@ lURp:=fURp
 ::oApp:SetGVars()
 
 JelReadOnly()
-*/
+
 
 return
 
