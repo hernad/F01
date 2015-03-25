@@ -689,7 +689,7 @@ if !lGenFinFakt
 endif
 
 // pokreni obradu pript bez asistenta
-ObradiImport(0, .f., lStampati)
+import_kalk_pript_2_pripr(0, .f., lStampati)
 
 if !lGenFinFakt
 	// vrati parametre...
