@@ -816,7 +816,7 @@ gKonvZnWin:=IzFmkIni("DelphiRB","Konverzija","3",EXEPATH)
 
 ::lOpcine:=IzFmkIni("FAKT","Opcine","N",SIFPATH)=="D"
 
-::lDoks2:=IzFMKINI("FAKT","Doks2","N",KUMPATH)=="D"
+::lDoks2:= .T.
 
 ::lId_J:=IzFmkIni("SifRoba", "ID_J", "N", SIFPATH)=="D"
 

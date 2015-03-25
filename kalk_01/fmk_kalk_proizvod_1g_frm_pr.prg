@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -37,17 +37,17 @@ if nRbr==1
  	@ m_x+12,m_y+2  SAY "Proizvod  " GET _IdRoba pict "@!" valid  {|| P_Roba(@_IdRoba),Reci(12,24,trim(LEFT(roba->naz,40))+" ("+ROBA->jmj+")",40),_IdTarifa:=iif(fnovi,ROBA->idtarifa,_IdTarifa),.t.}
 	@ m_x+12,m_y+70 GET _IdTarifa when gPromTar=="N" valid P_Tarifa(@_IdTarifa)
  	select TARIFA
-	hseek _IdTarifa  
+	hseek _IdTarifa
 	// postavi TARIFA na pravu poziciju
- 	select PRIPR  
+ 	select PRIPR
 	// napuni tarifu
 
  	@ m_x+13,m_y+2   SAY "Kolicina  " GET _Kolicina PICTURE PicKol valid _Kolicina<>0
- 	
+
 	read
-	
+
  	//_BrFaktP := _idzaduz2
- 	// sada trazim trebovanja u proizvod. u toku i filujem u stavke 
+ 	// sada trazim trebovanja u proizvod. u toku i filujem u stavke
 	// od 100 pa nadalje
 	// ove stavke imace  mu_i=="5", mkonto=_idkonto2, nc,nv
  	//"KALKi7","idFirma+mkonto+IDZADUZ2+idroba+dtos(datdok)","KALK")
@@ -55,7 +55,7 @@ if nRbr==1
  	nTPriPrec:=recno()
  	select pripr
  	go bottom
- 
+
  	if val(rbr)<900 .or. (val(rbr)>1 .and. Pitanje(,"Zelite li izbrisati izgenerisane sirovine ?","N")=="D")
 	  do while !bof() .and. val(rbr)>900
     	    skip -1
@@ -67,13 +67,13 @@ if nRbr==1
 
   	  select ROBA
 	  hseek _idroba
-  	
-	  if roba->tip="P" .and. nRbr==1  
+
+	  if roba->tip="P" .and. nRbr==1
 	   // radi se o proizvodu, prva stavka
      	   nRbr2 := 900
      	   select sast
      	   hseek  _idroba
-     	   do while !eof() .and. id==_idroba 
+     	   do while !eof() .and. id==_idroba
 	    // setaj kroz sast
        	    select roba
 	    hseek sast->id2
@@ -101,9 +101,9 @@ if nRbr==1
                 	vpc with 0,;
                 	pu_i with "",;
                 	mu_i with "5",;
-                	error with "0",; 
+                	error with "0",;
 			mkonto with _idkonto2
-			
+
 		nTTKNrec:=recno()
          	// kalkulacija nabavne cijene
          	// nKolZN:=kolicina koja je na stanju a porijeklo je od zadnje nabavke
@@ -112,11 +112,11 @@ if nRbr==1
 		nc1:=0
 		nc2:=0
 		dDatNab:=ctod("")
-         	if _TBankTr<>"X"  
+         	if _TBankTr<>"X"
 		  // ako je X onda su stavke vec izgenerisane
           	  if !empty(gMetodaNC)  .and. !(roba->tip $ "UT")
            		MsgO("Racunam stanje na skladistu")
-               		KalkNab(_idfirma,sast->id2,_idkonto2,@nKolS,@nKolZN,@nc1,@nc2,@dDatNab,@_RokTr)
+               		KalkNab(_idfirma,sast->id2,_idkonto2,@nKolS,@nKolZN,@nc1,@nc2,@dDatNab)
            		MsgC()
           	  endif
                   if dDatNab>_DatDok
@@ -127,7 +127,7 @@ if nRbr==1
            	    if gmetodanc == "2"
              	      select roba
              	      replace nc with _nc
-             	      select pripr 
+             	      select pripr
 		      // nafiluj sifrarnik robe sa nc sirovina, robe
            	    endif
           	  endif
@@ -156,7 +156,7 @@ else
   if gNW<>"X"
    @ m_x+10,m_y+42  SAY "Zaduzuje: "; ?? _IdZaduz
   endif
-endif 
+endif
 
 @ m_x+11,m_y+66 SAY "Tarif.brĿ"
 
@@ -175,12 +175,12 @@ if nRbr<>1  // sirovine
 	nc1:=0
 	nc2:=0
 	dDatNab:=ctod("")
- 	
-	if _TBankTr<>"X"  
+
+	if _TBankTr<>"X"
 		// ako je X onda su stavke vec izgenerisane
   		if !empty(gMetodaNC)  .and. !(roba->tip $ "UT")
    			MsgO("Racunam stanje na skladistu")
-       			KalkNab(_idfirma,_idroba,_idkonto2,@nKolS,@nKolZN,@nc1,@nc2,@dDatNab,@_RokTr)
+       			KalkNab(_idfirma,_idroba,_idkonto2,@nKolS,@nKolZN,@nc1,@nc2,@dDatNab)
    			MsgC()
   		endif
   		if dDatNab>_DatDok
@@ -191,7 +191,7 @@ if nRbr<>1  // sirovine
 			MsgBeep("Na stanju je samo :"+str(nkols,15,3))
 			_error:="1"
 		endif
- 	endif 
+ 	endif
  	select pripr
 endif
 
@@ -239,7 +239,7 @@ do while !eof()
        		if val(rbr)=nRbr
         		nNV+=_NC*_kolicina
        		else
-        		nNV+=NC*kolicina  
+        		nNV+=NC*kolicina
 			// ovo je u stvari nabavna vrijednost
        		endif
        		if nRbr==1 .and. gkolicina<kolicina
@@ -283,7 +283,7 @@ return lastkey()
 function Get2_PR()
 local cSPom:=" (%,A,U,R) "
 
-if nRbr<>1 
+if nRbr<>1
 	return K_ENTER
 endif
 
@@ -314,7 +314,7 @@ if empty(_TMarza);  _TMarza:="%" ; endif
 @ m_x+8,m_y+2 SAY "CIJENA KOST.  "
 @ m_x+8,m_y+50 GET _NC PICTURE PicDEM
 
-if koncij->naz<>"N1"  
+if koncij->naz<>"N1"
 
 	// vodi se po vpc
   	private fMarza:=" "
@@ -326,14 +326,14 @@ if koncij->naz<>"N1"
 
   	read
  	SetujVPC(_vpc)
-	
+
 else
 
 	read
   	_Marza:=0
 	_TMarza:="A"
 	_VPC:=_NC
-	
+
 endif
 
 if nRbr=1
@@ -342,5 +342,3 @@ endif
 nStrana:=3
 
 return lastkey()
-
-

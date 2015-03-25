@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -15,10 +15,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/kalk/mag/dok/1g/rpt_82.prg,v $
- * $Author: mirsad $ 
+ * $Author: mirsad $
  * $Revision: 1.2 $
  * $Log: rpt_82.prg,v $
  * Revision 1.2  2002/06/20 13:13:03  mirsad
@@ -26,7 +26,7 @@
  *
  *
  */
- 
+
 
 /* file fmk/kalk/mag/dok/1g/rpt_82.prg
  *   Stampa kalkulacije 82 - izlaz iz magacina diskont
@@ -98,10 +98,7 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
 
     @ prow()+1,0 SAY  Rbr PICTURE "999"
     @ prow(),4 SAY  ""; ?? trim(LEFT(ROBA->naz,40)),"(",ROBA->jmj,")"
-    if gRokTr=="D"; ?? space(4),"Rok Tr.:",RokTr; endif
-    IF lPoNarudzbi
-      IspisPoNar()
-    ENDIF
+
     @ prow()+1,4 SAY IdRoba
     @ prow(),pcol()+1 SAY Kolicina             PICTURE PicKol
 
@@ -187,4 +184,3 @@ IF prow()>56+gPStranica; FF; @ prow(),125 SAY "Str:"+str(++nStr,3);  endif
 set order to 1
 go nRec
 return
-

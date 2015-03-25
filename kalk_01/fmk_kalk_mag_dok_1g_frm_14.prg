@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,7 +14,7 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
 
@@ -37,7 +37,7 @@ if nRbr==1 .or. !fnovi
  @  m_x+7,col()+2 SAY "Datum:" get _DatFaktP   ;
     valid {|| _DatKurs:=_DatFaktP,.t.}
  _IdZaduz:=""
- 
+
  _Idkonto:="1200"
  private cNBrDok:=_brdok
  @ m_x+9,m_y+2 SAY "Magacinski konto razduzuje"  GET _IdKonto2 ;
@@ -78,7 +78,7 @@ endif
  read; ESC_RETURN K_ESC
 
  _MKonto:=_Idkonto2
- 
+
  if lKoristitiBK
  	_idRoba:=Left(_idRoba, 10)
  endif
@@ -140,7 +140,7 @@ if _TBankTr<>"X" .or. lPoNarudzbi   // ako je X onda su stavke vec izgenerisane
      @ row(),col()+2 SAY IspisPoNar(,,.t.)
    else
      MsgO("Racunam stanje na skladistu")
-     KalkNab(_idfirma,_idroba,_idkonto2,@nKolS,@nKolZN,@nc1,@nc2,@dDatNab,@_RokTr)
+     KalkNab(_idfirma,_idroba,_idkonto2,@nKolS,@nKolZN,@nc1,@nc2,@dDatNab)
      MsgC()
      @ m_x+12+IF(lPoNarudzbi,1,0),m_y+30   SAY "Ukupno na stanju "; @ m_x+12+IF(lPoNarudzbi,1,0),col()+2 SAY nkols pict pickol
    endif
@@ -371,5 +371,3 @@ function MarkBrDok(fNovi)
   ENDIF
   @  m_x+2,m_y+46  SAY _BrDok COLOR INVERT
 return .t.
-
-

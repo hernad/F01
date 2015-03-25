@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -15,10 +15,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
- 
+
 
 
 /* file fmk/kalk/prod/dok/1g/frm_80.prg
@@ -131,16 +131,16 @@ select PRIPR
 
 @ m_x+14, m_y+50    GET _NC ;
        when VKol() ;
-       PICTURE PicDEM 
+       PICTURE PicDEM
 
 @ m_x+16, m_y+2 SAY "Marza:" GET _TMarza2  ;
          VALID _Tmarza2 $ "%AU" ;
 	 PICTURE "@!"
-	 
+
 @ m_x+16, col()+2  GET _Marza2  ;
        PICTURE  PicDEM ;
        valid {|| _vpc:=_nc, .t.}
-       
+
 @ m_x+16, col()+1 GET fMarza pict "@!"
 
 @ m_x+17, m_y+2  SAY "MALOPROD. CJENA (MPC):"
@@ -190,7 +190,7 @@ local cSvedi:="M"
 private aPorezi:={}
 
 fnovi:=.t.
-private PicDEM:="9999999.99999999" 
+private PicDEM:="9999999.99999999"
 PicKol:="999999.999"
 Beep(1)
 @ m_x+2,m_Y+2 SAY "PROTUSTAVKA   ( S-svedi M-mpc sifr i ' '-ne diraj):"
@@ -206,7 +206,7 @@ read
 ESC_RETURN K_ESC
 select koncij
 seek trim(_idkonto)
-select PRIPR 
+select PRIPR
 
 _PKonto:=_Idkonto
 DatPosljP()
@@ -247,7 +247,7 @@ else
 endif
 
 @ m_x+17,m_y+50 GET _MPC picture PicDEM WHEN WMpc_lv(nil, nil, aPorezi) VALID VMpc_lv(nil, nil, aPorezi)
-	       
+
 SayPorezi_lv(19, aPorezi)
 
 if IsPDV()
@@ -299,7 +299,7 @@ if cSvedi=="M"
     select ROBA
     HSEEK _IdRoba
     _MPCSapp:=UzmiMPCSif()
-    
+
 elseif csvedi=="S"
    if _mpcsapp<>0
     _kolicina:=-round(_oldval/_mpcsapp,4)
@@ -330,7 +330,7 @@ if _kolicina<0  // storno
 nKolS:=0;nKolZN:=0;nc1:=nc2:=0; dDatNab:=ctod("")
  if !empty(gMetodaNC)
   MsgO("Racunam stanje u prodavnici")
-  KalkNabP(_idfirma,_idroba,_idkonto,@nKolS,@nKolZN,@nc1,@nc2,@dDatNab,@_RokTr)
+  KalkNabP(_idfirma,_idroba,_idkonto,@nKolS,@nKolZN,@nc1,@nc2,@dDatNab)
   MsgC()
   @ m_x+12,m_y+30   SAY "Ukupno na stanju "; @ m_x+12,col()+2 SAY nkols pict pickol
  endif
@@ -345,5 +345,3 @@ nKolS:=0;nKolZN:=0;nc1:=nc2:=0; dDatNab:=ctod("")
 select PRIPR
 endif
 return .t.
-
-

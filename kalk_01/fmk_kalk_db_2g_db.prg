@@ -11,6 +11,7 @@
 
 
 #include "kalk01.ch"
+#include "hbclass.ch"
 
 function TDbKalkNew()
 
@@ -22,8 +23,6 @@ oObj:lAdmin:=.f.
 return oObj
 
 
-
-#include "class(y).ch"
 CLASS TDbKalk FROM TDB
 
 	var    self
@@ -40,9 +39,7 @@ CLASS TDbKalk FROM TDB
 ENDCLASS
 
 
-
-
-method dummy
+method TDbKalk:dummy
 return
 
 
@@ -233,10 +230,8 @@ return
  *   osnovni meni za instalacijske procedure
  */
 
-*void TDbKalk::install(string cKorisn,string cSifra,variant p3,variant p4,variant p5,variant p6,variant p7)
 
-
-method install(cKorisn,cSifra,p3,p4,p5,p6,p7)
+method TDBKalk:install(cKorisn,cSifra,p3,p4,p5,p6,p7)
 	If01_start(goModul,.f.)
 return
 
@@ -327,9 +322,7 @@ AADD(aDBf,{ 'TCARDAZ'             , 'C' ,   1 ,  0 })
 AADD(aDBf,{ 'CARDAZ'              , 'N' ,  18 ,  8 })
 AADD(aDBf,{ 'TZAVTR'              , 'C' ,   1 ,  0 })
 AADD(aDBf,{ 'ZAVTR'               , 'N' ,  18 ,  8 })
-// ovi troskovi pravo uvecavaju bazu, mislim da bi njihovo sklanjanje u
-// drugu bazu zaista pomoglo brzini
-// medjutim i ova su polja viseznacna
+
 AADD(aDBf,{ 'NC'                  , 'N' ,  18 ,  8 })
 AADD(aDBf,{ 'TMARZA'              , 'C' ,   1 ,  0 })
 AADD(aDBf,{ 'MARZA'               , 'N' ,  18 ,  8 })
@@ -344,8 +337,9 @@ AADD(aDBf,{ 'IDTARIFA'            , 'C' ,   6 ,  0 })
 AADD(aDBf,{ 'MPCSAPP'             , 'N' ,  18 ,  8 })
 AADD(aDBf,{ 'MKONTO'              , 'C' ,   7 ,  0 })
 AADD(aDBf,{ 'PKONTO'              , 'C' ,   7 ,  0 })
-AADD(aDBf,{ 'RokTr'               , 'D' ,   8 ,  0 })
-// rok trajanja NIKO ne koristi !!
+
+AADD(aDBf,{ 'DatVal'               , 'D' ,   8 ,  0 })
+
 AADD(aDBf,{ 'MU_I'                , 'C' ,   1 ,  0 })
 AADD(aDBf,{ 'PU_I'                , 'C' ,   1 ,  0 })
 AADD(aDBf,{ 'ERROR'               , 'C' ,   1 ,  0 })
@@ -757,7 +751,6 @@ AADD(aDBf,{ 'IDTARIFA'            , 'C' ,   6 ,  0 })
 AADD(aDBf,{ 'MPCSAPP'             , 'N' ,  12 ,  4 })
 AADD(aDBf,{ 'MKONTO'              , 'C' ,   7 ,  0 })
 AADD(aDBf,{ 'PKONTO'              , 'C' ,   7 ,  0 })
-AADD(aDBf,{ 'RokTr'               , 'D' ,   8 ,  0 })
 AADD(aDBf,{ 'MU_I'                , 'C' ,   1 ,  0 })
 AADD(aDBf,{ 'PU_I'                , 'C' ,   1 ,  0 })
 AADD(aDBf,{ 'ERROR'               , 'C' ,   1 ,  0 })

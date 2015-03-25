@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -15,10 +15,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/kalk/prod/dok/1g/rpt_11_3.prg,v $
- * $Author: mirsad $ 
+ * $Author: mirsad $
  * $Revision: 1.4 $
  * $Log: rpt_11_3.prg,v $
  * Revision 1.4  2003/09/20 07:37:07  mirsad
@@ -32,7 +32,7 @@
  *
  *
  */
- 
+
 
 /* file fmk/kalk/prod/dok/1g/rpt_11_3.prg
  *   Stampa kalkulacije 11, varijanta "3" - papir formata A3
@@ -130,7 +130,6 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
 
     @ prow()+1,0 SAY  Rbr PICTURE "999"
     ?? " "+IdRoba+" "+LEFT(ROBA->naz,40)+" "+ROBA->jmj
-    if gRokTr=="D"; ?? " "+DTOC(RokTr); endif
     ?? " "+TRANSFORM(Kolicina,pickol)+" "+TRANSFORM(VPC,PicCDEM)
     ?? " "+TRANSFORM(vpc*kolicina,picdem)
     ?? " "+TRANSFORM(nmarza2*100/iif(vpc=0,999999999,vpc),picproc)+" "+TRANSFORM(nmarza2*kolicina,picdem)
@@ -155,4 +154,3 @@ kalk_rekap_tarife()
 gPStranica:=gPStranica-6
 
 return
-

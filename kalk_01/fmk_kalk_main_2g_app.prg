@@ -211,7 +211,7 @@ public gDirMaK:=""
 public gDirFakt:=""
 public gDirFaKK:=""
 public gBrojac:="D"
-public gRokTr:="N"
+public gRokTr := "N"
 public gVarVP:="1"
 public gAFin:="D"
 public gAMat:="0"
@@ -368,7 +368,6 @@ Rpar("p7",@gFPicDem)
 Rpar("p8",@gFPicKol)
 RPar("po",@gPotpis)
 RPar("rc",@gRCRP)
-Rpar("rt",@gRokTr)
 Rpar("ar",@gAutoRavn)
 Rpar("ac",@gAutoCjen)
 Rpar("rx",@gRobaTrosk)

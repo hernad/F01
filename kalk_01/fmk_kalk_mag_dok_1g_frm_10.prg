@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -15,11 +15,11 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
- 
-// privatne varijable: 
+
+// privatne varijable:
 //  - fNovi
 //  - nRbr
 
@@ -100,9 +100,6 @@ select PRIPR  // napuni tarifu
 
 @ m_x+13+IF(lPoNarudzbi,1,0),m_y+2   SAY "Kolicina " GET _Kolicina PICTURE PicKol valid _Kolicina<>0
 
-if gRokTr=="D"
-	@ m_x+13+IF(lPoNarudzbi,1,0),col()+1 SAY "Rok trajanja" GET _RokTr
-endif
 
 if IsDomZdr()
 	@ m_x+14+IF(lPoNarudzbi,1,0),m_y+2 SAY "Tip sredstva (prazno-svi) " GET _Tip PICT "@!"
@@ -205,7 +202,7 @@ if koncij->naz<>"N1"  // vodi se po vpc
 
   	endif
 
-  	if gMPCPomoc=="D" 
+  	if gMPCPomoc=="D"
     		_mpcsapp:=roba->mpc
    		// VPC se izracunava pomocu MPC cijene !!
        		@ m_x+16,m_y+2 SAY "MPC SA POREZOM:"
@@ -216,14 +213,14 @@ if koncij->naz<>"N1"  // vodi se po vpc
   	endif
   	read
 
-  	if gMpcPomoc=="D" 
+  	if gMpcPomoc=="D"
      		if (roba->mpc==0 .or. roba->mpc<>round(_mpcsapp,2)) .and. Pitanje(,"Staviti MPC u sifrarnik")=="D"
          		select roba; replace mpc with _mpcsapp
          		select pripr
      		endif
   	endif
 
-  	SetujVPC(_VPC , .f. )    
+  	SetujVPC(_VPC , .f. )
 else
 	read
   	_Marza:=0; _TMarza:="A"; _VPC:=_NC
@@ -237,7 +234,7 @@ return lastkey()
 
 
 /*  Get1_10s()
- *  
+ *
  */
 
 function Get1_10s()
@@ -329,7 +326,7 @@ IF gVarEv=="1"
    @ m_x+19,col()+2  get _VPC    picture PicDEM;
                     VALID {|| Marza(fMarza),.t.}
    read
-  
+
    SetujVpc(_vpc)
  else
    read
@@ -357,7 +354,7 @@ if _kolicina<0  // storno
 nKolS:=0;nKolZN:=0;nc1:=nc2:=0; dDatNab:=ctod("")
  if !empty(gMetodaNC)
   MsgO("Racunam stanje na skladistu")
-  KalkNab(_idfirma,_idroba,_mkonto,@nKolS,@nKolZN,@nc1,@nc2,@dDatNab,@_RokTr)
+  KalkNab(_idfirma,_idroba,_mkonto,@nKolS,@nKolZN,@nc1,@nc2,@dDatNab)
   MsgC()
   @ m_x+12,m_y+30   SAY "Ukupno na stanju "; @ m_x+12,col()+2 SAY nkols pict pickol
  endif
@@ -373,5 +370,3 @@ nKolS:=0;nKolZN:=0;nc1:=nc2:=0; dDatNab:=ctod("")
 select PRIPR
 endif
 return .t.
-
-

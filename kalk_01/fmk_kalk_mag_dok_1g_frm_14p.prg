@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -75,7 +75,7 @@ read
 ESC_RETURN K_ESC
 
 _MKonto:=_Idkonto2
- 
+
 if lKoristitiBK
 	_idRoba:=Left(_idRoba, 10)
 endif
@@ -128,9 +128,9 @@ dDatNab:=ctod("")
 lGenStavke:=.f.
 
 if _TBankTr<>"X"   // ako je X onda su stavke vec izgenerisane
-	if !empty(gMetodaNC) 
+	if !empty(gMetodaNC)
      		MsgO("Racunam stanje na skladistu")
-     			KalkNab(_idfirma, _idroba, _idkonto2, @nKolS, @nKolZN, @nc1, @nc2, @dDatNab, @_RokTr)
+     			KalkNab(_idfirma, _idroba, _idkonto2, @nKolS, @nKolZN, @nc1, @nc2, @dDatNab)
      		MsgC()
      		@ m_x+ 12, m_y+30   SAY "Ukupno na stanju "
 		@ m_x+ 12, col()+2 SAY nKols pict pickol
@@ -205,7 +205,7 @@ endif
 
 // izlaz iz magacina
 _MKonto := _Idkonto2
-_MU_I:="5"     
+_MU_I:="5"
 _PKonto:=""; _PU_I:=""
 
 if _idvd == "KO"
@@ -265,6 +265,3 @@ endif
 
 _VPCSaP:=iif(_VPC<>0, _VPC*(1-_RABATV/100) + iif(nMarza<0,0,nMarza) * TARIFA->VPP/100,0)
 return fret
-
-
-

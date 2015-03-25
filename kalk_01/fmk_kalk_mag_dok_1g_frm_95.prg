@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -30,11 +30,11 @@ if nRbr==1 .or. !fnovi .or. gMagacin=="1"
  @  m_x+5,m_y+2   SAY "Dokument Broj:" get _BrFaktP
  @  m_x+5,col()+1 SAY "Datum:" get _DatFaktP   ;
     valid {|| _DatKurs:=_DatFaktP,.t.}
- 
+
  if is_uobrada()
  	@ m_x+5, col()+1 SAY "Odobrenje:" GET _odobr_no PICT "@S10"
  endif
- 
+
  _IdZaduz:=""
  @ m_x+8,m_y+2 SAY "Magacinski konto razduzuje"  GET _IdKonto2 ;
             valid empty(_IdKonto2) .or. P_Konto(@_IdKonto2,24)
@@ -50,22 +50,22 @@ if nRbr==1 .or. !fnovi .or. gMagacin=="1"
    endif
  endif
  if _idvd $ "97#96#95"    // ako je otprema, gdje to ide
-   
+
    @ m_x+9,m_y+2   SAY "Konto zaduzuje            " GET _IdKonto valid  empty(_IdKonto) .or. P_Konto(@_IdKonto,24) pict "@!"
-   
+
    if (_idvd=="95" .and. .T.)
-       
+
        @ m_x+9,m_y+40 SAY "Sifra veze otpisa:" GET _IdPartner  valid empty(_idPartner) .or.P_Firma(@_IdPartner,24) pict "@!"
-   
+
    elseif gMagacin=="1"
        @ m_x+9,m_y+40 SAY "Partner zaduzuje:" GET _IdPartner  valid empty(_idPartner) .or.P_Firma(@_IdPartner,24) pict "@!"
-   
+
    else
       if _idvd == "96"
           @ m_x+9,m_y+40 SAY "Partner zaduzuje:" GET _IdPartner  valid empty(_idPartner) .or.P_Firma(@_IdPartner,24) pict "@!"
       endif
    endif
- 
+
  else
   _idkonto:=""
  endif
@@ -93,7 +93,7 @@ endif
  if !glEkonomat
    @ m_x+11,m_y+70 GET _IdTarifa when gPromTar=="N" valid P_Tarifa(@_IdTarifa)
  endif
- 
+
  if IsDomZdr()
 	@ m_x + 12, m_y + 2 SAY "Tip sredstva (prazno-svi) " GET _Tip PICT "@!"
  endif
@@ -120,19 +120,19 @@ endif
 
  @ m_x+13,m_y+2   SAY "Kolicina " GET _Kolicina PICTURE PicKol valid _Kolicina <> 0
 
- 
+
 IF gVarEv=="1"
 
  _GKolicina:=0
  if fNovi
-   
+
    select ROBA; HSEEK _IdRoba
    if koncij->naz=="P2"
      _VPC:=PLC
    else
      _VPC:=KoncijVPC()
    endif
-   
+
    _NC:=NC
  endif
 
@@ -151,9 +151,9 @@ IF gVarEv=="1"
  dDatNab:=ctod("")
 
  lGenStavke:=.f.
- 
- if _TBankTr<>"X" 
- 
+
+ if _TBankTr<>"X"
+
    if !empty(gMetodaNC)  .and. !(roba->tip $ "UT")
 
      IF glEkonomat
@@ -168,7 +168,7 @@ IF gVarEv=="1"
      ELSE
 
        MsgO("Racunam stanje na skladistu")
-        KalkNab(_idfirma, _idroba, _idkonto2, @nKolS, @nKolZN, @nc1, @nc2, @dDatNab, @_RokTr)
+        KalkNab(_idfirma, _idroba, _idkonto2, @nKolS, @nKolZN, @nc1, @nc2, @dDatNab)
        MsgC()
 
        @ m_x+12,m_y+30   SAY "Ukupno na stanju "; @ m_x+12,col()+2 SAY nKols pict pickol
@@ -186,7 +186,7 @@ IF gVarEv=="1"
 
        if gMetodaNC $ "13"
             // prva ili zadnja
-            _nc := nc1 
+            _nc := nc1
        elseif gMetodaNC == "2"
             // srednja
             _nc := nc2
@@ -219,14 +219,14 @@ IF gVarEv=="1"
      	@ m_x+15,m_y+2   SAY "VPC      " get _VPC    picture PicDEM
      endif
      _PNAP:=0
-     
-     if gMagacin=="1" .and. !IsPDV() 
+
+     if gMagacin=="1" .and. !IsPDV()
      // ovu cijenu samo prikazati ako se vodi po nabavnim cijenama
        _VPCSAPPP:=0
      endif
-     
+
      if IsPDV() .and. gPDVMagNab == "N"
-     
+
     	_mpcsapp:=roba->mpc
    	// VPC se izracunava pomocu MPC cijene !!
    	@ m_x+17,m_y+2 SAY "PROD.CJENA SA PDV:"
@@ -235,8 +235,8 @@ IF gVarEv=="1"
         read
    else
    	read
-   endif    
-   
+   endif
+
    else // magacin po vpc
      read
      _Marza:=0; _TMarza:="A"; _VPC:=_NC
@@ -508,10 +508,6 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
     if roba->(fieldpos("KATBR"))<>0
        ?? " KATBR:", roba->katbr
     endif
-    if gRokTr=="D"; ?? space(4),"Rok Tr.:",RokTr; endif
-    IF lPoNarudzbi
-      IspisPoNar()
-    ENDIF
     @ prow()+1,5+nLijevo SAY IdRoba
     @ prow(),31+nLijevo SAY Kolicina  PICTURE PicKol
     nC1:=pcol()+1
@@ -596,4 +592,3 @@ if !found()
 endif
 SELECT (nArr)
 return lOK
-

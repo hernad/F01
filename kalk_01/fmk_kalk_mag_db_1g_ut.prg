@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -18,16 +18,15 @@
  */
 
 
-/*  KalkNabP(cIdFirma,cIdRoba,cIdKonto,nKolicina,nKolZN,nNC,nSNC,dDatNab,dRokTr)
- *   
+/*  KalkNabP(cIdFirma,cIdRoba,cIdKonto,nKolicina,nKolZN,nNC,nSNC,dDatNab)
+ *
  *   nNC - zadnja nabavna cijena
  *   nSNC - srednja nabavna cijena
  *   nKolZN - kolicina koja je na stanju od zadnjeg ulaza u prodavnicu, a ako se radi sa prvom nabavkom - prvi ulaz u prodavnicu
  *   dDatNab - datum nabavke
- *   dRokTr  - rok trajanja
  */
 
-function KalkNabP(cIdFirma, cIdroba, cIdkonto, nKolicina, nKolZN, nNC, nSNC, dDatNab, dRokTr)
+function KalkNabP(cIdFirma, cIdroba, cIdkonto, nKolicina, nKolZN, nNC, nSNC, dDatNab)
 
 local npom,fproso
 local nIzlNV
@@ -64,14 +63,14 @@ nLen:=1
 nKolicina:=0
 
 // ukupna izlazna nabavna vrijednost
-nIzlNV:=0  
+nIzlNV:=0
 
 // ukupna izlazna kolicina
-nIzlKol:=0  
+nIzlKol:=0
 nUlNV:=0
 
 // ulazna kolicina
-nUlKol:=0  
+nUlKol:=0
 nZadnjaUNC := 0
 
 //  ovo je prvi prolaz
@@ -133,7 +132,7 @@ if gMetodaNc=="3"
              nSkinikol:=0
              dDatNab:=datdok
              nKolZN:=nSkiniKol
-//             dRoktr:=
+
              exit // uzeta je potrebna nabavka, izadji iz do while
            endif
 
@@ -173,7 +172,6 @@ if gMetodaNc == "1"
              nSkinikol:=0
              dDatNab:=datdok
              nKolZN:=nSkiniKol
-//             dRoktr:=
              exit // uzeta je potrebna nabavka, izadji iz do while
            endif
       endif
@@ -186,7 +184,6 @@ if gMetodaNc == "1"
              nSkinikol:=0
              dDatNab:=datdok
              nKolZN:=nSkiniKol
-//             dRoktr:=
              exit // uzeta je potrebna nabavka, izadji iz do while
            endif
     endif
@@ -208,12 +205,12 @@ endif
 
 // ako se koristi kontrola NC
 if gNC_ctrl > 0 .and. nSNC <> 0 .and. nZadnjaUNC <> 0
-	
+
 	nTmp := ROUND( nSNC, 4 ) - ROUND( nZadnjaUNC, 4 )
 	nOdst := ( nTmp / ROUND( nZadnjaUNC, 4 )) * 100
 
 	if ABS(nOdst) > gNC_ctrl
-		
+
 		Beep(4)
  		clear typeahead
 
@@ -222,17 +219,17 @@ if gNC_ctrl > 0 .and. nSNC <> 0 .and. nZadnjaUNC <> 0
 			"artikal: " + ALLTRIM(_idroba) + " " + ;
 			PADR( roba->naz, 15 ) + " nc:" + ;
 			ALLTRIM(STR( nSNC, 12, 2 )) )
-		
+
 		//a_nc_ctrl( @aNC_ctrl, idroba, nKolicina, ;
 		//	nSNC, nZadnjaUNC )
-		
+
 		if Pitanje(,"Napraviti korekciju NC (D/N)?", "N") == "D"
-			
+
 			nTmp_n_stanje := ( nKolicina - _kolicina )
 			nTmp_n_nv := ( nTmp_n_stanje * nZadnjaUNC )
 			nTmp_s_nv := ( nKolicina * nSNC )
-			
-			nSNC := ( ( nTmp_s_nv - nTmp_n_nv ) / _kolicina ) 
+
+			nSNC := ( ( nTmp_s_nv - nTmp_n_nv ) / _kolicina )
 
 		endif
 
@@ -281,7 +278,7 @@ elseif round(_VPC,4)==0  .or. lNaprijed
      nMarza:=_Marza/SKol
   endif
   _VPC:=round((nMarza+_NC), 2)
-  
+
 else
   if cIdvd $ "14#94"
      nMarza:=_VPC * (1-_Rabatv/100) - _NC
@@ -426,7 +423,7 @@ return
 /*  PratiKMag(cIdFirma,cIdKonto,cIdRoba)
  *   Prati karticu magacina
  */
- 
+
 function PratiKMag(cIdFirma,cIdKonto,cIdRoba)
 
 local nPom
@@ -590,13 +587,13 @@ return
 
 
 
-/*  NabCj2(n1,n2)  
+/*  NabCj2(n1,n2)
  *   n1 - ukucana NC
  *   n2 - izracunata NC
  *   Ova se f-ja koristi samo za 10-ku bez troskova (gVarijanta="1")
  */
 
-function NabCj2(n1,n2)  
+function NabCj2(n1,n2)
 
  IF glEkonomat
    _fcj:=_fcj2:=_nc
@@ -623,7 +620,7 @@ if lUvijek == nil
 	lUvijek := .f.
 endif
 
-private cPom:="VPC" 
+private cPom:="VPC"
 
 if koncij->naz=="P2"
    cPom:="PLC"
@@ -636,7 +633,7 @@ else
    nVal:=roba->VPC
 endif
 
-if nVal==0  .or. ABS(round(nVal-nNovaVrijednost, 2)) > 0 .or. lUvijek 
+if nVal==0  .or. ABS(round(nVal-nNovaVrijednost, 2)) > 0 .or. lUvijek
    if gAutoCjen == "D" .and. Pitanje( ,"Staviti Cijenu ("+cPom+")"+" u sifrarnik ?","D")=="D"
      select roba
      replace &cPom with nNovaVrijednost
@@ -724,7 +721,7 @@ return .t.
 // Validacija u prilikom knjizenja (knjiz.prg) - VALID funkcija u get-u
 
 // Koristi sljedece privatne varijable:
-// nKols   
+// nKols
 // gMetodaNC
 // _TBankTr - "X"  - ne provjeravaj - vrati .t.
 // ---------------------------------------------
@@ -762,7 +759,7 @@ return .t.
 /*  V_RabatV()
  *   Ispisuje vrijednost rabata u VP
  */
- 
+
 // Trenutna pozicija u tabeli KONCIJ (na osnovu koncij->naz ispituje cijene)
 // Trenutan pozicija u tabeli ROBA (roba->tip)
 
@@ -823,16 +820,15 @@ return .t.
 
 
 
-// KalkNab(cIdFirma,cIdRoba,cIdKonto,nKolicina,nKolZN,nNC,nSNC,dDatNab,dRokTr)
+// KalkNab(cIdFirma,cIdRoba,cIdKonto,nKolicina,nKolZN,nNC,nSNC,dDatNab)
 // param nNC - zadnja nabavna cijena
 // param nSNC - srednja nabavna cijena
 // param nKolZN - kolicina koja je na stanju od zadnje nabavke
 // param dDatNab - datum nabavke
-// param dRokTr - rok trajanja
 //  Racuna nabavnu cijenu i stanje robe u magacinu
 
 
-function KalkNab(cIdFirma, cIdRoba, cIdKonto, nKolicina, nKolZN, nNC, nSNc, dDatNab, dRokTr)
+function KalkNab(cIdFirma, cIdRoba, cIdKonto, nKolicina, nKolZN, nNC, nSNc, dDatNab)
 
 local nPom
 local fProso
@@ -875,12 +871,12 @@ endif
 nLen:=1
 
 nKolicina := 0
-nIzlNV := 0   
+nIzlNV := 0
 // ukupna izlazna nabavna vrijednost
 nUlNV := 0
-nIzlKol := 0  
+nIzlKol := 0
 // ukupna izlazna kolicina
-nUlKol := 0  
+nUlKol := 0
 // ulazna kolicina
 nZadnjaUNC := 0
 
@@ -936,7 +932,7 @@ do while !eof() .and. ((cIdFirma+cIdKonto+cIdRoba)==(idFirma+mkonto+idroba)) .an
   endif
   skip
 
-enddo 
+enddo
 //  ovo je bio prvi prolaz
 
 
@@ -958,7 +954,6 @@ if gMetodaNc=="3"
              nSkinikol:=0
              dDatNab:=datdok
              nKolZN:=nSkiniKol
-//             dRoktr:=
              exit // uzeta je potrebna nabavka, izadji iz do while
            endif
       endif
@@ -967,7 +962,7 @@ if gMetodaNc=="3"
   enddo //  ovo je drugi prolaz , metoda "3"
 
   if _kolicina <> 0
-    nNC:=(nNabVr-nIzlNV) /_kolicina   
+    nNC:=(nNabVr-nIzlNV) /_kolicina
   else
     nNC:=0
   endif
@@ -1020,12 +1015,12 @@ endif
 
 // ako se koristi kontrola NC
 if gNC_ctrl > 0 .and. nSNC <> 0 .and. nZadnjaUNC <> 0
-	
+
 	nTmp := ROUND( nSNC, 4 ) - ROUND( nZadnjaUNC, 4 )
 	nOdst := ( nTmp / ROUND( nZadnjaUNC, 4 )) * 100
 
 	if ABS(nOdst) > gNC_ctrl
-		
+
 		Beep(4)
  		clear typeahead
 
@@ -1034,23 +1029,23 @@ if gNC_ctrl > 0 .and. nSNC <> 0 .and. nZadnjaUNC <> 0
 			"artikal: " + ALLTRIM(_idroba) + " " + ;
 			PADR( roba->naz, 15 ) + " nc:" + ;
 			ALLTRIM(STR( nSNC, 12, 2 )) )
-	
+
 		//a_nc_ctrl( @aNC_ctrl, idroba, nKolicina, ;
 		//	nSNC, nZadnjaUNC )
 
 		if Pitanje(,"Napraviti korekciju NC (D/N)?", "N") == "D"
-			
+
 			nTmp_n_stanje := ( nKolicina - _kolicina )
 			nTmp_n_nv := ( nTmp_n_stanje * nZadnjaUNC )
 			nTmp_s_nv := ( nKolicina * nSNC )
-			
-			nSNC := ( ( nTmp_s_nv - nTmp_n_nv ) / _kolicina ) 
+
+			nSNC := ( ( nTmp_s_nv - nTmp_n_nv ) / _kolicina )
 
 		endif
 	endif
 endif
 
-// daj posljednje stanje kakvo i jeste 
+// daj posljednje stanje kakvo i jeste
 nKolicina := round(nKolicina, 4)
 
 select pripr
@@ -1095,7 +1090,7 @@ local nScan
 nScan := ASCAN( aNC_ctrl, {|xVal| xVal[1] == cIdRoba } )
 
 if nScan <> 0
-	
+
 	// daj mi odstupanje !
 	nOdstupanje := ROUND( aNC_ctrl[ nScan, 5 ], 2 )
 	msgbeep( "Odstupanje u odnosu na zadnji ulaz je#" + ;
@@ -1125,7 +1120,7 @@ START PRINT CRET
 ?
 ? "Kontrola odstupanja nabavne cijene"
 ? "- kontrolna tacka = " + ALLTRIM(STR(gNC_ctrl)) + "%"
-? 
+?
 
 cLine += REPLICATE("-", 5)
 cLine += SPACE(1)
@@ -1183,7 +1178,7 @@ return
 
 function IsMagPNab()
 
-if (IsPDV() .and. gPDVMagNab == "D") 
+if (IsPDV() .and. gPDVMagNab == "D")
 	return .t.
 else
 	return .f.
@@ -1222,4 +1217,3 @@ if (IsPDV() .and. gPDVMagNab == "D")
 else
    return .f.
 endif
-

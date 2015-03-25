@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -59,7 +59,7 @@ endif
    ? "*BR* TARIFA   *  KOLICINA* OST.KALO * SKONTO   *          *          *          *          *          *          *          *   MARZU  *          *         *"
    ? "*  *          *          *          *          *          *          *          *          *          *          *          *          *          *         *"
  ELSE
-   if !IsPDV()  
+   if !IsPDV()
      ? m
      ? "*R * ROBA     *  FCJ     * TRKALO   * KASA-    * "+c10T1+" * "+c10T2+" * "+c10T3+" * "+c10T4+" * "+c10T5+" *   NC     * MARZA.   *   MPC    * MPCSaPP *"
      ? "*BR* TARIFA   *  KOLICINA* OST.KALO * SKONTO   *          *          *          *          *          *          *          *          *         *"
@@ -113,12 +113,12 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
     HSEEK PRIPR->IdTarifa
 
     select PRIPR
-    
+
     Tarifa(field->pkonto,field->idRoba,@aPorezi)
     aIPor:=RacPorezeMP(aPorezi,field->mpc,field->mpcSaPP,field->nc)
 
     nPor1:=aIPor[1]
-    
+
     IF lPrikPRUC
       nPRUC:=aIPor[2]
       nMarza2:=nMarza2-nPRUC
@@ -318,15 +318,15 @@ select KONTO; HSEEK cIdKonto
 ?  "KONTO zaduzuje :",cIdKonto,"-",naz
 
  m:="---- ---------- ---------- ---------- ---------- ---------- ---------- ----------"+;
-    IF(lPrikPRUC," ----------","")+" ---------- -----------" 
+    IF(lPrikPRUC," ----------","")+" ---------- -----------"
 
 if IsPDV()
  m+= " ----------"
 endif
 
  ? m
- 
-if !IsPDV() 
+
+if !IsPDV()
  IF lPrikPRUC
    ? "*R * ROBA     *  FCJ     * RABAT    *  FCJ-RAB  * TROSKOVI *    NC    * MARZA.   * POREZ NA *   MPC    * MPCSaPP  *"
    ? "*BR* TARIFA   *  KOLICINA* DOBAVLJ  *           *          *          *          *   MARZU  *          *          *"
@@ -378,9 +378,9 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
     select PRIPR
 
     aIPor:=RacPorezeMP(aPorezi,field->mpc,field->mpcSaPP,field->nc)
-    
+
     nPor1:=aIPor[1]
-    
+
     IF lPrikPRUC
       	nPRUC:=aIPor[2]
       	nMarza2:=nMarza2-nPRUC
@@ -421,10 +421,7 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
     // prvi red
     @ prow()+1,0 SAY  Rbr PICTURE "999"
     @ prow(),4 SAY  ""; ?? trim(LEFT(ROBA->naz,40)),"(",ROBA->jmj,")"
-    if gRokTr=="D"; ?? space(4),"Rok Tr.:",RokTr; endif
-    IF lPoNarudzbi
-      IspisPoNar()
-    ENDIF
+    
     @ prow()+1,4 SAY IdRoba
     nCol1:=pcol()+1
     @ prow(),pcol()+1 SAY FCJ                   PICTURE PicCDEM
@@ -441,7 +438,7 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
     	@ prow(),pcol()+1 SAY aPorezi[POR_PPP] PICTURE PicProc
     endif
     @ prow(),pcol()+1 SAY MPCSaPP               PICTURE PicCDEM
-    
+
     // drugi red
     @ prow()+1,4 SAY IdTarifa
     @ prow(),nCol1    SAY Kolicina             PICTURE PicCDEM
@@ -527,6 +524,3 @@ kalk_rekap_tarife()
 ? "RUC:";  @ prow(),pcol()+1 SAY nTot6 pict picdem
 ? m
 return
-
-
-

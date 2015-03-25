@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,10 +14,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/kalk/mag/dok/1g/frm_82.prg,v $
- * $Author: sasavranic $ 
+ * $Author: sasavranic $
  * $Revision: 1.6 $
  * $Log: frm_82.prg,v $
  * Revision 1.6  2004/05/25 13:53:16  sasavranic
@@ -64,7 +64,7 @@ if nRbr==1 .or. !fnovi
  @  m_x+7,col()+2 SAY "Datum:" get _DatFaktP   ;
     valid {|| _DatKurs:=_DatFaktP,.t.}
  _IdZaduz:=""
- 
+
  _Idkonto2:=""
 
  @ m_x+9,m_y+2 SAY "Magacinski konto razduzuje"  GET _IdKonto ;
@@ -86,7 +86,7 @@ else
 endif
 
  @ m_x+10,m_y+66 SAY "Tarif.brĿ"
- 
+
  if lKoristitiBK
  	@ m_x+11,m_y+2   SAY "Artikal  " GET _IdRoba pict "@!S10" when {|| _idRoba:=PADR(_idRoba,VAL(gDuzSifIni)),.t.} valid  {|| P_Roba(@_IdRoba),Reci(11,23,trim(LEFT(roba->naz,40))+" ("+ROBA->jmj+")",40),_IdTarifa:=iif(fnovi,ROBA->idtarifa,_IdTarifa),.t.}
  else
@@ -159,7 +159,7 @@ if _TBankTr<>"X" .or. lPoNarudzbi   // ako je X onda su stavke vec izgenerisane
  ELSE
    if !empty(gMetodaNC)
     MsgO("Racunam stanje na skladistu")
-    KalkNab(_idfirma,_idroba,_idkonto,@nKolS,@nKolZN,@nc1,@nc2,@dDatNab,@_RokTr)
+    KalkNab(_idfirma,_idroba,_idkonto,@nKolS,@nKolZN,@nc1,@nc2,@dDatNab)
     MsgC()
    endif
    if dDatNab>_DatDok; Beep(1);Msg("Datum nabavke je "+dtoc(dDatNab),4);endif
@@ -273,4 +273,3 @@ endif
 
 set key K_ALT_K to
 return lastkey()
-

@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -15,10 +15,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/kalk/mag/dok/1g/rpt_14.prg,v $
- * $Author: mirsad $ 
+ * $Author: mirsad $
  * $Revision: 1.2 $
  * $Log: rpt_14.prg,v $
  * Revision 1.2  2002/06/20 13:13:03  mirsad
@@ -26,7 +26,7 @@
  *
  *
  */
- 
+
 
 /* file fmk/kalk/mag/dok/1g/rpt_14.prg
  *   Stampa dokumenta tipa 14
@@ -209,7 +209,6 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
 
     @ prow()+1,0 SAY  Rbr PICTURE "999"
     @ prow(),4 SAY  ""; ?? trim(LEFT(ROBA->naz,40)),"(",ROBA->jmj,")"
-    if gRokTr=="D"; ?? space(4),"Rok Tr.:",RokTr; endif
     IF lPoNarudzbi
       IspisPoNar(.f.)
     ENDIF
@@ -321,7 +320,7 @@ return
 /*  StKalk14_3()
  *   Stampa kalkulacije 14 - varijanta za A3 papir
  */
- 
+
 function StKalk14_3()
 
 LOCAL i:=0,aNiz
@@ -368,10 +367,8 @@ aNiz:= { {"R."        , {|| rbr}      , .f., "C",  3, 0, 1, ++i},;
          {"mj."       , {|| "#"}      , .f., "C",  3, 0, 2,   i},;
          {"Tarifa"    , {|| PADC(ALLTRIM(idtarifa)+ROBA->tip,7)},;
                                         .f., "C",  7, 0, 1, ++i}  }
-IF gRokTr=="D"
- AADD(aNiz, {"Rok tr.", {|| roktr}         , .f., "D",  8, 0, 1, ++i} )
-ENDIF
-AADD(aNiz, {"Koli~ina", {|| kolicina}      , .f., "N", 12, 3, 1, ++i} )
+
+AADD(aNiz, {"Kolicina", {|| kolicina}      , .f., "N", 12, 3, 1, ++i} )
 AADD(aNiz, {"Nabavna" , {|| nc}            , .f., "N",  9, 2, 1, ++i} )
 AADD(aNiz, {"cijena"  , {|| "#"}           , .f., "C",  9, 0, 2,   i} )
 AADD(aNiz, {"Nabavna" , {|| nU4}           , .t., "N",  9, 2, 1, ++i} )
@@ -512,5 +509,3 @@ function Blok14_3()
       nNC:=99999999
     endif
 return .t.
-
-

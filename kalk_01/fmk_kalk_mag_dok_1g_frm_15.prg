@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,7 +14,7 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/kalk/mag/dok/1g/frm_15.prg,v $
  *
@@ -70,13 +70,13 @@ else
 endif
 
  @ m_x+10,m_y+66 SAY "Tarif.brĿ"
- 
+
  if lKoristitiBK
 	@ m_x+11,m_y+2   SAY "Artikal  " GET _IdRoba pict "@!S10" when {|| _IdRoba:=PADR(_idroba,VAL(gDuzSifIni)),.t.} valid VRoba()
  else
 	@ m_x+11,m_y+2   SAY "Artikal  " GET _IdRoba pict "@!" valid VRoba()
  endif
- 
+
  @ m_x+11,m_y+70 GET _IdTarifa when gPromTar=="N" valid P_Tarifa(@_IdTarifa)
 
  IF !lPoNarudzbi
@@ -171,11 +171,11 @@ if !empty(gMetodaNC) .or. lPoNarudzbi
  else
    if _kolicina>0
     MsgO("Racunam stanje na skladistu")
-      KalkNab(_idfirma,_idroba,_idkonto2,@nKolS,@nKolZN,@nc1,@nc2,@dDatNab,@_RokTr)
+      KalkNab(_idfirma,_idroba,_idkonto2,@nKolS,@nKolZN,@nc1,@nc2,@dDatNab)
     MsgC()
    else
     MsgO("Racunam stanje prodavnice")
-      KalkNabP(_idfirma,_idroba,_idkonto,@nKolS,@nKolZN,@nc1,@nc2,dDatNab,@_RokTr)
+      KalkNabP(_idfirma,_idroba,_idkonto,@nKolS,@nKolZN,@nc1,@nc2,dDatNab)
     MsgC()
    endif
    if dDatNab>_DatDok; Beep(1);Msg("Datum nabavke je "+dtoc(dDatNab),4);endif
@@ -207,7 +207,7 @@ if koncij->naz<>"N1" .or. gPDVMagNab == "N"
              when {|| iif(gCijene=="2",.f.,.t.)}
 else
 	_vpc:=_fcj
-  	@ m_x+14,m_y+2    SAY "NABAVNA CIJENA (NC)       :"  
+  	@ m_x+14,m_y+2    SAY "NABAVNA CIJENA (NC)       :"
   	if _kolicina>0
     		@ m_x+14,m_y+50   get _fcj    picture gPicNC ;
                         VALID {|| V_KolMag(),;
@@ -342,5 +342,3 @@ if pIzgSt .and. _kolicina>0 .and. lastkey()<>K_ESC // izgenerisane stavke postoj
 endif
 
 return lastkey()
-
-

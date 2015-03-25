@@ -228,7 +228,6 @@ Box(,15,75,.f.,"RAZNO")
  @ m_x+1,m_y+2 SAY "Brojac kalkulacija D/N         " GET gBrojac pict "@!" valid gbrojac $ "DN"
  @ m_x+1,col()+2 SAY "duzina brojaca:" GET gLenBrKalk pict "9" VALID gLenBrKalk > 0 .and. gLenBrKalk < 10
  @ m_x+2,m_y+2 SAY "Potpis na kraju naloga D/N     " GET gPotpis valid gPotpis $ "DN"
- @ m_x+3,m_Y+2 SAY "Rok trajanja D/N               " GET gRokTr pict "@!" valid gRokTr $ "DN"
  @ m_x+4,m_y+2 SAY "Novi korisnicki interfejs D/N/X" GET gNW valid gNW $ "DNX" pict "@!"
  @ m_x+5,m_y+2 SAY "Varijanta evidencije (1-sa cijenama, 2-iskljucivo kolicinski)" GET gVarEv valid gVarEv $ "12" pict "9"
  @ m_x+6,m_y+2 SAY "Tip tabele (0/1/2)             " GET gTabela VALID gTabela<3 PICT "9"
@@ -250,7 +249,6 @@ BoxC()
 
 if lastkey()<>K_ESC
   Wpar("br",gBrojac)
-  Wpar("rt",gRokTr)
   WPar("po",gPotpis)
   Wpar("tt",gTabela)
   Wpar("nw",gNW)

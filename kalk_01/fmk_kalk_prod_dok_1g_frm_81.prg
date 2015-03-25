@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -19,10 +19,10 @@ static aPorezi:={}
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
- 
+
 
 /* file fmk/kalk/prod/dok/1g/frm_81.prg
  *   Maska za unos dokumenata tipa 81
@@ -99,7 +99,7 @@ DatPosljP()
 
 
 if fNovi
- select koncij 
+ select koncij
  seek trim(_idkonto)
  select ROBA
  HSEEK _IdRoba
@@ -151,7 +151,7 @@ if _kolicina<0  // storno
 nKolS:=0;nKolZN:=0;nc1:=nc2:=0; dDatNab:=ctod("")
  if !empty(gMetodaNC)
   MsgO("Racunam stanje na u prodavnici")
-  KalkNabP(_idfirma,_idroba,_idkonto,@nKolS,@nKolZN,@nc1,@nc2,@dDatNab,@_RokTr)
+  KalkNabP(_idfirma,_idroba,_idkonto,@nKolS,@nKolZN,@nc1,@nc2,@dDatNab)
   MsgC()
   @ m_x+12,m_y+30   SAY "Ukupno na stanju "; @ m_x+12,col()+2 SAY nkols pict pickol
  endif
@@ -211,7 +211,7 @@ if empty(_TMarza);  _TMarza:="%" ; endif
 @ m_x+10,col()+2  GET _Marza2 ;
 	PICTURE  PicDEM ;
 	valid {|| _vpc:=_nc, .t.}
-	
+
 @ m_x+10,col()+1 GET fMarza pict "@!"
 
 if IsPDV()
@@ -233,11 +233,11 @@ if IsPDV()
 	endif
 else
 	@ m_x+14, m_y+2 SAY "PPP (%):"
-	@ row(),col()+2 SAY  TARIFA->OPP PICTURE "99.99" 
+	@ row(),col()+2 SAY  TARIFA->OPP PICTURE "99.99"
 	@ m_x+14,col()+8  SAY "PPU (%):"
-	@ row(),col()+2  SAY TARIFA->PPP PICTURE "99.99" 
+	@ row(),col()+2  SAY TARIFA->PPP PICTURE "99.99"
 	@ m_x+14,col()+8  SAY "PP (%):"
-	@ row(),col()+2  SAY TARIFA->ZPP PICTURE "99.99" 
+	@ row(),col()+2  SAY TARIFA->ZPP PICTURE "99.99"
 endif
 
 if IsPDV()
@@ -269,5 +269,3 @@ _MU_I:=""
 
 nStrana:=3
 return lastkey()
-
-

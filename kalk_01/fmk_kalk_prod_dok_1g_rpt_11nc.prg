@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -15,10 +15,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/kalk/prod/dok/1g/rpt_11nc.prg,v $
- * $Author: mirsadsubasic $ 
+ * $Author: mirsadsubasic $
  * $Revision: 1.5 $
  * $Log: rpt_11nc.prg,v $
  * Revision 1.5  2003/09/29 13:26:56  mirsadsubasic
@@ -35,7 +35,7 @@
  *
  *
  */
- 
+
 
 /* file fmk/kalk/prod/dok/1g/rpt_11nc.prg
  *   Stampa kalkulacije 11 / magacin po nabavnim cjenama
@@ -130,10 +130,7 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
 
     @ prow()+1,0 SAY  Rbr PICTURE "999"
     @ prow(),4 SAY  ""; ?? trim(LEFT(ROBA->naz,40)),"(",ROBA->jmj,")"
-    if gRokTr=="D"; ?? space(4),"Rok Tr.:",RokTr; endif
-    IF lPoNarudzbi
-      IspisPoNar()
-    ENDIF
+  
     @ prow()+1,4 SAY IdRoba
     @ prow(),pcol()+1 SAY Kolicina             PICTURE PicKol
 
@@ -146,9 +143,9 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
     if !IsPDV() .or. gPDVMagNab == "N"
     	@ prow(),pcol()+1 SAY nMarza              PICTURE PicCDEM
     endif
-    
+
     @ prow(),pcol()+1 SAY nMarza2              PICTURE PicCDEM
-    
+
     IF lPrikPRUC
       @ prow(),pcol()+1 SAY aPorezi[POR_PRUCMP] PICTURE PicProc
     ENDIF
@@ -184,12 +181,12 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
 	@ prow(), pcol()+1 SAY nU6 picture piccdem
 	@ prow(), pcol()+1 SAY nU7 picture piccdem
     endif
-  
+
     // treci red .....
     if round(nc, 5) <> 0
     	@ prow()+1,nMPos SAY (nMarza2/nc)*100  picture picproc
     endif
-   
+
 
     skip 1
 
@@ -251,6 +248,3 @@ endif
 ? cLine
 
 return
-
-
-

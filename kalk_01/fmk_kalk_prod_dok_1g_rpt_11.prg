@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -15,10 +15,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
- 
+
 
 /* file fmk/kalk/prod/dok/1g/rpt_11.prg
  *   Stampa dokumenta tipa 11
@@ -100,13 +100,13 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
 
     ViseDokUPripremi(cIdd)
     RptSeekRT()
-    
+
     Scatter()  // formiraj varijable _....
-   
+
     Marza2()
     nMarza:=_marza   // izracunaj nMarza,nMarza2
     VTPorezi()
-        
+
     Tarifa(field->pkonto, field->idRoba, @aPorezi, field->idtarifa)
     aIPor:=RacPorezeMP(aPorezi,field->mpc,field->mpcSaPP,field->nc)
 
@@ -118,7 +118,7 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
     else
       nPor2:=aIPor[2]
     endif
-    
+
     DokNovaStrana(123, @nStr, 2)
 
     nTot1+=  (nU1:= FCJ*Kolicina   )
@@ -138,9 +138,6 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
     @ prow(),4 SAY  ""
     ?? trim(LEFT(ROBA->naz,40)),"(",ROBA->jmj,")"
 
-    if gRokTr=="D"
-	?? space(4),"Rok Tr.:",RokTr
-    endif
 
     IF lPoNarudzbi
       IspisPoNar()
@@ -206,7 +203,7 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
    	@ prow(),  pcol()+1 SAY  nPor1             picture piccdem
     	@ prow(),  pcol()+1 SAY  nU7               picture piccdem
     endif
-    
+
     // red 3 .....
     if round(nc,5) <> 0
     	@ prow()+1,nMPos SAY (nMarza2/nc)*100  picture picproc
@@ -258,7 +255,7 @@ if !IsPdvMagNab()
 if cidvd=="11" .and. g11bezNC != "D"
 	@ prow(),pcol()+2 SAY "Od toga storno RUC u VP:"
 	@ prow(),pcol()+1 SAY nMarzaVP pict picdem
-	
+
 elseif cidvd$"12#13" .and. g11bezNC!="D"
 	@ prow(),pcol()+2 SAY "Od toga prenijeti RUC u VP:"
 	@ prow(),pcol()+1 SAY nMarzaVP pict picdem
@@ -314,7 +311,3 @@ endif
 ? cLine
 
 return
-
-
-
-

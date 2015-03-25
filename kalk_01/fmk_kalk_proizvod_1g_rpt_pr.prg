@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -15,10 +15,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/kalk/proizvod/1g/rpt_pr.prg,v $
- * $Author: mirsad $ 
+ * $Author: mirsad $
  * $Revision: 1.2 $
  * $Log: rpt_pr.prg,v $
  * Revision 1.2  2002/06/21 13:07:28  mirsad
@@ -26,7 +26,7 @@
  *
  *
  */
- 
+
 
 /* file fmk/kalk/proizvod/1g/rpt_pr.prg
  *   Stampa kalkulacije PR
@@ -134,7 +134,7 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
       @  prow(),pcol()+1 SAY  space(7)
     endif
     @ prow(),11 SAY  "";?? trim(LEFT(ROBA->naz,40)),"(",ROBA->jmj,")"
-    if gRokTr=="D"; ?? space(4),"Rok Tr.:",RokTr; endif
+
     @ prow()+1,11 SAY IdRoba
     @ prow(),pcol()+1 SAY Kolicina             PICTURE PicKol
     nCol1:=pcol()+1
@@ -191,6 +191,3 @@ if prow()>61+gPStranica; FF; @ prow(),125 SAY "Str:"+str(++nStr,3); endif
 
 ? m
 return
-
-
-

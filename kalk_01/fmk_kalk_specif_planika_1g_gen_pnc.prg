@@ -125,7 +125,7 @@ local nKolZn
 local nNc1
 local nSredNc
 local dDatNab
-local dRokTr
+
 
 private _DatDok
 
@@ -135,7 +135,7 @@ if !used()
 endif
 
 _DatDok = DATE()
-KalkNabP( gFirma, cIdRoba, cPKonto, @nKolS, @nKolZN, @nNc1, @nSredNc, @dDatNab, @dRokTr)
+KalkNabP( gFirma, cIdRoba, cPKonto, @nKolS, @nKolZN, @nNc1, @nSredNc, @dDatNab)
 
 return nSredNc
 
@@ -212,7 +212,7 @@ for i = 1 to 7
 
 
 	SELECT (F_KALK)
-	use  (KUMPATH+cGodina + SLASH + "kalk") 
+	use  (KUMPATH+cGodina + SLASH + "kalk")
 	set order to tag "1"
 
 

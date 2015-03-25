@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,10 +14,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  * $Source: c:/cvsroot/cl/sigma/fmk/kalk/prod/dok/1g/frm_12.prg,v $
- * $Author: sasavranic $ 
+ * $Author: sasavranic $
  * $Revision: 1.6 $
  * $Log: frm_12.prg,v $
  * Revision 1.6  2004/05/25 13:53:17  sasavranic
@@ -37,7 +37,7 @@
  *
  *
  */
- 
+
 
 /* file fmk/kalk/prod/dok/1g/frm_12.prg
  *   Maska za unos dokumenta tipa 12
@@ -122,7 +122,7 @@ if fNovi
 	HSEEK _IdRoba
 
  	_MPCSaPP:=UzmiMPCSif()
-	
+
 	if koncij->naz == "N2" .or. (IsPDV() .and. gPDVMagNab == "D")
   		_FCJ:=NC
    		_VPC:=NC
@@ -168,7 +168,7 @@ if _TBankTr<>"X" .or. lPoNarudzbi   // ako je X onda su stavke vec izgenerisane
       @ row(),col()+2 SAY IspisPoNar(,,.t.)
     else
       MsgO("Racunam stanje na skladistu")
-      KalkNabP(_idfirma,_idroba,_idkonto,@nKolS,@nKolZN,@nc1,@nc2,dDatNab,@_RokTr)
+      KalkNabP(_idfirma,_idroba,_idkonto,@nKolS,@nKolZN,@nc1,@nc2,dDatNab)
       MsgC()
       if dDatNab>_DatDok; Beep(1);Msg("Datum nabavke je "+dtoc(dDatNab),4);endif
       if gMetodaNC $ "13"; _fcj:=nc1; elseif gMetodaNC=="2"; _fcj:=nc2; endif
@@ -261,5 +261,3 @@ _PKonto:=_Idkonto; _PU_I:="5"     // izlaz iz prodavnice
 
 FillIzgStavke(pIzgSt)
 return lastkey()
-
-

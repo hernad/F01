@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -15,10 +15,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
- 
+
 
 /* file fmk/kalk/prod/dok/1g/frm_11.prg
  *   Maska za unos dokumenta tipa 11
@@ -80,20 +80,20 @@ endif
 else
 	@ m_x+11,m_y+2   SAY "Artikal  " GET _IdRoba pict "@!" valid VRoba()
 endif
-		 
+
  @ m_x+11,m_y+70 GET _IdTarifa when gPromTar=="N" valid P_Tarifa(@_IdTarifa)
 
  IF !lPoNarudzbi
    @ m_x+12,m_y+2   SAY "Kolicina " GET _Kolicina PICTURE PicKol valid _Kolicina<>0
  ENDIF
- 
+
  IF IsDomZdr()
    @ m_x+13+IF(lPoNarudzbi,1,0),m_y+2   SAY "Tip sredstva (prazno-svi) " GET _Tip PICT "@!"
  ENDIF
- 
+
  read
  ESC_RETURN K_ESC
- 
+
  if lKoristitiBK
 	_idRoba:=Left(_idRoba,10)
  endif
@@ -187,11 +187,11 @@ if !empty(gMetodaNC) .or. lPoNarudzbi
  else
    if _kolicina>0
     MsgO("Racunam stanje na skladistu")
-      KalkNab(_idfirma,_idroba,_idkonto2,@nKolS,@nKolZN,@nc1,@nc2,@dDatNab,@_RokTr)
+      KalkNab(_idfirma,_idroba,_idkonto2,@nKolS,@nKolZN,@nc1,@nc2,@dDatNab)
     MsgC()
    else
     MsgO("Racunam stanje prodavnice")
-      KalkNabP(_idfirma,_idroba,_idkonto,@nKolS,@nKolZN,@nc1,@nc2,dDatNab,@_RokTr)
+      KalkNabP(_idfirma,_idroba,_idkonto,@nKolS,@nKolZN,@nc1,@nc2,dDatNab)
     MsgC()
    endif
  endif
@@ -215,7 +215,7 @@ select pripr
 if IsPDvMagNab() .or. IsMagSNab()
         //_VPC:=_NC
 	_vpc:=_fcj
-  	@ m_x+14,m_y+2    SAY "NABAVNA CIJENA (NC)       :"  
+  	@ m_x+14,m_y+2    SAY "NABAVNA CIJENA (NC)       :"
   	if _kolicina>0
     		@ m_x+14,m_y+50   get _FCj    picture gPicNC ;
                         VALID {|| V_KolMag(), _vpc:=_Fcj, .t.}
@@ -286,15 +286,13 @@ select pripr
 
 // izlaz iz magacina
 _MKonto:=_Idkonto2
-_MU_I:="5"     
+_MU_I:="5"
 
 // ulaz u prodavnicu
 _PKonto:=_Idkonto
-_PU_I:="1"     
+_PU_I:="1"
 
 nStrana:=2
 
 FillIzgStavke(pIzgSt)
 return lastkey()
-
- 

@@ -1,10 +1,10 @@
-/* 
- * This file is part of the bring.out FMK, a free and open source 
+/*
+ * This file is part of the bring.out FMK, a free and open source
  * accounting software suite,
  * Copyright (c) 1996-2011 by bring.out doo Sarajevo.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including FMK specific Exhibits)
- * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the 
+ * is available in the file LICENSE_CPAL_bring.out_FMK.md located at the
  * root directory of this source code archive.
  * By using this software, you agree to be bound by its terms.
  */
@@ -14,10 +14,10 @@
 
 /*
  * ----------------------------------------------------------------
- *                                     Copyright Sigma-com software 
+ *                                     Copyright Sigma-com software
  * ----------------------------------------------------------------
  */
- 
+
 
 /* file fmk/kalk/mag/dok/1g/rpt_10.prg
  *   Stampa dokumenta tipa 10
@@ -106,7 +106,7 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
     if roba->(fieldpos("KATBR"))<>0
        ?? " KATBR:", roba->katbr
     endif
-    if gRokTr=="D"; ?? space(4),"Rok Tr.:",RokTr; endif
+
     IF lPoNarudzbi
       IspisPoNar()
     ENDIF
@@ -231,7 +231,7 @@ select KONTO; HSEEK cIdKonto
 ?  "MAGACINSKI KONTO zaduzuje :",cIdKonto,"-",naz
 
 
-if !empty(pripr->Idzaduz2) 
+if !empty(pripr->Idzaduz2)
 	?? " Rad.nalog:", pripr->Idzaduz2
 endif
 
@@ -276,7 +276,7 @@ else
  if gmpcpomoc=="D"  .or. (IsPDV() .and. gPDVMagNab == "D")
    ?? "          *"
  endif
- 
+
 endif
 
  ? m
@@ -295,7 +295,7 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
     RptSeekRT()
     KTroskovi()
 
-    
+
     DokNovaStrana(125, @nStr, 2)
 
     if gKalo=="1"
@@ -353,7 +353,6 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
     if roba->(fieldpos("KATBR"))<>0
        ?? " KATBR:", roba->katbr
     endif
-    if gRokTr=="D"; ?? space(4),"Rok Tr.:",RokTr; endif
     IF lPoNarudzbi
       IspisPoNar()
     ENDIF
@@ -454,7 +453,7 @@ nTot9:=nTotA-nTot8-nTotP   // utvrdi razliku izmedju nc i prodajne cijene
 	  @ prow(),pcol()+1  SAY ntot+nTot2         picture         PICDEM
 	  @ prow(),pcol()+1  SAY ntot3+ntot4+ntot5+ntot6+ntot7  picture         PICDEM
 	  @ prow(),pcol()+1  SAY nTot8         picture         PICDEM
-	
+
 	  IF !lNC
 	    @ prow(),pcol()+1  SAY nTot9         picture         PICDEM
 	    @ prow(),pcol()+1  SAY nTotP         picture         PICDEM
@@ -618,10 +617,7 @@ do while !eof() .and. cIdFirma==IdFirma .and.  cBrDok==BrDok .and. cIdVD==IdVD
        ?? " KATBR:", roba->katbr
     endif
 
-    if gRokTr=="D"; ?? " "+DTOC(RokTr); endif
-    IF lPoNarudzbi
-      IspisPoNar()
-    ENDIF
+
     ?? " "+TRANSFORM(Kolicina,pickol)+" "+TRANSFORM(FCJ,PicCDEM)
     ?? " "+TRANSFORM(nU,PICDEM)+" "+TRANSFORM(rabat,PicProc)
     ?? " "+TRANSFORM(nU2,PICDEM)+" "+TRANSFORM(100*nU6/nU,PicProc)
@@ -650,5 +646,3 @@ DokNovaStrana(230, @nStr, 3)
 ? m
 ?
 return
-
-
