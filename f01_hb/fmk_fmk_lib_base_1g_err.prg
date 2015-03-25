@@ -37,7 +37,7 @@ FUNCTION f01_error_handler( objErr, lLocalHandler )
    ENDIF
 
 
-
+/*
    cOldDev := Set( _SET_DEVICE, "SCREEN" )
    cOldCon := Set( _SET_CONSOLE, "ON" )
    cOldPrn := Set( _SET_PRINTER, "" )
@@ -143,6 +143,7 @@ FUNCTION f01_error_handler( objErr, lLocalHandler )
       RETURN .T.
    ENDIF
 
+
    SET( _SET_DEVICE, cOldDev )
    SET( _SET_CONSOLE, cOldCon )
    SET( _SET_PRINTER, cOldPrn )
@@ -151,11 +152,12 @@ FUNCTION f01_error_handler( objErr, lLocalHandler )
    SetColor( StaraBoja )
 
    CLS
+*/
 
    START PRINT RET .F.
 
    ?
-   ? "Verzija programa:", gVerzija," verzija ELIB-a:", elibver()
+   ? "Verzija programa:", gVerzija," verzija LIB-a:", elibver()
    ?
    ? "Podsistem :", objErr:SubSystem
    ? "GenKod:", Str( objErr:GenCode, 3 ), "OpSistKod:", Str( objErr:OsCode, 3 )
@@ -169,13 +171,15 @@ FUNCTION f01_error_handler( objErr, lLocalHandler )
          ? "Procedura:", PadR( ProcName( i ), 30 ), "Linija:", ProcLine( i )
       ENDIF
    NEXT
+
+/*
    ?
    ? "Trenutno radno podrucje:", Alias(), ", na zapisu broj:", RecNo()
    ? "PrivPath :", PRIVPATH
    ? "KumPath  :", KUMPATH
    ? "SifPath  :", SIFPATH
    ?
-
+*/
 
    ENDPRINT
 
