@@ -849,13 +849,13 @@ FUNCTION DatVal()
    PRIVATE GetList := {}
 
 
-   IF fieldpos( "DATVAL" ) != 0  .AND. !EMPTY( field->datVal )
-      OutStd( "DatVal() za kontiranje: " + ALIAS() + " datval: "  + DTOS( field->datval ) + hb_eol() )
-			dDatVal := field->DatVal
-			RETURN 0
-	 ENDIF
+
+   OutStd( "DatVal() za kontiranje: " + ALIAS() + " datval: "  + DTOS( field->datval ) + hb_eol() )
+	 dDatVal := field->DatVal
+	 RETURN 0
 
 
+/*
    IF File( KUMPATH + "DOKS2.DBF" )
       PushWa()
       O_DOKS2
@@ -896,6 +896,7 @@ FUNCTION DatVal()
       ENDIF
 
    ENDIF
+*/
 
    RETURN 0
 

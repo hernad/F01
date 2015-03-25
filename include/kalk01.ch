@@ -2,7 +2,7 @@
 	#include "f01.ch"
 #endif
 
-#define D_KA_VERZIJA "04.00"
+#define D_KA_VERZIJA "04.01"
 #define D_KA_PERIOD  "11.94-25.03.15"
 #ifndef FMK_DEFINED
 	#include "o_f01.ch"

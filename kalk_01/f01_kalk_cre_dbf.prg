@@ -52,9 +52,6 @@ return
  *   fRS - ne znam
  */
 
-*void TDbKalk::skloniSezonu(string cSezona, bool finverse,bool fda,bool fnulirati,bool fRS)
-
-
 method TDbKalk:skloniSezonu(cSezona,finverse,fda,fnulirati, fRS)
 save screen to cScr
 
@@ -236,7 +233,7 @@ method TDBKalk:install(cKorisn,cSifra,p3,p4,p5,p6,p7)
 return
 
 
-/*  *void TDbKalk::kreiraj(int nArea)
+/*  TDbKalk::kreiraj(int nArea)
  *   kreirane baze podataka POS
  */
 
@@ -627,14 +624,9 @@ return
 
 /*  *void TDbKalk::obaza(int i)
  *   otvara odgovarajucu tabelu
- *
- *
  */
 
-*void TDbKalk::obaza(int i)
-
-
-method obaza (i)
+method TDbKalk:obaza (i)
 local lIdIDalje
 local cDbfName
 
@@ -676,12 +668,6 @@ if is_doksrc()
 	endif
 endif
 
-if IsPlanika()
-	if i==F_PRODNC .or. i==F_RVRSTA
-		lIdiDalje:=.t.
-	endif
-endif
-
 
 if (gSecurity=="D" .and. (i==F_EVENTS .or. i==F_EVENTLOG .or. i==F_USERS .or. i==F_GROUPS .or. i==F_RULES))
 	lIdiDalje:=.t.
@@ -714,9 +700,7 @@ return
  *  biljeska:  sifra: SIGMAXXX
 */
 
-*void TDbKalk::ostalef()
-
-method ostalef()
+method TDbKalk:ostalef()
 
 if pitanje(,"Formirati Bosanski sort","N")=="D"
    f01_create_index("NAZ_B","BTOEU(Naz)",SIFPATH+"ROBA")
@@ -784,7 +768,6 @@ return
  *   koverzija 7->8 baze podataka KALK
  */
 
-*void TDbKalk::konvZn()
 
 method konvZn()
 LOCAL cIz:="7", cU:="8", aPriv:={}, aKum:={}, aSif:={}
