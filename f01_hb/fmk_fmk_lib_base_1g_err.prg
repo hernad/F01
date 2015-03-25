@@ -36,6 +36,7 @@ FUNCTION f01_error_handler( objErr, lLocalHandler )
       Break objErr
    ENDIF
 
+   ErrorBlock( bGlobalErrorHandler )
 
 /*
    cOldDev := Set( _SET_DEVICE, "SCREEN" )
