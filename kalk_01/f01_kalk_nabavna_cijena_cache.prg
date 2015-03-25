@@ -15,11 +15,11 @@ STATIC s_cTranzitKontoId := NIL
 
 FUNCTION magacin_tranzit_konto_id()
 
-   IF ( s_cTranzitniKontoId == NIL )
-	    s_cTranzitniKontoId := IzFmkIni( "KALK", "Tranzit", "1322" )
+   IF ( s_cTranzitKontoId == NIL )
+	    s_cTranzitKontoId := IzFmkIni( "KALK", "Tranzit", "1322" )
 	 ENDIF
 
-	 RETURN PADR( s_cTranzitniKontoId, 7 )
+	 RETURN PADR( s_cTranzitKontoId, 7 )
 
 
 FUNCTION f01_cre_cache_dbf()
