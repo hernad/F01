@@ -1307,10 +1307,10 @@ STATIC FUNCTION TTbl2Kalk( aFExist, lFSkip, lNegative, cCtrl_art )
       GO TOP
       SEEK cTmpArt
 
-
+      /*
       IF cTDok == "14"
 
-/*
+
          SELECT doks2
          hseek gFirma + cTDok + cBrojKalk
 
@@ -1320,12 +1320,11 @@ STATIC FUNCTION TTbl2Kalk( aFExist, lFSkip, lNegative, cCtrl_art )
             REPLACE brdok WITH cBrojKalk
             REPLACE idfirma WITH gFirma
          ENDIF
-*/
-         SELECT PRIPRT
-         REPLACE field->DatVal WITH temp->datval
+
+         REPLACE DatVal WITH temp->datval
 
       ENDIF
-
+      */
 
       // pozicioniraj se na koncij stavku
       SELECT koncij
@@ -1348,6 +1347,7 @@ STATIC FUNCTION TTbl2Kalk( aFExist, lFSkip, lNegative, cCtrl_art )
       REPLACE idtarifa WITH ROBA->idtarifa
       REPLACE brfaktp WITH cFakt
       REPLACE datfaktp WITH temp->datdok
+      REPLACE datval WITH temp->datval
 
       // konta:
       // =====================

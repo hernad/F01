@@ -225,9 +225,11 @@ function f01_transform_dbf_name(cFileName)
 
 cFileName := UPPER(cFileName)
 
+// C:/SIGMA/ => SIGMA/
+cFileName := STRTRAN( cFileName, "C:" + BACKSLASH, "" )
+cFileName := STRTRAN( cFileName, "C:" + SLASH, "" )
+
 IF !is_install()
-  cFileName := STRTRAN( cFileName, "C:" + BACKSLASH, "" )
-  cFileName := STRTRAN( cFileName, "C:" + SLASH, "" )
 
   #ifdef __PLATFORM__UNIX
     cFileName := STRTRAN( cFileName, DATA_ROOT + "DATA/", "" )
