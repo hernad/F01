@@ -186,9 +186,11 @@ else
 	StandardBoje()
 
 	::cSezonDir:=SLASH+::cRadimUSezona
-	::setDirKum(trim(::cDirKum) + SLASH + ::cRadimUSezona)
-	::setDirSif(trim(::cDirSif) + SLASH + ::cRadimUSezona)
-	::setDirPriv(trim(::cDirPriv) + SLASH + ::cRadimUSezona)
+	::setDirKum( trim(::cDirKum) + SLASH + ::cRadimUSezona)
+	::setDirSif( trim(::cDirSif) + SLASH + ::cRadimUSezona)
+	::setDirPriv( trim(::cDirPriv) + SLASH + ::cRadimUSezona)
+
+  MsgBeep( "sezonski direktoriji:##" + ::cDirKum + "#" + ::cDirSif + "#" + ::cDirPriv)
 
 	::oDesktop:showSezona(::cRadimUSezona)
 
