@@ -12,6 +12,7 @@
 
 #include "kalk01.ch"
 
+STATIC cENTER := Chr( K_ENTER ) + Chr( K_ENTER ) + Chr( K_ENTER )
 
 /* file fmk/kalk/dok/1g/knjiz.prg
  *   Unos i ispravka dokumenata
@@ -113,23 +114,23 @@ FUNCTION f01_kalk_unos( lAObrada )
    PRIVATE PicV := "99999999.9"
 
    ImeKol := { ;
-      { "F.", {|| IdFirma                  }, "IdFirma"     },;
-      { "VD", {|| IdVD                     }, "IdVD"        },;
-      { "BrDok", {|| BrDok                    }, "BrDok"       },;
-      { "R.Br", {|| Rbr                      }, "Rbr"         },;
-      { "Dat.Kalk", {|| DatDok                   }, "DatDok"      },;
-      { "Dat.Fakt", {|| DatFaktP                 }, "DatFaktP"    },;
-      { "K.zad. ", {|| IdKonto                  }, "IdKonto"     },;
-      { "K.razd.", {|| IdKonto2                 }, "IdKonto2"    },;
-      { "IdRoba", {|| IdRoba                   }, "IdRoba"      },;
-      { "Kolicina", {|| Transform( Kolicina, picv ) }, "kolicina"    },;
-      { "IdTarifa", {|| idtarifa                 }, "idtarifa"    },;
-      { "F.Cj.", {|| Transform( FCJ, picv )      }, "fcj"         },;
-      { "F.Cj2.", {|| Transform( FCJ2, picv )     }, "fcj2"        },;
-      { "Nab.Cj.", {|| Transform( NC, picv )       }, "nc"          },;
-      { "VPC", {|| Transform( VPC, picv )      }, "vpc"         },;
-      { "VPCj.sa P.", {|| Transform( VPCsaP, picv )   }, "vpcsap"      },;
-      { "MPC", {|| Transform( MPC, picv )      }, "mpc"         },;
+      { "F.", {|| IdFirma                  }, "IdFirma"     }, ;
+      { "VD", {|| IdVD                     }, "IdVD"        }, ;
+      { "BrDok", {|| BrDok                    }, "BrDok"       }, ;
+      { "R.Br", {|| Rbr                      }, "Rbr"         }, ;
+      { "Dat.Kalk", {|| DatDok                   }, "DatDok"      }, ;
+      { "Dat.Fakt", {|| DatFaktP                 }, "DatFaktP"    }, ;
+      { "K.zad. ", {|| IdKonto                  }, "IdKonto"     }, ;
+      { "K.razd.", {|| IdKonto2                 }, "IdKonto2"    }, ;
+      { "IdRoba", {|| IdRoba                   }, "IdRoba"      }, ;
+      { "Kolicina", {|| Transform( Kolicina, picv ) }, "kolicina"    }, ;
+      { "IdTarifa", {|| idtarifa                 }, "idtarifa"    }, ;
+      { "F.Cj.", {|| Transform( FCJ, picv )      }, "fcj"         }, ;
+      { "F.Cj2.", {|| Transform( FCJ2, picv )     }, "fcj2"        }, ;
+      { "Nab.Cj.", {|| Transform( NC, picv )       }, "nc"          }, ;
+      { "VPC", {|| Transform( VPC, picv )      }, "vpc"         }, ;
+      { "VPCj.sa P.", {|| Transform( VPCsaP, picv )   }, "vpcsap"      }, ;
+      { "MPC", {|| Transform( MPC, picv )      }, "mpc"         }, ;
       { "MPC sa PP", {|| Transform( MPCSaPP, picv )  }, "mpcsapp"     }, ;
       { "RN", {|| idzaduz2                 }, "idzaduz2"    }, ;
       { "Br.Fakt", {|| brfaktp                  }, "brfaktp"     }, ;
@@ -501,7 +502,7 @@ FUNCTION NovaStavka()
          ENDIF
          APPEND BLANK
          IF _ERROR <> "1"; _ERROR := "0"; ENDIF       // stavka onda postavi ERROR
-            Gather()
+         Gather()
          BoxC()
          _idkonto := cidkont
          _idkonto2 := cidkont2
@@ -525,7 +526,7 @@ FUNCTION kalk_edit_stavke_cirkularno()
    DO WHILE !Eof()
       SKIP
       nTR2 := RecNo()
-      skip - 1
+      SKIP - 1
       Scatter()
       _ERROR := ""
       IF Left( _idkonto2, 3 ) = "XXX"
@@ -533,7 +534,7 @@ FUNCTION kalk_edit_stavke_cirkularno()
          SKIP
          SKIP
          nTR2 := RecNo()
-         skip - 1
+         SKIP - 1
          Scatter()
          _ERROR := ""
          IF Left( _idkonto2, 3 ) = "XXX"
@@ -1070,7 +1071,7 @@ FUNCTION Get1Header()
    IF fnovi .AND. _TBankTr == "X"; _TBankTr := "%"; ENDIF  // izgenerisani izlazi
 
 
-      @  m_x + 1, m_y + 2   SAY "Firma: "
+   @  m_x + 1, m_y + 2   SAY "Firma: "
    ?? gFirma, "-", gNFirma
 
 
@@ -1229,7 +1230,7 @@ FUNCTION RaspTrosk( fSilent )
                   IF Round( nUkIzF, 4 ) == 0
                      _Prevoz := 0
                   ELSE
-                     _Prevoz := Round( _fcj * ( 1 -_Rabat / 100 ) * _kolicina / nUkIzF * RPrevoz,gZaokr )
+                     _Prevoz := Round( _fcj * ( 1 -_Rabat / 100 ) * _kolicina / nUkIzF * RPrevoz, gZaokr )
                      UPrevoz += _Prevoz
                      IF Abs( RPrevoz - UPrevoz ) < 0.1 // sitniš, baci ga na zadnju st.
                         SKIP
@@ -1245,7 +1246,7 @@ FUNCTION RaspTrosk( fSilent )
                   IF Round( nUkIzF, 4 ) == 0
                      _CarDaz := 0
                   ELSE
-                     _CarDaz := Round( _fcj * ( 1 -_Rabat / 100 ) * _kolicina / nUkIzF * RCarDaz,gZaokr )
+                     _CarDaz := Round( _fcj * ( 1 -_Rabat / 100 ) * _kolicina / nUkIzF * RCarDaz, gZaokr )
                      UCardaz += _Cardaz
                      IF Abs( RCardaz - UCardaz ) < 0.1 // sitniš, baci ga na zadnju st.
                         SKIP
@@ -1261,7 +1262,7 @@ FUNCTION RaspTrosk( fSilent )
                   IF Round( nUkIzF, 4 ) == 0
                      _BankTr := 0
                   ELSE
-                     _BankTr := Round( _fcj * ( 1 -_Rabat / 100 ) * _kolicina / nUkIzF * RBankTr,gZaokr )
+                     _BankTr := Round( _fcj * ( 1 -_Rabat / 100 ) * _kolicina / nUkIzF * RBankTr, gZaokr )
                      UBankTr += _BankTr
                      IF Abs( RBankTr - UBankTr ) < 0.1 // sitno baci ga na zadnju st.
                         SKIP
@@ -1293,7 +1294,7 @@ FUNCTION RaspTrosk( fSilent )
                   IF Round( nUkIzF, 4 ) == 0
                      _ZavTr := 0
                   ELSE
-                     _ZavTr := Round( _fcj * ( 1 -_Rabat / 100 ) * _kolicina / nUkIzF * RZavTr,gZaokr )
+                     _ZavTr := Round( _fcj * ( 1 -_Rabat / 100 ) * _kolicina / nUkIzF * RZavTr, gZaokr )
                      UZavTR += _ZavTR
                      IF Abs( RZavTR - UZavTR ) < 0.1 // sitnio, baci ga na zadnju st.
                         SKIP
@@ -1894,7 +1895,7 @@ FUNCTION StKalk()
          HSEEK cSeek
          cidfirma := SubStr( cSeek, 1, 2 )
          cIdvd := SubStr( cSeek, 3, 2 )
-         cBrDok := PadR( SubStr( cSeek, 5, 8 ),8 )
+         cBrDok := PadR( SubStr( cSeek, 5, 8 ), 8 )
       ELSE
          HSEEK cIdFirma + cIdVD + cBrDok
       ENDIF
