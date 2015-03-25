@@ -13,18 +13,17 @@
 #include "f01.ch"
 
 
-function TDBNew(oDesktop, cDirPriv, cDirKum, cDirSif)
+FUNCTION TDBNew( oDesktop, cDirPriv, cDirKum, cDirSif )
 
-local oObj
+   LOCAL oObj
 
-oObj:=TDB():new()
+   oObj := TDB():new()
 
-oObj:oDesktop:=oDesktop
-oObj:cDirPriv:=cDirPriv
-oObj:cDirKum:=cDirKum
-oObj:cDirSif:=cDirSif
-oObj:lAdmin:=.f.
-return oObj
+   oObj:oDesktop := oDesktop
+   oObj:cDirPriv := cDirPriv
+   oObj:cDirKum := cDirKum
+   oObj:cDirSif := cDirSif
+   oObj:lAdmin := .F.
 
 
 
@@ -85,10 +84,7 @@ END CLASS
  *   lSilent
  */
 
-*void TDB::logAgain(string cSezona, bool lSilent, bool lWriteKParam)
-
-
-method logAgain(cSezona, lSilent, lWriteKParam)
+method TDb:logAgain(cSezona, lSilent, lWriteKParam)
 
 local cPom
 local fURp:=.f.
@@ -196,9 +192,9 @@ else
 	StandardBoje()
 
 	::cSezonDir:=SLASH+::cRadimUSezona
-	::setDirKum(trim(::cDirKum)+SLASH+::cRadimUSezona)
-	::setDirSif(trim(::cDirSif)+SLASH+::cRadimUSezona)
-	::setDirPriv(trim(::cDirPriv)+SLASH+::cRadimUSezona)
+	::setDirKum(trim(::cDirKum) + SLASH + ::cRadimUSezona)
+	::setDirSif(trim(::cDirSif) + SLASH + ::cRadimUSezona)
+	::setDirPriv(trim(::cDirPriv) + SLASH + ::cRadimUSezona)
 
 	::oDesktop:showSezona(::cRadimUSezona)
 
@@ -221,7 +217,7 @@ JelReadOnly()
 return
 
 
-method modstruAll()
+method TDb:modstruAll()
 local i
 ::lAdmin:=.t.
 
@@ -250,7 +246,8 @@ use
 return
 
 
-method setDirPriv(cDir)
+method TDb:setDirPriv(cDir)
+
 local cPom
 
 // dosadasnja vrijednost varijable
@@ -258,9 +255,6 @@ cPom:=::cDirPriv
 
 cDir:=ALLTRIM(cDir)
 
-if (gKonvertPath=="D")
-	KonvertPath(@cDir)
-endif
 ::cDirPriv:=f01_transform_dbf_name(cDir)
 
 // setuj i globalnu varijablu dok ne eliminisemo sve pozive na tu varijablu
@@ -276,9 +270,7 @@ local cPom
 cPom:=::cDirSif
 
 cDir:=alltrim(cDir)
-if (gKonvertPath=="D")
-	KonvertPath(@cDir)
-endif
+
 ::cDirSif:=f01_transform_dbf_name(cDir)
 
 
@@ -293,9 +285,8 @@ local cPom
 // dosadasnja vrijednost varijable
 cPom:=::cDirKum
 cDir:=alltrim(cDir)
-if (gKonvertPath=="D")
-	KonvertPath(@cDir)
-endif
+
+
 ::cDirKum:=f01_transform_dbf_name(cDir)
 
 
