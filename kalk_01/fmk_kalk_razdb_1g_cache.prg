@@ -13,8 +13,18 @@
 #include "kalk01.ch"
 
 
-// ----------------------------------------
-// ----------------------------------------
+STATIC s_cTranzitKontoId := NIL
+
+
+FUNCTION magacin_tranzit_konto_id()
+
+   IF s_cTranzitniKontoId == NIL
+	    s_cTranzitniKontoId := IzFmkIni( "KALK", "Tranzit", "1322" )
+	 ENDIF
+
+	 RETURN PADR( s_cTranzitniKontoId, 7 )
+
+
 FUNCTION cre_cache()
 
    LOCAL aFld := {}
@@ -66,6 +76,12 @@ FUNCTION f01_kalk_nab_cijene_iz_cache( cC_Kto, cC_Roba, nC_Ulaz, nC_Izlaz, nC_St
    cC_Kto := PadR( cC_Kto, 7 )
    cC_Roba := PadR( cC_Roba, 10 )
 
+	 IF cC_Kto == magacin_tranzit_konto_id()
+	    // tranzitni konto se takodje ne uzima iz keša, nego direktnim proračunom
+	    RETURN 0
+	 ENDIF
+
+   IF cC_Kto == PADR("", 7)
    nC_ulaz := 0
    nC_izlaz := 0
    nC_stanje := 0
