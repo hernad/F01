@@ -319,7 +319,7 @@ FUNCTION SetNaslov( oApp )
    gNaslov += ", Reg: " + SubStr( EVar, 7, 20 )
 
    PUBLIC bGlobalErrorHandler
-   bGlobalErrorHandler := {| objError| GlobalErrorHandler( objError, .F. ) }
+   bGlobalErrorHandler := {| objError| f01_error_handler( objError, .F. ) }
    ErrorBlock( bGlobalErrorHandler )
 
    RETURN
