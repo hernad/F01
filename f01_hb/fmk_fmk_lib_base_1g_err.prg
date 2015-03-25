@@ -36,8 +36,6 @@ FUNCTION f01_error_handler( objErr, lLocalHandler )
       Break objErr
    ENDIF
 
-   ErrorBlock( bGlobalErrorHandler )
-
 /*
    cOldDev := Set( _SET_DEVICE, "SCREEN" )
    cOldCon := Set( _SET_CONSOLE, "ON" )
@@ -155,7 +153,9 @@ FUNCTION f01_error_handler( objErr, lLocalHandler )
    CLS
 */
 
-   START PRINT RET .F.
+   //START PRINT RET .F.
+   SET( _SET_PRINTER, "f01_error.txt" )
+   SET PRINTER ON
 
    ?
    ? "Verzija programa:", gVerzija," verzija LIB-a:", elibver()
@@ -182,7 +182,8 @@ FUNCTION f01_error_handler( objErr, lLocalHandler )
    ?
 */
 
-   ENDPRINT
+   //ENDPRINT
+   SET PRINTER OFF
 
    ? "ERROR QUIT !"
    Inkey()
