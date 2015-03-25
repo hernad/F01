@@ -14,9 +14,6 @@
 
 STATIC cENTER := Chr( K_ENTER ) + Chr( K_ENTER ) + Chr( K_ENTER )
 
-/* file fmk/kalk/dok/1g/knjiz.prg
- *   Unos i ispravka dokumenata
- */
 
 /*  Knjiz()
  *   Nudi meni za rad na dokumentu u staroj varijanti ili direktno poziva tabelu pripreme u novoj (default) varijanti
