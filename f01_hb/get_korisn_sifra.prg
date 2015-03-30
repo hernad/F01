@@ -216,12 +216,17 @@ FUNCTION If01_start( oApp, lSezone )
    PRIVATE cSection := "1"
    PRIVATE cHistory := " "
    PRIVATE aHistory := {}
+
    RPar( "px", @gPrinter )
    RPar( "vi", @gValIz )
    RPar( "vu", @gValU )
    RPar( "vk", @gKurs )
+   altd()
+   
    SELECT params
    USE
+
+altd()
 
    SELECT gparams
    PRIVATE cSection := "P"

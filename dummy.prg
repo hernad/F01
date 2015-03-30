@@ -134,7 +134,7 @@ Inkey( 0 )
 
 FUNCTION run_ext_command( cCommand )
 
-   RUN cCommand
+   hb_run( cCommand )
 
 FUNCTION OL_Yield()
 
@@ -179,5 +179,10 @@ FUNCTION not_key_esc()
       MsgC()
       RETURN     .F.
    ENDIF
+
+   RETURN .T.
+
+
+FUNCTION f01_PrintReady( nPort )
 
    RETURN .T.

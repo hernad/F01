@@ -121,6 +121,9 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
 
       KeyboardEvent( @nZnak )
 
+      altd()
+
+
       DO CASE
       CASE nZnak == 32         // svicuj zamrzavanje kolone
          IF nUKol < 80
@@ -369,18 +372,19 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
                EXIT
             ENDIF
          ENDDO
+
       CASE gPrinter = "R" .AND. ( nZnak = K_CTRL_P .OR. nZnak == K_ALT_P )
 
          IF gPDFPrint == "X" .AND. goModul:oDataBase:cName == "FAKT"
             IF Pitanje(, "Print u PDF/PTXT", "D" ) == "D"
                PDFView( cImeF )
             ELSE
-               Ptxt( cImeF )
+               f01_Ptxt( cImeF )
             ENDIF
          ELSEIF gPDFPrint == "D" .AND. goModul:oDataBase:cName == "FAKT"
             PDFView( cImeF )
          ELSE
-            Ptxt( cImeF )
+            f01_Ptxt( cImeF )
          ENDIF
 
       CASE nZnak == K_ALT_S
@@ -388,6 +392,7 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
 
       CASE nZnak == K_CTRL_P
 
+         altd()
          IF nFRed > 0 .AND. nFRed2 > 0   // oba markera
             IF VarEdit( { { "1-sve, 2-dio izmedju markera, 3-sve ispod mark.1, 4-sve ispod mark.2)", "cVStamp", "cVStamp$'1234'", "@!", } }, 10, 1, 14, 78, ;
                   "IZBOR OBLASTI ZA STAMPANJE", gShemaVF )
@@ -449,7 +454,7 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
 
          // cPom:=cFajlPRN+" "+cKom
          DO WHILE .T.
-            IF lPrintReady .OR. PrintReady( Val( gpport ) )
+            IF lPrintReady .OR. f01_PrintReady( Val( gpport ) )
                MsgO( "Sacekajte, stampanje u toku..." )
                FileCopy( cFajlPRN, cKom )
                MsgC()
@@ -459,6 +464,7 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
                EXIT
             ENDIF
          ENDDO
+
       CASE nZnak == K_ALT_P
          IF VarEdit( { { "Stampati od stranice br.", "nStrOd", "nStrOd>0", "9999", }, ;
                { "         do stranice br.", "nStrDo", "nStrDo>=nStrOd", "9999", } }, 10, 1, 15, 78, ;
@@ -499,7 +505,7 @@ FUNCTION VidiFajl( cImeF, aLinFiks, aKolFiks )
          ENDIF
          // cPom:=cFajlPRN+" "+cKom
          DO WHILE .T.
-            IF PrintReady( Val( gpport ) )
+            IF f01_PrintReady( Val( gpport ) )
                MsgO( "Sacekajte, stampanje u toku..." )
                // !copy &cPom
                FileCopy( cFajlPRN, cKom )

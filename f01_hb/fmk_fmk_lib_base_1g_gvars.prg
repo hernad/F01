@@ -284,8 +284,7 @@ endif
 return
 
 
-
-function IniPrinter()
+function f01_IniPrinter()
 
 
 if gModul $ "EPDV"
@@ -299,7 +298,7 @@ endif
 InigEpson()
 public gMeniSif:=.f., gValIz:="280 ", gValU:="000 ", gKurs:="1"
 
-if file( f01_transform_dbf_name( DATA_ROOT + "GPARAMS.DBF"))
+//if file( f01_transform_dbf_name( DATA_ROOT + "GPARAMS.DBF"))
 
 O_GPARAMS
 O_PARAMS
@@ -309,6 +308,9 @@ RPar("px",@gPrinter)
 RPar("vi",@gValIz)
 RPar("vu",@gValU)
 RPar("vk",@gKurs)
+
+altd()
+
 select params
 use
 
@@ -368,9 +370,10 @@ gPINI:=""
 RPAR("01",@gPINI)
 
 
-select gparams; use
+select gparams
+use
 
-endif // postoji gparams
+//endif
 
 IF !EMPTY(gPPTK)
   SetGParams("1"," ","pt","gPTKonv",gPPTK)

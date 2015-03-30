@@ -89,8 +89,8 @@ METHOD TAppMod:setGvars()
    f01_set_gvars_10()
    f01_set_gvars_20()
 
-
-   IniPrinter()
+   altd()
+   f01_IniPrinter()
    JelReadOnly()
 
    PUBLIC cZabrana := "Opcija nedostupna za ovaj nivo !"

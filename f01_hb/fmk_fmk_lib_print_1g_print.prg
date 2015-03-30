@@ -71,12 +71,14 @@ cTekPrinter:=gPrinter
 
 cOutfTXT:=IzFMKIni('Printeri', 'DirektnoOUTFTXT','N')
 
+altd()
+
 if !(lUFajl)
 
 	cDirekt:=IzlazPrn(cDirekt)
 	cKom:="LPT"+gPPort
 
-	if cDirekt = "R"
+	if cDirekt == "R"
 		gPrinter := "R"
 	endif
 
@@ -108,7 +110,7 @@ if cDirekt=="D" .and. gPrinter<>"R" .and. gPrinter<>"G" .and. cOutfTxt<>"D"
 		if InRange(VAL(gPPort),5,7)  .or. ;
 		   (val(gPPort)=8 ) .or. ;
 		   (val(gPPort)=9 ) .or. ;
-		   (val(gPPort)<4 .and. printready(val(gPPort)) )
+		   (val(gPPort)<4 .and. f01_printready(val(gPPort)) )
 
 		  // 8 - copy lpt1
 		  exit
@@ -333,13 +335,13 @@ else
 			if Pitanje(,"Print u PDF/PTXT (D/N)?", "D") == "D"
 				PDFView(cKom)
 			else
-				Ptxt(cKom)
+				f01_Ptxt(cKom)
 			endif
 		elseif gPDFprint == "D" .and. ;
 			goModul:oDataBase:cName == "FAKT"
 			PDFView(cKom)
 		else
-			Ptxt(cKom)
+			f01_Ptxt(cKom)
 		endif
 	endif
 
@@ -389,7 +391,7 @@ do while .t.
      if (SLASH $  cKom) .or. InRange(nNPort,5,7)  .or. ;
         (nNPort=8 ) .or.  ;
         (nNPort=9 ) .or.  ;
-        (nNPort<4 .and. printready(val(gPPort)) )
+        (nNPort<4 .and. f01_printready(val(gPPort)) )
           exit
      else
         Beep(2)
@@ -570,6 +572,8 @@ endif
 
 private cSection:="1",cHistory:=" "; aHistory:={}
 RPAR("px",@gPrinter)
+
+altd()
 
 Box(,3,65)
  set cursor on

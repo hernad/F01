@@ -11,6 +11,7 @@
 
 
 #include "kalk01.ch"
+#include "hbclass.ch"
 
 function TKalkModNew()
 local oObj
@@ -21,8 +22,6 @@ oObj:self:=oObj
 return oObj
 
 
-
-#include "class(y).ch"
 CREATE CLASS TKalkMod INHERIT TAppMod
 	EXPORTED:
 	method dummy
@@ -197,9 +196,8 @@ public gDecKol:=5
 public gKalo:="2"
 public gMagacin:="2"
 public gPDVMagNab:="N"
-if IsPDV()
-	gPDVMagNab:="D"
-endif
+gPDVMagNab:="D"
+
 public gRCRP := "C"
 public gTS:="Preduzece"
 public gPotpis:="N"
@@ -529,7 +527,7 @@ gRobaBlock:={|Ch| RobaBlock(Ch)}
 // vindija - varazdin
 public lAutoObr := .f.
 
-
+altd()
 ::super:setGvars()
 
 return
